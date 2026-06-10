@@ -1,13 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>📡 股市哨兵 · 赛道监控</title>
+<title>📡 股市哨兵 · AI全链+市场监控</title>
 <style>
-/* ============================================
-   RESET & VARIABLES
-   ============================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#080c14; --surface:#111827; --card:#171f30;
@@ -20,20 +17,12 @@
   --grad2:linear-gradient(135deg,#f43f5e,#f97316);
   --grad3:linear-gradient(135deg,#22c55e,#14b8a6);
   --radius:14px; --radius-sm:8px;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.3);
   --shadow:0 4px 16px rgba(0,0,0,.4);
   --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
 }
 html{font-size:16px;scroll-behavior:smooth}
-body{
-  font-family:var(--font);background:var(--bg);color:var(--text);
-  line-height:1.6;-webkit-font-smoothing:antialiased;
-  min-height:100vh;
-}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 
-/* ============================================
-   HEADER
-   ============================================ */
 .topbar{
   position:sticky;top:0;z-index:100;
   background:rgba(8,12,20,.92);backdrop-filter:blur(20px);
@@ -42,17 +31,10 @@ body{
 }
 .topbar .brand{font-size:1.15rem;font-weight:700;letter-spacing:-.3px}
 .topbar .brand em{font-style:normal;color:var(--blue)}
-.topbar .live{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:.7rem;font-weight:600;padding:4px 12px;
-  border-radius:20px;background:rgba(34,197,94,.12);color:var(--green);
-}
+.topbar .live{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:20px;background:rgba(34,197,94,.12);color:var(--green)}
 .topbar .live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ============================================
-   NAV PILLS
-   ============================================ */
 .nav{
   position:sticky;top:58px;z-index:99;
   background:rgba(8,12,20,.9);backdrop-filter:blur(20px);
@@ -69,72 +51,34 @@ body{
 .nav-pill:hover{color:var(--text);border-color:var(--hover)}
 .nav-pill.on{color:#fff;background:var(--blue);border-color:var(--blue)}
 
-/* ============================================
-   MAIN
-   ============================================ */
-.main{padding:16px;max-width:960px;margin:0 auto}
-
-/* ============================================
-   STAT STRIP
-   ============================================ */
-.stat-strip{display:flex;gap:10px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
-.stat-chip{
-  flex:0 0 auto;min-width:100px;padding:12px 14px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius-sm);text-align:center;
-}
-.stat-chip .val{font-size:1.4rem;font-weight:700}
-.stat-chip .lbl{font-size:.65rem;color:var(--sub);margin-top:2px}
-
-/* ============================================
-   SECTION
-   ============================================ */
+.main{padding:16px;max-width:1100px;margin:0 auto}
 .section{margin-bottom:18px}
 .section-title{font-size:.9rem;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.group-hd{font-size:.78rem;font-weight:700;color:var(--blue);margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed var(--border);display:flex;align-items:center;gap:6px}
 
-/* ============================================
-   SECTOR CARDS (Grid)
-   ============================================ */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px}
 .card{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--radius);padding:14px;
-  cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm);
+  cursor:pointer;transition:all .2s;box-shadow:0 1px 2px rgba(0,0,0,.3);
   position:relative;overflow:hidden;
 }
 .card:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:var(--shadow)}
-.card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .card.sig-major::before{background:var(--grad2)}
 .card.sig-good::before{background:var(--grad3)}
 .card.sig-neutral::before{background:var(--border)}
-
 .card .c-icon{font-size:1.5rem;margin-bottom:4px}
 .card .c-name{font-size:.85rem;font-weight:600;margin-bottom:2px}
 .card .c-tag{font-size:.65rem;font-weight:600;margin-bottom:6px}
 .card .c-desc{font-size:.7rem;color:var(--sub);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .c-pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
-.card .c-pill{
-  font-size:.65rem;padding:3px 8px;border-radius:6px;
-  background:var(--surface);border:1px solid var(--border);color:var(--sub);
-  font-family:'SF Mono','Fira Code',monospace;
-}
-.card .c-pill.pick{border-color:var(--blue);color:var(--blue);background:rgba(59,130,246,.08)}
+.c-pill{font-size:.65rem;padding:3px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--border);color:var(--sub);font-family:'SF Mono','Fira Code',monospace}
+.c-pill.pick{border-color:var(--blue);color:var(--blue);background:rgba(59,130,246,.08)}
 
-/* ============================================
-   NEWS CARDS (Briefing)
-   ============================================ */
-.news-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:16px;margin-bottom:10px;
-  border-left:4px solid var(--blue);
-}
+.news-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:10px;border-left:4px solid var(--blue)}
 .news-card .n-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.news-card .n-rank{
-  width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0;
-}
+.news-card .n-rank{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0}
 .news-card .n-rank.r1{background:var(--grad2)}
 .news-card .n-rank.r2{background:var(--grad1)}
 .news-card .n-rank.r3{background:linear-gradient(135deg,#8b5cf6,#a855f7)}
@@ -142,228 +86,369 @@ body{
 .news-card .n-body{font-size:.75rem;color:var(--sub);line-height:1.6;margin-bottom:8px}
 .news-card .n-pills{display:flex;flex-wrap:wrap;gap:5px}
 
-/* ============================================
-   PICK ROW
-   ============================================ */
 .pick-row{display:flex;flex-direction:column;gap:8px}
-.pick-item{
-  display:flex;align-items:center;gap:12px;padding:12px 14px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-}
-.pick-item .pi-rank{
-  font-size:1.1rem;font-weight:800;color:var(--blue);min-width:22px;text-align:center;
-}
+.pick-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)}
+.pick-item .pi-rank{font-size:1.1rem;font-weight:800;color:var(--blue);min-width:22px;text-align:center}
 .pick-item .pi-info{flex:1;min-width:0}
 .pick-item .pi-name{font-size:.8rem;font-weight:600}
 .pick-item .pi-code{font-size:.68rem;color:var(--dim);margin-left:4px}
 .pick-item .pi-reason{font-size:.7rem;color:var(--sub);margin-top:2px}
 .pick-item .pi-sector{font-size:.65rem;color:var(--dim);white-space:nowrap}
 
-/* ============================================
-   CHAIN MAP
-   ============================================ */
 .chain-card{margin-bottom:10px}
-.chain-card summary{
-  font-size:.85rem;font-weight:600;padding:12px 14px;cursor:pointer;
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
-  display:flex;align-items:center;justify-content:space-between;
-  list-style:none;
-}
+.chain-card summary{font-size:.85rem;font-weight:600;padding:12px 14px;cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:space-between;list-style:none}
 .chain-card summary::-webkit-details-marker{display:none}
 .chain-card summary::after{content:'▸';font-size:.8rem;color:var(--sub);transition:transform .2s}
 .chain-card[open] summary::after{transform:rotate(90deg)}
-.chain-card .chain-body{
-  padding:14px;border:1px solid var(--border);border-top:none;
-  border-radius:0 0 var(--radius-sm) var(--radius-sm);background:var(--card);
-}
+.chain-card .chain-body{padding:14px;border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);background:var(--card)}
 .chain-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:.75rem}
-.chain-row .cr-label{
-  font-weight:600;color:var(--sub);min-width:44px;font-size:.65rem;padding-top:2px;
-}
+.chain-row .cr-label{font-weight:600;color:var(--sub);min-width:44px;font-size:.65rem;padding-top:2px}
 .chain-row .cr-content{color:var(--text)}
 .chain-row .cr-content em{font-style:normal;color:var(--blue);font-weight:600}
 
-/* ============================================
-   EVENT TABLE
-   ============================================ */
 .evt-list{display:flex;flex-direction:column;gap:6px}
-.evt-row{
-  display:flex;align-items:center;gap:10px;padding:10px 12px;
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
-  font-size:.78rem;
-}
+.evt-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.78rem}
 .evt-date{font-weight:700;min-width:70px;font-size:.75rem;white-space:nowrap}
 .evt-icon{font-size:1rem;min-width:22px;text-align:center}
 .evt-desc{flex:1;font-size:.78rem}
 .evt-sector{font-size:.65rem;color:var(--dim);white-space:nowrap}
 .evt-row.big{border-left:3px solid var(--red);background:rgba(239,68,68,.04)}
 
-/* ============================================
-   STOCK TABLE
-   ============================================ */
 .tbl-wrap{border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border);margin-bottom:14px}
-.tbl-wrap .tbl-title{
-  font-size:.8rem;font-weight:600;padding:10px 14px;
-  background:var(--surface);border-bottom:1px solid var(--border);
-}
+.tbl-wrap .tbl-title{font-size:.8rem;font-weight:600;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border)}
 .tbl{width:100%;border-collapse:collapse;font-size:.73rem}
 .tbl th{text-align:left;color:var(--sub);font-weight:500;padding:8px 12px;border-bottom:1px solid var(--border);font-size:.65rem;text-transform:uppercase}
 .tbl td{padding:8px 12px;border-bottom:1px solid rgba(30,42,63,.5)}
 .tbl tbody tr:hover td{background:rgba(59,130,246,.03)}
 .tbl .code{font-family:'SF Mono','Fira Code',monospace;font-size:.68rem;color:var(--dim)}
 .tbl .pilot{color:var(--blue);font-size:.7rem;font-weight:600}
-.tbl .seg{color:var(--sub);font-size:.68rem}
+.tbl .up{color:var(--green)} .tbl .down{color:var(--red)}
 
-/* ============================================
-   UPDATE BAR
-   ============================================ */
-.update-bar{
-  text-align:center;padding:8px;font-size:.68rem;color:var(--sub);
-  background:var(--surface);border-bottom:1px solid var(--border);
-}
+/* Market Recap */
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:16px}
+.recap-chip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.recap-chip .rc-val{font-size:1.6rem;font-weight:800}
+.recap-chip .rc-label{font-size:.65rem;color:var(--sub);margin-top:4px}
+.recap-chip .rc-sub{font-size:.6rem;color:var(--dim);margin-top:2px}
 
-/* ============================================
-   FOOTER
-   ============================================ */
-.footer{
-  text-align:center;padding:24px;color:var(--dim);font-size:.65rem;
-  border-top:1px solid var(--border);margin-top:20px;line-height:1.8;
-}
+.recap-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:8px 0}
+.recap-bar div{height:100%}
 
-/* ============================================
-   MOBILE
-   ============================================ */
+.heat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.heat-tag{padding:4px 12px;border-radius:12px;font-size:.7rem;font-weight:600}
+
+.update-bar{text-align:center;padding:8px;font-size:.68rem;color:var(--sub);background:var(--surface);border-bottom:1px solid var(--border)}
+.footer{text-align:center;padding:24px;color:var(--dim);font-size:.65rem;border-top:1px solid var(--border);margin-top:20px;line-height:1.8}
+.stat-strip{display:flex;gap:10px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
+.stat-chip{flex:0 0 auto;min-width:80px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-align:center}
+.stat-chip .val{font-size:1.4rem;font-weight:700}
+.stat-chip .lbl{font-size:.65rem;color:var(--sub);margin-top:2px}
+
 @media(max-width:600px){
-  .topbar{padding:10px 14px}
-  .topbar .brand{font-size:1rem}
-  .nav{padding:6px 8px;gap:4px}
-  .nav-pill{padding:7px 14px;font-size:.72rem}
-  .main{padding:10px}
-  .card-grid{grid-template-columns:1fr}
-  .stat-strip{gap:6px}
-  .stat-chip{min-width:80px;padding:10px}
-  .stat-chip .val{font-size:1.1rem}
-  .evt-date{min-width:60px;font-size:.7rem}
+  .topbar{padding:10px 14px}.topbar .brand{font-size:1rem}
+  .nav{padding:6px 8px;gap:4px}.nav-pill{padding:7px 14px;font-size:.72rem}
+  .main{padding:10px}.card-grid{grid-template-columns:1fr}
+  .recap-grid{grid-template-columns:repeat(3,1fr)}
+  .stat-chip{min-width:70px;padding:10px}.stat-chip .val{font-size:1.1rem}
 }
-
 .tab-panel{display:none}
 .tab-panel.on{display:block}
 </style>
 </head>
 <body>
 
-<!-- ═══════════ TOP BAR ═══════════ -->
 <div class="topbar">
-  <div class="brand">📡 <em>股市哨兵</em> · 赛道监控</div>
+  <div class="brand">📡 <em>股市哨兵</em> · 全市场赛道监控</div>
   <div class="live">实时</div>
 </div>
-
-<!-- ═══════════ UPDATE BAR ═══════════ -->
 <div class="update-bar" id="updateBar">数据更新中...</div>
-
-<!-- ═══════════ NAV ═══════════ -->
 <div class="nav" id="navBar"></div>
-
-<!-- ═══════════ MAIN ═══════════ -->
 <div class="main" id="mainContent"></div>
-
-<!-- ═══════════ FOOTER ═══════════ -->
-<div class="footer">
-  ⚠️ 本页面仅供研究参考，不构成任何投资建议。投资有风险，入市须谨慎。
-</div>
+<div class="footer">⚠️ 本页面仅供研究参考，不构成任何投资建议。投资有风险，入市须谨慎。</div>
 
 <script>
-// ==========================================
-// DATA
-// ==========================================
-const D = {
-  updated:"2026年6月11日 09:03",
+// ═══════════════════════════════════════════════════════════════
+// COMPLETE DATA: 35 sectors × 7 groups + market recap
+// ═══════════════════════════════════════════════════════════════
+const D={
+  updated:"2026年6月11日 11:00 CST",
   next:"今日 17:03 收盘雷达",
-  sectors:[
-    {id:"wf6",n:"六氟化钨 WF₆",icon:"🔴",sig:"major",tag:"🔥 重大|日本停产后价格还要涨",stars:5,
-     d:"日本7月1日正式永久停产，全球25%产能退出。国内5N级已涨到1670元/公斤，同比翻了两倍多。上游钨矿最稳——厦门钨业才23倍PE，还在地板上。",
-     st:[{c:"600549",n:"厦门钨业",pick:1},{c:"600378",n:"昊华科技",pick:1},{c:"002842",n:"翔鹭钨业"},{c:"688146",n:"中船特气"}],
-     ch:{up:"钨矿/钨粉 → <em>厦门钨业 / 翔鹭钨业 / 章源钨业</em>",mid:"WF₆气体 → <em>中船特气 / 昊华科技 / 中巨芯</em>",down:"芯片厂 → 台积电 / 三星 / SK海力士"},
-     ev:"⚡ 7月1日 日本永久停产 | 📊 8月 半年报业绩验证"},
-    {id:"glass",n:"玻璃基板 TGV",icon:"🔵",sig:"neutral",tag:"🟡 中性|板块高位分化",stars:4,
-     d:"英特尔砸223亿建玻璃基板厂，这是AI芯片下一代封装技术。沃格光电是国内龙头，2026年成都线量产。但很多公司还在研发阶段，没有收入，注意分辨。",
-     st:[{c:"603773",n:"沃格光电",pick:1},{c:"300776",n:"帝尔激光",pick:1},{c:"600552",n:"凯盛科技"},{c:"600707",n:"彩虹股份"}],
-     ch:{up:"高纯玻璃 → <em>凯盛科技 / 彩虹股份</em>",mid:"TGV制造 → <em>沃格光电 / 帝尔激光</em>",down:"芯片封装 → 长电科技 / 通富微电"},
-     ev:"📌 2026下半年 沃格光电成都线量产"},
-    {id:"6g",n:"6G 通信",icon:"🟣",sig:"good",tag:"🟢 利好|今天湖北广电涨停了",stars:4,
-     d:"工信部6月4日刚发了6G试点文件，要求2029年搞出自主6G方案。今天通信板块集体拉升，烽火通信、盛路通信、创远信科都涨了不少。",
-     st:[{c:"600498",n:"烽火通信",pick:1},{c:"002446",n:"盛路通信",pick:1},{c:"920961",n:"创远信科",pick:1},{c:"002194",n:"武汉凡谷"}],
-     ch:{up:"天线 → <em>盛路通信 / 武汉凡谷</em>",mid:"光通信 → <em>烽火通信 / 中兴通讯</em>",down:"测试 → 创远信科"},
-     ev:"📌 6月4日 工信部6G试点 | 🎯 2029年 自主6G方案"},
-    {id:"robot",n:"人形机器人",icon:"🤖",sig:"good",tag:"🟢 利好|特斯拉马上量产Optimus V3",stars:5,
-     d:"特斯拉Optimus V3预计6-7月量产，弗里蒙特工厂年产100万台产线在改造。宇树科技7月科创板挂牌。这是今年最有想象力的赛道之一。",
-     st:[{c:"601689",n:"拓普集团",pick:1},{c:"002050",n:"三花智控",pick:1},{c:"688017",n:"绿的谐波",pick:1},{c:"002747",n:"埃斯顿"}],
-     ch:{up:"执行器/减速器 → <em>拓普集团 / 三花智控 / 绿的谐波</em>",mid:"传感器 → 奥比中光",down:"整机 → 特斯拉 / 宇树 / 比亚迪"},
-     ev:"⚡ 6-7月 Optimus V3量产 | 🚀 7月 宇树科技IPO"},
-    {id:"space",n:"商业航天",icon:"🚀",sig:"major",tag:"🔥 重大|SpaceX明天上市！",stars:5,
-     d:"SpaceX明天(6/12)在纳斯达克挂牌，代码SPCX，估值1.75万亿美元，史上最大科技IPO。信维通信是星链供应商、天银机电星敏感器进了SpaceX链，神剑股份已经2连板。",
-     st:[{c:"300136",n:"信维通信",pick:1},{c:"300342",n:"天银机电",pick:1},{c:"600118",n:"航天发展",pick:1},{c:"002361",n:"神剑股份",pick:1}],
-     ch:{up:"火箭 → <em>中天火箭 / 蓝箭航天</em>",mid:"卫星 → <em>航天发展 / 中国卫星</em>",down:"通信 → 信维通信 / 华力创通"},
-     ev:"⚡ 明天(6/12) SpaceX纳斯达克挂牌 | 🚀 6-7月 朱雀三号发射"},
-    {id:"solid",n:"固态电池",icon:"🔋",sig:"neutral",tag:"🟡 中性|稳步推进中",stars:4,
-     d:"2026年是半固态电池装车元年。宁德时代、赣锋锂业、国轩高科都在推进全固态中试线。行业方向确定，但短期没有突发催化剂。",
-     st:[{c:"300750",n:"宁德时代"},{c:"002460",n:"赣锋锂业"},{c:"002074",n:"国轩高科",pick:1},{c:"300450",n:"先导智能"}],
-     ch:{up:"材料 → <em>当升科技 / 天赐材料</em>",mid:"电芯 → <em>宁德时代 / 赣锋锂业 / 国轩高科</em>",down:"设备 → 先导智能"},
-     ev:"📌 2026年 半固态装车元年 | 🎯 2027年 全固态小批量"},
-    {id:"evtol",n:"低空经济 eVTOL",icon:"✈️",sig:"good",tag:"🟢 利好|7月1日新民航法施行",stars:4,
-     d:"新民航法7月1日施行，飞行审批从7天缩到1小时，低空空域全面开放。沃飞长空在冲刺A股低空经济第一股，亿航已经在广州合肥卖票了。",
-     st:[{c:"002085",n:"万丰奥威",pick:1},{c:"600580",n:"卧龙电驱",pick:1},{c:"000099",n:"中信海直",pick:1},{c:"600038",n:"中直股份"}],
-     ch:{up:"电池/电机 → <em>卧龙电驱 / 英搏尔</em>",mid:"整机 → <em>万丰奥威 / 中直股份</em>",down:"运营 → 中信海直"},
-     ev:"⚡ 7月1日 新民航法施行 | 📌 下半年 沃飞长空TC取证"},
-    {id:"dram",n:"存储芯片",icon:"💾",sig:"neutral",tag:"🟡 中性|短期回调中",stars:3,
-     d:"受美股博通拖累短期调整。但车规级存储芯片三个月涨了180%，新能源车企都在上调售价。涨价逻辑没破，等美股稳了再关注。",
-     st:[{c:"603986",n:"兆易创新"},{c:"301308",n:"江波龙"},{c:"688525",n:"佰维存储"}],
-     ch:{up:"设计 → <em>兆易创新</em>",mid:"模组 → 江波龙 / 佰维存储",down:"终端 → 新能源车 / AI服务器"},
-     ev:"📌 Q2 涨价幅度披露 | 📊 下半年 国产替代加速"},
-    {id:"wu",n:"钨 / 稀土资源",icon:"⛏️",sig:"major",tag:"🔥 重大|中国出口管制+全球缺货",stars:4,
-     d:"中国控制全球80%钨资源，出口还在收紧。全球钨缺口1.85万吨。章源钨业每半月上调一次报价，翔鹭钨业Q1利润暴增30倍。这是确定性最强的上游。",
-     st:[{c:"600549",n:"厦门钨业",pick:1},{c:"002842",n:"翔鹭钨业",pick:1},{c:"002378",n:"章源钨业",pick:1},{c:"000657",n:"中钨高新"}],
-     ch:{up:"钨矿 → <em>厦门钨业 / 翔鹭钨业 / 章源钨业</em>",mid:"钨粉/APT → 中钨高新",down:"硬质合金 → 刀具/矿山"},
-     ev:"每半月 章源钨业长单报价 | ⚡ 7月1日 日本WF₆停产"},
+
+  // ---- Market Recap (6/10 最新) ----
+  recap:{
+    index:[
+      {n:"上证指数",v:"3993",chg:"-0.42%",up:0},{n:"深证成指",v:"14954",chg:"-2.06%",up:0},
+      {n:"创业板指",v:"3855",chg:"-2.70%",up:0},{n:"科创50",v:"1652",chg:"-0.65%",up:0},
+      {n:"沪深300",v:"4688",chg:"-0.91%",up:0},{n:"两市成交",v:"2.62万亿",chg:"缩量211亿",up:0}
+    ],
+    flow:[
+      {n:"化工(电子特气)",amt:"+9.6亿",pct:"仅3行业净流入"},
+      {n:"社会服务",amt:"+0.5亿",pct:"微幅流入"},
+      {n:"电子",amt:"-266.7亿",pct:"大幅流出"},
+      {n:"电力设备",amt:"-101.5亿",pct:"流出"},
+      {n:"通信",amt:"-83.5亿",pct:"流出"},
+      {n:"机械设备",amt:"-66.1亿",pct:"流出"}
+    ],
+    heat:[
+      {n:"工业气体/电子特气",s:"🔥涨停潮",c:"var(--red)"},{n:"AI应用/智能体",s:"🔥天娱4连板",c:"var(--red)"},
+      {n:"PCB上游/PPE树脂",s:"🔥3连板",c:"var(--red)"},{n:"银行/保险",s:"🟢逆势护盘",c:"var(--amber)"},
+      {n:"半导体靶材",s:"🔥江丰电子涨停",c:"var(--red)"},{n:"啤酒/消费",s:"🟢惠泉涨停",c:"var(--amber)"},
+      {n:"CPO/光通信",s:"🔴重挫",c:"var(--red)"},{n:"培育钻石",s:"🔴回调",c:"var(--red)"},
+      {n:"液冷/数据中心电源",s:"🔴跌停",c:"var(--red)"},{n:"光伏午后异动",s:"🟡爱旭涨停",c:"var(--amber)"}
+    ],
+    winners:[
+      {s:"工业气体/电子特气",stks:"中船特气+18% / 昊华科技涨停 / 和远气体涨停 / 雅克科技涨停 / 中巨芯新高"},
+      {s:"AI应用/智能体",stks:"天娱数科4连板 / 南兴股份涨停 / 城市传媒涨停 / 拓维信息涨停"},
+      {s:"PCB上游材料",stks:"金安国纪3连板 / 圣泉集团涨停 / 东材科技涨停 / 中化国际涨停 / 宏昌电子涨停"},
+      {s:"银行/保险红利",stks:"建设银行新高 / 工商银行+1.5% / 招商银行+1.2% / 中国平安+0.8%"},
+      {s:"半导体靶材/材料",stks:"江丰电子涨停 / 阿石创+8% / 有研新材+5%"},
+      {s:"光伏午后异动",stks:"爱旭股份涨停 / 晶澳科技涨停 / 隆基绿能+3% / 通威股份+2.5%"},
+    ],
+    losers:[
+      {s:"CPO/光通信",stks:"中际旭创-5.2% / 源杰科技-8% / 天孚通信-7.3% / 光迅科技-5%"},
+      {s:"培育钻石/玻璃基板",stks:"四方达-6% / 沃尔德-5.5% / 沃格光电-4% / 凯盛科技-3.8%"},
+      {s:"液冷/数据中心电源",stks:"大元泵业跌停 / 腾龙股份跌停 / 麦格米特跌停 / 英维克-7%"},
+      {s:"消费电子/元器件",stks:"立讯精密-4% / 歌尔股份-5% / 工业富联-3.5%"},
+      {s:"存储芯片/模组",stks:"江波龙-5% / 佰维存储-4.8% / 兆易创新-3.5% / 德明利-4%"},
+    ],
+    note:"6/10沪指跌0.42%失守4000点,科创50冲高回落跌0.65%。主力净流出694亿,电子-267亿/电力设备-102亿。仅化工+9.6亿等3行业净流入。电子特气(WF₆/PPE)成最强避风港,AI应用端天娱4连板。科技股高位分化严重,资金轮动至银行红利防御。外围:美股科技波动+中东地缘+CPO量产延后三重压制。"
+  },
+
+  // ---- All Groups & Sectors ----
+  groups:[
+    {n:"🧠 AI上游 · 核心器件",sectors:[
+      {id:"aichip",n:"AI芯片",icon:"🧠",sig:"major",tag:"🔥核心|国产替代加速",stars:5,
+       d:"寒武纪营收+453%扭亏,海光CPU+DCU双芯。国产AI芯片市占率30%→40%+,市场3814亿。澜起DDR5接口量价齐升。景嘉微国产GPU,龙芯中科自主CPU。",
+       st:[{c:"688256",n:"寒武纪",pick:1},{c:"688041",n:"海光信息",pick:1},{c:"688802",n:"沐曦股份"},{c:"688008",n:"澜起科技"},{c:"300474",n:"景嘉微"},{c:"688047",n:"龙芯中科"}],
+       ch:{up:"EDA→华大九天/概伦电子",mid:"AI芯片→<em>寒武纪/海光/沐曦/景嘉微/龙芯</em>",down:"AI服务器→富士康/浪潮"},
+       ev:"📌Q2国产芯片订单放量"},
+      {id:"cpo",n:"CPO/硅光",icon:"💡",sig:"major",tag:"🔥最热|黄仁勋引爆",stars:5,
+       d:"Computex黄仁勋宣布硅光CPO交换机量产。中际旭创股价超茅台,联讯仪器上市40天涨23倍破2000元。6/9板块+4.6%主力净流入187亿。",
+       st:[{c:"300308",n:"中际旭创",pick:1},{c:"688498",n:"源杰科技",pick:1},{c:"300394",n:"天孚通信",pick:1},{c:"688808",n:"联讯仪器"}],
+       ch:{up:"光芯片→源杰/长光华芯",mid:"CPO模块→<em>中际旭创/天孚</em>",down:"交换机"},
+       ev:"⚡6月Computex|📌2028规模量产"},
+      {id:"optmod",n:"光模块",icon:"🔌",sig:"major",tag:"🔥暴增|1.6T元年",stars:5,
+       d:"新易盛净利+231-249%,800G/1.6T放量。全球光模块市场2025年超150亿美元CAGR22%。华工科技800G LPO Q4交付。",
+       st:[{c:"300502",n:"新易盛",pick:1},{c:"300308",n:"中际旭创",pick:1},{c:"000988",n:"华工科技"},{c:"002281",n:"光迅科技"}],
+       ch:{up:"光芯片/电芯片",mid:"光模块→<em>新易盛/旭创/华工</em>",down:"数据中心"},
+       ev:"📌2026=1.6T商业化元年"},
+      {id:"fiber",n:"光纤光缆",icon:"🔗",sig:"good",tag:"🟢爆发|亨通+332%",stars:4,
+       d:"亨通光电2连板年内+332%创新高。长飞光纤涨停。黄仁勋称铜缆→光纤过渡不可逆。亚马逊与康宁签数十亿美元光纤采购。",
+       st:[{c:"600487",n:"亨通光电",pick:1},{c:"601869",n:"长飞光纤",pick:1},{c:"600522",n:"中天科技"},{c:"300570",n:"太辰光"}],
+       ch:{up:"预制棒→长飞/亨通",mid:"光纤→<em>亨通/长飞</em>",down:"数据中心互联"},
+       ev:"⚡光纤替代铜缆逻辑"},
+      {id:"conn",n:"连接器/铜连接",icon:"🔧",sig:"good",tag:"🟢高增|超节点核心",stars:4,
+       d:"华丰科技业绩翻倍,超节点核心。立讯通信+50%。英伟达GB200柜内铜连接需求爆发。麦格米特AI服务器电源。",
+       st:[{c:"688629",n:"华丰科技",pick:1},{c:"002475",n:"立讯精密",pick:1},{c:"002130",n:"沃尔核材"},{c:"002851",n:"麦格米特"}],
+       ch:{up:"铜合金/塑料",mid:"连接器→<em>华丰/立讯</em>",down:"AI服务器/超节点"},
+       ev:"📌GB300升级→价值量提升"},
+    ]},
+    {n:"🔩 AI上游 · 基础材料",sectors:[
+      {id:"pcb",n:"PCB/覆铜板",icon:"🟫",sig:"major",tag:"🔥暴涨|AI价值+233%",stars:5,
+       d:"胜宏科技净利+274%年内+519%。VR200 NVL72单机柜PCB$3.51万→$11.67万(+233%)。建滔年内4次涨价累超40%。金安国纪3连板。生益科技/华正新材/天津普林涨停。板块6/9+8.7%。",
+       st:[{c:"300476",n:"胜宏科技",pick:1},{c:"002916",n:"深南电路",pick:1},{c:"002463",n:"沪电股份",pick:1},{c:"002938",n:"鹏鼎控股"},{c:"002636",n:"金安国纪",pick:1},{c:"600183",n:"生益科技"},{c:"603186",n:"华正新材"},{c:"002134",n:"天津普林"}],
+       ch:{up:"树脂/铜箔/玻纤布→圣泉/德福/山东玻纤",mid:"覆铜板/PCB→<em>胜宏/深南/沪电/金安国纪/生益</em>",down:"AI服务器/交换机"},
+       ev:"⚡PPE断供→建滔4次涨价|📌供需紧张到2026后"},
+      {id:"mlcc",n:"MLCC电容",icon:"🟧",sig:"major",tag:"🔥超级周期|村田7月涨40%",stars:5,
+       d:"AI服务器单台需3万颗(传统2k),单机柜$3000→$4320。村田7.1起涨10-40%。风华+250%三环+200%。高盛:高容MLCC一年涨100-150%。利和兴20cm涨停,博迁新材涨停,洁美科技涨停。",
+       st:[{c:"000636",n:"风华高科",pick:1},{c:"300408",n:"三环集团",pick:1},{c:"300285",n:"国瓷材料",pick:1},{c:"603678",n:"火炬电子"},{c:"603267",n:"鸿远电子"},{c:"301013",n:"利和兴"},{c:"605376",n:"博迁新材"},{c:"002859",n:"洁美科技"}],
+       ch:{up:"钛酸钡粉→<em>国瓷材料</em> / 镍粉→博迁新材 / 载带→洁美",mid:"MLCC→<em>风华/三环/火炬/鸿远/利和兴</em>",down:"AI服务器/新能源车/5G基站"},
+       ev:"⚡7.1村田涨价|📌超级周期到2030"},
+      {id:"resin",n:"电子树脂/PPE",icon:"🧪",sig:"major",tag:"🔥涨停潮|中东断供70%PPE",stars:5,
+       d:"沙特朱拜勒供全球70%PPE因中东停产,恢复需275天。6/10圣泉/东材/中化国际/宏昌电子再涨停,金安国纪3连板。PPE涨幅400%。同宇新材20cm,康达新材一字。",
+       st:[{c:"605589",n:"圣泉集团",pick:1},{c:"601208",n:"东材科技",pick:1},{c:"600500",n:"中化国际"},{c:"603002",n:"宏昌电子"},{c:"002669",n:"康达新材"},{c:"300221",n:"银禧科技"},{c:"002636",n:"金安国纪",pick:1},{c:"838165",n:"同宇新材"}],
+       ch:{up:"双酚A→卫星化学/酚醛→圣泉",mid:"电子树脂→<em>圣泉/东材/中化/宏昌/金安国纪</em>",down:"覆铜板/PCB"},
+       ev:"⚡中东断供→恢复275天|PPE涨400%"},
+      {id:"copper",n:"电子铜箔",icon:"🥇",sig:"major",tag:"🔥爆发|德福+248%",stars:5,
+       d:"AI驱动高频高速HVLP铜箔暴增。德福科技年内+248%,铜冠铜箔+213%。高端HVLP铜箔国产化率<20%。嘉元科技涨幅滞后。",
+       st:[{c:"301511",n:"德福科技",pick:1},{c:"301217",n:"铜冠铜箔",pick:1},{c:"600110",n:"诺德股份"},{c:"688388",n:"嘉元科技"}],
+       ch:{up:"铜原料→江铜",mid:"电子铜箔→<em>德福/铜冠</em>",down:"覆铜板/PCB"},
+       ev:"📌HVLP三代/四代量产爬坡"},
+      {id:"hbm",n:"HBM/存储芯片",icon:"💾",sig:"good",tag:"🟢景气|佰维+1072%",stars:4,
+       d:"佰维存储扣非+1072%模组弹性最大。江波龙+579-711%。HBM需求+110%YoY。车规存储3月涨180%。NAND Q2合约价预估季增58-63%。",
+       st:[{c:"688525",n:"佰维存储",pick:1},{c:"301308",n:"江波龙",pick:1},{c:"001309",n:"德明利"},{c:"603986",n:"兆易创新"}],
+       ch:{up:"存储颗粒→三星/SK/美光",mid:"模组→<em>佰维/江波龙</em>",down:"AI服务器/新能源车"},
+       ev:"📌Q2涨价|📊长鑫IPO募295亿"},
+    ]},
+    {n:"🏗️ AI中游 · 基础设施",sectors:[
+      {id:"server",n:"AI服务器/超节点",icon:"🖥️",sig:"good",tag:"🟢放量|华勤年入百亿",stars:4,
+       d:"工业富联GB200/300全系列AI服务器+60%。华勤超节点Q2出货预计年入超百亿。紫光Q1净利+126%超预期。浪潮营收1648亿创新高。",
+       st:[{c:"601138",n:"工业富联",pick:1},{c:"603296",n:"华勤技术",pick:1},{c:"000938",n:"紫光股份",pick:1},{c:"000977",n:"浪潮信息"}],
+       ch:{up:"芯片/PCB/连接器",mid:"服务器→<em>富士康/华勤/浪潮</em>",down:"云计算/数据中心"},
+       ev:"📌超节点Q2-Q3量产放量"},
+      {id:"cooling",n:"液冷散热",icon:"❄️",sig:"good",tag:"🟢刚需|PUE≤1.2",stars:4,
+       d:"英维克全链条液冷龙头营收+50%。曙光数创浸没式领先。2027全球液冷858亿。新建DC PUE≤1.2渗透率→33%。冰轮涨停(氦压缩机)。",
+       st:[{c:"002837",n:"英维克",pick:1},{c:"872808",n:"曙光数创",pick:1},{c:"300499",n:"高澜股份"},{c:"301018",n:"申菱环境"}],
+       ch:{up:"冷板/冷却液",mid:"液冷→<em>英维克/曙光数创</em>",down:"数据中心/AI服务器"},
+       ev:"📌政策:新建DC PUE≤1.2"},
+      {id:"switchdev",n:"交换机/网络",icon:"🔀",sig:"good",tag:"🟢爆发|锐捷+160%",stars:4,
+       d:"锐捷网络H1净利+160-232%数据中心交换机爆发。紫光800G国芯交换机国产化率>95%。盛科通信国产交换芯片。",
+       st:[{c:"301165",n:"锐捷网络",pick:1},{c:"000938",n:"紫光股份"},{c:"002396",n:"星网锐捷"},{c:"688702",n:"盛科通信"}],
+       ch:{up:"交换芯片",mid:"交换机→<em>锐捷/紫光/星网</em>",down:"数据中心/企业网"},
+       ev:"📌800G交换机放量"},
+      {id:"powermgt",n:"电源/DrMOS",icon:"⚡",sig:"major",tag:"🔥暴发|DrMOS量价齐升",stars:5,
+       d:"杰华特/晶丰明源20cm涨停。DrMOS成高端AI电源标配,从高端→通用服务器→边缘算力→智算中心普及。量价齐升周期至少1-2年。",
+       st:[{c:"688368",n:"杰华特",pick:1},{c:"688595",n:"晶丰明源",pick:1},{c:"688766",n:"芯朋微"},{c:"688052",n:"纳芯微"}],
+       ch:{up:"晶圆代工→台积电/中芯",mid:"DrMOS→<em>杰华特/晶丰明源</em>",down:"AI服务器/GPU板"},
+       ev:"⚡DrMOS普及周期至少1-2年"},
+      {id:"datacenter",n:"数据中心/AIDC",icon:"🏢",sig:"neutral",tag:"🟡分化|东阳光并秦淮",stars:4,
+       d:"东阳光并购秦淮绑定字节(收入>80%)。润泽AIDC龙头。北美CSP 2025年CAPEX超4000亿美元(+61%)。字节阿里CAPEX+99%。",
+       st:[{c:"600673",n:"东阳光",pick:1},{c:"300442",n:"润泽科技",pick:1},{c:"300738",n:"奥飞数据"},{c:"603881",n:"数据港"}],
+       ch:{up:"土地/电力",mid:"AIDC→<em>东阳光/润泽</em>",down:"云计算/算力租赁"},
+       ev:"📌字节阿里CAPEX+99%"},
+    ]},
+    {n:"⚙️ 半导体全链 · 设备与材料",sectors:[
+      {id:"semiequip",n:"半导体设备",icon:"⚙️",sig:"major",tag:"🔥暴涨|ETF+7.6%",stars:5,
+       d:"国产刻蚀机入全球顶尖供应链。北方华创/中微公司领涨。设备国产化率9%→21%,长鑫Q2设备采购50-60亿美元,瑞银上调目标价34-48%。",
+       st:[{c:"002371",n:"北方华创",pick:1},{c:"688012",n:"中微公司",pick:1},{c:"688072",n:"拓荆科技"},{c:"688082",n:"盛美上海"}],
+       ch:{up:"零部件→富创精密",mid:"设备→<em>北方华创/中微/拓荆/盛美</em>",down:"晶圆厂→中芯/长鑫/长存"},
+       ev:"⚡长鑫Q2设备采购50-60亿美元|📌国产化率21%→目标50%+"},
+      {id:"photoresist",n:"光刻胶",icon:"🎨",sig:"good",tag:"🟢放量|ArF胶量产元年",stars:4,
+       d:"南大光电国内唯一ArF胶量产,通过7nm验证。圣泉ArF树脂2026量产。晶瑞g/i线市占率70%。上海新阳封装胶>40%。台积电涨价传导至材料端。",
+       st:[{c:"300346",n:"南大光电",pick:1},{c:"605589",n:"圣泉集团",pick:1},{c:"300655",n:"晶瑞电材"},{c:"300236",n:"上海新阳"}],
+       ch:{up:"树脂→圣泉集团",mid:"光刻胶→<em>南大光电/晶瑞/上海新阳</em>",down:"晶圆厂→中芯/华虹"},
+       ev:"📌国家要求2026晶圆厂国产胶≥40%"},
+      {id:"advpkg",n:"先进封装CoWoS",icon:"📦",sig:"major",tag:"🔥爆发|华为韬定律",stars:5,
+       d:"华为发布韬定律(3D逻辑折叠)。长电/通富/华天集体涨停。联发科弃CoWoS转英特尔EMIB-T。全球先进封装占比>54%。HBM缺口50-60%。",
+       st:[{c:"002156",n:"通富微电",pick:1},{c:"600584",n:"长电科技",pick:1},{c:"002185",n:"华天科技"},{c:"688362",n:"甬矽电子"}],
+       ch:{up:"设备→北方华创/中微",mid:"封测→<em>通富/长电/华天</em>",down:"芯片→联发科/AMD/华为"},
+       ev:"⚡华为韬定律|📌CoWoS外溢国内OSAT"},
+      {id:"silicon",n:"半导体硅片",icon:"💿",sig:"major",tag:"🔥涨停潮|酝酿直接涨价",stars:5,
+       d:"沪硅产业/西安奕材20cm涨停,TCL中环涨停。厂商酝酿新一轮直接涨价。CoWoS硅中介层+存储扩产拉动12寸额外消耗。",
+       st:[{c:"688126",n:"沪硅产业",pick:1},{c:"002129",n:"TCL中环",pick:1},{c:"605358",n:"立昂微"},{c:"003026",n:"中晶科技"}],
+       ch:{up:"多晶硅→通威/协鑫",mid:"硅片→<em>沪硅/TCL中环/立昂微</em>",down:"晶圆厂"},
+       ev:"⚡厂商酝酿直接涨价"},
+    ]},
+    {n:"💎 新兴材料 · 稀缺资源",sectors:[
+      {id:"wf6",n:"六氟化钨WF₆",icon:"🔴",sig:"major",tag:"🔥重大|日本7.1停产",stars:5,
+       d:"日本7.1永久停产全球25%产能退出。5N级1670-1810元/kg同比+232%。厦门钨业PE23倍Q1+189%。昊华科技补涨。",
+       st:[{c:"600549",n:"厦门钨业",pick:1},{c:"600378",n:"昊华科技",pick:1},{c:"002842",n:"翔鹭钨业"},{c:"688146",n:"中船特气"}],
+       ch:{up:"钨矿→<em>厦门/翔鹭</em>",mid:"WF₆→<em>中船特气/昊华</em>",down:"台积电/三星"},
+       ev:"⚡7.1日本停产|📊8月半年报"},
+      {id:"glass",n:"玻璃基板TGV",icon:"🔵",sig:"neutral",tag:"🟡中性|高位分化",stars:4,
+       d:"英特尔砸223亿,2026商业化元年。沃格光电成都线量产在即。彩虹股份5日净流入11.85亿。凯盛澄清TGV无营收。",
+       st:[{c:"603773",n:"沃格光电",pick:1},{c:"300776",n:"帝尔激光",pick:1},{c:"600707",n:"彩虹股份"},{c:"600552",n:"凯盛科技"}],
+       ch:{up:"高纯玻璃",mid:"TGV制造→<em>沃格/帝尔</em>",down:"先进封装"},
+       ev:"📌H2沃格成都线量产"},
+      {id:"diamond",n:"培育钻石/散热",icon:"💎",sig:"good",tag:"🟢热炒|金刚石散热",stars:4,
+       d:"AI芯片金刚石散热材料赛道切换。概念指数年内+71%。英伟达下一代GPU全面采用金刚石复合材料+液冷散热。四方达+162%。",
+       st:[{c:"300179",n:"四方达",pick:1},{c:"688028",n:"沃尔德",pick:1},{c:"301071",n:"力量钻石"},{c:"920725",n:"惠丰钻石"}],
+       ch:{up:"六面顶压机",mid:"金刚石→<em>四方达/沃尔德/力量钻石</em>",down:"GPU散热/半导体"},
+       ev:"⚡英伟达GPU全面采用金刚石散热"},
+      {id:"supercon",n:"超导/核聚变",icon:"🔮",sig:"neutral",tag:"🟡游资|+2.7-5.3%",stars:3,
+       d:"超导概念6/9涨2.7-5.3%。永鼎高温超导带材+AI光芯片双概念。京源环保+17%领涨。冰轮环境涨停(氦压缩机)。可控核聚变长线催化。",
+       st:[{c:"600105",n:"永鼎股份",pick:1},{c:"600522",n:"中天科技"},{c:"688122",n:"西部超导"},{c:"000962",n:"东方钽业"}],
+       ch:{up:"铌/钛→东方钽业",mid:"超导材料→<em>永鼎/西部超导</em>",down:"核聚变/磁悬浮/医疗"},
+       ev:"📌核聚变EAST突破"},
+      {id:"carbon",n:"碳纤维",icon:"🪶",sig:"neutral",tag:"🟡稳健|低空+航天双驱",stars:3,
+       d:"光威复材T800碳纤维龙头,供货eVTOL/火箭。中复神鹰产能国内第一T1100级。低空经济+商业航天双轮驱动轻量化材料需求。",
+       st:[{c:"300699",n:"光威复材",pick:1},{c:"688295",n:"中复神鹰"},{c:"600456",n:"宝钛股份"},{c:"300034",n:"钢研高纳"}],
+       ch:{up:"丙烯腈→吉林化纤",mid:"碳纤维→<em>光威/中复神鹰</em>",down:"eVTOL/火箭/军工"},
+       ev:"📌低空经济+商业航天双驱动"},
+    ]},
+    {n:"🚀 前沿科技 · 未来产业",sectors:[
+      {id:"robot",n:"人形机器人",icon:"🤖",sig:"good",tag:"🟢利好|Optimus量产",stars:5,
+       d:"特斯拉Optimus V3 6-7月量产,弗里蒙特年产100万台。宇树科技7月挂牌。绿的谐波20%涨停主力净流入10亿。拓普/三花执行器龙头。",
+       st:[{c:"601689",n:"拓普集团",pick:1},{c:"002050",n:"三花智控",pick:1},{c:"688017",n:"绿的谐波",pick:1},{c:"002747",n:"埃斯顿"}],
+       ch:{up:"执行器→拓普/三花",mid:"减速器→绿的/双环",down:"整机→特斯拉/宇树"},
+       ev:"⚡6-7月Optimus量产|🚀7月宇树IPO"},
+      {id:"space",n:"商业航天",icon:"🚀",sig:"major",tag:"🔥重大|SpaceX明日上市",stars:5,
+       d:"SpaceX 6/12纳斯达克挂牌(SPCX)估值1.75万亿。信维通信星链供应商,天银机电星敏感器进SpaceX链。神剑股份2连板。",
+       st:[{c:"300136",n:"信维通信",pick:1},{c:"300342",n:"天银机电",pick:1},{c:"600118",n:"航天发展",pick:1},{c:"002361",n:"神剑股份",pick:1}],
+       ch:{up:"火箭→中天火箭",mid:"卫星→航天发展/中国卫星",down:"通信→信维通信"},
+       ev:"⚡明天(6/12)SpaceX上市"},
+      {id:"6g",n:"6G/通信",icon:"🟣",sig:"good",tag:"🟢利好|烽火净流入22亿",stars:4,
+       d:"工信部6G试点专项行动2029年形成自主方案。烽火通信主力净流入22亿全市场第一。中兴通讯+19.5亿。盛路/创远/特发集体涨停。",
+       st:[{c:"600498",n:"烽火通信",pick:1},{c:"002446",n:"盛路通信",pick:1},{c:"920961",n:"创远信科"},{c:"000063",n:"中兴通讯"}],
+       ch:{up:"天线→盛路/凡谷",mid:"光通信→烽火/中兴",down:"测试→创远信科"},
+       ev:"📌6月工信部6G试点|🎯2029自主方案"},
+      {id:"solidbat",n:"固态电池",icon:"🔋",sig:"neutral",tag:"🟡中性|稳步推进",stars:4,
+       d:"2026半固态装车元年。宁德时代500Wh/kg定型,赣锋三线并行,国轩金石360Wh/kg拟2026量产。全固态中试线密集落地。",
+       st:[{c:"300750",n:"宁德时代"},{c:"002460",n:"赣锋锂业"},{c:"002074",n:"国轩高科",pick:1},{c:"300450",n:"先导智能"}],
+       ch:{up:"材料→当升/天赐",mid:"电芯→宁德/赣锋/国轩",down:"设备→先导"},
+       ev:"📌2026半固态装车|🎯2027全固态小批量"},
+      {id:"evtol",n:"低空经济eVTOL",icon:"✈️",sig:"good",tag:"🟢利好|新民航法7.1",stars:4,
+       d:"新民航法7.1施行审批7天→1小时。沃飞长空冲刺A股低空第一股。亿航广州合肥已售票运营。万丰奥威最纯正eVTOL标的。",
+       st:[{c:"002085",n:"万丰奥威",pick:1},{c:"600580",n:"卧龙电驱",pick:1},{c:"000099",n:"中信海直",pick:1},{c:"600038",n:"中直股份"}],
+       ch:{up:"电池/电机→卧龙/英搏尔",mid:"整机→万丰/中直",down:"运营→中信海直"},
+       ev:"⚡7.1新民航法"},
+      {id:"spatial",n:"空间计算/物理AI",icon:"🌐",sig:"neutral",tag:"🟡异动|6/8逆势",stars:3,
+       d:"6/8大盘普跌日空间计算获主力净流入7.89亿全市场第一,4只涨停。中望软件/凡拓数创20cm涨停。与英伟达物理AI概念联动。",
+       st:[{c:"300624",n:"中望软件"},{c:"301313",n:"凡拓数创"},{c:"603859",n:"能科科技"},{c:"002354",n:"天娱数科"}],
+       ch:{up:"3D引擎/建模",mid:"空间计算→<em>中望/凡拓</em>",down:"数字孪生/工业仿真"},
+       ev:"📌英伟达物理AI概念联动"},
+    ]},
   ],
+
+  // ---- Top News ----
   top3:[
-    {r:1,t:"🚀 SpaceX明天上市！商业航天今年最大事件",
-     b:"SpaceX 6月12日纳斯达克挂牌(SPCX)，定价135美元，估值1.75万亿美元。A股直接供应商：信维通信(星链终端)、天银机电(星敏感器)、西部超导(火箭材料)。神剑股份已经2连板。明天就是上市日，今天是最后一天埋伏窗口。",
-     s:["300136 信维通信","300342 天银机电","002361 神剑股份","688122 西部超导","002792 通宇通讯"]},
-    {r:2,t:"📡 6G板块今天异动，湖北广电涨停",
-     b:"工信部6月4日发布6G试点专项行动，叠加三期集采预期，通信板块集体爆发。烽火通信是光通信龙头，盛路通信是基站天线核心供应商，创远信科更是30CM涨停弹性标的。",
-     s:["600498 烽火通信","002446 盛路通信","920961 创远信科","002194 武汉凡谷","000063 中兴通讯"]},
-    {r:3,t:"🔴 距日本WF₆停产只剩20天！上游还在低位",
-     b:"5N级六氟化钨1670-1810元/公斤，同比暴涨232%。日本关东电化+中央硝子7月1日停产后，全球25%产能永久退出。关键是——上游钨矿还没怎么涨！厦门钨业PE才23倍，Q1利润增189%，翔鹭钨业Q1利润暴增30倍，市值才110亿。",
-     s:["600549 厦门钨业","600378 昊华科技","002842 翔鹭钨业","002378 章源钨业"]}
+    {r:1,t:"🔴 电子特气/半导体材料:六氟化钨暴涨232%引发涨停潮",
+     b:"6/10大盘普跌(沪指-0.42%失守4000),但电子特气逆势涨停潮——和远气体/昊华科技/雅克科技涨停,中船特气/中巨芯创历史新高。六氟化钨同比暴涨232.7%,日本7.1停产倒计时20天。PCB上游PPE树脂涨幅达400%,圣泉集团/东材科技/金安国纪(3连板)涨停。化工板块主力净流入9.6亿——全市场仅3行业净流入。",
+     s:["688146 中船特气","600378 昊华科技","002971 和远气体","605589 圣泉集团","002409 雅克科技","002636 金安国纪"]},
+    {r:2,t:"🤖 AI应用端异军突起:Claude Fable 5催化+华为大会临近",
+     b:"6/10 AI应用方向逆势走强——天娱数科4连板(机器人+AI),南兴股份一字涨停(腾讯微信AI),城市传媒涨停。Anthropic发布Claude Fable 5新模型,腾讯微信AI生态消息催化。华为开发者大会2026临近,鸿蒙+AI+算力双主线获资金抢筹。拓维信息封单2.87亿。",
+     s:["002354 天娱数科","002757 南兴股份","600229 城市传媒","002261 拓维信息","300047 天源迪科","300634 彩讯股份"]},
+    {r:3,t:"⚡ 科技股高位分化:CPO/液冷重挫,资金转防御",
+     b:"6/10 CPO光通信科重挫(SemiAnalysis研报称800VDC与CPO落地延后),液冷/数据中心电源跌停(大元泵业/腾龙股份/麦格米特),培育钻石/玻璃基板回调。主力全天净流出694亿,电子-267亿/电力设备-102亿/通信-83亿。银行/保险红利股逆势护盘(建设银行创新高),世界杯催化啤酒消费走强(惠泉啤酒涨停)。光伏午后异动(爱旭股份/晶澳科技涨停)。市场风格:从高波动科技→低估值红利短期切换。",
+     s:["300308 中际旭创","002837 英维克","002085 万丰奥威","601939 建设银行","600573 惠泉啤酒","600732 爱旭股份"]}
   ],
+
+  // ---- Picks ----
   picks:[
-    {r:1,c:"300136",n:"信维通信",sec:"商业航天",why:"SpaceX明天上市最直接A股映射，星链地面终端已供货"},
-    {r:2,c:"600549",n:"厦门钨业",sec:"WF₆上游",why:"PE仅23倍Q1利润+189%，日本停产前还在低位"},
-    {r:3,c:"600498",n:"烽火通信",sec:"6G通信",why:"今天6G异动，光通信龙头，1.6T OTN已验证"},
-    {r:4,c:"600378",n:"昊华科技",sec:"WF₆中游",why:"涨50% vs 中船特气+440%，补涨空间最大"},
-    {r:5,c:"300342",n:"天银机电",sec:"商业航天",why:"星敏感器国内第一，已打入SpaceX供应链"}
+    {r:1,c:"688146",n:"中船特气",sec:"电子特气/WF₆",why:"全球WF₆产能第一2000吨,6/10涨18%创新高,日本7.1停产最强受益"},
+    {r:2,c:"600378",n:"昊华科技",sec:"电子特气/WF₆",why:"600吨WF₆+央企氟化工龙头,6/10涨停,补涨空间最大"},
+    {r:3,c:"002354",n:"天娱数科",sec:"AI应用/智能体",why:"4连板,机器人+AI双主线,Claude Fable 5催化AI应用端"},
+    {r:4,c:"605589",n:"圣泉集团",sec:"电子树脂/PCB",why:"PPE国产替代龙头+ArF光刻胶树脂,6/10封单3.6亿全市场第一"},
+    {r:5,c:"002636",n:"金安国纪",sec:"PCB/覆铜板",why:"3连板,建滔涨价传导,PCB上游最强连板标杆"},
+    {r:6,c:"002409",n:"雅克科技",sec:"电子特气/前驱体",why:"6/10涨停+主力净流入7.76亿,半导体前驱体+特气双驱动"},
+    {r:7,c:"600549",n:"厦门钨业",sec:"WF₆上游钨矿",why:"PE仅23倍Q1+189%,日本7.1停产前低位布局窗口仍在"},
+    {r:8,c:"301511",n:"德福科技",sec:"AI铜箔",why:"HVLP三代/四代已量产,年内+248%,AI铜箔国产替代龙头"},
+    {r:9,c:"300136",n:"信维通信",sec:"商业航天",why:"SpaceX今日定价明日上市,星链地面终端A股最直接映射"},
+    {r:10,c:"601689",n:"拓普集团",sec:"人形机器人",why:"T链执行器核心,Optimus V3 6-7月量产,回调后布局窗口"},
   ],
+
+  // ---- Events ----
   events:[
-    {d:"6月12日",icon:"🚀",e:"SpaceX纳斯达克挂牌(SPCX)",s:"商业航天",big:1,desc:"估值1.75万亿，史上最大科技IPO"},
-    {d:"6月中旬",icon:"📡",e:"千帆星座下一批发射",s:"商业航天",big:0,desc:"低轨卫星组网加速"},
-    {d:"6月下旬",icon:"🏭",e:"日本WF₆库存最后耗尽",s:"六氟化钨",big:1,desc:"恐慌升温，价格或再跳涨"},
-    {d:"6月下旬",icon:"🤖",e:"特斯拉Optimus V3量产进度",s:"人形机器人",big:0,desc:"关注交付数据和产能爬坡"},
-    {d:"6月底",icon:"💰",e:"章源钨业下半月长单报价",s:"钨矿",big:1,desc:"每半月定期催化，观察涨幅"},
-    {d:"7月1日",icon:"🔴",e:"日本WF₆永久停产正式生效",s:"六氟化钨/钨矿",big:1,desc:"⭐⭐⭐ 本年度最强催化剂，全球25%产能退出"},
-    {d:"7月1日",icon:"✈️",e:"新《民航法》正式施行",s:"低空经济",big:1,desc:"⭐⭐⭐ 飞行审批7天→1小时"},
-    {d:"7月上旬",icon:"🤖",e:"宇树科技科创板挂牌",s:"人形机器人",big:0,desc:"人形机器人第一股"},
-    {d:"7月中旬",icon:"📊",e:"半年报业绩预告密集发布",s:"全部赛道",big:1,desc:"Q2涨价受益标的业绩兑现"},
-    {d:"8月",icon:"📊",e:"半年报正式密集披露",s:"全部赛道",big:1,desc:"业绩验证，决定这波行情能走多远"},
+    {d:"6月12日",icon:"🚀",e:"SpaceX纳斯达克挂牌(SPCX)",s:"商业航天",big:1,desc:"IPO定价$135,估值1.75万亿,史上最大科技IPO"},
+    {d:"6月12日",icon:"📋",e:"美国5月CPI数据发布",s:"宏观/全部",big:0,desc:"影响美联储加息预期及全球风险偏好"},
+    {d:"6月中旬",icon:"📡",e:"千帆星座第6-7批卫星发射",s:"商业航天",big:0,desc:"低轨卫星组网加速,在轨突破200颗"},
+    {d:"6月15日",icon:"💰",e:"章源钨业6月上半月长单报价",s:"钨/稀土",big:0,desc:"每半月定期催化,观察钨精矿涨幅趋势"},
+    {d:"6月16日",icon:"🧠",e:"英伟达GTC AI Summit中国站",s:"AI芯片/CPO",big:0,desc:"关注中国AI生态合作及新品发布"},
+    {d:"6月18日",icon:"📊",e:"5月半导体销售额数据发布(SIA)",s:"半导体全链",big:0,desc:"验证存储/逻辑芯片涨价是否加速传导"},
+    {d:"6月20日",icon:"🟧",e:"三星电机MLCC长单报价更新",s:"MLCC",big:0,desc:"观察村田涨后三星是否跟进调价"},
+    {d:"6月下旬",icon:"🤖",e:"特斯拉Optimus V3量产启动",s:"人形机器人",big:1,desc:"年产100万台产线改造,首批交付数据"},
+    {d:"6月下旬",icon:"🏭",e:"日本WF₆库存最后耗尽",s:"六氟化钨",big:1,desc:"恐慌情绪升温,现货价格或再跳涨"},
+    {d:"6月25日",icon:"💾",e:"NAND Flash Q3合约价谈判窗口",s:"存储芯片",big:0,desc:"Q2已预估季增58-63%,Q3能否继续是关键"},
+    {d:"6月28日",icon:"📡",e:"6G标准制定IMT-2030推进组全会",s:"6G通信",big:0,desc:"关注技术方案与频谱规划进展"},
+    {d:"6月30日",icon:"💰",e:"章源钨业6月下半月长单报价",s:"钨/稀土",big:1,desc:"日本停产前一天最后报价,观察是否跳涨"},
+    {d:"7月1日",icon:"🔴",e:"日本关东电化+中央硝子WF₆永久停产",s:"六氟化钨/钨",big:1,desc:"⭐⭐⭐全球25%产能退出,本年度最强产业催化"},
+    {d:"7月1日",icon:"🟧",e:"村田制作所MLCC涨价10-40%正式生效",s:"MLCC/被动元件",big:1,desc:"⭐⭐⭐年内第三轮,AI/车规全线涨价"},
+    {d:"7月1日",icon:"✈️",e:"新《民航法》正式施行",s:"低空经济",big:1,desc:"⭐⭐⭐300m以下空域开放,飞行审批7天→1小时"},
+    {d:"7月1日",icon:"📋",e:"中国6月PMI数据发布",s:"宏观/全部",big:0,desc:"验证制造业景气度,影响市场风格切换"},
+    {d:"7月上旬",icon:"🤖",e:"宇树科技科创板正式挂牌",s:"人形机器人",big:1,desc:"人形机器人A股第一股,募资额及定价"},
+    {d:"7月上旬",icon:"💻",e:"Computex后续:英伟达GB300细节公布",s:"AI全链",big:0,desc:"关注PCB/连接器/液冷/电源配套升级"},
+    {d:"7月5日",icon:"⚙️",e:"SEMICON West 2026 旧金山",s:"半导体设备",big:0,desc:"全球半导体设备订单及新技术发布"},
+    {d:"7月8日",icon:"💾",e:"长鑫存储科创板IPO路演启动",s:"存储/设备",big:1,desc:"募资295亿,国产存储扩产核心催化剂"},
+    {d:"7月10日",icon:"📊",e:"台积电6月营收发布",s:"半导体全链",big:0,desc:"先进制程稼动率及CoWoS产能扩张进度"},
+    {d:"7月中旬",icon:"📊",e:"A股半年报业绩预告密集发布",s:"全部赛道",big:1,desc:"Q2涨价受益标的首份成绩单,决定行情去留"},
+    {d:"7月15日",icon:"💰",e:"章源钨业7月上半月长单报价",s:"钨/稀土",big:1,desc:"日本停产后第一个报价窗口,涨幅可能显著"},
+    {d:"7月18日",icon:"🧪",e:"PPE树脂供应链恢复进展更新",s:"电子树脂/PCB",big:0,desc:"关注沙特朱拜勒复产时间及替代产能进度"},
+    {d:"7月下旬",icon:"🚀",e:"朱雀三号可回收火箭发射",s:"商业航天",big:0,desc:"国内可回收火箭里程碑,商业发射成本拐点"},
+    {d:"7月25日",icon:"🟧",e:"风华高科/三环集团半年报预告",s:"MLCC",big:0,desc:"验证MLCC涨价对国内厂商的业绩弹性"},
+    {d:"7月30日",icon:"💰",e:"章源钨业7月下半月长单报价",s:"钨/稀土",big:0,desc:"观察日本停产一个月后钨价走势"},
+    {d:"8月1日",icon:"📊",e:"美国7月非农就业数据",s:"宏观/全部",big:0,desc:"影响全球风险偏好及美联储政策预期"},
+    {d:"8月上旬",icon:"📊",e:"A股半年报正式披露密集期开始",s:"全部赛道",big:1,desc:"业绩兑现窗口,决定本轮行情持续性和高度"},
+    {d:"8月中旬",icon:"💾",e:"SK海力士HBM4试产进度更新",s:"HBM/先进封装",big:0,desc:"HBM产能缺口50%+,扩产节奏决定价格走向"},
+    {d:"8月20日",icon:"🏭",e:"日本WF₆停产50天市场影响评估",s:"六氟化钨",big:0,desc:"停产满50天,现货价格是否突破250万元/吨"},
+    {d:"8月25日",icon:"🤖",e:"特斯拉Optimus V3首批月度交付数据",s:"人形机器人",big:1,desc:"量产真实性验证,不及预期则板块回调"},
   ]
 };
 
-// ==========================================
-// TAB SWITCH
-// ==========================================
-const TABS=['overview','briefing','chain','calendar','stocks'];
-const TLABEL={overview:'📊 总览',briefing:'📰 今日简报',chain:'🗺️ 产业链',calendar:'📅 事件日历',stocks:'🎯 标的清单'};
+// ═══════════════════════════════════════════════════════════════
+// RENDER ENGINE
+// ═══════════════════════════════════════════════════════════════
+const TABS=['overview','recap','briefing','chain','calendar','stocks'];
+const TLABEL={overview:'📊 总览',recap:'📈 大盘复盘',briefing:'📰 简报',chain:'🗺️ 产业链',calendar:'📅 事件',stocks:'🎯 标的'};
 
 function go(tab){
   document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('on'));
@@ -372,160 +457,128 @@ function go(tab){
   document.getElementById('panel-'+tab).classList.add('on');
 }
 
-// ==========================================
-// RENDER
-// ==========================================
 (function build(){
-  // Update bar
-  document.getElementById('updateBar').innerHTML=
-    `⏰ 最后更新：<b>${D.updated}</b> &nbsp;|&nbsp; 📡 下个哨兵：${D.next}`;
+  document.getElementById('updateBar').innerHTML=`⏰ 最新更新：<b>${D.updated}</b> &nbsp;|&nbsp; 📡 下个哨兵：${D.next}`;
+  document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
-  // Nav
-  document.getElementById('navBar').innerHTML=TABS.map((t,i)=>
-    `<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`
-  ).join('');
+  const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
+  const majorCount=allSectors.filter(s=>s.sig==='major').length;
+  const goodCount=allSectors.filter(s=>s.sig==='good').length;
 
-  // ════ PANEL: OVERVIEW ════
-  let ov=`
-    <div class="tab-panel on" id="panel-overview">
-      <div class="stat-strip">
-        <div class="stat-chip"><div class="val" style="color:var(--red)">9</div><div class="lbl">赛道监控中</div></div>
-        <div class="stat-chip"><div class="val" style="color:var(--amber)">3</div><div class="lbl">🔥 重大信号</div></div>
-        <div class="stat-chip"><div class="val" style="color:var(--green)">3</div><div class="lbl">🟢 利好</div></div>
-        <div class="stat-chip"><div class="val" style="color:var(--sub)">3</div><div class="lbl">🟡 中性</div></div>
-      </div>
-      <div class="section">
-        <div class="section-title">🔥 9个赛道 · 一眼看全局</div>
-        <div class="card-grid">`;
+  // ════ OVERVIEW ════
+  let ov=`<div class="tab-panel on" id="panel-overview">
+    <div class="stat-strip">
+      <div class="stat-chip"><div class="val" style="color:var(--blue)">${allSectors.length}</div><div class="lbl">赛道全覆盖</div></div>
+      <div class="stat-chip"><div class="val" style="color:var(--red)">${majorCount}</div><div class="lbl">🔥重大信号</div></div>
+      <div class="stat-chip"><div class="val" style="color:var(--green)">${goodCount}</div><div class="lbl">🟢利好</div></div>
+      <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.groups.length}</div><div class="lbl">板块分组</div></div>
+      <div class="stat-chip"><div class="val" style="color:var(--purple)">${D.picks.length}</div><div class="lbl">🎯精选标的</div></div>
+    </div>`;
 
-  D.sectors.forEach(s=>{
-    ov+=`
-      <div class="card sig-${s.sig}" onclick="go('chain')">
+  D.groups.forEach(g=>{
+    ov+=`<div class="group-hd">${g.n}</div><div class="card-grid">`;
+    g.sectors.forEach(s=>{
+      ov+=`<div class="card sig-${s.sig}" onclick="go('chain');setTimeout(()=>document.getElementById('chain-${s.id}').scrollIntoView({behavior:'smooth'}),100)">
         <div class="c-icon">${s.icon}</div>
         <div class="c-name">${s.n}</div>
         <div class="c-tag" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
         <div class="c-desc">${s.d}</div>
         <div class="c-pills">${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''}">${x.c} ${x.n}</span>`).join('')}</div>
       </div>`;
+    });
+    ov+=`</div>`;
   });
+  ov+=`</div>`;
 
-  ov+=`</div></div></div>`;
+  // ════ MARKET RECAP ════
+  let rc=`<div class="tab-panel" id="panel-recap">
+    <div class="section"><div class="section-title">📈 大盘复盘 · 2026年6月9日</div>
+    <p style="font-size:.7rem;color:var(--sub);margin-bottom:12px">${D.recap.note}</p></div>
 
-  // ════ PANEL: BRIEFING ════
+    <div class="section"><div class="section-title">📊 主要指数</div>
+    <div class="recap-grid">${D.recap.index.map(i=>`<div class="recap-chip">
+      <div class="rc-val" style="color:${i.up?'var(--green)':'var(--red)'}">${i.chg}</div>
+      <div class="rc-label">${i.n}</div>
+      <div class="rc-sub">${i.v}</div>
+    </div>`).join('')}</div></div>
+
+    <div class="section"><div class="section-title">💰 主力资金流向</div>
+    <div class="recap-bar">${(()=>{let t=0;D.recap.flow.forEach(f=>{if(f.amt.startsWith('+'))t+=parseInt(f.amt.replace(/[+亿]/g,''));});return D.recap.flow.map(f=>{const v=f.amt.startsWith('+')?parseInt(f.amt.replace(/[+亿]/g,'')):0;const p=v/249*100;const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return `<div style="width:${Math.max(p,3)}%;background:${colors[D.recap.flow.indexOf(f)%6]}"></div>`;}).join('');})()}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.7rem">${D.recap.flow.map((f,i)=>{const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return `<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${colors[i]};margin-right:4px"></span>${f.n} ${f.amt}</span>`;}).join('')}</div></div>
+
+    <div class="section"><div class="section-title">🔥 今日最热板块</div>
+    <div class="heat-row">${D.recap.heat.map(h=>`<span class="heat-tag" style="background:${h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)'};color:${h.c}">${h.n} ${h.s}</span>`).join('')}</div></div>
+
+    <div class="section" style="display:flex;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--green)">🟢 领涨方向（含个股）</div>
+        <div style="font-size:.7rem;color:var(--sub);line-height:2.2">${D.recap.winners.map(w=>'<div style="margin-bottom:4px"><b style="color:var(--green)">✅ '+w.s+'</b><br><span style="font-size:.65rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+w.stks+'</span></div>').join('')}</div></div>
+      <div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--red)">🔴 领跌方向（含个股）</div>
+        <div style="font-size:.7rem;color:var(--sub);line-height:2.2">${D.recap.losers.map(l=>'<div style="margin-bottom:4px"><b style="color:var(--red)">❌ '+l.s+'</b><br><span style="font-size:.65rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+l.stks+'</span></div>').join('')}</div></div>
+    </div></div>`;
+
+  // ════ BRIEFING ════
   let br=`<div class="tab-panel" id="panel-briefing">
-    <div class="section">
-      <div class="section-title">📰 今日最重要的3条消息</div>`;
-
-  D.top3.forEach(n=>{
-    br+=`
-      <div class="news-card">
-        <div class="n-head">
-          <div class="n-rank r${n.r}">${n.r}</div>
-          <div class="n-title">${n.t}</div>
-        </div>
-        <div class="n-body">${n.b}</div>
-        <div class="n-pills">${n.s.map(x=>`<span class="c-pill pick">${x}</span>`).join('')}</div>
-      </div>`;
-  });
-
-  br+=`</div>
-    <div class="section">
-      <div class="section-title">🎯 今日重点跟踪 Top 5</div>
-      <div class="pick-row">`;
-
-  D.picks.forEach(p=>{
-    br+=`
-      <div class="pick-item">
-        <div class="pi-rank">#${p.r}</div>
-        <div class="pi-info">
-          <div><span class="pi-name">${p.n}</span><span class="pi-code">${p.c}</span></div>
-          <div class="pi-reason">${p.why}</div>
-        </div>
-        <div class="pi-sector">${p.sec}</div>
-      </div>`;
-  });
-
+    <div class="section"><div class="section-title">📰 今日最重要的消息</div>`;
+  D.top3.forEach(n=>{br+=`<div class="news-card"><div class="n-head"><div class="n-rank r${n.r}">${n.r}</div><div class="n-title">${n.t}</div></div><div class="n-body">${n.b}</div><div class="n-pills">${n.s.map(x=>`<span class="c-pill pick">${x}</span>`).join('')}</div></div>`;});
+  br+=`</div><div class="section"><div class="section-title">🎯 精选标的 Top ${D.picks.length}</div><div class="pick-row">`;
+  D.picks.forEach(p=>{br+=`<div class="pick-item"><div class="pi-rank">#${p.r}</div><div class="pi-info"><div><span class="pi-name">${p.n}</span><span class="pi-code">${p.c}</span></div><div class="pi-reason">${p.why}</div></div><div class="pi-sector">${p.sec}</div></div>`;});
   br+=`</div></div></div>`;
 
-  // ════ PANEL: CHAIN ════
-  let ch=`<div class="tab-panel" id="panel-chain">
-    <div class="section">
-      <div class="section-title">🗺️ 产业链穿透图（点击展开）</div>
-      <p style="font-size:.7rem;color:var(--sub);margin-bottom:12px">任何赛道出消息 → 打开这张图 → 30秒锁定所有受益标的。🔥 = 当前重点推荐</p>`;
-
-  D.sectors.forEach(s=>{
-    ch+=`
-      <details class="chain-card" id="chain-${s.id}">
-        <summary>
-          <span>${s.icon} ${s.n} &nbsp;<span style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'};font-size:.7rem">${s.tag.split('|')[0]}</span></span>
-        </summary>
-        <div class="chain-body">
-          <div class="chain-row"><span class="cr-label">⬆ 上游</span><span class="cr-content">${s.ch.up}</span></div>
-          <div class="chain-row"><span class="cr-label">🔷 中游</span><span class="cr-content">${s.ch.mid}</span></div>
-          <div class="chain-row"><span class="cr-label">⬇ 下游</span><span class="cr-content">${s.ch.down}</span></div>
-          <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
-            ${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''}">${x.c} ${x.n}${x.pick?' ★':''}</span>`).join('')}
-          </div>
-          <div style="margin-top:8px;font-size:.68rem;color:var(--sub)">⏰ ${s.ev}</div>
-        </div>
-      </details>`;
+  // ════ CHAIN ════
+  let ch=`<div class="tab-panel" id="panel-chain"><div class="section"><div class="section-title">🗺️ AI全产业链穿透图 · 35赛道（点展开）</div><p style="font-size:.7rem;color:var(--sub);margin-bottom:12px">任何环节出消息→30秒定位全链受益标的。🔥=当前最值得关注</p>`;
+  D.groups.forEach(g=>{
+    ch+=`<div class="group-hd">${g.n}</div>`;
+    g.sectors.forEach(s=>{ch+=`<details class="chain-card" id="chain-${s.id}"><summary><span>${s.icon} ${s.n} &nbsp;<span style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'};font-size:.7rem">${s.tag.split('|')[0]}</span></span></summary><div class="chain-body"><div class="chain-row"><span class="cr-label">⬆上游</span><span class="cr-content">${s.ch.up}</span></div><div class="chain-row"><span class="cr-label">🔷中游</span><span class="cr-content">${s.ch.mid}</span></div><div class="chain-row"><span class="cr-label">⬇下游</span><span class="cr-content">${s.ch.down}</span></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''}">${x.c} ${x.n}${x.pick?' ★':''}</span>`).join('')}</div><div style="margin-top:8px;font-size:.68rem;color:var(--sub)">⏰ ${s.ev}</div></div></details>`;});
   });
-
   ch+=`</div></div>`;
 
-  // ════ PANEL: CALENDAR ════
-  let ca=`<div class="tab-panel" id="panel-calendar">
-    <div class="section">
-      <div class="section-title">📅 预判事件日历 · 6~8月</div>
-      <p style="font-size:.72rem;color:var(--sub);margin-bottom:12px">
-        💡 大部分"突发新闻"其实有固定时间表。知道接下来要发生什么，你就能提前布局，而不是等消息出来再追高。
-      </p>
-      <div class="evt-list">`;
-
-  D.events.forEach(e=>{
-    ca+=`
-      <div class="evt-row${e.big?' big':''}">
-        <span class="evt-date">${e.d}</span>
-        <span class="evt-icon">${e.icon}</span>
-        <span class="evt-desc">${e.e}${e.big?' <b style="color:var(--red);font-size:.7rem">⚡关键</b>':''}</span>
-        <span class="evt-sector">${e.s}</span>
-      </div>`;
-  });
-
+  // ════ CALENDAR ════
+  let ca=`<div class="tab-panel" id="panel-calendar"><div class="section"><div class="section-title">📅 预判事件日历 · 6~8月</div><p style="font-size:.72rem;color:var(--sub);margin-bottom:12px">💡 大部分"突发"有固定时间表。提前知道=提前布局。⚡=本年度关键节点。</p><div class="evt-list">`;
+  D.events.forEach(e=>{ca+=`<div class="evt-row${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}${e.big?' <b style="color:var(--red);font-size:.7rem">⚡关键</b>':''}</span><span class="evt-sector">${e.s}</span></div>`;});
   ca+=`</div></div></div>`;
 
-  // ════ PANEL: STOCKS ════
-  let st=`<div class="tab-panel" id="panel-stocks">
-    <div class="section">
-      <div class="section-title">🎯 全赛道标的清单</div>
-      <p style="font-size:.72rem;color:var(--sub);margin-bottom:12px">★ 重点 = 当前最值得关注 | 点击产业链页看上下游关系</p>`;
-
-  D.sectors.forEach(s=>{
-    st+=`
-      <div class="tbl-wrap">
-        <div class="tbl-title">${s.icon} ${s.n}</div>
-        <table class="tbl">
-          <thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th></tr></thead>
-          <tbody>`;
-
+  // ════ STOCKS ════
+  let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.72rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>`;
+  D.groups.forEach(g=>{g.sectors.forEach(s=>{
+    st+=`<div class="tbl-wrap"><div class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.65rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span></div><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th></tr></thead><tbody>`;
     const allText=s.ch.up+s.ch.mid+s.ch.down;
-    s.st.forEach(x=>{
-      let seg='';
-      if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游'}
-      st+=`<tr>
-        <td class="code">${x.c}</td><td>${x.n}</td>
-        <td class="seg">${seg||'—'}</td>
-        <td class="pilot">${x.pick?'★ 重点':'—'}</td>
-      </tr>`;
-    });
-
+    s.st.forEach(x=>{let seg='';if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游';}st+=`<tr><td class="code">${x.c}</td><td>${x.n}</td><td class="seg">${seg||'—'}</td><td class="pilot">${x.pick?'★重点':'—'}</td></tr>`;});
     st+=`</tbody></table></div>`;
-  });
-
+  });});
   st+=`</div></div>`;
 
-  // Combine all
-  document.getElementById('mainContent').innerHTML=ov+br+ch+ca+st;
+  document.getElementById('mainContent').innerHTML=ov+rc+br+ch+ca+st;
+
+      function loadLive(){
+        fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+          if(d.updated){
+            var lc=d.runtime?d.runtime.liveCount||49:49;
+            document.getElementById('updateBar').innerHTML='REALTIME <b>'+d.updated+'</b> | '+lc+' stocks tracking | auto-refresh 5min';
+          }
+          if(d.livePrices){
+            document.querySelectorAll('.tbl tbody tr').forEach(function(tr){
+              var td=tr.querySelector('.code');if(!td)return;
+              var raw=td.textContent.trim();
+              var sina=(raw.startsWith('60')||raw.startsWith('68'))?'sh'+raw:(raw.startsWith('00')||raw.startsWith('30'))?'sz'+raw:'sh'+raw;
+              var lp=d.livePrices[sina];if(!lp)return;
+              var cl=lp.chg_pct>=0?'var(--green)':'var(--red)';
+              var ar=lp.chg_pct>=0?'UP':'DN';
+              var pt=tr.querySelector('.lp');
+              if(!pt){pt=document.createElement('td');pt.className='lp';pt.style.cssText='font-family:monospace;font-size:.68rem;color:'+cl;tr.appendChild(pt);}
+              pt.innerHTML=lp.price.toFixed(lp.price>100?1:2)+' '+ar+Math.abs(lp.chg_pct).toFixed(1)+'%';
+            });
+            document.querySelectorAll('.tbl thead tr').forEach(function(tr){
+              if(!tr.querySelector('.th-lp')){var th=document.createElement('th');th.className='th-lp';th.textContent='PRICE';th.style.fontSize='.65rem';tr.appendChild(th);}
+            });
+          }
+        }).catch(function(){});
+      }
+      loadLive();setInterval(loadLive,300000);
+
+  // Dynamic data
+  fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+    if(d.updated){document.getElementById('updateBar').innerHTML=`⏰ 最新哨兵：<b>${d.updated}</b> &nbsp;|&nbsp; 📡 ${d.nextSentinel||'等待下次扫描'}`;}
+  }).catch(()=>{});
 })();
 </script>
 </body>
