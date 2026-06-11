@@ -550,53 +550,86 @@ function go(tab){
   document.getElementById('mainContent').innerHTML=ov+rc+br+ch+ca+st;
 
       function loadLive(){
-      // Briefing from cloud
-      var bp=document.getElementById('panel-briefing');if(bp){
-        fetch('./data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
-          if(d.briefing){
-            var b=d.briefing;
-            var topNewsDiv=bp.querySelector('.section:first-child');
-            if(topNewsDiv&&b.top3){
-              var newsHtml='<div class="section-title">📰 云端实时简报</div>';
-              b.top3.forEach(function(n){
-                newsHtml+='<div class="news-card"><div class="n-head"><div class="n-rank r'+n.r+'">'+n.r+'</div><div class="n-title">'+n.t+'</div></div><div class="n-body">'+n.b+'</div><div class="n-pills">'+(n.s||[]).map(function(x){return '<span class="c-pill pick">'+x+'</span>';}).join('')+'</div></div>';
-              });
-              topNewsDiv.innerHTML=newsHtml;
-            }
-            var picksDiv=bp.querySelector('.section:last-child');
-            if(picksDiv&&b.picks){
-              var picksHtml='<div class="section-title">🎯 云端精选标的</div><div class="pick-row">';
-              b.picks.forEach(function(p){
-                picksHtml+='<div class="pick-item"><div class="pi-rank">#'+p.r+'</div><div class="pi-info"><div><span class="pi-name">'+p.n+'</span><span class="pi-code">'+p.c+'</span></div><div class="pi-reason">'+p.why+'</div></div><div class="pi-sector">'+p.sec+'</div></div>';
-              });
-              picksHtml+='</div>';
-              picksDiv.innerHTML=picksHtml;
-            }
-          }
-        }).catch(function(){});
-      }
-        fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
-          if(d.updated){
-            var lc=d.runtime?d.runtime.liveCount||49:49;
-            document.getElementById('updateBar').innerHTML='☁️ 云端实时 · <b>'+d.updated+'</b> | '+lc+'只标的 | 每15分钟自动刷新 | 电脑关机也能看';
-          }
-          if(d.livePrices){
-            document.querySelectorAll('.tbl tbody tr').forEach(function(tr){
-              var td=tr.querySelector('.code');if(!td)return;
-              var raw=td.textContent.trim();
-              var sina=(raw.startsWith('60')||raw.startsWith('68'))?'sh'+raw:(raw.startsWith('00')||raw.startsWith('30'))?'sz'+raw:'sh'+raw;
-              var lp=d.livePrices[sina];if(!lp)return;
-              var cl=lp.chg_pct>=0?'var(--green)':'var(--red)';
-              var ar=lp.chg_pct>=0?'UP':'DN';
-              var pt=tr.querySelector('.lp');
-              if(!pt){pt=document.createElement('td');pt.className='lp';pt.style.cssText='font-family:monospace;font-size:.68rem;color:'+cl;tr.appendChild(pt);}
-              pt.innerHTML=lp.price.toFixed(lp.price>100?1:2)+' '+ar+Math.abs(lp.chg_pct).toFixed(1)+'%';
+      fetch('./data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
+        // Briefing
+        var bp=document.getElementById('panel-briefing');if(bp&&d.briefing){
+          var b=d.briefing;
+          var topNewsDiv=bp.querySelector('.section:first-child');
+          if(topNewsDiv&&b.top3&&b.top3.length){
+            var newsHtml='<div class="section-title">📰 云端实时简报</div>';
+            b.top3.forEach(function(n){
+              newsHtml+='<div class="news-card"><div class="n-head"><div class="n-rank r'+n.r+'">'+n.r+'</div><div class="n-title">'+n.t+'</div></div><div class="n-body">'+n.b+'</div><div class="n-pills">'+(n.s||[]).map(function(x){return '<span class="c-pill pick">'+x+'</span>';}).join('')+'</div></div>';
             });
-            document.querySelectorAll('.tbl thead tr').forEach(function(tr){
-              if(!tr.querySelector('.th-lp')){var th=document.createElement('th');th.className='th-lp';th.textContent='PRICE';th.style.fontSize='.65rem';tr.appendChild(th);}
-            });
+            topNewsDiv.innerHTML=newsHtml;
           }
-        }).catch(function(){});
+          var picksDiv=bp.querySelector('.section:last-child');
+          if(picksDiv&&b.picks&&b.picks.length){
+            var picksHtml='<div class="section-title">🎯 云端精选标的</div><div class="pick-row">';
+            b.picks.forEach(function(p){
+              picksHtml+='<div class="pick-item"><div class="pi-rank">#'+p.r+'</div><div class="pi-info"><div><span class="pi-name">'+p.n+'</span><span class="pi-code">'+p.c+'</span></div><div class="pi-reason">'+p.why+'</div></div><div class="pi-sector">'+p.sec+'</div></div>';
+            });
+            picksHtml+='</div>';
+            picksDiv.innerHTML=picksHtml;
+          }
+        }
+        // Recap panel
+        var rp=document.getElementById('panel-recap');if(rp&&d.recap){
+          var r=d.recap;
+          var noteP=rp.querySelector('p');if(noteP&&r.note)noteP.textContent=r.note;
+          var sections=rp.querySelectorAll('.section');
+          if(r.index&&r.index.length&&sections[1]){
+            var idxHtml='<div class="section-title">📊 主要指数</div><div class="recap-grid">';
+            r.index.forEach(function(i){
+              idxHtml+='<div class="recap-chip"><div class="rc-val" style="color:'+(i.up?'var(--green)':'var(--red)')+'">'+i.chg+'</div><div class="rc-label">'+i.n+'</div><div class="rc-sub">'+i.v+'</div></div>';
+            });
+            idxHtml+='</div>';
+            sections[1].innerHTML=idxHtml;
+          }
+          if(r.heat&&r.heat.length&&sections[3]){
+            var heatHtml='<div class="section-title">🔥 今日最热板块</div><div class="heat-row">';
+            r.heat.forEach(function(h){
+              heatHtml+='<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>';
+            });
+            heatHtml+='</div>';
+            sections[3].innerHTML=heatHtml;
+          }
+          if(sections[4]){
+            var wlHtml='';
+            if(r.winners&&r.winners.length){
+              wlHtml+='<div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--green)">🟢 领涨方向（含个股）</div><div style="font-size:.7rem;color:var(--sub);line-height:2.2">';
+              r.winners.forEach(function(w){wlHtml+='<div style="margin-bottom:4px"><b style="color:var(--green)">✅ '+w.s+'</b><br><span style="font-size:.65rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+w.stks+'</span></div>';});
+              wlHtml+='</div></div>';
+            }
+            if(r.losers&&r.losers.length){
+              wlHtml+='<div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--red)">🔴 领跌方向（含个股）</div><div style="font-size:.7rem;color:var(--sub);line-height:2.2">';
+              r.losers.forEach(function(l){wlHtml+='<div style="margin-bottom:4px"><b style="color:var(--red)">❌ '+l.s+'</b><br><span style="font-size:.65rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+l.stks+'</span></div>';});
+              wlHtml+='</div></div>';
+            }
+            if(wlHtml)sections[4].innerHTML=wlHtml;
+          }
+        }
+        // UpdateBar + LivePrices
+        if(d.updated){
+          var lc=d.runtime?d.runtime.liveCount||49:49;
+          document.getElementById('updateBar').innerHTML='☁️ 云端实时 · <b>'+d.updated+'</b> | '+lc+'只标的 | 每15分钟自动刷新 | 电脑关机也能看';
+        }
+        if(d.livePrices){
+          document.querySelectorAll('.tbl tbody tr').forEach(function(tr){
+            var td=tr.querySelector('.code');if(!td)return;
+            var raw=td.textContent.trim();
+            var sina=(raw.startsWith('60')||raw.startsWith('68'))?'sh'+raw:(raw.startsWith('00')||raw.startsWith('30'))?'sz'+raw:'sh'+raw;
+            var lp=d.livePrices[sina];if(!lp)return;
+            var cl=lp.chg_pct>=0?'var(--green)':'var(--red)';
+            var ar=lp.chg_pct>=0?'UP':'DN';
+            var pt=tr.querySelector('.lp');
+            if(!pt){pt=document.createElement('td');pt.className='lp';pt.style.cssText='font-family:monospace;font-size:.68rem;color:'+cl;tr.appendChild(pt);}
+            pt.innerHTML=lp.price.toFixed(lp.price>100?1:2)+' '+ar+Math.abs(lp.chg_pct).toFixed(1)+'%';
+          });
+          document.querySelectorAll('.tbl thead tr').forEach(function(tr){
+            if(!tr.querySelector('.th-lp')){var th=document.createElement('th');th.className='th-lp';th.textContent='PRICE';th.style.fontSize='.65rem';tr.appendChild(th);}
+          });
+        }
+      }).catch(function(){});
       }
       loadLive();setInterval(loadLive,30000);
 
