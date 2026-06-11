@@ -524,7 +524,7 @@ function go(tab){
 
   // ════ MARKET RECAP ════
   let rc=`<div class="tab-panel" id="panel-recap">
-    <div class="section"><div class="section-title">📈 大盘复盘 · 2026年6月9日</div>
+    <div class="section"><div class="section-title" id="recapTitle">📈 大盘复盘 · ${D.updated}</div>
     <p style="font-size:.7rem;color:var(--sub);margin-bottom:12px">${D.recap.note}</p></div>
 
     <div class="section"><div class="section-title">📊 主要指数</div>
@@ -607,6 +607,7 @@ function go(tab){
         // Recap panel
         var rp=document.getElementById('panel-recap');if(rp&&d.recap){
           var r=d.recap;
+          var rt=document.getElementById('recapTitle');if(rt&&d.updated)rt.textContent='📈 大盘复盘 · '+d.updated;
           var noteP=rp.querySelector('p');if(noteP&&r.note)noteP.textContent=r.note;
           var sections=rp.querySelectorAll('.section');
           if(r.index&&r.index.length&&sections[1]){
