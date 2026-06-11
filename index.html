@@ -578,7 +578,7 @@ function go(tab){
   // ════ STOCKS ════
   let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>`;
   D.groups.forEach(g=>{g.sectors.forEach(s=>{
-    st+=`<div class="tbl-wrap"><div class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span></div><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th></tr></thead><tbody>`;
+    st+=`<div class="tbl-wrap"><div class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span></div><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th><th class="th-lp">现价</th></tr></thead><tbody>`;
     const allText=s.ch.up+s.ch.mid+s.ch.down;
     s.st.forEach(x=>{let seg='';if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游';}st+=`<tr><td class="code">${x.c}</td><td>${x.n}</td><td class="seg">${seg||'—'}</td><td class="pilot">${x.pick?'★重点':'—'}</td></tr>`;});
     st+=`</tbody></table></div>`;
@@ -685,7 +685,7 @@ function go(tab){
             pt.innerHTML=lp.price.toFixed(lp.price>100?1:2)+' '+ar+Math.abs(lp.chg_pct).toFixed(1)+'%';
           });
           document.querySelectorAll('.tbl thead tr').forEach(function(tr){
-            if(!tr.querySelector('.th-lp')){var th=document.createElement('th');th.className='th-lp';th.textContent='PRICE';th.style.fontSize='.65rem';tr.appendChild(th);}
+            if(!tr.querySelector('.th-lp')){var th=document.createElement('th');th.className='th-lp';th.textContent='现价';th.style.fontSize='.78rem';tr.appendChild(th);}
           });
         }
       }).catch(function(){});
