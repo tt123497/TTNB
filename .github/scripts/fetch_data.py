@@ -116,6 +116,18 @@ def main():
 
     next_update = '今日 17:00 收盘复盘' if is_trading else '下个交易日 9:15 开盘扫描'
 
+    # Preserve manually-curated fields from existing data.json
+    preserve = {}
+    preserve_keys = ['sectors', 'top3', 'picks', 'briefing']
+    if os.path.exists(DATA_PATH):
+        with open(DATA_PATH, 'r', encoding='utf-8') as f:
+            try:
+                old = json.load(f)
+                for k in preserve_keys:
+                    if k in old and old[k]:
+                        preserve[k] = old[k]
+            except: pass
+
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
         'nextSentinel': next_update,
@@ -138,6 +150,8 @@ def main():
             'trading': is_trading,
         }
     }
+    # Merge preserved fields
+    out.update(preserve)
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
