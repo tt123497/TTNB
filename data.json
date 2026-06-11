@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-12 05:39 CST",
+  "updated": "2026-06-12 05:49 CST",
   "nextSentinel": "今日 09:15 早盘哨兵",
-  "updateCount": 1979126,
+  "updateCount": 1979127,
   "recap": {
     "index": [
       {
@@ -220,7 +220,7 @@
         "stks": "688702 盛科通信 -1.2% / 000938 紫光股份 -2.2% / 301165 锐捷网络 -3.1% / 002396 星网锐捷 -4.9%"
       }
     ],
-    "note": "06/12 05:39 本地Sina实时 | 每15分钟"
+    "note": "06/12 05:49 本地Sina实时 | 每15分钟"
   },
   "livePrices": {
     "sz000063": {
@@ -870,7 +870,7 @@
     "interval": "15min",
     "stockCount": 129,
     "liveCount": 128,
-    "updateCount": 1979126,
+    "updateCount": 1979127,
     "trading": false
   },
   "sectors": [
