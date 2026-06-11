@@ -678,8 +678,8 @@ function go(tab){
             var raw=td.textContent.trim();
             var sina=(raw.startsWith('60')||raw.startsWith('68'))?'sh'+raw:(raw.startsWith('00')||raw.startsWith('30'))?'sz'+raw:'sh'+raw;
             var lp=d.livePrices[sina];if(!lp)return;
-            var cl=lp.chg_pct>=0?'var(--green)':'var(--red)';
-            var ar=lp.chg_pct>=0?'UP':'DN';
+            var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';
+            var ar=lp.chg_pct>=0?'+':'';
             var pt=tr.querySelector('.lp');
             if(!pt){pt=document.createElement('td');pt.className='lp';pt.style.cssText='font-family:monospace;font-size:.82rem;color:'+cl;tr.appendChild(pt);}
             pt.innerHTML=lp.price.toFixed(lp.price>100?1:2)+' '+ar+Math.abs(lp.chg_pct).toFixed(1)+'%';
