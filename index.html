@@ -458,7 +458,39 @@ function go(tab){
 }
 
 (function build(){
-  document.getElementById('updateBar').innerHTML=`⏰ 最新更新：<b>${D.updated}</b> &nbsp;|&nbsp; 📡 下个哨兵：${D.next}`;
+  document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
+
+  // Fetch data.json first, merge into D, THEN render all panels
+  fetch('./data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(data){
+    if(data.recap){
+      if(data.recap.index&&data.recap.index.length) D.recap.index=data.recap.index;
+      if(data.recap.heat&&data.recap.heat.length) D.recap.heat=data.recap.heat;
+      if(data.recap.winners&&data.recap.winners.length) D.recap.winners=data.recap.winners;
+      if(data.recap.losers&&data.recap.losers.length) D.recap.losers=data.recap.losers;
+      if(data.recap.note) D.recap.note=data.recap.note;
+      if(data.recap.flow) D.recap.flow=data.recap.flow;
+    }
+    if(data.top3&&data.top3.length) D.top3=data.top3;
+    if(data.picks&&data.picks.length) D.picks=data.picks;
+    if(data.updated) D.updated=data.updated;
+    if(data.nextSentinel) D.next=data.nextSentinel;
+    // Map Claude sectors -> D.groups sig values
+    if(data.sectors){
+      var secMap={};
+      data.sectors.forEach(function(s){ secMap[s.name]=s.sig; });
+      D.groups.forEach(function(g){
+        g.sectors.forEach(function(s){
+          for(var k in secMap){
+            if(s.n.indexOf(k)>=0||k.indexOf(s.n)>=0){ s.sig=secMap[k]; break; }
+          }
+        });
+      });
+    }
+    renderAll();
+  }).catch(function(){ renderAll(); });
+
+  function renderAll(){
+    document.getElementById('updateBar').innerHTML=`⏰ 最新更新：<b>${D.updated}</b> &nbsp;|&nbsp; 📡 下个哨兵：${D.next}`;
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
@@ -632,8 +664,9 @@ function go(tab){
       }).catch(function(){});
       }
       loadLive();setInterval(loadLive,30000);
+  }
 
-  // Dynamic data
+  // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
     if(d.updated){document.getElementById('updateBar').innerHTML=`⏰ 最新哨兵：<b>${d.updated}</b> &nbsp;|&nbsp; 📡 ${d.nextSentinel||'等待下次扫描'}`;}
   }).catch(()=>{});
