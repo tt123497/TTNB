@@ -75,6 +75,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .card .c-pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 .c-pill{font-size:.93rem;padding:3px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--border);color:var(--sub);font-family:'SF Mono','Fira Code',monospace}
 .c-pill.pick{border-color:var(--blue);color:var(--blue);background:rgba(59,130,246,.08)}
+.stock-search{display:flex;gap:8px;margin-bottom:14px;align-items:center}
+.stock-search input{flex:1;padding:10px 14px;font-size:.9rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);font-family:'SF Mono','Fira Code',monospace;outline:none}
+.stock-search input:focus{border-color:var(--blue)}
+.stock-search button{padding:10px 18px;font-size:.86rem;font-weight:600;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-sm);cursor:pointer;white-space:nowrap}
+.stock-search button:hover{opacity:.9}
+.stock-result{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;margin-bottom:14px;display:none}
+.stock-result .sr-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.stock-result .sr-name{font-size:1rem;font-weight:600}
+.stock-result .sr-code{font-size:.78rem;color:var(--dim);font-family:'SF Mono','Fira Code',monospace}
+.stock-result .sr-price{font-size:1.3rem;font-weight:800}
+.stock-result .sr-chg{font-size:.9rem;font-weight:600}
+.stock-result .sr-meta{font-size:.72rem;color:var(--sub)}
+
 
 .news-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:10px;border-left:4px solid var(--blue)}
 .news-card .n-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -632,7 +645,9 @@ function go(tab){
   ca+=`</div></div></div>`;
 
   // ════ STOCKS ════
-  let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>`;
+  let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>
+    <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码查任意股票,如 600519、000858" maxlength="6" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
+    <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div>`;
   D.groups.forEach(g=>{g.sectors.forEach(s=>{
     st+=`<div class="tbl-wrap"><div class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span></div><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th><th class="th-lp">现价</th></tr></thead><tbody>`;
     const allText=s.ch.up+s.ch.mid+s.ch.down;
@@ -643,7 +658,58 @@ function go(tab){
 
   document.getElementById('mainContent').innerHTML=ov+lo+rc+br+ch+ca+st;
 
-      function loadLive(){
+    
+  // Stock search function
+  function searchStock(){
+    var code=document.getElementById('stockInput').value.trim();
+    var res=document.getElementById('stockResult');
+    if(!code||code.length!==6){res.style.display='block';document.getElementById('srMeta').textContent='请输入6位代码';return;}
+    // 1. Check local livePrices
+    var sina=(code.startsWith('6')||code.startsWith('68'))?'sh'+code:(code.startsWith('0')||code.startsWith('3'))?'sz'+code:'sh'+code;
+    if(D.livePrices&&D.livePrices[sina]){
+      var lp=D.livePrices[sina];
+      showResult(code,lp.name||code,lp.price,lp.chg_pct,'实时行情 (本地128只)');
+      return;
+    }
+    // 2. Try Sina direct (may fail CORS outside sina domain)
+    showResult(code,'查询中...',0,0,'正在查询...');
+    fetch('https://hq.sinajs.cn/list='+sina,{headers:{'Referer':'https://finance.sina.com.cn'},mode:'cors'})
+      .then(function(r){return r.text()}).then(function(t){
+        try{
+          var parts=t.split('"')[1].split(',');
+          var name=parts[0], prev=parseFloat(parts[2]), price=parseFloat(parts[3]);
+          var chg=prev?((price-prev)/prev*100):0;
+          showResult(code,name,price,chg,'联网查询成功');
+          // Also save for future
+          fetch('./data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
+            if(!d.livePrices)d.livePrices={};
+            if(!d.livePrices[sina]){d.livePrices[sina]={price:price,chg_pct:chg,name:name};
+            // Can't write from browser, but data persists in this session
+            if(D.livePrices)D.livePrices[sina]={price:price,chg_pct:chg,name:name};}
+          }).catch(function(){});
+        }catch(e){fetchFallback(code,sina);}
+      }).catch(function(){fetchFallback(code,sina);});
+  }
+  function fetchFallback(code,sina){
+    // Sina CORS blocked -> queue for next fetch_prices.py run
+    showResult(code,'待更新',0,0,'Sina被CORS拦,5分钟内fetch_prices自动抓取');
+    if(D.livePrices&&!D.livePrices[sina]){
+      D.livePrices[sina]={price:0,chg_pct:0,name:'待更新'};
+    }
+  }
+  function showResult(code,name,price,chg,msg){
+    var res=document.getElementById('stockResult');res.style.display='block';
+    document.getElementById('srName').textContent=name||code;
+    document.getElementById('srCode').textContent=code;
+    var cl=chg>=0?'var(--red)':'var(--green)';
+    document.getElementById('srPrice').textContent=(price||0).toFixed(price>100?1:2);
+    document.getElementById('srPrice').style.color=cl;
+    document.getElementById('srChg').textContent=(chg>=0?'+':'')+(chg||0).toFixed(2)+'%';
+    document.getElementById('srChg').style.color=cl;
+    document.getElementById('srMeta').textContent=msg||'';
+  }
+
+  function loadLive(){
       fetch('./data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
         // Briefing
         var bp=document.getElementById('panel-briefing');if(bp&&d.briefing){

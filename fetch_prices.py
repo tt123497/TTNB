@@ -67,6 +67,14 @@ def get_stock_codes():
     if os.path.exists(idx_path):
         with open(idx_path, 'r', encoding='utf-8') as f:
             for m in re.finditer(r'\{c:"(\d{6})"', f.read()): codes.add(m.group(1))
+    # Also include extra codes from data.json pending list
+    if os.path.exists(DATA_PATH):
+        with open(DATA_PATH, 'r', encoding='utf-8') as f:
+            try:
+                extra = json.load(f).get('extraCodes', [])
+                for c in extra:
+                    codes.add(str(c))
+            except: pass
     return sorted(codes)
 
 def get_sector_mapping():
