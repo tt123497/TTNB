@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-12 06:52 CST",
+  "updated": "2026-06-12 07:14 CST",
   "nextSentinel": "今日 09:15 早盘哨兵",
-  "updateCount": 1979131,
+  "updateCount": 1979132,
   "recap": {
     "index": [
       {
@@ -45,7 +45,7 @@
     "flow": [],
     "winners": [],
     "losers": [],
-    "note": "06/12 06:52 东财全源 | 191只 | 0板块"
+    "note": "06/12 07:14 东财全源 | 191只 | 0板块"
   },
   "livePrices": {
     "sz000063": {
@@ -1010,7 +1010,7 @@
     "interval": "5min",
     "stockCount": 191,
     "liveCount": 191,
-    "updateCount": 1979131,
+    "updateCount": 1979132,
     "trading": false
   },
   "sectors": [
