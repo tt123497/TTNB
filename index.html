@@ -664,38 +664,24 @@ function go(tab){
     var code=document.getElementById('stockInput').value.trim();
     var res=document.getElementById('stockResult');
     if(!code||code.length!==6){res.style.display='block';document.getElementById('srMeta').textContent='请输入6位代码';return;}
-    // 1. Check local livePrices
+    // 1. Local livePrices
     var sina=(code.startsWith('6')||code.startsWith('68'))?'sh'+code:(code.startsWith('0')||code.startsWith('3'))?'sz'+code:'sh'+code;
     if(D.livePrices&&D.livePrices[sina]){
       var lp=D.livePrices[sina];
-      showResult(code,lp.name||code,lp.price,lp.chg_pct,'实时行情 (本地128只)');
+      showResult(code,lp.name||code,lp.price,lp.chg_pct,'本地128只实时');
       return;
     }
-    // 2. Try Sina direct (may fail CORS outside sina domain)
-    showResult(code,'查询中...',0,0,'正在查询...');
-    fetch('https://hq.sinajs.cn/list='+sina,{headers:{'Referer':'https://finance.sina.com.cn'},mode:'cors'})
-      .then(function(r){return r.text()}).then(function(t){
-        try{
-          var parts=t.split('"')[1].split(',');
-          var name=parts[0], prev=parseFloat(parts[2]), price=parseFloat(parts[3]);
-          var chg=prev?((price-prev)/prev*100):0;
-          showResult(code,name,price,chg,'联网查询成功');
-          // Also save for future
-          fetch('./data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
-            if(!d.livePrices)d.livePrices={};
-            if(!d.livePrices[sina]){d.livePrices[sina]={price:price,chg_pct:chg,name:name};
-            // Can't write from browser, but data persists in this session
-            if(D.livePrices)D.livePrices[sina]={price:price,chg_pct:chg,name:name};}
-          }).catch(function(){});
-        }catch(e){fetchFallback(code,sina);}
-      }).catch(function(){fetchFallback(code,sina);});
-  }
-  function fetchFallback(code,sina){
-    // Sina CORS blocked -> queue for next fetch_prices.py run
-    showResult(code,'待更新',0,0,'Sina被CORS拦,5分钟内fetch_prices自动抓取');
-    if(D.livePrices&&!D.livePrices[sina]){
-      D.livePrices[sina]={price:0,chg_pct:0,name:'待更新'};
-    }
+    // 2. EastMoney API (CORS OK: push2.eastmoney.com)
+    showResult(code,'查询中...',0,0,'联网查询中...');
+    var emcode=(code.startsWith('6')||code.startsWith('68'))?'1.'+code:'0.'+code;
+    fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14,f15,f16,f17,f18')
+      .then(function(r){return r.json()}).then(function(d){
+        var s=d.data; if(!s){showResult(code,'-',0,0,'查无此股');return;}
+        var name=s.f14||code, price=s.f2||0, chg=s.f3||0, high=s.f15||0, low=s.f16||0, open=s.f17||0;
+        showResult(code,name,price,chg,'实时 | 开'+open.toFixed(2)+' 高'+high.toFixed(2)+' 低'+low.toFixed(2));
+        // Save to extraCodes for future fetch_prices runs
+        if(D.livePrices)D.livePrices[sina]={price:price,chg_pct:chg,name:name};
+      }).catch(function(){showResult(code,'-',0,0,'网络不通,请重试');});
   }
   function showResult(code,name,price,chg,msg){
     var res=document.getElementById('stockResult');res.style.display='block';
