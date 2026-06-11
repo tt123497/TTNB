@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Fetch live market data via Sina API (local only) and push to GitHub.
-   Run by Claude cron every 15 min during trading hours."""
+"""Fetch live market data and push to GitHub. Run by Claude cron every 5 min.
+   Data sources: Sina (indices+stocks), EastMoney HTTP (sectors+fund flow)"""
 import json, os, re, time, subprocess
 from datetime import datetime, timezone, timedelta
 from urllib.request import Request, urlopen
@@ -10,14 +10,24 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(DIR, 'data.json')
 GIT = r'D:\Tools\Git\bin\git.exe'
 
-def fetch(url, enc='gbk', retries=2):
+def fetch(url, enc='gbk', retries=2, extra_headers=None):
     for i in range(retries):
         try:
-            r = urlopen(Request(url, headers={'User-Agent': UA, 'Referer': 'https://finance.sina.com.cn'}), timeout=10)
+            headers = {'User-Agent': UA}
+            if extra_headers: headers.update(extra_headers)
+            r = urlopen(Request(url, headers=headers), timeout=10)
             return r.read().decode(enc, errors='replace')
         except:
             if i == retries - 1: return None
             time.sleep(2)
+
+def em_json(url):
+    """Fetch EastMoney JSON API over HTTP (works locally)"""
+    text = fetch(url, enc='utf-8', extra_headers={'Accept': '*/*'})
+    if not text: return []
+    try:
+        return json.loads(text).get('data', {}).get('diff', [])
+    except: return []
 
 def get_indices():
     codes = ['sh000001','sz399001','sz399006','sh000688','sh000300','sh000016']
@@ -93,9 +103,31 @@ def get_sector_mapping():
         for c in codes: mapping[c] = sec_name
     return mapping
 
-def compute_sector_heat(live_prices, stock_sector):
-    """Compute sector averages AND top/bottom stocks per sector"""
-    sec_changes = {}  # {sector_name: [{code, name, chg_pct}]}
+def get_sector_heat_em():
+    """Get real concept sector ranking from EastMoney HTTP"""
+    items = em_json(
+        'http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=50&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:90+t:3&fields=f2,f3,f12,f14'
+    )
+    return [{'n': i.get('f14', ''), 's': f"{i.get('f3', 0):+.1f}%",
+             'c': 'var(--red)' if i.get('f3', 0) > 0 else 'var(--green)'} for i in items]
+
+def get_fund_flow_em():
+    """Get sector fund flow from EastMoney HTTP"""
+    items = em_json(
+        'http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=6&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f12,f14,f62,f3'
+    )
+    out = []
+    for i in items:
+        out.append({
+            'n': i.get('f14', ''),
+            'amt': f"{'流入' if i.get('f62', 0) > 0 else '流出'}{abs(i.get('f62', 0)) / 100000000:.1f}亿",
+            'chg': f"{i.get('f3', 0):+.1f}%"
+        })
+    return out
+
+def compute_sector_stocks(live_prices, stock_sector, heat_data):
+    """Match real sector ranking to our monitored stocks for winners/losers detail"""
+    sec_changes = {}
     for sina_key, v in live_prices.items():
         code = sina_key[2:]
         sec = stock_sector.get(code, '')
@@ -104,19 +136,33 @@ def compute_sector_heat(live_prices, stock_sector):
         if sec not in sec_changes: sec_changes[sec] = []
         sec_changes[sec].append({'c': code, 'n': v.get('name', ''), 'chg': chg})
 
-    heat = []
-    sec_detail = {}  # {sector_name: "stock1+5% / stock2-3%"}
+    # Try to match EastMoney sector names to our sectors
+    sec_detail = {}
     for sec, stocks in sec_changes.items():
         if not stocks: continue
-        avg = sum(s['chg'] for s in stocks) / len(stocks)
-        heat.append({'n': sec, 's': f'{avg:+.1f}%', 'c': 'var(--red)' if avg > 0 else 'var(--green)'})
-        # Top 5 gainers, bottom 5 losers within sector, sorted
         sorted_stks = sorted(stocks, key=lambda x: x['chg'], reverse=True)
         names = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in sorted_stks[:5]])
         sec_detail[sec] = names
 
-    heat.sort(key=lambda x: float(x['s'].replace('%', '').replace('+', '').replace('-', '-')), reverse=True)
-    return heat, sec_detail, sec_changes
+    # Build winners/losers from heat data (real EastMoney ranking)
+    sorted_em = sorted(heat_data, key=lambda x: float(x['s'].replace('%', '').replace('+', '').replace('-', '-')), reverse=True)
+    winners = []; losers = []
+    for s in sorted_em[:8]:
+        matched = None
+        for our_sec in sec_detail:
+            if s['n'] in our_sec or our_sec in s['n'] or any(w in our_sec for w in s['n'][:2]):
+                matched = our_sec; break
+        stks = sec_detail.get(matched, '') if matched else ''
+        winners.append({'s': s['n'], 'stks': stks or s['s']})
+    for s in sorted_em[-8:][::-1]:
+        matched = None
+        for our_sec in sec_detail:
+            if s['n'] in our_sec or our_sec in s['n'] or any(w in our_sec for w in s['n'][:2]):
+                matched = our_sec; break
+        stks = sec_detail.get(matched, '') if matched else ''
+        losers.append({'s': s['n'], 'stks': stks or s['s']})
+
+    return winners[:6], losers[:6]
 
 def main():
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
@@ -125,12 +171,10 @@ def main():
     codes = get_stock_codes()
     indices = get_indices()
     live = get_live_prices(codes)
+    heat = get_sector_heat_em()
+    fund = get_fund_flow_em()
     stock_sector = get_sector_mapping()
-    heat, sec_detail, sec_changes = compute_sector_heat(live, stock_sector)
-
-    sorted_h = sorted(heat, key=lambda x: float(x['s'].replace('%', '').replace('+', '').replace('-', '-')), reverse=True)
-    winners_list = [{'s': s['n'], 'stks': sec_detail.get(s['n'], '')} for s in sorted_h[:6]]
-    losers_list = [{'s': s['n'], 'stks': sec_detail.get(s['n'], '')} for s in sorted_h[-6:][::-1]]
+    winners_list, losers_list = compute_sector_stocks(live, stock_sector, heat)
 
     # Load existing, preserve manual fields
     if os.path.exists(DATA_PATH):
@@ -146,13 +190,14 @@ def main():
         'recap': {
             'index': indices,
             'heat': heat[:25],
+            'flow': fund,
             'winners': winners_list,
             'losers': losers_list,
-            'note': f"{cst.strftime('%m/%d %H:%M')} 本地Sina实时 | 每15分钟"
+            'note': f"{cst.strftime('%m/%d %H:%M')} 东财板块+Sina个股 | 每5分钟"
         },
         'livePrices': live,
         'runtime': {
-            'cloud': False, 'autoUpdate': True, 'interval': '15min',
+            'cloud': False, 'autoUpdate': True, 'interval': '5min',
             'stockCount': len(codes), 'liveCount': len(live),
             'updateCount': int(time.time() / 900),
             'trading': is_trading
@@ -167,7 +212,7 @@ def main():
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
-    print(f"{out['updated']} | idx:{len(indices)} heat:{len(heat)} live:{len(live)} trading={is_trading}")
+    print(f"{out['updated']} | idx:{len(indices)} heat:{len(heat)} live:{len(live)} flow:{len(fund)}")
 
     # Git push
     subprocess.run([GIT, 'remote', 'set-url', 'origin', 'git@github.com:tt123497/market-sentinel.git'],
@@ -175,7 +220,7 @@ def main():
     subprocess.run([GIT, 'add', 'data.json'], cwd=DIR, capture_output=True)
     result = subprocess.run([GIT, 'diff', '--staged', '--quiet'], cwd=DIR)
     if result.returncode != 0:
-        subprocess.run([GIT, 'commit', '-m', f"📊 {cst.strftime('%H:%M')} 本地Sina实时更新"],
+        subprocess.run([GIT, 'commit', '-m', f"📊 {cst.strftime('%H:%M')} 东财板块+Sina个股实时更新"],
                        cwd=DIR, capture_output=True)
         subprocess.run([GIT, 'push', 'origin', 'main'], cwd=DIR,
                        env={**os.environ, 'GIT_SSH_COMMAND': 'ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10'},
