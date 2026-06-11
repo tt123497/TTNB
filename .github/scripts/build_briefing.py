@@ -88,17 +88,26 @@ def build_briefing():
             's': [f"{s['c']} {s['n']}" for s in top_stocks[:5]]
         })
 
-    # Update data.json
-    existing['briefing'] = {
-        'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
-        'top3': top3,
-        'picks': picks,
-    }
+    # Preserve manual Claude briefing if fresh (not auto-generated index summaries)
+    old_briefing = existing.get('briefing', {})
+    old_top3 = old_briefing.get('top3', [])
+    is_manual = old_top3 and not old_top3[0].get('t','').startswith('📊')
+    is_today = old_briefing.get('updated','').startswith(cst.strftime('%Y-%m-%d'))
+
+    if is_manual and is_today:
+        # Keep Claude's manual briefing, don't overwrite
+        print(f"Briefing preserved (manual): {cst.strftime('%H:%M')}")
+    else:
+        # Fall back to auto-generated
+        existing['briefing'] = {
+            'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
+            'top3': top3,
+            'picks': picks,
+        }
+        print(f"Briefing auto-generated: {cst.strftime('%H:%M')}")
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(existing, f, ensure_ascii=False, indent=2)
-
-    print(f"Briefing updated: {cst.strftime('%H:%M')}")
 
 if __name__ == '__main__':
     build_briefing()
