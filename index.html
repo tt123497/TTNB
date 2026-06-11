@@ -588,7 +588,7 @@ function go(tab){
     </div>`).join('')}</div></div>
 
     <div class="section"><div class="section-title">💸 主力资金</div>
-    <div class="recap-bar">${(()=>{let t=0;D.recap.flow.forEach(f=>{if(f.amt.startsWith('+'))t+=parseInt(f.amt.replace(/[+亿]/g,''));});return D.recap.flow.map(f=>{const v=f.amt.startsWith('+')?parseInt(f.amt.replace(/[+亿]/g,'')):0;const p=v/249*100;const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<div style="width:'+Math.max(p,3)+'%;background:'+colors[D.recap.flow.indexOf(f)%6]+'"></div>';}).join('');})()}</div>
+    <div class="recap-bar">${(()=>{let maxV=0;D.recap.flow.forEach(f=>{var vv=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));if(vv>maxV)maxV=vv;});if(maxV===0)maxV=100;return D.recap.flow.map(f=>{var v=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));var p=v/maxV*100;var colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<div style=\"width:'+Math.max(p,3)+'%;background:'+colors[D.recap.flow.indexOf(f)%6]+'\"></div>';}).join('');})()}</div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">${D.recap.flow.map((f,i)=>{const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:'+colors[i]+';margin-right:4px"></span>'+f.n+' '+f.amt+'</span>';}).join('')}</div></div>
 
     <div class="section"><div class="section-title">🔥 最热板块</div>

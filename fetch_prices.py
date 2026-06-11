@@ -44,7 +44,11 @@ def get_stock_codes():
 # ═══════════ Live prices (EastMoney batch) ═══════════
 def get_live_prices(codes):
     results = {}
-    secids = [f"{'1.' if c[0] in '68' else '0.'}{c}" for c in codes]
+    secids = []
+    for c in codes:
+        if c[0] in '68': secids.append(f'1.{c}')
+        elif c[0] in '89': secids.append(f'133.{c}')  # BSE stocks use 133. prefix in EastMoney
+        else: secids.append(f'0.{c}')
     for i in range(0, len(secids), 100):
         batch = ','.join(secids[i:i+100])
         for s in em_json(f"http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14&secids={batch}").get('diff', []):
@@ -52,6 +56,13 @@ def get_live_prices(codes):
             key = f"sh{c}" if c[0] in '68' else f"sz{c}"
             results[key] = {'price': s.get('f2',0) or 0, 'chg_pct': s.get('f3',0) or 0, 'name': s.get('f14','') or ''}
         time.sleep(0.1)
+    # Fill in any missing codes with zero (delisted BSE stocks etc.)
+    for c in codes:
+        for pfx in ['sh','sz']:
+            if pfx + c in results:
+                break
+        else:
+            results['sh' + c] = {'price': 0, 'chg_pct': 0, 'name': ''}
     return results
 
 # ═══════════ Sector heat ═══════════
@@ -62,9 +73,10 @@ def get_sector_heat_em():
 
 # ═══════════ Fund flow ═══════════
 def get_fund_flow_em():
-    return [{'n': i.get('f14',''), 'amt': '流入' if i.get('f62',0)>0 else '流出',
-             'amt_val': abs(i.get('f62',0) or 0)/100000000}
-            for i in em_json("http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62").get('diff',[])]
+    """Returns flow items in format HTML expects: {n, amt: '+87.9亿'}"""
+    items = em_json("http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62").get('diff', [])
+    return [{'n': i.get('f14', ''), 'amt': f"{'+' if i.get('f62', 0) > 0 else ''}{abs(i.get('f62', 0) or 0) / 100000000:.1f}亿"}
+            for i in items]
 
 # ═══════════ Sector mapping (from index.html D.groups) ═══════════
 def get_sector_mapping():
