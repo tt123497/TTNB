@@ -20,23 +20,22 @@ def fetch(url, encoding='gbk', retries=2):
             time.sleep(2)
 
 def get_indices():
-    codes = ['sh000001','sz399001','sz399006','sh000688','sh000300','sh000016']
-    names = {'sh000001':'上证指数','sz399001':'深证成指','sz399006':'创业板指',
-             'sh000688':'科创50','sh000300':'沪深300','sh000016':'上证50'}
-    text = fetch('http://hq.sinajs.cn/list=' + ','.join(codes), encoding='gbk')
+    """Use EastMoney API (works from GitHub Actions US IPs, unlike Sina)"""
+    names = {'1.000001':'上证指数','0.399001':'深证成指','0.399006':'创业板指',
+             '1.000688':'科创50','1.000300':'沪深300','1.000016':'上证50'}
+    secids = ','.join(names.keys())
+    text = fetch(f'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f4,f12,f14&secids={secids}&ut=bd1d9ddb04089700cf9c27f6f7426281', encoding='utf-8')
     if not text: return []
-    results = []
-    for line in text.strip().split('\n'):
-        if '=' not in line: continue
-        c = line.split('=')[0].replace('var hq_str_','')
-        d = line.split('"')[1].split(',') if '"' in line else []
-        if len(d) < 5: continue
-        try:
-            pr = float(d[3]); pv = float(d[2])
-            ch = round((pr-pv)/pv*100,2) if pv else 0
-            results.append({'n':names.get(c,c),'v':f'{pr:.0f}','chg':f'{ch:+.2f}%','up':ch>=0})
-        except: pass
-    return results
+    try:
+        items = json.loads(text).get('data',{}).get('diff',[])
+        results = []
+        for i in items:
+            n = names.get(i.get('f12',''), i.get('f14',''))
+            p = i.get('f2', 0)
+            chg = i.get('f3', 0)
+            results.append({'n': n, 'v': f'{p:.0f}' if p else '0', 'chg': f'{chg:+.2f}%', 'up': chg >= 0})
+        return results
+    except: return []
 
 def get_sector_heat():
     text = fetch('http://push2.eastmoney.com/api/qt/clist/get?fid=f3&po=1&pz=30&pn=1&np=1&fltt=2&fields=f2,f3,f4,f12,f14&fs=m:90+t:3&ut=bd1d9ddb04089700cf9c27f6f7426281', encoding='utf-8')
@@ -57,28 +56,28 @@ def get_stock_codes():
     return sorted(codes)
 
 def get_live_prices(all_codes):
+    """Use EastMoney batch API (works from GitHub Actions US IPs)"""
     results = {}
-    sina = []
+    secids = []
     for c in all_codes:
-        if c.startswith(('60','68')): sina.append(f'sh{c}')
-        elif c.startswith(('00','30')): sina.append(f'sz{c}')
-        elif c.startswith(('8','4','9')): sina.append(f'bj{c}')
-        else: sina.append(f'sh{c}')
+        if c.startswith(('60','68')): secids.append(f'1.{c}')
+        elif c.startswith(('00','30')): secids.append(f'0.{c}')
+        else: secids.append(f'1.{c}')
 
-    for i in range(0, len(sina), 60):
-        batch = sina[i:i+60]
-        text = fetch('http://hq.sinajs.cn/list=' + ','.join(batch), encoding='gbk')
+    for i in range(0, len(secids), 100):
+        batch = secids[i:i+100]
+        url = f'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14&secids={",".join(batch)}&ut=bd1d9ddb04089700cf9c27f6f7426281'
+        text = fetch(url, encoding='utf-8')
         if not text: continue
-        for line in text.strip().split('\n'):
-            if '=' not in line: continue
-            c = line.split('=')[0].replace('var hq_str_','')
-            d = line.split('"')[1].split(',') if '"' in line else []
-            if len(d) < 5: continue
-            try:
-                pr = float(d[3]); pv = float(d[2])
-                ch = round((pr-pv)/pv*100,2) if pv else 0
-                results[c] = {'price':pr,'chg_pct':ch,'name':d[0]}
-            except: pass
+        try:
+            items = json.loads(text).get('data',{}).get('diff',[])
+            for s in items:
+                c = s.get('f12','')
+                price = s.get('f2', 0)
+                chg = s.get('f3', 0)
+                sina_key = f'sh{c}' if c.startswith(('60','68')) else f'sz{c}'
+                results[sina_key] = {'price': price, 'chg_pct': chg, 'name': s.get('f14','')}
+        except: pass
     return results
 
 def get_news_headlines():
