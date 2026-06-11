@@ -527,7 +527,7 @@ function go(tab){
   }).catch(function(){ renderAll(); });
 
   function renderAll(){
-    document.getElementById('updateBar').innerHTML=`⏰ 最新更新：<b>${D.updated}</b> &nbsp;|&nbsp; 📡 下个哨兵：${D.next}`;
+    document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | 交易日每5分钟自动刷新`;
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
@@ -808,7 +808,7 @@ function go(tab){
         // UpdateBar + LivePrices
         if(d.updated){
           var lc=d.runtime?d.runtime.liveCount||49:49;
-          document.getElementById('updateBar').innerHTML='☁️ 云端实时 · <b>'+d.updated+'</b> | '+lc+'只标的 | 每15分钟自动刷新 | 电脑关机也能看';
+          document.getElementById('updateBar').innerHTML='📡 '+d.updated+' 刷新 | '+lc+'只标的 | 交易日每5分钟自动更新 | Claude运行中';
         }
         if(d.livePrices){
           document.querySelectorAll('.tbl tbody tr').forEach(function(tr){
@@ -833,7 +833,7 @@ function go(tab){
 
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
-    if(d.updated){document.getElementById('updateBar').innerHTML=`⏰ 最新哨兵：<b>${d.updated}</b> &nbsp;|&nbsp; 📡 ${d.nextSentinel||'等待下次扫描'}`;}
+    if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动刷新`;}
   }).catch(()=>{});
 })();
 </script>
