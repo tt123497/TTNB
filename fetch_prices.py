@@ -104,7 +104,7 @@ def compute_sector_heat(live_prices, stock_sector):
         heat.append({'n': sec, 's': f'{avg:+.1f}%', 'c': 'var(--red)' if avg > 0 else 'var(--green)'})
         # Top 5 gainers, bottom 5 losers within sector, sorted
         sorted_stks = sorted(stocks, key=lambda x: x['chg'], reverse=True)
-        names = ' / '.join([f"{s['n']}{s['chg']:+.1f}%" for s in sorted_stks[:5]])
+        names = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in sorted_stks[:5]])
         sec_detail[sec] = names
 
     heat.sort(key=lambda x: float(x['s'].replace('%', '').replace('+', '').replace('-', '-')), reverse=True)

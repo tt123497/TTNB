@@ -523,7 +523,7 @@ function go(tab){
   });
   ov+=`</div>`;
 
-  // ════ MARKET RECAP ════
+    // ════ MARKET RECAP ════
   let rc=`<div class="tab-panel" id="panel-recap">
     <div class="section"><div class="section-title" id="recapTitle">📈 大盘复盘 · ${D.updated}</div>
     <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">${D.recap.note}</p></div>
@@ -535,21 +535,26 @@ function go(tab){
       <div class="rc-sub">${i.v}</div>
     </div>`).join('')}</div></div>
 
-    <div class="section"><div class="section-title">💰 主力资金流向</div>
-    <div class="recap-bar">${(()=>{let t=0;D.recap.flow.forEach(f=>{if(f.amt.startsWith('+'))t+=parseInt(f.amt.replace(/[+亿]/g,''));});return D.recap.flow.map(f=>{const v=f.amt.startsWith('+')?parseInt(f.amt.replace(/[+亿]/g,'')):0;const p=v/249*100;const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return `<div style="width:${Math.max(p,3)}%;background:${colors[D.recap.flow.indexOf(f)%6]}"></div>`;}).join('');})()}</div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">${D.recap.flow.map((f,i)=>{const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return `<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${colors[i]};margin-right:4px"></span>${f.n} ${f.amt}</span>`;}).join('')}</div></div>
+    <div class="section"><div class="section-title">💸 主力资金</div>
+    <div class="recap-bar">${(()=>{let t=0;D.recap.flow.forEach(f=>{if(f.amt.startsWith('+'))t+=parseInt(f.amt.replace(/[+亿]/g,''));});return D.recap.flow.map(f=>{const v=f.amt.startsWith('+')?parseInt(f.amt.replace(/[+亿]/g,'')):0;const p=v/249*100;const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<div style="width:'+Math.max(p,3)+'%;background:'+colors[D.recap.flow.indexOf(f)%6]+'"></div>';}).join('');})()}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">${D.recap.flow.map((f,i)=>{const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:'+colors[i]+';margin-right:4px"></span>'+f.n+' '+f.amt+'</span>';}).join('')}</div></div>
 
-    <div class="section"><div class="section-title">🔥 今日最热板块</div>
-    <div class="heat-row">${D.recap.heat.map(h=>`<span class="heat-tag" style="background:${h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)'};color:${h.c}">${h.n} ${h.s}</span>`).join('')}</div></div>
+    <div class="section"><div class="section-title">🔥 最热板块</div>
+    <div class="heat-row">${D.recap.heat.map(h=>'<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>').join('')}</div></div>
 
-    <div class="section" style="display:flex;gap:16px;flex-wrap:wrap">
-      <div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--green)">🟢 领涨方向（含个股）</div>
-        <div style="font-size:.84rem;color:var(--sub);line-height:2.2">${D.recap.winners.map(w=>'<div style="margin-bottom:4px"><b style="color:var(--green)">✅ '+w.s+'</b><br><span style="font-size:.93rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+w.stks+'</span></div>').join('')}</div></div>
-      <div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--red)">🔴 领跌方向（含个股）</div>
-        <div style="font-size:.84rem;color:var(--sub);line-height:2.2">${D.recap.losers.map(l=>'<div style="margin-bottom:4px"><b style="color:var(--red)">❌ '+l.s+'</b><br><span style="font-size:.93rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+l.stks+'</span></div>').join('')}</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px">
+        <div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>
+        ${D.recap.winners.map(w=>'<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(st=>'<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>').join('')+'</div></div>').join('')}
+      </div>
+      <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px">
+        <div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>
+        ${D.recap.losers.map(l=>'<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(st=>'<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>').join('')+'</div></div>').join('')}
+      </div>
     </div></div>`;
 
   // ════ BRIEFING ════
+// ════ BRIEFING ════
   let br=`<div class="tab-panel" id="panel-briefing">
     <div class="section"><div class="section-title">📰 今日最重要的消息</div>`;
   D.top3.forEach(n=>{br+=`<div class="news-card"><div class="n-head"><div class="n-rank r${n.r}">${n.r}</div><div class="n-title">${n.t}</div></div><div class="n-body">${n.b}</div><div class="n-pills">${n.s.map(x=>`<span class="c-pill pick">${x}</span>`).join('')}</div></div>`;});
@@ -611,6 +616,7 @@ function go(tab){
           var rt=document.getElementById('recapTitle');if(rt&&d.updated)rt.textContent='📈 大盘复盘 · '+d.updated;
           var noteP=rp.querySelector('p');if(noteP&&r.note)noteP.textContent=r.note;
           var sections=rp.querySelectorAll('.section');
+          // Section 0=title+note, 1=index, 2=flow, 3=heat
           if(r.index&&r.index.length&&sections[1]){
             var idxHtml='<div class="section-title">📊 主要指数</div><div class="recap-grid">';
             r.index.forEach(function(i){
@@ -620,26 +626,33 @@ function go(tab){
             sections[1].innerHTML=idxHtml;
           }
           if(r.heat&&r.heat.length&&sections[3]){
-            var heatHtml='<div class="section-title">🔥 今日最热板块</div><div class="heat-row">';
+            var heatHtml='<div class="section-title">🔥 最热板块</div><div class="heat-row">';
             r.heat.forEach(function(h){
               heatHtml+='<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>';
             });
             heatHtml+='</div>';
             sections[3].innerHTML=heatHtml;
           }
-          if(sections[4]){
-            var wlHtml='';
-            if(r.winners&&r.winners.length){
-              wlHtml+='<div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--green)">🟢 领涨方向（含个股）</div><div style="font-size:.84rem;color:var(--sub);line-height:2.2">';
-              r.winners.forEach(function(w){wlHtml+='<div style="margin-bottom:4px"><b style="color:var(--green)">✅ '+w.s+'</b><br><span style="font-size:.93rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+w.stks+'</span></div>';});
-              wlHtml+='</div></div>';
+          // Winners/Losers grid (after section[3], there's a div with 2 section blocks)
+          var grid=rp.querySelector('[style*=\"grid-template-columns:1fr 1fr\"]');
+          if(grid){
+            var cells=grid.children;
+            if(r.winners&&r.winners.length&&cells[0]){
+              var wHtml='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';
+              r.winners.forEach(function(w){
+                var rows=w.stks.split(' / ').map(function(st){return '<div style=\"font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0\">  '+st+'</div>';}).join('');
+                wHtml+='<div style=\"margin-bottom:12px\"><div style=\"color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px\">✅ '+w.s+'</div><div style=\"font-size:.78rem;color:var(--sub);line-height:1.9\">'+rows+'</div></div>';
+              });
+              cells[0].innerHTML=wHtml;
             }
-            if(r.losers&&r.losers.length){
-              wlHtml+='<div style="flex:1;min-width:280px"><div class="section-title" style="color:var(--red)">🔴 领跌方向（含个股）</div><div style="font-size:.84rem;color:var(--sub);line-height:2.2">';
-              r.losers.forEach(function(l){wlHtml+='<div style="margin-bottom:4px"><b style="color:var(--red)">❌ '+l.s+'</b><br><span style="font-size:.93rem;color:var(--dim)">&nbsp;&nbsp;&nbsp;'+l.stks+'</span></div>';});
-              wlHtml+='</div></div>';
+            if(r.losers&&r.losers.length&&cells[1]){
+              var lHtml='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';
+              r.losers.forEach(function(l){
+                var rows=l.stks.split(' / ').map(function(st){return '<div style=\"font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0\">  '+st+'</div>';}).join('');
+                lHtml+='<div style=\"margin-bottom:12px\"><div style=\"color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px\">❌ '+l.s+'</div><div style=\"font-size:.78rem;color:var(--sub);line-height:1.9\">'+rows+'</div></div>';
+              });
+              cells[1].innerHTML=lHtml;
             }
-            if(wlHtml)sections[4].innerHTML=wlHtml;
           }
         }
         // Calendar refresh
