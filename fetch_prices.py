@@ -75,7 +75,7 @@ def get_sector_heat_em():
 def get_fund_flow_em():
     """Returns flow items in format HTML expects: {n, amt: '+87.9亿'}"""
     items = em_json("http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62").get('diff', [])
-    return [{'n': i.get('f14', ''), 'amt': f"{'+' if i.get('f62', 0) > 0 else ''}{abs(i.get('f62', 0) or 0) / 100000000:.1f}亿"}
+    return [{'n': i.get('f14', ''), 'amt': f"{'+' if float(i.get('f62', 0) or 0) > 0 else ''}{abs(float(i.get('f62', 0) or 0)) / 100000000:.1f}亿"}
             for i in items]
 
 # ═══════════ Sector mapping (from index.html D.groups) ═══════════
