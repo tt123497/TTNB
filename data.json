@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-14 05:39 CST",
+  "updated": "2026-06-14 05:42 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1979318,
   "recap": {
@@ -263,7 +263,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-14 05:39",
+      "updated": "2026-06-14 05:42",
       "tiers": [
         {
           "boardCount": 4,
@@ -907,7 +907,7 @@
       "maxBoard": 4,
       "totalCount": 89
     },
-    "note": "06/14 05:39 GitHub Actions云更新 | 191只 | 50板块",
+    "note": "06/14 05:42 GitHub Actions云更新 | 191只 | 50板块",
     "cycle": {
       "phase": "主升浪中段·高位消化",
       "phaseIcon": "🌊",
@@ -2434,6 +2434,22 @@
       "big": 1,
       "desc": "Q2涨价受益标的业绩,决定行情去留",
       "u": "https://finance.eastmoney.com/a/202606103766520259.html"
+    },
+    {
+      "d": "06月14日",
+      "icon": "📊",
+      "e": "A股实时行情更新",
+      "s": "全部赛道",
+      "big": 0,
+      "desc": "数据更新于 05:42"
+    },
+    {
+      "d": "7月1日",
+      "icon": "✈️",
+      "e": "新《民航法》正式施行",
+      "s": "低空经济",
+      "big": 1,
+      "desc": "300m以下空域开放,飞行审批7天→1小时"
     }
   ],
   "layout": [
