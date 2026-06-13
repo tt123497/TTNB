@@ -111,13 +111,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .news-card .n-pills{display:flex;flex-wrap:wrap;gap:5px}
 
 .pick-row{display:flex;flex-direction:column;gap:8px}
-.pick-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)}
+.pick-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:background .15s}
+.pick-item:hover{background:var(--card)}
 .pick-item .pi-rank{font-size:1.25rem;font-weight:800;color:var(--blue);min-width:22px;text-align:center}
 .pick-item .pi-info{flex:1;min-width:0}
 .pick-item .pi-name{font-size:.96rem;font-weight:600}
 .pick-item .pi-code{font-size:.82rem;color:var(--dim);margin-left:4px}
 .pick-item .pi-reason{font-size:.84rem;color:var(--sub);margin-top:2px}
 .pick-item .pi-sector{font-size:.93rem;color:var(--dim);white-space:nowrap}
+.pick-item .pi-arrow{font-size:.72rem;color:var(--dim);transition:transform .2s;min-width:16px;text-align:center}
+.pick-item.collapsed .pi-reason{display:none}
+.pick-item.collapsed .pi-arrow{transform:rotate(-90deg)}
 
 .chain-card{margin-bottom:10px}
 .chain-card summary{font-size:1.02rem;font-weight:600;padding:12px 14px;cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:space-between;list-style:none}
@@ -196,7 +200,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 /* ── ZT Ladder ── */
 .zt-ladder-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
 .zt-tier{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
-.zt-tier-header{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(59,130,246,.04);border-bottom:1px solid var(--border)}
+.zt-tier-header{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(59,130,246,.04);border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+.zt-tier-header:hover{background:rgba(59,130,246,.08)}
+.zt-tier-header .arr{font-size:.72rem;color:var(--sub);transition:transform .2s;margin-left:auto}
+.zt-tier.collapsed .zt-tier-body{display:none}
+.zt-tier.collapsed .zt-tier-header{border-bottom:none}
+.zt-tier.collapsed .zt-tier-header .arr{transform:rotate(-90deg)}
 .zt-tier-badge{font-size:.93rem;font-weight:800;padding:3px 10px;border-radius:5px;color:#fff;min-width:56px;text-align:center}
 .zt-tier-badge.b6,.zt-tier-badge.b5{background:linear-gradient(135deg,#ef4444,#f97316)}
 .zt-tier-badge.b4,.zt-tier-badge.b3{background:linear-gradient(135deg,#f59e0b,#eab308)}
@@ -708,9 +717,9 @@ function go(tab){
     <div class="section" id="recapZTLadder"><div class="section-title">🪜 连板梯队</div>`;
   if(D.recap.ztLadder&&D.recap.ztLadder.tiers&&D.recap.ztLadder.tiers.length){
     rc+=`<div class="zt-ladder-grid">`;
-    D.recap.ztLadder.tiers.forEach(function(tier){
+    D.recap.ztLadder.tiers.forEach(function(tier,i){
       var bc=tier.boardCount, bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';
-      rc+=`<div class="zt-tier"><div class="zt-tier-header"><span class="zt-tier-badge ${bcl}">${bc}连板</span><span class="zt-tier-count">${tier.stocks.length}只</span></div><div class="zt-tier-body">`;
+      rc+=`<div class="zt-tier${i>0?' collapsed':''}"><div class="zt-tier-header"><span class="zt-tier-badge ${bcl}">${bc}连板</span><span class="zt-tier-count">${tier.stocks.length}只</span><span class="arr">▾</span></div><div class="zt-tier-body">`;
       tier.stocks.forEach(function(st){rc+=`<span class="zt-stock"><span class="sc">${st.c}</span> ${st.n}<span class="si">${st.industry||''}</span></span>`;});
       rc+=`</div></div>`;
     });
@@ -737,7 +746,7 @@ function go(tab){
     <div class="section"><div class="section-title">📰 今日最重要的消息</div>`;
   D.top3.forEach(n=>{let link=n.u?'<a class="n-link" href="'+n.u+'" target="_blank" rel="noopener">🔗 查看原文</a>':'';br+=`<div class="news-card"><div class="n-head"><div class="n-rank r${n.r}">${n.r}</div><div class="n-title">${n.u?'<a href="'+n.u+'" target="_blank" rel="noopener">'+n.t+'</a>':n.t}</div></div><div class="n-body">${n.b}</div>${link}<div class="n-pills">${n.s.map(x=>`<span class="c-pill pick">${x}</span>`).join('')}</div></div>`;});
   br+=`</div><div class="section"><div class="section-title">🎯 精选标的 Top ${D.picks.length}</div><div class="pick-row">`;
-  D.picks.forEach(p=>{br+=`<div class="pick-item"><div class="pi-rank">#${p.r}</div><div class="pi-info"><div><span class="pi-name">${p.n}</span><span class="pi-code">${p.c}</span></div><div class="pi-reason">${p.why}${p.u?' <a href="'+p.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</div></div><div class="pi-sector">${p.sec}</div></div>`;});
+  D.picks.forEach(p=>{br+=`<div class="pick-item collapsed"><div class="pi-rank">#${p.r}</div><div class="pi-info"><div><span class="pi-name">${p.n}</span><span class="pi-code">${p.c}</span></div><div class="pi-reason">${p.why}${p.u?' <a href="'+p.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</div></div><div class="pi-sector">${p.sec}</div><div class="pi-arrow">▸</div></div>`;});
   br+=`</div></div>`;
   // Briefing history (past briefings archived)
   if(D.bHistory&&D.bHistory.length){
@@ -855,7 +864,7 @@ function go(tab){
           if(picksDiv&&b.picks&&b.picks.length){
             var picksHtml='<div class="section-title">🎯 云端精选标的</div><div class="pick-row">';
             b.picks.forEach(function(p){
-              picksHtml+='<div class="pick-item"><div class="pi-rank">#'+p.r+'</div><div class="pi-info"><div><span class="pi-name">'+p.n+'</span><span class="pi-code">'+p.c+'</span></div><div class="pi-reason">'+p.why+(p.u?' <a href="'+p.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</div></div><div class="pi-sector">'+p.sec+'</div></div>';
+              picksHtml+='<div class="pick-item collapsed"><div class="pi-rank">#'+p.r+'</div><div class="pi-info"><div><span class="pi-name">'+p.n+'</span><span class="pi-code">'+p.c+'</span></div><div class="pi-reason">'+p.why+(p.u?' <a href="'+p.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</div></div><div class="pi-sector">'+p.sec+'</div><div class="pi-arrow">▸</div></div>';
             });
             picksHtml+='</div>';
             picksDiv.innerHTML=picksHtml;
@@ -918,7 +927,7 @@ function go(tab){
           var ztDiv=document.getElementById('recapZTLadder');if(ztDiv){
             if(r.ztLadder&&r.ztLadder.tiers&&r.ztLadder.tiers.length){
               var z=r.ztLadder, ztHtml='<div class="section-title">🪜 连板梯队</div><div class="zt-ladder-grid">';
-              z.tiers.forEach(function(tier){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';ztHtml+='<div class="zt-tier"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){ztHtml+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});ztHtml+='</div></div>';});
+              z.tiers.forEach(function(tier,i){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';ztHtml+='<div class="zt-tier'+(i>0?' collapsed':'')+'"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span><span class="arr">▾</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){ztHtml+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});ztHtml+='</div></div>';});
               ztHtml+='</div>'; ztDiv.innerHTML=ztHtml;
             }else{ztDiv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">暂无涨停数据</div>';}
           }
@@ -1045,7 +1054,7 @@ function go(tab){
     var htv=document.getElementById('recapHeat');if(htv&&r.heat){var hh='<div class="section-title">🔥 最热板块</div><div class="heat-row">';r.heat.forEach(function(h){hh+='<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>';});hh+='</div>';htv.innerHTML=hh;}
 
     // ZT Ladder
-    var ztv=document.getElementById('recapZTLadder');if(ztv){if(r.ztLadder&&r.ztLadder.tiers&&r.ztLadder.tiers.length){var zh='<div class="section-title">🪜 连板梯队</div><div class="zt-ladder-grid">';r.ztLadder.tiers.forEach(function(tier){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';zh+='<div class="zt-tier"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){zh+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});zh+='</div></div>';});zh+='</div>';ztv.innerHTML=zh;}else{ztv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">该日期无涨停数据</div>';}}
+    var ztv=document.getElementById('recapZTLadder');if(ztv){if(r.ztLadder&&r.ztLadder.tiers&&r.ztLadder.tiers.length){var zh='<div class="section-title">🪜 连板梯队</div><div class="zt-ladder-grid">';r.ztLadder.tiers.forEach(function(tier,i){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';zh+='<div class="zt-tier'+(i>0?' collapsed':'')+'"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span><span class="arr">▾</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){zh+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});zh+='</div></div>';});zh+='</div>';ztv.innerHTML=zh;}else{ztv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">该日期无涨停数据</div>';}}
 
     // Winners
     var wdv=document.getElementById('recapWinners');if(wdv&&r.winners){var wh='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';r.winners.forEach(function(w){wh+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});wdv.innerHTML=wh;}
@@ -1053,6 +1062,17 @@ function go(tab){
     // Losers
     var ldv=document.getElementById('recapLosers');if(ldv&&r.losers){var lh='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';r.losers.forEach(function(l){lh+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});ldv.innerHTML=lh;}
   }
+
+  // Event delegation: ZT tier collapse & pick-item collapse
+  document.getElementById('mainContent').addEventListener('click',function(e){
+    var el=e.target;
+    // ZT tier header click → collapse the tier
+    while(el&&el!==this){
+      if(el.classList.contains('zt-tier-header')){el.closest('.zt-tier').classList.toggle('collapsed');return;}
+      if(el.classList.contains('pick-item')){el.classList.toggle('collapsed');return;}
+      el=el.parentElement;
+    }
+  });
 
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
