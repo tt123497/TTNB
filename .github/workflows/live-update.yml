@@ -33,3 +33,20 @@ jobs:
           git config user.email "bot@sentinel.local"
           git add data.json
           git diff --staged --quiet || (git commit -m "📊 $(TZ='Asia/Shanghai' date '+%H:%M') 行情更新" && git push)
+
+      - name: 归档收盘数据
+        run: |
+          HOUR=$(TZ='Asia/Shanghai' date +%H)
+          if [ "$HOUR" = "15" ]; then
+            mkdir -p archive
+            DATE=$(TZ='Asia/Shanghai' date +%Y-%m-%d)
+            cp data.json archive/$DATE.json
+            python3 -c "
+import json, os
+files = sorted([f.replace('.json','') for f in os.listdir('archive') if f.endswith('.json') and f != 'index.json'], reverse=True)
+with open('archive/index.json','w') as fh: json.dump(files, fh, ensure_ascii=False)
+print(f'Index: {len(files)} archives')
+"
+            git add archive/
+            git diff --staged --quiet || (git commit -m "📦 归档 $DATE 收盘数据" && git push)
+          fi

@@ -178,6 +178,47 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .heat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
 .heat-tag{padding:4px 12px;border-radius:12px;font-size:.84rem;font-weight:600}
 
+/* ── Market Cycle Card ── */
+.cycle-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:14px;border-left:4px solid var(--blue)}
+.cycle-card.risk-low{border-left-color:var(--green)}
+.cycle-card.risk-medium{border-left-color:var(--amber)}
+.cycle-card.risk-high{border-left-color:var(--red)}
+.cycle-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.cycle-phase{font-size:1.1rem;font-weight:700}
+.cycle-risk-tag{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:10px}
+.cycle-risk-tag.low{background:rgba(34,197,94,.12);color:var(--green)}
+.cycle-risk-tag.medium{background:rgba(245,158,11,.12);color:var(--amber)}
+.cycle-risk-tag.high{background:rgba(239,68,68,.12);color:var(--red)}
+.cycle-signals{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.cycle-signal{font-size:.82rem;color:var(--sub);padding:2px 0 2px 10px;border-left:2px solid var(--border)}
+.cycle-suggestion{font-size:.86rem;font-weight:600;padding:8px 12px;background:rgba(59,130,246,.06);border-radius:var(--radius-sm);color:var(--blue)}
+
+/* ── ZT Ladder ── */
+.zt-ladder-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.zt-tier{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.zt-tier-header{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(59,130,246,.04);border-bottom:1px solid var(--border)}
+.zt-tier-badge{font-size:.93rem;font-weight:800;padding:3px 10px;border-radius:5px;color:#fff;min-width:56px;text-align:center}
+.zt-tier-badge.b6,.zt-tier-badge.b5{background:linear-gradient(135deg,#ef4444,#f97316)}
+.zt-tier-badge.b4,.zt-tier-badge.b3{background:linear-gradient(135deg,#f59e0b,#eab308)}
+.zt-tier-badge.b2{background:linear-gradient(135deg,#3b82f6,#8b5cf6)}
+.zt-tier-badge.b1{background:linear-gradient(135deg,#6366f1,#a855f7)}
+.zt-tier-count{font-size:.78rem;color:var(--sub)}
+.zt-tier-body{display:flex;flex-wrap:wrap;gap:5px;padding:8px 12px}
+.zt-stock{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;background:var(--surface);border:1px solid var(--border);border-radius:5px;font-size:.78rem;transition:all .15s}
+.zt-stock:hover{border-color:var(--blue)}
+.zt-stock .sc{font-family:'SF Mono','Fira Code',monospace;color:var(--dim);font-size:.74rem}
+.zt-stock .si{font-size:.68rem;color:var(--sub);margin-left:2px;max-width:60px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.zt-none{text-align:center;color:var(--dim);padding:16px;font-size:.86rem}
+
+/* ── Recap Date Switcher ── */
+.recap-date-bar{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.recap-date-bar input[type="date"]{padding:5px 8px;font-size:.8rem;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font)}
+.recap-date-bar input[type="date"]:focus{border-color:var(--blue);outline:none}
+.recap-date-bar input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1)}
+.recap-date-bar .btn-today{padding:5px 12px;font-size:.78rem;font-weight:600;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-sm);cursor:pointer}
+.recap-date-bar .btn-today:hover{opacity:.9}
+.recap-date-bar .date-status{font-size:.74rem;color:var(--dim)}
+
 .update-bar{text-align:center;padding:8px;font-size:.82rem;color:var(--sub);background:var(--surface);border-bottom:1px solid var(--border)}
 .footer{text-align:center;padding:24px;color:var(--dim);font-size:.93rem;border-top:1px solid var(--border);margin-top:20px;line-height:1.8}
 .stat-strip{display:flex;gap:10px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
@@ -191,6 +232,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   .main{padding:10px}.card-grid{grid-template-columns:1fr}
   .recap-grid{grid-template-columns:repeat(3,1fr)}
   .stat-chip{min-width:70px;padding:10px}.stat-chip .val{font-size:1.25rem}
+  .zt-tier-body{gap:3px}.zt-stock{font-size:.72rem;padding:3px 6px}
+  .zt-tier-badge{font-size:.84rem;padding:2px 8px;min-width:48px}
 }
 .tab-panel{display:none}
 .tab-panel.on{display:block}
@@ -252,6 +295,8 @@ const D={
       {s:"消费电子/元器件",stks:"立讯精密-4% / 歌尔股份-5% / 工业富联-3.5%"},
       {s:"存储芯片/模组",stks:"江波龙-5% / 佰维存储-4.8% / 兆易创新-3.5% / 德明利-4%"},
     ],
+    cycle:null,
+    ztLadder:null,
     note:"6/10沪指跌0.42%失守4000点,科创50冲高回落跌0.65%。主力净流出694亿,电子-267亿/电力设备-102亿。仅化工+9.6亿等3行业净流入。电子特气(WF₆/PPE)成最强避风港,AI应用端天娱4连板。科技股高位分化严重,资金轮动至银行红利防御。外围:美股科技波动+中东地缘+CPO量产延后三重压制。"
   },
 
@@ -537,6 +582,8 @@ function go(tab){
       if(data.recap.losers&&data.recap.losers.length) D.recap.losers=data.recap.losers;
       if(data.recap.note) D.recap.note=data.recap.note;
       if(data.recap.flow) D.recap.flow=data.recap.flow;
+      if(data.recap.cycle) D.recap.cycle=data.recap.cycle;
+      if(data.recap.ztLadder) D.recap.ztLadder=data.recap.ztLadder;
     }
     if(data.top3&&data.top3.length) D.top3=data.top3;
     if(data.picks&&data.picks.length) D.picks=data.picks;
@@ -626,29 +673,59 @@ function go(tab){
 
   // ════ MARKET RECAP ════
   let rc=`<div class="tab-panel" id="panel-recap">
-    <div class="section"><div class="section-title" id="recapTitle">📈 大盘复盘 · ${D.updated}</div>
-    <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">${D.recap.note}</p></div>
+    <div class="section">
+    <div class="recap-date-bar">
+      <div class="section-title" id="recapTitle" style="margin-bottom:0">📈 大盘复盘 · ${D.updated}</div>
+      <input type="date" id="recapDateInput" title="选择历史日期" onchange="loadRecapDate(this.value)">
+      <button class="btn-today" onclick="loadRecapDate('today')">今天</button>
+      <span class="date-status" id="recapDateStatus"></span>
+    </div>`;
+  // Cycle card
+  if(D.recap.cycle){
+    var c=D.recap.cycle;
+    rc+=`<div class="cycle-card risk-${c.riskLevel||'medium'}" id="recapCycle">
+      <div class="cycle-header"><span class="cycle-phase">${c.phaseIcon||'📊'} ${c.phase||''}</span><span class="cycle-risk-tag ${c.riskLevel||'medium'}">${c.riskLabel||''}</span></div>
+      <div class="cycle-signals">${(c.signals||[]).map(s=>'<div class="cycle-signal">▸ '+s+'</div>').join('')}</div>
+      <div class="cycle-suggestion">💡 ${c.suggestion||''}</div>
+    </div>`;
+  }
+  rc+=`<p style="font-size:.84rem;color:var(--sub);margin-bottom:12px" id="recapNote">${D.recap.note}</p></div>
 
-    <div class="section"><div class="section-title">📊 主要指数</div>
+    <div class="section" id="recapIndex"><div class="section-title">📊 主要指数</div>
     <div class="recap-grid">${D.recap.index.map(i=>`<div class="recap-chip">
       <div class="rc-val" style="color:${i.up?'var(--green)':'var(--red)'}">${i.chg}</div>
       <div class="rc-label">${i.n}</div>
       <div class="rc-sub">${i.v}</div>
     </div>`).join('')}</div></div>
 
-    <div class="section"><div class="section-title">💸 主力资金</div>
+    <div class="section" id="recapFlow"><div class="section-title">💸 主力资金</div>
     <div class="recap-bar">${(()=>{let maxV=0;D.recap.flow.forEach(f=>{var vv=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));if(vv>maxV)maxV=vv;});if(maxV===0)maxV=100;return D.recap.flow.map(f=>{var v=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));var p=v/maxV*100;var colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<div style=\"width:'+Math.max(p,3)+'%;background:'+colors[D.recap.flow.indexOf(f)%6]+'\"></div>';}).join('');})()}</div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">${D.recap.flow.map((f,i)=>{const colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:'+colors[i]+';margin-right:4px"></span>'+f.n+' '+f.amt+'</span>';}).join('')}</div></div>
 
-    <div class="section"><div class="section-title">🔥 最热板块</div>
+    <div class="section" id="recapHeat"><div class="section-title">🔥 最热板块</div>
     <div class="heat-row">${D.recap.heat.map(h=>'<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>').join('')}</div></div>
 
+    <div class="section" id="recapZTLadder"><div class="section-title">🪜 连板梯队</div>`;
+  if(D.recap.ztLadder&&D.recap.ztLadder.tiers&&D.recap.ztLadder.tiers.length){
+    rc+=`<div class="zt-ladder-grid">`;
+    D.recap.ztLadder.tiers.forEach(function(tier){
+      var bc=tier.boardCount, bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';
+      rc+=`<div class="zt-tier"><div class="zt-tier-header"><span class="zt-tier-badge ${bcl}">${bc}连板</span><span class="zt-tier-count">${tier.stocks.length}只</span></div><div class="zt-tier-body">`;
+      tier.stocks.forEach(function(st){rc+=`<span class="zt-stock"><span class="sc">${st.c}</span> ${st.n}<span class="si">${st.industry||''}</span></span>`;});
+      rc+=`</div></div>`;
+    });
+    rc+=`</div>`;
+  }else{
+    rc+=`<div class="zt-none">今日无涨停数据（非交易日或未更新）</div>`;
+  }
+  rc+=`</div>
+
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-      <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px">
+      <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px" id="recapWinners">
         <div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>
         ${D.recap.winners.map(w=>'<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(st=>'<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>').join('')+'</div></div>').join('')}
       </div>
-      <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px">
+      <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px" id="recapLosers">
         <div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>
         ${D.recap.losers.map(l=>'<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(st=>'<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>').join('')+'</div></div>').join('')}
       </div>
@@ -799,48 +876,63 @@ function go(tab){
           bhEl.innerHTML=bhHtml;
         }
         // Recap panel
+        if(currentRecapDate!=='today')return; // skip refresh when viewing history
         var rp=document.getElementById('panel-recap');if(rp&&d.recap){
           var r=d.recap;
           var rt=document.getElementById('recapTitle');if(rt&&d.updated)rt.textContent='📈 大盘复盘 · '+d.updated;
-          var noteP=rp.querySelector('p');if(noteP&&r.note)noteP.textContent=r.note;
-          var sections=rp.querySelectorAll('.section');
-          // Section 0=title+note, 1=index, 2=flow, 3=heat
-          if(r.index&&r.index.length&&sections[1]){
+          var np=document.getElementById('recapNote');if(np&&r.note)np.textContent=r.note;
+
+          // Cycle card
+          var cc=document.getElementById('recapCycle');if(cc&&r.cycle){
+            var cy=r.cycle; cc.className='cycle-card risk-'+(cy.riskLevel||'medium');
+            cc.innerHTML='<div class="cycle-header"><span class="cycle-phase">'+(cy.phaseIcon||'📊')+' '+(cy.phase||'')+'</span><span class="cycle-risk-tag '+(cy.riskLevel||'medium')+'">'+(cy.riskLabel||'')+'</span></div><div class="cycle-signals">'+(cy.signals||[]).map(function(s){return '<div class="cycle-signal">▸ '+s+'</div>';}).join('')+'</div><div class="cycle-suggestion">💡 '+(cy.suggestion||'')+'</div>';
+          }else if(cc){cc.style.display='none';}
+
+          // Index section
+          var idxDiv=document.getElementById('recapIndex');if(idxDiv&&r.index&&r.index.length){
             var idxHtml='<div class="section-title">📊 主要指数</div><div class="recap-grid">';
-            r.index.forEach(function(i){
-              idxHtml+='<div class="recap-chip"><div class="rc-val" style="color:'+(i.up?'var(--green)':'var(--red)')+'">'+i.chg+'</div><div class="rc-label">'+i.n+'</div><div class="rc-sub">'+i.v+'</div></div>';
-            });
-            idxHtml+='</div>';
-            sections[1].innerHTML=idxHtml;
+            r.index.forEach(function(i){idxHtml+='<div class="recap-chip"><div class="rc-val" style="color:'+(i.up?'var(--green)':'var(--red)')+'">'+i.chg+'</div><div class="rc-label">'+i.n+'</div><div class="rc-sub">'+i.v+'</div></div>';});
+            idxHtml+='</div>'; idxDiv.innerHTML=idxHtml;
           }
-          if(r.heat&&r.heat.length&&sections[3]){
-            var heatHtml='<div class="section-title">🔥 最热板块</div><div class="heat-row">';
-            r.heat.forEach(function(h){
-              heatHtml+='<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>';
-            });
-            heatHtml+='</div>';
-            sections[3].innerHTML=heatHtml;
+
+          // Flow section
+          var flDiv=document.getElementById('recapFlow');if(flDiv&&r.flow&&r.flow.length){
+            var maxV=0; r.flow.forEach(function(f){var vv=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));if(vv>maxV)maxV=vv;});
+            if(maxV===0)maxV=100;
+            var colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];
+            var flHtml='<div class="section-title">💸 主力资金</div><div class="recap-bar">';
+            r.flow.forEach(function(f){var v=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));var p=v/maxV*100;flHtml+='<div style="width:'+Math.max(p,3)+'%;background:'+colors[r.flow.indexOf(f)%6]+'"></div>';});
+            flHtml+='</div><div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">';
+            r.flow.forEach(function(f,i){flHtml+='<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:'+colors[i]+';margin-right:4px"></span>'+f.n+' '+f.amt+'</span>';});
+            flHtml+='</div>'; flDiv.innerHTML=flHtml;
           }
-          // Winners/Losers grid (after section[3], there's a div with 2 section blocks)
-          var grid=rp.querySelector('[style*=\"grid-template-columns:1fr 1fr\"]');
-          if(grid){
-            var cells=grid.children;
-            if(r.winners&&r.winners.length&&cells[0]){
-              var wHtml='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';
-              r.winners.forEach(function(w){
-                var rows=w.stks.split(' / ').map(function(st){return '<div style=\"font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0\">  '+st+'</div>';}).join('');
-                wHtml+='<div style=\"margin-bottom:12px\"><div style=\"color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px\">✅ '+w.s+'</div><div style=\"font-size:.78rem;color:var(--sub);line-height:1.9\">'+rows+'</div></div>';
-              });
-              cells[0].innerHTML=wHtml;
-            }
-            if(r.losers&&r.losers.length&&cells[1]){
-              var lHtml='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';
-              r.losers.forEach(function(l){
-                var rows=l.stks.split(' / ').map(function(st){return '<div style=\"font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0\">  '+st+'</div>';}).join('');
-                lHtml+='<div style=\"margin-bottom:12px\"><div style=\"color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px\">❌ '+l.s+'</div><div style=\"font-size:.78rem;color:var(--sub);line-height:1.9\">'+rows+'</div></div>';
-              });
-              cells[1].innerHTML=lHtml;
-            }
+
+          // Heat section
+          var htDiv=document.getElementById('recapHeat');if(htDiv&&r.heat&&r.heat.length){
+            var htHtml='<div class="section-title">🔥 最热板块</div><div class="heat-row">';
+            r.heat.forEach(function(h){htHtml+='<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>';});
+            htHtml+='</div>'; htDiv.innerHTML=htHtml;
+          }
+
+          // ZT Ladder
+          var ztDiv=document.getElementById('recapZTLadder');if(ztDiv){
+            if(r.ztLadder&&r.ztLadder.tiers&&r.ztLadder.tiers.length){
+              var z=r.ztLadder, ztHtml='<div class="section-title">🪜 连板梯队</div><div class="zt-ladder-grid">';
+              z.tiers.forEach(function(tier){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';ztHtml+='<div class="zt-tier"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){ztHtml+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});ztHtml+='</div></div>';});
+              ztHtml+='</div>'; ztDiv.innerHTML=ztHtml;
+            }else{ztDiv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">暂无涨停数据</div>';}
+          }
+
+          // Winners/Losers
+          var wDiv=document.getElementById('recapWinners');if(wDiv&&r.winners&&r.winners.length){
+            var wHtml='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';
+            r.winners.forEach(function(w){wHtml+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});
+            wDiv.innerHTML=wHtml;
+          }
+          var lDiv=document.getElementById('recapLosers');if(lDiv&&r.losers&&r.losers.length){
+            var lHtml='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';
+            r.losers.forEach(function(l){lHtml+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});
+            lDiv.innerHTML=lHtml;
           }
         }
         // Calendar refresh (sorted future/past)
@@ -907,6 +999,59 @@ function go(tab){
       }).catch(function(){});
       }
       loadLive();setInterval(loadLive,30000);
+  }
+
+  // ── Recap Date Switcher ──
+  var currentRecapDate='today';
+  var availableDates=[];
+  fetch('archive/index.json?'+Date.now()).then(function(r){return r.json();}).then(function(dates){
+    availableDates=dates||[];
+    var inp=document.getElementById('recapDateInput');
+    if(inp&&availableDates.length){inp.min=availableDates[availableDates.length-1];inp.max=availableDates[0];}
+  }).catch(function(){});
+
+  window.loadRecapDate=function(dateStr){
+    var sel=document.getElementById('recapDateStatus');
+    if(dateStr==='today'){
+      currentRecapDate='today'; if(sel)sel.textContent='';
+      document.getElementById('recapDateInput').value=''; loadLive(); return;
+    }
+    currentRecapDate=dateStr; if(sel)sel.textContent='加载中...';
+    fetch('archive/'+dateStr+'.json')
+      .then(function(r){return r.json();}).then(function(data){
+        if(!data.recap){if(sel)sel.textContent='该日期无复盘数据';return;}
+        if(sel)sel.textContent='📅 '+dateStr; renderRecapHistory(data, dateStr);
+      }).catch(function(){if(sel)sel.textContent='该日期无数据';});
+  };
+
+  function renderRecapHistory(data, dateStr){
+    var rp=document.getElementById('panel-recap');if(!rp)return;
+    var r=data.recap;
+    var rt=document.getElementById('recapTitle');if(rt)rt.textContent='📈 大盘复盘 · '+dateStr+' (历史)';
+    var np=document.getElementById('recapNote');if(np&&r.note)np.textContent=r.note;
+
+    // Cycle
+    var cc=document.getElementById('recapCycle');
+    if(cc&&r.cycle){var cy=r.cycle;cc.className='cycle-card risk-'+(cy.riskLevel||'medium');cc.style.display='';cc.innerHTML='<div class="cycle-header"><span class="cycle-phase">'+(cy.phaseIcon||'📊')+' '+(cy.phase||'')+'</span><span class="cycle-risk-tag '+(cy.riskLevel||'medium')+'">'+(cy.riskLabel||'')+'</span></div><div class="cycle-signals">'+(cy.signals||[]).map(function(s){return '<div class="cycle-signal">▸ '+s+'</div>';}).join('')+'</div><div class="cycle-suggestion">💡 '+(cy.suggestion||'')+'</div>';}
+    else if(cc)cc.style.display='none';
+
+    // Index
+    var idv=document.getElementById('recapIndex');if(idv&&r.index){var ih='<div class="section-title">📊 主要指数</div><div class="recap-grid">';r.index.forEach(function(i){ih+='<div class="recap-chip"><div class="rc-val" style="color:'+(i.up?'var(--green)':'var(--red)')+'">'+i.chg+'</div><div class="rc-label">'+i.n+'</div><div class="rc-sub">'+i.v+'</div></div>';});ih+='</div>';idv.innerHTML=ih;}
+
+    // Flow
+    var flv=document.getElementById('recapFlow');if(flv&&r.flow&&r.flow.length){var maxV=0;r.flow.forEach(function(f){var vv=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));if(vv>maxV)maxV=vv;});if(maxV===0)maxV=100;var colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];var flh='<div class="section-title">💸 主力资金</div><div class="recap-bar">';r.flow.forEach(function(f){var v=Math.abs(parseFloat(f.amt.replace(/[+亿]/g,'')));var p=v/maxV*100;flh+='<div style="width:'+Math.max(p,3)+'%;background:'+colors[r.flow.indexOf(f)%6]+'"></div>';});flh+='</div><div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">';r.flow.forEach(function(f,i){flh+='<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:'+colors[i]+';margin-right:4px"></span>'+f.n+' '+f.amt+'</span>';});flh+='</div>';flv.innerHTML=flh;}
+
+    // Heat
+    var htv=document.getElementById('recapHeat');if(htv&&r.heat){var hh='<div class="section-title">🔥 最热板块</div><div class="heat-row">';r.heat.forEach(function(h){hh+='<span class="heat-tag" style="background:'+(h.c=='var(--red)'?'rgba(239,68,68,.12)':'rgba(245,158,11,.12)')+';color:'+h.c+'">'+h.n+' '+h.s+'</span>';});hh+='</div>';htv.innerHTML=hh;}
+
+    // ZT Ladder
+    var ztv=document.getElementById('recapZTLadder');if(ztv){if(r.ztLadder&&r.ztLadder.tiers&&r.ztLadder.tiers.length){var zh='<div class="section-title">🪜 连板梯队</div><div class="zt-ladder-grid">';r.ztLadder.tiers.forEach(function(tier){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';zh+='<div class="zt-tier"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){zh+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});zh+='</div></div>';});zh+='</div>';ztv.innerHTML=zh;}else{ztv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">该日期无涨停数据</div>';}}
+
+    // Winners
+    var wdv=document.getElementById('recapWinners');if(wdv&&r.winners){var wh='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';r.winners.forEach(function(w){wh+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});wdv.innerHTML=wh;}
+
+    // Losers
+    var ldv=document.getElementById('recapLosers');if(ldv&&r.losers){var lh='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';r.losers.forEach(function(l){lh+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});ldv.innerHTML=lh;}
   }
 
   // Final updateBar refresh from data.json

@@ -73,10 +73,40 @@ def get_sector_heat_em():
 
 # ═══════════ Fund flow ═══════════
 def get_fund_flow_em():
-    """Returns flow items in format HTML expects: {n, amt: '+87.9亿'}"""
-    items = em_json("http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62").get('diff', [])
+    """Returns fund flow: [{n, amt: '+87.9亿'}, ...]"""
+    items = em_json("http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62").get('diff', [])
     return [{'n': i.get('f14', ''), 'amt': f"{'+' if float(i.get('f62', 0) or 0) > 0 else ''}{abs(float(i.get('f62', 0) or 0)) / 100000000:.1f}亿"}
             for i in items]
+
+def get_zt_ladder():
+    """Fetch consecutive limit-up pool from EastMoney"""
+    cst = datetime.now(timezone.utc) + timedelta(hours=8)
+    for attempt in range(3):
+        try_date = cst - timedelta(days=attempt)
+        if try_date.weekday() >= 5: continue
+        date_str = try_date.strftime('%Y%m%d')
+        url = (f'http://push2ex.eastmoney.com/getTopicZTPool'
+               f'?ut=7eea3edcaed734bea9cbfc24409ed989'
+               f'&dpt=wz.ztzt&Pageindex=0&pagesize=200&sort=fbt:asc&date={date_str}')
+        try:
+            r = urlopen(Request(url, headers={'User-Agent': UA, 'Accept': '*/*', 'Referer': 'http://quote.eastmoney.com/'}), timeout=15)
+            text = r.read().decode('utf-8')
+            if text.startswith('callback('): text = text[9:-1]
+            elif 'jQuery' in text[:20]: text = text[text.index('(')+1:-1]
+            data = json.loads(text)
+            items = data.get('data', {}).get('pool', [])
+        except: continue
+        if not items: continue
+        tiers_dict = {}
+        for item in items:
+            lbc = item.get('lbc', 1) or 1
+            stock = {'c': item.get('c',''), 'n': item.get('n',''), 'industry': item.get('hybk',''),
+                     'p': (item.get('p',0) or 0) / 1000, 'zdf': item.get('zdp', 0)}
+            tiers_dict.setdefault(lbc, []).append(stock)
+        tiers = [{'boardCount': k, 'stocks': v} for k, v in sorted(tiers_dict.items(), reverse=True)]
+        return {'updated': cst.strftime('%Y-%m-%d %H:%M'), 'tiers': tiers,
+                'maxBoard': max(tiers_dict.keys()) if tiers_dict else 0, 'totalCount': len(items)}
+    return None
 
 # ═══════════ Sector mapping (from index.html D.groups) ═══════════
 def get_sector_mapping():
@@ -132,12 +162,15 @@ def main():
     fund = get_fund_flow_em()
     stock_sector = get_sector_mapping()
     winners, losers = compute_winners_losers(live, stock_sector, heat)
+    zt_ladder = get_zt_ladder()
 
     existing = {}
+    old_cycle = None
     if os.path.exists(DATA_PATH):
         with open(DATA_PATH, 'r', encoding='utf-8') as f:
             try: existing = json.load(f)
             except: pass
+        old_cycle = existing.get('recap', {}).get('cycle')
 
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
@@ -149,6 +182,7 @@ def main():
             'flow': fund,
             'winners': winners,
             'losers': losers,
+            'ztLadder': zt_ladder,
             'note': f"{cst.strftime('%m/%d %H:%M')} 东财全源 | {len(live)}只 | {len(heat)}板块"
         },
         'livePrices': live,
@@ -158,6 +192,8 @@ def main():
             'updateCount': int(time.time() / 900), 'trading': is_trading
         }
     }
+    if old_cycle:
+        out['recap']['cycle'] = old_cycle
     for k in ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'extraCodes', 'bHistory']:
         if k in existing and existing[k]: out[k] = existing[k]
 
