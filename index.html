@@ -1197,17 +1197,8 @@ function go(tab){
 
   // Stock hover tooltip
   var tipEl=document.getElementById('stockTip'), tipTimer=null, tipCode='';
-  document.getElementById('mainContent').addEventListener('mouseover',function(e){
-    var el=e.target, code='';
-    // Walk up to find a stock-bearing element
-    while(el&&el!==this){
-      var t=el.textContent.trim(); var m=t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.card'))){
-        code=m[1]; break;
-      }
-      el=el.parentElement;
-    }
-    if(!code||code===tipCode) return; tipCode=code;
+  function showTip(e, code){
+    if(code===tipCode) return; tipCode=code;
     clearTimeout(tipTimer);
     var info=stockInfo[code]; if(!info) return;
     var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
@@ -1217,9 +1208,18 @@ function go(tab){
     tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div><div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div><div style="font-size:.7rem;color:var(--sub);margin-top:3px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
     tipEl.style.display='block';
     tipTimer=setTimeout(function(){var x=e.clientX+15,y=e.clientY-10;if(x+240>window.innerWidth)x=e.clientX-250;if(y+120>window.innerHeight)y=e.clientY-130;tipEl.style.left=x+'px';tipEl.style.top=y+'px';},80);
-  });
-  document.getElementById('mainContent').addEventListener('mouseout',function(e){
-    var el=e.target; while(el&&el!==this){if(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.closest('tr')){tipCode='';tipEl.style.display='none';return;}el=el.parentElement;}
+  }
+  function hideTip(){tipCode='';tipEl.style.display='none';}
+  document.getElementById('mainContent').addEventListener('mousemove',function(e){
+    var el=e.target, code='';
+    while(el&&el!==this){
+      var t=el.textContent.trim(); var m=t.match(/(\d{6})/);
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.card'))){
+        code=m[1]; break;
+      }
+      el=el.parentElement;
+    }
+    if(code) showTip(e, code); else hideTip();
   });
 
   // Final updateBar refresh from data.json
