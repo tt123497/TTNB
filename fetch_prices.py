@@ -179,10 +179,17 @@ def compute_winners_losers(live, stock_sector, heat_em):
 
     sorted_em = sorted(heat_em, key=lambda x: float(x['s'].replace('%','').replace('+','').replace('-','-')), reverse=True)
     winners, losers = [], []
-    for s in sorted_em[:10]:
+    matched_em = []; unmatched_em = []
+    for s in sorted_em[:30]:
         m = match_our(s['n'])
-        winners.append({'s': s['n'], 'stks': sec_detail.get(m,'') if m else s['s']})
+        stks = sec_detail.get(m,'') if m else ''
+        (matched_em if stks else unmatched_em).append({'s': s['n'], 'stks': stks or s['s']})
+    for w in matched_em:
         if len(winners) >= 6: break
+        winners.append(w)
+    for w in unmatched_em:
+        if len(winners) >= 6: break
+        winners.append(w)
     # Losers from OUR sectors (by average change), so always relevant
     our_losers = []
     import re
