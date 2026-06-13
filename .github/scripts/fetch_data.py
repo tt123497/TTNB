@@ -109,6 +109,33 @@ def get_fund_flow_em():
                 for i in items]
     except: return []
 
+# EastMoney sector names → our 35 sector keywords (order matters: first match wins)
+EM_SECTOR_ALIAS = {
+    '航天航空':'商业航天','通用航空':'低空经济','航天军工':'商业航天',
+    '券商概念':'','科创板做市商':'','黄金概念':'','昨日打二板':'','行业龙头':'',
+    '锂矿概念':'','CRO':'','托育服务':'','刀片电池':'','病毒防治':'',
+    '汽车制造':'人形机器人','机器人':'人形机器人','具身智能':'人形机器人',
+    '光通信':'CPO/硅光','光模块':'CPO/硅光','光纤':'光纤光缆',
+    '半导体':'AI芯片','芯片':'AI芯片','GPU':'AI芯片','算力':'AI服务器',
+    'PCB':'PCB/覆铜板','覆铜板':'PCB/覆铜板','印制电路':'PCB/覆铜板',
+    'MLCC':'MLCC电容','电容':'MLCC电容','被动元件':'MLCC电容',
+    '铜箔':'电子铜箔','HVLP':'电子铜箔','超导':'超导/核聚变','核聚变':'超导/核聚变',
+    '碳纤维':'碳纤维','固态电池':'固态电池','全固态':'固态电池',
+    '存储':'HBM/存储芯片','HBM':'HBM/存储芯片','NAND':'HBM/存储芯片',
+    '液冷':'液冷散热','冷却':'液冷散热','散热':'液冷散热',
+    '钨':'钨稀土','稀土':'钨稀土','有色':'钨稀土','小金属':'钨稀土','稀缺资源':'钨稀土',
+    '玻璃基板':'玻璃基板TGV','TGV':'玻璃基板TGV','先进封装':'先进封装CoWoS','CoWoS':'先进封装CoWoS',
+    '硅片':'半导体硅片','光刻胶':'光刻胶','设备':'半导体设备','刻蚀':'半导体设备',
+    '服务器':'AI服务器/超节点','交换机':'交换机/网络','数据中心':'数据中心/AIDC',
+    '电源':'电源/DrMOS','DrMOS':'电源/DrMOS','六氟化钨':'六氟化钨WF₆',
+    '培育钻石':'培育钻石/散热','金刚石':'培育钻石/散热',
+    '6G':'6G/通信','卫星':'6G/通信','通信':'6G/通信',
+    '低空':'低空经济eVTOL','eVTOL':'低空经济eVTOL','飞行汽车':'低空经济eVTOL',
+    '国企':'','化工':'','石油':'','煤炭':'','钢铁':'','金融':'','银行':'','保险':'',
+    '地产':'','消费':'','食品':'','饮料':'','酒':'','医药':'','医疗':'','新能源':'',
+    '电力':'','光伏':'','风电':'','锂电':'','电池':'','碳中和':'','草甘膦':'',
+}
+
 def compute_winners_losers(live, stock_sector, heat_em):
     """Group live prices by sector, produce top-5 stock detail per sector"""
     sec_changes = {}
@@ -124,15 +151,38 @@ def compute_winners_losers(live, stock_sector, heat_em):
         ss = sorted(stocks, key=lambda x: x['chg'], reverse=True)
         sec_detail[sec] = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in ss[:5]])
 
+    def match_em_sector(em_name):
+        """Map EastMoney sector name → our sector name, or '' if no match"""
+        # Direct alias
+        if em_name in EM_SECTOR_ALIAS:
+            return EM_SECTOR_ALIAS[em_name]
+        # Keyword match
+        for kw, our in EM_SECTOR_ALIAS.items():
+            if kw and our and (kw in em_name or em_name in kw):
+                return our
+        # Fuzzy: check our sector names
+        our_sectors = list(sec_detail.keys())
+        for o in our_sectors:
+            if em_name[:2] in o or o[:2] in em_name or em_name in o or o in em_name:
+                return o
+        return ''
+
     sorted_em = sorted(heat_em, key=lambda x: float(x['s'].replace('%','').replace('+','').replace('-','-')), reverse=True)
     winners, losers = [], []
     for s in sorted_em[:10]:
-        matched = next((o for o in sec_detail if s['n'][:2] in o or o in s['n'] or s['n'] in o), None)
+        matched = match_em_sector(s['n'])
         stks = sec_detail.get(matched,'') if matched else ''
+        # Fallback: try finding any sector with overlapping stocks
+        if not stks:
+            for o, detail in sec_detail.items():
+                if s['n'][:2] in o or o[:2] in s['n']: stks = detail; break
         winners.append({'s': s['n'], 'stks': stks or s['s']})
     for s in sorted_em[-10:][::-1]:
-        matched = next((o for o in sec_detail if s['n'][:2] in o or o in s['n'] or s['n'] in o), None)
+        matched = match_em_sector(s['n'])
         stks = sec_detail.get(matched,'') if matched else ''
+        if not stks:
+            for o, detail in sec_detail.items():
+                if s['n'][:2] in o or o[:2] in s['n']: stks = detail; break
         losers.append({'s': s['n'], 'stks': stks or s['s']})
     return winners[:6], losers[:6]
 
