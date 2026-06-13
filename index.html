@@ -604,6 +604,7 @@ function go(tab){
       if(data.recap.flow) D.recap.flow=data.recap.flow;
       if(data.recap.cycle) D.recap.cycle=data.recap.cycle;
       if(data.recap.ztLadder) D.recap.ztLadder=data.recap.ztLadder;
+      if(data.concepts){Object.keys(data.concepts).forEach(function(c){if(stockInfo[c])stockInfo[c].concepts=data.concepts[c];});}
     }
     if(data.top3&&data.top3.length) D.top3=data.top3;
     if(data.picks&&data.picks.length) D.picks=data.picks;
@@ -1153,7 +1154,8 @@ function go(tab){
     var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
     var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
     var ind=info.ztInd||info.ind||'—';
-    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.78rem;margin-top:3px"><span style="color:var(--dim)">行业</span> '+ind+'</div><div style="font-size:.78rem;margin-top:2px"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+info.sector+'</span></div><div style="font-size:.72rem;color:var(--sub);margin-top:2px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
+    var cx=info.concepts&&info.concepts.length?info.concepts.slice(0,5).join(' · '):'—';
+    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div><div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div><div style="font-size:.7rem;color:var(--sub);margin-top:3px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
     tipEl.style.display='block';
     tipTimer=setTimeout(function(){var x=e.clientX+15,y=e.clientY-10;if(x+240>window.innerWidth)x=e.clientX-250;if(y+120>window.innerHeight)y=e.clientY-130;tipEl.style.left=x+'px';tipEl.style.top=y+'px';},80);
   });

@@ -253,7 +253,7 @@ def main():
     }
     if old_cycle:
         out['recap']['cycle'] = old_cycle
-    for k in ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'extraCodes', 'bHistory']:
+    for k in ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'extraCodes', 'bHistory', 'concepts']:
         if k in existing and existing[k]: out[k] = existing[k]
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
