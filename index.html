@@ -135,6 +135,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .layout-card.hot{border-left:3px solid var(--amber)}
 .layout-card.warm{border-left:3px solid var(--blue)}
 .layout-card.normal{border-left:3px solid var(--border)}
+.layout-card.past{opacity:.45;border-left:3px solid var(--dim)}
 .layout-card .lc-countdown{min-width:72px;text-align:center}
 .layout-card .lc-countdown .lc-days{font-size:1.6rem;font-weight:800}
 .layout-card .lc-countdown .lc-label{font-size:.68rem;color:var(--dim)}
@@ -581,10 +582,13 @@ function go(tab){
     <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">按时间倒排。越近越红。标★为产业链重点标的。</p>
     <div class="layout-list">`;
   if(D.layout)D.layout.forEach(function(ev){
-    var cls=realDays(ev.d)<=3?'urgent':realDays(ev.d)<=7?'hot':realDays(ev.d)<=14?'warm':'normal';
+    var d=realDays(ev.d);
+    var cls=d<0?'past':d<=3?'urgent':d<=7?'hot':d<=14?'warm':'normal';
+    var dc=d<0?'var(--dim)':d<=3?'var(--red)':d<=7?'var(--amber)':d<=14?'var(--blue)':'var(--sub)';
+    var dt=d<0?'已过期':d===0?'今天':d+'天';
     var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
-    lo+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(realDays(ev.d)<=3?'var(--red)':realDays(ev.d)<=7?'var(--amber)':realDays(ev.d)<=14?'var(--blue)':'var(--sub)')+'">'+(realDays(ev.d)===0?'今天':realDays(ev.d)+'天')+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(realDays(ev.d)-ev.lead>0?realDays(ev.d)-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
-	});
+    lo+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+dc+'">'+dt+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(d-ev.lead>0?d-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
+		});
   lo+=`</div></div></div>`;
 
   // ════ MARKET RECAP ════
@@ -809,10 +813,15 @@ function go(tab){
           if(ll&&d.layout.length){
             var loHtml='';
             d.layout.forEach(function(ev){
-              var cls=realDays(ev.d)<=3?'urgent':realDays(ev.d)<=7?'hot':realDays(ev.d)<=14?'warm':'normal';
+              var d=realDays(ev.d);
+              var cls=d<0?'past':d<=3?'urgent':d<=7?'hot':d<=14?'warm':'normal';
+              var dc=d<0?'var(--dim)':d<=3?'var(--red)':d<=7?'var(--amber)':d<=14?'var(--blue)':'var(--sub)';
+              var dt=d<0?'expired':d===0?'today':'D-'+d;
               var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
-              loHtml+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(realDays(ev.d)<=3?'var(--red)':realDays(ev.d)<=7?'var(--amber)':realDays(ev.d)<=14?'var(--blue)':'var(--sub)')+'">'+(realDays(ev.d)===0?'today':'D-'+realDays(ev.d))+'</div><div class="lc-label">countdown</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">'+ev.s+' | '+ev.d+'</div><div class="lc-lead">advance '+(ev.lead||5)+'d | window '+(realDays(ev.d)-ev.lead>0?realDays(ev.d)-ev.lead:0)+'d</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
+              loHtml+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+dc+'">'+dt+'</div><div class="lc-label">countdown</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">'+ev.s+' | '+ev.d+'</div><div class="lc-lead">advance '+(ev.lead||5)+'d | window '+(d-ev.lead>0?d-ev.lead:0)+'d</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
             });
+            ll.innerHTML=loHtml;
+          }
             ll.innerHTML=loHtml;
           }
         }
