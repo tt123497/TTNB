@@ -1270,6 +1270,7 @@ function go(tab){
     }
     if(code){
       window.open('tdxstock://'+code,'_blank');
+      e.stopPropagation();
     }
   });
 
