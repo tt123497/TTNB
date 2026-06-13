@@ -1240,39 +1240,28 @@ function go(tab){
     var ldv=document.getElementById('recapLosers');if(ldv&&r.losers){var lh='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';r.losers.forEach(function(l){lh+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});ldv.innerHTML=lh;}
   }
 
-  // Event delegation: ZT tier collapse, pick-item collapse, stock click → TDX
+  // Event delegation (capture phase — fires before card onclick)
   document.getElementById('mainContent').addEventListener('click',function(e){
-    var el=e.target;
-    // ZT tier header click → collapse the tier
+    var el=e.target, code='';
+    // Stock click: stop bubble immediately to prevent card onclick="go('chain')"
+    if(el.closest('.c-pill')||el.closest('.zt-stock')||el.closest('.sc')||el.closest('td.code')||el.closest('tr')){
+      var pill=el.closest('.c-pill')||el.closest('.zt-stock');
+      if(pill){var t=pill.textContent.trim();var m=t.match(/(\d{6})/);if(m)code=m[1];}
+      if(!code&&el.closest('.pick-item')){
+        var pi=el.closest('.pick-item'), pc=pi.querySelector('.pi-code');
+        if(pc){var m=pc.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
+      }
+      if(!code&&el.closest('td.code')){var m=el.closest('td.code').textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
+      if(!code&&el.closest('tr')){var td=el.closest('tr').querySelector('td.code');if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}}
+      if(code){e.stopPropagation();window.open('tdxstock://'+code,'_blank');return;}
+    }
+    // ZT tier header click → collapse
     while(el&&el!==this){
       if(el.classList.contains('zt-tier-header')){el.closest('.zt-tier').classList.toggle('collapsed');return;}
       if(el.classList.contains('pick-item')){el.classList.toggle('collapsed');return;}
       el=el.parentElement;
     }
-    // Stock code/name click → copy code + open TDX
-    el=e.target;
-    var code='';
-    // Extract 6-digit code from the clicked element or its parent
-    if(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.c-pill')||el.closest('.zt-stock')){
-      var pill=el.closest('.c-pill')||el.closest('.zt-stock');
-      if(pill){var t=pill.textContent.trim();var m=t.match(/(\d{6})/);if(m)code=m[1];}
-    }
-    if(!code&&el.closest('.pick-item')){
-      var pi=el.closest('.pick-item');var pc=pi.querySelector('.pi-code');
-      if(pc){var m=pc.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
-    }
-    if(!code&&el.closest('td.code')){
-      var m=el.closest('td.code').textContent.trim().match(/(\d{6})/);if(m)code=m[1];
-    }
-    if(!code&&el.closest('tr')){
-      var td=el.closest('tr').querySelector('td.code');
-      if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
-    }
-    if(code){
-      window.open('tdxstock://'+code,'_blank');
-      e.stopPropagation();
-    }
-  });
+  },true);
 
   // Stock hover tooltip
   var tipEl=document.getElementById('stockTip'), tipTimer=null, tipCode='';
