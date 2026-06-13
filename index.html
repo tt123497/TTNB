@@ -876,28 +876,26 @@ function go(tab){
         });});
       }
       if(!code){
-        // Remote search via Sina JSONP (CORS-free, works on HTTPS too)
+        // Remote search via EastMoney suggest JSONP (CORS-free)
         showResult('','搜索中...',0,0,'全网搜索...');
-        window.suggestdata='__loading__';
-        var sn=document.createElement('script');
-        sn.src='https://suggest3.sinajs.cn/suggest/type=11,12,13,14,15&key='+encodeURIComponent(input)+'&name=suggestdata';
-        sn.onload=function(){
-          setTimeout(function(){
-            var raw=window.suggestdata||''; if(sn.parentNode)sn.parentNode.removeChild(sn);
-            if(raw==='__loading__'){showResult('','—',0,0,'搜索超时,请重试');return;}
-            var parts=raw.split(',');
-            var fc=parts[2]||''; var fn=parts[0]||'';
-            if(!fc||fc.length!==6){showResult('','—',0,0,'未找到匹配股票');return;}
-            var emcode=(fc.startsWith('6')||fc.startsWith('68'))?'1.'+fc:'0.'+fc;
-            fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14')
-              .then(function(r){return r.json()}).then(function(d2){
-                var s=d2.data; if(!s){showResult(fc,fn,0,0,'无行情');return;}
-                showResult(fc,fn,s.f2||0,s.f3||0,'✅ 全网实时');
-                window.open('tdxstock://'+fc,'_blank');
-              }).catch(function(){showResult(fc,fn,0,0,'行情获取失败');});
-          },100);
+        var cbName='_emcb_'+Date.now();
+        window[cbName]=function(d){
+          var items=(d.QuotationCodeTable&&d.QuotationCodeTable.Data)||[];
+          if(!items.length){showResult('','—',0,0,'未找到匹配股票');delete window[cbName];return;}
+          var item=items[0], fc=item.Code||'', fn=item.Name||'';
+          if(!fc||fc.length!==6){showResult('','—',0,0,'未找到匹配股票');delete window[cbName];return;}
+          var emcode=(fc.startsWith('6')||fc.startsWith('68'))?'1.'+fc:'0.'+fc;
+          fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14')
+            .then(function(r){return r.json()}).then(function(d2){
+              var s=d2.data; if(!s){showResult(fc,fn,0,0,'无行情');delete window[cbName];return;}
+              showResult(fc,fn,s.f2||0,s.f3||0,'✅ 东财实时');
+              window.open('tdxstock://'+fc,'_blank');
+              delete window[cbName];
+            }).catch(function(){showResult(fc,fn,0,0,'行情获取失败');delete window[cbName];});
         };
-        sn.onerror=function(){if(sn.parentNode)sn.parentNode.removeChild(sn);showResult('','—',0,0,'搜索服务不可用');};
+        var sn=document.createElement('script');
+        sn.src='https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(input)+'&type=14&count=5&cb='+cbName;
+        sn.onerror=function(){if(sn.parentNode)sn.parentNode.removeChild(sn);showResult('','—',0,0,'搜索服务不可用');delete window[cbName];};
         document.head.appendChild(sn);
         return;
       }
