@@ -251,7 +251,7 @@ def get_zt_ladder(cst):
             }
             tiers_dict.setdefault(lbc, []).append(stock)
 
-        tiers = [{'boardCount': k, 'stocks': v} for k, v in sorted(tiers_dict.items(), reverse=True)]
+        tiers = [{'boardCount': k, 'stocks': sorted(v, key=lambda s: (s.get('industry','') or 'zzz', s.get('n','')))} for k, v in sorted(tiers_dict.items(), reverse=True)]
         return {
             'updated': cst.strftime('%Y-%m-%d %H:%M'),
             'tiers': tiers,
