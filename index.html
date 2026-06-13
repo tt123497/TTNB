@@ -221,6 +221,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .zt-stock .si{font-size:.68rem;color:var(--sub);margin-left:2px;max-width:60px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .zt-none{text-align:center;color:var(--dim);padding:16px;font-size:.86rem}
 
+/* ── Stock Hover Tip ── */
+.stock-tip{position:fixed;z-index:9999;background:var(--card);border:1px solid var(--blue);border-radius:var(--radius-sm);padding:10px 13px;font-size:.82rem;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.5);min-width:170px;max-width:240px}
+.stock-tip .st-name{font-size:.96rem;font-weight:700;margin-bottom:4px}
+.stock-tip .st-code{font-size:.74rem;color:var(--dim);font-family:'SF Mono','Fira Code',monospace}
+.stock-tip .st-price{font-size:1.15rem;font-weight:700;margin:4px 0}
+.stock-tip .st-sector{font-size:.78rem;color:var(--blue);margin-top:2px}
+.stock-tip .st-chain{font-size:.72rem;color:var(--sub);margin-top:2px}
+
 /* ── Recap Date Switcher ── */
 .recap-date-bar{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 .recap-date-bar input[type="date"]{padding:5px 8px;font-size:.8rem;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font)}
@@ -259,6 +267,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 <div class="update-bar" id="updateBar">数据更新中...</div>
 <div class="nav" id="navBar"></div>
 <div class="main" id="mainContent"></div>
+<div class="stock-tip" id="stockTip" style="display:none"></div>
 <div class="footer">⚠️ 本页面仅供研究参考，不构成任何投资建议。投资有风险，入市须谨慎。</div>
 
 <script>
@@ -629,6 +638,17 @@ function go(tab){
     if(/下旬/.test(ds)){ var m4=/(\d+)月/.exec(ds); if(m4) return Math.ceil((new Date(2026,parseInt(m4[1])-1,25)-today)/86400000); }
     return 999;
   }
+
+  // Build stock → info lookup for hover tooltips
+  var stockInfo={};
+  D.groups.forEach(function(g){
+    g.sectors.forEach(function(s){
+      s.st.forEach(function(st){
+        var pos=''; if(s.ch.up.indexOf(st.n)>=0) pos='⬆上游'; else if(s.ch.mid.indexOf(st.n)>=0) pos='🔷中游'; else if(s.ch.down.indexOf(st.n)>=0) pos='⬇下游';
+        stockInfo[st.c]={name:st.n, sector:s.n, group:g.n.replace(/[^一-鿿]/g,''), pos:pos||'—', tag:s.tag.split('|')[0]};
+      });
+    });
+  });
 
   function renderAll(){
     document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | 交易日每5分钟自动刷新`;
@@ -1096,6 +1116,31 @@ function go(tab){
     if(code){
       window.open('tdxstock://'+code,'_blank');
     }
+  });
+
+  // Stock hover tooltip
+  var tipEl=document.getElementById('stockTip'), tipTimer=null, tipCode='';
+  document.getElementById('mainContent').addEventListener('mouseover',function(e){
+    var el=e.target, code='';
+    // Walk up to find a stock-bearing element
+    while(el&&el!==this){
+      var t=el.textContent.trim(); var m=t.match(/(\d{6})/);
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.card'))){
+        code=m[1]; break;
+      }
+      el=el.parentElement;
+    }
+    if(!code||code===tipCode) return; tipCode=code;
+    clearTimeout(tipTimer);
+    var info=stockInfo[code]; if(!info) return;
+    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
+    var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
+    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div class="st-sector">🏷 '+info.sector+' · '+info.tag+'</div><div class="st-chain">'+info.pos+' | '+info.group+'</div>';
+    tipEl.style.display='block';
+    tipTimer=setTimeout(function(){var x=e.clientX+15,y=e.clientY-10;if(x+240>window.innerWidth)x=e.clientX-250;if(y+120>window.innerHeight)y=e.clientY-130;tipEl.style.left=x+'px';tipEl.style.top=y+'px';},80);
+  });
+  document.getElementById('mainContent').addEventListener('mouseout',function(e){
+    var el=e.target; while(el&&el!==this){if(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.closest('tr')){tipCode='';tipEl.style.display='none';return;}el=el.parentElement;}
   });
 
   // Final updateBar refresh from data.json
