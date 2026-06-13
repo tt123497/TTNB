@@ -765,9 +765,10 @@ function go(tab){
   // ════ OVERVIEW ════
   let ov=`<div class="tab-panel on" id="panel-overview">
     <div class="stat-strip">
-      <div class="stat-chip"><div class="val" style="color:var(--red)">${majorCount}</div><div class="lbl">🔥重大信号</div></div>
-      <div class="stat-chip"><div class="val" style="color:${(()=>{var f=D.recap.flow;if(!f||!f.length)return'var(--dim)';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'var(--red)':'var(--green)';})()}">${(()=>{var f=D.recap.flow;if(!f||!f.length)return'—';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'净流入':'净流出';})()}</div><div class="lbl">💸 资金方向</div></div>
+      <div class="stat-chip"><div class="val" style="color:var(--red)">${majorCount}</div><div class="lbl">🔥 强势赛道</div></div>
+      <div class="stat-chip"><div class="val" style="color:${(()=>{var f=D.recap.flow;if(!f||!f.length)return'var(--dim)';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'var(--red)':'var(--green)';})()}">${(()=>{var f=D.recap.flow;if(!f||!f.length)return'—';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'净流入':'净流出';})()}</div><div class="lbl">💸 资金</div></div>
       <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztLadder?D.recap.ztLadder.totalCount:'—'}</div><div class="lbl">🪜 涨停</div></div>
+      <div class="stat-chip"><div class="val" style="color:${D.recap.dtCount>5?'var(--red)':'var(--green)'}">${D.recap.dtCount!=null?D.recap.dtCount:'—'}</div><div class="lbl">📉 跌停</div></div>
     </div>`;
 
   D.groups.forEach(g=>{

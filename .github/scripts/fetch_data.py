@@ -392,6 +392,16 @@ def main():
     live = get_live_prices(codes)
     fund = get_fund_flow_em()
     zt_ladder = get_zt_ladder(cst)
+    dt_count = 0
+    for attempt in range(3):
+        try_date = cst - timedelta(days=attempt)
+        if try_date.weekday() >= 5: continue
+        dt_text = fetch(f'http://push2ex.eastmoney.com/getTopicDTPool?ut=7eea3edcaed734bea9cbfc24409ed989&dpt=wz.ztzt&Pageindex=0&pagesize=200&sort=fbt:asc&date={try_date.strftime("%Y%m%d")}', encoding='utf-8', extra_headers={'Referer': 'http://quote.eastmoney.com/'})
+        if dt_text:
+            if dt_text.startswith('callback('): dt_text = dt_text[9:-1]
+            try: dt_count = len(json.loads(dt_text).get('data',{}).get('pool',[]))
+            except: pass
+        break
 
     # Compute winners/losers with real stock detail
     winners, losers = compute_winners_losers(live, stock_sector, sectors)
@@ -556,6 +566,7 @@ def main():
             'winners': winners,
             'losers': losers,
             'ztLadder': zt_ladder,
+            'dtCount': dt_count,
             'note': f"{cst.strftime('%m/%d %H:%M')} GitHub Actions云更新 | {len(codes)}只 | {len(sectors)}板块"
         },
         'livePrices': live,
