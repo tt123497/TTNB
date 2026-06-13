@@ -68,7 +68,8 @@ def get_live_prices(codes):
 # ═══════════ Sector heat ═══════════
 def get_sector_heat_em():
     return [{'n': i.get('f14',''), 's': f"{i.get('f3',0):+.1f}%",
-             'c': 'var(--red)' if i.get('f3',0)>0 else 'var(--green)'}
+             'c': 'var(--red)' if i.get('f3',0)>0 else 'var(--green)',
+             'bk': i.get('f12','')}
             for i in em_json("http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=50&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:90+t:3&fields=f2,f3,f12,f14").get('diff',[])]
 
 # ═══════════ Fund flow ═══════════

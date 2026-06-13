@@ -45,7 +45,7 @@ def get_sector_heat():
     if not text: return []
     try:
         items = json.loads(text).get('data',{}).get('diff',[])
-        return [{'n':i.get('f14',''),'s':f"{i.get('f3',0):+.1f}%",'c':'var(--red)' if i.get('f3',0)>0 else 'var(--green)'} for i in items[:50]]
+        return [{'n':i.get('f14',''),'s':f"{i.get('f3',0):+.1f}%",'c':'var(--red)' if i.get('f3',0)>0 else 'var(--green)','bk':i.get('f12','')} for i in items[:50]]
     except: return []
 
 def get_stock_codes():
@@ -485,6 +485,49 @@ def main():
         if (he['d'], he['e']) not in auto_keys:
             merged.append(he)  # keep hand-curated events not in auto list
     preserve['events'] = merged
+
+    # Auto-repair layout stocks: fetch real market top stocks per sector
+    existing_layout = preserve.get('layout', []) or []
+    if existing_layout and sectors:
+        # Build EM sector name → board code mapping from heat data
+        name_to_board = {}
+        for h in sectors:
+            name_to_board[h['n']] = h.get('bk', h.get('f12', ''))
+        # Reverse alias: our sector name -> EM board name
+        our_to_em = {}
+        for kw, our in EM_ALIAS.items():
+            if our and our not in our_to_em:
+                our_to_em[our] = kw  # use first match
+        for lev in existing_layout:
+            sec_name = lev.get('s', '')
+            # 1. Direct match in heat names
+            bcode = name_to_board.get(sec_name, '')
+            # 2. Via alias table
+            if not bcode:
+                em_hint = our_to_em.get(sec_name, '')
+                if em_hint:
+                    for n, bc in name_to_board.items():
+                        if em_hint in n or n in em_hint:
+                            bcode = bc; break
+            # 3. Fuzzy match heat names
+            if not bcode:
+                for n, bc in name_to_board.items():
+                    if sec_name[:2] in n or n[:2] in sec_name or sec_name in n or n in sec_name:
+                        bcode = bc; break
+            if not bcode: continue
+            # Fetch top 8 stocks from this sector board (real market)
+            bstocks = []
+            for _ in range(2):
+                try:
+                    t = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:' + bcode + '&fields=f2,f3,f12,f14', encoding='utf-8')
+                    if t:
+                        for s in json.loads(t).get('data',{}).get('diff',[]):
+                            bstocks.append(s.get('f12','') + ' ' + s.get('f14',''))
+                        break
+                except: pass
+            if bstocks:
+                lev['stocks'] = bstocks[:6]
+    preserve['layout'] = existing_layout
 
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
