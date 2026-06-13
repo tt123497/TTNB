@@ -185,7 +185,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .tbl-wrap .tbl-title::-webkit-details-marker{display:none}
 .tbl{width:100%;border-collapse:collapse;font-size:.88rem}
 .tbl th{text-align:left;color:var(--dim);font-weight:600;padding:10px 14px;border-bottom:2px solid var(--border);font-size:.82rem;text-transform:uppercase;background:rgba(30,47,74,.15);letter-spacing:.5px}
+.tbl th:last-child,.tbl td:last-child{min-width:105px;white-space:nowrap}
 .tbl td{padding:10px 14px;border-bottom:1px solid rgba(30,47,74,.4)}
+.tbl .code,.tbl .seg,.tbl .pilot{white-space:nowrap}
 .tbl tbody tr{cursor:pointer;transition:all .15s}
 .tbl tbody tr:hover td{background:rgba(59,130,246,.05)}
 .tbl .code{font-family:'SF Mono','Fira Code',monospace;font-size:.84rem;color:var(--dim)}
@@ -933,7 +935,7 @@ function go(tab){
   D.groups.forEach(g=>{g.sectors.forEach(s=>{
     st+=`<details class="tbl-wrap" ${s.sig==='major'?'open':''}><summary class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span><span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th><th class="th-lp">现价</th></tr></thead><tbody>`;
     const allText=s.ch.up+s.ch.mid+s.ch.down;
-    s.st.forEach(x=>{let seg='';if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游';}st+=`<tr><td class="code">${x.c}</td><td>${x.n}</td><td class="seg">${seg||'—'}</td><td class="pilot">${x.pick?'★重点':'—'}</td><td class="lp" style="font-family:monospace;font-size:.82rem;color:var(--dim)">—</td></tr>`;});
+    s.st.forEach(x=>{let seg='';if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游';}st+=`<tr><td class="code">${x.c}</td><td class="name">${x.n}</td><td class="seg">${seg||'—'}</td><td class="pilot">${x.pick?'★重点':'—'}</td><td class="lp" style="font-family:monospace;font-size:.82rem;color:var(--dim)">—</td></tr>`;});
     st+=`</tbody></table></details>`;
   });});
   st+=`</div></div>`;
