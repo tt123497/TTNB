@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\tdxstock]
+@="URL:通达信行情协议"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\tdxstock\DefaultIcon]
+@="D:\\tongxinda\\TdxW.exe,0"
+
+[HKEY_CLASSES_ROOT\tdxstock\shell]
+
+[HKEY_CLASSES_ROOT\tdxstock\shell\open]
+
+[HKEY_CLASSES_ROOT\tdxstock\shell\open\command]
+@="powershell -ExecutionPolicy Bypass -WindowStyle Hidden -File \"D:\\projects\\market-dashboard\\open_tdx.ps1\" \"%1\""

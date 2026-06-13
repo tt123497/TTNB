@@ -73,7 +73,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .card .c-tag{font-size:.93rem;font-weight:600;margin-bottom:6px}
 .card .c-desc{font-size:.84rem;color:var(--sub);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .c-pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
-.c-pill{font-size:.93rem;padding:3px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--border);color:var(--sub);font-family:'SF Mono','Fira Code',monospace}
+.c-pill{font-size:.93rem;padding:3px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--border);color:var(--sub);font-family:'SF Mono','Fira Code',monospace;cursor:pointer;transition:all .15s}
+.c-pill:hover{border-color:var(--blue);color:var(--text)}
 .c-pill.pick{border-color:var(--blue);color:var(--blue);background:rgba(59,130,246,.08)}
 .stock-search{display:flex;gap:8px;margin-bottom:14px;align-items:center}
 .stock-search input{flex:1;padding:10px 14px;font-size:.9rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);font-family:'SF Mono','Fira Code',monospace;outline:none}
@@ -164,6 +165,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .tbl{width:100%;border-collapse:collapse;font-size:.88rem}
 .tbl th{text-align:left;color:var(--sub);font-weight:500;padding:8px 12px;border-bottom:1px solid var(--border);font-size:.93rem;text-transform:uppercase}
 .tbl td{padding:8px 12px;border-bottom:1px solid rgba(30,42,63,.5)}
+.tbl tbody tr{cursor:pointer}
 .tbl tbody tr:hover td{background:rgba(59,130,246,.03)}
 .tbl .code{font-family:'SF Mono','Fira Code',monospace;font-size:.82rem;color:var(--dim)}
 .tbl .pilot{color:var(--blue);font-size:.84rem;font-weight:600}
@@ -213,7 +215,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .zt-tier-badge.b1{background:linear-gradient(135deg,#6366f1,#a855f7)}
 .zt-tier-count{font-size:.78rem;color:var(--sub)}
 .zt-tier-body{display:flex;flex-wrap:wrap;gap:5px;padding:8px 12px}
-.zt-stock{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;background:var(--surface);border:1px solid var(--border);border-radius:5px;font-size:.78rem;transition:all .15s}
+.zt-stock{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;background:var(--surface);border:1px solid var(--border);border-radius:5px;font-size:.78rem;transition:all .15s;cursor:pointer}
 .zt-stock:hover{border-color:var(--blue)}
 .zt-stock .sc{font-family:'SF Mono','Fira Code',monospace;color:var(--dim);font-size:.74rem}
 .zt-stock .si{font-size:.68rem;color:var(--sub);margin-left:2px;max-width:60px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
@@ -1063,7 +1065,7 @@ function go(tab){
     var ldv=document.getElementById('recapLosers');if(ldv&&r.losers){var lh='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';r.losers.forEach(function(l){lh+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});ldv.innerHTML=lh;}
   }
 
-  // Event delegation: ZT tier collapse & pick-item collapse
+  // Event delegation: ZT tier collapse, pick-item collapse, stock click → TDX
   document.getElementById('mainContent').addEventListener('click',function(e){
     var el=e.target;
     // ZT tier header click → collapse the tier
@@ -1071,6 +1073,29 @@ function go(tab){
       if(el.classList.contains('zt-tier-header')){el.closest('.zt-tier').classList.toggle('collapsed');return;}
       if(el.classList.contains('pick-item')){el.classList.toggle('collapsed');return;}
       el=el.parentElement;
+    }
+    // Stock code/name click → copy code + open TDX
+    el=e.target;
+    var code='';
+    // Extract 6-digit code from the clicked element or its parent
+    if(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.c-pill')||el.closest('.zt-stock')){
+      var pill=el.closest('.c-pill')||el.closest('.zt-stock');
+      if(pill){var t=pill.textContent.trim();var m=t.match(/(\d{6})/);if(m)code=m[1];}
+    }
+    if(!code&&el.closest('.pick-item')){
+      var pi=el.closest('.pick-item');var pc=pi.querySelector('.pi-code');
+      if(pc){var m=pc.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
+    }
+    if(!code&&el.closest('td.code')){
+      var m=el.closest('td.code').textContent.trim().match(/(\d{6})/);if(m)code=m[1];
+    }
+    if(!code&&el.closest('tr')){
+      var td=el.closest('tr').querySelector('td.code');
+      if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
+    }
+    if(code){
+      navigator.clipboard.writeText(code).catch(function(){});
+      window.open('tdxstock://'+code,'_blank');
     }
   });
 
