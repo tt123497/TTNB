@@ -875,7 +875,26 @@ function go(tab){
           s.st.forEach(function(st){if(st.n.indexOf(input)>=0&&!code)code=st.c;});
         });});
       }
-      if(!code){res.style.display='block';document.getElementById('srMeta').textContent='未找到匹配股票';return;}
+      if(!code){
+        // 3. Fallback: search EastMoney by name
+        showResult('','查询中...',0,0,'联网搜索...');
+        fetch('https://searchadapter.eastmoney.com/api/suggest/get?input='+encodeURIComponent(input)+'&type=14&token=&count=5')
+          .then(function(r){return r.json()}).then(function(d){
+            var items=d.QuotationCodeTable&&d.QuotationCodeTable.Data||[];
+            if(!items.length){showResult('','—',0,0,'未找到匹配股票');return;}
+            var item=items[0];
+            var fc=item.Code||''; var fn=item.Name||'';
+            var emcode=item.Market=='SH'?'1.'+fc:'0.'+fc;
+            // fetch price
+            fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14,f15,f16,f17,f18')
+              .then(function(r2){return r2.json()}).then(function(d2){
+                var s=d2.data; if(!s){showResult(fc,fn,0,0,'无行情');return;}
+                showResult(fc,fn,s.f2||0,s.f3||0,'联网实时');
+                window.open('tdxstock://'+fc,'_blank');
+              }).catch(function(){showResult(fc,fn,0,0,'行情获取失败');});
+          }).catch(function(){showResult('','—',0,0,'搜索服务不可用');});
+        return;
+      }
     }
     // 1. Local livePrices
     var sina=(code.startsWith('6')||code.startsWith('68'))?'sh'+code:(code.startsWith('0')||code.startsWith('3'))?'sz'+code:'sh'+code;
