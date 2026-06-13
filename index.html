@@ -641,14 +641,29 @@ function go(tab){
 
   // Build stock → info lookup for hover tooltips
   var stockInfo={};
+  // Sector → derived industry mapping
+  var secInd={'AI芯片':'半导体','CPO/硅光':'光通信','光模块':'光通信','光纤光缆':'通信设备','连接器/铜连接':'电子元器件',
+    'PCB/覆铜板':'电子元器件','MLCC电容':'电子元器件','电子树脂/PPE':'化工','电子铜箔':'有色金属',
+    'HBM/存储芯片':'半导体','AI服务器/超节点':'计算机设备','液冷散热':'机械设备','交换机/网络':'通信设备',
+    '电源/DrMOS':'半导体','数据中心/AIDC':'IT服务','半导体设备':'半导体','光刻胶':'化工',
+    '先进封装CoWoS':'半导体','半导体硅片':'半导体','六氟化钨WF₆':'化工','玻璃基板TGV':'电子元器件',
+    '培育钻石/散热':'新材料','超导/核聚变':'电力设备','碳纤维':'化工','人形机器人':'机械设备',
+    '商业航天':'国防军工','6G/通信':'通信设备','固态电池':'电池','低空经济eVTOL':'航空装备',
+    '空间计算/物理AI':'IT服务','钨稀土':'有色金属'};
   D.groups.forEach(function(g){
     g.sectors.forEach(function(s){
       s.st.forEach(function(st){
         var pos=''; if(s.ch.up.indexOf(st.n)>=0) pos='⬆上游'; else if(s.ch.mid.indexOf(st.n)>=0) pos='🔷中游'; else if(s.ch.down.indexOf(st.n)>=0) pos='⬇下游';
-        stockInfo[st.c]={name:st.n, sector:s.n, group:g.n.replace(/[^一-鿿]/g,''), pos:pos||'—', tag:s.tag.split('|')[0]};
+        stockInfo[st.c]={name:st.n, sector:s.n, group:g.n.replace(/[^一-鿿]/g,''), pos:pos||'—', tag:s.tag.split('|')[0], ind:secInd[s.n]||s.n};
       });
     });
   });
+  // Enrich with ZT ladder industry if available
+  if(D.recap.ztLadder&&D.recap.ztLadder.tiers){
+    D.recap.ztLadder.tiers.forEach(function(t){
+      t.stocks.forEach(function(st){if(stockInfo[st.c]&&st.industry)stockInfo[st.c].ztInd=st.industry;});
+    });
+  }
 
   function renderAll(){
     document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | 交易日每5分钟自动刷新`;
@@ -952,6 +967,8 @@ function go(tab){
               z.tiers.forEach(function(tier,i){var bc=tier.boardCount,bcl=bc>=6?'b6':bc>=5?'b5':bc>=4?'b4':bc>=3?'b3':bc>=2?'b2':'b1';ztHtml+='<div class="zt-tier'+(i>0?' collapsed':'')+'"><div class="zt-tier-header"><span class="zt-tier-badge '+bcl+'">'+bc+'连板</span><span class="zt-tier-count">'+tier.stocks.length+'只</span><span class="arr">▾</span></div><div class="zt-tier-body">';tier.stocks.forEach(function(st){ztHtml+='<span class="zt-stock"><span class="sc">'+st.c+'</span> '+st.n+'<span class="si">'+(st.industry||'')+'</span></span>';});ztHtml+='</div></div>';});
               ztHtml+='</div>'; ztDiv.innerHTML=ztHtml;
             }else{ztDiv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">暂无涨停数据</div>';}
+            // Enrich stockInfo with ZT industry data
+            if(r.ztLadder&&r.ztLadder.tiers){r.ztLadder.tiers.forEach(function(t){t.stocks.forEach(function(st){if(stockInfo[st.c]&&st.industry)stockInfo[st.c].ztInd=st.industry;});});}
           }
 
           // Winners/Losers
@@ -1135,7 +1152,8 @@ function go(tab){
     var info=stockInfo[code]; if(!info) return;
     var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
     var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div class="st-sector">🏷 '+info.sector+' · '+info.tag+'</div><div class="st-chain">'+info.pos+' | '+info.group+'</div>';
+    var ind=info.ztInd||info.ind||'—';
+    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.78rem;margin-top:3px"><span style="color:var(--dim)">行业</span> '+ind+'</div><div style="font-size:.78rem;margin-top:2px"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+info.sector+'</span></div><div style="font-size:.72rem;color:var(--sub);margin-top:2px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
     tipEl.style.display='block';
     tipTimer=setTimeout(function(){var x=e.clientX+15,y=e.clientY-10;if(x+240>window.innerWidth)x=e.clientX-250;if(y+120>window.innerHeight)y=e.clientY-130;tipEl.style.left=x+'px';tipEl.style.top=y+'px';},80);
   });
