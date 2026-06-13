@@ -88,33 +88,23 @@ def build_briefing():
             's': [f"{s['c']} {s['n']}" for s in top_stocks[:5]]
         })
 
-    # Preserve manual Claude briefing if fresh (not auto-generated index summaries)
+    # Archive old briefing to history before overwriting
     old_briefing = existing.get('briefing', {})
-    old_top3 = old_briefing.get('top3', [])
-    is_manual = old_top3 and not old_top3[0].get('t','').startswith('📊')
-    is_today = old_briefing.get('updated','').startswith(cst.strftime('%Y-%m-%d'))
-
-    # Save old briefing to history (up to 30 entries) before overwriting
     bHistory = existing.get('bHistory', [])
     if old_briefing and old_briefing.get('top3'):
-        # Only archive if it has real content and different from last saved
         last_date = bHistory[0].get('updated','') if bHistory else ''
         if old_briefing.get('updated','') != last_date:
             bHistory.insert(0, old_briefing)
-            bHistory = bHistory[:30]  # keep max 30
+            bHistory = bHistory[:30]
         existing['bHistory'] = bHistory
 
-    if is_manual and is_today:
-        # Keep Claude's manual briefing, don't overwrite
-        print(f"Briefing preserved (manual): {cst.strftime('%H:%M')}")
-    else:
-        # Fall back to auto-generated
-        existing['briefing'] = {
-            'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
-            'top3': top3,
-            'picks': picks,
-        }
-        print(f"Briefing auto-generated: {cst.strftime('%H:%M')}")
+    # Always generate fresh briefing
+    existing['briefing'] = {
+        'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
+        'top3': top3,
+        'picks': picks,
+    }
+    print(f"Briefing auto-generated: {cst.strftime('%H:%M')}")
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(existing, f, ensure_ascii=False, indent=2)

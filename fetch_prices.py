@@ -253,6 +253,16 @@ def main():
     }
     if old_cycle:
         out['recap']['cycle'] = old_cycle
+    else:
+        # Auto-generate cycle from index
+        avg_chg = sum(float(i['chg'].replace('%','').replace('+','')) for i in indices[:4]) / max(len(indices[:4]), 1)
+        up_n = sum(1 for i in indices[:4] if i['up'])
+        phase = '强势上攻' if avg_chg > 1.5 and up_n >= 3 else '震荡偏强' if avg_chg > 0.3 else '窄幅震荡' if avg_chg >= -0.3 else '震荡回调' if avg_chg >= -1.5 else '恐慌下跌'
+        icon = '🔥' if avg_chg > 1.5 else '📈' if avg_chg > 0.3 else '⚖️' if avg_chg >= -0.3 else '📉' if avg_chg >= -1.5 else '🔴'
+        risk = 'medium' if avg_chg > 1.5 else 'low' if avg_chg > 0.3 else 'medium' if avg_chg >= -0.3 else 'medium' if avg_chg >= -1.5 else 'high'
+        lab = '中等风险' if risk == 'medium' else '较低风险' if risk == 'low' else '高风险'
+        sug = '可积极布局' if avg_chg > 0.3 else '精选个股为主' if avg_chg >= -0.3 else '控制仓位等待信号' if avg_chg >= -1.5 else '现金为王等待企稳'
+        out['recap']['cycle'] = {'phase': phase, 'phaseIcon': icon, 'signals': [f'指数均涨{avg_chg:+.1f}%'], 'riskLevel': risk, 'riskLabel': lab, 'suggestion': sug}
     for k in ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'extraCodes', 'bHistory', 'concepts']:
         if k in existing and existing[k]: out[k] = existing[k]
 

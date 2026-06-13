@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-14 04:19 CST",
+  "updated": "2026-06-14 05:39 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979313,
+  "updateCount": 1979318,
   "recap": {
     "index": [
       {
@@ -263,7 +263,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-14 04:19",
+      "updated": "2026-06-14 05:39",
       "tiers": [
         {
           "boardCount": 4,
@@ -907,7 +907,7 @@
       "maxBoard": 4,
       "totalCount": 89
     },
-    "note": "06/14 04:19 GitHub Actions云更新 | 191只 | 50板块",
+    "note": "06/14 05:39 GitHub Actions云更新 | 191只 | 50板块",
     "cycle": {
       "phase": "主升浪中段·高位消化",
       "phaseIcon": "🌊",
@@ -1866,7 +1866,7 @@
     "interval": "15min",
     "stockCount": 191,
     "liveCount": 187,
-    "updateCount": 1979313,
+    "updateCount": 1979318,
     "trading": false
   },
   "sectors": [

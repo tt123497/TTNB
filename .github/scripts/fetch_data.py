@@ -260,6 +260,110 @@ def get_zt_ladder(cst):
         }
     return None
 
+def auto_sectors(heat, indices, preserved_sectors):
+    """Auto-generate sector signals from EastMoney heat data when Claude data is stale.
+    Returns list of {name, sig, msg} for our 35 sectors."""
+    our_names = ['AI芯片','CPO/硅光','光模块','光纤光缆','连接器/铜连接',
+        'PCB/覆铜板','MLCC电容','电子树脂/PPE','电子铜箔','HBM/存储芯片',
+        'AI服务器/超节点','液冷散热','交换机/网络','电源/DrMOS','数据中心/AIDC',
+        '半导体设备','光刻胶','先进封装CoWoS','半导体硅片',
+        '六氟化钨WF₆','玻璃基板TGV','培育钻石/散热','超导/核聚变','碳纤维',
+        '人形机器人','商业航天','6G/通信','固态电池','低空经济eVTOL','空间计算/物理AI','钨稀土']
+
+    # Sort EM sectors by performance
+    sorted_heat = sorted(heat, key=lambda x: float(x['s'].replace('%','').replace('+','').replace('-','-')), reverse=True)
+
+    # Build keyword → our_name mapping
+    # Map EM sector names → our sector names
+
+    results = []
+    for our in our_names:
+        # Find best matching EM heat entry
+        matched = None
+        for kw, target in EM_ALIAS.items():
+            if target == our:
+                for h in heat:
+                    if kw in h['n'] or h['n'] in kw:
+                        matched = h; break
+            if matched: break
+        if not matched:
+            for h in heat:
+                if our[:2] in h['n'] or h['n'][:2] in our:
+                    matched = h; break
+
+        if matched:
+            pct = float(matched['s'].replace('%','').replace('+','').replace('-','-'))
+            sig = 'major' if pct >= 3 else 'good' if pct >= 0 else 'neutral' if pct >= -1 else 'negative'
+            msg = f"{matched['n']} {matched['s']} | 自动刷新"
+        else:
+            sig = 'neutral'
+            pct = 0
+            msg = '暂无行情数据'
+
+        results.append({'name': our, 'sig': sig, 'msg': msg})
+    return results
+
+def auto_cycle(indices):
+    """Auto-generate market cycle judgment from index data."""
+    if not indices or len(indices) < 4:
+        return {
+            'phase': '数据不足', 'phaseIcon': '📊',
+            'signals': ['等待行情数据更新'],
+            'riskLevel': 'medium', 'riskLabel': '数据不足',
+            'suggestion': '等待开盘后更新'
+        }
+
+    # Calculate average change of major indices (上证/深证/创业板/沪深300)
+    major = [i for i in indices if i['n'] in ['上证指数','深证成指','创业板指','沪深300']]
+    if not major: major = indices[:4]
+
+    avg_chg = sum(float(i['chg'].replace('%','').replace('+','')) for i in major) / len(major)
+    up_count = sum(1 for i in major if i['up'])
+
+    if avg_chg > 1.5 and up_count >= 3:
+        phase = '强势上攻'
+        icon = '🔥'
+        risk = 'medium'
+        label = '中等风险'
+        sug = '趋势良好，可积极布局主线赛道'
+    elif avg_chg > 0.3 and up_count >= 2:
+        phase = '震荡偏强'
+        icon = '📈'
+        risk = 'low'
+        label = '较低风险'
+        sug = '温和上涨，精选个股为主'
+    elif avg_chg >= -0.3:
+        phase = '窄幅震荡'
+        icon = '⚖️'
+        risk = 'medium'
+        label = '中等风险'
+        sug = '方向不明确，控制仓位等待信号'
+    elif avg_chg >= -1.5:
+        phase = '震荡回调'
+        icon = '📉'
+        risk = 'medium'
+        label = '中等风险'
+        sug = '高位止盈，关注防御板块'
+    else:
+        phase = '恐慌下跌'
+        icon = '🔴'
+        risk = 'high'
+        label = '高风险'
+        sug = '现金为王，等待企稳信号'
+
+    signals = [
+        f"指数均涨{avg_chg:+.1f}%，{up_count}/{len(major)}上涨",
+        f"上证{indices[0].get('v','?')} {indices[0].get('chg','?')}",
+        f"深证{indices[1].get('v','?')} {indices[1].get('chg','?')}" if len(indices) > 1 else '',
+    ]
+
+    return {
+        'phase': phase, 'phaseIcon': icon,
+        'signals': [s for s in signals if s],
+        'riskLevel': risk, 'riskLabel': label,
+        'suggestion': sug
+    }
+
 def main():
     now = datetime.now(timezone.utc)
     cst = now + timedelta(hours=8)
@@ -278,10 +382,11 @@ def main():
 
     next_update = '今日 17:00 收盘复盘' if is_trading else '下个交易日 9:15 开盘扫描'
 
-    # Preserve manually-curated fields from existing data.json
+    # Preserve manually-curated fields from existing data.json (12h freshness window)
     preserve = {}
     preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts']
     old_cycle = None
+    old_briefing_date = ''
     if os.path.exists(DATA_PATH):
         with open(DATA_PATH, 'r', encoding='utf-8') as f:
             try:
@@ -292,7 +397,54 @@ def main():
                 old_recap = old.get('recap', {})
                 if 'cycle' in old_recap and old_recap['cycle']:
                     old_cycle = old_recap['cycle']
+                old_briefing = old.get('briefing', {})
+                old_briefing_date = old_briefing.get('updated', '') if old_briefing else ''
             except: pass
+
+    # Auto-fresh: if Claude data is >12h old, regenerate from market data
+    cst_str = cst.strftime('%Y-%m-%d')
+    sectors_fresh = preserve.get('sectors') and old_briefing_date.startswith(cst_str)
+    if not sectors_fresh and sectors:
+        auto_sec = auto_sectors(sectors, indices, preserve.get('sectors'))
+        preserve['sectors'] = auto_sec
+
+    # Auto-generate briefing if none or stale
+    briefing_fresh = preserve.get('briefing') and old_briefing_date.startswith(cst_str)
+    if not briefing_fresh and sectors:
+        ai = indices[:4] if indices else []
+        idx_text = ' | '.join([f"{i['n']} {i['chg']}" for i in ai])
+        ai_top3 = [{
+            'r': 1, 't': f"📊 大盘实时: {idx_text}",
+            'b': f"更新时间 {cst.strftime('%H:%M')}，数据每15分钟自动刷新。" + ('市场普涨' if sum(1 for i in ai if i.get('up')) >= 3 else '市场分化' if sum(1 for i in ai if i.get('up')) >= 2 else '市场调整'),
+            's': []
+        }]
+        if sectors:
+            top5 = sorted(sectors, key=lambda x: float(x['s'].replace('%','').replace('+','').replace('-','-')), reverse=True)[:5]
+            ai_top3.append({
+                'r': 2, 't': f"🔥 今日最热: {', '.join([h['n'] for h in top5])}",
+                'b': f"领涨: {top5[0]['n']} {top5[0]['s']}，资金关注度高",
+                's': [f"{h['n']} {h['s']}" for h in top5]
+            })
+        if zt_ladder and zt_ladder.get('tiers'):
+            max_b = zt_ladder['tiers'][0]
+            ai_top3.append({
+                'r': 3, 't': f"🪜 连板: 最高{max_b['boardCount']}连板，共{zt_ladder['totalCount']}只涨停",
+                'b': f"涨停{zt_ladder['totalCount']}只，最高{max_b['boardCount']}连板: {', '.join([s['n'] for s in max_b['stocks'][:5]])}",
+                's': [f"{s['c']} {s['n']}" for s in max_b['stocks'][:6]]
+            })
+        preserve['briefing'] = {
+            'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
+            'top3': ai_top3,
+            'picks': preserve.get('picks', [])
+        }
+        preserve['top3'] = ai_top3
+
+    # Auto-generate cycle if no manual one
+    cycle = old_cycle
+    if not cycle and indices:
+        cycle = auto_cycle(indices)
+    if not cycle:
+        cycle = {'phase': '等待数据', 'phaseIcon': '📊', 'signals': ['行情数据加载中'], 'riskLevel': 'medium', 'riskLabel': '等待', 'suggestion': '等待开盘'}
 
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
@@ -320,8 +472,7 @@ def main():
     }
     # Merge preserved fields
     out.update(preserve)
-    if old_cycle:
-        out['recap']['cycle'] = old_cycle
+    out['recap']['cycle'] = cycle
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
