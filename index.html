@@ -529,6 +529,17 @@ function go(tab){
     renderAll();
   }).catch(function(){ renderAll(); });
 
+  // Helper: compute real countdown days from today to event date (mirrors calendar logic)
+  function realDays(ds){
+    var today=new Date(); today.setHours(0,0,0,0);
+    var m=/(\d+)月(\d+)/.exec(ds);
+    if(m) return Math.ceil((new Date(2026,parseInt(m[1])-1,parseInt(m[2]))-today)/86400000);
+    if(/上旬/.test(ds)){ var m2=/(\d+)月/.exec(ds); if(m2) return Math.ceil((new Date(2026,parseInt(m2[1])-1,5)-today)/86400000); }
+    if(/中旬/.test(ds)){ var m3=/(\d+)月/.exec(ds); if(m3) return Math.ceil((new Date(2026,parseInt(m3[1])-1,15)-today)/86400000); }
+    if(/下旬/.test(ds)){ var m4=/(\d+)月/.exec(ds); if(m4) return Math.ceil((new Date(2026,parseInt(m4[1])-1,25)-today)/86400000); }
+    return 999;
+  }
+
   function renderAll(){
     document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | 交易日每5分钟自动刷新`;
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
@@ -570,9 +581,9 @@ function go(tab){
     <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">按时间倒排。越近越红。标★为产业链重点标的。</p>
     <div class="layout-list">`;
   if(D.layout)D.layout.forEach(function(ev){
-    var cls=ev.days<=3?'urgent':ev.days<=7?'hot':ev.days<=14?'warm':'normal';
+    var cls=realDays(ev.d)<=3?'urgent':realDays(ev.d)<=7?'hot':realDays(ev.d)<=14?'warm':'normal';
     var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
-    lo+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(ev.days<=3?'var(--red)':ev.days<=7?'var(--amber)':ev.days<=14?'var(--blue)':'var(--sub)')+'">'+(ev.days===0?'今天':ev.days+'天')+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(ev.days-ev.lead>0?ev.days-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
+    lo+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(realDays(ev.d)<=3?'var(--red)':realDays(ev.d)<=7?'var(--amber)':realDays(ev.d)<=14?'var(--blue)':'var(--sub)')+'">'+(realDays(ev.d)===0?'今天':realDays(ev.d)+'天')+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(realDays(ev.d)-ev.lead>0?realDays(ev.d)-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
 	});
   lo+=`</div></div></div>`;
 
@@ -798,9 +809,9 @@ function go(tab){
           if(ll&&d.layout.length){
             var loHtml='';
             d.layout.forEach(function(ev){
-              var cls=ev.days<=3?'urgent':ev.days<=7?'hot':ev.days<=14?'warm':'normal';
+              var cls=realDays(ev.d)<=3?'urgent':realDays(ev.d)<=7?'hot':realDays(ev.d)<=14?'warm':'normal';
               var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
-              loHtml+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(ev.days<=3?'var(--red)':ev.days<=7?'var(--amber)':ev.days<=14?'var(--blue)':'var(--sub)')+'">'+(ev.days===0?'today':'D-'+ev.days)+'</div><div class="lc-label">countdown</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">'+ev.s+' | '+ev.d+'</div><div class="lc-lead">advance '+(ev.lead||5)+'d | window '+(ev.days-ev.lead>0?ev.days-ev.lead:0)+'d</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
+              loHtml+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(realDays(ev.d)<=3?'var(--red)':realDays(ev.d)<=7?'var(--amber)':realDays(ev.d)<=14?'var(--blue)':'var(--sub)')+'">'+(realDays(ev.d)===0?'today':'D-'+realDays(ev.d))+'</div><div class="lc-label">countdown</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">'+ev.s+' | '+ev.d+'</div><div class="lc-lead">advance '+(ev.lead||5)+'d | window '+(realDays(ev.d)-ev.lead>0?realDays(ev.d)-ev.lead:0)+'d</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
             });
             ll.innerHTML=loHtml;
           }
