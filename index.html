@@ -165,7 +165,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .evt-row.past .evt-date{color:var(--dim)}
 
 .tbl-wrap{border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border);margin-bottom:14px}
-.tbl-wrap .tbl-title{font-size:.96rem;font-weight:600;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border)}
+.tbl-wrap .tbl-title{font-size:.96rem;font-weight:600;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border);cursor:pointer;list-style:none;display:flex;align-items:center;user-select:none;transition:all .15s}
+.tbl-wrap .tbl-title:hover{background:var(--card)}
+.tbl-wrap .tbl-title::-webkit-details-marker{display:none}
 .tbl{width:100%;border-collapse:collapse;font-size:.88rem}
 .tbl th{text-align:left;color:var(--sub);font-weight:500;padding:8px 12px;border-bottom:1px solid var(--border);font-size:.93rem;text-transform:uppercase}
 .tbl td{padding:8px 12px;border-bottom:1px solid rgba(30,42,63,.5)}
@@ -841,13 +843,13 @@ function go(tab){
 
   // ════ STOCKS ════
   let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>
-    <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码查任意股票,如 600519、000858" maxlength="6" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
+    <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码或名称查任意股票,如 600519、茅台" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
     <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div>`;
   D.groups.forEach(g=>{g.sectors.forEach(s=>{
-    st+=`<div class="tbl-wrap"><div class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span></div><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th><th class="th-lp">现价</th></tr></thead><tbody>`;
+    st+=`<details class="tbl-wrap" ${s.sig==='major'?'open':''}><summary class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span><span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th><th class="th-lp">现价</th></tr></thead><tbody>`;
     const allText=s.ch.up+s.ch.mid+s.ch.down;
     s.st.forEach(x=>{let seg='';if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游';}st+=`<tr><td class="code">${x.c}</td><td>${x.n}</td><td class="seg">${seg||'—'}</td><td class="pilot">${x.pick?'★重点':'—'}</td></tr>`;});
-    st+=`</tbody></table></div>`;
+    st+=`</tbody></table></details>`;
   });});
   st+=`</div></div>`;
 
@@ -856,17 +858,34 @@ function go(tab){
     
   // Stock search function
   function searchStock(){
-    var code=document.getElementById('stockInput').value.trim();
+    var input=document.getElementById('stockInput').value.trim();
     var res=document.getElementById('stockResult');
-    if(!code||code.length!==6){res.style.display='block';document.getElementById('srMeta').textContent='请输入6位代码';return;}
+    if(!input){res.style.display='block';document.getElementById('srMeta').textContent='请输入代码或名称';return;}
+    // Name search → find code from stockInfo or D groups
+    var code='';
+    if(input.length===6&&/^\d{6}$/.test(input)){
+      code=input;
+    }else{
+      // Search by name in stockInfo then D.groups
+      if(typeof stockInfo!=='undefined'){
+        for(var c in stockInfo){if(stockInfo[c].name.indexOf(input)>=0){code=c;break;}}
+      }
+      if(!code){
+        D.groups.forEach(function(g){g.sectors.forEach(function(s){
+          s.st.forEach(function(st){if(st.n.indexOf(input)>=0&&!code)code=st.c;});
+        });});
+      }
+      if(!code){res.style.display='block';document.getElementById('srMeta').textContent='未找到匹配股票';return;}
+    }
     // 1. Local livePrices
     var sina=(code.startsWith('6')||code.startsWith('68'))?'sh'+code:(code.startsWith('0')||code.startsWith('3'))?'sz'+code:'sh'+code;
     if(D.livePrices&&D.livePrices[sina]){
       var lp=D.livePrices[sina];
-      showResult(code,lp.name||code,lp.price,lp.chg_pct,'本地128只实时');
+      showResult(code,lp.name||code,lp.price,lp.chg_pct,'本地实时');
+      if(D.livePrices[sina].price)window.open('tdxstock://'+code,'_blank');
       return;
     }
-    // 2. EastMoney API (CORS OK: push2.eastmoney.com)
+    // 2. EastMoney API
     showResult(code,'查询中...',0,0,'联网查询中...');
     var emcode=(code.startsWith('6')||code.startsWith('68'))?'1.'+code:'0.'+code;
     fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14,f15,f16,f17,f18')
@@ -874,8 +893,8 @@ function go(tab){
         var s=d.data; if(!s){showResult(code,'-',0,0,'查无此股');return;}
         var name=s.f14||code, price=s.f2||0, chg=s.f3||0, high=s.f15||0, low=s.f16||0, open=s.f17||0;
         showResult(code,name,price,chg,'实时 | 开'+open.toFixed(2)+' 高'+high.toFixed(2)+' 低'+low.toFixed(2));
-        // Save to extraCodes for future fetch_prices runs
         if(D.livePrices)D.livePrices[sina]={price:price,chg_pct:chg,name:name};
+        window.open('tdxstock://'+code,'_blank');
       }).catch(function(){showResult(code,'-',0,0,'网络不通,请重试');});
   }
   function showResult(code,name,price,chg,msg){
