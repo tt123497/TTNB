@@ -441,6 +441,9 @@ const D={
     {r:10,c:"601689",n:"拓普集团",sec:"人形机器人",why:"T链执行器核心,Optimus V3 6-7月量产,回调后布局窗口"},
   ],
 
+  // ---- Layout (pre-computed countdown by cloud) ----
+  layout:[],
+
   // ---- Events ----
   events:[
     {d:"6月12日",icon:"🚀",e:"SpaceX纳斯达克挂牌(SPCX)",s:"商业航天",big:1,desc:"IPO定价$135,估值1.75万亿,史上最大科技IPO"},
@@ -566,11 +569,11 @@ function go(tab){
     <div class="section"><div class="section-title">📋 提前布局窗口</div>
     <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">按时间倒排。越近越红。标★为产业链重点标的。</p>
     <div class="layout-list">`;
-  D.layout.forEach(function(ev){
+  if(D.layout)D.layout.forEach(function(ev){
     var cls=ev.days<=3?'urgent':ev.days<=7?'hot':ev.days<=14?'warm':'normal';
     var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
     lo+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+(ev.days<=3?'var(--red)':ev.days<=7?'var(--amber)':ev.days<=14?'var(--blue)':'var(--sub)')+'">'+(ev.days===0?'今天':ev.days+'天')+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(ev.days-ev.lead>0?ev.days-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
-  });
+	});
   lo+=`</div></div></div>`;
 
   // ════ MARKET RECAP ════

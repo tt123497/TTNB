@@ -117,7 +117,7 @@ def main():
 
     # Preserve manually-curated fields from existing data.json
     preserve = {}
-    preserve_keys = ['sectors', 'top3', 'picks', 'briefing']
+    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout']
     if os.path.exists(DATA_PATH):
         with open(DATA_PATH, 'r', encoding='utf-8') as f:
             try:
