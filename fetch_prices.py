@@ -216,6 +216,22 @@ def main():
     tick = time.time()
 
     codes = get_stock_codes()
+    # Merge extra codes from dynamicSectors, layout, and ztLadder for price coverage
+    if os.path.exists(DATA_PATH):
+        with open(DATA_PATH, 'r', encoding='utf-8') as _f:
+            try:
+                _old = json.load(_f)
+                for ds in _old.get('dynamicSectors',[]):
+                    for s in ds.get('st',[]): codes.append(s.get('c',''))
+                for lev in _old.get('layout',[]):
+                    for s in lev.get('stocks',[]):
+                        c = (s or '').split()[0]
+                        if c and len(c)==6: codes.append(c)
+                if _old.get('recap',{}).get('ztLadder',{}).get('tiers'):
+                    for t in _old['recap']['ztLadder']['tiers']:
+                        for s in t.get('stocks',[]): codes.append(s.get('c',''))
+            except: pass
+    codes = sorted(set(c for c in codes if c and len(c)==6))
     indices = get_indices()
     live = get_live_prices(codes)
     heat = get_sector_heat_em()
