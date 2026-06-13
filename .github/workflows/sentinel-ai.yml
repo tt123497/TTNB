@@ -1,0 +1,40 @@
+name: 🧠 AI 哨兵
+
+on:
+  schedule:
+    # 盘前分析 (CST 9:00 = UTC 1:00)
+    - cron: '0 1 * * 1-5'
+    # 午间分析 (CST 12:00 = UTC 4:00)
+    - cron: '0 4 * * 1-5'
+    # 盘后分析 (CST 17:00 = UTC 9:00)
+    - cron: '0 9 * * 1-5'
+    # 周末复盘 (周六 CST 10:00 = UTC 2:00)
+    - cron: '0 2 * * 6'
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 确保数据最新
+        run: python .github/scripts/fetch_data.py
+
+      - name: AI 分析 + 生成简报
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python .github/scripts/sentinel_ai.py
+
+      - name: 提交更新
+        run: |
+          git config user.name "Sentinel AI"
+          git config user.email "ai@sentinel.local"
+          git add data.json
+          git diff --staged --quiet || (git commit -m "🧠 $(TZ='Asia/Shanghai' date '+%H:%M') AI哨兵简报" && git push)
