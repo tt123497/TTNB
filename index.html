@@ -1094,7 +1094,6 @@ function go(tab){
       if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
     }
     if(code){
-      navigator.clipboard.writeText(code).catch(function(){});
       window.open('tdxstock://'+code,'_blank');
     }
   });

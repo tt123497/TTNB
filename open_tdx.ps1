@@ -1,26 +1,19 @@
-# tdxstock:// protocol handler — copy code to clipboard + launch TDX
+# tdxstock:// protocol handler — 一键打开个股
 param([string]$url='')
 $code = ''
 if ($url -match 'tdxstock://(\d{6})') { $code = $Matches[1] }
 if ($url -match 'tdxstock://([^/]+)') { $code = $Matches[1] }
-if (-not $code -or $code.Length -ne 6) {
-    Add-Type -AssemblyName System.Windows.Forms
-    [System.Windows.Forms.MessageBox]::Show("无效的股票代码: $code", 'TDX Helper', 'OK', 'Error')
-    exit
-}
+if (-not $code -or $code.Length -ne 6) { exit }
 
-# 1. Copy to clipboard
-Set-Clipboard -Value $code
-
-# 2. Try to bring TDX to front / launch if not running
+# 1. Launch TDX if not running
 $tdxPath = 'D:\tongxinda\TdxW.exe'
 $tdxProcess = Get-Process -Name 'TdxW' -ErrorAction SilentlyContinue
 if (-not $tdxProcess) {
     Start-Process -FilePath $tdxPath -WindowStyle Normal
-    Start-Sleep -Seconds 3
+    Start-Sleep -Seconds 5
 }
 
-# 3. Bring TDX window to front
+# 2. Bring TDX to foreground
 try {
     Add-Type @"
     using System;
@@ -32,18 +25,16 @@ try {
 "@
     $procs = Get-Process -Name 'TdxW' -ErrorAction SilentlyContinue
     foreach ($p in $procs) {
-        [Win32]::ShowWindow($p.MainWindowHandle, 9) | Out-Null  # SW_RESTORE
+        [Win32]::ShowWindow($p.MainWindowHandle, 9) | Out-Null
         [Win32]::SetForegroundWindow($p.MainWindowHandle) | Out-Null
+        Start-Sleep -Milliseconds 300
+        break
     }
 } catch {}
 
-# 4. Show notification
+# 3. Type stock code into TDX keyboard elf + Enter
 Add-Type -AssemblyName System.Windows.Forms
-$notify = New-Object System.Windows.Forms.NotifyIcon
-$notify.Icon = [System.Drawing.SystemIcons]::Information
-$notify.BalloonTipTitle = '📈 通达信'
-$notify.BalloonTipText = "已复制 $code`n在通达信窗口按 Ctrl+V 查看"
-$notify.Visible = $true
-$notify.ShowBalloonTip(2000)
-Start-Sleep -Seconds 3
-$notify.Dispose()
+Start-Sleep -Milliseconds 200
+[System.Windows.Forms.SendKeys]::SendWait($code)
+Start-Sleep -Milliseconds 200
+[System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
