@@ -23,6 +23,23 @@
 html{font-size:18px;scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh}
 
+/* ── Help Button ── */
+.help-btn{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:16px;background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.25);cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .15s}
+.help-btn:hover{background:rgba(59,130,246,.22);border-color:var(--blue)}
+.help-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.help-modal{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;max-width:640px;width:92vw;max-height:82vh;overflow:hidden;box-shadow:var(--shadow-lg)}
+.help-scroll{overflow-y:auto;max-height:62vh;padding-right:8px}
+.help-scroll::-webkit-scrollbar{width:5px}
+.help-scroll::-webkit-scrollbar-track{background:transparent}
+.help-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.help-section{margin-bottom:18px}
+.help-section h4{font-size:.92rem;font-weight:700;color:var(--blue);margin-bottom:6px}
+.help-section p{font-size:.84rem;color:var(--sub);line-height:1.7}
+.help-tbl{width:100%;font-size:.8rem;border-collapse:collapse}
+.help-tbl td{padding:5px 8px;border-bottom:1px solid rgba(30,47,74,.3)}
+.help-tbl td:first-child{font-weight:600;color:var(--text);white-space:nowrap;width:55%}
+.help-tbl td:last-child{color:var(--sub)}
+
 /* ── Top Bar ── */
 .topbar{
   position:sticky;top:0;z-index:100;
@@ -384,7 +401,64 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 <div class="topbar">
   <div class="brand">📡 <em>股市哨兵</em> · 全市场赛道监控</div>
-  <div class="live">实时</div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <button class="help-btn" onclick="document.getElementById('helpModal').style.display='flex'">📖 使用说明</button>
+    <div class="live">实时</div>
+  </div>
+</div>
+
+<!-- ── Help Modal ── -->
+<div class="help-overlay" id="helpModal" style="display:none" onclick="if(event.target===this)this.style.display='none'">
+<div class="help-modal" onclick="event.stopPropagation()">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+  <div style="font-size:1.2rem;font-weight:700">📖 使用说明 · 股市哨兵</div>
+  <button onclick="document.getElementById('helpModal').style.display='none'" style="background:none;border:none;font-size:1.5rem;color:var(--sub);cursor:pointer;padding:0 6px">&times;</button>
+</div>
+<div class="help-scroll">
+<p style="color:var(--sub);margin-bottom:16px">全自动A股市场监控系统。云端运行（GitHub Actions），家里电脑免开。数据每5分钟刷新，AI简报每小时更新。</p>
+
+<div class="help-section"><h4>📊 总览</h4><p>顶部：强势赛道数 / 资金流向 / 涨停跌停统计。下方：实时最强势/最弱势TOP3赛道（基于板块内个股均价涨跌），点击任意赛道跳转到产业链穿透图。每个赛道卡片含标的代码+名称。</p></div>
+
+<div class="help-section"><h4>🗺️ 产业链</h4><p>63个赛道上下游穿透图。展开任意赛道看上游→中游→下游完整产业链，每个环节含核心标的。从总览点赛道卡片会自动展开并蓝光闪烁定位。</p></div>
+
+<div class="help-section"><h4>📰 简报</h4><p>每日最重要的10条消息 + 10只精选标的。由DeepSeek V4-Pro基于实时行情+真实新闻生成，每小时更新。每条消息含原文链接。标绿色为当前推荐，点代码跳通达信。</p></div>
+
+<div class="help-section"><h4>📡 快讯</h4><p>实时滚动新闻流。每5分钟从新浪财经+东财公告抓取。分两路：赛道新闻（蓝点，与63赛道相关）+ 市场宏观（黄点，政策/外围/大宗）。点击标题跳原文。</p></div>
+
+<div class="help-section"><h4>📅 事件日历</h4><p>未来催化事件按日期排列。⚡关键=硬催化（停产/涨价/法规/财报）。红色边框=重大事件。已过期自动折叠。所有事件含来源链接。</p></div>
+
+<div class="help-section"><h4>📋 布局</h4><p>根据事件日历自动生成布局卡片。倒计时天数（红色<3天 橙色<7天 蓝色<14天）。每张卡片含赛道+建议提前天数+产业链标的。已过期自动折叠到历史归档。</p></div>
+
+<div class="help-section"><h4>🎯 标的</h4><p>每个赛道实时领涨TOP5 + 领跌TOP5。数据每5分钟从东财板块API拉取。点击任意行跳通达信。顶部搜索框可查全A股任意代码或名称。</p></div>
+
+<div class="help-section"><h4>📈 复盘</h4><p>主要指数+资金流+热力板块+连板梯队（按连板数分组，点击折叠）+ 领涨/领跌方向（含具体个股）。支持日期切换查看历史复盘数据。</p></div>
+
+<div class="help-section"><h4>📑 检索</h4><p>输入关键词搜索全A股相关概念板块+标的+资讯。自动调东财概念搜索、新浪新闻、全A股名称匹配。点板块卡片可展开该板块完整标的列表。</p></div>
+
+<div class="help-section"><h4>🛡️ 数据来源</h4>
+<table class="help-tbl"><tr><td>行情（指数/板块/个股/涨停/资金）</td><td>东方财富 API</td></tr>
+<tr><td>实时快讯</td><td>新浪财经 + 东财公告</td></tr>
+<tr><td>AI简报分析</td><td>DeepSeek V4-Pro</td></tr>
+<tr><td>事件日历</td><td>NBS宏观推算 + AI哨兵 + 手工精选</td></tr>
+<tr><td>产业链穿透图</td><td>手工维护（63赛道全产业链）</td></tr></table></div>
+
+<div class="help-section"><h4>🏷️ 标签说明</h4>
+<table class="help-tbl"><tr><td>🔥 板均涨X%</td><td>赛道均涨≥3%</td></tr>
+<tr><td>🟢 偏强 +X%</td><td>均涨1-3%</td></tr>
+<tr><td>🟡 平盘</td><td>均涨±1%</td></tr>
+<tr><td>🔴 偏弱 -X%</td><td>均跌1-3%</td></tr>
+<tr><td>★重点</td><td>产业链核心标的（龙头）</td></tr>
+<tr><td>⚡关键</td><td>事件日历中的硬催化（停产/涨价/法规/财报）</td></tr></table></div>
+
+<div class="help-section"><h4>🖱️ 操作技巧</h4>
+<p>• 悬停任意标的代码 → 显示行业+概念+产业链位置浮窗</p>
+<p>• 点击标的代码 → 自动打开通达信并键入代码</p>
+<p>• 第一次加载兜底数据，data.json拉取成功后实时覆盖</p>
+<p>• 全移动端适配（≤900px双列 ≤600px单列）</p></div>
+
+<div class="help-section"><h4>⚠️ 免责声明</h4><p style="color:var(--amber)">本网站仅供研究参考，不构成任何投资建议。所有数据来自公开API，可能存在延迟或误差。投资有风险，入市须谨慎。</p></div>
+</div>
+</div>
 </div>
 <div class="update-bar" id="updateBar">数据更新中...</div>
 <div class="nav" id="navBar"></div>
