@@ -18,7 +18,7 @@ Rules:
 import json, os, re, time, calendar as cal
 from datetime import datetime, timezone, timedelta
 from urllib.request import Request, urlopen
-from urllib.parse import urlencode
+from urllib.parse import urlencode, quote
 
 DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(DIR, 'data.json')
@@ -68,57 +68,70 @@ def generate_macro():
     # ── Only 5 macro events that matter for layout ──
 
     # 1. FOMC — global asset pricing anchor
+    fomc_url = 'https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm'
     for y,m,d,t in [
         (2026,6,17,'6月FOMC+点阵图'),(2026,7,29,'7月FOMC'),
         (2026,9,16,'9月FOMC'),(2026,11,4,'11月FOMC'),
         (2026,12,16,'12月FOMC+点阵图')]:
         fd = datetime(y,m,d)
-        evs.append({'d':fmt_d(fd),'icon':'🏛️','e':t,'s':MACRO_S,
-            'big':1,'desc':'全球资产定价锚——利率决议+点阵图决定全年降息路径，直接影响A股科技/成长估值'})
+        evs.append({'d':fmt_d(fd),'icon':'🏛️','e':t,'s':MACRO_S,'big':1,
+            'desc':'全球资产定价锚——利率决议+点阵图决定全年降息路径',
+            'u':fomc_url})
 
     # 2. LPR — mortgage rate benchmark (monthly)
+    lpr_url = 'http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html'
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
         lpr = next_biz(y, m, 20)
         evs.append({'d':fmt_d(lpr),'icon':'🏦','e':f'{m}月LPR报价','s':MACRO_S,
-            'big':1,'desc':'房贷利率基准，降息=直接利好地产+银行+成长股估值扩张'})
+            'big':1,'desc':'房贷利率基准，降息=直接利好地产+银行+成长股估值扩张',
+            'u':lpr_url})
 
     # 3. MLF — PBOC medium-term rate signal (monthly)
+    mlf_url = 'http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125428/index.html'
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
         mlf = next_biz(y, m, 15)
         evs.append({'d':fmt_d(mlf),'icon':'🏦','e':f'{m}月MLF操作','s':MACRO_S,
-            'big':1,'desc':'央行中期利率指引，降息信号=政策转向宽松，利好A股整体估值'})
+            'big':1,'desc':'央行中期利率指引，降息信号=政策转向宽松，利好A股整体估值',
+            'u':mlf_url})
 
     # 4. US Non-farm — global risk appetite (monthly)
+    nfp_url = 'https://www.bls.gov/news.release/empsit.nr0.htm'
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
         nfp = first_fri(y, m)
         evs.append({'d':fmt_d(nfp),'icon':'🇺🇸','e':f'{m}月美国非农就业','s':MACRO_S,
-            'big':1,'desc':'全球最重要月度数据，影响美联储降息预期→美债利率→A股科技成长风格'})
+            'big':1,'desc':'全球最重要月度数据，影响美联储降息预期→美债利率→A股科技成长风格',
+            'u':nfp_url})
 
     # 5. US CPI — inflation → rate cut expectation (monthly)
+    cpi_url = 'https://www.bls.gov/news.release/cpi.nr0.htm'
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
         us_cpi = next_biz(y, m, 12)
         evs.append({'d':fmt_d(us_cpi),'icon':'🇺🇸','e':f'{m}月美国CPI','s':MACRO_S,
-            'big':1,'desc':'通胀数据→降息预期→美债利率→科技股估值，A股成长赛道最敏感的海外数据'})
+            'big':1,'desc':'通胀数据→降息预期→美债利率→科技股估值',
+            'u':cpi_url})
 
     # ── Recurring sector-specific events (not macro noise) ──
 
     # 股指期货交割 — risk management, useful to know
+    ex_url = 'http://www.cffex.com.cn/jysj/yysj/'
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
         ex = third_fri(y, m)
         evs.append({'d':fmt_d(ex),'icon':'📅','e':f'{m}月股指期货交割日','s':MACRO_S,
-            'big':0,'desc':'交割日市场波动可能加大，注意仓位管理'})
+            'big':0,'desc':'交割日市场波动可能加大，注意仓位管理',
+            'u':ex_url})
 
     # 章源钨业长单报价 — real sector catalyst
+    zyw_url = 'https://quote.eastmoney.com/sz002842.html'
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
@@ -128,7 +141,8 @@ def generate_macro():
                 if qd.month == m:
                     evs.append({'d':fmt_d(qd),'icon':'💰',
                         'e':f'章源钨业{m}月{lb}半月长单报价','s':'钨/稀土',
-                        'big':1,'desc':'每半月钨精矿定价催化，观察涨幅趋势'})
+                        'big':1,'desc':'每半月钨精矿定价催化',
+                        'u':zyw_url})
 
     seen = set(); deduped = []
     for e in evs:
@@ -156,17 +170,21 @@ def main():
 
     existing = data.get('events', [])
 
-    # Separate: hand (with URL) vs macro vs AI vs other
-    hand_evs = [e for e in existing if e.get('u','').strip()]
+    # Separate: hand (has URL AND not macro) vs macro vs AI (no URL) vs new AI (with URL, not macro, not hand)
+    macro_patterns = ['FOMC','LPR报价','MLF操作','美国非农','美国CPI','股指期货交割','章源钨业长单']
+
+    hand_evs = [e for e in existing if e.get('u','').strip()
+        and not any(kw in e.get('e','') for kw in macro_patterns)]
     hand_keys = {(e['d'], e['e']) for e in hand_evs}
 
-    macro_patterns = ['FOMC','LPR报价','MLF操作','美国非农','美国CPI','股指期货交割','章源钨业长单']
-    old_macro = [e for e in existing if not e.get('u','').strip()
-        and any(kw in e.get('e','') for kw in macro_patterns)]
+    old_macro = [e for e in existing
+        if any(kw in e.get('e','') for kw in macro_patterns)]
 
-    ai_evs = [e for e in existing if not e.get('u','').strip()
-        and not any(kw in e.get('e','') for kw in macro_patterns)]
-    other_evs = []  # reserved
+    # AI events: everything else (with or without URL)
+    macro_keys_used = {(e['d'], e['e']) for e in old_macro}
+    ai_evs = [e for e in existing
+        if (e['d'], e['e']) not in hand_keys
+        and (e['d'], e['e']) not in macro_keys_used]
 
     print(f'Existing: {len(hand_evs)} hand + {len(old_macro)} old-macro + {len(ai_evs)} AI')
 
@@ -181,6 +199,7 @@ def main():
         k = (ev['d'], ev['e'])
         if k not in hand_keys:
             merged.append(ev)
+    macro_keys = {(e['d'], e['e']) for e in macro}
 
     all_keys = {(e['d'], e['e']) for e in merged}
     for ev in ai_evs:
@@ -188,10 +207,18 @@ def main():
         if k not in all_keys:
             merged.append(ev)
 
-    for ev in other_evs:
-        k = (ev.get('d',''), ev.get('e',''))
-        if k not in all_keys:
-            merged.append(ev)
+    # ── URL enrichment: generate links for events missing them ──
+    for ev in merged:
+        if not ev.get('u','').strip():
+            # Generate EastMoney search URL from title keywords
+            title = ev.get('e','')
+            sector = ev.get('s','')
+            # Use sector + first keyword from title
+            search_term = sector.split('/')[0].strip() if sector else title[:8]
+            if search_term:
+                ev['u'] = 'https://so.eastmoney.com/news/s?keyword=' + quote(search_term)
+            else:
+                ev['u'] = 'https://data.eastmoney.com/'
 
     # Sort by date
     def parse_date(ev):
