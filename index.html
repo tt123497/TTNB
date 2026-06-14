@@ -713,11 +713,12 @@ function go(tab){
         });
       });
     }
-    // Override hardcoded tags with dynamic sector tags from market data
+    // Merge dynamic sector tags into sectors for counting + display
+    D.sectorTags = data.sectorTags || {};
     if(data.sectorTags){
       D.groups.forEach(function(g){
         g.sectors.forEach(function(s){
-          if(data.sectorTags[s.n]) s.tag = data.sectorTags[s.n];
+          if(data.sectorTags[s.n]){ s.tag = data.sectorTags[s.n]; s.avgChg = parseFloat(s.tag.split('%')[0].replace(/[^0-9.\-+]/g,'')); }
         });
       });
     }
@@ -766,7 +767,10 @@ function go(tab){
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
-  const majorCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=3).length:0;
+  // Count major from our exact sectors using real stock price averages
+  var majorCount=0;
+  if(D.sectorTags){Object.keys(D.sectorTags).forEach(function(k){var t=D.sectorTags[k];if(t.indexOf('板均涨')>=0||t.indexOf('板涨')>=0)majorCount++;});}
+  if(majorCount===0){majorCount=allSectors.filter(function(s){return s.avgChg>=3;}).length;}
   const goodCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=0).length:0;
   var marketSummary='';
   (function(){
