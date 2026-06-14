@@ -99,6 +99,49 @@ def get_live_prices(all_codes):
         time.sleep(0.05)
     return results
 
+def get_lhb():
+    """Fetch 龙虎榜 (top trading seats). Returns {topBuy:[], topSell:[], total, date}."""
+    result = {'topBuy': [], 'topSell': [], 'total': 0, 'date': ''}
+    cst = datetime.now(timezone.utc) + timedelta(hours=8)
+    for attempt in range(4):
+        try_date = cst - timedelta(days=attempt)
+        if try_date.weekday() >= 5:
+            continue
+        date_str = try_date.strftime('%Y%m%d')
+        url = f'http://push2ex.eastmoney.com/getStockLHBList?date={date_str}&pageIndex=1&pageSize=200'
+        text = fetch(url, encoding='utf-8', extra_headers={'Referer': 'https://data.eastmoney.com/'})
+        if not text:
+            continue
+        try:
+            text = re.sub(r'^[^(]+\(', '', text)
+            text = re.sub(r'\)\s*$', '', text)
+            data = json.loads(text)
+            items = data.get('data', [])
+            if not items:
+                continue
+            buy_list, sell_list = [], []
+            for item in items:
+                code = item.get('Code', '') or item.get('c', '')
+                name = item.get('Name', '') or item.get('n', '')
+                buy_amt = float(item.get('JmBuy', 0) or 0)
+                sel_amt = float(item.get('JmSell', 0) or 0)
+                net = buy_amt - sel_amt
+                entry = {'c': code, 'n': name, 'net': round(net / 10000, 2),
+                         'chg': round(item.get('Chgradio', 0) or 0, 1),
+                         'reason': (item.get('Reason', '') or '')[:30]}
+                if net > 0:
+                    buy_list.append(entry)
+                elif net < 0:
+                    sell_list.append(entry)
+            buy_list.sort(key=lambda x: -x['net'])
+            sell_list.sort(key=lambda x: x['net'])
+            result = {'topBuy': buy_list[:15], 'topSell': sell_list[:15],
+                      'total': len(items), 'date': try_date.strftime('%m/%d')}
+            break
+        except:
+            continue
+    return result
+
 def fetch_all_top_gainers():
     """Fallback: top 8 gainers from ALL A-shares. Returns list of 'code name'."""
     try:
@@ -551,6 +594,7 @@ def main():
     live = get_live_prices(codes)
     fund = get_fund_flow_em()
     zt_ladder = get_zt_ladder(cst)
+    lhb = get_lhb()
     # Real ZT/DT count from clist API (all A-shares, not just 封板池)
     zt_count = len(zt_ladder.get('tiers',[]))  # fallback: tier count
     dt_count = 0
@@ -708,6 +752,7 @@ def main():
             'ztLadder': zt_ladder,
             'ztCount': zt_count,
             'dtCount': dt_count,
+            'lhb': lhb,
             'note': f"{cst.strftime('%m/%d %H:%M')} GitHub Actions云更新 | {len(codes)}只 | {len(sectors)}板块"
         },
         'livePrices': live,
@@ -772,7 +817,8 @@ def main():
         # Keep previous sectorStocks if they exist
         if preserve.get('sectorStocks') and sum(1 for v in preserve['sectorStocks'].values() if v) >= 10:
             out['sectorStocks'] = preserve['sectorStocks']
-            print(f'  sectorStocks: kept existing ({sum(1 for v in preserve[\"sectorStocks\"].values() if v)} sectors)')
+            psc = sum(1 for v in preserve["sectorStocks"].values() if v)
+            print(f"  sectorStocks: kept existing ({psc} sectors)")
         else:
             print(f'  sectorStocks: skipped ({populated} sectors too few, likely non-trading)')
 

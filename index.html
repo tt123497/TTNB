@@ -1030,6 +1030,28 @@ function go(tab){
       <div class="stat-chip"><div class="val" style="color:${D.recap.dtCount>5?'var(--red)':'var(--green)'}">${D.recap.dtCount!=null?D.recap.dtCount:'—'}</div><div class="lbl">📉 跌停</div></div>
     </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>`;
 
+  // ── 龙虎榜 strip (from data.json) ──
+  (function(){
+    var lhb=D.recap.lhb;
+    if(lhb&&lhb.topBuy&&lhb.topBuy.length){
+      var topB=lhb.topBuy.slice(0,5), topS=lhb.topSell.slice(0,5);
+      var lhbHtml='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
+      // Buy side
+      lhbHtml+='<div style="border:1px solid rgba(239,68,68,.20);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--red);margin-bottom:6px">🪜 龙虎榜·净买入 TOP5 <span style="font-size:.68rem;color:var(--dim);font-weight:400">'+lhb.date+'</span></div>';
+      topB.forEach(function(s){
+        lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="window.open(\'tdxstock://'+s.c+'\',\'_blank\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--red);font-weight:700;font-size:.8rem">+'+s.net.toFixed(1)+'亿</span><span style="font-size:.64rem;color:var(--dim)">'+s.reason+'</span></div>';
+      });
+      lhbHtml+='</div>';
+      // Sell side
+      lhbHtml+='<div style="border:1px solid rgba(34,197,94,.18);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--green);margin-bottom:6px">净卖出 TOP5</div>';
+      topS.forEach(function(s){
+        lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="window.open(\'tdxstock://'+s.c+'\',\'_blank\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--green);font-weight:700;font-size:.8rem">'+s.net.toFixed(1)+'亿</span><span style="font-size:.64rem;color:var(--dim)">'+s.reason+'</span></div>';
+      });
+      lhbHtml+='</div></div>';
+      ov+=lhbHtml;
+    }
+  })();
+
   // ── Top-3 / Bottom-3 sector strip (from real-time price averages) ──
   (function(){
     var ranked=[];
