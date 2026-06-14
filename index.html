@@ -265,6 +265,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .recap-date-bar .btn-today:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 2px 8px rgba(59,130,246,.3)}
 .recap-date-bar .date-status{font-size:.76rem;color:var(--dim)}
 
+/* ── Flash News Feed ── */
+.flash-feed{display:flex;flex-direction:column;gap:6px;max-height:70vh;overflow-y:auto}
+.flash-item{display:flex;gap:10px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.88rem;line-height:1.6;transition:all .15s;align-items:flex-start}
+.flash-item:hover{background:var(--card);border-color:var(--blue);transform:translateY(-1px)}
+.flash-item .fi-time{font-size:.76rem;color:var(--dim);font-family:SF Mono,Fira Code,monospace;min-width:42px;padding-top:2px;flex-shrink:0}
+.flash-item .fi-dot{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0}
+.flash-item .fi-dot.sector{background:var(--blue)}
+.flash-item .fi-dot.market{background:var(--amber)}
+.flash-item .fi-body{flex:1;min-width:0}
+.flash-item .fi-title{color:var(--text);font-size:.88rem}
+.flash-item .fi-title a{color:var(--text);text-decoration:none}
+.flash-item .fi-title a:hover{color:var(--blue)}
+.flash-item .fi-src{font-size:.72rem;color:var(--dim);margin-top:2px}
+.flash-item .fi-src span{padding:1px 6px;border-radius:4px;background:rgba(59,130,246,.1);color:var(--blue);font-size:.68rem}
+
 /* ── Update Bar / Footer / Stats ── */
 .update-bar{text-align:center;padding:8px;font-size:.82rem;color:var(--sub);background:var(--surface);border-bottom:1px solid var(--border)}
 .footer{text-align:center;padding:28px;color:var(--dim);font-size:.95rem;border-top:1px solid var(--border);margin-top:24px;line-height:1.8}
@@ -830,8 +845,8 @@ const D={
 // ═══════════════════════════════════════════════════════════════
 // RENDER ENGINE
 // ═══════════════════════════════════════════════════════════════
-const TABS=['overview','chain','briefing','calendar','layout','stocks','recap'];
-const TLABEL={overview:'📊 总览',layout:'📋 布局',recap:'📈 复盘',briefing:'📰 简报',chain:'🗺️ 产业链',calendar:'📅 事件',stocks:'🎯 标的'};
+const TABS=['overview','chain','briefing','flash','calendar','layout','stocks','recap'];
+const TLABEL={overview:'📊 总览',layout:'📋 布局',recap:'📈 复盘',briefing:'📰 简报',flash:'📡 快讯',chain:'🗺️ 产业链',calendar:'📅 事件',stocks:'🎯 标的'};
 
 function go(tab){
   document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('on'));
@@ -872,6 +887,10 @@ function go(tab){
     if(data.nextSentinel) D.next=data.nextSentinel;
     if(data.livePrices) D.livePrices=data.livePrices;
     if(data.bHistory&&data.bHistory.length) D.bHistory=data.bHistory;
+    // Populate flash news on initial load
+    if(data._newsSector || data._newsMarket){
+      renderFlashNews(data._newsSector||[], data._newsMarket||[]);
+    }
     if(data.sectors){
       var secMap={};
       data.sectors.forEach(function(s){ secMap[s.name]={sig:s.sig,msg:s.msg||'',u:s.u||''}; });
@@ -1110,6 +1129,14 @@ function go(tab){
   }
   br+=`</div>`;
 
+  // ════ FLASH NEWS ════
+  let fl=`<div class="tab-panel" id="panel-flash">
+    <div class="section"><div class="section-title">📡 实时快讯 · 市场宏观</div>
+    <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">每5分钟从新浪财经+东财公告抓取。赛道新闻见简报，此处为宏观/政策/外围市场。</p>
+    <div class="flash-feed" id="flashFeed">
+      <div style="color:var(--dim);text-align:center;padding:20px">⏳ 加载中...</div>
+    </div></div></div>`;
+
   // ════ CHAIN ════
   let ch=`<div class="tab-panel" id="panel-chain"><div class="section"><div class="section-title">🗺️ AI全产业链穿透图 · 35赛道（点展开）</div><p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">任何环节出消息→30秒定位全链受益标的。🔥=当前最值得关注</p>`;
   D.groups.forEach(g=>{
@@ -1163,9 +1190,24 @@ function go(tab){
   });});
   st+=`</div></div>`;
 
-  document.getElementById('mainContent').innerHTML=ov+lo+rc+br+ch+ca+st;
+  document.getElementById('mainContent').innerHTML=ov+lo+rc+br+fl+ch+ca+st;
 
     
+  // Flash news renderer
+  function renderFlashNews(sectorNews, marketNews){
+    var el=document.getElementById('flashFeed');
+    if(!el)return;
+    var items=sectorNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'sector'};})
+      .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'market'};}));
+    items.sort(function(a,b){return (b.time||'').localeCompare(a.time||'');});
+    var h='';
+    items.forEach(function(item){
+      h+='<div class="flash-item"><span class="fi-time">'+(item.time||'')+'</span><div class="fi-dot '+(item.ch||'market')+'"></div><div class="fi-body"><div class="fi-title">'+(item.u?'<a href="'+item.u+'" target="_blank" rel="noopener">'+item.t+'</a>':item.t)+'</div><div class="fi-src"><span>'+((item.src||'').replace('sina_','').replace('em_',''))+'</span></div></div></div>';
+    });
+    if(!items.length)h='<div style="color:var(--dim);text-align:center;padding:20px">暂无快讯，等待开盘...</div>';
+    el.innerHTML=h;
+  }
+
   // Stock search function
   function searchStock(){
     var input=document.getElementById('stockInput').value.trim();
@@ -1282,6 +1324,10 @@ function go(tab){
           });
           bhHtml+='</div></details></div>';
           bhEl.innerHTML=bhHtml;
+        }
+        // ── Flash News refresh ──
+        if(d._newsSector||d._newsMarket){
+          renderFlashNews(d._newsSector||[], d._newsMarket||[]);
         }
         // Recap panel
         if(currentRecapDate!=='today')return; // skip refresh when viewing history
