@@ -1265,49 +1265,64 @@ function go(tab){
     document.getElementById('resLoading').style.display='block';
 
     var results={boards:[],stocks:[],news:[],kw:kw};
-    var pending=2; // EM boards + Sina news
+    var maxWait=10000; // 10s timeout
+    var startTime=Date.now();
+    var phase=0; // 0=waiting, 1=boards arrived, 2=stocks+news done, 3=rendered
+    var stockSources=0, stockDone=0;
+
+    function tryShow(){
+      if(phase>=3)return;
+      var hasBoards=results.boards.length>0;
+      var hasStocks=results.stocks.length>0;
+      var hasNews=results.news.length>0;
+      var waited=Date.now()-startTime;
+      // Show when: we have at least something AND either (stocks are in for all boards) OR timeout
+      if(hasBoards||hasStocks||hasNews){
+        var allStockDone = (stockSources===0) || (stockDone>=stockSources);
+        if(allStockDone || waited>3000){ // 3s minimum, then show with what we have
+          phase=3;
+          showResearch(results);
+        }
+      }else if(waited>maxWait){
+        phase=3;
+        showResearch(results);
+      }
+    }
 
     // ── Source 1: EastMoney concept board search (JSONP) ──
     var cbName='_emcb_'+Date.now();
     window[cbName]=function(data){
       var items=(data.QuotationCodeTable||{}).Data||data.Datas||[];
-      results.boards=items.slice(0,8);
-      // Fetch stocks for found boards
-      var stockFetch=0, stockDone=0;
-      results.boards.forEach(function(b,i){
-        var bcode=b.Code||b.code||'';
-        if(!bcode.startsWith('BK'))return;
-        stockFetch++;
-        var url='https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14';
-        fetch(url).then(function(r){return r.json()}).then(function(d){
-          var stks=d.data.diff||[];
-          stks.forEach(function(s){
-            results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:b.Name||b.name||'',boardCode:bcode});
-          });
-          stockDone++;
-          if(stockDone>=stockFetch&&--pending<=0)showResearch(results);
-        }).catch(function(){stockDone++;if(stockDone>=stockFetch&&--pending<=0)showResearch(results);});
-      });
-      if(stockFetch===0&&--pending<=0)showResearch(results);
-      if(--pending<=0)showResearch(results);
+      results.boards=items.slice(0,8).filter(function(b){return (b.Code||b.code||'').startsWith('BK');});
       delete window[cbName];
+      // Fetch top stocks from each found board
+      results.boards.forEach(function(b){
+        var bcode=b.Code||b.code||'';
+        stockSources++;
+        fetch('https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14')
+          .then(function(r){return r.json()}).then(function(d){
+            (d.data.diff||[]).forEach(function(s){
+              results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:b.Name||b.name||'',boardCode:bcode});
+            });
+          }).finally(function(){stockDone++;tryShow();});
+      });
+      tryShow();
     };
     var sn=document.createElement('script');
     sn.src='https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(kw)+'&type=14&count=10&cb='+cbName;
-    sn.onerror=function(){delete window[cbName];if(--pending<=0)showResearch(results);};
+    sn.onerror=function(){delete window[cbName];tryShow();};
     document.head.appendChild(sn);
-    setTimeout(function(){if(pending>0){pending=0;showResearch(results);}},8000);
 
     // ── Source 2: Sina keyword news ──
     fetch('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2512&k='+encodeURIComponent(kw)+'&num=20&page=1')
       .then(function(r){return r.json()}).then(function(d){
         var items=(d.result||{}).data||[];
         results.news=items.filter(function(it){
-          var t=(it.title||it.intro||'').toLowerCase();
-          return t.indexOf(kw.toLowerCase())>=0;
+          var t=(it.title||it.intro||''); var tl=t.toLowerCase();
+          return tl.indexOf(kw.toLowerCase())>=0;
         }).map(function(it){return {t:it.title||it.intro||'',u:it.url||'',time:it.ctime||''};});
-        if(--pending<=0)showResearch(results);
-      }).catch(function(){if(--pending<=0)showResearch(results);});
+        tryShow();
+      }).catch(function(){tryShow();});
 
     // ── Source 3: All-A top gainers filtered by keyword ──
     fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=30&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f2,f3,f12,f14')
@@ -1317,7 +1332,11 @@ function go(tab){
           var n=(s.f14||'').toLowerCase(); var kwl=kw.toLowerCase();
           if(n.indexOf(kwl)>=0)results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:'全市场匹配',boardCode:''});
         });
-      }).catch(function(){});
+        tryShow();
+      }).catch(function(){tryShow();});
+
+    // Safety timeout
+    setTimeout(function(){tryShow();},maxWait);
   };
 
   function showResearch(r){
