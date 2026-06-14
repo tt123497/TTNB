@@ -478,41 +478,7 @@ def main():
     if not cycle:
         cycle = {'phase': '等待数据', 'phaseIcon': '📊', 'signals': ['行情数据加载中'], 'riskLevel': 'medium', 'riskLabel': '等待', 'suggestion': '等待开盘'}
 
-    # Auto-generate fixed events (always fresh)
-    auto_events = [
-        {'d': '6月15日', 'icon': '💰', 'e': '章源钨业6月上半月长单报价', 's': '钨/稀土', 'big': 1, 'desc': '每半月定期催化,观察钨精矿涨幅趋势'},
-        {'d': '6月16日', 'icon': '🔋', 'e': 'AEPT固态电池产业大会(上海)', 's': '固态电池', 'big': 1, 'desc': '发布全球固态电池白皮书,颁发行业鲁班奖'},
-        {'d': '6月16日', 'icon': '👓', 'e': '深圳首届AI眼镜展(300+国际团)', 's': '消费电子/AI硬件', 'big': 0, 'desc': '雷鸟/华为/中兴联签AI眼镜自律公约'},
-        {'d': '6月18日', 'icon': '📊', 'e': '5月半导体销售额数据发布(SIA)', 's': '半导体全链', 'big': 0, 'desc': '验证存储/逻辑芯片涨价是否加速传导'},
-        {'d': '6月20日', 'icon': '🟧', 'e': '三星电机MLCC长单报价更新', 's': 'MLCC', 'big': 1, 'desc': '观察村田涨后三星是否跟进调价,板块价格催化'},
-        {'d': '6月24日', 'icon': '💾', 'e': '美光财报发布', 's': '存储芯片', 'big': 1, 'desc': 'HBM/存储涨价验证,全球存储景气风向标'},
-        {'d': '6月24日', 'icon': '🧠', 'e': '英伟达年度股东大会', 's': 'AI芯片', 'big': 0, 'desc': 'AI工厂路线图+GPU迭代进度'},
-        {'d': '6月30日', 'icon': '🏭', 'e': '中国智算产业生态年会', 's': 'AI算力', 'big': 0, 'desc': '国产智算基础设施'},
-        {'d': '7月1日', 'icon': '🔴', 'e': '日本关东电化+中央硝子WF6永久停产', 's': '六氟化钨/钨', 'big': 1, 'desc': '全球25%产能退出,本年度最强产业催化'},
-        {'d': '7月1日', 'icon': '🟧', 'e': '村田制作所MLCC涨价10-40%正式生效', 's': 'MLCC/被动元件', 'big': 1, 'desc': '年内第三轮,AI/车规全线涨价'},
-        {'d': '7月1日', 'icon': '✈️', 'e': '新《民航法》正式施行', 's': '低空经济', 'big': 1, 'desc': '300m以下空域开放,飞行审批7天→1小时'},
-        {'d': '7月2日', 'icon': '🌐', 'e': '全球数字经济大会(北京)', 's': '数字经济', 'big': 0, 'desc': '首次设联合国总部海外分会场'},
-        {'d': '7月2日', 'icon': '🤖', 'e': '中国AI智能体大会(杭州)', 's': 'AI应用', 'big': 0, 'desc': 'Coding Agent/多智能体协同'},
-        {'d': '7月5日', 'icon': '⚙️', 'e': 'SEMICON West 2026旧金山', 's': '半导体设备', 'big': 1, 'desc': '全球最大半导体设备展,订单及新技术发布'},
-        {'d': '7月8日', 'icon': '💾', 'e': '长鑫存储科创板IPO路演启动', 's': '存储/设备', 'big': 1, 'desc': '募资295亿,国产存储扩产核心催化'},
-        {'d': '7月8日', 'icon': '🤖', 'e': 'AMTS+AHTE上海(汽车制造+具身智能)', 's': '人形机器人', 'big': 1, 'desc': '850家展商,固态电池+机器人+智能制造'},
-        {'d': '7月11日', 'icon': '🤖', 'e': '机器人+创新发展大会(邹城)', 's': '人形机器人', 'big': 0, 'desc': '赛迪主办,200+企业参展'},
-        {'d': '7月17日', 'icon': '🧠', 'e': '世界人工智能大会WAIC(上海)', 's': 'AI', 'big': 1, 'desc': '全球顶级AI盛会,聚焦大模型/具身智能'},
-        {'d': '7月25日', 'icon': '🟧', 'e': '风华高科/三环集团半年报预告', 's': 'MLCC', 'big': 0, 'desc': '验证MLCC涨价对国内厂商的业绩弹性'},
-        {'d': '7月30日', 'icon': '💰', 'e': '章源钨业7月下半月长单报价', 's': '钨/稀土', 'big': 1, 'desc': '日本停产一个月后钨价走势,验证涨幅持续性'},
-        {'d': '8月上旬', 'icon': '📊', 'e': 'A股半年报正式披露密集期开始', 's': '全部赛道', 'big': 0, 'desc': '业绩兑现窗口,决定本轮行情持续性和高度'},
-        {'d': '8月26日', 'icon': '🤖', 'e': 'AGIC深圳国际通用AI大会(最大AI展)', 's': 'AI', 'big': 1, 'desc': '8.1万㎡,1000+企业,12万观众'},
-        {'d': '8月30日', 'icon': '📊', 'e': '中期业绩全部披露完毕', 's': '全部赛道', 'big': 1, 'desc': 'Q2涨价受益标的业绩,决定行情去留'},
-    ]
-    existing_events = preserve.get('events', [])
-    # Auto_events are authoritative for date+title. Only keep hand-curated events (with URL).
-    hand_events = [e for e in existing_events if e.get('u') and e['u'].strip()]
-    merged = list(auto_events)  # start with auto list
-    auto_keys = {(e['d'], e['e']) for e in auto_events}
-    for he in hand_events:
-        if (he['d'], he['e']) not in auto_keys:
-            merged.append(he)  # keep hand-curated events not in auto list
-    preserve['events'] = merged
+    # Events now handled by fetch_events.py (NBS macro calendar + AI sentinel + hand-curated)
 
     # Auto-repair layout stocks: fetch real market top stocks per sector
     existing_layout = preserve.get('layout', []) or []

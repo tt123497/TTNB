@@ -33,6 +33,9 @@ jobs:
             echo "Skip discovery (not 9:00-9:30 / 12:00-12:30 / 15:00-15:45)"
           fi
 
+      - name: 刷新事件日历 (NBS宏观+AI+手工)
+        run: python .github/scripts/fetch_events.py
+
       - name: 提交更新
         run: |
           git config user.name "Sentinel Bot"
