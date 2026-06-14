@@ -23,6 +23,9 @@ jobs:
       - name: 确保数据最新
         run: python .github/scripts/fetch_data.py
 
+      - name: 抓取最新新闻
+        run: python .github/scripts/fetch_news.py
+
       - name: AI 分析 + 生成简报
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

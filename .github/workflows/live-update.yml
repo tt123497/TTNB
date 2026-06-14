@@ -23,6 +23,9 @@ jobs:
       - name: 抓取实时数据
         run: python .github/scripts/fetch_data.py
 
+      - name: 抓取实时新闻
+        run: python .github/scripts/fetch_news.py
+
       - name: 发现新热门赛道 (盘前/午间/盘后)
         run: |
           HOUR=$(TZ='Asia/Shanghai' date +%H)

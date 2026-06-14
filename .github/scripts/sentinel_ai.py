@@ -115,9 +115,16 @@ def build_prompt(d):
     winners_str = '\n'.join([f"  {w['s']}: {w.get('stks','')[:100]}" for w in winners[:6]])
     losers_str = '\n'.join([f"  {l['s']}: {l.get('stks','')[:100]}" for l in losers[:6]])
 
-    prompt = f"""当前时间：{cst.strftime('%Y年%m月%d日 %H:%M CST')}
+    # Read recent real news for the AI to reference
+    news_feed = d.get('_newsFeed', [])[:20]
+    news_text = '\n'.join([f"  [{n.get('time','?')}] {n.get('t','')}" for n in news_feed]) if news_feed else '暂无实时新闻'
 
-请基于以下实时A股行情数据，给出深度市场分析并输出JSON。
+    prompt = f"""当前时间：{cst.strftime('%Y年%m月%d日 %H:%M CST')}（每小时扫描）
+
+═══ 最近真实新闻 ═══
+{news_text}
+
+═══ 实时行情数据 ═══
 
 ═══ 指数 ═══
 {idx_str}
@@ -170,8 +177,9 @@ def build_prompt(d):
 1. sectors输出20个赛道, sig按涨跌幅: >=3%为major, 0-3%为good, -1%~0为neutral, <-1%为negative
 2. top3输出10条(!!!), 从市场最重要的维度切入(宏观/资金/板块/产业/风险), 每条b字段150-200字, 必须包含具体数据、信息来源、定价分析
 3. picks输出10只精选标的, 每周角度推荐
-4. newEvents: 列出未来30天内所有A股重要事件(不限赛道,财报/会议/政策/数据发布/产业催化/宏观数据), 每条必须含: d(月+日), icon(emoji), e(标题), s(赛道名或行业名), big(1=硬催化如停产/涨价/法规/财报,0=普通会议), desc(20字内说明), u(!!!必须填真实新闻链接URL,不能为空,从训练数据中找对应新闻原文链接,至少填https://data.eastmoney.com/)
-5. 只用中文, 严格JSON, 不要markdown"""
+4. newEvents: 列出未来30天内所有A股重要事件(不限赛道,财报/会议/政策/数据发布/产业催化/宏观数据), 每条必须含: d(月+日), icon(emoji), e(标题), s(赛道名或行业名), big(1=硬催化如停产/涨价/法规/财报,0=普通会议), desc(20字内说明), u(!!!必须填真实新闻链接URL,不能为空,从最近新闻中引用或填真实URL)
+5. 每个top3的u字段必须从最近真实新闻中引用URL，不能编造。如果没有匹配新闻，填https://data.eastmoney.com/
+6. 只用中文, 严格JSON, 不要markdown"""
     return prompt
 
 def main():
