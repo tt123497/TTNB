@@ -80,6 +80,16 @@ def validate_output(result):
             print(f'REJECT: picks[{i}] missing code/name/why')
             return False
 
+    # Check events
+    new_events = result.get('newEvents', [])
+    if new_events:
+        for i, ev in enumerate(new_events):
+            if not ev.get('d') or not ev.get('e'):
+                print('REJECT: newEvents[%d] missing date/title' % i)
+                # don't reject entire output, just drop bad events
+                new_events[i] = None
+        result['newEvents'] = [ev for ev in new_events if ev is not None]
+
     return True
 
 def build_prompt(d):
@@ -154,7 +164,8 @@ def build_prompt(d):
 1. sectors输出12个赛道, sig按涨跌幅: >=3%为major, 0-3%为good, -1%~0为neutral, <-1%为negative
 2. top3输出10条(!!!), 从市场最重要的维度切入(宏观/资金/板块/产业/风险), 每条b字段150-200字, 必须包含具体数据、信息来源、定价分析
 3. picks输出10只精选标的, 每周角度推荐
-4. 只用中文, 严格JSON, 不要markdown"""
+4. newEvents: 列出未来30天内与35赛道相关的5-10条重要事件(财报/会议/政策/数据发布/产业催化), 每条必须标注具体日期(月+日), big=1表示硬催化(停产/涨价/法规/财报), big=0表示普通会议/数据, 格式: {{\"d\":\"7月1日\",\"icon\":\"...\",\"e\":\"标题\",\"s\":\"赛道名\",\"big\":1或0,\"desc\":\"说明\"}}
+5. 只用中文, 严格JSON, 不要markdown"""
     return prompt
 
 def main():
@@ -183,6 +194,26 @@ def main():
     if 'sectors' in result:
         d['sectors'] = result['sectors']
         print(f"OK  Sectors: {len(result['sectors'])}")
+
+    if 'newEvents' in result and result['newEvents']:
+        existing_events = d.get('events', [])
+        new_events = result['newEvents']
+        # De-duplicate by date+title
+        seen = set()
+        for ev in existing_events:
+            seen.add((ev.get('d',''), ev.get('e','')))
+        added = 0
+        for ev in new_events:
+            key = (ev.get('d',''), ev.get('e',''))
+            if key not in seen and len(ev.get('d','')) >= 4:
+                seen.add(key)
+                existing_events.append(ev)
+                added += 1
+        # Cap at 60 events total
+        if len(existing_events) > 60:
+            existing_events = existing_events[-60:]
+        d['events'] = existing_events
+        print("Events: +%d new" % added)
 
     if 'briefing' in result:
         b = result['briefing']
