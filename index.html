@@ -956,7 +956,30 @@ function go(tab){
       });
     }
     renderAll();
-  }).catch(function(){ renderAll(); });
+    setTimeout(enrichPills, 500); // Prices arrive slightly after DOM
+  }).catch(function(){ renderAll(); setTimeout(enrichPills, 800); });
+
+  // ── Live price enrichment for overview stock pills ──
+  function enrichPills(){
+    var pills=document.querySelectorAll('.ov-stock');
+    if(!pills.length||!D.livePrices){setTimeout(enrichPills,2000);return;}
+    pills.forEach(function(p){
+      var code=p.getAttribute('data-code');
+      var sina=(code.startsWith('60')||code.startsWith('68'))?'sh'+code:'sz'+code;
+      var lp=D.livePrices[sina];
+      if(lp){
+        var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';
+        var ar=lp.chg_pct>=0?'+':'';
+        var curText=(p.textContent||'').trim();
+        var parts=curText.split(' ');
+        if(parts.length>=2){
+          var price=lp.price.toFixed(lp.price>50?2:2);
+          p.innerHTML='<span style=\"font-family:SF Mono,monospace;font-size:.78rem;color:var(--dim)\">'+parts[0]+'</span> '+parts[1]+' <span style=\"font-weight:700;font-size:.74rem;color:'+cl+'\">'+ar+lp.chg_pct.toFixed(1)+'%</span>';
+        }
+      }
+    });
+  }
+  window.enrichPills=enrichPills;
 
   // Helper: compute real countdown days from today to event date (mirrors calendar logic)
   function realDays(ds){
@@ -1091,7 +1114,7 @@ function go(tab){
         <div class="c-tag" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
         <div class="c-desc">${s.d}</div>
         ${s.msg?`<div class="c-msg" style="font-size:.76rem;color:var(--sub);margin:4px 0;line-height:1.5">${s.u?'<a href="'+s.u+'" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">📰 '+s.msg+'</a>':s.msg}</div>`:''}
-        <div class="c-pills">${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''}">${x.c} ${x.n}</span>`).join('')}</div>
+        <div class="c-pills">${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''} ov-stock" data-code="${x.c}">${x.c} ${x.n}</span>`).join('')}</div>
       </div>`;
     });
     ov+=`</div>`;
@@ -1685,6 +1708,8 @@ function go(tab){
               pt.innerHTML='—'; pt.style.color='var(--dim)';
             }
           });
+          // Also refresh overview stock pills with live prices
+          enrichPills();
           document.querySelectorAll('.tbl thead tr').forEach(function(tr){
             if(!tr.querySelector('.th-lp')){var th=document.createElement('th');th.className='th-lp';th.textContent='现价';th.style.fontSize='.78rem';tr.appendChild(th);}
           });
