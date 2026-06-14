@@ -174,6 +174,40 @@ def fetch_em_announcements():
 
     return sector_news
 
+def fetch_wallstreetcn():
+    """Fetch 华尔街见闻 real-time flash news (2 channels)."""
+    cst = datetime.now(timezone.utc) + timedelta(hours=8)
+    all_news = []
+    for ch, ch_name in [('global-channel', '全球'), ('china-channel', '中国')]:
+        url = f'https://api-one.wallstcn.com/apiv1/content/lives?channel={ch}&client=pc&limit=20&first=1'
+        data = fetch_json(url, timeout=10)
+        if not data or not data.get('data'):
+            continue
+        items = data['data'].get('items', [])
+        for it in items:
+            title = it.get('title', '') or it.get('content_text', '') or ''
+            url_link = it.get('uri', '') or ''
+            if url_link and not url_link.startswith('http'):
+                url_link = 'https://wallstreetcn.com' + url_link
+            display_time = it.get('display_time', 0) or 0
+            try:
+                ts = datetime.fromtimestamp(display_time, tz=timezone.utc) + timedelta(hours=8)
+            except:
+                ts = cst
+            age_h = (cst - ts).total_seconds() / 3600
+            if age_h > 6:
+                continue
+            is_sector = any(kw in title for kw in SECTOR_KW)
+            is_market = any(kw in title for kw in MARKET_KW)
+            if not (is_sector or is_market):
+                continue
+            all_news.append({
+                't': title.strip()[:120], 'u': url_link,
+                'time': ts.strftime('%H:%M'), 'src': 'wscn_' + ch_name
+            })
+        time.sleep(0.3)
+    return all_news
+
 def dedup(news_list):
     seen = set()
     result = []
@@ -192,13 +226,17 @@ def main():
     sina_sector, sina_market = fetch_sina_news()
     print(f'  Sina sector: {len(sina_sector)}, market: {len(sina_market)}')
 
-    print('Fetching announcements...')
+    print('Fetching EM announcements...')
     em_sector = fetch_em_announcements()
     print(f'  EM sector: {len(em_sector)}')
 
+    print('Fetching 华尔街见闻...')
+    wscn_market = fetch_wallstreetcn()
+    print(f'  WSCN market: {len(wscn_market)}')
+
     # Merge + dedup
     sector_all = dedup(sina_sector + em_sector)
-    market_all = dedup(sina_market)
+    market_all = dedup(sina_market + wscn_market)
 
     # Write
     data = {}
