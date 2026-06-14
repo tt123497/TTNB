@@ -761,6 +761,20 @@ function go(tab){
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
   const majorCount=allSectors.filter(s=>s.sig==='major').length;
   const goodCount=allSectors.filter(s=>s.sig==='good').length;
+  var marketSummary='';
+  (function(){
+    var f=D.recap.flow, zt=D.recap.ztLadder, dt=D.recap.dtCount;
+    var pos=0; if(f&&f.length){f.forEach(function(x){if(x.amt.indexOf('+')>=0)pos++;});}
+    var flowDir=pos>=Math.ceil((f||[]).length/2)?'净流入':'净流出';
+    var ztTotal=zt?zt.totalCount:0, dtTotal=dt!=null?dt:0;
+    if(majorCount>=6&&flowDir==='净流入'&&ztTotal>=50) marketSummary='🔥 强势普涨——重大信号密集，资金涌入，涨停潮延续，可积极布局';
+    else if(majorCount>=4&&flowDir==='净流入') marketSummary='📈 偏强格局——热点轮动健康，资金面支持，精选主线标的';
+    else if(majorCount>=2&&flowDir==='净流入') marketSummary='⚖️ 温和偏多——局部热点活跃，资金小幅流入，控制仓位参与';
+    else if(dtTotal>ztTotal&&dtTotal>20) marketSummary='🔴 恐慌释放——跌停远超涨停，资金出逃，防御为主或空仓等待';
+    else if(dtTotal>10) marketSummary='⚠️ 风险加剧——跌停增多，资金流出，减仓观望';
+    else if(flowDir==='净流出'&&majorCount<3) marketSummary='📉 弱势震荡——热点稀少，资金流出，严控仓位等待信号';
+    else marketSummary='🟡 市场分化——涨跌互现，需精选个股，警惕追高风险';
+  })();
 
   // ════ OVERVIEW ════
   let ov=`<div class="tab-panel on" id="panel-overview">
@@ -769,7 +783,7 @@ function go(tab){
       <div class="stat-chip"><div class="val" style="color:${(()=>{var f=D.recap.flow;if(!f||!f.length)return'var(--dim)';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'var(--red)':'var(--green)';})()}">${(()=>{var f=D.recap.flow;if(!f||!f.length)return'—';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'净流入':'净流出';})()}</div><div class="lbl">💸 资金</div></div>
       <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztLadder?D.recap.ztLadder.totalCount:'—'}</div><div class="lbl">🪜 涨停</div></div>
       <div class="stat-chip"><div class="val" style="color:${D.recap.dtCount>5?'var(--red)':'var(--green)'}">${D.recap.dtCount!=null?D.recap.dtCount:'—'}</div><div class="lbl">📉 跌停</div></div>
-    </div>`;
+    </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>`;
 
   D.groups.forEach(g=>{
     ov+=`<div class="group-hd">${g.n}</div><div class="card-grid">`;
