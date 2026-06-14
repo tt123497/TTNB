@@ -1313,7 +1313,7 @@ function go(tab){
     var el=e.target, code='';
     while(el&&el!==this){
       var t=el.textContent.trim(); var m=t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.card'))){
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr'))){
         code=m[1]; break;
       }
       el=el.parentElement;
