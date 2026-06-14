@@ -7663,18 +7663,54 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-15 01:57 CST",
+    "updated": "2026-06-15 02:07 CST",
     "sector": 0,
-    "market": 6,
+    "market": 19,
     "match_sectors": []
   },
   "_newsSector": [],
   "_newsMarket": [
     {
+      "t": "伊媒：伊朗不会在特朗普宣布的时间签署任何协议",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickzxi0350203.shtml",
+      "time": "23:04",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "特朗普称“以色列不应再对黎巴嫩任何地方发动袭击”",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickzxp5447846.shtml",
+      "time": "23:03",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "特朗普称以色列当日对黎巴嫩的袭击“本不该发生”",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickzxk7126053.shtml",
+      "time": "22:57",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美媒：以色列“企图破坏”美伊协议",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickvrn7246726.shtml",
+      "time": "22:25",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "引入国资旗下投资机构，这家公司实控人拟变更！",
       "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-14/doc-inickvrn7246389.shtml",
       "time": "22:21",
       "src": "sina_7x24财经"
+    },
+    {
+      "t": "美伊，生变！以色列，突然动手了",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickvrm0468028.shtml",
+      "time": "22:21",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "福克斯：以色列袭击贝鲁特给美国与伊朗最终敲定协议造成障碍",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-14/doc-inickvrm0465207.shtml",
+      "time": "22:12",
+      "src": "sina_A股"
     },
     {
       "t": "三只连板股，最新公告！",
@@ -7695,9 +7731,27 @@
       "src": "sina_7x24财经"
     },
     {
+      "t": "中东，突生变数！伊朗称将报复以色列",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickvrp8771127.shtml",
+      "time": "21:17",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "安克创新通过港交所上市聆讯",
       "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-14/doc-inickvrp8769002.shtml",
       "time": "21:05",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗革命卫队将领：已做好准备应对任何敌对行动",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickvrn7220858.shtml",
+      "time": "21:03",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗武装部队说以色列袭击黎巴嫩“不会没有回应”",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickvrp8766861.shtml",
+      "time": "21:03",
       "src": "sina_7x24财经"
     },
     {
@@ -7705,6 +7759,30 @@
       "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-14/doc-inickvrr5545049.shtml",
       "time": "20:54",
       "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗：以色列袭击黎巴嫩使得伊美对话“变得不可能”",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-14/doc-inickvrm0438902.shtml",
+      "time": "20:45",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "特朗普期待周日签署协议 但伊朗方面据称仍在审查文本",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-14/doc-inickvrn7213579.shtml",
+      "time": "20:41",
+      "src": "sina_A股"
+    },
+    {
+      "t": "夹在特朗普和押注加息的市场之间 新任美联储主席沃什迎来严峻考验",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicmhfh7047803.shtml",
+      "time": "02:05",
+      "src": "sina_A股"
+    },
+    {
+      "t": "特朗普称伊朗协议预计将在两到三小时内签署",
+      "u": "https://finance.sina.com.cn/7x24/2026-06-15/doc-inickzxm8691331.shtml",
+      "time": "00:25",
+      "src": "sina_A股"
     }
   ]
 }

@@ -50,21 +50,23 @@ MARKET_KW = [
     '分红','回购','增持','减持','锁定期','解禁',
     '2万亿','万亿','百万亿','千亿',
     '牛市','熊市','踏空','追高','抄底','多空',
-    '外围','美股','港股','日股','欧股',
+    '外围','美股','港股','日股','欧股','纳指','标普','道指',
+    '美联储','FOMC','非农','CPI','PPI','美债','美指',
     '地缘','中东','俄罗斯','伊朗','朝鲜','关税','制裁',
+    '以色列','贝鲁特','加沙','莫斯科','基辅','北约',
+    '英伟达','苹果','微软','谷歌','特斯拉','亚马逊','Meta',
+    '台积电','三星','SK海力士','ASML','东京电子',
+    '原油','布伦特','WTI','黄金期货','伦敦金','LME',
 ]
 
 # ═══ Noise patterns to drop ═══
 NOISE_KW = [
-    '特朗普通话','特朗普与','特朗普称','特朗普期待','特朗普：',
-    '美伊','以色列对黎','以色列袭击','黎巴嫩','加沙','哈马斯',
-    '伊朗不会','伊朗拒','伊朗称','伊媒',
-    '瑞士公投','瑞士选民','福克斯：以','以军','胡塞武装',
-    '足球','世界杯','奥运','NBA','英超','欧冠','比赛','联赛','杯赛',
-    '明星','婚礼','离婚','八卦','娱乐','综艺','节目',
-    '天气预报','地震','洪水','飓风','海啸',
-    '动物','猫','狗','熊猫','企鹅',
-    '机器人杯','围棋','象棋','桥牌','牌类','电竞','游戏',
+    # Pure non-market content only — geopolitics/foreign events pass through
+    '足球','世界杯','奥运','NBA','英超','欧冠','比赛','联赛','杯赛','决赛',
+    '明星','婚礼','离婚','八卦','娱乐','综艺','节目','歌曲','电影',
+    '天气预报','地震','洪水','飓风','海啸','火山',
+    '动物','猫','狗','熊猫','企鹅','鲸鱼',
+    '机器人杯','围棋','象棋','桥牌','牌类','电竞','游戏','手游',
 ]
 
 def fetch_json(url, timeout=10, retries=2):
@@ -110,16 +112,6 @@ def fetch_sina_news():
 
             is_sector = any(kw in title for kw in SECTOR_KW)
             is_market = any(kw in title for kw in MARKET_KW)
-
-            # For market news, drop purely foreign political stuff
-            # (must mention A-stock/Chinese element to quality for market channel)
-            if is_market and not is_sector:
-                china_hint = any(kw in title for kw in ['A股','沪','深','中国','国内','我国','央行','证监会','港','H股',
-                    '茅台','宁德','比亚迪','中芯','华为','腾讯','阿里','字节','百度','京东','拼多多'])
-                foreign_only = any(kw in title for kw in ['伊朗','以色列','贝鲁特','德黑兰','加沙','莫斯科','基辅',
-                    '俄军','乌军','克里姆林','布鲁塞尔','英法','法德','北约','OPEC'])
-                if foreign_only and not china_hint:
-                    continue  # drop: purely foreign, no A-stock angle
 
             entry = {
                 't': title.strip()[:120],
