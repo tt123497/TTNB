@@ -759,8 +759,8 @@ function go(tab){
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
-  const majorCount=allSectors.filter(s=>s.sig==='major').length;
-  const goodCount=allSectors.filter(s=>s.sig==='good').length;
+  const majorCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=3).length:0;
+  const goodCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=0).length:0;
   var marketSummary='';
   (function(){
     var f=D.recap.flow, zt=D.recap.ztLadder, dt=D.recap.dtCount;
