@@ -57,97 +57,78 @@ def third_fri(y, m):
 def fmt_d(d): return f'{d.month}月{d.day}日'
 
 def generate_macro():
+    """Only the macro events that actually matter for pre-positioning.
+    Dropped: PMI, CPI/PPI, trade, industrial/retail/FAI, M2/credit,
+     industrial profits, 70-city housing, FX reserves — all background noise,
+     nobody pre-positions for a PMI release."""
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
     today = cst.date()
     evs = []
-    for off in range(4):
-        m, y = cst.month + off, cst.year
-        if m > 12: m -= 12; y += 1
 
-        pm = last_biz(y, m)
-        evs.append({'d':fmt_d(pm),'icon':'📊','e':f'{m}月PMI发布','s':MACRO_S,
-            'big':1 if pm.date()>=today else 0,
-            'desc':'制造业景气度风向标，新订单/出口订单验证经济动能'})
+    # ── Only 5 macro events that matter for layout ──
 
-        cp = next_biz(y, m, 9)
-        evs.append({'d':fmt_d(cp),'icon':'💰','e':f'{m}月CPI/PPI发布','s':MACRO_S,
-            'big':1 if cp.date()>=today else 0,
-            'desc':'通胀影响货币政策预期，PPI影响上游资源品定价'})
-
-        tr = next_biz(y, m, 7)
-        evs.append({'d':fmt_d(tr),'icon':'🚢','e':f'{m}月进出口数据发布','s':MACRO_S,
-            'big':1,'desc':'出口增速影响制造业/港口航运/电子产业链'})
-
-        ind = next_biz(y, m, 15)
-        evs.append({'d':fmt_d(ind),'icon':'🏭','e':f'{m}月工业/社零/固投发布','s':MACRO_S,
-            'big':1 if ind.date()>=today else 0,
-            'desc':'经济三驾马车月度成绩单'})
-
-        mon = next_biz(y, m, 11)
-        evs.append({'d':fmt_d(mon),'icon':'💳','e':f'{m}月M2/社融/贷款发布','s':MACRO_S,
-            'big':1,'desc':'流动性指标决定市场风格切换'})
-
-        lpr = next_biz(y, m, 20)
-        evs.append({'d':fmt_d(lpr),'icon':'🏦','e':f'{m}月LPR报价','s':MACRO_S,
-            'big':1 if lpr.date()>=today else 0,
-            'desc':'降息=利好地产+成长股估值'})
-
-        prof = next_biz(y, m, 27)
-        pm2 = m-1 if m>1 else 12
-        evs.append({'d':fmt_d(prof),'icon':'💼','e':f'{pm2}月工业企业利润发布','s':MACRO_S,
-            'big':0,'desc':'上市公司业绩先行指标'})
-
-        house = next_biz(y, m, 16)
-        evs.append({'d':fmt_d(house),'icon':'🏠','e':f'{m}月70城房价发布','s':MACRO_S,
-            'big':0,'desc':'地产链景气温度计'})
-
-        fx = next_biz(y, m, 7)
-        evs.append({'d':fmt_d(fx),'icon':'💱','e':f'{m}月外汇储备发布','s':MACRO_S,
-            'big':0,'desc':'汇率预期影响外资流向'})
-
-        mlf = next_biz(y, m, 15)
-        evs.append({'d':fmt_d(mlf),'icon':'🏦','e':f'{m}月MLF操作','s':MACRO_S,
-            'big':1 if mlf.date()>=today else 0,
-            'desc':'央行中期利率指引'})
-
-    # US events (affect A-share 科技/成长风格)
-    for off in range(4):
-        m, y = cst.month + off, cst.year
-        if m > 12: m -= 12; y += 1
-        nfp = first_fri(y, m)
-        evs.append({'d':fmt_d(nfp),'icon':'🇺🇸','e':f'{m}月美国非农就业','s':MACRO_S,
-            'big':1 if nfp.date()>=today else 0,
-            'desc':'全球最重要月度经济数据，影响降息预期及全球风险偏好'})
-        us_cpi = next_biz(y, m, 12)
-        evs.append({'d':fmt_d(us_cpi),'icon':'🇺🇸','e':f'{m}月美国CPI','s':MACRO_S,
-            'big':1 if us_cpi.date()>=today else 0,
-            'desc':'通胀→降息预期→美债利率→A股科技成长估值'})
-
-    # FOMC 2026 remaining
+    # 1. FOMC — global asset pricing anchor
     for y,m,d,t in [
         (2026,6,17,'6月FOMC+点阵图'),(2026,7,29,'7月FOMC'),
         (2026,9,16,'9月FOMC'),(2026,11,4,'11月FOMC'),
         (2026,12,16,'12月FOMC+点阵图')]:
         fd = datetime(y,m,d)
         evs.append({'d':fmt_d(fd),'icon':'🏛️','e':t,'s':MACRO_S,
-            'big':1 if fd.date()>=today else 0,
-            'desc':'全球资产定价锚——利率决议影响全年降息路径'})
+            'big':1,'desc':'全球资产定价锚——利率决议+点阵图决定全年降息路径，直接影响A股科技/成长估值'})
 
-    # Recurring sector events
+    # 2. LPR — mortgage rate benchmark (monthly)
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
+        lpr = next_biz(y, m, 20)
+        evs.append({'d':fmt_d(lpr),'icon':'🏦','e':f'{m}月LPR报价','s':MACRO_S,
+            'big':1,'desc':'房贷利率基准，降息=直接利好地产+银行+成长股估值扩张'})
+
+    # 3. MLF — PBOC medium-term rate signal (monthly)
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
+        mlf = next_biz(y, m, 15)
+        evs.append({'d':fmt_d(mlf),'icon':'🏦','e':f'{m}月MLF操作','s':MACRO_S,
+            'big':1,'desc':'央行中期利率指引，降息信号=政策转向宽松，利好A股整体估值'})
+
+    # 4. US Non-farm — global risk appetite (monthly)
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
+        nfp = first_fri(y, m)
+        evs.append({'d':fmt_d(nfp),'icon':'🇺🇸','e':f'{m}月美国非农就业','s':MACRO_S,
+            'big':1,'desc':'全球最重要月度数据，影响美联储降息预期→美债利率→A股科技成长风格'})
+
+    # 5. US CPI — inflation → rate cut expectation (monthly)
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
+        us_cpi = next_biz(y, m, 12)
+        evs.append({'d':fmt_d(us_cpi),'icon':'🇺🇸','e':f'{m}月美国CPI','s':MACRO_S,
+            'big':1,'desc':'通胀数据→降息预期→美债利率→科技股估值，A股成长赛道最敏感的海外数据'})
+
+    # ── Recurring sector-specific events (not macro noise) ──
+
+    # 股指期货交割 — risk management, useful to know
     for off in range(4):
         m, y = cst.month + off, cst.year
         if m > 12: m -= 12; y += 1
         ex = third_fri(y, m)
         evs.append({'d':fmt_d(ex),'icon':'📅','e':f'{m}月股指期货交割日','s':MACRO_S,
-            'big':0,'desc':'交割日市场波动可能加大'})
+            'big':0,'desc':'交割日市场波动可能加大，注意仓位管理'})
+
+    # 章源钨业长单报价 — real sector catalyst
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
         for day, lb in [(1,'上'),(15,'下')]:
             if day <= cal.monthrange(y,m)[1]:
                 qd = next_biz(y, m, day)
                 if qd.month == m:
                     evs.append({'d':fmt_d(qd),'icon':'💰',
                         'e':f'章源钨业{m}月{lb}半月长单报价','s':'钨/稀土',
-                        'big':1 if qd.date()>=today else 0,
-                        'desc':'每半月钨精矿定价催化，观察涨幅趋势'})
+                        'big':1,'desc':'每半月钨精矿定价催化，观察涨幅趋势'})
 
     seen = set(); deduped = []
     for e in evs:
@@ -179,9 +160,7 @@ def main():
     hand_evs = [e for e in existing if e.get('u','').strip()]
     hand_keys = {(e['d'], e['e']) for e in hand_evs}
 
-    macro_patterns = ['PMI','CPI','PPI','进出口','工业/社零','M2/社融','LPR报价',
-        '工业企业利润','70城房价','外汇储备','MLF操作','非农就业','美国CPI',
-        'FOMC','股指期货交割','章源钨业长单']
+    macro_patterns = ['FOMC','LPR报价','MLF操作','美国非农','美国CPI','股指期货交割','章源钨业长单']
     old_macro = [e for e in existing if not e.get('u','').strip()
         and any(kw in e.get('e','') for kw in macro_patterns)]
 
