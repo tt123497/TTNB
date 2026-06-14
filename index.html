@@ -950,7 +950,7 @@ function go(tab){
   future.forEach(function(e){ca+=`<div class="evt-row${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}${e.big?' <b style="color:var(--red);font-size:.84rem">⚡关键</b>':''}${e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</span><span class="evt-sector">${e.s}</span></div>`;});
   if(past.length){
     ca+=`<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><div class="section-title" style="color:var(--dim)">📂 已过期 · 历史归档</div>`;
-    past.forEach(function(e){ca+=`<div class="evt-row past${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}</span><span class="evt-sector">${e.s}</span></div>`;});
+    past.forEach(function(e){ca+=`<div class="evt-row past${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}${e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</span><span class="evt-sector">${e.s}</span></div>`;});
     ca+=`</div>`;
   }
   ca+=`</div></div></div>`;
@@ -1166,7 +1166,7 @@ function go(tab){
             var evHtml='';
             fut.sort(function(a,b){return evDate(a)-evDate(b);});
             fut.forEach(function(e){evHtml+='<div class="evt-row'+(e.big?' big':'')+'"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+(e.big?' <b style="color:var(--red);font-size:.84rem">⚡关键</b>':'')+(e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</span><span class="evt-sector">'+e.s+'</span></div>';});
-            if(pst.length){evHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><div class="section-title" style="color:var(--dim)">📂 已过期 · 历史归档</div>';pst.forEach(function(e){evHtml+='<div class="evt-row past"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+'</span><span class="evt-sector">'+e.s+'</span></div>';});evHtml+='</div>';}
+            if(pst.length){evHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><div class="section-title" style="color:var(--dim)">📂 已过期 · 历史归档</div>';pst.forEach(function(e){evHtml+='<div class="evt-row past'+(e.big?' big':'')+'"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+(e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</span><span class="evt-sector">'+e.s+'</span></div>';});evHtml+='</div>';}
             evtList.innerHTML=evHtml;
           }
         }
