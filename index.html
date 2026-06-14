@@ -399,6 +399,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 </head>
 <body>
 
+<!-- ── Password Gate (private deployment) ── -->
+<div class="help-overlay" id="passGate" style="display:flex">
+<div class="help-modal" style="text-align:center;max-width:380px">
+<div style="font-size:2rem;margin-bottom:12px">📡</div>
+<div style="font-size:1.1rem;font-weight:700;margin-bottom:8px">股市哨兵</div>
+<div style="font-size:.84rem;color:var(--sub);margin-bottom:16px">输入密码访问</div>
+<input type="password" id="passInput" placeholder="请输入密码" style="width:100%;padding:10px 14px;font-size:.92rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);font-family:var(--font);outline:none;text-align:center;margin-bottom:10px" onkeydown="if(event.key==='Enter')checkPass()">
+<button onclick="checkPass()" style="width:100%;padding:10px;font-size:.9rem;font-weight:700;background:var(--grad1);color:#fff;border:none;border-radius:var(--radius-sm);cursor:pointer">验证</button>
+<div id="passMsg" style="font-size:.78rem;color:var(--red);margin-top:8px;display:none">密码错误</div>
+</div>
+</div>
+
 <div class="topbar">
   <div class="brand">📡 <em>股市哨兵</em> · 全市场赛道监控</div>
   <div style="display:flex;align-items:center;gap:8px">
@@ -958,6 +970,26 @@ function go(tab){
   document.getElementById('pill-'+tab).classList.add('on');
   document.getElementById('panel-'+tab).classList.add('on');
 }
+
+// ══ Password Gate ══
+// Default password: sentinel2026 (change below)
+// To host publicly without password, set PASS_KEY='' (empty string)
+var PASS_KEY='sentinel2026';
+(function initPass(){
+  if(!PASS_KEY){document.getElementById('passGate').style.display='none';return;}
+  var saved=sessionStorage.getItem('_pass_ok');
+  if(saved===PASS_KEY){document.getElementById('passGate').style.display='none';return;}
+})();
+window.checkPass=function(){
+  var input=document.getElementById('passInput').value.trim();
+  if(input===PASS_KEY){
+    sessionStorage.setItem('_pass_ok',PASS_KEY);
+    document.getElementById('passGate').style.display='none';
+  }else{
+    var m=document.getElementById('passMsg');m.style.display='block';m.textContent='密码错误，请重试';
+    document.getElementById('passInput').value='';
+  }
+};
 
 (function build(){
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
