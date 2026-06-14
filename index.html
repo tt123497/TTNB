@@ -1423,10 +1423,11 @@ function go(tab){
     // ── Source 3: All-A top gainers filtered by keyword ──
     fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=30&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f2,f3,f12,f14')
       .then(function(r){return r.json()}).then(function(d){
-        var all=d.data.diff||[];
+        var all=d.data.diff||[]; var added=0;
         all.forEach(function(s){
+          if(added>=8)return;
           var n=(s.f14||'').toLowerCase(); var kwl=kw.toLowerCase();
-          if(n.indexOf(kwl)>=0)results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:'全市场匹配',boardCode:''});
+          if(n.indexOf(kwl)>=0){results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:'全市场匹配',boardCode:''});added++;}
         });
         tryShow();
       }).catch(function(){tryShow();});
@@ -1445,10 +1446,11 @@ function go(tab){
     stocks.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
 
     var html='';
-    // Boards
+    // Boards - cap at 8
     if(r.boards.length){
+      var showBoards=r.boards.slice(0,8);
       html+='<div class="res-group"><div class="res-group-title">📊 相关概念板块</div>';
-      r.boards.forEach(function(b){
+      showBoards.forEach(function(b){
         var name=b.Name||b.name||b.Code||''; var code=b.Code||b.code||'';
         html+='<span class="res-board" onclick="lookupBoard(\''+code+'\',\''+name+'\')">'+name+'</span>';
       });
