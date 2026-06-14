@@ -583,8 +583,41 @@ def main():
             'trading': is_trading,
         }
     }
+    # Build sector-level average change from live prices + stock_sector mapping
+    sec_avg = {}
+    for key, v in live.items():
+        code = key[2:]
+        sec = stock_sector.get(code, '')
+        if not sec: continue
+        chg = v.get('chg_pct', 0)
+        sec_avg.setdefault(sec, []).append(chg)
+    for sec, chgs in sec_avg.items():
+        sec_avg[sec] = sum(chgs) / len(chgs) if chgs else 0
+
+    # Generate dynamic tags for ALL 35 our sectors
+    ai_msgs = {s.get('name',''): s.get('msg','')[:30] for s in preserve.get('sectors',[]) if s.get('name')}
+    sector_tags = {}
+    our_names = ['AI芯片','CPO/硅光','光模块','光纤光缆','连接器/铜连接',
+        'PCB/覆铜板','MLCC电容','电子树脂/PPE','电子铜箔','HBM/存储芯片',
+        'AI服务器/超节点','液冷散热','交换机/网络','电源/DrMOS','数据中心/AIDC',
+        '半导体设备','光刻胶','先进封装CoWoS','半导体硅片',
+        '六氟化钨WF₆','玻璃基板TGV','培育钻石/散热','超导/核聚变','碳纤维',
+        '人形机器人','商业航天','6G/通信','固态电池','低空经济eVTOL','空间计算/物理AI','钨稀土']
+    for our in our_names:
+        avg = sec_avg.get(our, 0)
+        pct_s = '%.1f%%' % abs(avg)
+        if avg >= 5: emoji = '🔥'; prefix = '板均涨' + pct_s
+        elif avg >= 3: emoji = '🔥'; prefix = '板均涨' + pct_s
+        elif avg >= 1: emoji = '🟢'; prefix = '偏强 +' + pct_s
+        elif avg >= -1: emoji = '🟡'; prefix = '平盘'
+        elif avg >= -3: emoji = '🔴'; prefix = '偏弱 -' + pct_s
+        else: emoji = '🔴'; prefix = '回调 -' + pct_s
+        ai_msg = ai_msgs.get(our, '')
+        second = ai_msg[:22] if ai_msg and len(ai_msg) > 3 else our
+        sector_tags[our] = emoji + ' ' + prefix + ' | ' + second
     # Merge preserved fields
     out.update(preserve)
+    out['sectorTags'] = sector_tags  # always fresh, not from cache
     out['recap']['cycle'] = cycle
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:

@@ -702,7 +702,6 @@ function go(tab){
     if(data.nextSentinel) D.next=data.nextSentinel;
     if(data.livePrices) D.livePrices=data.livePrices;
     if(data.bHistory&&data.bHistory.length) D.bHistory=data.bHistory;
-    // Map Claude sectors -> D.groups sig/msg/u values
     if(data.sectors){
       var secMap={};
       data.sectors.forEach(function(s){ secMap[s.name]={sig:s.sig,msg:s.msg||'',u:s.u||''}; });
@@ -711,6 +710,14 @@ function go(tab){
           for(var k in secMap){
             if(s.n.indexOf(k)>=0||k.indexOf(s.n)>=0){ s.sig=secMap[k].sig; s.msg=secMap[k].msg; s.u=secMap[k].u; break; }
           }
+        });
+      });
+    }
+    // Override hardcoded tags with dynamic sector tags from market data
+    if(data.sectorTags){
+      D.groups.forEach(function(g){
+        g.sectors.forEach(function(s){
+          if(data.sectorTags[s.n]) s.tag = data.sectorTags[s.n];
         });
       });
     }
