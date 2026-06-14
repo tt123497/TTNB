@@ -816,19 +816,28 @@ function go(tab){
   ov+=`</div>`;
 
   
+
   // ════ LAYOUT ════
   let lo=`<div class="tab-panel" id="panel-layout">
     <div class="section"><div class="section-title">📋 提前布局窗口</div>
     <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">按时间倒排。越近越红。标★为产业链重点标的。</p>
-    <div class="layout-list">`;
-  if(D.layout)D.layout.forEach(function(ev){
+    <div class="layout-list" id="layoutList">`;
+  var layoutFuture=[], layoutPast=[];
+  if(D.layout)D.layout.forEach(function(ev){ var d=realDays(ev.d); if(d<0) layoutPast.push(ev); else layoutFuture.push(ev); });
+  function renderLayoutCard(ev){
     var d=realDays(ev.d);
-    var cls=d<0?'past':d<=3?'urgent':d<=7?'hot':d<=14?'warm':'normal';
-    var dc=d<0?'var(--dim)':d<=3?'var(--red)':d<=7?'var(--amber)':d<=14?'var(--blue)':'var(--sub)';
-    var dt=d<0?'已过期':d===0?'今天':d+'天';
+    var cls=d<0?"past":d<=3?"urgent":d<=7?"hot":d<=14?"warm":"normal";
+    var dc=d<0?"var(--dim)":d<=3?"var(--red)":d<=7?"var(--amber)":d<=14?"var(--blue)":"var(--sub)";
+    var dt=d<0?"已过期":d===0?"今天":d+"天";
     var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
-    lo+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+dc+'">'+dt+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(d-ev.lead>0?d-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
-		});
+    return '<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+dc+'">'+dt+'</div><div class="lc-label">倒计时</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">🏷 '+ev.s+' | 📅 '+ev.d+'</div><div class="lc-lead">⏳ 建议提前'+(ev.lead||5)+'天布局 | 窗口期'+(d-ev.lead>0?d-ev.lead:0)+'天</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
+  }
+  layoutFuture.forEach(function(ev){ lo+=renderLayoutCard(ev); });
+  if(layoutPast.length){
+    lo+=`<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details id="pastLayoutDetails"><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem">(${layoutPast.length}张)</span></summary><div style="margin-top:8px">`;
+    layoutPast.forEach(function(ev){ lo+=renderLayoutCard(ev); });
+    lo+=`</div></details></div>`;
+  }
   lo+=`</div></div></div>`;
 
   // ════ MARKET RECAP ════
@@ -949,9 +958,9 @@ function go(tab){
   future.sort(function(a,b){return evDate(a)-evDate(b);});
   future.forEach(function(e){ca+=`<div class="evt-row${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}${e.big?' <b style="color:var(--red);font-size:.84rem">⚡关键</b>':''}${e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</span><span class="evt-sector">${e.s}</span></div>`;});
   if(past.length){
-    ca+=`<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><div class="section-title" style="color:var(--dim)">📂 已过期 · 历史归档</div>`;
+    ca+=`<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details id="pastEventsDetails"${future.length===0?' open':''}><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem" id="pastEventsCount">(${past.length}条)</span><span style="margin-left:auto;font-size:.84rem;transition:transform .2s" id="pastEventsArrow">▾</span></summary><div style="margin-top:8px">`;
     past.forEach(function(e){ca+=`<div class="evt-row past${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}${e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</span><span class="evt-sector">${e.s}</span></div>`;});
-    ca+=`</div>`;
+    ca+=`</div></details></div>`;
   }
   ca+=`</div></div></div>`;
 
@@ -1166,27 +1175,32 @@ function go(tab){
             var evHtml='';
             fut.sort(function(a,b){return evDate(a)-evDate(b);});
             fut.forEach(function(e){evHtml+='<div class="evt-row'+(e.big?' big':'')+'"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+(e.big?' <b style="color:var(--red);font-size:.84rem">⚡关键</b>':'')+(e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</span><span class="evt-sector">'+e.s+'</span></div>';});
-            if(pst.length){evHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><div class="section-title" style="color:var(--dim)">📂 已过期 · 历史归档</div>';pst.forEach(function(e){evHtml+='<div class="evt-row past'+(e.big?' big':'')+'"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+(e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</span><span class="evt-sector">'+e.s+'</span></div>';});evHtml+='</div>';}
+            if(pst.length){evHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details '+(fut.length===0?' open':'')+'><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem">('+pst.length+'条)</span></summary><div style="margin-top:8px">';pst.forEach(function(e){evHtml+='<div class="evt-row past'+(e.big?' big':'')+'"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+(e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</span><span class="evt-sector">'+e.s+'</span></div>';});evHtml+='</div></details></div>';}
             evtList.innerHTML=evHtml;
           }
         }
 
-        // Layout refresh
-        var lop=document.getElementById('panel-layout');if(lop&&d.layout){
-          var ll=lop.querySelector('.layout-list');
-          if(ll&&d.layout.length){
-            var loHtml='';
-            d.layout.forEach(function(ev){
-              var d=realDays(ev.d);
-              var cls=d<0?'past':d<=3?'urgent':d<=7?'hot':d<=14?'warm':'normal';
-              var dc=d<0?'var(--dim)':d<=3?'var(--red)':d<=7?'var(--amber)':d<=14?'var(--blue)':'var(--sub)';
-              var dt=d<0?'expired':d===0?'today':'D-'+d;
-              var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
-              loHtml+='<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+dc+'">'+dt+'</div><div class="lc-label">countdown</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">'+ev.s+' | '+ev.d+'</div><div class="lc-lead">advance '+(ev.lead||5)+'d | window '+(d-ev.lead>0?d-ev.lead:0)+'d</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
-            });
-            ll.innerHTML=loHtml;
-          }
-        }
+	        // Layout refresh (split future/past with collapsible past)
+	        var lop=document.getElementById("panel-layout");if(lop&&d.layout){
+	          var ll=lop.querySelector(".layout-list");
+	          if(ll&&d.layout.length){
+	            var layFut=[], layPst=[];
+	            d.layout.forEach(function(ev){ var dd=realDays(ev.d); if(dd<0) layPst.push(ev); else layFut.push(ev); });
+	            function rlc(ev){
+	              var d=realDays(ev.d);
+	              var cls=d<0?"past":d<=3?"urgent":d<=7?"hot":d<=14?"warm":"normal";
+	              var dc=d<0?"var(--dim)":d<=3?"var(--red)":d<=7?"var(--amber)":d<=14?"var(--blue)":"var(--sub)";
+	              var dt=d<0?"expired":d===0?"today":"D-"+d;
+	              var u=ev.u?' <a href="'+ev.u+'" target="_blank" rel="noopener" style="font-size:.64rem;color:var(--blue)">🔗</a>':'';
+	              return '<div class="layout-card '+cls+'"><div class="lc-countdown"><div class="lc-days" style="color:'+dc+'">'+dt+'</div><div class="lc-label">countdown</div></div><div class="lc-info"><div class="lc-title">'+ev.icon+' '+ev.e+u+'</div><div class="lc-sector">'+ev.s+' | '+ev.d+'</div><div class="lc-lead">advance '+(ev.lead||5)+'d | window '+(d-ev.lead>0?d-ev.lead:0)+'d</div><div class="lc-stocks">'+(ev.stocks||[]).map(function(s){return '<span class="c-pill pick">'+s+'</span>';}).join('')+'</div></div></div>';
+	            }
+	            var loHtml=""+layFut.map(rlc).join("");
+	            if(layPst.length){
+	              loHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem">('+layPst.length+'张)</span></summary><div style="margin-top:8px">'+layPst.map(rlc).join("")+'</div></details></div>';
+	            }
+	            ll.innerHTML=loHtml;
+	          }
+	        }
 
         // UpdateBar + LivePrices
 
