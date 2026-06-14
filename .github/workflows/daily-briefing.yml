@@ -26,6 +26,9 @@ jobs:
       - name: 生成简报
         run: python .github/scripts/build_briefing.py
 
+      - name: 回测验证
+        run: python .github/scripts/backtest.py
+
       - name: 提交简报
         run: |
           git config user.name "Sentinel Bot"

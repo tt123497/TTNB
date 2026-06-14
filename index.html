@@ -1263,9 +1263,20 @@ function go(tab){
         <div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>
         ${D.recap.losers.map(l=>'<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(st=>'<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>').join('')+'</div></div>').join('')}
       </div>
+    // ── AI简报回测 ──
+    var bt=D._backtest; if(bt&&bt.stats){
+      rc+='<div style="margin-top:16px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)"><div class="section-title" style="font-size:.95rem">🎯 AI简报回测 命中率:'+(bt.stats.overall_hit_rate||0)+'%</div><div style="font-size:.76rem;color:var(--dim);margin-bottom:4px">'+ (bt.stats.total_days||0) +'天累计 · '+ (bt.stats.total_picks||0) +'只标的 · '+ (bt.stats.total_wins||0) +'只上涨</div>';
+      var recs=bt.records||[];
+      if(recs.length){
+        rc+='<details><summary style="font-size:.78rem;color:var(--blue);cursor:pointer">📋 近期记录</summary><div style="max-height:200px;overflow-y:auto;margin-top:4px;font-size:.74rem;color:var(--sub);line-height:1.8">';
+        recs.slice(-10).reverse().forEach(function(r){if(!r.result)return;var c=r.result.hit_rate>=50?"var(--green)":"var(--red)";rc+='<div>'+r.date+' 命中率<span style="font-weight:700;color:'+c+'">'+r.result.hit_rate+'%</span> ('+r.result.winners+'↑ '+r.result.losers+'↓) | ';r.picks.slice(0,3).forEach(function(p){rc+='<span style="font-family:SF Mono,monospace;font-size:.7rem">'+p.c+'</span> '+(p.pct_1d>=0?"+":"")+p.pct_1d.toFixed(1)+'%  ';});rc+='</div>';});
+        rc+='</div></details>';
+      }
+      rc+='</div>';
+    }
     </div></div>`;
 
-  // ════ BRIEFING ════
+// ════ BRIEFING ════
 // ════ BRIEFING ════
   let br=`<div class="tab-panel" id="panel-briefing">
     <div class="section"><div class="section-title">📰 今日最重要的消息</div>`;
