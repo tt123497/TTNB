@@ -2,8 +2,8 @@ name: 🧠 AI 哨兵
 
 on:
   schedule:
-    # 每半小时扫描 (交易时段 CST 9:00-15:30)
-    - cron: '*/30 1-7 * * 1-5'
+    # 每小时扫描 (交易时段 CST 9:00-15:00, UTC 1:00-7:00)
+    - cron: '0 1-7 * * 1-5'
     # 周末复盘 (周六 CST 10:00 = UTC 2:00)
     - cron: '0 2 * * 6'
   workflow_dispatch:

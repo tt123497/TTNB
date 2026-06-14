@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cloud Sentinel — AI 哨兵。每半小时用 DeepSeek API 扫描市场变化，
+"""Cloud Sentinel — AI 哨兵。每小时用 DeepSeek API 扫描市场变化，
 更新简报/赛道信号/精选标的/新事件。
 校验：≥5条top3+≥5条picks才写入，不足则保留上一版。"""
 import json, os, time
@@ -38,7 +38,7 @@ def call_ai(prompt_text, max_tokens=4000):
     payload = {
         'model': 'deepseek-chat',
         'messages': [
-            {'role': 'system', 'content': '你是A股实时市场分析师。每半小时扫描一次数据变化，重点捕捉最近半小时的异动。严格按JSON格式输出，赛道名只用系统指定名称。'},
+            {'role': 'system', 'content': '你是A股实时市场分析师。每小时扫描一次数据变化，重点捕捉最近一小时的异动。严格按JSON格式输出，赛道名只用系统指定名称。'},
             {'role': 'user', 'content': prompt_text}
         ],
         'temperature': 0.3,
