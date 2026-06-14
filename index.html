@@ -763,10 +763,11 @@ function go(tab){
   const goodCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=0).length:0;
   var marketSummary='';
   (function(){
-    var f=D.recap.flow, zt=D.recap.ztLadder, dt=D.recap.dtCount;
+    var f=D.recap.flow, dt=D.recap.dtCount;
     var pos=0; if(f&&f.length){f.forEach(function(x){if(x.amt.indexOf('+')>=0)pos++;});}
     var flowDir=pos>=Math.ceil((f||[]).length/2)?'净流入':'净流出';
-    var ztTotal=zt?zt.totalCount:0, dtTotal=dt!=null?dt:0;
+    var ztTotal=D.recap.ztCount!=null?D.recap.ztCount:(D.recap.ztLadder?D.recap.ztLadder.totalCount:0);
+    var dtTotal=dt!=null?dt:0;
     if(majorCount>=6&&flowDir==='净流入'&&ztTotal>=50) marketSummary='🔥 强势普涨——重大信号密集，资金涌入，涨停潮延续，可积极布局';
     else if(majorCount>=4&&flowDir==='净流入') marketSummary='📈 偏强格局——热点轮动健康，资金面支持，精选主线标的';
     else if(majorCount>=2&&flowDir==='净流入') marketSummary='⚖️ 温和偏多——局部热点活跃，资金小幅流入，控制仓位参与';
@@ -781,7 +782,7 @@ function go(tab){
     <div class="stat-strip">
       <div class="stat-chip"><div class="val" style="color:var(--red)">${majorCount}</div><div class="lbl">🔥 强势赛道</div></div>
       <div class="stat-chip"><div class="val" style="color:${(()=>{var f=D.recap.flow;if(!f||!f.length)return'var(--dim)';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'var(--red)':'var(--green)';})()}">${(()=>{var f=D.recap.flow;if(!f||!f.length)return'—';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'净流入':'净流出';})()}</div><div class="lbl">💸 资金</div></div>
-      <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztLadder?D.recap.ztLadder.totalCount:'—'}</div><div class="lbl">🪜 涨停</div></div>
+      <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztCount!=null?D.recap.ztCount:(D.recap.ztLadder?D.recap.ztLadder.totalCount:'—')}</div><div class="lbl">🪜 涨停</div></div>
       <div class="stat-chip"><div class="val" style="color:${D.recap.dtCount>5?'var(--red)':'var(--green)'}">${D.recap.dtCount!=null?D.recap.dtCount:'—'}</div><div class="lbl">📉 跌停</div></div>
     </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>`;
 

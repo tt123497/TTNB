@@ -392,16 +392,18 @@ def main():
     live = get_live_prices(codes)
     fund = get_fund_flow_em()
     zt_ladder = get_zt_ladder(cst)
+    # Real ZT/DT count from clist API (all A-shares, not just 封板池)
+    zt_count = len(zt_ladder.get('tiers',[]))  # fallback: tier count
     dt_count = 0
-    for attempt in range(3):
-        try_date = cst - timedelta(days=attempt)
-        if try_date.weekday() >= 5: continue
-        dt_text = fetch(f'http://push2ex.eastmoney.com/getTopicDTPool?ut=7eea3edcaed734bea9cbfc24409ed989&dpt=wz.ztzt&Pageindex=0&pagesize=200&sort=fbt:asc&date={try_date.strftime("%Y%m%d")}', encoding='utf-8', extra_headers={'Referer': 'http://quote.eastmoney.com/'})
-        if dt_text:
-            if dt_text.startswith('callback('): dt_text = dt_text[9:-1]
-            try: dt_count = len(json.loads(dt_text).get('data',{}).get('pool',[]))
-            except: pass
-        break
+    try:
+        t2 = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=500&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f3,f12,f14', encoding='utf-8')
+        if t2:
+            items = json.loads(t2).get('data',{}).get('diff',[])
+            zt_list = [i for i in items if i.get('f3',0) >= 9.9]
+            dt_list = [i for i in items if i.get('f3',0) <= -9.9]
+            zt_count = len(zt_list)
+            dt_count = len(dt_list)
+    except: pass
 
     # Compute winners/losers with real stock detail
     winners, losers = compute_winners_losers(live, stock_sector, sectors)
@@ -566,6 +568,7 @@ def main():
             'winners': winners,
             'losers': losers,
             'ztLadder': zt_ladder,
+            'ztCount': zt_count,
             'dtCount': dt_count,
             'note': f"{cst.strftime('%m/%d %H:%M')} GitHub Actions云更新 | {len(codes)}只 | {len(sectors)}板块"
         },

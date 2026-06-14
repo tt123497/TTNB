@@ -239,20 +239,16 @@ def main():
     stock_sector = get_sector_mapping()
     winners, losers = compute_winners_losers(live, stock_sector, heat)
     zt_ladder = get_zt_ladder()
+    # Real ZT/DT count from clist API (all A-shares, not just 封板池)
+    zt_count = len(zt_ladder.get('tiers',[])) if zt_ladder else 0
     dt_count = 0
     try:
-        cst2 = datetime.now(timezone.utc) + timedelta(hours=8)
-        for attempt in range(3):
-            td = cst2 - timedelta(days=attempt)
-            if td.weekday() >= 5: continue
-            url2 = f'http://push2ex.eastmoney.com/getTopicDTPool?ut=7eea3edcaed734bea9cbfc24409ed989&dpt=wz.ztzt&Pageindex=0&pagesize=200&sort=fbt:asc&date={td.strftime("%Y%m%d")}'
-            try:
-                r2 = urlopen(Request(url2, headers={'User-Agent': UA, 'Accept': '*/*', 'Referer': 'http://quote.eastmoney.com/'}), timeout=10)
-                txt2 = r2.read().decode('utf-8')
-                if txt2.startswith('callback('): txt2 = txt2[9:-1]
-                dt_count = len(json.loads(txt2).get('data',{}).get('pool',[]))
-            except: pass
-            break
+        r2 = urlopen(Request('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=500&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f3,f12,f14', headers={'User-Agent': UA, 'Accept': '*/*'}), timeout=12)
+        items = json.loads(r2.read().decode('utf-8')).get('data',{}).get('diff',[])
+        zt_list = [i for i in items if i.get('f3',0) >= 9.9]
+        dt_list = [i for i in items if i.get('f3',0) <= -9.9]
+        zt_count = len(zt_list)
+        dt_count = len(dt_list)
     except: pass
 
     existing = {}
@@ -274,6 +270,7 @@ def main():
             'winners': winners,
             'losers': losers,
             'ztLadder': zt_ladder,
+            'ztCount': zt_count,
             'dtCount': dt_count,
             'note': f"{cst.strftime('%m/%d %H:%M')} 东财全源 | {len(live)}只 | {len(heat)}板块"
         },
