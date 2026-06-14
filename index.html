@@ -956,7 +956,8 @@ function go(tab){
       });
     }
     renderAll();
-  }).catch(function(){ renderAll(); });
+    setTimeout(renderStockList,300);
+  }).catch(function(){ renderAll(); setTimeout(renderStockList,500); });
 
   // Helper: compute real countdown days from today to event date (mirrors calendar logic)
   function realDays(ds){
@@ -1258,14 +1259,8 @@ function go(tab){
   // ════ STOCKS ════
   let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>
     <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码或名称查任意股票,如 600519、茅台" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
-    <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div>`;
-  D.groups.forEach(g=>{g.sectors.forEach(s=>{
-    st+=`<details class="tbl-wrap" ${s.sig==='major'?'open':''}><summary class="tbl-title">${s.icon} ${s.n} &nbsp;<span style="font-size:.93rem;color:var(--dim)">${s.ch.up.split('→').pop().split('<')[0].trim()} → ${s.ch.mid.split('→').pop().split('<')[0].trim().replace(/<\/?em>/g,'')}</span><span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary><table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>位置</th><th>关注</th><th class="th-lp">现价</th></tr></thead><tbody>`;
-    const allText=s.ch.up+s.ch.mid+s.ch.down;
-    if(s.st&&s.st.length){s.st.forEach(x=>{let seg='';if(allText.includes(x.n)){seg=s.ch.up.includes(x.n)?'上游':s.ch.mid.includes(x.n)?'中游':'下游';}st+=`<tr><td class="code">${x.c}</td><td class="name">${x.n}</td><td class="seg">${seg||'—'}</td><td class="pilot">${x.pick?'★重点':'—'}</td><td class="lp" style="font-family:monospace;font-size:.82rem;color:var(--dim)">—</td></tr>`;});}else{st+='<tr><td colspan="5" style="color:var(--dim);text-align:center;padding:8px">等待开盘数据更新...</td></tr>';}
-    st+=`</tbody></table></details>`;
-  });});
-  st+=`</div></div>`;
+    <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div></div></div>`;
+  st+=`<div class="section" id="sectorStockList"><div class="section-title">⏳ 行情加载中，等待开盘数据...</div></div>`;
 
   // ════ RESEARCH ════
   let rh=`<div class="tab-panel" id="panel-research">
@@ -1420,6 +1415,61 @@ function go(tab){
       }).catch(function(){el.innerHTML='<p style="color:var(--dim)">板块数据获取失败</p>';});
   };
 
+  // ════ Render stocks tab from live sectorStocks ════
+  function renderStockList(){
+    var el=document.getElementById('sectorStockList');
+    if(!el)return;
+    var all=[];
+    D.groups.forEach(function(g){g.sectors.forEach(function(s){all.push(s);});});
+    if(!all.length){el.innerHTML='<div class="section-title">⏳ 加载中...</div>';return;}
+
+    var html='';
+    all.forEach(function(s){
+      var live=(D.sectorStocks||{})[s.n]||[];
+      // Sort by chg: descending for top, ascending for bottom
+      var sorted=live.slice().sort(function(a,b){return (b.chg||0)-(a.chg||0);});
+      var top5=sorted.filter(function(x){return (x.chg||0)>0;}).slice(0,5);
+      var bot5=sorted.filter(function(x){return (x.chg||0)<0;}).slice(-5).reverse();
+      var hasData=top5.length||bot5.length;
+
+      html+='<details class="tbl-wrap" '+(s.sig==='major'?'open':'')+'><summary class="tbl-title">'+s.icon+' '+s.n+' <span style="font-size:.78rem;color:var(--dim);margin-left:4px">'+(hasData?top5.length+'+'+bot5.length+'只有数据':'等待数据')+'</span><span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary>';
+      if(!hasData){
+        html+='<div style="color:var(--dim);text-align:center;padding:10px;font-size:.82rem">暂无实时数据</div>';
+      }else{
+        // ── TOP5 gainers ──
+        if(top5.length){
+          html+='<div style="padding:8px 14px;font-size:.8rem;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">🟢 今日领涨 TOP'+top5.length+'</div>';
+          html+='<table class="tbl"><thead><tr><th>代码</th><th>名称</th><th class="th-lp">现价</th></tr></thead><tbody>';
+          top5.forEach(function(x){
+            html+='<tr class="stk-row" data-code="'+x.c+'"><td class="code">'+x.c+'</td><td class="name">'+x.n+'</td><td class="lp up">'+(x.chg>=0?'+':'')+(x.chg||0).toFixed(1)+'%</td></tr>';
+          });
+          html+='</tbody></table>';
+        }
+        // ── BOTTOM5 losers ──
+        if(bot5.length){
+          html+='<div style="padding:8px 14px;font-size:.8rem;font-weight:700;color:var(--red);border-bottom:1px solid var(--border);margin-top:'+(top5.length?'8px':'0')+'">🔴 今日领跌 TOP'+bot5.length+'</div>';
+          html+='<table class="tbl"><thead><tr><th>代码</th><th>名称</th><th class="th-lp">现价</th></tr></thead><tbody>';
+          bot5.forEach(function(x){
+            html+='<tr class="stk-row" data-code="'+x.c+'"><td class="code">'+x.c+'</td><td class="name">'+x.n+'</td><td class="lp down">'+(x.chg>=0?'+':'')+(x.chg||0).toFixed(1)+'%</td></tr>';
+          });
+          html+='</tbody></table>';
+        }
+      }
+      html+='</details>';
+    });
+    el.innerHTML=html;
+    // Hook click to open TDX
+    setTimeout(function(){
+      el.querySelectorAll('.stk-row').forEach(function(tr){
+        tr.addEventListener('click',function(e){
+          e.stopPropagation();
+          var code=this.getAttribute('data-code');
+          if(code)window.open('tdxstock://'+code,'_blank');
+        });
+      });
+    },100);
+  }
+
   // Flash news renderer
   function renderFlashNews(sectorNews, marketNews){
     var el=document.getElementById('flashFeed');
@@ -1556,6 +1606,9 @@ function go(tab){
         if(d._newsSector||d._newsMarket){
           renderFlashNews(d._newsSector||[], d._newsMarket||[]);
         }
+        // ── Stock list refresh from live sector data ──
+        if(d.sectorStocks){D.sectorStocks=d.sectorStocks;}
+        renderStockList();
         // Recap panel
         if(currentRecapDate!=='today')return; // skip refresh when viewing history
         var rp=document.getElementById('panel-recap');if(rp&&d.recap){
