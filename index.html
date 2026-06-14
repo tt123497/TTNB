@@ -1338,8 +1338,9 @@ function go(tab){
   // ════ STOCKS ════
   let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道标的清单</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>
     <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码或名称查任意股票,如 600519、茅台" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
-    <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div></div></div>`;
-  st+=`<div class="section" id="sectorStockList"><div class="section-title">⏳ 行情加载中，等待开盘数据...</div></div>`;
+    <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div>
+    <div class="section" id="sectorStockList"><div class="section-title">⏳ 行情加载中，等待开盘数据...</div></div>
+    </div></div>`;
 
   // ════ RESEARCH ════
   let rh=`<div class="tab-panel" id="panel-research">
