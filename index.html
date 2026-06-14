@@ -1395,7 +1395,7 @@ function go(tab){
       results.boards.forEach(function(b){
         var bcode=b.Code||b.code||'';
         stockSources++;
-        fetch('https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14')
+        fetch('https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=6&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14')
           .then(function(r){return r.json()}).then(function(d){
             (d.data.diff||[]).forEach(function(s){
               results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:b.Name||b.name||'',boardCode:bcode});
@@ -1440,8 +1440,8 @@ function go(tab){
     var el=document.getElementById('resResult');el.style.display='block';
     if(!r.boards.length&&!r.stocks.length&&!r.news.length){el.innerHTML='<p style="color:var(--dim)">未找到相关信息，请换个关键词试试。</p>';return;}
 
-    // Dedup stocks by code
-    var seen={}; var stocks=[]; r.stocks.forEach(function(s){if(!seen[s.code]){seen[s.code]=1;stocks.push(s);}});
+    // Dedup stocks by code, cap at 15 total
+    var seen={}; var stocks=[]; r.stocks.forEach(function(s){if(!seen[s.code]&&stocks.length<15){seen[s.code]=1;stocks.push(s);}});
     stocks.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
 
     var html='';
