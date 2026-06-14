@@ -26,15 +26,8 @@ jobs:
       - name: 抓取实时新闻
         run: python .github/scripts/fetch_news.py
 
-      - name: 发现新热门赛道 (盘前/午间/盘后)
-        run: |
-          HOUR=$(TZ='Asia/Shanghai' date +%H)
-          MIN=$(TZ='Asia/Shanghai' date +%M)
-          if { [ "$HOUR" = "09" ] && [ "$MIN" -lt "30" ]; } || { [ "$HOUR" = "12" ] && [ "$MIN" -lt "30" ]; } || { [ "$HOUR" = "15" ] && [ "$MIN" -lt "45" ]; }; then
-            python .github/scripts/discover_sectors.py
-          else
-            echo "Skip discovery (not 9:00-9:30 / 12:00-12:30 / 15:00-15:45)"
-          fi
+      - name: 热门赛道发现+持续追踪
+        run: python .github/scripts/discover_sectors.py
 
       - name: 提交更新
         run: |
