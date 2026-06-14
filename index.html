@@ -802,7 +802,7 @@ function go(tab){
   D.groups.forEach(g=>{
     ov+=`<div class="group-hd">${g.n}</div><div class="card-grid">`;
     g.sectors.forEach(s=>{
-      ov+=`<div class="card sig-${s.sig}" onclick="go('chain');setTimeout(()=>{var el=document.getElementById('chain-${s.id}');el.open=true;el.scrollIntoView({behavior:'smooth'});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1500)},100)">
+      ov+=`<div class="card sig-${s.sig}" onclick="go('chain');setTimeout(()=>{var el=document.getElementById('chain-${s.id}');el.open=true;requestAnimationFrame(()=>{requestAnimationFrame(()=>{var topbarH=document.querySelector('.topbar')?.offsetHeight||46;var navH=document.querySelector('.nav')?.offsetHeight||46;var rect=el.getBoundingClientRect();var targetY=window.scrollY+rect.top-topbarH-navH-24;window.scrollTo({top:targetY,behavior:'smooth'});});});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1500)},100)">
         <div class="c-icon">${s.icon}</div>
         <div class="c-name">${s.n}</div>
         <div class="c-tag" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
