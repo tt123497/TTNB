@@ -109,6 +109,110 @@ def fetch_all_top_gainers():
         pass
     return []
 
+def fetch_sector_stocks(our_names, heat_data):
+    """For each sector, pull real-time top gainers from EastMoney board API.
+    Filter: ≤3 科创/创业板 (300/301/688/689), rest 主板 (60x/00x/001-003).
+    Sorted by gain% descending. Only includes stocks up >0% where possible.
+    Returns dict: {sector_name: [{c, n, chg}, ...]}"""
+    # Build reverse alias: our sector → list of EM board keywords to try
+    our_to_kw = {}
+    for kw, our in EM_ALIAS.items():
+        if our and kw:
+            our_to_kw.setdefault(our, []).append(kw)
+
+    # Build board name → code from heat data (which already has board codes)
+    name_to_bcode = {}
+    for h in heat_data:
+        bk = h.get('bk', '') or h.get('f12', '')
+        if bk:
+            name_to_bcode[h['n']] = bk
+
+    # Also fetch full board list for broader matching
+    all_boards = {}
+    for mkt in ['m:90+t:3', 'm:90+t:2']:
+        try:
+            t = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=500&po=1&np=1&fltt=2&invt=2&fid=f3&fs=' + mkt + '&fields=f2,f3,f12,f14', encoding='utf-8')
+            if t:
+                for h in json.loads(t).get('data', {}).get('diff', []):
+                    n = h.get('f14', '')
+                    if n and n not in all_boards:
+                        all_boards[n] = h.get('f12', '')
+        except:
+            pass
+
+    def find_bcode(sector_name):
+        """Find best board code for a sector name."""
+        # 1. Via alias keywords → heat data boards
+        kws = our_to_kw.get(sector_name, [])
+        for kw in kws:
+            for bname, bc in name_to_bcode.items():
+                if kw in bname or bname in kw:
+                    return bc
+        # 2. Via alias keywords → all boards
+        for kw in kws:
+            for bname, bc in all_boards.items():
+                if kw in bname or bname in kw:
+                    return bc
+        # 3. Sector name substring in all boards
+        for bname, bc in all_boards.items():
+            if len(sector_name) >= 2 and sector_name[:2] in bname:
+                return bc
+        # 4. Sector name parts
+        for part in sector_name.split('/'):
+            for bname, bc in all_boards.items():
+                if len(part) >= 2 and part[:2] in bname:
+                    return bc
+        return ''
+
+    CODE_BOARD = {'60': 'sh', '68': 'sh', '00': 'sz', '30': 'sz', '00': 'sz', '00': 'sz'}
+
+    result = {}
+    for sec in our_names:
+        bcode = find_bcode(sec)
+        if not bcode:
+            result[sec] = []
+            continue
+
+        # Fetch top 25 from this board, sorted by gain%
+        stocks = []
+        for retry in range(2):
+            try:
+                t = fetch(
+                    'http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=25&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:' + bcode +
+                    '&fields=f2,f3,f12,f14', encoding='utf-8')
+                if t:
+                    for s in json.loads(t).get('data', {}).get('diff', []):
+                        code = s.get('f12', '')
+                        name = s.get('f14', '')
+                        chg = s.get('f3', 0)
+                        if code and name:
+                            stocks.append({'c': code, 'n': name, 'chg': round(chg, 1)})
+                    break
+            except:
+                pass
+            time.sleep(0.3)
+
+        # Sort by gain% descending
+        stocks.sort(key=lambda x: x['chg'], reverse=True)
+
+        # Filter: ≤3 科创/创业, rest 主板
+        cyb_kcb = [s for s in stocks if s['c'].startswith(('300', '301', '688', '689'))]
+        main_bd = [s for s in stocks if s['c'].startswith(('600', '601', '603', '605', '000', '001', '002', '003'))]
+
+        filtered = cyb_kcb[:3] + main_bd
+        # Re-sort by gain%
+        filtered.sort(key=lambda x: x['chg'], reverse=True)
+
+        # Only keep stocks with positive gain where possible, but at least 3
+        up_stocks = [s for s in filtered if s['chg'] > 0]
+        if len(up_stocks) >= 3:
+            filtered = up_stocks
+        # Cap at 8
+        result[sec] = filtered[:8]
+
+    return result
+
+
 def get_fund_flow_em():
     """Returns fund flow: [{n, amt: '+87.9亿'}, ...]"""
     text = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62', encoding='utf-8')
@@ -653,6 +757,22 @@ def main():
         ai_msg = ai_msgs.get(our, '')
         second = ai_msg[:22] if ai_msg and len(ai_msg) > 3 else our
         sector_tags[our] = emoji + ' ' + prefix + ' | ' + second
+    # ── Live sector stocks: real-time top gainers per sector ──
+    sector_stocks = fetch_sector_stocks(our_names, sectors)
+    # Only overwrite if we actually got live data (prevents trading-hour-only blanks from wiping hardcoded)
+    populated = sum(1 for v in sector_stocks.values() if v)
+    if populated >= 10:  # At least 10 sectors must have data
+        out['sectorStocks'] = sector_stocks
+        stock_count = sum(1 for v in sector_stocks.values() for _ in v)
+        print(f'  sectorStocks: {populated} sectors with live stocks, {stock_count} total')
+    else:
+        # Keep previous sectorStocks if they exist
+        if preserve.get('sectorStocks') and sum(1 for v in preserve['sectorStocks'].values() if v) >= 10:
+            out['sectorStocks'] = preserve['sectorStocks']
+            print(f'  sectorStocks: kept existing ({sum(1 for v in preserve[\"sectorStocks\"].values() if v)} sectors)')
+        else:
+            print(f'  sectorStocks: skipped ({populated} sectors too few, likely non-trading)')
+
     # Merge preserved fields
     out.update(preserve)
     out['sectorTags'] = sector_tags  # always fresh, not from cache

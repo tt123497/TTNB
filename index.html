@@ -882,6 +882,25 @@ function go(tab){
         });
       });
     }
+    // Override hardcoded stocks with live sector stocks from EastMoney API
+    if(data.sectorStocks){
+      D.groups.forEach(function(g){
+        g.sectors.forEach(function(s){
+          var live = data.sectorStocks[s.n];
+          if(live && live.length){
+            // Build st array: 科创/创业 first (max 3), then main board, sorted by gain
+            var liveArr = [];
+            live.forEach(function(st){
+              liveArr.push({c: st.c, n: st.n, chg: st.chg});
+            });
+            // Convert to st format: mark top few as pick
+            s.st = liveArr.map(function(item, i){
+              return {c: item.c, n: item.n, pick: i < 2 ? 1 : 0};
+            });
+          }
+        });
+      });
+    }
     renderAll();
   }).catch(function(){ renderAll(); });
 
