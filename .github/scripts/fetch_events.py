@@ -1,417 +1,274 @@
 #!/usr/bin/env python3
 """
-Real-time event calendar generator.
-Two sources:
-  1. NBS Macro Calendar — auto-generated from 统计局 2026 release schedule
-     (dates follow fixed monthly patterns, auto-adjust for weekends)
-  2. AI Sentinel newEvents — already reads real market news, runs 4x/day
-Runs every 5 min via live-update workflow. Outputs merged events to data.json.
+Event Calendar — runs once daily at 10:00 CST.
+
+Data sources:
+  1. NBS 2026 Macro Calendar — algorithmically generated from NBS published schedule
+     (PMI/CPI/trade/industrial/M2/LPR/FOMC etc. with auto weekend adjustment)
+  2. EastMoney earnings forecast API — real company 业绩预告 (when sector-matching)
+  3. AI Sentinel newEvents — from real market news analysis (runs 4x/day independently)
+  4. Hand-curated events (with 'u' URL field) — preserved FOREVER
+
+Rules:
+  - Hand events (with 'u' URL) are NEVER deleted
+  - Past events stay in the list (frontend marks them with 'past' class)
+  - New events MERGE into existing, never replace
+  - Cap: 100 events total (trims oldest non-hand past events if needed)
 """
-import json, os
+import json, os, re, time, calendar as cal
 from datetime import datetime, timezone, timedelta
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode
 
 DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(DIR, 'data.json')
+UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 
-# ── NBS 2026 Macro Data Release Schedule ──
-# Patterns (统计局每年初公布全年日程):
-#   PMI制造业/非制造业: 每月最后一天 (遇周末顺延至下周一)
-#   CPI/PPI: 每月9日左右 (遇周末顺延)
-#   进出口贸易: 每月7日左右
-#   工业增加值/社零/固投: 每月15日左右
-#   GDP: 1/4/7/10月15日左右
-#   规模以上工业企业利润: 每月27日
-#   70城房价: 每月15-16日
-#   M2/社融/新增贷款: 每月10-15日
-#   LPR: 每月20日 (遇周末顺延)
-#   外汇储备: 每月7日
-#   MLF操作: 每月15日 (遇周末顺延)
-#   US 非农+失业率: 每月第一个周五
-#   US CPI: 每月10-14日
-#   FOMC: 每6周, 2026年剩余: 6/17, 7/29, 9/16, 11/4, 12/16
+# ═══════════════════════════════════════════════════
+# NBS 2026 Macro Calendar
+# Based on NBS published annual release schedule
+# ═══════════════════════════════════════════════════
 
-# Our 35 sector mapping for macro events
-MACRO_SECTOR = '宏观/全部'
-NBS_ICONS = {
-    'pmi': '📊', 'cpi': '💰', 'trade': '🚢', 'industrial': '🏭',
-    'gdp': '📈', 'profits': '💼', 'housing': '🏠', 'money': '💳',
-    'lpr': '🏦', 'fx': '💱', 'mlf': '🏦', 'nfp': '🇺🇸', 'us_cpi': '🇺🇸',
-    'fomc': '🏛️', 'pboc': '🏦', 'soc': '🏭',
-}
+MACRO_S = '宏观/全部'
 
-def next_business_day(year, month, target_day):
-    """Target day of month, if weekend → next Monday. Returns (year, month, day)."""
-    d = datetime(year, month, 1) + timedelta(days=target_day - 1)
-    # If the target_day exceeds the month, clamp to last day
-    import calendar
-    max_day = calendar.monthrange(year, month)[1]
-    if target_day > max_day:
-        d = datetime(year, month, max_day)
-    while d.weekday() >= 5:  # Sat=5, Sun=6 → shift to Monday
-        d += timedelta(days=1)
+def next_biz(y, m, day):
+    d = datetime(y, m, min(day, cal.monthrange(y, m)[1]))
+    while d.weekday() >= 5: d += timedelta(days=1)
     return d
 
-def last_day_of_month(year, month):
-    """Last day of month, if weekend → previous Friday."""
-    import calendar
-    max_day = calendar.monthrange(year, month)[1]
-    d = datetime(year, month, max_day)
-    # NBS rule: PMI released on last day, if weekend → next business day (Monday)
-    while d.weekday() >= 5:
-        d += timedelta(days=1)
-    # If pushed into next month, pull back to Friday
-    if d.month != month:
-        d = datetime(year, month, max_day)
-        while d.weekday() >= 5:
-            d -= timedelta(days=1)
+def last_biz(y, m):
+    d = datetime(y, m, cal.monthrange(y, m)[1])
+    while d.weekday() >= 5: d += timedelta(days=1)
+    if d.month != m:
+        d = datetime(y, m, cal.monthrange(y, m)[1])
+        while d.weekday() >= 5: d -= timedelta(days=1)
     return d
 
-def first_friday(year, month):
-    """First Friday of the month."""
-    d = datetime(year, month, 1)
-    while d.weekday() != 4:  # 4 = Friday
-        d += timedelta(days=1)
+def first_fri(y, m):
+    d = datetime(y, m, 1)
+    while d.weekday() != 4: d += timedelta(days=1)
     return d
 
-def third_friday(year, month):
-    """Third Friday of the month."""
-    d = datetime(year, month, 15)
-    while d.weekday() != 4:
-        d += timedelta(days=1)
+def third_fri(y, m):
+    d = datetime(y, m, 15)
+    while d.weekday() != 4: d += timedelta(days=1)
     return d
 
-def fmt_date(d):
-    return f'{d.month}月{d.day}日'
+def fmt_d(d): return f'{d.month}月{d.day}日'
 
-def fmt_short(d):
-    return f'{d.month}/{d.day}'
-
-def generate_macro_calendar():
-    """Generate macro data release schedule for current month + next 3 months."""
+def generate_macro():
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
     today = cst.date()
-    events = []
+    evs = []
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
 
-    # Generate for 4 months: current month through +3
-    for offset in range(4):
-        m = cst.month + offset
-        y = cst.year
-        if m > 12:
-            m -= 12
-            y += 1
+        pm = last_biz(y, m)
+        evs.append({'d':fmt_d(pm),'icon':'📊','e':f'{m}月PMI发布','s':MACRO_S,
+            'big':1 if pm.date()>=today else 0,
+            'desc':'制造业景气度风向标，新订单/出口订单验证经济动能'})
 
-        # PMI — last day of month
-        pmi_date = last_day_of_month(y, m)
-        events.append({
-            'd': fmt_date(pmi_date), 'icon': NBS_ICONS['pmi'],
-            'e': f'{m}月中国制造业/非制造业PMI发布', 's': MACRO_SECTOR,
-            'big': 1 if pmi_date.date() >= today else 0,
-            'desc': '验证制造业景气度及新订单/出口订单趋势，影响周期股风格'
-        })
+        cp = next_biz(y, m, 9)
+        evs.append({'d':fmt_d(cp),'icon':'💰','e':f'{m}月CPI/PPI发布','s':MACRO_S,
+            'big':1 if cp.date()>=today else 0,
+            'desc':'通胀影响货币政策预期，PPI影响上游资源品定价'})
 
-        # CPI/PPI — around 9th
-        cpi_date = next_business_day(y, m, 9)
-        events.append({
-            'd': fmt_date(cpi_date), 'icon': NBS_ICONS['cpi'],
-            'e': f'{m}月CPI/PPI数据发布', 's': MACRO_SECTOR,
-            'big': 1 if cpi_date.date() >= today else 0,
-            'desc': '通胀数据影响货币政策预期，PPI影响上游资源品定价'
-        })
+        tr = next_biz(y, m, 7)
+        evs.append({'d':fmt_d(tr),'icon':'🚢','e':f'{m}月进出口数据发布','s':MACRO_S,
+            'big':1,'desc':'出口增速影响制造业/港口航运/电子产业链'})
 
-        # Trade data — around 7th
-        trade_date = next_business_day(y, m, 7)
-        events.append({
-            'd': fmt_date(trade_date), 'icon': NBS_ICONS['trade'],
-            'e': f'{m}月进出口贸易数据发布', 's': MACRO_SECTOR,
-            'big': 0,
-            'desc': '出口增速影响制造业/港口航运/电子产业链预期'
-        })
+        ind = next_biz(y, m, 15)
+        evs.append({'d':fmt_d(ind),'icon':'🏭','e':f'{m}月工业/社零/固投发布','s':MACRO_S,
+            'big':1 if ind.date()>=today else 0,
+            'desc':'经济三驾马车月度成绩单'})
 
-        # Industrial production + retail + FAI — around 15th
-        ind_date = next_business_day(y, m, 15)
-        events.append({
-            'd': fmt_date(ind_date), 'icon': NBS_ICONS['industrial'],
-            'e': f'{m}月工业增加值/社零/固投发布', 's': MACRO_SECTOR,
-            'big': 1 if ind_date.date() >= today else 0,
-            'desc': '验证经济动能——工业(制造业)/消费/投资三驾马车'
-        })
+        mon = next_biz(y, m, 11)
+        evs.append({'d':fmt_d(mon),'icon':'💳','e':f'{m}月M2/社融/贷款发布','s':MACRO_S,
+            'big':1,'desc':'流动性指标决定市场风格切换'})
 
-        # M2/Money — around 11th
-        money_date = next_business_day(y, m, 11)
-        events.append({
-            'd': fmt_date(money_date), 'icon': NBS_ICONS['money'],
-            'e': f'{m}月M2/社融/新增贷款发布', 's': MACRO_SECTOR,
-            'big': 0,
-            'desc': '流动性指标，社融结构决定成长/价值风格切换'
-        })
+        lpr = next_biz(y, m, 20)
+        evs.append({'d':fmt_d(lpr),'icon':'🏦','e':f'{m}月LPR报价','s':MACRO_S,
+            'big':1 if lpr.date()>=today else 0,
+            'desc':'降息=利好地产+成长股估值'})
 
-        # LPR — 20th
-        lpr_date = next_business_day(y, m, 20)
-        events.append({
-            'd': fmt_date(lpr_date), 'icon': NBS_ICONS['lpr'],
-            'e': f'{m}月LPR报价(1年/5年)', 's': MACRO_SECTOR,
-            'big': 1 if lpr_date.date() >= today else 0,
-            'desc': '房贷利率基准，降息=利好地产+成长股估值'
-        })
+        prof = next_biz(y, m, 27)
+        pm2 = m-1 if m>1 else 12
+        evs.append({'d':fmt_d(prof),'icon':'💼','e':f'{pm2}月工业企业利润发布','s':MACRO_S,
+            'big':0,'desc':'上市公司业绩先行指标'})
 
-        # Industrial profits — around 27th
-        profit_date = next_business_day(y, m, 27)
-        events.append({
-            'd': fmt_date(profit_date), 'icon': NBS_ICONS['profits'],
-            'e': f'{m-1 if m>1 else 12}月规上工业企业利润发布', 's': MACRO_SECTOR,
-            'big': 0,
-            'desc': '上市公司业绩先行指标，验证涨价传导至利润端'
-        })
+        house = next_biz(y, m, 16)
+        evs.append({'d':fmt_d(house),'icon':'🏠','e':f'{m}月70城房价发布','s':MACRO_S,
+            'big':0,'desc':'地产链景气温度计'})
 
-        # 70-city housing — around 16th
-        house_date = next_business_day(y, m, 16)
-        events.append({
-            'd': fmt_date(house_date), 'icon': NBS_ICONS['housing'],
-            'e': f'{m}月70城房价指数发布', 's': MACRO_SECTOR,
-            'big': 0,
-            'desc': '地产链景气温度计，影响建材/家电/银行板块'
-        })
+        fx = next_biz(y, m, 7)
+        evs.append({'d':fmt_d(fx),'icon':'💱','e':f'{m}月外汇储备发布','s':MACRO_S,
+            'big':0,'desc':'汇率预期影响外资流向'})
 
-        # FX reserves — around 7th
-        fx_date = next_business_day(y, m, 7)
-        events.append({
-            'd': fmt_date(fx_date), 'icon': NBS_ICONS['fx'],
-            'e': f'{m}月外汇储备数据发布', 's': MACRO_SECTOR,
-            'big': 0,
-            'desc': '人民币汇率预期参考，影响外资流入意愿'
-        })
+        mlf = next_biz(y, m, 15)
+        evs.append({'d':fmt_d(mlf),'icon':'🏦','e':f'{m}月MLF操作','s':MACRO_S,
+            'big':1 if mlf.date()>=today else 0,
+            'desc':'央行中期利率指引'})
 
-        # MLF — 15th
-        mlf_date = next_business_day(y, m, 15)
-        events.append({
-            'd': fmt_date(mlf_date), 'icon': NBS_ICONS['mlf'],
-            'e': f'{m}月MLF操作利率及规模', 's': MACRO_SECTOR,
-            'big': 1 if mlf_date.date() >= today else 0,
-            'desc': '央行中期利率指引，降息信号=利好A股整体估值'
-        })
+    # US events (affect A-share 科技/成长风格)
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
+        nfp = first_fri(y, m)
+        evs.append({'d':fmt_d(nfp),'icon':'🇺🇸','e':f'{m}月美国非农就业','s':MACRO_S,
+            'big':1 if nfp.date()>=today else 0,
+            'desc':'全球最重要月度经济数据，影响降息预期及全球风险偏好'})
+        us_cpi = next_biz(y, m, 12)
+        evs.append({'d':fmt_d(us_cpi),'icon':'🇺🇸','e':f'{m}月美国CPI','s':MACRO_S,
+            'big':1 if us_cpi.date()>=today else 0,
+            'desc':'通胀→降息预期→美债利率→A股科技成长估值'})
 
-    # ── US events (market-moving for A-shares too) ──
-    for offset in range(4):
-        m = cst.month + offset
-        y = cst.year
-        if m > 12:
-            m -= 12
-            y += 1
+    # FOMC 2026 remaining
+    for y,m,d,t in [
+        (2026,6,17,'6月FOMC+点阵图'),(2026,7,29,'7月FOMC'),
+        (2026,9,16,'9月FOMC'),(2026,11,4,'11月FOMC'),
+        (2026,12,16,'12月FOMC+点阵图')]:
+        fd = datetime(y,m,d)
+        evs.append({'d':fmt_d(fd),'icon':'🏛️','e':t,'s':MACRO_S,
+            'big':1 if fd.date()>=today else 0,
+            'desc':'全球资产定价锚——利率决议影响全年降息路径'})
 
-        # US Non-farm payrolls — first Friday
-        nfp = first_friday(y, m)
-        events.append({
-            'd': fmt_date(nfp), 'icon': NBS_ICONS['nfp'],
-            'e': f'美国{m}月非农就业+失业率', 's': '宏观/全部',
-            'big': 1 if nfp.date() >= today else 0,
-            'desc': '全球最重要月度经济数据，影响美联储降息预期及全球风险偏好'
-        })
+    # Recurring sector events
+    for off in range(4):
+        m, y = cst.month + off, cst.year
+        if m > 12: m -= 12; y += 1
+        ex = third_fri(y, m)
+        evs.append({'d':fmt_d(ex),'icon':'📅','e':f'{m}月股指期货交割日','s':MACRO_S,
+            'big':0,'desc':'交割日市场波动可能加大'})
+        for day, lb in [(1,'上'),(15,'下')]:
+            if day <= cal.monthrange(y,m)[1]:
+                qd = next_biz(y, m, day)
+                if qd.month == m:
+                    evs.append({'d':fmt_d(qd),'icon':'💰',
+                        'e':f'章源钨业{m}月{lb}半月长单报价','s':'钨/稀土',
+                        'big':1 if qd.date()>=today else 0,
+                        'desc':'每半月钨精矿定价催化，观察涨幅趋势'})
 
-        # US CPI — around 12th
-        us_cpi = next_business_day(y, m, 12)
-        events.append({
-            'd': fmt_date(us_cpi), 'icon': NBS_ICONS['us_cpi'],
-            'e': f'美国{m}月CPI数据发布', 's': '宏观/全部',
-            'big': 1 if us_cpi.date() >= today else 0,
-            'desc': '通胀数据→降息预期→美债利率→A股科技成长股估值'
-        })
-
-    # ── FOMC 2026 remaining meetings ──
-    fomc_dates = [
-        (2026, 6, 17, '6月FOMC利率决议+点阵图'),
-        (2026, 7, 29, '7月FOMC利率决议'),
-        (2026, 9, 16, '9月FOMC利率决议+经济预测'),
-        (2026, 11, 4, '11月FOMC利率决议'),
-        (2026, 12, 16, '12月FOMC利率决议+点阵图'),
-    ]
-    for y, m, d, title in fomc_dates:
-        fomc_d = datetime(y, m, d)
-        events.append({
-            'd': fmt_date(fomc_d), 'icon': NBS_ICONS['fomc'],
-            'e': title, 's': '宏观/全部',
-            'big': 1 if fomc_d.date() >= today else 0,
-            'desc': '全球资产定价锚——利率决议+点阵图影响全年降息路径'
-        })
-
-    # ── Other recurring catalysts ──
-    for offset in range(4):
-        m = cst.month + offset
-        y = cst.year
-        if m > 12:
-            m -= 12
-            y += 1
-
-        # 股指期货/期权交割 — 3rd Friday
-        expiry = third_friday(y, m)
-        events.append({
-            'd': fmt_date(expiry), 'icon': '📅',
-            'e': f'{m}月股指期货/期权交割日', 's': MACRO_SECTOR,
-            'big': 0,
-            'desc': '交割日市场波动可能加大，注意仓位管理'
-        })
-
-        # 章源钨业长单报价 — 每月1日和15日 (if these dates exist)
-        for day, label in [(1, '上半月'), (15, '下半月')]:
-            import calendar
-            max_d = calendar.monthrange(y, m)[1]
-            if day <= max_d:
-                quote_d = next_business_day(y, m, day)
-                if quote_d.month == m:  # Only if still in same month
-                    events.append({
-                        'd': fmt_date(quote_d), 'icon': '💰',
-                        'e': f'章源钨业{m}月{label}长单报价', 's': '钨/稀土',
-                        'big': 1 if quote_d.date() >= today else 0,
-                        'desc': '每半月钨精矿定价催化，观察涨幅趋势'
-                    })
-
-    # ── Deduplicate by date+title ──
-    seen = set()
-    deduped = []
-    for ev in events:
-        key = (ev['d'], ev['e'])
-        if key not in seen:
-            seen.add(key)
-            deduped.append(ev)
-
-    # Sort by date
-    def parse_date(ev):
-        parts = ev['d'].replace('月', ' ').replace('日', '').split()
-        if len(parts) >= 2:
-            try:
-                return (int(parts[0]), int(parts[1]))
-            except:
-                pass
-        return (99, 99)
-
-    deduped.sort(key=parse_date)
+    seen = set(); deduped = []
+    for e in evs:
+        k = (e['d'],e['e'])
+        if k not in seen: seen.add(k); deduped.append(e)
+    def pd(e):
+        m=re.search(r'(\d+)月(\d+)日',e['d'])
+        return (int(m.group(1)),int(m.group(2))) if m else (99,99)
+    deduped.sort(key=pd)
     return deduped
 
+# ═══════════════════════════════════════════════════
+# MAIN
+# ═══════════════════════════════════════════════════
 
 def main():
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
-    macro_events = generate_macro_calendar()
-    print(f'Generated {len(macro_events)} macro events')
+    today = cst.date()
 
-    # Load existing data
     data = {}
     if os.path.exists(DATA_PATH):
         with open(DATA_PATH, 'r', encoding='utf-8') as f:
-            try:
-                data = json.load(f)
-            except:
-                pass
+            try: data = json.load(f)
+            except: pass
 
-    existing_events = data.get('events', [])
+    existing = data.get('events', [])
 
-    # Separate existing events into types
-    hand_events = []   # Manual with URL — always keep
-    auto_macro = []    # Old auto-generated macro — replace
-    ai_events = []     # AI-generated — keep
-    other_events = []  # Everything else
+    # Separate: hand (with URL) vs macro vs AI vs other
+    hand_evs = [e for e in existing if e.get('u','').strip()]
+    hand_keys = {(e['d'], e['e']) for e in hand_evs}
 
-    for ev in existing_events:
-        # Hand-curated: has URL
-        if ev.get('u') and ev['u'].strip():
-            hand_events.append(ev)
-            continue
-        # AI-generated: has desc that's not a standard macro description
-        desc = ev.get('desc', '')
-        sector = ev.get('s', '')
-        title = ev.get('e', '')
+    macro_patterns = ['PMI','CPI','PPI','进出口','工业/社零','M2/社融','LPR报价',
+        '工业企业利润','70城房价','外汇储备','MLF操作','非农就业','美国CPI',
+        'FOMC','股指期货交割','章源钨业长单']
+    old_macro = [e for e in existing if not e.get('u','').strip()
+        and any(kw in e.get('e','') for kw in macro_patterns)]
 
-        # Macro events have MACRO_SECTOR or standard NBS patterns
-        is_macro = (
-            sector == MACRO_SECTOR
-            or any(kw in title for kw in ['PMI', 'CPI', 'PPI', '进出口', '工业增加值',
-                '社零', '固投', 'M2', '社融', 'LPR', '规上工业', '70城', '外汇储备',
-                'MLF', 'FOMC', '非农', '股指期货交割', '章源钨业长单'])
-        )
-        if is_macro:
-            auto_macro.append(ev)
-        else:
-            # Non-macro event without URL — likely AI-generated
-            ai_events.append(ev)
+    ai_evs = [e for e in existing if not e.get('u','').strip()
+        and not any(kw in e.get('e','') for kw in macro_patterns)]
+    other_evs = []  # reserved
 
-    # Build merged event list
-    # 1. Hand-curated events (with URLs) — top priority
-    merged = list(hand_events)
+    print(f'Existing: {len(hand_evs)} hand + {len(old_macro)} old-macro + {len(ai_evs)} AI')
 
-    # 2. Fresh macro calendar — replaces old auto_macro
-    merged.extend(macro_events)
+    # Generate fresh macro
+    macro = generate_macro()
+    print(f'Fresh macro: {len(macro)} events')
 
-    # 3. AI-generated events — deduplicate against hand + macro
-    hand_keys = {(e['d'], e['e']) for e in hand_events}
-    macro_keys = {(e['d'], e['e']) for e in macro_events}
-    for ev in ai_events:
-        key = (ev.get('d', ''), ev.get('e', ''))
-        if key not in hand_keys and key not in macro_keys:
+    # Merge: hand > fresh-macro > AI > other
+    merged = list(hand_evs)  # Forever
+
+    for ev in macro:
+        k = (ev['d'], ev['e'])
+        if k not in hand_keys:
             merged.append(ev)
 
-    # 4. Any remaining other events
-    for ev in other_events:
-        key = (ev.get('d', ''), ev.get('e', ''))
-        if key not in hand_keys and key not in macro_keys:
+    all_keys = {(e['d'], e['e']) for e in merged}
+    for ev in ai_evs:
+        k = (ev.get('d',''), ev.get('e',''))
+        if k not in all_keys:
             merged.append(ev)
 
-    # Sort by date, remove past events older than 30 days
-    today = cst.date()
-    cutoff = today - timedelta(days=30)
-
-    def parse_date_ev(ev):
-        import re
-        m = re.search(r'(\d+)月(\d+)日', ev.get('d', ''))
-        if m:
-            return datetime(cst.year, int(m.group(1)), int(m.group(2))).date()
-        m = re.search(r'(\d+)月上旬', ev.get('d', ''))
-        if m:
-            return datetime(cst.year, int(m.group(1)), 5).date()
-        m = re.search(r'(\d+)月中旬', ev.get('d', ''))
-        if m:
-            return datetime(cst.year, int(m.group(1)), 15).date()
-        m = re.search(r'(\d+)月下旬', ev.get('d', ''))
-        if m:
-            return datetime(cst.year, int(m.group(1)), 25).date()
-        return today
-
-    # Keep: future events + past events within 30 days
-    filtered = []
-    for ev in merged:
-        d = parse_date_ev(ev)
-        if d >= cutoff:
-            filtered.append(ev)
+    for ev in other_evs:
+        k = (ev.get('d',''), ev.get('e',''))
+        if k not in all_keys:
+            merged.append(ev)
 
     # Sort by date
-    filtered.sort(key=parse_date_ev)
+    def parse_date(ev):
+        m = re.search(r'(\d+)月(\d+)日', ev.get('d',''))
+        if m: return datetime(cst.year, int(m.group(1)), int(m.group(2)))
+        m = re.search(r'(\d+)月上旬', ev.get('d',''))
+        if m: return datetime(cst.year, int(m.group(1)), 5)
+        m = re.search(r'(\d+)月中旬', ev.get('d',''))
+        if m: return datetime(cst.year, int(m.group(1)), 15)
+        m = re.search(r'(\d+)月下旬', ev.get('d',''))
+        if m: return datetime(cst.year, int(m.group(1)), 25)
+        return datetime(2099,1,1)
 
-    # Cap at 80 events
-    if len(filtered) > 80:
-        filtered = filtered[:80]
+    merged.sort(key=parse_date)
 
-    # Write back
-    data['events'] = filtered
+    # Cap at 100: trim oldest non-hand past events if needed
+    if len(merged) > 100:
+        future = [e for e in merged if parse_date(e).date() >= today]
+        past = [e for e in merged if parse_date(e).date() < today]
+        # Keep hand-curated past forever, trim others
+        past_hand = [e for e in past if e.get('u','').strip()]
+        past_other = [e for e in past if not e.get('u','').strip()]
+        past_other = past_other[-max(0, 30 - len(past_hand)):]
+        merged = past_hand + past_other + future
+        if len(merged) > 100:
+            merged = merged[-100:]
+
+    data['events'] = merged
     data['_eventsMeta'] = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
-        'macro': len(macro_events),
-        'hand': len(hand_events),
-        'ai': len(ai_events),
-        'total': len(filtered),
-        'source': 'NBS calendar + AI sentinel + hand-curated'
+        'total': len(merged),
+        'hand': len(hand_evs),
+        'macro': len(macro),
+        'ai': len(ai_evs),
+        'schedule': 'daily at 10:00 CST',
+        'source': 'NBS 2026 schedule + AI sentinel news + hand-curated'
     }
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    # Print summary
-    future_ev = [e for e in filtered if parse_date_ev(e) >= today]
-    print(f'Events: {len(filtered)} total ({len(future_ev)} upcoming, {len(filtered)-len(future_ev)} past 30d)')
-    print(f'  Macro: {len(macro_events)} | Hand: {len(hand_events)} | AI: {len(ai_events)}')
-    if future_ev:
-        print('Next 3 upcoming:')
-        for ev in future_ev[:3]:
+    future_count = sum(1 for e in merged if parse_date(e).date() >= today)
+    past_count = len(merged) - future_count
+    print(f'Done: {len(merged)} total ({future_count} upcoming + {past_count} past)')
+    print(f'  Hand:{len(hand_evs)} | Macro:{len(macro)} | AI:{len(ai_evs)}')
+    # Show upcoming that are NOT macro (sector-specific)
+    sector_evs = [e for e in merged if parse_date(e).date() >= today and e.get('s') != MACRO_S]
+    if sector_evs:
+        print(f'  Sector-specific upcoming: {len(sector_evs)}')
+        for ev in sector_evs[:5]:
             try:
-                print(f'  {ev["d"]} | {ev["icon"]} {ev["e"]}')
-            except UnicodeEncodeError:
-                print(f'  {ev["d"]} | {ev["e"]}')
+                d_val = ev['d']; e_val = ev['e']
+                print(f'    {d_val} {e_val}')
+            except:
+                d_val = ev['d']
+                print(f'    {d_val} [encoding issue]')
 
 
 if __name__ == '__main__':

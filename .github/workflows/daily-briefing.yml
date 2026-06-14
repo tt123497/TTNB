@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: 刷新事件日历
+        run: python .github/scripts/fetch_events.py
+
       - name: 生成简报
         run: python .github/scripts/build_briefing.py
 
