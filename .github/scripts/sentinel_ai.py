@@ -36,7 +36,7 @@ def call_ai(prompt_text, max_tokens=4000):
         print('NO API KEY')
         return None
     payload = {
-        'model': 'deepseek-flash',
+        'model': 'deepseek-chat',
         'messages': [
             {'role': 'system', 'content': '你是A股实时市场分析师。每小时扫描一次数据变化，重点捕捉最近一小时的异动。严格按JSON格式输出，赛道名只用系统指定名称。'},
             {'role': 'user', 'content': prompt_text}
