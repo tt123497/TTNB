@@ -1543,7 +1543,37 @@ function loadFeedbackHistory(){
       }).catch(function(){tryShow();});
     } else { tryShow(); }
 
-    // ── Source 3: Local stock name/keyword match from livePrices ──
+    // ── Source 3: EastMoney suggest API stock match (JSONP, works) ──
+    var cbName2='_emcb2_'+Date.now();
+    window[cbName2]=function(data){
+      var items=(data.QuotationCodeTable||{}).Data||data.Datas||[];
+      var codes=[];
+      items.slice(0,15).forEach(function(it){
+        var c=it.Code||it.code||'';
+        if(c&&c.length===6&&!isNaN(parseInt(c))&&!codes.includes(c)) codes.push(c);
+      });
+      delete window[cbName2];
+      if(!codes.length){tryShow();return;}
+      var secids=codes.map(function(c){
+        return (c.startsWith('6')||c.startsWith('68'))?'1.'+c:'0.'+c;
+      });
+      fetch('https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14,f100&secids='+secids.join(',')+'&ut=bd1d9ddb04089700cf9c27f6f7426281')
+        .then(function(r){return r.json()}).then(function(d){
+          (d.data.diff||[]).forEach(function(s){
+            if(results.stocks.length>=20) return;
+            var cd=s.f12||'';
+            if(results.stocks.some(function(x){return x.code===cd})) return;
+            results.stocks.push({code:cd,name:s.f14||'',chg:s.f3||0,board:s.f100||'搜索匹配',boardCode:''});
+          });
+          tryShow();
+        }).catch(function(){tryShow();});
+    };
+    var sn2=document.createElement('script');
+    sn2.src='https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(kw)+'&type=14&count=10&cb='+cbName2;
+    sn2.onerror=function(){delete window[cbName2];tryShow();};
+    document.head.appendChild(sn2);
+
+    // ── Source 4: Local stock name/keyword match from livePrices ──
     (function(){
       if(!D.livePrices) return tryShow();
       var kwl=kw.toLowerCase(); var added=0;
