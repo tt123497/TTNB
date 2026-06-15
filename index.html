@@ -1837,12 +1837,12 @@ function loadFeedbackHistory(){
           // Winners/Losers
           var wDiv=document.getElementById('recapWinners');if(wDiv&&r.winners&&r.winners.length){
             var wHtml='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';
-            r.winners.forEach(function(w){wHtml+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});
+            r.winners.forEach(function(w){wHtml+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(function(st){return '<span class="c-pill pick" style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">'+st+'</span>';}).join(' ')+'</div></div>';});
             wDiv.innerHTML=wHtml;
           }
           var lDiv=document.getElementById('recapLosers');if(lDiv&&r.losers&&r.losers.length){
             var lHtml='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';
-            r.losers.forEach(function(l){lHtml+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div>';});
+            r.losers.forEach(function(l){lHtml+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<span class="c-pill pick" style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">'+st+'</span>';}).join(' ')+'</div></div>';});
             lDiv.innerHTML=lHtml;
           }
         }
@@ -2015,9 +2015,9 @@ function loadFeedbackHistory(){
   function hideTip(){tipCode='';tipEl.style.display='none';}
   document.getElementById('mainContent').addEventListener('mousemove',function(e){
     var el=e.target, code='';
-    while(el&&el!==this){
-      var t=el.textContent.trim(); var m=t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr'))){
+    while(el&&el!==this&&!code){
+      var t=el.textContent.trim(); var m=t&&t.match(/(\d{6})/);
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.layout-card')||el.classList.contains('stk-snippet'))){
         code=m[1]; break;
       }
       el=el.parentElement;
