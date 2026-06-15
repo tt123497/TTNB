@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-15 22:03 CST",
+  "updated": "2026-06-15 22:08 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1979480,
   "recap": {
@@ -113,7 +113,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-15 22:02",
+      "updated": "2026-06-15 22:07",
       "tiers": [
         {
           "boardCount": 3,
@@ -1157,7 +1157,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/15 22:02 GitHub Actions云更新 | 480只 | 0板块",
+    "note": "06/15 22:07 GitHub Actions云更新 | 480只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1516,8 +1516,8 @@
     },
     {
       "name": "银行",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -1910,7 +1910,7 @@
         "sec": "固态电池"
       }
     ],
-    "updated": "2026-06-15 22:03 CST",
+    "updated": "2026-06-15 22:08 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -2244,8 +2244,8 @@
       },
       {
         "name": "银行",
-        "sig": "good",
-        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -6810,15 +6810,21 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicnyqr4962210.shtml",
       "time": "20:59",
       "src": "sina_A股"
-    },
-    {
-      "t": "ST长园: ST长园:关于向银行申请授信并提供担保的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600525.html",
-      "time": "06-16",
-      "src": "em_announcement"
     }
   ],
   "_newsMarket": [
+    {
+      "t": "欧洲股市收复伊朗战争以来全部失地",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewh9819406.shtml",
+      "time": "22:07",
+      "src": "sina_A股"
+    },
+    {
+      "t": "欧盟委员会主席冯德莱恩称，欧盟与法国将于周三签订151亿欧元（折合175亿美元）防务贷款协议。\n\n目前，欧洲军工股涨跌各异。",
+      "u": "https://wallstreetcn.com/livenews/3119753",
+      "time": "22:05",
+      "src": "wscn_全球"
+    },
     {
       "t": "隔夜回购利率攀升，美债结算与纳税抽走市场现金",
       "u": "https://wallstreetcn.com/livenews/3119752",
@@ -6926,23 +6932,11 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicnyqk9930409.shtml",
       "time": "21:21",
       "src": "sina_A股"
-    },
-    {
-      "t": "沃什黑箱揭开那一刻，美元会崩成什么样？",
-      "u": "https://finance.sina.com.cn/money/forex/hbfx/2026-06-15/doc-inicnyqr4972212.shtml",
-      "time": "21:19",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "欧盟委员会主席冯德莱恩谈伊朗协议：现在的首要任务是执行。\n\n如果黎巴嫩战火纷飞，就不可能有持久和平。\n\n我们的能源依赖被武器化了。\n\n将讨论减少对霍尔木兹海峡的依赖。\n\n需要保护我们的市场免受不公平行为的侵害。\n\n产能过剩对经济的危险性日益",
-      "u": "https://wallstreetcn.com/livenews/3119730",
-      "time": "21:16",
-      "src": "wscn_全球"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-15 22:02 CST",
-    "sector": 6,
+    "updated": "2026-06-15 22:08 CST",
+    "sector": 5,
     "market": 29,
     "match_sectors": [
       "SpaceX",
@@ -6991,7 +6985,7 @@
     "量子计算/量子科技": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "卫星互联网/北斗": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "人形机器人": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "商业航天": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "商业航天": "🟡 平盘 | 板块均涨+0.0%，2条相关消息，表现稳健。",
     "6G/通信": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "固态电池": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "低空经济eVTOL": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -7018,7 +7012,7 @@
     "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "_eventsMeta": {
-    "updated": "2026-06-15 22:03 CST",
+    "updated": "2026-06-15 22:09 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
