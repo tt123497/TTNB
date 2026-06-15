@@ -1456,7 +1456,7 @@ function loadFeedbackHistory(){
   document.getElementById('mainContent').innerHTML=ov+lo+rc+br+fl+ch+ca+st+rh;
 
 
-  // ════ Research / Info Retrieval — local-first search engine ════
+  // ════ Research / Info Retrieval — hybrid: EM JSONP + local fallback ════
   window.doResearch=function(){
     var kw=document.getElementById('researchInput').value.trim();
     if(!kw)return;
@@ -1464,65 +1464,92 @@ function loadFeedbackHistory(){
     document.getElementById('resResult').style.display='none';
 
     var kwl=kw.toLowerCase(), results={boards:[],stocks:[],news:[],kw:kw};
+    var emDone=false, localDone=false;
+    function tryShow(){
+      if(!emDone && !localDone) return;
+      showResearch(results);
+    }
 
-    // ── Stock search: D.groups (63 sectors, 480+ stocks) + livePrices (108 with prices) ──
-    var seen={};
-    // Search D.groups → every sector's st[] array
-    (D.groups||[]).forEach(function(g){
-      g.sectors.forEach(function(s){
-        var secName=s.n||'', secTag=s.tag||'', secDesc=s.d||'';
-        // Match sector name → add as "board"
-        if(secName.toLowerCase().indexOf(kwl)>=0 && results.boards.length<8){
-          if(!results.boards.some(function(b){return b.Name===secName;})){
-            results.boards.push({Code:s.id||'',Name:secName});
+    // ── Track A: EastMoney JSONP (works from China browser) ──
+    var cb='_rs1_'+Date.now();
+    var emTimer = setTimeout(function(){delete window[cb];emDone=true;tryShow();}, 4000);
+    window[cb]=function(data){
+      clearTimeout(emTimer); delete window[cb]; emDone=true;
+      var items=(data.QuotationCodeTable||{}).Data||[];
+      var codes=[];
+      items.forEach(function(it){
+        var c=it.Code||it.code||'';
+        if(it.MktNum===90||c.startsWith('BK')) results.boards.push({Code:c,Name:it.Name||it.name||c});
+        else if(c.length===6&&/^\d{6}$/.test(c)&&codes.indexOf(c)<0) codes.push(c);
+      });
+      results.boards=results.boards.slice(0,8);
+      if(codes.length){
+        var cb2='_rp_'+Date.now(); window[cb2]=function(d2){
+          delete window[cb2];
+          (d2.data&&d2.data.diff||[]).forEach(function(s){results.stocks.push({code:s.f12,name:s.f14,chg:s.f3||0,board:s.f100||'搜索匹配',boardCode:''});});
+          tryShow();
+        };
+        var sc=codes.slice(0,30).map(function(c){return (c.startsWith('6')||c.startsWith('68'))?'1.'+c:'0.'+c;}).join(',');
+        var s=document.createElement('script');
+        s.src='https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14,f100&secids='+sc+'&ut=bd1d9ddb04089700cf9c27f6f7426281&cb='+cb2;
+        s.onerror=function(){delete window[cb2];tryShow();};
+        document.head.appendChild(s);
+      }else{tryShow();}
+    };
+    var s1=document.createElement('script');
+    s1.src='https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(kw)+'&type=14&count=15&cb='+cb;
+    s1.onerror=function(){clearTimeout(emTimer);delete window[cb];emDone=true;tryShow();};
+    document.head.appendChild(s1);
+
+    // ── Track B: Local search (always runs, supplements JSONP) ──
+    setTimeout(function(){
+      var seen={};
+      results.stocks.forEach(function(s){seen[s.code]=1;});
+      // Search D.groups sectors + stocks
+      (D.groups||[]).forEach(function(g){
+        g.sectors.forEach(function(s){
+          var sn=s.n||'', stg=s.tag||'';
+          if(sn.toLowerCase().indexOf(kwl)>=0 && !results.boards.some(function(b){return b.Name===sn;})){
+            results.boards.push({Code:s.id||'',Name:sn});
           }
-        }
-        // Search each stock in this sector
-        (s.st||[]).forEach(function(st){
-          if(results.stocks.length>=30||seen[st.c]) return;
-          var nm=(st.n||'').toLowerCase();
-          if(nm.indexOf(kwl)>=0 || secName.toLowerCase().indexOf(kwl)>=0 || secTag.toLowerCase().indexOf(kwl)>=0 || secDesc.toLowerCase().indexOf(kwl)>=0){
-            seen[st.c]=1;
-            var lp=(D.livePrices||{})['sh'+st.c]||(D.livePrices||{})['sz'+st.c];
-            results.stocks.push({code:st.c,name:st.n,chg:lp?lp.chg_pct:0,board:secName,boardCode:''});
-          }
+          (s.st||[]).forEach(function(st){
+            if(results.stocks.length>=30||seen[st.c]) return;
+            var nm=(st.n||'').toLowerCase();
+            if(nm.indexOf(kwl)>=0||sn.toLowerCase().indexOf(kwl)>=0){
+              seen[st.c]=1; var lp=(D.livePrices||{})['sh'+st.c]||(D.livePrices||{})['sz'+st.c];
+              results.stocks.push({code:st.c,name:st.n,chg:lp?lp.chg_pct:0,board:sn,boardCode:''});
+            }
+          });
         });
       });
-    });
-    // Also search livePrices for stocks NOT in stockInfo (ZT ladder etc)
-    if(D.livePrices){
-      Object.keys(D.livePrices).forEach(function(k){
+      // livePrices not in stockInfo
+      if(D.livePrices) Object.keys(D.livePrices).forEach(function(k){
         if(results.stocks.length>=30) return;
         var lp=D.livePrices[k], cd=k.substring(2);
         if(seen[cd]) return;
         var hay=(lp.name+' '+lp.industry+' '+(lp.concepts||[]).join(' ')).toLowerCase();
-        if(hay.indexOf(kwl)>=0){
-          seen[cd]=1;
-          results.stocks.push({code:cd,name:lp.name,chg:lp.chg_pct,board:lp.industry||'全市场',boardCode:''});
+        if(hay.indexOf(kwl)>=0){seen[cd]=1;results.stocks.push({code:cd,name:lp.name,chg:lp.chg_pct,board:lp.industry||'匹配',boardCode:''});}
+      });
+      Object.keys(stockInfo).forEach(function(c){
+        if(results.stocks.length>=30||seen[c]) return;
+        var info=stockInfo[c];
+        if((info.sector+' '+info.ind+' '+info.name+' '+info.tag).toLowerCase().indexOf(kwl)>=0){
+          seen[c]=1; var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
+          results.stocks.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector||info.ind||'',boardCode:''});
         }
       });
-    }
-    // Also search stockInfo (includes ZT-only entries)
-    Object.keys(stockInfo).forEach(function(c){
-      if(results.stocks.length>=30||seen[c]) return;
-      var info=stockInfo[c];
-      var hay=(info.sector+' '+(info.ind||'')+' '+info.name+' '+info.tag).toLowerCase();
-      if(hay.indexOf(kwl)>=0){
-        seen[c]=1;
-        var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
-        results.stocks.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector||info.ind||'',boardCode:''});
-      }
-    });
-    results.stocks.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
+      results.stocks.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
+      results.boards=results.boards.slice(0,8);
 
-    // ── News search: _newsSector + _newsMarket (60+ items, updated every 5min) ──
-    (D._newsSector||[]).concat(D._newsMarket||[]).forEach(function(n){
-      if(results.news.length>=20) return;
-      var t=(n.t||n.title||'').toLowerCase();
-      if(t.indexOf(kwl)>=0) results.news.push({t:n.t||n.title||'',u:n.u||n.url||'',time:n.time||n.ts||n.ctime||''});
-    });
+      // News search
+      (D._newsSector||[]).concat(D._newsMarket||[]).forEach(function(n){
+        if(results.news.length>=20) return;
+        var t=(n.t||n.title||'').toLowerCase();
+        if(t.indexOf(kwl)>=0) results.news.push({t:n.t||n.title||'',u:n.u||n.url||'',time:n.time||n.ts||n.ctime||''});
+      });
 
-    showResearch(results);
+      localDone=true; tryShow();
+    }, 100); // 100ms delay — JSONP gets a head start, local always fills gaps
   };
 
   function showResearch(r){
