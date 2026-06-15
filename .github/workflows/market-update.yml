@@ -1,6 +1,9 @@
 name: Live Market Update
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '*/5 1-7 * * 1-5'
     - cron: '0 2 * * 6,0'
