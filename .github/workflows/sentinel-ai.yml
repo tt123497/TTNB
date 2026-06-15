@@ -1,10 +1,16 @@
-name: 🧠 AI 哨兵
+name: AI Sentinel
 
 on:
   schedule:
-    # 每小时扫描 (交易时段 CST 9:00-15:00, UTC 1:00-7:00)
-    - cron: '0 1-7 * * 1-5'
-    # 周末复盘 (周六 CST 10:00 = UTC 2:00)
+    # CST 9:00-15:00 every hour (UTC 1:00-7:00)
+    - cron: '0 1 * * 1-5'
+    - cron: '0 2 * * 1-5'
+    - cron: '0 3 * * 1-5'
+    - cron: '0 4 * * 1-5'
+    - cron: '0 5 * * 1-5'
+    - cron: '0 6 * * 1-5'
+    - cron: '0 7 * * 1-5'
+    # Saturday CST 10:00 (UTC 2:00)
     - cron: '0 2 * * 6'
   workflow_dispatch:
 
