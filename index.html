@@ -1462,8 +1462,8 @@ function loadFeedbackHistory(){
     document.getElementById('resLoading').style.display='block';
 
     var results={boards:[],stocks:[],news:[],kw:kw};
-    var pending=4, startTime=Date.now();
-    function done(){pending--;if(pending<=0||Date.now()-startTime>10000) showResearch(results);}
+    var pending=3, startTime=Date.now();
+    function done(){pending--;if(pending<=0||Date.now()-startTime>8000) showResearch(results);}
 
     // ── Source 1: EastMoney search JSONP (adds cb= for JSONP) ──
     var cb='_rs1_'+Date.now();
@@ -1564,9 +1564,10 @@ function loadFeedbackHistory(){
     if(r.news.length){
       html+='<div class="res-group"><div class="res-group-title">📰 相关资讯 <span style="font-size:.76rem;color:var(--dim);font-weight:400">'+r.news.length+'条</span></div>';
       r.news.forEach(function(n){
-        var ts='';
-        if(n.time){try{var d=new Date(parseInt(n.time)*1000);ts=d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');}catch(e){}}
-        html+='<div class="res-news-item"><span class="rn-time">'+ts+'</span> <span class="rn-title"><a href="'+n.u+'" target="_blank" rel="noopener">'+n.t+'</a></span></div>';
+        var ts=n.ctime||n.time||'';
+        if(ts&&ts.length>=16) ts=ts.substring(11,16);
+        else if(ts&&/^\d+$/.test(ts)){try{var d=new Date(parseInt(ts)*1000);ts=d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');}catch(e){}}
+        html+='<div class="res-news-item"><span class="rn-time">'+(ts||'')+'</span> <span class="rn-title"><a href="'+(n.u||n.url||'')+'" target="_blank" rel="noopener">'+(n.t||n.title||'')+'</a></span></div>';
       });
       html+='</div>';
     }
