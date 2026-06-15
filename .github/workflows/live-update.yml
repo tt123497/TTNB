@@ -1,7 +1,7 @@
 name: 📡 实时数据更新
 
 on:
-  push
+  push:
     branches: [main]
   schedule:
     # A股交易时段每5分钟 (CST 9:30-15:00 = UTC 1:30-7:00)
