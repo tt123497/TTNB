@@ -1,12 +1,10 @@
-name: 📡 实时数据更新
+name: Live Market Update
 
 on:
   push:
     branches: [main]
   schedule:
-    # A股交易时段每5分钟 (CST 9:30-15:00 = UTC 1:30-7:00)
     - cron: '*/5 1-7 * * 1-5'
-    # 周末也更新一次保持新鲜
     - cron: '0 2 * * 6,0'
   workflow_dispatch:
 
@@ -22,23 +20,23 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: 抓取实时数据
+      - name: Fetch market data
         run: python .github/scripts/fetch_data.py
 
-      - name: 抓取实时新闻
+      - name: Fetch news
         run: python .github/scripts/fetch_news.py
 
-      - name: 热门赛道发现+持续追踪
+      - name: Discover hot sectors
         run: python .github/scripts/discover_sectors.py
 
-      - name: 提交更新
+      - name: Commit and push
         run: |
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
           git add data.json
-          git diff --staged --quiet || (git commit -m "📊 $(TZ='Asia/Shanghai' date '+%H:%M') 行情更新" && git push)
+          git diff --staged --quiet || (git commit -m "Market update $(TZ='Asia/Shanghai' date '+%H:%M')" && git push)
 
-      - name: 归档收盘数据
+      - name: Archive close data
         run: |
           HOUR=$(TZ='Asia/Shanghai' date +%H)
           if [ "$HOUR" = "15" ]; then
@@ -52,5 +50,5 @@ with open('archive/index.json','w') as fh: json.dump(files, fh, ensure_ascii=Fal
 print(f'Index: {len(files)} archives')
 "
             git add archive/
-            git diff --staged --quiet || (git commit -m "📦 归档 $DATE 收盘数据" && git push)
+            git diff --staged --quiet || (git commit -m "Archive $DATE" && git push)
           fi
