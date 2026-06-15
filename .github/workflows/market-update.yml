@@ -25,6 +25,8 @@ jobs:
         run: python .github/scripts/fetch_news.py
       - name: Discover sectors
         run: python .github/scripts/discover_sectors.py
+      - name: Score sectors
+        run: python .github/scripts/score_sectors.py
       - name: Commit and push
         run: |
           git config user.name "Sentinel Bot"
