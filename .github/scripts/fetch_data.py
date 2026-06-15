@@ -630,6 +630,7 @@ def main():
                     old_cycle = old_recap['cycle']
                 old_briefing = old.get('briefing', {})
                 old_briefing_date = old_briefing.get('updated', '') if old_briefing else ''
+                preserve['_oldRecap'] = old_recap  # fallback for after-hours
             except: pass
 
     # Auto-fresh: if Claude data is >12h old, regenerate from market data
@@ -739,16 +740,17 @@ def main():
                         lev['stocks'] = fallback
     preserve['layout'] = existing_layout
 
+    old_recap = preserve.pop('_oldRecap', {}) or {}
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
         'nextSentinel': next_update,
         'updateCount': int(time.time() / 900),
         'recap': {
-            'index': indices[:6] if indices else [],
-            'heat': sectors[:25] if sectors else [],
-            'flow': fund,
-            'winners': winners,
-            'losers': losers,
+            'index': indices[:6] if indices else old_recap.get('index', [])[:6] if old_recap.get('index') else [],
+            'heat': sectors[:25] if sectors else old_recap.get('heat', [])[:25] if old_recap.get('heat') else [],
+            'flow': fund if fund else old_recap.get('flow', []),
+            'winners': winners if winners else old_recap.get('winners', []),
+            'losers': losers if losers else old_recap.get('losers', []),
             'ztLadder': zt_ladder,
             'ztCount': zt_count,
             'dtCount': dt_count,
