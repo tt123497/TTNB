@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-15 23:19 CST",
+  "updated": "2026-06-15 23:32 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979485,
+  "updateCount": 1979486,
   "recap": {
     "index": [
       {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-15 23:18",
+      "updated": "2026-06-15 23:31",
       "tiers": [
         {
           "boardCount": 3,
@@ -1332,7 +1332,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/15 23:18 GitHub Actions云更新 | 511只 | 0板块",
+    "note": "06/15 23:31 GitHub Actions云更新 | 511只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1355,7 +1355,7 @@
     "interval": "15min",
     "stockCount": 511,
     "liveCount": 0,
-    "updateCount": 1979485,
+    "updateCount": 1979486,
     "trading": false
   },
   "sectors": [
@@ -2085,7 +2085,7 @@
         "sec": "固态电池"
       }
     ],
-    "updated": "2026-06-15 23:19 CST",
+    "updated": "2026-06-15 23:32 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -7078,13 +7078,31 @@
   ],
   "_newsMarket": [
     {
+      "t": "美国财政部拍卖三个月期国债，得标利率3.640%，投标倍数2.47。\n\n拍卖六个月期国债，得标利率3.680%，投标倍数2.76。",
+      "u": "https://wallstreetcn.com/livenews/3119792",
+      "time": "23:32",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "华尔街老将给美股狂欢泼冷水：高油价与高利率存滞后效应",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewh9844960.shtml",
+      "time": "23:23",
+      "src": "sina_A股"
+    },
+    {
+      "t": "IMF总裁：能源供应恢复需要时间 仍对中东战争的影响“高度警惕”",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewp4885098.shtml",
+      "time": "23:20",
+      "src": "sina_A股"
+    },
+    {
       "t": "全球资本市场瞩目！超级央行周来袭，美联储新主席首秀，核心看点一文全梳理",
       "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicpewk6620638.shtml",
       "time": "23:12",
       "src": "sina_7x24财经"
     },
     {
-      "t": "【伊朗：伊美谅解备忘录部分条款15日就开始执行】伊朗外交部长阿拉格齐说，“我们已经完成了谅解备忘录”，其中部分条款15日就会执行，其余部分将在19日谅解备忘录签署后执行。（新华社）",
+      "t": "伊朗：伊美谅解备忘录部分条款15日就开始执行",
       "u": "https://wallstreetcn.com/livenews/3119787",
       "time": "23:07",
       "src": "wscn_全球"
@@ -7102,7 +7120,7 @@
       "src": "wscn_全球"
     },
     {
-      "t": "国际货币基金组织（IMF）总裁Georgieva：欢迎伊朗与美国达成停火协议，警告密集冲突对全球经济增长构成风险。",
+      "t": "IMF总裁：能源供应恢复需要时间，仍对中东战争的影响“高度警惕”",
       "u": "https://wallstreetcn.com/livenews/3119783",
       "time": "23:01",
       "src": "wscn_全球"
@@ -7178,30 +7196,12 @@
       "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicpewp4866335.shtml",
       "time": "22:15",
       "src": "sina_7x24财经"
-    },
-    {
-      "t": "沃什执掌的美联储或将按兵不动",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewk6599984.shtml",
-      "time": "22:14",
-      "src": "sina_A股"
-    },
-    {
-      "t": "Salesforce斥资36亿美元收购AI客服平台Fin，强化智能体服务矩阵",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewm8088706.shtml",
-      "time": "22:14",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英伟达将发债筹集200亿美元，为五年来首次",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewh9819637.shtml",
-      "time": "22:09",
-      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-15 23:19 CST",
+    "updated": "2026-06-15 23:32 CST",
     "sector": 6,
-    "market": 22,
+    "market": 25,
     "match_sectors": [
       "SpaceX",
       "数据中心",
@@ -7248,7 +7248,7 @@
     "量子计算/量子科技": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "卫星互联网/北斗": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "人形机器人": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "商业航天": "🟡 平盘 | 板块均涨+0.0%，3条相关消息，表现稳健。",
+    "商业航天": "🟡 平盘 | 板块均涨+0.0%，4条相关消息，表现稳健。",
     "6G/通信": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "固态电池": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "低空经济eVTOL": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -7265,7 +7265,7 @@
     "铜铝有色": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "化工": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钢铁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "银行": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "银行": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "券商": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "保险": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "房地产开发": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -7275,7 +7275,7 @@
     "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "_eventsMeta": {
-    "updated": "2026-06-15 23:19 CST",
+    "updated": "2026-06-15 23:32 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
