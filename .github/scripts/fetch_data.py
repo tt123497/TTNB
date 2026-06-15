@@ -138,7 +138,7 @@ def get_live_prices(all_codes):
 
     for i in range(0, len(secids), 100):
         batch = secids[i:i+100]
-        url = f'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14&secids={",".join(batch)}&ut=bd1d9ddb04089700cf9c27f6f7426281'
+        url = f'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14,f100,f101,f102,f103&secids={",".join(batch)}&ut=bd1d9ddb04089700cf9c27f6f7426281'
         text = fetch(url, encoding='utf-8')
         if not text: continue
         try:
@@ -148,7 +148,9 @@ def get_live_prices(all_codes):
                 price = s.get('f2', 0)
                 chg = s.get('f3', 0)
                 sina_key = f'sh{c}' if c.startswith(('60','68')) else f'sz{c}'
-                results[sina_key] = {'price': price, 'chg_pct': chg, 'name': s.get('f14','')}
+                results[sina_key] = {'price': price, 'chg_pct': chg, 'name': s.get('f14',''),
+                    'industry': s.get('f100',''),
+                    'concepts': (s.get('f101','') + ',' + s.get('f102','') + ',' + s.get('f103','')).split(',')}
         except: pass
         time.sleep(0.05)
     return results

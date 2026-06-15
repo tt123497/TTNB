@@ -1843,13 +1843,13 @@ function loadFeedbackHistory(){
 
           // Winners/Losers
           var wDiv=document.getElementById('recapWinners');if(wDiv&&r.winners&&r.winners.length){
-            var wHtml='<div class="section-title" style="color:var(--green);font-size:1rem">🟢 领涨方向</div>';
-            r.winners.forEach(function(w){wHtml+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:4px">✅ '+w.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+w.stks.split(' / ').map(function(st){return '<span class="c-pill pick" style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">'+st+'</span>';}).join(' ')+'</div></div>';});
+            var wHtml='<div class="section-title" style="color:var(--red);font-size:1rem">🟢 领涨方向</div>';
+            r.winners.forEach(function(w){wHtml+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:6px">✅ '+w.s+'</div><div style="display:flex;flex-wrap:wrap;gap:4px">'+w.stks.split(' / ').map(function(st){var parts=st.split(' ');var cd=parts[0]||'',nm=parts[1]||'';var pct=parseFloat(parts[2])||0;var cl=pct>=0?'var(--red)':'var(--green)';var pctStr=parts[2]||'';return '<span class="c-pill pick" style="font-size:.74rem;cursor:pointer;border:1px solid '+cl+';padding:4px 8px;border-radius:4px;background:'+(pct>=0?'rgba(239,68,68,.08)':'rgba(34,197,94,.08)')+';font-family:SF Mono,Fira Code,monospace">'+cd+' <b>'+nm+'</b> <span style="color:'+cl+';font-weight:700">'+pctStr+'</span></span>';}).join('')+'</div></div>';});
             wDiv.innerHTML=wHtml;
           }
           var lDiv=document.getElementById('recapLosers');if(lDiv&&r.losers&&r.losers.length){
-            var lHtml='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';
-            r.losers.forEach(function(l){lHtml+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<span class="c-pill pick" style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">'+st+'</span>';}).join(' ')+'</div></div>';});
+            var lHtml='<div class="section-title" style="color:var(--green);font-size:1rem">🔴 领跌方向</div>';
+            r.losers.forEach(function(l){lHtml+='<div style="margin-bottom:12px"><div style="color:var(--green);font-weight:600;font-size:.88rem;margin-bottom:6px">❌ '+l.s+'</div><div style="display:flex;flex-wrap:wrap;gap:4px">'+l.stks.split(' / ').map(function(st){var parts=st.split(' ');var cd=parts[0]||'',nm=parts[1]||'';var pct=parseFloat(parts[2])||0;var cl=pct>=0?'var(--red)':'var(--green)';var pctStr=parts[2]||'';return '<span class="c-pill pick" style="font-size:.74rem;cursor:pointer;border:1px solid '+cl+';padding:4px 8px;border-radius:4px;background:'+(pct>=0?'rgba(239,68,68,.08)':'rgba(34,197,94,.08)')+';font-family:SF Mono,Fira Code,monospace">'+cd+' <b>'+nm+'</b> <span style="color:'+cl+';font-weight:700">'+pctStr+'</span></span>';}).join('')+'</div></div>';});
             lDiv.innerHTML=lHtml;
           }
         }
@@ -2013,9 +2013,16 @@ function loadFeedbackHistory(){
     var info=stockInfo[code]; if(!info) return;
     var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
     var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-    var ind=info.ztInd||info.ind||'—';
-    var cx=info.concepts&&info.concepts.length?info.concepts.slice(0,5).join(' · '):'—';
-    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div><div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div><div style="font-size:.7rem;color:var(--sub);margin-top:3px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
+    var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'—');
+    var concepts=[];
+    if(info.concepts&&info.concepts.length) concepts=info.concepts;
+    else if(lp&&lp.concepts&&lp.concepts.length) concepts=lp.concepts.filter(function(c){return c&&c.trim();});
+    // Deduplicate and remove empty
+    var seen={}; var clean=[];
+    concepts.forEach(function(c){if(c&&!seen[c]){seen[c]=1;clean.push(c);}});
+    var cx=clean.length?clean.slice(0,6).join(' · '):null;
+    var cxHtml=cx?'<div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div>':'';
+    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div>'+cxHtml+'<div style="font-size:.7rem;color:var(--sub);margin-top:3px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
     tipEl.style.display='block';
     tipTimer=setTimeout(function(){var x=e.clientX+15,y=e.clientY-10;if(x+240>window.innerWidth)x=e.clientX-250;if(y+120>window.innerHeight)y=e.clientY-130;tipEl.style.left=x+'px';tipEl.style.top=y+'px';},80);
   }
