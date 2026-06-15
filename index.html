@@ -1492,16 +1492,36 @@ function loadFeedbackHistory(){
       var items=(data.QuotationCodeTable||{}).Data||data.Datas||[];
       results.boards=items.slice(0,8).filter(function(b){return (b.Code||b.code||'').startsWith('BK');});
       delete window[cbName];
-      // Fetch top stocks from each found board
-      results.boards.forEach(function(b){
-        var bcode=b.Code||b.code||'';
-        stockSources++;
-        fetch('https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=6&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14')
-          .then(function(r){return r.json()}).then(function(d){
-            (d.data.diff||[]).forEach(function(s){
-              results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:b.Name||b.name||'',boardCode:bcode});
-            });
-          }).finally(function(){stockDone++;tryShow();});
+      // Fetch stocks locally from livePrices+stockInfo matching the board name
+      var boardNames = {};
+      results.boards.forEach(function(b){boardNames[b.Name||b.name||'']=true;});
+      var added={};
+      // First: stocks already mapped to a sector that shares keywords with the board name
+      Object.keys(stockInfo).forEach(function(c){
+        if(Object.keys(added).length>=30) return;
+        var info=stockInfo[c];
+        Object.keys(boardNames).forEach(function(bn){
+          if(added[c]) return;
+          if(info.sector.indexOf(bn.substring(0,2))>=0 || bn.indexOf(info.sector.substring(0,2))>=0){
+            added[c]=info;
+          }
+        });
+      });
+      // Second: search livePrices by name match
+      if(D.livePrices){
+        var kwl=kw.toLowerCase();
+        Object.keys(D.livePrices).forEach(function(k){
+          if(Object.keys(added).length>=30) return;
+          var lp=D.livePrices[k];
+          if((lp.name||'').indexOf(kw)>=0 && !added[k.substring(2)]){
+            added[k.substring(2)]={name:lp.name,sector:lp.industry||'匹配',group:'搜索结果',pos:'—',tag:'',ind:lp.industry||'—'};
+          }
+        });
+      }
+      Object.keys(added).forEach(function(c){
+        if(results.stocks.length>=20) return;
+        var info=added[c]; var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
+        results.stocks.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector||info.ind||'',boardCode:''});
       });
       tryShow();
     };
@@ -1511,8 +1531,9 @@ function loadFeedbackHistory(){
     document.head.appendChild(sn);
 
     // ── Source 2: Sina keyword news ──
-    fetch('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2512&k='+encodeURIComponent(kw)+'&num=20&page=1')
-      .then(function(r){return r.json()}).then(function(d){
+    var sinaUrl='https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2512&k='+encodeURIComponent(kw)+'&num=20&page=1';
+    if(location.protocol==='https:' && sinaUrl.startsWith('https:')){
+      fetch(sinaUrl).then(function(r){return r.json()}).then(function(d){
         var items=(d.result||{}).data||[];
         results.news=items.filter(function(it){
           var t=(it.title||it.intro||''); var tl=t.toLowerCase();
@@ -1520,18 +1541,25 @@ function loadFeedbackHistory(){
         }).map(function(it){return {t:it.title||it.intro||'',u:it.url||'',time:it.ctime||''};});
         tryShow();
       }).catch(function(){tryShow();});
+    } else { tryShow(); }
 
-    // ── Source 3: All-A top gainers filtered by keyword ──
-    fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=30&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f2,f3,f12,f14')
-      .then(function(r){return r.json()}).then(function(d){
-        var all=d.data.diff||[]; var added=0;
-        all.forEach(function(s){
-          if(added>=8)return;
-          var n=(s.f14||'').toLowerCase(); var kwl=kw.toLowerCase();
-          if(n.indexOf(kwl)>=0){results.stocks.push({code:s.f12,name:s.f14,chg:s.f3,board:'全市场匹配',boardCode:''});added++;}
-        });
-        tryShow();
-      }).catch(function(){tryShow();});
+    // ── Source 3: Local stock name/keyword match from livePrices ──
+    (function(){
+      if(!D.livePrices) return tryShow();
+      var kwl=kw.toLowerCase(); var added=0;
+      Object.keys(D.livePrices).forEach(function(k){
+        if(added>=10) return;
+        var lp=D.livePrices[k]; var code=k.substring(2);
+        if(results.stocks.some(function(s){return s.code===code})) return;
+        var nm=(lp.name||'').toLowerCase();
+        var ind=(lp.industry||'').toLowerCase();
+        if(nm.indexOf(kwl)>=0 || ind.indexOf(kwl)>=0){
+          results.stocks.push({code:code,name:lp.name,chg:lp.chg_pct,board:lp.industry||'全市场',boardCode:''});
+          added++;
+        }
+      });
+      tryShow();
+    })();
 
     // Safety timeout
     setTimeout(function(){tryShow();},maxWait);
@@ -1580,21 +1608,43 @@ function loadFeedbackHistory(){
     el.innerHTML=html;
   }
   window.lookupBoard=function(bcode,bname){
-    // Fetch stocks from board and show in a focused view
     var el=document.getElementById('resResult');
     el.innerHTML='<div class="res-loading">🔍 查看板块：'+bname+'...</div>';
-    fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=15&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14')
-      .then(function(r){return r.json()}).then(function(d){
-        var stks=d.data.diff||[];
-        var html='<div class="res-group"><div class="res-group-title">📊 '+bname+' <span style="font-size:.76rem;color:var(--dim);font-weight:400">'+stks.length+'只标的, 按涨幅排序</span></div>';
-        stks.sort(function(a,b){return (b.f3||0)-(a.f3||0);});
-        stks.forEach(function(s){
-          var cl=s.f3>=0?'var(--red)':'var(--green)'; var ar=s.f3>=0?'+':'';
-          html+='<div class="res-stock-row" onclick="window.open(\'tdxstock://'+s.f12+'\',\'_blank\')"><span class="code">'+s.f12+'</span><span class="name">'+s.f14+'</span><span class="chg" style="color:'+cl+'">'+ar+(s.f3||0).toFixed(1)+'%</span></div>';
-        });
-        html+='<p style="margin-top:10px;font-size:.78rem;color:var(--blue);cursor:pointer" onclick="doResearch()">← 返回搜索结果</p></div>';
-        el.innerHTML=html;
-      }).catch(function(){el.innerHTML='<p style="color:var(--dim)">板块数据获取失败</p>';});
+    // Search local livePrices by matching board name to stock sectors/industries
+    var matched=[];
+    if(D.livePrices){
+      Object.keys(D.livePrices).forEach(function(k){
+        var lp=D.livePrices[k]; var code=k.substring(2);
+        var info=stockInfo[code];
+        var sector=info?info.sector:'';
+        var industry=lp.industry||'';
+        // Match: board name appears in sector or industry
+        if(sector.indexOf(bname.substring(0,2))>=0 || industry.indexOf(bname)>=0 || bname.indexOf(sector.substring(0,2))>=0 || bname.indexOf(industry)>=0){
+          matched.push({code:code,name:lp.name,chg:lp.chg_pct,board:sector||industry});
+        }
+      });
+    }
+    // Also check stockInfo for board name match
+    if(matched.length<5){
+      Object.keys(stockInfo).forEach(function(c){
+        if(matched.some(function(m){return m.code===c})) return;
+        var info=stockInfo[c];
+        if(info.sector.indexOf(bname.substring(0,2))>=0 || (info.ind||'').indexOf(bname)>=0){
+          var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
+          matched.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector});
+        }
+      });
+    }
+    matched.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
+    var show=matched.slice(0,15);
+    if(!show.length){el.innerHTML='<p style="color:var(--dim)">未找到匹配标的，换个关键词试试</p>';return;}
+    var html='<div class="res-group"><div class="res-group-title">📊 '+bname+' <span style="font-size:.76rem;color:var(--dim);font-weight:400">'+show.length+'只标的, 按涨幅排序</span></div>';
+    show.forEach(function(s){
+      var cl=s.chg>=0?'var(--red)':'var(--green)'; var ar=s.chg>=0?'+':'';
+      html+='<div class="res-stock-row" onclick="window.open(\'tdxstock://'+s.code+'\',\'_blank\')"><span class="code">'+s.code+'</span><span class="name">'+s.name+'</span><span class="chg" style="color:'+cl+'">'+ar+(s.chg||0).toFixed(1)+'%</span></div>';
+    });
+    html+='<p style="margin-top:10px;font-size:.78rem;color:var(--blue);cursor:pointer" onclick="doResearch()">← 返回搜索结果</p></div>';
+    el.innerHTML=html;
   };
 
   // ════ Render stocks tab from live sectorStocks ════
