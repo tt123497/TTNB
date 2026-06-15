@@ -1150,10 +1150,17 @@ function loadFeedbackHistory(){
       });
     });
   });
-  // Enrich with ZT ladder industry if available
+  // Enrich with ZT ladder industry if available, and create entries for stocks not in our sectors
   if(D.recap.ztLadder&&D.recap.ztLadder.tiers){
     D.recap.ztLadder.tiers.forEach(function(t){
-      t.stocks.forEach(function(st){if(stockInfo[st.c]&&st.industry)stockInfo[st.c].ztInd=st.industry;});
+      t.stocks.forEach(function(st){
+        if(stockInfo[st.c]){
+          if(st.industry) stockInfo[st.c].ztInd=st.industry;
+        } else {
+          // Create basic entry for ZT-only stocks
+          stockInfo[st.c]={name:st.n, sector:'涨停板', group:'连板梯队', pos:'—', tag:'🔥', ind:st.industry||'—'};
+        }
+      });
     });
   }
 
@@ -1831,7 +1838,7 @@ function loadFeedbackHistory(){
               ztHtml+='</div>'; ztDiv.innerHTML=ztHtml;
             }else{ztDiv.innerHTML='<div class="section-title">🪜 连板梯队</div><div class="zt-none">暂无涨停数据</div>';}
             // Enrich stockInfo with ZT industry data
-            if(r.ztLadder&&r.ztLadder.tiers){r.ztLadder.tiers.forEach(function(t){t.stocks.forEach(function(st){if(stockInfo[st.c]&&st.industry)stockInfo[st.c].ztInd=st.industry;});});}
+            if(r.ztLadder&&r.ztLadder.tiers){r.ztLadder.tiers.forEach(function(t){t.stocks.forEach(function(st){if(stockInfo[st.c]){if(st.industry)stockInfo[st.c].ztInd=st.industry;}else{stockInfo[st.c]={name:st.n,sector:'涨停板',group:'连板梯队',pos:'—',tag:'🔥',ind:st.industry||'—'};}});});}
           }
 
           // Winners/Losers
