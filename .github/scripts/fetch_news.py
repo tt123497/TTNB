@@ -107,7 +107,8 @@ def fetch_sina_news():
             if any(kw in title for kw in NOISE_KW):
                 continue
             age_h = (cst - ts).total_seconds() / 3600
-            if age_h > 24:
+            max_age = 0.5 if (9 <= cst.hour < 15 and cst.weekday() < 5) else 24
+            if age_h > max_age:
                 continue
 
             is_sector = any(kw in title for kw in SECTOR_KW)
@@ -199,7 +200,8 @@ def fetch_wallstreetcn():
             except:
                 ts = cst
             age_h = (cst - ts).total_seconds() / 3600
-            if age_h > 24:
+            max_age = 0.5 if (9 <= cst.hour < 15 and cst.weekday() < 5) else 24
+            if age_h > max_age:
                 continue
             is_sector = any(kw in title for kw in SECTOR_KW)
             is_market = any(kw in title for kw in MARKET_KW)
