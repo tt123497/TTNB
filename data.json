@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-15 20:53 CST",
+  "updated": "2026-06-15 21:01 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979475,
+  "updateCount": 1979476,
   "recap": {
     "index": [],
     "heat": [],
@@ -34,7 +34,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-15 20:52",
+      "updated": "2026-06-15 21:00",
       "tiers": [
         {
           "boardCount": 3,
@@ -1078,7 +1078,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/15 20:52 GitHub Actions云更新 | 480只 | 0板块",
+    "note": "06/15 21:00 GitHub Actions云更新 | 480只 | 0板块",
     "cycle": {
       "phase": "全线上攻，券商领涨",
       "phaseIcon": "🚀",
@@ -1492,7 +1492,7 @@
     "interval": "15min",
     "stockCount": 480,
     "liveCount": 78,
-    "updateCount": 1979475,
+    "updateCount": 1979476,
     "trading": false
   },
   "sectors": [
@@ -1703,7 +1703,7 @@
     {
       "name": "商业航天",
       "sig": "good",
-      "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，5条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -2026,7 +2026,7 @@
         "sec": "人形机器人"
       }
     ],
-    "updated": "2026-06-15 20:53 CST",
+    "updated": "2026-06-15 21:01 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -2235,7 +2235,7 @@
       {
         "name": "商业航天",
         "sig": "good",
-        "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
+        "msg": "板块均涨+0.0%，5条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -6350,6 +6350,12 @@
   ],
   "_newsSector": [
     {
+      "t": "SpaceX万亿级IPO带火链上永续合约",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicnyqr4962210.shtml",
+      "time": "20:59",
+      "src": "sina_A股"
+    },
+    {
       "t": "欧洲央行扩大对银行私募信贷敞口调查 严防非银金融风险向银行体系蔓延",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicnyqr4933460.shtml",
       "time": "19:55",
@@ -6399,6 +6405,18 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "伊朗称将与阿曼合作保障霍尔木兹海峡通航",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicnyqn6697925.shtml",
+      "time": "20:56",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗：美方承诺解冻伊朗被冻结资产",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicnyqp8184925.shtml",
+      "time": "20:52",
+      "src": "sina_7x24财经"
+    },
     {
       "t": "周一美股盘前你需要了解的全球要闻",
       "u": "https://wallstreetcn.com/livenews/3119717",
@@ -6506,23 +6524,11 @@
       "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicnyqn6682192.shtml",
       "time": "20:21",
       "src": "sina_7x24财经"
-    },
-    {
-      "t": "美国副总统万斯：霍尔木兹海峡的交通量已经增加。\n\n伊朗协议包含两步核查程序。\n\n协议赋予美国对伊朗核计划的执行监督权。\n\n预计霍尔木兹海峡长期将免通行费开放。\n\n如果在核问题上无法达成协议，伊朗将没有资源重建。\n\n我们预计周五会有几位伊朗代",
-      "u": "https://wallstreetcn.com/livenews/3119695",
-      "time": "20:21",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "跨界磷化铟引关注，宿迁联盛回复问询：意向合作方无相关专利，不存在配合减持情形",
-      "u": "https://finance.sina.com.cn/roll/2026-06-15/doc-inicnyqr4943808.shtml",
-      "time": "20:19",
-      "src": "sina_7x24财经"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-15 20:53 CST",
-    "sector": 8,
+    "updated": "2026-06-15 21:00 CST",
+    "sector": 9,
     "market": 29,
     "match_sectors": [
       "SpaceX",
@@ -6536,7 +6542,7 @@
   "sectorTags": {
     "AI芯片": "🔥 板均涨7.3% | 板块均涨+0.0%，横盘整理，等待催化。",
     "CPO/硅光": "🔥 板均涨4.6% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "光模块": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "光模块": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "光纤光缆": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "连接器/铜连接": "🔥 板均涨7.2% | 板块均涨+0.0%，横盘整理，等待催化。",
     "PCB/覆铜板": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
@@ -6592,11 +6598,20 @@
     "钢铁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "银行": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "券商": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "保险": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "保险": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "房地产开发": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "白酒": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "食品饮料": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "医药/CRO": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
+  },
+  "_eventsMeta": {
+    "updated": "2026-06-15 21:01 CST",
+    "total": 40,
+    "hand": 32,
+    "macro": 8,
+    "ai": 0,
+    "schedule": "daily at 10:00 CST",
+    "source": "NBS 2026 schedule + AI sentinel news + hand-curated"
   }
 }
