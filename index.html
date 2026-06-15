@@ -992,7 +992,7 @@ function go(tab){
 // ══ Password Gate ══
 // Default password: sentinel2026 (change below)
 // To host publicly without password, set PASS_KEY='' (empty string)
-var PASS_KEY='123456';
+var PASS_KEY='';
 (function initPass(){
   if(!PASS_KEY){document.getElementById('passGate').style.display='none';return;}
   var saved=sessionStorage.getItem('_pass_ok');
