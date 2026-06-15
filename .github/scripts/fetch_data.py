@@ -40,7 +40,7 @@ def get_indices():
                     results.append({'n': n, 'v': f'{p:.0f}' if p else '0', 'chg': f'{chg:+.2f}%', 'up': chg >= 0})
                 if results: return results
         except: pass
-    # Sina fallback
+    # Sina fallback (format: name,price,abs_chg,pct_chg,...)
     sina_names = ['sh000001','sz399001','sz399006','sh000688','sh000300','sh000016']
     sina_labels = ['上证指数','深证成指','创业板指','科创50','沪深300','上证50']
     try:
@@ -52,11 +52,12 @@ def get_indices():
                 data = line.split('"')[1] if '"' in line else ''
                 parts = data.split(',')
                 if len(parts) < 4: continue
+                pct = float(parts[3]) if parts[3] else 0  # parts[3] is percentage, NOT parts[2]
                 results.append({
                     'n': sina_labels[i] if i < len(sina_labels) else parts[0],
                     'v': f'{float(parts[1]):.0f}' if parts[1] else '0',
-                    'chg': f'{float(parts[2]):+.2f}%' if parts[2] else '0.00%',
-                    'up': float(parts[2]) >= 0 if parts[2] else False
+                    'chg': f'{pct:+.2f}%',
+                    'up': pct >= 0
                 })
             if results: return results
     except: pass
