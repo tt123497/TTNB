@@ -89,7 +89,7 @@ def fetch_sina_news():
     # Channels: 2512=股票, 2516=A股, 2509=7x24财经, 1689=产业
     channels = [('2512', '股票'), ('2516', 'A股'), ('2509', '7x24财经'), ('1689', '产业')]
     for ch_id, ch_name in channels:
-        url = f'https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid={ch_id}&k=&num=30&page=1&r={time.time()}'
+        url = f'https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid={ch_id}&k=&num=60&page=1&r={time.time()}'
         data = fetch_json(url)
         if not data or not data.get('result'):
             continue
@@ -107,7 +107,7 @@ def fetch_sina_news():
             if any(kw in title for kw in NOISE_KW):
                 continue
             age_h = (cst - ts).total_seconds() / 3600
-            if age_h > 6:
+            if age_h > 24:
                 continue
 
             is_sector = any(kw in title for kw in SECTOR_KW)
@@ -131,6 +131,7 @@ def fetch_sina_news():
 def fetch_em_announcements():
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
     sector_news = []
+    market_news = []
 
     SIG_WORDS = ['业绩','盈利','亏损','分红','回购','增持','减持','重组',
                 '停牌','退市','上市','首发','IPO','非公开','配股','可转债',
@@ -142,7 +143,7 @@ def fetch_em_announcements():
                  '网上申购','中签率']
 
     for ann_type in ['A', 'SFA', 'SHA']:
-        url = f'https://np-anotice-stock.eastmoney.com/api/security/ann?page_size=20&page_index=1&ann_type={ann_type}&sr=-1&client_source=web'
+        url = f'https://np-anotice-stock.eastmoney.com/api/security/ann?page_size=40&page_index=1&ann_type={ann_type}&sr=-1&client_source=web'
         data = fetch_json(url)
         if not data or data.get('success') != 1:
             continue
@@ -154,32 +155,35 @@ def fetch_em_announcements():
 
             if any(w in title for w in SKIP_WORDS):
                 continue
+            # Accept announcement if it has a significant keyword
             if not any(w in title for w in SIG_WORDS):
-                continue
-            # Must match sector keyword (announcements without sector link are noise)
-            if not any(kw in title for kw in SECTOR_KW):
                 continue
 
             codes_list = it.get('codes', [])
             stock_code = codes_list[0].get('stock_code', '') if codes_list else ''
             stock_name = codes_list[0].get('short_name', '') if codes_list else ''
 
-            sector_news.append({
+            entry = {
                 't': f'{stock_name}: {title[:90]}' if stock_name else title[:110],
                 'u': f'https://data.eastmoney.com/notices/detail/{stock_code}.html' if stock_code else '',
                 'time': date_str[-5:] if len(date_str) >= 5 else date_str,
                 'src': 'em_announcement',
                 's': f'{stock_code} {stock_name}' if stock_code else ''
-            })
+            }
+            # Route: sector keywords → sector_news, rest → market_news
+            if any(kw in title for kw in SECTOR_KW):
+                sector_news.append(entry)
+            else:
+                market_news.append(entry)
 
-    return sector_news
+    return sector_news, market_news
 
 def fetch_wallstreetcn():
     """Fetch 华尔街见闻 real-time flash news (2 channels)."""
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
     all_news = []
     for ch, ch_name in [('global-channel', '全球'), ('china-channel', '中国')]:
-        url = f'https://api-one.wallstcn.com/apiv1/content/lives?channel={ch}&client=pc&limit=20&first=1'
+        url = f'https://api-one.wallstcn.com/apiv1/content/lives?channel={ch}&client=pc&limit=40&first=1'
         data = fetch_json(url, timeout=10)
         if not data or not data.get('data'):
             continue
@@ -195,7 +199,7 @@ def fetch_wallstreetcn():
             except:
                 ts = cst
             age_h = (cst - ts).total_seconds() / 3600
-            if age_h > 6:
+            if age_h > 24:
                 continue
             is_sector = any(kw in title for kw in SECTOR_KW)
             is_market = any(kw in title for kw in MARKET_KW)
@@ -227,8 +231,8 @@ def main():
     print(f'  Sina sector: {len(sina_sector)}, market: {len(sina_market)}')
 
     print('Fetching EM announcements...')
-    em_sector = fetch_em_announcements()
-    print(f'  EM sector: {len(em_sector)}')
+    em_sector, em_market = fetch_em_announcements()
+    print(f'  EM sector: {len(em_sector)}, market: {len(em_market)}')
 
     print('Fetching 华尔街见闻...')
     wscn_market = fetch_wallstreetcn()
@@ -236,7 +240,7 @@ def main():
 
     # Merge + dedup
     sector_all = dedup(sina_sector + em_sector)
-    market_all = dedup(sina_market + wscn_market)
+    market_all = dedup(sina_market + em_market + wscn_market)
 
     # Write
     data = {}
@@ -251,8 +255,8 @@ def main():
     for a in sector_all:
         a.pop('s', None)
 
-    data['_newsSector'] = sector_all[:25]
-    data['_newsMarket'] = market_all[:20]
+    data['_newsSector'] = sector_all[:50]
+    data['_newsMarket'] = market_all[:50]
     data['_newsMeta'] = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
         'sector': len(sector_all),
