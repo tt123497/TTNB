@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-15 23:08 CST",
+  "updated": "2026-06-15 23:19 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979484,
+  "updateCount": 1979485,
   "recap": {
     "index": [
       {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-15 23:07",
+      "updated": "2026-06-15 23:18",
       "tiers": [
         {
           "boardCount": 3,
@@ -1332,7 +1332,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/15 23:07 GitHub Actions云更新 | 511只 | 0板块",
+    "note": "06/15 23:18 GitHub Actions云更新 | 511只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1355,7 +1355,7 @@
     "interval": "15min",
     "stockCount": 511,
     "liveCount": 0,
-    "updateCount": 1979484,
+    "updateCount": 1979485,
     "trading": false
   },
   "sectors": [
@@ -1566,7 +1566,7 @@
     {
       "name": "商业航天",
       "sig": "good",
-      "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -1692,7 +1692,7 @@
     {
       "name": "银行",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -2085,7 +2085,7 @@
         "sec": "固态电池"
       }
     ],
-    "updated": "2026-06-15 23:08 CST",
+    "updated": "2026-06-15 23:19 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -2294,7 +2294,7 @@
       {
         "name": "商业航天",
         "sig": "good",
-        "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+        "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -2420,7 +2420,7 @@
       {
         "name": "银行",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
         "u": ""
       },
       {
@@ -7040,6 +7040,12 @@
   ],
   "_newsSector": [
     {
+      "t": "承销商行使绿鞋超额配售权，SpaceX IPO募资总额达857亿美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewk6618430.shtml",
+      "time": "23:10",
+      "src": "sina_A股"
+    },
+    {
       "t": "美国参议院沃伦沃伦要求获取私募股权投资数据中心交易的相关资料",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewm8100939.shtml",
       "time": "22:50",
@@ -7068,15 +7074,15 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewm8083405.shtml",
       "time": "22:02",
       "src": "sina_A股"
-    },
-    {
-      "t": "ST长园: ST长园:关于向银行申请授信并提供担保的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600525.html",
-      "time": "06-16",
-      "src": "em_announcement"
     }
   ],
   "_newsMarket": [
+    {
+      "t": "全球资本市场瞩目！超级央行周来袭，美联储新主席首秀，核心看点一文全梳理",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicpewk6620638.shtml",
+      "time": "23:12",
+      "src": "sina_7x24财经"
+    },
     {
       "t": "【伊朗：伊美谅解备忘录部分条款15日就开始执行】伊朗外交部长阿拉格齐说，“我们已经完成了谅解备忘录”，其中部分条款15日就会执行，其余部分将在19日谅解备忘录签署后执行。（新华社）",
       "u": "https://wallstreetcn.com/livenews/3119787",
@@ -7144,12 +7150,6 @@
       "src": "sina_7x24财经"
     },
     {
-      "t": "罗尔斯-罗伊斯控股击败GE Vernova，将向瑞典供应一批新款小型核反应堆，帮助该国满足未来数十年（可能激增）的电力需求。",
-      "u": "https://wallstreetcn.com/livenews/3119768",
-      "time": "22:36",
-      "src": "wscn_全球"
-    },
-    {
       "t": "美伊签署停火协议前夕 美方对伊朗港口封锁仍维持实质运作",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewp4871313.shtml",
       "time": "22:32",
@@ -7199,14 +7199,13 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-15 23:08 CST",
+    "updated": "2026-06-15 23:19 CST",
     "sector": 6,
-    "market": 24,
+    "market": 22,
     "match_sectors": [
       "SpaceX",
       "数据中心",
-      "算力",
-      "银行"
+      "算力"
     ]
   },
   "sectorTags": {
@@ -7262,7 +7261,7 @@
     "储能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "新能源汽车": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "煤炭": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "黄金/贵金属": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "黄金/贵金属": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "铜铝有色": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "化工": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钢铁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -7276,7 +7275,7 @@
     "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "_eventsMeta": {
-    "updated": "2026-06-15 23:08 CST",
+    "updated": "2026-06-15 23:19 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
