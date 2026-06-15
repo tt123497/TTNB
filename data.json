@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-16 00:14 CST",
+  "updated": "2026-06-16 00:23 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979488,
+  "updateCount": 1979489,
   "recap": {
     "index": [
       {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-16 00:13",
+      "updated": "2026-06-16 00:22",
       "tiers": [
         {
           "boardCount": 3,
@@ -1332,7 +1332,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/16 00:13 GitHub Actions云更新 | 511只 | 0板块",
+    "note": "06/16 00:22 GitHub Actions云更新 | 511只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1355,7 +1355,7 @@
     "interval": "15min",
     "stockCount": 511,
     "liveCount": 0,
-    "updateCount": 1979488,
+    "updateCount": 1979489,
     "trading": false
   },
   "sectors": [
@@ -1464,7 +1464,7 @@
     {
       "name": "算力租赁/GPU云",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -1566,7 +1566,7 @@
     {
       "name": "商业航天",
       "sig": "good",
-      "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -1691,8 +1691,8 @@
     },
     {
       "name": "银行",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -2085,7 +2085,7 @@
         "sec": "固态电池"
       }
     ],
-    "updated": "2026-06-16 00:14 CST",
+    "updated": "2026-06-16 00:23 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -2192,7 +2192,7 @@
       {
         "name": "算力租赁/GPU云",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
         "u": ""
       },
       {
@@ -2294,7 +2294,7 @@
       {
         "name": "商业航天",
         "sig": "good",
-        "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+        "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -2419,8 +2419,8 @@
       },
       {
         "name": "银行",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -7052,12 +7052,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "辞任华林证券CEO不到一个月转身AI算力公司，秦湘进入行云科技董事会候选名单 | 长三角资本局",
-      "u": "https://finance.sina.com.cn/stock/csjzbj/2026-06-15/doc-inicpewm8096856.shtml",
-      "time": "22:36",
-      "src": "sina_7x24财经"
-    },
-    {
       "t": "SpaceX IPO承销商行使“绿鞋”超额配售权，总融资额达857亿美元",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewp4867598.shtml",
       "time": "22:21",
@@ -7067,6 +7061,18 @@
       "t": "SpaceX尚未公布载人登火星时间表，Kalshi交易员认为本十年内难以实现",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewm8089647.shtml",
       "time": "22:16",
+      "src": "sina_A股"
+    },
+    {
+      "t": "ST长园: ST长园:关于向银行申请授信并提供担保的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600525.html",
+      "time": "06-16",
+      "src": "em_announcement"
+    },
+    {
+      "t": "SpaceX延续上市首日涨势 股价一度攀升11%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-16/doc-inicpmem4772346.shtml",
+      "time": "00:18",
       "src": "sina_A股"
     },
     {
@@ -7108,12 +7114,6 @@
       "src": "wscn_全球"
     },
     {
-      "t": "美国财政部拍卖三个月期国债，得标利率3.640%，投标倍数2.47。\n\n拍卖六个月期国债，得标利率3.680%，投标倍数2.76。",
-      "u": "https://wallstreetcn.com/livenews/3119792",
-      "time": "23:32",
-      "src": "wscn_全球"
-    },
-    {
       "t": "华尔街老将给美股狂欢泼冷水：高油价与高利率存滞后效应",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewh9844960.shtml",
       "time": "23:23",
@@ -7150,37 +7150,31 @@
       "src": "sina_A股"
     },
     {
-      "t": "深夜，全线飙涨！霍尔木兹海峡，突传重磅！伊朗重大宣布",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-15/doc-inicpewh9830270.shtml",
-      "time": "22:32",
-      "src": "sina_7x24财经"
-    },
-    {
       "t": "美债全线上扬 伊朗协议促使交易员削减对美联储的加息押注",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewp4870588.shtml",
       "time": "22:30",
       "src": "sina_A股"
     },
     {
-      "t": "沃什执掌的美联储或将按兵不动",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewk6599984.shtml",
-      "time": "22:14",
+      "t": "德国2/10年期国债收益率跌超4个基点",
+      "u": "https://wallstreetcn.com/livenews/3119814",
+      "time": "00:22",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国官员：以色列从黎巴嫩撤军并非美伊达成协议的条件",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-16/doc-inicpmee9732088.shtml",
+      "time": "00:14",
       "src": "sina_A股"
     },
     {
-      "t": "Salesforce斥资36亿美元收购AI客服平台Fin，强化智能体服务矩阵",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewm8088706.shtml",
-      "time": "22:14",
-      "src": "sina_A股"
+      "t": "美国总统特朗普谈伊朗核协议：不解除制裁。",
+      "u": "https://wallstreetcn.com/livenews/3119812",
+      "time": "00:14",
+      "src": "wscn_全球"
     },
     {
-      "t": "英伟达将发债筹集200亿美元，为五年来首次",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewh9819637.shtml",
-      "time": "22:09",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国官员：签署谅解备忘录（MoU）之后不会对伊朗拨付任何资金。",
+      "t": "美国官员：签署谅解备忘录（MoU）之后不会对伊朗拨付任何资金。\n\n否认任何被冻结的伊朗资金已经被解冻。",
       "u": "https://wallstreetcn.com/livenews/3119811",
       "time": "00:14",
       "src": "wscn_全球"
@@ -7199,13 +7193,12 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-16 00:14 CST",
-    "sector": 6,
-    "market": 20,
+    "updated": "2026-06-16 00:22 CST",
+    "sector": 7,
+    "market": 18,
     "match_sectors": [
       "SpaceX",
       "数据中心",
-      "算力",
       "银行"
     ]
   },
@@ -7276,7 +7269,7 @@
     "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "_eventsMeta": {
-    "updated": "2026-06-16 00:14 CST",
+    "updated": "2026-06-16 00:23 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
