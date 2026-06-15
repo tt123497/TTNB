@@ -41,12 +41,43 @@ def get_indices():
     except: return []
 
 def get_sector_heat():
+    """Compute sector avg gain from individual stock prices (working ulist API).
+    Fallback: try clist API, then compute from stocks, return [] if all fail."""
+    # Try clist API first (fast, but often blocked)
     text = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=50&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:90+t:3&fields=f2,f3,f12,f14', encoding='utf-8')
-    if not text: return []
-    try:
-        items = json.loads(text).get('data',{}).get('diff',[])
-        return [{'n':i.get('f14',''),'s':f"{i.get('f3',0):+.1f}%",'c':'var(--red)' if i.get('f3',0)>0 else 'var(--green)','bk':i.get('f12','')} for i in items[:50]]
-    except: return []
+    if text:
+        try:
+            items = json.loads(text).get('data',{}).get('diff',[])
+            if items:
+                return [{'n':i.get('f14',''),'s':f"{i.get('f3',0):+.1f}%",'c':'var(--red)' if i.get('f3',0)>0 else 'var(--green)','bk':i.get('f12','')} for i in items[:50]]
+        except: pass
+    return []  # Will be computed later from individual stocks in build_sector_heat_from_stocks()
+
+def compute_sector_heat_from_stocks(live, stock_sector):
+    """Build sector heat list from individual stock prices when clist API is blocked.
+    Groups stocks by sector, computes avg gain%, returns same format as get_sector_heat()."""
+    if not live or not stock_sector:
+        return []
+    sec_changes = {}
+    for key, v in live.items():
+        code = key[2:]  # remove sh/sz prefix
+        sec = stock_sector.get(code, '')
+        if not sec: continue
+        chg = v.get('chg_pct', 0)
+        sec_changes.setdefault(sec, []).append(chg)
+
+    result = []
+    for sec, chgs in sec_changes.items():
+        if len(chgs) < 3: continue
+        avg = sum(chgs) / len(chgs)
+        result.append({
+            'n': sec,
+            's': f'{avg:+.1f}%',
+            'c': 'var(--red)' if avg > 0 else 'var(--green)',
+            'bk': ''
+        })
+    result.sort(key=lambda x: -float(x['s'].replace('%','').replace('+','')))
+    return result[:50]
 
 def get_stock_codes():
     html_path = os.path.join(DIR, 'index.html')
@@ -592,6 +623,9 @@ def main():
     indices = get_indices()
     sectors = get_sector_heat()
     live = get_live_prices(codes)
+    # Fallback: compute sector heat from individual stock prices when board API blocked
+    if not sectors and live:
+        sectors = compute_sector_heat_from_stocks(live, stock_sector)
     fund = get_fund_flow_em()
     zt_ladder = get_zt_ladder(cst)
     lhb = get_lhb()
