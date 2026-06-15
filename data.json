@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-15 21:59 CST",
+  "updated": "2026-06-15 22:03 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979479,
+  "updateCount": 1979480,
   "recap": {
     "index": [
       {
@@ -113,7 +113,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-15 21:58",
+      "updated": "2026-06-15 22:02",
       "tiers": [
         {
           "boardCount": 3,
@@ -1157,7 +1157,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/15 21:58 GitHub Actions云更新 | 480只 | 0板块",
+    "note": "06/15 22:02 GitHub Actions云更新 | 480只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1180,7 +1180,7 @@
     "interval": "15min",
     "stockCount": 480,
     "liveCount": 0,
-    "updateCount": 1979479,
+    "updateCount": 1979480,
     "trading": false
   },
   "sectors": [
@@ -1390,8 +1390,8 @@
     },
     {
       "name": "商业航天",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -1910,7 +1910,7 @@
         "sec": "固态电池"
       }
     ],
-    "updated": "2026-06-15 21:59 CST",
+    "updated": "2026-06-15 22:03 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -2118,8 +2118,8 @@
       },
       {
         "name": "商业航天",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -6782,6 +6782,12 @@
   ],
   "_newsSector": [
     {
+      "t": "SpaceX未公布载人登火星任务时间表 Kalshi预测市场交易员：本十年难以实现",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewm8083405.shtml",
+      "time": "22:02",
+      "src": "sina_A股"
+    },
+    {
       "t": "行业高景气与低估值错位，“市值管理”成A股券商2025年度股东会关键词",
       "u": "https://finance.sina.com.cn/roll/2026-06-15/doc-inicnyqr4972053.shtml",
       "time": "21:20",
@@ -6813,6 +6819,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "隔夜回购利率攀升，美债结算与纳税抽走市场现金",
+      "u": "https://wallstreetcn.com/livenews/3119752",
+      "time": "22:01",
+      "src": "wscn_全球"
+    },
     {
       "t": "赛富时36亿美元收购 AI 客服平台 Fin，强化自主智能体产品布局",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicpewh9816128.shtml",
@@ -6926,18 +6938,12 @@
       "u": "https://wallstreetcn.com/livenews/3119730",
       "time": "21:16",
       "src": "wscn_全球"
-    },
-    {
-      "t": "真主党誓言“保卫”黎巴嫩直至以色列完全撤军",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-15/doc-inicnyqk9925080.shtml",
-      "time": "21:10",
-      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-15 21:59 CST",
-    "sector": 5,
-    "market": 28,
+    "updated": "2026-06-15 22:02 CST",
+    "sector": 6,
+    "market": 29,
     "match_sectors": [
       "SpaceX",
       "券商",
@@ -7012,7 +7018,7 @@
     "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "_eventsMeta": {
-    "updated": "2026-06-15 21:59 CST",
+    "updated": "2026-06-15 22:03 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
