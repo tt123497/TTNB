@@ -401,7 +401,7 @@ def compute_winners_losers(live, stock_sector, heat_em):
     sec_detail = {}
     for sec, stocks in sec_changes.items():
         ss = sorted(stocks, key=lambda x: x['chg'], reverse=True)
-        sec_detail[sec] = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in ss[:5]])
+        sec_detail[sec] = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in ss[:6]])
 
     def match_our_sec(em_name):
         """Map EastMoney sector → our exact sec_detail key, or ''"""
