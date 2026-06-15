@@ -23,22 +23,44 @@ def fetch(url, encoding='gbk', retries=2, extra_headers=None):
             time.sleep(2)
 
 def get_indices():
-    """Use EastMoney API (works from GitHub Actions US IPs, unlike Sina)"""
+    """EastMoney primary + Sina fallback for index quotes."""
     names = {'1.000001':'上证指数','0.399001':'深证成指','0.399006':'创业板指',
              '1.000688':'科创50','1.000300':'沪深300','1.000016':'上证50'}
     secids = ','.join(names.keys())
     text = fetch(f'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f4,f12,f14&secids={secids}&ut=bd1d9ddb04089700cf9c27f6f7426281', encoding='utf-8')
-    if not text: return []
+    if text:
+        try:
+            items = json.loads(text).get('data',{}).get('diff',[])
+            if items:
+                results = []
+                for i in items:
+                    n = names.get(i.get('f12',''), i.get('f14',''))
+                    p = i.get('f2', 0)
+                    chg = i.get('f3', 0)
+                    results.append({'n': n, 'v': f'{p:.0f}' if p else '0', 'chg': f'{chg:+.2f}%', 'up': chg >= 0})
+                if results: return results
+        except: pass
+    # Sina fallback
+    sina_names = ['sh000001','sz399001','sz399006','sh000688','sh000300','sh000016']
+    sina_labels = ['上证指数','深证成指','创业板指','科创50','沪深300','上证50']
     try:
-        items = json.loads(text).get('data',{}).get('diff',[])
-        results = []
-        for i in items:
-            n = names.get(i.get('f12',''), i.get('f14',''))
-            p = i.get('f2', 0)
-            chg = i.get('f3', 0)
-            results.append({'n': n, 'v': f'{p:.0f}' if p else '0', 'chg': f'{chg:+.2f}%', 'up': chg >= 0})
-        return results
-    except: return []
+        text2 = fetch('https://hq.sinajs.cn/list=' + ','.join(['s_'+n for n in sina_names]), encoding='gbk', extra_headers={'Referer':'https://finance.sina.com.cn/'})
+        if text2:
+            results = []
+            for i, line in enumerate(text2.strip().split('\n')):
+                if '=' not in line: continue
+                data = line.split('"')[1] if '"' in line else ''
+                parts = data.split(',')
+                if len(parts) < 4: continue
+                results.append({
+                    'n': sina_labels[i] if i < len(sina_labels) else parts[0],
+                    'v': f'{float(parts[1]):.0f}' if parts[1] else '0',
+                    'chg': f'{float(parts[2]):+.2f}%' if parts[2] else '0.00%',
+                    'up': float(parts[2]) >= 0 if parts[2] else False
+                })
+            if results: return results
+    except: pass
+    return []
 
 def get_sector_heat():
     """Compute sector avg gain from individual stock prices (working ulist API).
@@ -775,13 +797,15 @@ def main():
     preserve['layout'] = existing_layout
 
     old_recap = preserve.pop('_oldRecap', {}) or {}
+    old_idx = old_recap.get('index', [])
+    old_heat = old_recap.get('heat', [])
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
         'nextSentinel': next_update,
         'updateCount': int(time.time() / 900),
         'recap': {
-            'index': indices[:6] if indices else old_recap.get('index', [])[:6] if old_recap.get('index') else [],
-            'heat': sectors[:25] if sectors else old_recap.get('heat', [])[:25] if old_recap.get('heat') else [],
+            'index': indices[:6] if indices else old_idx[:6] if len(old_idx) else [],
+            'heat': sectors[:25] if sectors else old_heat[:25] if len(old_heat) else [],
             'flow': fund if fund else old_recap.get('flow', []),
             'winners': winners if winners else old_recap.get('winners', []),
             'losers': losers if losers else old_recap.get('losers', []),
