@@ -1462,81 +1462,72 @@ function loadFeedbackHistory(){
     document.getElementById('resLoading').style.display='block';
 
     var results={boards:[],stocks:[],news:[],kw:kw};
-    var done=0, total=3;
-    function check(){done++;if(done>=total||Date.now()-startTime>8000){phase=3;showResearch(results);}}
-    var startTime=Date.now(), phase=0;
+    var pending=4, startTime=Date.now();
+    function done(){pending--;if(pending<=0||Date.now()-startTime>10000) showResearch(results);}
 
-    // ── Source 1: EastMoney search → boards + stocks (fetch JSON, NOT JSONP) ──
-    fetch('https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(kw)+'&type=14&count=15')
-      .then(function(r){return r.json()}).then(function(data){
-        var items=(data.QuotationCodeTable||{}).Data||[];
-        if(!items||!items.length){check();return;}
-        // Split: boards (MktNum==90) vs stocks
-        var boardList=[], stockCodes=[];
-        items.forEach(function(it){
-          var code=it.Code||it.code||'';
-          if(it.MktNum===90||code.startsWith('BK')){
-            boardList.push({Code:code,Name:it.Name||it.name||code});
-          }else if(code.length===6&&/^\d{6}$/.test(code)){
-            stockCodes.push(code);
-          }
-        });
-        results.boards=boardList.slice(0,8);
-        // Batch-fetch stock prices if any
-        if(stockCodes.length){
-          var secids=stockCodes.map(function(c){
-            return (c.startsWith('6')||c.startsWith('68'))?'1.'+c:'0.'+c;
-          });
-          fetch('https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14,f100&secids='+secids.join(',')+'&ut=bd1d9ddb04089700cf9c27f6f7426281')
-            .then(function(r){return r.json()}).then(function(d){
-              (d.data.diff||[]).forEach(function(s){
-                results.stocks.push({code:s.f12,name:s.f14,chg:s.f3||0,board:s.f100||'搜索匹配',boardCode:''});
-              });
-              check();
-            }).catch(function(){check();});
-        } else { check(); }
-      }).catch(function(){check();});
+    // ── Source 1: EastMoney search JSONP (adds cb= for JSONP) ──
+    var cb='_rs1_'+Date.now();
+    window[cb]=function(data){
+      var items=(data.QuotationCodeTable||{}).Data||[];
+      var boards=[], codes=[];
+      items.forEach(function(it){
+        var c=it.Code||it.code||'';
+        if(it.MktNum===90||c.startsWith('BK')) boards.push({Code:c,Name:it.Name||it.name||c});
+        else if(c.length===6&&/^\d{6}$/.test(c)&&codes.indexOf(c)<0) codes.push(c);
+      });
+      results.boards=boards.slice(0,8);
+      // Batch-fetch prices for found stock codes via JSONP
+      if(codes.length){
+        var cb2='_rp_'+Date.now(); window[cb2]=function(d2){
+          var pr=(d2.data||{}).diff||[];
+          pr.forEach(function(s){results.stocks.push({code:s.f12,name:s.f14,chg:s.f3||0,board:s.f100||'搜索匹配',boardCode:''});});
+          delete window[cb2]; done();
+        };
+        var secids=codes.slice(0,30).map(function(c){return (c.startsWith('6')||c.startsWith('68'))?'1.'+c:'0.'+c;}).join(',');
+        var s=document.createElement('script');
+        s.src='https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14,f100&secids='+secids+'&ut=bd1d9ddb04089700cf9c27f6f7426281&cb='+cb2;
+        document.head.appendChild(s);
+      }else{done();}
+      delete window[cb];
+    };
+    var s1=document.createElement('script');
+    s1.src='https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(kw)+'&type=14&count=15&cb='+cb;
+    s1.onerror=function(){delete window[cb];done();};
+    document.head.appendChild(s1);
 
     // ── Source 2: Sina keyword news ──
     fetch('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2512&k='+encodeURIComponent(kw)+'&num=20&page=1')
       .then(function(r){return r.json()}).then(function(d){
-        var items=(d.result||{}).data||[];
-        results.news=(items||[]).filter(function(it){
-          var t=(it.title||it.intro||'');
-          return t.length>0 && (t.indexOf(kw)>=0||kw.length>=4&&t.indexOf(kw.substring(0,2))>=0);
-        }).slice(0,15).map(function(it){return {t:it.title||it.intro||'',u:it.url||'',time:it.ctime||''};});
-        check();
-      }).catch(function(){check();});
+        results.news=(d.result||{}).data||[];
+        done();
+      }).catch(function(){done();});
 
-    // ── Source 3: Local livePrices name/keyword match ──
+    // ── Source 3: Local livePrices name/industry/concept match ──
     (function(){
-      if(!D.livePrices){check();return;}
-      var kwl=kw.toLowerCase();
+      if(!D.livePrices){done();return;}
+      var kwl=kw.toLowerCase(), seen={};
+      results.stocks.forEach(function(s){seen[s.code]=1;});
       Object.keys(D.livePrices).forEach(function(k){
-        if(results.stocks.length>=20) return;
-        var lp=D.livePrices[k]; var code=k.substring(2);
-        if(results.stocks.some(function(s){return s.code===code})) return;
-        var nm=(lp.name||'').toLowerCase();
-        var ind=(lp.industry||'').toLowerCase();
-        var conc=(lp.concepts||[]).join(',').toLowerCase();
-        if(nm.indexOf(kwl)>=0||ind.indexOf(kwl)>=0||conc.indexOf(kwl)>=0){
-          results.stocks.push({code:code,name:lp.name,chg:lp.chg_pct,board:lp.industry||'匹配',boardCode:''});
-        }
+        if(results.stocks.length>=25) return;
+        var lp=D.livePrices[k], cd=k.substring(2);
+        if(seen[cd]) return;
+        var hay=(lp.name+' '+lp.industry+' '+(lp.concepts||[]).join(' ')).toLowerCase();
+        if(hay.indexOf(kwl)>=0){seen[cd]=1;results.stocks.push({code:cd,name:lp.name,chg:lp.chg_pct,board:lp.industry||'匹配',boardCode:''});}
       });
-      // Also search stockInfo
+      // Also search stockInfo sectors/tags
       Object.keys(stockInfo).forEach(function(c){
-        if(results.stocks.length>=20) return;
-        if(results.stocks.some(function(s){return s.code===c})) return;
+        if(results.stocks.length>=25||seen[c]) return;
         var info=stockInfo[c];
-        if((info.sector||'').toLowerCase().indexOf(kwl)>=0||(info.ind||'').toLowerCase().indexOf(kwl)>=0||(info.name||'').toLowerCase().indexOf(kwl)>=0){
-          var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
+        var hay=(info.sector+' '+(info.ind||'')+' '+info.name+' '+(info.tag||'')).toLowerCase();
+        if(hay.indexOf(kwl)>=0){
+          seen[c]=1; var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
           results.stocks.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector||info.ind||'',boardCode:''});
         }
       });
-      check();
+      done();
     })();
 
-    setTimeout(function(){check();check();check();},8000);
+    setTimeout(function(){for(var i=0;i<10;i++)done();},10000);
   };
 
   function showResearch(r){
@@ -1584,41 +1575,63 @@ function loadFeedbackHistory(){
   window.lookupBoard=function(bcode,bname){
     var el=document.getElementById('resResult');
     el.innerHTML='<div class="res-loading">🔍 查看板块：'+bname+'...</div>';
-    // Search local livePrices by matching board name to stock sectors/industries
-    var matched=[];
-    if(D.livePrices){
-      Object.keys(D.livePrices).forEach(function(k){
-        var lp=D.livePrices[k]; var code=k.substring(2);
-        var info=stockInfo[code];
-        var sector=info?info.sector:'';
-        var industry=lp.industry||'';
-        // Match: board name appears in sector or industry
-        if(sector.indexOf(bname.substring(0,2))>=0 || industry.indexOf(bname)>=0 || bname.indexOf(sector.substring(0,2))>=0 || bname.indexOf(industry)>=0){
-          matched.push({code:code,name:lp.name,chg:lp.chg_pct,board:sector||industry});
-        }
-      });
-    }
-    // Also check stockInfo for board name match
-    if(matched.length<5){
+
+    // Try JSONP board API first to get real constituent stocks
+    var cb='_lb_'+Date.now();
+    window[cb]=function(d){
+      delete window[cb];
+      var items=(d.data&&d.data.diff)||[];
+      if(items.length){
+        var stocks=items.map(function(s){return {code:s.f12,name:s.f14,chg:s.f3||0,board:bname};});
+        renderBoardStocks(el,bname,stocks);
+        return;
+      }
+      // Fallback: local matching
+      doLocalBoardMatch(el,bname);
+    };
+    var s=document.createElement('script');
+    s.src='https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=20&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:'+bcode+'&fields=f2,f3,f12,f14&cb='+cb;
+    s.onerror=function(){delete window[cb];doLocalBoardMatch(el,bname);};
+    document.head.appendChild(s);
+
+    function doLocalBoardMatch(el,bname){
+      var matched=[], seen={}, bnLow=bname.toLowerCase();
+      // Match against livePrices concepts, industry, name
+      if(D.livePrices){
+        Object.keys(D.livePrices).forEach(function(k){
+          var lp=D.livePrices[k], cd=k.substring(2);
+          var conc=(lp.concepts||[]).join(',').toLowerCase();
+          var ind=(lp.industry||'').toLowerCase();
+          if(conc.indexOf(bnLow)>=0||ind.indexOf(bnLow)>=0||bnLow.indexOf(ind)>=0||bnLow.indexOf(conc.substring(0,4))>=0){
+            seen[cd]=1; matched.push({code:cd,name:lp.name,chg:lp.chg_pct,board:lp.industry||bname});
+          }
+        });
+      }
+      // Match against stockInfo
       Object.keys(stockInfo).forEach(function(c){
-        if(matched.some(function(m){return m.code===c})) return;
+        if(seen[c]) return;
         var info=stockInfo[c];
-        if(info.sector.indexOf(bname.substring(0,2))>=0 || (info.ind||'').indexOf(bname)>=0){
+        var hay=(info.sector+' '+(info.ind||'')+' '+(info.tag||'')).toLowerCase();
+        var bn2=bname.substring(0,2).toLowerCase();
+        if(hay.indexOf(bnLow)>=0||hay.indexOf(bn2)>=0||info.sector.indexOf(bname)>=0){
           var lp=(D.livePrices||{})['sh'+c]||(D.livePrices||{})['sz'+c];
-          matched.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector});
+          matched.push({code:c,name:lp?lp.name:info.name,chg:lp?lp.chg_pct:0,board:info.sector||bname});
         }
       });
+      matched.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
+      renderBoardStocks(el,bname,matched.slice(0,20));
     }
-    matched.sort(function(a,b){return (b.chg||0)-(a.chg||0);});
-    var show=matched.slice(0,15);
-    if(!show.length){el.innerHTML='<p style="color:var(--dim)">未找到匹配标的，换个关键词试试</p>';return;}
-    var html='<div class="res-group"><div class="res-group-title">📊 '+bname+' <span style="font-size:.76rem;color:var(--dim);font-weight:400">'+show.length+'只标的, 按涨幅排序</span></div>';
-    show.forEach(function(s){
-      var cl=s.chg>=0?'var(--red)':'var(--green)'; var ar=s.chg>=0?'+':'';
-      html+='<div class="res-stock-row" onclick="window.open(\'tdxstock://'+s.code+'\',\'_blank\')"><span class="code">'+s.code+'</span><span class="name">'+s.name+'</span><span class="chg" style="color:'+cl+'">'+ar+(s.chg||0).toFixed(1)+'%</span></div>';
-    });
-    html+='<p style="margin-top:10px;font-size:.78rem;color:var(--blue);cursor:pointer" onclick="doResearch()">← 返回搜索结果</p></div>';
-    el.innerHTML=html;
+
+    function renderBoardStocks(el,bname,stocks){
+      if(!stocks.length){el.innerHTML='<p style="color:var(--dim)">该板块暂无数据，请直接在通达信搜索板块代码 '+bcode+'</p><p style="margin-top:10px;font-size:.78rem;color:var(--blue);cursor:pointer" onclick=\"doResearch()\">← 返回搜索结果</p>';return;}
+      var html='<div class="res-group"><div class="res-group-title">📊 '+bname+' ('+bcode+') <span style="font-size:.76rem;color:var(--dim);font-weight:400">'+stocks.length+'只标的, 按涨幅排序</span></div>';
+      stocks.forEach(function(s){
+        var cl=s.chg>=0?'var(--red)':'var(--green)'; var ar=s.chg>=0?'+':'';
+        html+='<div class="res-stock-row" onclick="window.open(\'tdxstock://'+s.code+'\',\'_blank\')"><span class="code">'+s.code+'</span><span class="name">'+s.name+'</span><span class="chg" style="color:'+cl+'">'+ar+(s.chg||0).toFixed(1)+'%</span></div>';
+      });
+      html+='<p style="margin-top:10px;font-size:.78rem;color:var(--blue);cursor:pointer" onclick="doResearch()">← 返回搜索结果</p></div>';
+      el.innerHTML=html;
+    }
   };
 
   // ════ Render stocks tab from live sectorStocks ════
