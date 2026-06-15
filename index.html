@@ -1073,6 +1073,8 @@ function loadFeedbackHistory(){
     if(data.nextSentinel) D.next=data.nextSentinel;
     if(data.livePrices) D.livePrices=data.livePrices;
     if(data.bHistory&&data.bHistory.length) D.bHistory=data.bHistory;
+    if(data._newsSector) D._newsSector=data._newsSector;
+    if(data._newsMarket) D._newsMarket=data._newsMarket;
     // Populate flash news on initial load
     if(data._newsSector || data._newsMarket){
       renderFlashNews(data._newsSector||[], data._newsMarket||[]);
@@ -1495,12 +1497,16 @@ function loadFeedbackHistory(){
     s1.onerror=function(){delete window[cb];done();};
     document.head.appendChild(s1);
 
-    // ── Source 2: Sina keyword news ──
-    fetch('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2512&k='+encodeURIComponent(kw)+'&num=20&page=1')
-      .then(function(r){return r.json()}).then(function(d){
-        results.news=(d.result||{}).data||[];
-        done();
-      }).catch(function(){done();});
+    // ── Source 2: Local news search from data.json ──
+    (function(){
+      var kwl=kw.toLowerCase(), all=[];
+      (D._newsSector||[]).concat(D._newsMarket||[]).forEach(function(n){
+        var t=(n.t||n.title||'').toLowerCase();
+        if(t.indexOf(kwl)>=0) all.push({t:n.t||n.title||'',u:n.u||n.url||'',time:n.time||n.ts||n.ctime||''});
+      });
+      results.news=all.slice(0,15);
+      done();
+    })();
 
     // ── Source 3: Local livePrices name/industry/concept match ──
     (function(){
