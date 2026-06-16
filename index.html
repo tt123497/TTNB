@@ -1429,28 +1429,25 @@ function loadFeedbackHistory(){
   // ════ CALENDAR ════
   let ca=`<div class="tab-panel" id="panel-calendar"><div class="section"><div class="section-title">📅 预判事件日历 · 6~8月</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">💡 大部分"突发"有固定时间表。提前知道=提前布局。⚡=本年度关键节点。</p><div class="evt-list">`;
   // Sort events by date, mark past ones
-  var today=new Date(); today.setHours(0,0,0,0);
-  var future=[], past=[];
-  D.events.forEach(function(e){
-    var m=/(\d+)月(\d+)/.exec(e.d);
-    if(m){
-      var ed=new Date(2026,parseInt(m[1])-1,parseInt(m[2]));
-      if(ed<today) past.push(e); else future.push(e);
-    } else if(/上旬/.test(e.d)){ var m2=/(\d+)月/.exec(e.d); if(m2){ var em=parseInt(m2[1]); var ed=new Date(2026,em-1,5); if(ed<today) past.push(e); else future.push(e); } else future.push(e); }
-      else if(/中旬/.test(e.d)){ var m3=/(\d+)月/.exec(e.d); if(m3){ var em=parseInt(m3[1]); var ed=new Date(2026,em-1,15); if(ed<today) past.push(e); else future.push(e); } else future.push(e); }
-      else if(/下旬/.test(e.d)){ var m4=/(\d+)月/.exec(e.d); if(m4){ var em=parseInt(m4[1]); var ed=new Date(2026,em-1,25); if(ed<today) past.push(e); else future.push(e); } else future.push(e); }
-      else future.push(e);
-  });
-  // Sort future events by parsed date
   function evDate(e){
     var m=/(\d+)月(\d+)/.exec(e.d);
     if(m) return new Date(2026,parseInt(m[1])-1,parseInt(m[2]));
+    var dm=/^(0?\d{1,2})\.(0?\d{1,2})$/.exec(e.d);
+    if(dm) return new Date(2026,parseInt(dm[1])-1,parseInt(dm[2]));
     if(/上旬/.test(e.d)){ var m2=/(\d+)月/.exec(e.d); return m2?new Date(2026,parseInt(m2[1])-1,5):new Date(2026,11,31); }
     if(/中旬/.test(e.d)){ var m3=/(\d+)月/.exec(e.d); return m3?new Date(2026,parseInt(m3[1])-1,15):new Date(2026,11,31); }
     if(/下旬/.test(e.d)){ var m4=/(\d+)月/.exec(e.d); return m4?new Date(2026,parseInt(m4[1])-1,25):new Date(2026,11,31); }
     return new Date(2026,11,31);
   }
+  var today=new Date(); today.setHours(0,0,0,0);
+  var future=[], past=[];
+  D.events.forEach(function(e){
+    var ed=evDate(e);
+    if(ed.getTime()===new Date(2026,11,31).getTime()){ future.push(e); }
+    else if(ed<today) past.push(e); else future.push(e);
+  });
   future.sort(function(a,b){return evDate(a)-evDate(b);});
+  past.sort(function(a,b){return evDate(b)-evDate(a);});
   future.forEach(function(e){ca+=`<div class="evt-row${e.big?' big':''}"><span class="evt-date">${e.d}</span><span class="evt-icon">${e.icon}</span><span class="evt-desc">${e.e}${e.big?' <b style="color:var(--red);font-size:.84rem">⚡关键</b>':''}${e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':''}</span><span class="evt-sector">${e.s}</span></div>`;});
   if(past.length){
     ca+=`<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details id="pastEventsDetails"${future.length===0?' open':''}><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem" id="pastEventsCount">(${past.length}条)</span><span style="margin-left:auto;font-size:.84rem;transition:transform .2s" id="pastEventsArrow">▾</span></summary><div style="margin-top:8px">`;
@@ -1940,13 +1937,12 @@ function loadFeedbackHistory(){
             var today=new Date(); today.setHours(0,0,0,0);
             var fut=[], pst=[];
             d.events.forEach(function(e){
-              var m=/(\d+)月(\d+)/.exec(e.d);
-              if(m){var ed=new Date(2026,parseInt(m[1])-1,parseInt(m[2]));(ed<today?pst:fut).push(e);}
-              else if(/上旬/.test(e.d)){var m2=/(\d+)月/.exec(e.d);if(m2){(new Date(2026,parseInt(m2[1])-1,5)<today?pst:fut).push(e);}else fut.push(e);}
-              else if(/中旬/.test(e.d)){var m3=/(\d+)月/.exec(e.d);if(m3){(new Date(2026,parseInt(m3[1])-1,15)<today?pst:fut).push(e);}else fut.push(e);}
-              else if(/下旬/.test(e.d)){var m4=/(\d+)月/.exec(e.d);if(m4){(new Date(2026,parseInt(m4[1])-1,25)<today?pst:fut).push(e);}else fut.push(e);}
-              else fut.push(e);
+              var ed=evDate(e);
+              if(ed.getTime()===new Date(2026,11,31).getTime()){ fut.push(e); }
+              else if(ed<today) pst.push(e); else fut.push(e);
             });
+            fut.sort(function(a,b){return evDate(a)-evDate(b);});
+            pst.sort(function(a,b){return evDate(b)-evDate(a);});
             var evHtml='';
             fut.sort(function(a,b){return evDate(a)-evDate(b);});
             fut.forEach(function(e){evHtml+='<div class="evt-row'+(e.big?' big':'')+'"><span class="evt-date">'+e.d+'</span><span class="evt-icon">'+e.icon+'</span><span class="evt-desc">'+e.e+(e.big?' <b style="color:var(--red);font-size:.84rem">⚡关键</b>':'')+(e.u?' <a href="'+e.u+'" target="_blank" rel="noopener" style="font-size:.68rem;color:var(--blue)">🔗</a>':'')+'</span><span class="evt-sector">'+e.s+'</span></div>';});
