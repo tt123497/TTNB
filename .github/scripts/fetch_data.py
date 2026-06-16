@@ -414,7 +414,37 @@ def compute_winners_losers(live, stock_sector, heat_em):
     sec_detail = {}
     for sec, stocks in sec_changes.items():
         ss = sorted(stocks, key=lambda x: x['chg'], reverse=True)
-        sec_detail[sec] = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in ss[:6]])
+        sec_detail[sec] = ' / '.join([f"{s['c']} {s['n']} {s['chg']:+.1f}%" for s in ss[:10]])
+
+    # Enrich sec_detail with fixed stocks that have live prices
+    try:
+        for sname, fixed_list in SECTOR_FIXED_STOCKS.items():
+            if sname not in sec_detail or len(sec_detail[sname].split(' / ')) < 4:
+                enriched = []
+                for fs in fixed_list:
+                    parts = fs.split(' ', 1)
+                    if len(parts) < 2: continue
+                    fcode, fname = parts[0], parts[1]
+                    # Look up live price for this fixed stock
+                    for key, v in live.items():
+                        if key.endswith(fcode):
+                            enriched.append(f"{fcode} {fname} {v.get('chg_pct',0):+.1f}%")
+                            break
+                    if len(enriched) >= 8:
+                        break
+                if enriched:
+                    # Merge: keep existing live entries + add fixed entries not yet present
+                    existing_codes = set()
+                    if sname in sec_detail:
+                        for part in sec_detail[sname].split(' / '):
+                            existing_codes.add(part.split()[0] if part.split() else '')
+                    new_entries = [e for e in enriched if e.split()[0] not in existing_codes]
+                    if sname in sec_detail:
+                        sec_detail[sname] = sec_detail[sname] + (' / ' + ' / '.join(new_entries) if new_entries else '')
+                    else:
+                        sec_detail[sname] = ' / '.join(enriched)
+    except Exception:
+        pass  # Fixed stocks not available, use live data only
 
     def match_our_sec(em_name):
         """Map EastMoney sector → our exact sec_detail key, or ''"""
@@ -447,15 +477,15 @@ def compute_winners_losers(live, stock_sector, heat_em):
     winners, losers = [], []
     # Winners: prefer EM sectors that match our sectors (with stock detail)
     matched_em = []; unmatched_em = []
-    for s in sorted_em[:30]:
+    for s in sorted_em[:50]:
         m = match_our_sec(s['n'])
         stks = sec_detail.get(m,'') if m else ''
         (matched_em if stks else unmatched_em).append({'s': s['n'], 'stks': stks or s['s']})
     for w in matched_em:
-        if len(winners) >= 6: break
+        if len(winners) >= 10: break
         winners.append(w)
     for w in unmatched_em:
-        if len(winners) >= 6: break
+        if len(winners) >= 10: break
         winners.append(w)
     # Losers from OUR sectors (average change), so they're always relevant
     our_losers = []
@@ -469,11 +499,11 @@ def compute_winners_losers(live, stock_sector, heat_em):
             avg = sum(chgs) / len(chgs)
             our_losers.append((avg, sec, detail))
     our_losers.sort(key=lambda x: x[0])  # worst first
-    for avg, sec, detail in our_losers[:6]:
+    for avg, sec, detail in our_losers[:10]:
         losers.append({'s': sec, 'stks': detail})
     # Fill remaining with EM heat if needed
-    for s in sorted_em[-10:][::-1]:
-        if len(losers) >= 6: break
+    for s in sorted_em[-20:][::-1]:
+        if len(losers) >= 10: break
         stks = sec_detail.get(match_our_sec(s['n']),'') or ''
         if not stks: stks = s['s']
         losers.append({'s': s['n'], 'stks': stks})
