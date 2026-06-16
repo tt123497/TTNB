@@ -9,6 +9,19 @@ UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(DIR, 'data.json')
 
+# Load fixed sector stocks for validation
+try:
+    SFS_PATH = os.path.join(DIR, 'sector_fixed_stocks.py')
+    with open(SFS_PATH, encoding='utf-8') as _sfs:
+        _sfs_src = _sfs.read()
+    _sfs_ns = {}
+    exec(_sfs_src, _sfs_ns)
+    SECTOR_FIXED_STOCKS = _sfs_ns.get('SECTOR_FIXED_STOCKS', {})
+    is_kcb_cyb = _sfs_ns.get('is_kcb_cyb', lambda c: c.startswith(('688','300','301')))
+except Exception:
+    SECTOR_FIXED_STOCKS = {}
+    is_kcb_cyb = lambda c: c.startswith(('688','300','301'))
+
 def fetch(url, encoding='gbk', retries=2, extra_headers=None):
     for i in range(retries):
         try:
@@ -743,60 +756,46 @@ def main():
 
     # Events now handled by fetch_events.py (NBS macro calendar + AI sentinel + hand-curated)
 
-    # Auto-repair layout stocks: fetch real market top stocks per sector
+    # Auto-repair layout stocks: use SECTOR_FIXED_STOCKS (curated, board-rule enforced)
     existing_layout = preserve.get('layout', []) or []
     if existing_layout:
-        if sectors:
-            # Build EM sector name → board code mapping from heat data
-            name_to_board = {}
-            for h in sectors:
-                name_to_board[h['n']] = h.get('bk', h.get('f12', ''))
-            # Reverse alias: our sector name -> EM board name
-            our_to_em = {}
-            for kw, our in EM_ALIAS.items():
-                if our and our not in our_to_em:
-                    our_to_em[our] = kw  # use first match
-            for lev in existing_layout:
-                sec_name = lev.get('s', '')
-                # 1. Direct match in heat names
-                bcode = name_to_board.get(sec_name, '')
-                # 2. Via alias table
-                if not bcode:
-                    em_hint = our_to_em.get(sec_name, '')
-                    if em_hint:
-                        for n, bc in name_to_board.items():
-                            if em_hint in n or n in em_hint:
-                                bcode = bc; break
-                # 3. Fuzzy match heat names
-                if not bcode:
-                    for n, bc in name_to_board.items():
-                        if sec_name[:2] in n or n[:2] in sec_name or sec_name in n or n in sec_name:
-                            bcode = bc; break
-                if not bcode:
-                    if not lev.get('stocks') or len(lev.get('stocks',[])) < 3:
-                        lev['stocks'] = fetch_all_top_gainers()
+        for lev in existing_layout:
+            sec_name = lev.get('s', '')
+            # 1. Try fixed stocks first
+            fixed = SECTOR_FIXED_STOCKS.get(sec_name, [])
+            if fixed:
+                # Validate 科创/创业板 ≤3 rule
+                kcb = [s for s in fixed if is_kcb_cyb(s.split()[0])]
+                if len(kcb) <= 3:
+                    lev['stocks'] = fixed[:8]
                     continue
-                # Fetch top 8 stocks from this sector board (real market)
-                bstocks = []
-                for _ in range(2):
-                    try:
-                        t = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=8&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:' + bcode + '&fields=f2,f3,f12,f14', encoding='utf-8')
-                        if t:
-                            for s in json.loads(t).get('data',{}).get('diff',[]):
-                                bstocks.append(s.get('f12','') + ' ' + s.get('f14',''))
-                            break
-                    except: pass
-                if bstocks:
-                    lev['stocks'] = bstocks[:8]
-                if not lev.get('stocks') or len(lev.get('stocks',[])) < 3:
-                    lev['stocks'] = fetch_all_top_gainers()
-        else:
-            # No heat data — use all-market fallback for every layout card
-            fallback = fetch_all_top_gainers()
-            if fallback:
-                for lev in existing_layout:
-                    if not lev.get('stocks') or len(lev.get('stocks',[])) < 3:
-                        lev['stocks'] = fallback
+            # 2. Try to match via alias from heat data
+            if sectors:
+                bcode = ''
+                for h in sectors:
+                    if h['n'] == sec_name:
+                        bcode = h.get('bk', ''); break
+                if not bcode:
+                    for h in sectors:
+                        if sec_name[:2] in h['n'] or h['n'][:2] in sec_name:
+                            bcode = h.get('bk', ''); break
+                if bcode:
+                    bstocks = []
+                    for _ in range(2):
+                        try:
+                            t = fetch('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=12&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:' + bcode + '&fields=f2,f3,f12,f14', encoding='utf-8')
+                            if t:
+                                for s in json.loads(t).get('data',{}).get('diff',[]):
+                                    bstocks.append(s.get('f12','') + ' ' + s.get('f14',''))
+                                break
+                        except: pass
+                    # Filter: max 3 科创/创业板
+                    if bstocks:
+                        main = [s for s in bstocks if not is_kcb_cyb(s.split()[0])]
+                        kcb = [s for s in bstocks if is_kcb_cyb(s.split()[0])]
+                        filtered = main + kcb[:3]
+                        lev['stocks'] = filtered[:8]
+            # 3. Fallback: leave whatever stocks exist (or empty if none)
     preserve['layout'] = existing_layout
 
     old_recap = preserve.pop('_oldRecap', {}) or {}
@@ -914,3 +913,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    out['sectorFixedStocks'] = SECTOR_FIXED_STOCKS
