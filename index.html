@@ -26,6 +26,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 /* ── Help Button ── */
 .help-btn{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:16px;background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.25);cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .15s}
 .help-btn:hover{background:rgba(59,130,246,.22);border-color:var(--blue)}
+.refresh-btn{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:16px;background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25);cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .15s;position:relative}
+.refresh-btn:hover:not(:disabled){background:rgba(34,197,94,.22);border-color:var(--green)}
+.refresh-btn:disabled{opacity:.6;cursor:not-allowed}
+.refresh-btn.spinning{color:var(--amber);border-color:var(--amber);background:rgba(245,158,11,.12)}
+.refresh-toast{position:fixed;top:60px;right:20px;z-index:9998;padding:12px 20px;border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;max-width:380px;animation:slideIn .3s ease}
+.refresh-toast.ok{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.refresh-toast.err{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.refresh-toast.info{background:rgba(59,130,246,.15);color:var(--blue);border:1px solid rgba(59,130,246,.3)}
+@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
 .help-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .help-modal{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;max-width:640px;width:92vw;max-height:82vh;overflow:hidden;box-shadow:var(--shadow-lg)}
 .help-scroll{overflow-y:auto;max-height:62vh;padding-right:8px}
@@ -415,6 +424,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   <div class="brand">📡 <em>股市哨兵</em> · 全市场赛道监控</div>
   <div style="display:flex;align-items:center;gap:8px">
     <button class="help-btn" onclick="document.getElementById('helpModal').style.display='flex'">📖 使用说明</button>
+	    <button class="refresh-btn" id="refreshBtn" onclick="manualRefresh()" title="触发GitHub Actions云端更新行情数据">🔄 手动刷新</button>
     <div class="live">实时</div>
   </div>
 </div>
@@ -461,6 +471,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 <tr><td>🔴 偏弱 -X%</td><td>均跌1-3%</td></tr>
 <tr><td>★重点</td><td>产业链核心标的（龙头）</td></tr>
 <tr><td>⚡关键</td><td>事件日历中的硬催化（停产/涨价/法规/财报）</td></tr></table></div>
+
+<div class="help-section"><h4>🔧 手动刷新手把手教学</h4>
+<p><b>什么时候用：</b>上班打开网站发现数据没更新，点右上角🔄按钮。GitHub Actions cron偶尔不触发，这是保底手段。</p>
+<p><b>第一次使用（30秒配置，一劳永逸）：</b></p>
+<p>1. 打开 <a href="https://github.com/settings/tokens" target="_blank" style="color:var(--blue)">github.com/settings/tokens</a></p>
+<p>2. 点 <b>Generate new token (classic)</b></p>
+<p>3. 勾选 <b>workflow</b> 权限（其他全部不勾）</p>
+<p>4. 复制生成的 token（ghp_开头），粘贴到浏览器弹窗</p>
+<p>5. 以后点🔄按钮就能直接触发更新，<b>永远不需要再输 token</b></p>
+<p><b>工作原理：</b>按钮 → 调用GitHub API → 触发 market-update.yml 在GitHub云端执行 → 拉行情写data.json → GitHub Pages自动部署 → 网站刷新。全程约90秒。</p>
+<p style="color:var(--amber)"><b>安全说明：</b>Token 仅存在你浏览器本地（localStorage），不会上传到任何服务器。每次调用直接访问 api.github.com，没有中间人。</p></div>
 
 <div class="help-section"><h4>🖱️ 操作技巧</h4>
 <p>• 悬停任意标的代码 → 显示行业+概念+产业链位置浮窗</p>
@@ -1167,7 +1188,7 @@ function loadFeedbackHistory(){
   }
 
   function renderAll(){
-    document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | 交易日每5分钟自动刷新`;
+    document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | <a href="#" onclick="manualRefresh();return false" style="color:var(--cyan);text-decoration:none">🔄手动刷新</a> | 交易日每5分钟自动刷新`;
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
@@ -2084,9 +2105,108 @@ function loadFeedbackHistory(){
 
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
-    if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动刷新`;}
+    if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | <a href="#" onclick="manualRefresh();return false" style="color:var(--cyan);text-decoration:none">🔄手动刷新</a> | 交易日每5分钟自动刷新`;}
   }).catch(()=>{});
 })();
+
+// ═══════════════════════════════════════════════════════════════
+// 手动刷新 — 触发GitHub Actions云端更新(无需家里电脑开机)
+// ═══════════════════════════════════════════════════════════════
+var REFRESH_REPO = 'tt123497/TTNB';
+var REFRESH_WF = 'market-update.yml';
+
+function showToast(msg, type){
+  var old = document.querySelector('.refresh-toast');
+  if(old) old.remove();
+  var t = document.createElement('div');
+  t.className = 'refresh-toast ' + (type||'info');
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){ t.remove(); }, 6000);
+}
+
+function getToken(){ return localStorage.getItem('gh_pat_v1'); }
+function setToken(tok){ localStorage.setItem('gh_pat_v1', tok); }
+
+function manualRefresh(){
+  var btn = document.getElementById('refreshBtn');
+  if(!btn){ // called from updateBar link
+    showToast('📡 正在向 GitHub Actions 发送更新指令...', 'info');
+  }
+  var token = getToken();
+  if(!token){
+    token = prompt(
+      '🔑 首次使用需要你的 GitHub Personal Access Token\n\n'+
+      '获取方式(30秒)：\n'+
+      '1. 打开 https://github.com/settings/tokens\n'+
+      '2. 点 "Generate new token (classic)"\n'+
+      '3. 勾选 workflow 权限\n'+
+      '4. 复制生成的 token，粘贴到这里\n\n'+
+      'Token 只存你浏览器本地，不上传任何服务器。'
+    );
+    if(!token) return;
+    setToken(token);
+  }
+  if(btn){ btn.disabled = true; btn.classList.add('spinning'); btn.textContent = '⏳ 触发中...'; }
+  showToast('📡 正在向 GitHub Actions 发送更新指令...', 'info');
+
+  var api = 'https://api.github.com/repos/' + REFRESH_REPO;
+  fetch(api + '/actions/workflows', {
+    headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' }
+  }).then(function(r){
+    if(!r.ok) throw new Error('HTTP ' + r.status + ' — token可能无效，点按钮重新输入');
+    return r.json();
+  }).then(function(wfs){
+    var wid = null;
+    for(var i=0; i<wfs.workflows.length; i++){
+      if(wfs.workflows[i].path === '.github/workflows/' + REFRESH_WF){
+        wid = wfs.workflows[i].id; break;
+      }
+    }
+    if(!wid) throw new Error('未找到 ' + REFRESH_WF);
+    return fetch(api + '/actions/workflows/' + wid + '/dispatches', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' },
+      body: JSON.stringify({ ref: 'main' })
+    });
+  }).then(function(r){
+    if(r.status === 204){
+      showToast('✅ 云端更新已触发！约90秒后页面自动刷新...', 'ok');
+      if(btn) btn.textContent = '⏳ 等待更新...';
+      var attempts = 0;
+      function check(){
+        attempts++;
+        fetch('./data.json?t='+Date.now()).then(function(r2){return r2.json();}).then(function(d2){
+          // Check if data timestamp changed
+          if(attempts >= 30){
+            showToast('🎉 数据更新完成，重载页面...', 'ok');
+            setTimeout(function(){ location.reload(); }, 500);
+          } else {
+            if(btn) btn.textContent = '⏳ 等待中(' + (attempts*5) + 's)...';
+            setTimeout(check, 5000);
+          }
+        }).catch(function(){
+          if(attempts < 30) setTimeout(check, 5000);
+          else location.reload();
+        });
+      }
+      setTimeout(check, 20000);
+    } else {
+      throw new Error('触发失败 HTTP ' + r.status);
+    }
+  }).catch(function(err){
+    if(btn){ btn.disabled = false; btn.classList.remove('spinning'); btn.textContent = '🔄 手动刷新'; }
+    var msg = err.message || String(err);
+    if(msg.indexOf('401') !== -1 || msg.indexOf('token') !== -1){
+      localStorage.removeItem('gh_pat_v1');
+      showToast('🔑 Token 无效，已清除。请重新点击按钮输入。', 'err');
+    } else if(msg.indexOf('403') !== -1){
+      showToast('🚫 403 禁止。Token 可能没有 workflow 权限或已过期。', 'err');
+    } else {
+      showToast('❌ ' + msg, 'err');
+    }
+  });
+}
 </script>
 </body>
 </html>
