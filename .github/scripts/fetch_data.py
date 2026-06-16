@@ -918,6 +918,7 @@ def main():
     out.update(preserve)
     out['sectorTags'] = sector_tags  # always fresh, not from cache
     out['recap']['cycle'] = cycle
+    out['sectorFixedStocks'] = SECTOR_FIXED_STOCKS if SECTOR_FIXED_STOCKS else {}
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
@@ -943,4 +944,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    out['sectorFixedStocks'] = SECTOR_FIXED_STOCKS
