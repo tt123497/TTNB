@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-17 01:31 CST",
+  "updated": "2026-06-17 01:33 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1979590,
   "recap": {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-17 01:30",
+      "updated": "2026-06-17 01:32",
       "tiers": [
         {
           "boardCount": 4,
@@ -1133,7 +1133,7 @@
       "maxBoard": 4,
       "totalCount": 117
     },
-    "ztCount": 4,
+    "ztCount": 100,
     "dtCount": 0,
     "lhb": {
       "topBuy": [],
@@ -1141,7 +1141,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/17 01:30 GitHub Actions云更新 | 524只 | 0板块",
+    "note": "06/17 01:32 GitHub Actions云更新 | 523只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1162,7 +1162,7 @@
     "cloud": true,
     "autoUpdate": true,
     "interval": "15min",
-    "stockCount": 524,
+    "stockCount": 523,
     "liveCount": 0,
     "updateCount": 1979590,
     "trading": false
@@ -1916,7 +1916,7 @@
         "sec": "半导体硅片"
       }
     ],
-    "updated": "2026-06-17 01:31 CST",
+    "updated": "2026-06-17 01:33 CST",
     "sectors": [
       {
         "name": "AI芯片",
@@ -7278,7 +7278,7 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-17 01:31 CST",
+    "updated": "2026-06-17 01:33 CST",
     "sector": 13,
     "market": 61,
     "match_sectors": [
@@ -7317,7 +7317,7 @@
     "算电协同": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "电网设备/特高压": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "火电/电力运营": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "算力租赁/GPU云": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "算力租赁/GPU云": "🟡 平盘 | 板块均涨+0.0%，2条相关消息，表现稳健。",
     "Token工厂/模型推理": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "稀土永磁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钼/小金属": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -7862,7 +7862,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-17 01:32 CST",
+    "updated": "2026-06-17 01:34 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
