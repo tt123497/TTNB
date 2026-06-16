@@ -475,38 +475,34 @@ def compute_winners_losers(live, stock_sector, heat_em):
 
     sorted_em = sorted(heat_em, key=lambda x: float(x['s'].replace('%','').replace('+','').replace('-','-')), reverse=True)
     winners, losers = [], []
-    # Winners: prefer EM sectors that match our sectors (with stock detail)
-    matched_em = []; unmatched_em = []
-    for s in sorted_em[:50]:
+
+    def _pct(s):
+        return float(s['s'].replace('%','').replace('+',''))
+
+    # Split heat into real gainers (pct > 0) and decliners (pct < 0)
+    gainers = [s for s in sorted_em if _pct(s) > 0]
+    decliners = [s for s in sorted_em if _pct(s) < 0]
+
+    # Winners: only positive sectors, prefer matched (with stock detail), max 6
+    matched_g = []; unmatched_g = []
+    for s in gainers:
         m = match_our_sec(s['n'])
         stks = sec_detail.get(m,'') if m else ''
-        (matched_em if stks else unmatched_em).append({'s': s['n'], 'stks': stks or s['s']})
-    for w in matched_em:
-        if len(winners) >= 10: break
+        (matched_g if stks else unmatched_g).append({'s': s['n'], 'stks': stks or s['s']})
+    for w in matched_g + unmatched_g:
+        if len(winners) >= 6: break
         winners.append(w)
-    for w in unmatched_em:
-        if len(winners) >= 10: break
-        winners.append(w)
-    # Losers from OUR sectors (average change), so they're always relevant
-    our_losers = []
-    for sec, detail in sec_detail.items():
-        # Parse average change from detail string
-        chgs = []
-        for part in detail.split(' / '):
-            m = re.search(r'([+-]?\d+\.?\d*)%', part)
-            if m: chgs.append(float(m.group(1)))
-        if chgs:
-            avg = sum(chgs) / len(chgs)
-            our_losers.append((avg, sec, detail))
-    our_losers.sort(key=lambda x: x[0])  # worst first
-    for avg, sec, detail in our_losers[:10]:
-        losers.append({'s': sec, 'stks': detail})
-    # Fill remaining with EM heat if needed
-    for s in sorted_em[-20:][::-1]:
-        if len(losers) >= 10: break
-        stks = sec_detail.get(match_our_sec(s['n']),'') or ''
-        if not stks: stks = s['s']
-        losers.append({'s': s['n'], 'stks': stks})
+
+    # Losers: only negative sectors, worst-first, prefer matched (with stock detail), max 6
+    matched_l = []; unmatched_l = []
+    for s in reversed(decliners):
+        m = match_our_sec(s['n'])
+        stks = sec_detail.get(m,'') if m else ''
+        (matched_l if stks else unmatched_l).append({'s': s['n'], 'stks': stks or s['s']})
+    for w in matched_l + unmatched_l:
+        if len(losers) >= 6: break
+        losers.append(w)
+
     return winners, losers
 
 def get_zt_ladder(cst):
