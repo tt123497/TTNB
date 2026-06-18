@@ -1321,12 +1321,12 @@ function loadFeedbackHistory(){
   D.groups.forEach(g=>{
     ov+=`<div class="group-hd">${g.n}</div><div class="card-grid">`;
     g.sectors.forEach(s=>{
-      ov+=`<div class="card sig-${s.sig}" onclick="go('chain');setTimeout(()=>{var el=document.getElementById('chain-${s.id}');el.open=true;requestAnimationFrame(()=>{requestAnimationFrame(()=>{var topbarH=document.querySelector('.topbar')?.offsetHeight||46;var navH=document.querySelector('.nav')?.offsetHeight||46;var rect=el.getBoundingClientRect();var targetY=window.scrollY+rect.top-topbarH-navH-24;window.scrollTo({top:targetY,behavior:'smooth'});});});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1500)},100)">
+      ov+=`<div class="card sig-${s.sig}" id="scard-${s.id}" onclick="go('chain');setTimeout(()=>{var el=document.getElementById('chain-${s.id}');el.open=true;requestAnimationFrame(()=>{requestAnimationFrame(()=>{var topbarH=document.querySelector('.topbar')?.offsetHeight||46;var navH=document.querySelector('.nav')?.offsetHeight||46;var rect=el.getBoundingClientRect();var targetY=window.scrollY+rect.top-topbarH-navH-24;window.scrollTo({top:targetY,behavior:'smooth'});});});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1500)},100)">
         <div class="c-icon">${s.icon}</div>
         <div class="c-name">${s.n}</div>
-        <div class="c-tag" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
+        <div class="c-tag" id="ctag-${s.id}" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
         <div class="c-desc">${s.d}</div>
-        ${s.msg?`<div class="c-msg" style="font-size:.76rem;color:var(--sub);margin:4px 0;line-height:1.5">${s.u?'<a href="'+s.u+'" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">📰 '+s.msg+'</a>':s.msg}</div>`:''}
+        <div class="c-msg" id="cmsg-${s.id}"${s.msg?'':' style="display:none"'}>${s.msg&&s.u?'<a href="'+s.u+'" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">📰 '+s.msg+'</a>':(s.msg||'')}</div>
         <div class="c-pills">${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''}">${x.c} ${x.n}</span>`).join('')}</div>
       </div>`;
     });
@@ -1960,6 +1960,46 @@ function loadFeedbackHistory(){
 	            ll.innerHTML=loHtml;
 	          }
 	        }
+
+        // ── Refresh overview cards from live data ──
+        if(d.sectorTags || d.sectors){
+          var secMap={};
+          if(d.sectors) d.sectors.forEach(function(s){ secMap[s.name]={sig:s.sig,msg:s.msg||'',u:s.u||''}; });
+          D.groups.forEach(function(g){
+            g.sectors.forEach(function(s){
+              // update sig + msg from sectors data
+              for(var k in secMap){
+                if(s.n.indexOf(k)>=0||k.indexOf(s.n)>=0){
+                  s.sig=secMap[k].sig; s.msg=secMap[k].msg; s.u=secMap[k].u;
+                  break;
+                }
+              }
+              // update tag from sectorTags
+              if(d.sectorTags && d.sectorTags[s.n]){
+                s.tag=d.sectorTags[s.n];
+                s.avgChg=parseFloat(s.tag.split('%')[0].replace(/[^0-9.\-+]/g,''));
+              }
+              // apply to DOM
+              var card=document.getElementById('scard-'+s.id);
+              if(!card) return;
+              card.className='card sig-'+s.sig;
+              var tagEl=document.getElementById('ctag-'+s.id);
+              if(tagEl){
+                tagEl.textContent=(s.tag||'').split('|')[0]||'';
+                tagEl.style.color=s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)';
+              }
+              var msgEl=document.getElementById('cmsg-'+s.id);
+              if(msgEl){
+                if(s.msg){
+                  msgEl.style.display='';
+                  msgEl.innerHTML=(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">📰 '+s.msg+'</a>':s.msg);
+                } else {
+                  msgEl.style.display='none';
+                }
+              }
+            });
+          });
+        }
 
         // UpdateBar + LivePrices
         if(d.updated){
