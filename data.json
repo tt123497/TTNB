@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-18 21:30 CST",
+  "updated": "2026-06-18 21:37 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1979766,
   "recap": {
@@ -140,7 +140,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-18 21:29",
+      "updated": "2026-06-18 21:36",
       "tiers": [
         {
           "boardCount": 4,
@@ -811,7 +811,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/18 21:29 GitHub Actions云更新 | 502只 | 0板块",
+    "note": "06/18 21:36 GitHub Actions云更新 | 502只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -1189,13 +1189,13 @@
     {
       "name": "房地产开发",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
       "name": "白酒",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -1290,7 +1290,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-18 21:30 CST",
+    "updated": "2026-06-18 21:37 CST",
     "top3": [
       {
         "r": 1,
@@ -1715,13 +1715,13 @@
       {
         "name": "房地产开发",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
         "name": "白酒",
-        "sig": "good",
-        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -7542,6 +7542,12 @@
   ],
   "_newsSector": [
     {
+      "t": "房地产职场遭遇经营压力，半年超40家房企高层人事调整",
+      "u": "https://finance.sina.com.cn/roll/2026-06-18/doc-inicvvzm3166167.shtml",
+      "time": "21:29",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "广州农商银行：监事长王喜桂辞任",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-18/doc-inicvvzp5380815.shtml",
       "time": "21:25",
@@ -7638,12 +7644,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "4只千元股持续受追捧！中际旭创总市值超过贵州茅台！",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-18/doc-inicvmmr3317837.shtml",
-      "time": "17:45",
-      "src": "sina_A股"
-    },
-    {
       "t": "晶丰明源: 晶丰明源:上海晶丰明源半导体股份有限公司关于以集中竞价交易方式首次出售部分已回购股份暨出售结果的公告",
       "u": "https://data.eastmoney.com/notices/detail/688368.html",
       "time": "06-19",
@@ -7652,9 +7652,57 @@
   ],
   "_newsMarket": [
     {
+      "t": "内塔尼亚胡：以色列必须保留黎巴嫩缓冲区以确保安全。\n\n以色列必须捍卫自身安全利益，维护与美国的关系。",
+      "u": "https://wallstreetcn.com/livenews/3121737",
+      "time": "21:36",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "SpaceX跌幅扩大至近6%。",
+      "u": "https://wallstreetcn.com/livenews/3121736",
+      "time": "21:36",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "瑞士央行准备在避险货币瑞郎走强时实施外汇干预",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-18/doc-inicvvzi6391942.shtml",
+      "time": "21:35",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗称南部港口的航运交通已恢复正常。",
+      "u": "https://wallstreetcn.com/livenews/3121735",
+      "time": "21:34",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美股盘初：纳指涨1.6%，费城半导体指数涨4.6%，英特尔涨约9%，QuantumScape涨约15%",
+      "u": "https://wallstreetcn.com/livenews/3121732",
+      "time": "21:31",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "标普500指数高开67.26点，涨幅0.91%，报7487.36点；\n\n道琼斯工业平均指数高开79.30点，涨幅0.15%，报51571.85点；\n\n纳斯达克综合指数高开388.97点，涨幅1.49%，报26410.62点。",
+      "u": "https://wallstreetcn.com/livenews/3121730",
+      "time": "21:30",
+      "src": "wscn_全球"
+    },
+    {
       "t": "博弈再升级！私募股东两度提议上调分红比例，青农商行拒绝：无提案资格",
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-18/doc-inicvvzr2159127.shtml",
       "time": "21:27",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "首批商业不动产REITs正式上市，配套政策已在路上",
+      "u": "https://finance.sina.com.cn/roll/2026-06-18/doc-inicvvzi6388795.shtml",
+      "time": "21:22",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "首日成交125笔、72亿！ 离岸人民币外汇试点为何是这六家？",
+      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-06-18/doc-inicvvzp5382197.shtml",
+      "time": "21:19",
       "src": "sina_7x24财经"
     },
     {
@@ -7766,22 +7814,10 @@
       "src": "wscn_全球"
     },
     {
-      "t": "“上车科技”还是“坚守老登”？A股风格或迎阶段性均衡，中报季成关键试金石",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-18/doc-inicvrtp3246923.shtml",
-      "time": "19:40",
-      "src": "sina_7x24财经"
-    },
-    {
       "t": "英国央行6月决议要点汇总",
       "u": "https://wallstreetcn.com/livenews/3121685",
       "time": "19:40",
       "src": "wscn_全球"
-    },
-    {
-      "t": "中国重汽：公司始终重视股东回报，长期实施持续稳定的分红政策",
-      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-06-18/doc-inicvrtp3251775.shtml",
-      "time": "19:38",
-      "src": "sina_7x24财经"
     },
     {
       "t": "伊朗所发文本显示美国将在签署谅解备忘录后立即发放伊朗石油豁免",
@@ -7790,34 +7826,10 @@
       "src": "sina_A股"
     },
     {
-      "t": "现货白银日内跌幅达1.5%，报66.73美元/盎司。",
-      "u": "https://wallstreetcn.com/livenews/3121683",
-      "time": "19:37",
-      "src": "wscn_全球"
-    },
-    {
       "t": "事关外资外贸，商务部最新发声",
       "u": "https://finance.sina.com.cn/jjxw/2026-06-18/doc-inicvrtm6470111.shtml",
       "time": "19:36",
       "src": "sina_A股"
-    },
-    {
-      "t": "莫斯科遭大规模无人机袭击",
-      "u": "https://wallstreetcn.com/livenews/3121682",
-      "time": "19:36",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "枧下窝锂矿用地预审有新进展，市场人士：离正式审批还有一定距离",
-      "u": "https://wallstreetcn.com/livenews/3121706",
-      "time": "19:29",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "SpaceX美股盘前跌幅扩大至2%。",
-      "u": "https://wallstreetcn.com/livenews/3121676",
-      "time": "19:25",
-      "src": "wscn_全球"
     },
     {
       "t": "英国央行以7比2的投票结果维持利率不变 表示将密切关注中东局势",
@@ -7943,20 +7955,19 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-18 21:30 CST",
+    "updated": "2026-06-18 21:36 CST",
     "sector": 18,
-    "market": 47,
+    "market": 49,
     "match_sectors": [
       "AI芯片",
       "SpaceX",
-      "中际旭创",
       "保险",
       "光模块",
       "半导体",
+      "地产",
       "存储",
       "新能源车",
       "白酒",
-      "茅台",
       "覆铜板",
       "铜",
       "银行"
@@ -8020,7 +8031,7 @@
     "化工": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钢铁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "银行": "🟡 平盘 | 板块均涨+0.0%，6条相关消息，表现稳健。",
-    "券商": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "券商": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "保险": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "房地产开发": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "白酒": "🟡 平盘 | 板块均涨+0.0%，2条相关消息，表现稳健。",
@@ -8535,7 +8546,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-18 21:30 CST",
+    "updated": "2026-06-18 21:37 CST",
     "total": 50,
     "hand": 42,
     "macro": 8,
