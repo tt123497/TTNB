@@ -1713,11 +1713,14 @@ function loadFeedbackHistory(){
       }else if(!hasLive){
         html+='<div style="color:var(--dim);text-align:center;padding:10px;font-size:.82rem">暂无实时数据</div>';
       }else{
-        // Single unified table sorted by change descending
-        html+='<table class="tbl"><thead><tr><th>代码</th><th>名称</th><th class="th-lp">涨跌幅</th></tr></thead><tbody>';
+        // Unified table: code, name, price, change%
+        html+='<table class="tbl"><thead><tr><th>代码</th><th>名称</th><th class="th-lp">现价</th><th class="th-lp">涨跌幅</th></tr></thead><tbody>';
         sorted.forEach(function(x){
+          var sina=(x.c.startsWith('60')||x.c.startsWith('68'))?'sh'+x.c:'sz'+x.c;
+          var lp=(D.livePrices||{})[sina];
+          var priceStr=lp&&lp.price?'<span style="font-family:SF Mono,monospace;font-size:.84rem">'+(lp.price>=100?lp.price.toFixed(1):lp.price.toFixed(2))+'</span>':'—';
           var cl=(x.chg||0)>=0?'up':'down';
-          html+='<tr class="stk-row" data-code="'+x.c+'"><td class="code">'+x.c+'</td><td class="name">'+x.n+'</td><td class="lp '+cl+'">'+(x.chg>=0?'+':'')+(x.chg||0).toFixed(1)+'%</td></tr>';
+          html+='<tr class="stk-row" data-code="'+x.c+'"><td class="code">'+x.c+'</td><td class="name">'+x.n+'</td><td style="font-family:SF Mono,monospace;font-size:.84rem;color:var(--dim)">'+priceStr+'</td><td class="lp '+cl+'">'+(x.chg>=0?'+':'')+(x.chg||0).toFixed(1)+'%</td></tr>';
         });
         html+='</tbody></table>';
       }
