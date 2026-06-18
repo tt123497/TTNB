@@ -713,6 +713,8 @@ def main():
 
     # Preserve manually-curated fields from existing data.json (12h freshness window)
     preserve = {}
+    old_livePrices = {}
+    old_sectorStocks = {}
     preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta']
     old_cycle = None
     old_briefing_date = ''
@@ -729,6 +731,8 @@ def main():
                 old_briefing = old.get('briefing', {})
                 old_briefing_date = old_briefing.get('updated', '') if old_briefing else ''
                 preserve['_oldRecap'] = old_recap  # fallback for after-hours
+                old_livePrices = old.get('livePrices', {})
+                old_sectorStocks = old.get('sectorStocks', {})
             except: pass
 
     # Auto-fresh: if Claude data is >12h old, regenerate from market data
@@ -843,7 +847,7 @@ def main():
             'lhb': lhb,
             'note': f"{cst.strftime('%m/%d %H:%M')} GitHub Actions云更新 | {len(codes)}只 | {len(sectors)}板块"
         },
-        'livePrices': live,
+        'livePrices': live if live else old_livePrices,
         'runtime': {
             'cloud': True,
             'autoUpdate': True,
@@ -912,6 +916,11 @@ def main():
 
     # Merge preserved fields
     out.update(preserve)
+    # Keep previous livePrices/sectorStocks when API returns empty (after-hours)
+    if not live:
+        out['livePrices'] = old_livePrices
+    if not out.get('sectorStocks'):
+        out['sectorStocks'] = old_sectorStocks
     out['sectorTags'] = sector_tags  # always fresh, not from cache
     out['recap']['cycle'] = cycle
     out['sectorFixedStocks'] = SECTOR_FIXED_STOCKS if SECTOR_FIXED_STOCKS else {}
