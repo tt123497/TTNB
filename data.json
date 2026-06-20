@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-19 21:56 CST",
+  "updated": "2026-06-20 19:01 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1979863,
+  "updateCount": 1979948,
   "recap": {
     "index": [
       {
@@ -270,7 +270,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-19 21:55",
+      "updated": "2026-06-20 19:01",
       "tiers": [
         {
           "boardCount": 4,
@@ -941,7 +941,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/19 21:55 GitHub Actions云更新 | 502只 | 22板块",
+    "note": "06/20 19:01 GitHub Actions云更新 | 502只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -5226,8 +5226,8 @@
     "autoUpdate": true,
     "interval": "15min",
     "stockCount": 502,
-    "liveCount": 200,
-    "updateCount": 1979863,
+    "liveCount": 0,
+    "updateCount": 1979948,
     "trading": false
   },
   "sectors": [
@@ -12841,293 +12841,65 @@
   ],
   "_newsSector": [
     {
-      "t": "美官员称以色列与黎巴嫩真主党已同意停火，国际油价短线下跌，现货黄金短线拉升",
-      "u": "https://finance.sina.com.cn/stock/bxjj/2026-06-19/doc-inicxyyr1412847.shtml",
-      "time": "20:55",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "外资机构调研活跃，AI半导体等高景气赛道受青睐",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-19/doc-inicxyyp4635003.shtml",
-      "time": "20:06",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "黄力晨:美联储释放鹰派信号 继续打压黄金价格",
-      "u": "https://finance.sina.com.cn/money/nmetal/hjfx/2026-06-19/doc-inicxyyr1385845.shtml",
-      "time": "19:41",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "黄金跌至4165美元，高盛突然砍掉500美元目标价，年底4900美元成新“天花板”？",
-      "u": "https://finance.sina.com.cn/money/forex/hbfx/2026-06-19/doc-inicxusu2814885.shtml",
-      "time": "17:59",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "彩民刮中福彩80万 奖金存进银行努力工作",
-      "u": "https://sports.sina.com.cn/l/2026-06-19/doc-inicxusv9581135.shtml",
-      "time": "17:33",
-      "src": "sina_股票"
-    },
-    {
-      "t": "英特尔CEO：我们的目标是“5-10年10倍” 押注先进封装、玻璃基板和人工钻石",
-      "u": "https://finance.sina.com.cn/stock/bxjj/2026-06-19/doc-inicxusu2788558.shtml",
-      "time": "16:50",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "加仓科技股！光模块两大龙头，“吸金”超百亿，最强股票大涨超83%",
-      "u": "https://finance.sina.com.cn/roll/2026-06-19/doc-inicxqkx9677923.shtml",
-      "time": "16:11",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "SpaceX：欧盟卫星计划可能会破坏乌克兰的通信服务",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxqkv1564504.shtml",
-      "time": "15:57",
+      "t": "查五粮液扣茅台，警方发声难解四大疑问",
+      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-inieacxs1867565.shtml",
+      "time": "18:49",
       "src": "sina_A股"
     },
     {
-      "t": "香港发生黄金大劫案，6公斤金条被抢，涉案金额约700万港元",
-      "u": "https://finance.sina.com.cn/wm/2026-06-19/doc-inicxqkt4764840.shtml",
-      "time": "14:54",
+      "t": "“AI最紧瓶颈”！存储的影响已扩展至宏观经济，加剧整体通胀",
+      "u": "https://finance.sina.com.cn/money/forex/forexroll/2026-06-20/doc-inicztit3936438.shtml",
+      "time": "15:06",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "6.20黄金下周还会涨吗？黄金走势周评",
+      "u": "https://finance.sina.com.cn/money/nmetal/hjfx/2026-06-20/doc-iniczhua2194861.shtml",
+      "time": "09:58",
       "src": "sina_A股"
     },
     {
-      "t": "“FOMO”情绪助推：SpaceX估值已超越所有标普500成分股",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxqkv1533790.shtml",
-      "time": "14:40",
+      "t": "5000字长文“控诉”分红方案，徽商银行与大股东中静系矛盾爆发",
+      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhuc8964284.shtml",
+      "time": "09:46",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "学习英伟达“好榜样”，谷歌和博通都开始“有样学样”，开启“AI芯片闭环”",
+      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhtz0844572.shtml",
+      "time": "09:10",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "酒价内参6月20日价格发布：青花郎五粮液1618领跌 总价创近一月新低",
+      "u": "https://finance.sina.com.cn/chanjing/jync/2026-06-20/doc-iniczhuc8944320.shtml",
+      "time": "09:03",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "黄金连跌六周后迎关键一周！PCE、GDP双双来袭，4000美元关口能否守住？",
+      "u": "https://finance.sina.com.cn/money/nmetal/hjfx/2026-06-20/doc-iniczanf9029579.shtml",
+      "time": "06:46",
       "src": "sina_A股"
     },
     {
-      "t": "机构：2026年全球存储芯片市场规模料达9750亿美元，同比增长逾三倍",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxkax1627457.shtml",
-      "time": "13:08",
+      "t": "6月20日外盘头条：美伊核谈尚未开始即因黎巴嫩问题陷入停滞 伊朗提出“保险费” 交易员提高美联储加息押注",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicywef1033127.shtml",
+      "time": "05:52",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗提出“保险费” 宣示对霍尔木兹海峡的控制权",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicywec4248157.shtml",
+      "time": "05:21",
       "src": "sina_A股"
     }
   ],
   "_newsMarket": [
     {
-      "t": "美议员批美政府在伊朗搞灾难艺术",
-      "u": "https://wallstreetcn.com/livenews/3122122",
-      "time": "21:55",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "交易员提高对美联储加息的押注，充分消化到9月份加息25个基点的预期。",
-      "u": "https://wallstreetcn.com/livenews/3122119",
-      "time": "21:50",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "以官员称以色列与黎巴嫩真主党已处于停火状态",
-      "u": "https://wallstreetcn.com/livenews/3122114",
-      "time": "21:35",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "全球科技升温，公募加速布局韩国赛道",
-      "u": "https://wallstreetcn.com/livenews/3122110",
-      "time": "21:17",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "若以色列违反停火协议，真主党将予以回应。（AL JADEED电视台）",
-      "u": "https://wallstreetcn.com/livenews/3122109",
-      "time": "21:16",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "以色列国防军发言人：将根据需要继续发动攻击。",
-      "u": "https://wallstreetcn.com/livenews/3122107",
-      "time": "21:13",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗称美国对以色列在黎巴嫩的行动负有直接责任",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxyyr1415450.shtml",
-      "time": "21:09",
-      "src": "sina_A股"
-    },
-    {
-      "t": "受以色列和真主党停火报道影响，新兴市场外汇指数跌幅收窄。",
-      "u": "https://wallstreetcn.com/livenews/3122105",
-      "time": "20:59",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "外媒称以色列与黎巴嫩真主党已同意停火",
-      "u": "https://wallstreetcn.com/livenews/3122103",
-      "time": "20:57",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "国际油价短线下跌，现货黄金拉升，报道：以色列与黎巴嫩真主党同意自周五起停火",
-      "u": "https://wallstreetcn.com/livenews/3122102",
-      "time": "20:54",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗外长说以色列唯一兴趣是战争",
-      "u": "https://wallstreetcn.com/livenews/3122101",
-      "time": "20:49",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗称美国对以黎局势负有“直接责任”",
-      "u": "https://wallstreetcn.com/livenews/3122100",
-      "time": "20:49",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "加拿大监管机构将大型银行的核心一级资本充足率（CET1）要求下调至11%；将该国银行国内稳定缓冲要求下调至3%。（彭博）",
-      "u": "https://wallstreetcn.com/livenews/3122098",
-      "time": "20:44",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗：美国应对以色列在黎巴嫩的行动承担责任。\n\n黎巴嫩停火是与美国谅解备忘录的重要组成部分。\n\n将采取一切必要措施保护盟友。",
-      "u": "https://wallstreetcn.com/livenews/3122097",
-      "time": "20:43",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "特朗普：他们完了！接下来这60天我们就走着看。他们拿不到钱，一毛钱都没有。\n\n我们不是因为走投无路才坐下来谈判，是伊朗主动来谈的。",
-      "u": "https://wallstreetcn.com/livenews/3122096",
-      "time": "20:40",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "CBCX:金银承压关注美元走向",
-      "u": "https://finance.sina.com.cn/money/future/roll/2026-06-19/doc-inicxyyt9508752.shtml",
-      "time": "20:24",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "资金狂涌！全球科技升温，公募加速布局韩国赛道",
-      "u": "https://finance.sina.com.cn/wm/2026-06-19/doc-inicxyys2731266.shtml",
-      "time": "20:13",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "伊朗宣示对霍尔木兹海峡管控权 相关规定为未来通行收费奠定基础",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxyyr1395639.shtml",
-      "time": "20:11",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国告知伊朗，以色列不会升级对黎巴嫩的袭击。（CNN）",
-      "u": "https://wallstreetcn.com/livenews/3122090",
-      "time": "20:06",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "黎巴嫩总统：以色列的升级行动破坏停火努力",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxyyp4611756.shtml",
-      "time": "19:49",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗称船只需要获得伊方许可才能通过霍尔木兹海峡",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxyyr1385643.shtml",
-      "time": "19:41",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗：穿越霍尔木兹海峡的船只必须购买强制性保险，目前该保险免费提供，但未来可能会收费",
-      "u": "https://wallstreetcn.com/livenews/3122088",
-      "time": "19:33",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "黎巴嫩总统：以色列的升级行动破坏停火努力。",
-      "u": "https://wallstreetcn.com/livenews/3122087",
-      "time": "19:32",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗：希望通过霍尔木兹海峡的船只需要通过波斯湾海峡管理局提交申请",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxyys2710646.shtml",
-      "time": "19:17",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗宣布霍尔木兹海峡通行新规：须提前48小时提交申请",
-      "u": "https://wallstreetcn.com/livenews/3122083",
-      "time": "19:10",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗称提交合规申请的船只可通过霍尔木兹海峡",
-      "u": "https://wallstreetcn.com/livenews/3122081",
-      "time": "19:06",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "海事情报公司：伊朗过去五天出口约1800万桶原油",
-      "u": "https://wallstreetcn.com/livenews/3122082",
-      "time": "19:02",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "广东：实施互联网企业梯度培育计划 争取打造万亿级世界一流互联网企业（附全文）",
-      "u": "https://finance.sina.com.cn/roll/2026-06-19/doc-inicxusr4717134.shtml",
-      "time": "18:35",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "知情人士：Momenta拟在香港IPO筹资10亿美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxusv9594921.shtml",
-      "time": "18:13",
-      "src": "sina_A股"
-    },
-    {
-      "t": "沃什将美联储的“精简”策略带入了一个复杂且对信息需求旺盛的世界",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxusv9590916.shtml",
-      "time": "18:01",
-      "src": "sina_A股"
-    },
-    {
-      "t": "以色列连夜打击黎巴嫩南部80多个真主党目标",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxusr4706036.shtml",
-      "time": "18:00",
-      "src": "sina_A股"
-    },
-    {
-      "t": "斯塔默誓言不会退缩后 英国10年期国债收益率升至一周高点",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxusu2810363.shtml",
-      "time": "17:49",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国怀疑ASML顶级光刻机流入中国 荷兰巨头坚称“不可能”",
-      "u": "https://finance.sina.com.cn/stock/bxjj/2026-06-19/doc-inicxusu2809821.shtml",
-      "time": "17:46",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "英国央行为私人市场压力测试设定“末日情景”",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxusv9584352.shtml",
-      "time": "17:44",
-      "src": "sina_A股"
-    },
-    {
-      "t": "投资者大举涌入科技板块 美股单周资金流入创历史新高",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxusu2804749.shtml",
-      "time": "17:36",
-      "src": "sina_A股"
-    },
-    {
-      "t": "外交官消息：因以色列袭击黎巴嫩，伊朗推迟与美国的谈判",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxusr4690134.shtml",
-      "time": "17:12",
-      "src": "sina_A股"
-    },
-    {
-      "t": "印度富豪有望通过交易所上市斩获数十亿美元收益",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxusu2793761.shtml",
-      "time": "17:05",
+      "t": "以色列再次发动袭击！巴基斯坦突发连环爆炸！伊朗：正在做两手准备！原油怎么走",
+      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczxrv8736946.shtml",
+      "time": "17:06",
       "src": "sina_A股"
     },
     {
@@ -13137,63 +12909,171 @@
       "src": "sina_股票"
     },
     {
-      "t": "装载8000万桶原油的超级油轮蓄势待发 准备穿越霍尔木兹海峡",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxusv9563824.shtml",
-      "time": "16:50",
+      "t": "部分主观私募规模显著缩水",
+      "u": "https://wallstreetcn.com/livenews/3122232",
+      "time": "16:21",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "知名私募，规模腰斩",
+      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczxrv8707032.shtml",
+      "time": "15:53",
       "src": "sina_A股"
     },
     {
-      "t": "特朗普官宣苹果与英特尔合作造芯 背后有哪些考虑？",
-      "u": "https://finance.sina.com.cn/roll/2026-06-19/doc-inicxqkx9678365.shtml",
-      "time": "16:13",
+      "t": "新型量子传感器可探测引力波和暗物质",
+      "u": "https://wallstreetcn.com/livenews/3122228",
+      "time": "15:35",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "德银“向沃什投降”：今年将加息50基点，甚至可能在7月提前加息",
+      "u": "https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-20/doc-inicztix8803602.shtml",
+      "time": "14:08",
+      "src": "sina_A股"
+    },
+    {
+      "t": "特朗普特使与伊朗外长均将前往瑞士举行会谈",
+      "u": "https://finance.sina.com.cn/world/2026-06-20/doc-inicztix8795454.shtml",
+      "time": "13:53",
+      "src": "sina_A股"
+    },
+    {
+      "t": "以色列空袭黎南部致5人死亡",
+      "u": "https://wallstreetcn.com/livenews/3122223",
+      "time": "13:20",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "以色列再次袭击黎巴嫩南部奈拜提耶",
+      "u": "https://wallstreetcn.com/livenews/3122221",
+      "time": "12:49",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "英国拟强制Meta、YouTube等平台推送更多本地新闻内容",
+      "u": "https://wallstreetcn.com/livenews/3122220",
+      "time": "12:39",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "巴基斯坦内政部长周六将访问伊朗",
+      "u": "https://finance.sina.com.cn/world/2026-06-20/doc-inicznzv4002515.shtml",
+      "time": "12:06",
+      "src": "sina_A股"
+    },
+    {
+      "t": "多家外资行：全球资本对中国市场的信心攀升，境外投资者增持中国资产的意愿持续增强",
+      "u": "https://wallstreetcn.com/livenews/3122213",
+      "time": "11:24",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗称不信任美国 正在做两手准备",
+      "u": "https://wallstreetcn.com/livenews/3122212",
+      "time": "11:10",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "五角大楼或需800亿美元为伊朗战事“埋单”",
+      "u": "https://wallstreetcn.com/livenews/3122209",
+      "time": "10:50",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "上证所公开谴责鄂尔多斯控股股东：未及时披露一致行动关系并多次增持公司股票",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-20/doc-iniczhuc8980067.shtml",
+      "time": "10:29",
       "src": "sina_7x24财经"
     },
     {
-      "t": "英国国债下跌 伯纳姆胜选与油价上涨再度引发财政担忧",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxqkv1566238.shtml",
-      "time": "16:03",
+      "t": "最新！美媒：伊朗外长将赴瑞士，美总统特使正在途中！猛烈抛售，英国突传大消息",
+      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-inicznzx0753061.shtml",
+      "time": "10:24",
       "src": "sina_A股"
     },
     {
-      "t": "前日本央行政策委员：日本央行或于3月底前两次加息",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxqkx9661846.shtml",
-      "time": "15:39",
+      "t": "见证历史！A股市值TOP10，有一半是科技股",
+      "u": "https://finance.sina.com.cn/stock/bxjj/2026-06-20/doc-iniczhua2193315.shtml",
+      "time": "09:59",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "芯片股狂欢周！美股基金流入创新高，日经7万点，韩股一年涨两倍",
+      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhtx4073888.shtml",
+      "time": "09:42",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "短期看跌！美联储“吓坏”高盛：大幅下调金价预期",
+      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhtx4072005.shtml",
+      "time": "09:40",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "“新美联储通讯社”：1996还是1999？沃什的第一场考验是“如何看AI”",
+      "u": "https://finance.sina.com.cn/money/forex/forexroll/2026-06-20/doc-iniczhua2187776.shtml",
+      "time": "09:35",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美媒：美国、卡塔尔拟联手解冻伊朗百亿资金",
+      "u": "https://wallstreetcn.com/livenews/3122203",
+      "time": "09:07",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国、卡塔尔拟向伊朗解冻数十亿美元冻结资金",
+      "u": "https://finance.sina.com.cn/world/2026-06-20/doc-iniczhtx4057136.shtml",
+      "time": "09:05",
       "src": "sina_A股"
     },
     {
-      "t": "塔塔苹果零部件工厂遭印度卫生部门调查",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxqkt4774882.shtml",
-      "time": "15:29",
+      "t": "美媒：伊朗外长将赴瑞士 美总统特使正在途中",
+      "u": "https://wallstreetcn.com/livenews/3122200",
+      "time": "08:48",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "“60天耗完，他们一分钱都拿不到”！特朗普再发威胁，伊朗：美国必须确保以色列遵守谅解备忘录",
+      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczhua2160914.shtml",
+      "time": "08:34",
       "src": "sina_A股"
     },
     {
-      "t": "俄罗斯突发强震",
-      "u": "https://finance.sina.com.cn/world/gjcj/2026-06-19/doc-inicxqkx9655473.shtml",
-      "time": "15:21",
+      "t": "国际金价惊魂跳水！美联储鹰派只是导火索，多头踩踏出逃？",
+      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczhuc8937320.shtml",
+      "time": "08:34",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "亚马逊旗下电影部门放弃拍摄有关OpenAI的电影。（纽约时报）",
+      "u": "https://wallstreetcn.com/livenews/3122199",
+      "time": "08:33",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗官员：不会在黎巴嫩停火问题上退让",
+      "u": "https://wallstreetcn.com/livenews/3122198",
+      "time": "08:25",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美联储加息悬念再起，美元指数飙至13个月新高，日本“隐形防线”面临大考",
+      "u": "https://finance.sina.com.cn/money/forex/hbfx/2026-06-20/doc-iniczanc0945806.shtml",
+      "time": "08:17",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "国际油价V型反弹，美股期货全线下跌，以色列“同意停火”后再次空袭黎巴嫩南部",
+      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczanc0926246.shtml",
+      "time": "07:09",
       "src": "sina_A股"
     },
     {
-      "t": "为何日本耗资超700亿美元汇市干预叠加加息，仍未能显著提振日元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxqkt4770574.shtml",
-      "time": "15:18",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国和伊朗推迟核谈判开始时间 黎巴嫩再度爆发冲突",
-      "u": "https://finance.sina.com.cn/world/2026-06-19/doc-inicxqkx9642284.shtml",
-      "time": "14:52",
-      "src": "sina_A股"
-    },
-    {
-      "t": "欧洲央行管委：若通胀蔓延至能源领域以外，将支持下月再次加息",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-19/doc-inicxqkw2855497.shtml",
-      "time": "14:30",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美伊会谈确认取消……万斯警告以色列：只有特朗普总统还同情你们",
-      "u": "https://finance.sina.com.cn/wm/2026-06-19/doc-inicxkaz9740371.shtml",
-      "time": "13:25",
+      "t": "6月20日隔夜要闻：特朗普对伊朗协议定调 意在驳斥美国失败论 油价上涨 美伊核谈遇阻且油轮通行放缓",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-iniczanc0922174.shtml",
+      "time": "07:02",
       "src": "sina_A股"
     },
     {
@@ -13209,89 +13089,175 @@
       "time": "06-19",
       "src": "em_announcement",
       "s": "603429 *ST集友"
+    },
+    {
+      "t": "长江通信: 长江通信:长江通信关于发行股份购买资产并募集配套资金暨关联交易之标的资产业绩承诺期满减值测试情况的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600345.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "600345 长江通信"
+    },
+    {
+      "t": "长江通信: 长江通信:武汉长江通信产业集团股份有限公司关于重大资产重组标的资产减值测试审核报告",
+      "u": "https://data.eastmoney.com/notices/detail/600345.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "600345 长江通信"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份关于股票交易的风险提示公告",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "603843 *ST正平"
+    },
+    {
+      "t": "ST美克: ST美克:美克国际家居用品股份有限公司关于子公司被法院裁定受理清算暨指定管理人的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600337.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "600337 ST美克"
+    },
+    {
+      "t": "阿拉丁: 阿拉丁:阿拉丁关于股东减持股份计划公告",
+      "u": "https://data.eastmoney.com/notices/detail/688179.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "688179 阿拉丁"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:2026年第二次临时股东会决议公告",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "688622 *ST禾信"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:关于为全资子公司提供担保的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "688622 *ST禾信"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:北京市中伦(广州)律师事务所关于广州禾信仪器股份有限公司2026年第二次临时股东会的法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "688622 *ST禾信"
+    },
+    {
+      "t": "ST洲际: ST洲际:洲际油气股份有限公司关于控股股东被申请破产清算的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/600759.html",
+      "time": "06-19",
+      "src": "em_announcement",
+      "s": "600759 ST洲际"
+    },
+    {
+      "t": "伊朗副外长：美国必须确保以色列遵守谅解备忘录",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-20/doc-inicyweh2347334.shtml",
+      "time": "04:24",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗副外长：美国须约束以色列遵守美伊谅解备忘录",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicyrwk2463122.shtml",
+      "time": "03:29",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国国务院：黎巴嫩和以色列将于6月23-25日在华盛顿会谈",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicyrwk2440984.shtml",
+      "time": "01:57",
+      "src": "sina_A股"
+    },
+    {
+      "t": "欧洲股市因伊朗推迟谈判下跌 诺和诺德股价逆势大涨",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicyrwk2440138.shtml",
+      "time": "01:54",
+      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-19 21:56 CST",
-    "sector": 11,
-    "market": 59,
+    "updated": "2026-06-20 19:02 CST",
+    "sector": 9,
+    "market": 45,
     "match_sectors": [
-      "SpaceX",
-      "先进封装",
-      "光模块",
-      "半导体",
-      "卫星",
+      "AI芯片",
+      "五粮液",
+      "保险",
       "存储",
+      "茅台",
       "银行",
       "黄金"
     ]
   },
   "sectorStocks": {},
   "sectorTags": {
-    "AI芯片": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "CPO/硅光": "🔥 板均涨10.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "光模块": "🔥 板均涨7.1% | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "光纤光缆": "🔥 板均涨5.2% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "AI芯片": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "CPO/硅光": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "光模块": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "光纤光缆": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "连接器/铜连接": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "PCB/覆铜板": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "MLCC电容": "🔥 板均涨5.9% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电子树脂/PPE": "🟢 偏强 +2.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电子铜箔": "🟢 偏强 +2.5% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "HBM/存储芯片": "🔥 板均涨4.6% | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "PCB/覆铜板": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "MLCC电容": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电子树脂/PPE": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电子铜箔": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "HBM/存储芯片": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "AI服务器/超节点": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "液冷散热": "🟢 偏强 +2.4% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "液冷散热": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "交换机/网络": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "电源/DrMOS": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "数据中心/AIDC": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "半导体设备": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "半导体设备": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "光刻胶": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "先进封装CoWoS": "🟢 偏强 +2.2% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "先进封装CoWoS": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "半导体硅片": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "六氟化钨WF₆": "🔥 板均涨10.0% | 六氟化钨WF₆",
-    "玻璃基板TGV": "🔴 偏弱 -1.5% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "培育钻石/散热": "🔥 板均涨4.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "超导/核聚变": "🟢 偏强 +1.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "碳纤维": "🔴 偏弱 -1.4% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "六氟化钨WF₆": "🟡 平盘 | 六氟化钨WF₆",
+    "玻璃基板TGV": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "培育钻石/散热": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "超导/核聚变": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "碳纤维": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "算电协同": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "电网设备/特高压": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "火电/电力运营": "🔴 回调 -7.9% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "算力租赁/GPU云": "🟢 偏强 +2.8% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "Token工厂/模型推理": "🟢 偏强 +1.8% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "稀土永磁": "🔥 板均涨4.8% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "钼/小金属": "🔥 板均涨10.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电子特气/工业气体": "🔴 偏弱 -1.2% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "火电/电力运营": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "算力租赁/GPU云": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "Token工厂/模型推理": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "稀土永磁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "钼/小金属": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电子特气/工业气体": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "半导体靶材": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "AI眼镜/AR硬件": "🟢 偏强 +2.8% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "AI智能体/应用": "🔥 板均涨3.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "核电/核能": "🔴 偏弱 -2.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "量子计算/量子科技": "🟢 偏强 +1.2% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "AI眼镜/AR硬件": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "AI智能体/应用": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "核电/核能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "量子计算/量子科技": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "卫星互联网/北斗": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "人形机器人": "🔥 板均涨7.4% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "商业航天": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "人形机器人": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "商业航天": "🟡 平盘 | 板块均涨+0.0%，2条相关消息，表现稳健。",
     "6G/通信": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "固态电池": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "低空经济eVTOL": "🟢 偏强 +1.1% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "低空经济eVTOL": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "空间计算/物理AI": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钨稀土": "🟡 平盘 | 钨稀土",
-    "锂矿/盐湖提锂": "🔴 回调 -3.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "锂电池/电解液": "🔴 偏弱 -2.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "光伏/太阳能": "🔴 偏弱 -1.6% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "锂矿/盐湖提锂": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "锂电池/电解液": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "光伏/太阳能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "风电": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "储能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "新能源汽车": "🟢 偏强 +1.4% | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "新能源汽车": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "煤炭": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "黄金/贵金属": "🔴 偏弱 -1.6% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "铜铝有色": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "化工": "🔴 偏弱 -1.6% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "黄金/贵金属": "🟡 平盘 | 板块均涨+0.0%，4条相关消息，表现稳健。",
+    "铜铝有色": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "化工": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钢铁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "银行": "🔴 偏弱 -2.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "券商": "🔴 偏弱 -2.3% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "银行": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "券商": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "保险": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "房地产开发": "🔴 偏弱 -2.3% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "白酒": "🔴 偏弱 -2.3% | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "食品饮料": "🔴 偏弱 -1.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "医药/CRO": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "医疗器械": "🔴 偏弱 -2.1% | 板块均涨+0.0%，横盘整理，等待催化。"
+    "房地产开发": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "白酒": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "食品饮料": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "医药/CRO": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "sectorFixedStocks": {
     "AI芯片": [
@@ -13798,144 +13764,5 @@
       "603658 安图生物",
       "002223 鱼跃医疗"
     ]
-  },
-  "_eventsMeta": {
-    "updated": "2026-06-20 00:42 CST",
-    "total": 50,
-    "hand": 42,
-    "macro": 8,
-    "ai": 0,
-    "schedule": "daily at 10:00 CST",
-    "source": "NBS 2026 schedule + AI sentinel news + hand-curated"
-  },
-  "_backtest": {
-    "records": [
-      {
-        "date": "2026-06-19",
-        "day_of_week": 4,
-        "picks": [
-          {
-            "c": "600549",
-            "n": "厦门钨业",
-            "why": "钨全产业链龙头涨停+金龙稀土北交所上市，关键矿产法规刚施行3天，全球钨短缺至2027，持续性最强",
-            "sec": "稀土永磁",
-            "entry_price": 85.91,
-            "entry_chg": 6.27,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "002085",
-            "n": "万丰奥威",
-            "why": "最纯正eVTOL标的，新民航法7.1施行倒计时12天+峰飞海外适航取证，加快推进TC取证和商业化",
-            "sec": "低空经济eVTOL",
-            "entry_price": 12.67,
-            "entry_chg": -2.69,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "002446",
-            "n": "盛路通信",
-            "why": "6G基站射频龙头6.16涨停，工信部6G试点3年攻坚期直接催化，中国全球首个6G试验频率，低位布局",
-            "sec": "6G/通信",
-            "entry_price": 11.72,
-            "entry_chg": 0.17,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "002460",
-            "n": "赣锋锂业",
-            "why": "固态电池万吨级硫化物电解质产线6月建成，锂100%自给，全球唯一三线并行，宝马深度合作",
-            "sec": "固态电池",
-            "entry_price": 69.36,
-            "entry_chg": -2.75,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "603773",
-            "n": "沃格光电",
-            "why": "TGV全制程龙头，台积电CoWoS玻璃基板计划直接受益，全球唯三量产，2026商业化元年确立",
-            "sec": "玻璃基板TGV",
-            "entry_price": 164.7,
-            "entry_chg": -0.86,
-            "pct_1d": 0,
-            "result": "flat"
-          }
-        ],
-        "top3_summary": [
-          "📊 大盘实时: 上证指数 -0.43% | 深证成指 +0.94% | 创业板指",
-          "🔥 今日最热板块: 光模块, MLCC电容, 稀土永磁, AI智能体/应用, A"
-        ],
-        "result": {
-          "winners": 0,
-          "losers": 0,
-          "neutral": 5,
-          "total": 5,
-          "hit_rate": 0.0,
-          "settled_date": "2026-06-20"
-        }
-      },
-      {
-        "date": "2026-06-20",
-        "day_of_week": 5,
-        "picks": [
-          {
-            "c": "600549",
-            "n": "厦门钨业",
-            "why": "钨全产业链龙头涨停+金龙稀土北交所上市，关键矿产法规刚施行3天，全球钨短缺至2027，持续性最强",
-            "sec": "稀土永磁",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "002085",
-            "n": "万丰奥威",
-            "why": "最纯正eVTOL标的，新民航法7.1施行倒计时12天+峰飞海外适航取证，加快推进TC取证和商业化",
-            "sec": "低空经济eVTOL",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "002446",
-            "n": "盛路通信",
-            "why": "6G基站射频龙头6.16涨停，工信部6G试点3年攻坚期直接催化，中国全球首个6G试验频率，低位布局",
-            "sec": "6G/通信",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "002460",
-            "n": "赣锋锂业",
-            "why": "固态电池万吨级硫化物电解质产线6月建成，锂100%自给，全球唯一三线并行，宝马深度合作",
-            "sec": "固态电池",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "603773",
-            "n": "沃格光电",
-            "why": "TGV全制程龙头，台积电CoWoS玻璃基板计划直接受益，全球唯三量产，2026商业化元年确立",
-            "sec": "玻璃基板TGV",
-            "entry_price": 0,
-            "entry_chg": 0
-          }
-        ],
-        "top3_summary": [
-          "📊 大盘实时: 上证指数 -0.43% | 深证成指 +0.94% | 创业板指",
-          "🔥 今日最热板块: 光模块, MLCC电容, 稀土永磁, AI智能体/应用, A"
-        ]
-      }
-    ],
-    "stats": {
-      "total_days": 1,
-      "total_picks": 5,
-      "total_wins": 0,
-      "overall_hit_rate": 0.0,
-      "recent_5d_hit_rate": 0.0,
-      "last_updated": "2026-06-20"
-    }
   }
 }
