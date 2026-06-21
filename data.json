@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-22 18:30 CST",
-  "nextSentinel": "下周一 6/23 9:15 开盘扫描",
-  "updateCount": 1979948,
+  "updated": "2026-06-22 01:41 CST",
+  "nextSentinel": "下个交易日 9:15 开盘扫描",
+  "updateCount": 1980070,
   "recap": {
     "index": [
       {
@@ -270,7 +270,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-20 19:01",
+      "updated": "2026-06-22 01:40",
       "tiers": [
         {
           "boardCount": 4,
@@ -941,7 +941,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/20 19:01 GitHub Actions云更新 | 502只 | 0板块",
+    "note": "06/22 01:40 GitHub Actions云更新 | 502只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -5227,27 +5227,27 @@
     "interval": "15min",
     "stockCount": 502,
     "liveCount": 0,
-    "updateCount": 1979948,
+    "updateCount": 1980070,
     "trading": false
   },
   "sectors": [
     {
       "name": "AI芯片",
-      "sig": "major",
-      "msg": "🔥 字节跳动采购5万颗国产AI芯片+英伟达GPU租赁暴涨94%！寒武纪市值逼近万亿，国产替代加速",
-      "u": "https://fund.eastmoney.com/a/202606183775898572.html"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "CPO/硅光",
-      "sig": "major",
-      "msg": "🔥 中际旭创市值超茅台称王A股(1.5万亿)！英伟达CPO交换机H2量产确认，光迅科技4天2板",
-      "u": "https://stcn.com/article/detail/3969494.html"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "光模块",
-      "sig": "good",
-      "msg": "🟢 800G光模块订单4500万只+1.6T出货增200%，中际旭创新易盛光迅科技齐创新高",
-      "u": "https://stcn.com/article/detail/3969494.html"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "光纤光缆",
@@ -5263,15 +5263,15 @@
     },
     {
       "name": "PCB/覆铜板",
-      "sig": "good",
-      "msg": "🟢 电子板块周涨+17.49%领涨全市场，AI算力需求拉动高端PCB持续紧缺",
-      "u": "https://finance.eastmoney.com/a/202606163773004882.html"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "MLCC电容",
-      "sig": "good",
-      "msg": "🟢 AI驱动涨价周期启动，村田/三星电机大手笔扩产，高容现货翻倍，交期最长24周",
-      "u": "https://m.cnstock.com/commonDetail/730428"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "电子树脂/PPE",
@@ -5282,19 +5282,19 @@
     {
       "name": "电子铜箔",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
       "name": "HBM/存储芯片",
-      "sig": "good",
-      "msg": "🟢 Q2 DRAM涨58-63%+NAND涨70-75%，黄仁勋确认短缺持续数年，美光财报6/25催化临近",
-      "u": "https://www.x-techcon.com/article/150537.html"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "AI服务器/超节点",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -5336,7 +5336,7 @@
     {
       "name": "算力租赁/GPU云",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -5353,8 +5353,8 @@
     },
     {
       "name": "半导体设备",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -5365,9 +5365,9 @@
     },
     {
       "name": "先进封装CoWoS",
-      "sig": "good",
-      "msg": "🟢 台积电CoWoS产能持续扩张+玻璃基板封装方案推进，AI芯片封装需求旺盛",
-      "u": "https://m.cnstock.com/commonDetail/730628"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "半导体硅片",
@@ -5383,15 +5383,15 @@
     },
     {
       "name": "六氟化钨WF6",
-      "sig": "major",
-      "msg": "🔥 7.1日本停产倒计时9天！WF₆飙至200万/吨+232%，中国钨出口管制对日归零，全产业链共振",
-      "u": "https://36kr.com/p/3858510497780736"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "u": ""
     },
     {
       "name": "玻璃基板TGV",
-      "sig": "good",
-      "msg": "🟢 台积电公开玻璃基板应用进展，沃格光电成都线量产，2026商业化元年确立",
-      "u": "https://m.cnstock.com/commonDetail/730628"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "培育钻石/散热",
@@ -5407,9 +5407,9 @@
     },
     {
       "name": "稀土永磁",
-      "sig": "major",
-      "msg": "🔥 章源钨业连涨两轮长单价(累+20%)+矿产法6.15施行+全球钨缺口1.85万吨+出口管制持续",
-      "u": "https://alu.ccmn.cn/news/ZX003/202606/1a1b2061a1bb494a9fc8dcc723c4c281.html"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "钼/小金属",
@@ -5419,15 +5419,15 @@
     },
     {
       "name": "碳纤维",
-      "sig": "good",
-      "msg": "🟢 低空经济+eVTOL放量拉动T800碳纤维需求，光威复材龙头受益",
-      "u": "https://www.eeo.com.cn/2026/0605/903845.shtml"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "电子特气/工业气体",
-      "sig": "good",
-      "msg": "🟢 WF₆供需紧张外溢，电子特气板块整体受益，中船特气2000吨产能全球第一",
-      "u": "https://36kr.com/p/3858510497780736"
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "u": ""
     },
     {
       "name": "人形机器人",
@@ -5437,8 +5437,8 @@
     },
     {
       "name": "商业航天",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -5539,14 +5539,14 @@
     },
     {
       "name": "黄金/贵金属",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，4条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
       "name": "铜铝有色",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -5563,20 +5563,20 @@
     },
     {
       "name": "银行",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
       "name": "券商",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
       "name": "保险",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -5600,7 +5600,7 @@
     {
       "name": "医药/CRO",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -5683,7 +5683,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-22 18:30 CST",
+    "updated": "2026-06-22 01:41 CST",
     "top3": [
       {
         "r": 1,
@@ -5758,76 +5758,382 @@
     ],
     "sectors": [
       {
-        "name": "六氟化钨WF6",
-        "sig": "major",
-        "msg": "🔥 7.1日本停产倒计时9天！WF₆飙至200万/吨+232%，中国钨出口管制对日归零，全产业链共振",
-        "u": "https://36kr.com/p/3858510497780736"
-      },
-      {
-        "name": "玻璃基板TGV",
-        "sig": "good",
-        "msg": "🟢 台积电公开玻璃基板应用进展，沃格光电成都线量产，2026商业化元年确立",
-        "u": "https://m.cnstock.com/commonDetail/730628"
-      },
-      {
         "name": "AI芯片",
-        "sig": "major",
-        "msg": "🔥 字节跳动采购5万颗国产AI芯片+英伟达GPU租赁暴涨94%！寒武纪市值逼近万亿，国产替代加速",
-        "u": "https://fund.eastmoney.com/a/202606183775898572.html"
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       },
       {
         "name": "CPO/硅光",
-        "sig": "major",
-        "msg": "🔥 中际旭创市值超茅台称王A股(1.5万亿)！英伟达CPO交换机H2量产确认，光迅科技4天2板",
-        "u": "https://stcn.com/article/detail/3969494.html"
-      },
-      {
-        "name": "MLCC电容",
-        "sig": "good",
-        "msg": "🟢 AI驱动涨价周期启动，村田/三星电机大手笔扩产，高容现货翻倍，交期最长24周",
-        "u": "https://m.cnstock.com/commonDetail/730428"
-      },
-      {
-        "name": "HBM/存储芯片",
-        "sig": "good",
-        "msg": "🟢 Q2 DRAM涨58-63%+NAND涨70-75%，黄仁勋确认短缺持续数年，美光财报6/25催化临近",
-        "u": "https://www.x-techcon.com/article/150537.html"
-      },
-      {
-        "name": "稀土永磁",
-        "sig": "major",
-        "msg": "🔥 章源钨业连涨两轮长单价(累+20%)+矿产法6.15施行+全球钨缺口1.85万吨+出口管制持续",
-        "u": "https://alu.ccmn.cn/news/ZX003/202606/1a1b2061a1bb494a9fc8dcc723c4c281.html"
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       },
       {
         "name": "光模块",
-        "sig": "good",
-        "msg": "🟢 800G光模块订单4500万只+1.6T出货增200%，中际旭创新易盛光迅科技齐创新高",
-        "u": "https://stcn.com/article/detail/3969494.html"
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "光纤光缆",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "连接器/铜连接",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       },
       {
         "name": "PCB/覆铜板",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "MLCC电容",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电子树脂/PPE",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电子铜箔",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "HBM/存储芯片",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "AI服务器/超节点",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "液冷散热",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "交换机/网络",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电源/DrMOS",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "数据中心/AIDC",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "算电协同",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电网设备/特高压",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "算力租赁/GPU云",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "Token工厂/模型推理",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "火电/电力运营",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "半导体设备",
         "sig": "good",
-        "msg": "🟢 电子板块周涨+17.49%领涨全市场，AI算力需求拉动高端PCB持续紧缺",
-        "u": "https://finance.eastmoney.com/a/202606163773004882.html"
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "u": ""
+      },
+      {
+        "name": "光刻胶",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       },
       {
         "name": "先进封装CoWoS",
-        "sig": "good",
-        "msg": "🟢 台积电CoWoS产能持续扩张+玻璃基板封装方案推进，AI芯片封装需求旺盛",
-        "u": "https://m.cnstock.com/commonDetail/730628"
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "半导体硅片",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "半导体靶材",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "六氟化钨WF6",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "玻璃基板TGV",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "培育钻石/散热",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "超导/核聚变",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "稀土永磁",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "钼/小金属",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       },
       {
         "name": "碳纤维",
-        "sig": "good",
-        "msg": "🟢 低空经济+eVTOL放量拉动T800碳纤维需求，光威复材龙头受益",
-        "u": "https://www.eeo.com.cn/2026/0605/903845.shtml"
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       },
       {
         "name": "电子特气/工业气体",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "人形机器人",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "商业航天",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "6G/通信",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "固态电池",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "低空经济eVTOL",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "空间计算/物理AI",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "AI眼镜/AR硬件",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "AI智能体/应用",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "核电/核能",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "量子计算/量子科技",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "卫星互联网/北斗",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "锂矿/盐湖提锂",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "锂电池/电解液",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "光伏/太阳能",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "风电",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "储能",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "新能源汽车",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "煤炭",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "黄金/贵金属",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "铜铝有色",
         "sig": "good",
-        "msg": "🟢 WF₆供需紧张外溢，电子特气板块整体受益，中船特气2000吨产能全球第一",
-        "u": "https://36kr.com/p/3858510497780736"
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "u": ""
+      },
+      {
+        "name": "化工",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "钢铁",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "银行",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "u": ""
+      },
+      {
+        "name": "券商",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "保险",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "房地产开发",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "白酒",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "食品饮料",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "医药/CRO",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "医疗器械",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
       }
     ],
     "events": [
@@ -5988,6 +6294,15 @@
       "u": "https://so.eastmoney.com/news/s?keyword=MLCC"
     },
     {
+      "d": "6月23日",
+      "icon": "🌐",
+      "e": "夏季达沃斯论坛开幕(大连)",
+      "s": "AI/新能源/量子",
+      "big": 1,
+      "desc": "主题「规模化创新」，AI/新能源/量子科技/生物医药",
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
       "d": "6月24日",
       "icon": "💾",
       "e": "美光财报发布",
@@ -6006,6 +6321,15 @@
       "u": "https://so.eastmoney.com/news/s?keyword=AI%E8%8A%AF%E7%89%87"
     },
     {
+      "d": "6月24日",
+      "icon": "📡",
+      "e": "MWC上海世界移动通信大会",
+      "s": "6G/低空经济",
+      "big": 1,
+      "desc": "6G/5G-A/移动AI/具身智能/低空智联网",
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
       "d": "6月下旬",
       "icon": "🤖",
       "e": "特斯拉Optimus V3量产启动",
@@ -6022,6 +6346,33 @@
       "big": 1,
       "desc": "恐慌情绪升温,现货价格或再跳涨",
       "u": "https://wap.stockstar.com/detail/IG2026060700004015"
+    },
+    {
+      "d": "6月25日",
+      "icon": "🧠",
+      "e": "英伟达年度股东大会",
+      "s": "AI算力/CPO",
+      "big": 1,
+      "desc": "Blackwell+Vera架构更新，AI算力方向标",
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
+      "d": "6月25日",
+      "icon": "💾",
+      "e": "美光科技发布季度财报",
+      "s": "存储芯片",
+      "big": 1,
+      "desc": "存储芯片风向标，股价年内+297%，验证涨价传导",
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
+      "d": "6月27日",
+      "icon": "📊",
+      "e": "中国5月规上工业企业利润",
+      "s": "全市场",
+      "big": 0,
+      "desc": "基本面验证数据",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieeaqr2970587.shtml"
     },
     {
       "d": "6月30日",
@@ -6067,6 +6418,15 @@
       "big": 1,
       "desc": "300m以下空域开放,飞行审批7天→1小时",
       "u": "https://so.eastmoney.com/news/s?keyword=%E4%BD%8E%E7%A9%BA%E7%BB%8F%E6%B5%8E"
+    },
+    {
+      "d": "7月1日",
+      "icon": "🔴",
+      "e": "日本WF₆永久停产生效+新民航法施行",
+      "s": "六氟化钨/低空经济",
+      "big": 1,
+      "desc": "年度最大催化：WF₆日本25%产能归零+低空300米以下空域开放",
+      "u": "https://36kr.com/p/3858510497780736"
     },
     {
       "d": "7月1日",
@@ -6337,87 +6697,24 @@
       "big": 0,
       "desc": "文心一言大模型应用升级，催化AI板块",
       "u": "https://data.eastmoney.com/"
-    },
-    {
-      "d": "6月23日",
-      "icon": "🌐",
-      "e": "夏季达沃斯论坛开幕(大连)",
-      "s": "AI/新能源/量子",
-      "big": 1,
-      "desc": "主题「规模化创新」，AI/新能源/量子科技/生物医药",
-      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
-    },
-    {
-      "d": "6月24日",
-      "icon": "📡",
-      "e": "MWC上海世界移动通信大会",
-      "s": "6G/低空经济",
-      "big": 1,
-      "desc": "6G/5G-A/移动AI/具身智能/低空智联网",
-      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
-    },
-    {
-      "d": "6月25日",
-      "icon": "🧠",
-      "e": "英伟达年度股东大会",
-      "s": "AI算力/CPO",
-      "big": 1,
-      "desc": "Blackwell+Vera架构更新，AI算力方向标",
-      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
-    },
-    {
-      "d": "6月25日",
-      "icon": "💾",
-      "e": "美光科技发布季度财报",
-      "s": "存储芯片",
-      "big": 1,
-      "desc": "存储芯片风向标，股价年内+297%，验证涨价传导",
-      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
-    },
-    {
-      "d": "6月27日",
-      "icon": "📊",
-      "e": "中国5月规上工业企业利润",
-      "s": "全市场",
-      "big": 0,
-      "desc": "基本面验证数据",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieeaqr2970587.shtml"
-    },
-    {
-      "d": "7月1日",
-      "icon": "🔴",
-      "e": "日本WF₆永久停产生效+新民航法施行",
-      "s": "六氟化钨/低空经济",
-      "big": 1,
-      "desc": "年度最大催化：WF₆日本25%产能归零+低空300米以下空域开放",
-      "u": "https://36kr.com/p/3858510497780736"
     }
   ],
   "layout": [
     {
-      "d": "6月20日",
-      "days": 0,
+      "d": "6月23日",
+      "days": 1,
       "lead": 1,
-      "e": "三星电机MLCC长单报价更新",
-      "icon": "🟧",
-      "s": "MLCC",
+      "e": "夏季达沃斯论坛开幕(大连)",
+      "icon": "🌐",
+      "s": "AI/新能源/量子",
       "big": 1,
-      "stocks": [
-        "300726 宏达电子",
-        "600549 厦门钨业",
-        "601208 东材科技",
-        "002585 双星新材",
-        "300806 斯迪克",
-        "605376 博迁新材",
-        "000733 振华科技",
-        "000636 风华高科"
-      ],
-      "u": "https://so.eastmoney.com/news/s?keyword=MLCC"
+      "stocks": [],
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
     },
     {
       "d": "6月24日",
-      "days": 4,
-      "lead": 4,
+      "days": 2,
+      "lead": 2,
       "e": "美光财报发布",
       "icon": "💾",
       "s": "存储芯片",
@@ -6436,8 +6733,8 @@
     },
     {
       "d": "6月24日",
-      "days": 4,
-      "lead": 4,
+      "days": 2,
+      "lead": 2,
       "e": "英伟达年度股东大会",
       "icon": "🧠",
       "s": "AI芯片",
@@ -6453,9 +6750,20 @@
       "u": "https://so.eastmoney.com/news/s?keyword=AI%E8%8A%AF%E7%89%87"
     },
     {
+      "d": "6月24日",
+      "days": 2,
+      "lead": 2,
+      "e": "MWC上海世界移动通信大会",
+      "icon": "📡",
+      "s": "6G/低空经济",
+      "big": 1,
+      "stocks": [],
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
       "d": "6月下旬",
-      "days": 5,
-      "lead": 5,
+      "days": 3,
+      "lead": 3,
       "e": "特斯拉Optimus V3量产启动",
       "icon": "🤖",
       "s": "人形机器人",
@@ -6472,8 +6780,8 @@
     },
     {
       "d": "6月下旬",
-      "days": 5,
-      "lead": 5,
+      "days": 3,
+      "lead": 3,
       "e": "日本WF6库存最后耗尽",
       "icon": "🏭",
       "s": "六氟化钨",
@@ -6488,8 +6796,41 @@
       "u": "https://wap.stockstar.com/detail/IG2026060700004015"
     },
     {
+      "d": "6月25日",
+      "days": 3,
+      "lead": 3,
+      "e": "英伟达年度股东大会",
+      "icon": "🧠",
+      "s": "AI算力/CPO",
+      "big": 1,
+      "stocks": [],
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
+      "d": "6月25日",
+      "days": 3,
+      "lead": 3,
+      "e": "美光科技发布季度财报",
+      "icon": "💾",
+      "s": "存储芯片",
+      "big": 1,
+      "stocks": [],
+      "u": "https://finance.eastmoney.com/a/202606213777073933.html"
+    },
+    {
+      "d": "6月27日",
+      "days": 5,
+      "lead": 5,
+      "e": "中国5月规上工业企业利润",
+      "icon": "📊",
+      "s": "全市场",
+      "big": 0,
+      "stocks": [],
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieeaqr2970587.shtml"
+    },
+    {
       "d": "6月30日",
-      "days": 10,
+      "days": 8,
       "lead": 5,
       "e": "中国智算产业生态年会",
       "icon": "🏭",
@@ -6507,7 +6848,7 @@
     },
     {
       "d": "7月1日",
-      "days": 11,
+      "days": 9,
       "lead": 7,
       "e": "新民航法正式施行(300m以下空域开放)",
       "icon": "✈️",
@@ -6524,7 +6865,7 @@
     },
     {
       "d": "7月1日",
-      "days": 11,
+      "days": 9,
       "lead": 7,
       "e": "日本关东电化+中央硝子WF6永久停产",
       "icon": "🔴",
@@ -6541,7 +6882,7 @@
     },
     {
       "d": "7月1日",
-      "days": 11,
+      "days": 9,
       "lead": 7,
       "e": "村田制作所MLCC涨价10-40%正式生效",
       "icon": "🟧",
@@ -6561,7 +6902,7 @@
     },
     {
       "d": "7月1日",
-      "days": 11,
+      "days": 9,
       "lead": 7,
       "e": "新《民航法》正式施行",
       "icon": "✈️",
@@ -6578,7 +6919,18 @@
     },
     {
       "d": "7月1日",
-      "days": 11,
+      "days": 9,
+      "lead": 7,
+      "e": "日本WF₆永久停产生效+新民航法施行",
+      "icon": "🔴",
+      "s": "六氟化钨/低空经济",
+      "big": 1,
+      "stocks": [],
+      "u": "https://36kr.com/p/3858510497780736"
+    },
+    {
+      "d": "7月1日",
+      "days": 9,
       "lead": 7,
       "e": "章源钨业7月上半月长单报价",
       "icon": "💰",
@@ -6598,7 +6950,7 @@
     },
     {
       "d": "7月2日",
-      "days": 12,
+      "days": 10,
       "lead": 5,
       "e": "全球数字经济大会(北京)",
       "icon": "🌐",
@@ -6616,7 +6968,7 @@
     },
     {
       "d": "7月2日",
-      "days": 12,
+      "days": 10,
       "lead": 5,
       "e": "中国AI智能体大会(杭州)",
       "icon": "🤖",
@@ -6636,7 +6988,7 @@
     },
     {
       "d": "7月5日",
-      "days": 15,
+      "days": 13,
       "lead": 5,
       "e": "国际商业航天遥感大会(北京)",
       "icon": "🚀",
@@ -6654,7 +7006,7 @@
     },
     {
       "d": "7月5日",
-      "days": 15,
+      "days": 13,
       "lead": 7,
       "e": "SEMICON West 2026旧金山",
       "icon": "⚙️",
@@ -6672,7 +7024,7 @@
     },
     {
       "d": "7月7日",
-      "days": 17,
+      "days": 15,
       "lead": 5,
       "e": "中国材料大会·固态电池分会(武汉)",
       "icon": "🔋",
@@ -6690,7 +7042,7 @@
     },
     {
       "d": "7月8日",
-      "days": 18,
+      "days": 16,
       "lead": 5,
       "e": "中国互联网大会(北京)",
       "icon": "🌐",
@@ -6710,7 +7062,7 @@
     },
     {
       "d": "7月8日",
-      "days": 18,
+      "days": 16,
       "lead": 7,
       "e": "长鑫存储科创板IPO路演启动",
       "icon": "💾",
@@ -6728,7 +7080,7 @@
     },
     {
       "d": "7月8日",
-      "days": 18,
+      "days": 16,
       "lead": 7,
       "e": "AMTS+AHTE上海(汽车制造+具身智能)",
       "icon": "🤖",
@@ -6746,7 +7098,7 @@
     },
     {
       "d": "7月11日",
-      "days": 21,
+      "days": 19,
       "lead": 5,
       "e": "机器人+创新发展大会(邹城)",
       "icon": "🤖",
@@ -6764,7 +7116,7 @@
     },
     {
       "d": "7月15日",
-      "days": 25,
+      "days": 23,
       "lead": 7,
       "e": "章源钨业7月下半月长单报价",
       "icon": "💰",
@@ -6781,7 +7133,7 @@
     },
     {
       "d": "7月17日",
-      "days": 27,
+      "days": 25,
       "lead": 7,
       "e": "世界人工智能大会WAIC(上海)",
       "icon": "🧠",
@@ -6799,7 +7151,7 @@
     },
     {
       "d": "8月3日",
-      "days": 44,
+      "days": 42,
       "lead": 7,
       "e": "章源钨业8月上半月长单报价",
       "icon": "💰",
@@ -6816,7 +7168,7 @@
     },
     {
       "d": "8月上旬",
-      "days": 46,
+      "days": 44,
       "lead": 5,
       "e": "A股半年报正式披露密集期开始",
       "icon": "📊",
@@ -6836,7 +7188,7 @@
     },
     {
       "d": "8月中旬",
-      "days": 56,
+      "days": 54,
       "lead": 5,
       "e": "SK海力士HBM4试产进度更新",
       "icon": "💾",
@@ -6856,7 +7208,7 @@
     },
     {
       "d": "8月17日",
-      "days": 58,
+      "days": 56,
       "lead": 7,
       "e": "章源钨业8月下半月长单报价",
       "icon": "💰",
@@ -6873,7 +7225,7 @@
     },
     {
       "d": "8月20日",
-      "days": 61,
+      "days": 59,
       "lead": 5,
       "e": "日本WF6停产50天市场影响评估",
       "icon": "🏭",
@@ -6890,7 +7242,7 @@
     },
     {
       "d": "8月26日",
-      "days": 67,
+      "days": 65,
       "lead": 7,
       "e": "AGIC深圳国际通用AI大会(最大AI展)",
       "icon": "🤖",
@@ -6910,7 +7262,7 @@
     },
     {
       "d": "9月1日",
-      "days": 73,
+      "days": 71,
       "lead": 7,
       "e": "章源钨业9月上半月长单报价",
       "icon": "💰",
@@ -6930,7 +7282,7 @@
     },
     {
       "d": "9月15日",
-      "days": 87,
+      "days": 85,
       "lead": 7,
       "e": "章源钨业9月下半月长单报价",
       "icon": "💰",
@@ -6947,7 +7299,7 @@
     },
     {
       "d": "6月1日",
-      "days": -19,
+      "days": -21,
       "lead": 1,
       "e": "章源钨业6月上半月长单报价",
       "icon": "💰",
@@ -6964,7 +7316,7 @@
     },
     {
       "d": "6月12日",
-      "days": -8,
+      "days": -10,
       "lead": 1,
       "e": "SpaceX纳斯达克挂牌(SPCX)",
       "icon": "🚀",
@@ -6982,7 +7334,7 @@
     },
     {
       "d": "6月12日",
-      "days": -8,
+      "days": -10,
       "lead": 1,
       "e": "华为HDC 2026开发者大会",
       "icon": "📋",
@@ -7002,7 +7354,7 @@
     },
     {
       "d": "6月12日",
-      "days": -8,
+      "days": -10,
       "lead": 1,
       "e": "智源AI大会2026",
       "icon": "🧠",
@@ -7022,7 +7374,7 @@
     },
     {
       "d": "6月15日",
-      "days": -5,
+      "days": -7,
       "lead": 1,
       "e": "章源钨业6月下半月长单报价",
       "icon": "💰",
@@ -7039,7 +7391,7 @@
     },
     {
       "d": "6月16日",
-      "days": -4,
+      "days": -6,
       "lead": 1,
       "e": "国际宇宙峰会ISS 2026(韩国)",
       "icon": "🚀",
@@ -7057,7 +7409,7 @@
     },
     {
       "d": "6月16日",
-      "days": -4,
+      "days": -6,
       "lead": 1,
       "e": "AEPT固态电池产业大会(上海)",
       "icon": "🔋",
@@ -7075,7 +7427,7 @@
     },
     {
       "d": "6月16日",
-      "days": -4,
+      "days": -6,
       "lead": 1,
       "e": "深圳首届AI眼镜展(300+国际团)",
       "icon": "👓",
@@ -7095,7 +7447,7 @@
     },
     {
       "d": "6月17日",
-      "days": -3,
+      "days": -5,
       "lead": 1,
       "e": "空天信息和卫星互联网产业对接会(廊坊)",
       "icon": "🛰️",
@@ -7113,7 +7465,7 @@
     },
     {
       "d": "6月18日",
-      "days": -2,
+      "days": -4,
       "lead": 1,
       "e": "5月半导体销售额数据发布(SIA)",
       "icon": "📊",
@@ -7126,6 +7478,26 @@
         "600208 衢州发展"
       ],
       "u": "https://so.eastmoney.com/news/s?keyword=%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%85%A8%E9%93%BE"
+    },
+    {
+      "d": "6月20日",
+      "days": -2,
+      "lead": 1,
+      "e": "三星电机MLCC长单报价更新",
+      "icon": "🟧",
+      "s": "MLCC",
+      "big": 1,
+      "stocks": [
+        "300726 宏达电子",
+        "600549 厦门钨业",
+        "601208 东材科技",
+        "002585 双星新材",
+        "300806 斯迪克",
+        "605376 博迁新材",
+        "000733 振华科技",
+        "000636 风华高科"
+      ],
+      "u": "https://so.eastmoney.com/news/s?keyword=MLCC"
     }
   ],
   "bHistory": [
@@ -13076,369 +13448,418 @@
   ],
   "_newsSector": [
     {
-      "t": "查五粮液扣茅台，警方发声难解四大疑问",
-      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-inieacxs1867565.shtml",
-      "time": "18:49",
-      "src": "sina_A股"
-    },
-    {
-      "t": "“AI最紧瓶颈”！存储的影响已扩展至宏观经济，加剧整体通胀",
-      "u": "https://finance.sina.com.cn/money/forex/forexroll/2026-06-20/doc-inicztit3936438.shtml",
-      "time": "15:06",
+      "t": "顾客称爱犬被海底捞带办公室后死亡 门店回应：与当事人积极沟通，前期已垫付医药费用",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieetnk9515452.shtml",
+      "time": "23:13",
       "src": "sina_7x24财经"
     },
     {
-      "t": "6.20黄金下周还会涨吗？黄金走势周评",
-      "u": "https://finance.sina.com.cn/money/nmetal/hjfx/2026-06-20/doc-iniczhua2194861.shtml",
-      "time": "09:58",
-      "src": "sina_A股"
-    },
-    {
-      "t": "5000字长文“控诉”分红方案，徽商银行与大股东中静系矛盾爆发",
-      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhuc8964284.shtml",
-      "time": "09:46",
+      "t": "有矿小涨、没订单暴涨，市场爆炒AI铜箔概念，监管出手降温",
+      "u": "https://finance.sina.com.cn/stock/wbstock/2026-06-21/doc-inieetni2732411.shtml",
+      "time": "22:39",
       "src": "sina_7x24财经"
     },
     {
-      "t": "学习英伟达“好榜样”，谷歌和博通都开始“有样学样”，开启“AI芯片闭环”",
-      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhtz0844572.shtml",
-      "time": "09:10",
+      "t": "巨星科技拟斥资3.25亿元收购浙江网商银行合计1.54%股权",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnk9500779.shtml",
+      "time": "22:12",
       "src": "sina_7x24财经"
     },
     {
-      "t": "酒价内参6月20日价格发布：青花郎五粮液1618领跌 总价创近一月新低",
-      "u": "https://finance.sina.com.cn/chanjing/jync/2026-06-20/doc-iniczhuc8944320.shtml",
-      "time": "09:03",
+      "t": "银行业AI加速狂奔，首份人工智能安全开发应用指导意见拧紧“安全阀”",
+      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-06-21/doc-inieetni2713297.shtml",
+      "time": "21:47",
       "src": "sina_7x24财经"
     },
     {
-      "t": "黄金连跌六周后迎关键一周！PCE、GDP双双来袭，4000美元关口能否守住？",
-      "u": "https://finance.sina.com.cn/money/nmetal/hjfx/2026-06-20/doc-iniczanf9029579.shtml",
-      "time": "06:46",
+      "t": "提前二连板！智微智能拟最高40亿元采购服务器，加码智算业务",
+      "u": "https://finance.sina.com.cn/roll/2026-06-21/doc-inieetnn0811224.shtml",
+      "time": "21:41",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "A股市场风格分化延续？投资主线有哪些？十大券商策略来了",
+      "u": "https://finance.sina.com.cn/stock/wbstock/2026-06-21/doc-inieetnn0811622.shtml",
+      "time": "21:18",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "【公告精选】兴业科技拟收购磷化铟业务资产，切入化合物半导体新材料赛道",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnk9489247.shtml",
+      "time": "21:08",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "中际旭创：公司核心原材料供应稳定",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnn0799221.shtml",
+      "time": "21:02",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "688146，688549！两大“六氟化钨概念”牛股，发布风险提示！",
+      "u": "https://finance.sina.com.cn/stock/s/2026-06-21/doc-inieepeq0925960.shtml",
+      "time": "20:52",
       "src": "sina_A股"
     },
     {
-      "t": "6月20日外盘头条：美伊核谈尚未开始即因黎巴嫩问题陷入停滞 伊朗提出“保险费” 交易员提高美联储加息押注",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicywef1033127.shtml",
-      "time": "05:52",
+      "t": "玩具公司35亿算力大单疑云：甲方3人交社保、乙方成立2个月",
+      "u": "https://finance.sina.com.cn/stock/s/2026-06-21/doc-inieepeq0904080.shtml",
+      "time": "16:48",
       "src": "sina_A股"
     },
     {
-      "t": "伊朗提出“保险费” 宣示对霍尔木兹海峡的控制权",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicywec4248157.shtml",
-      "time": "05:21",
+      "t": "中国电信遭中国平安保险(集团)减持937.6万股 每股作价约4.78港元",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqu1058179.shtml",
+      "time": "15:07",
       "src": "sina_A股"
+    },
+    {
+      "t": "花旗：中国铝业重申“买入”评级 目标价为17.08港元",
+      "u": "https://finance.sina.com.cn/stock/hkstock/hkgg/2026-06-21/doc-inieeaqs9735389.shtml",
+      "time": "14:54",
+      "src": "sina_A股"
+    },
+    {
+      "t": "领先股份: 领先股份:华泰联合证券有限责任公司关于深圳市领先半导体科技产业股份有限公司重大资产置换、发行股份及支付现金购买资产并募集配套资金暨关联交易之部分限售股上市流通的核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/603991.html",
+      "time": "06-22",
+      "src": "em_announcement"
     }
   ],
   "_newsMarket": [
     {
-      "t": "以色列再次发动袭击！巴基斯坦突发连环爆炸！伊朗：正在做两手准备！原油怎么走",
-      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczxrv8736946.shtml",
-      "time": "17:06",
+      "t": "伊朗代表团开始与卡塔尔代表团会谈",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieexuh9392897.shtml",
+      "time": "23:43",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗媒体：伊朗代表团拒绝与美国代表团合影",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieexuf2607958.shtml",
+      "time": "23:09",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美国与伊朗在瑞士开始就永久和平协议进行谈判",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-21/doc-inieetnk9513143.shtml",
+      "time": "23:04",
       "src": "sina_A股"
     },
     {
-      "t": "胜负彩第26087期欧洲四大机构最新数据(17:00)",
-      "u": "https://sports.sina.com.cn/l/2026-06-18/doc-inicuupz5619632.shtml",
+      "t": "高中签率，深交所最大IPO明日申购！“复兴号”供应商也来了",
+      "u": "https://finance.sina.com.cn/wm/2026-06-21/doc-inieetni2727801.shtml",
+      "time": "22:31",
+      "src": "sina_A股"
+    },
+    {
+      "t": "特朗普：或接管霍尔木兹海峡！原油暗盘跳水！",
+      "u": "https://finance.sina.com.cn/wm/2026-06-21/doc-inieetnp7598688.shtml",
+      "time": "22:29",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "特朗普称美国或收取中东地区20%的石油收益",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieetnn0822232.shtml",
+      "time": "22:26",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "明天，深交所史上最大规模IPO来了",
+      "u": "https://finance.sina.com.cn/wm/2026-06-21/doc-inieetnk9502478.shtml",
+      "time": "22:25",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "AI牛市继续，重景气选股、轻大盘指数——香江策论之数据周报",
+      "u": "https://finance.sina.com.cn/wm/2026-06-21/doc-inieetnp7599525.shtml",
+      "time": "22:22",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "传音控股发布公告 已重新提交H股上市申请并披露相关资料",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnp7597060.shtml",
+      "time": "22:12",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "高争民爆获最高1.8亿元股份回购专项贷款承诺函",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnn0820305.shtml",
+      "time": "22:12",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "中国中铁完成8亿元股份回购 所回购股份将全部注销以缩减注册资本",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnn0820856.shtml",
+      "time": "22:12",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "金价降至2025年末水平，有消费者“持金过节”，全球央行购金意愿创历史新高",
+      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-06-21/doc-inieetnn0810670.shtml",
+      "time": "21:49",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "【特朗普就黎巴嫩问题再度威胁伊朗】美国总统特朗普21日在社交媒体上发文称，伊朗必须立即停止在黎巴嫩的“代理人”行动，否则美国将会再次对伊朗发起猛烈打击，“就像上周那样，而且会更猛烈”。（新华社）",
+      "u": "https://wallstreetcn.com/livenews/3122368",
+      "time": "21:46",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "特朗普就黎巴嫩问题再度威胁伊朗",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-21/doc-inieetni2713247.shtml",
+      "time": "21:45",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "几内亚总统敦布亚宣布禁止出口黄金原矿",
+      "u": "https://wallstreetcn.com/livenews/3122367",
+      "time": "21:45",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "张坤提前两年布局三星、海力士",
+      "u": "https://finance.sina.com.cn/roll/2026-06-21/doc-inieetnk9494830.shtml",
+      "time": "21:43",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美国总统特朗普：以色列无法“干掉”（黎巴嫩）真主党，这让我感到失望。",
+      "u": "https://wallstreetcn.com/livenews/3122366",
+      "time": "21:39",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗代表团拒绝与美方握手合影",
+      "u": "https://wallstreetcn.com/livenews/3122365",
+      "time": "21:34",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国总统特朗普：与伊朗的谅解备忘录（MoU）仅仅是（之前）停火的延长而已。\n\n伊朗必须阻止在黎巴嫩的代理人（给以色列）制造麻烦。\n\n如果代理人没有被阻止，我们（美国与以色列）将再次袭击伊朗。",
+      "u": "https://wallstreetcn.com/livenews/3122364",
+      "time": "21:32",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "【万斯称美国愿与伊朗“从根本上改变双边关系”】美国副总统万斯在与伊朗举行高级别会谈前表示，美国愿意与伊朗“从根本上改变双边关系”。万斯表示，伊朗和美国领导层此前从未以如此高的级别举行会晤。万斯称：“总统要求我们开启新的篇章，改变我们与伊朗人",
+      "u": "https://wallstreetcn.com/livenews/3122362",
+      "time": "21:28",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "二战科创板！信披前后不一致，高凯技术还有一个大问题！",
+      "u": "https://finance.sina.com.cn/stock/hyyj/2026-06-21/doc-inieetnp7583363.shtml",
+      "time": "21:21",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美国总统特朗普：Pezeshkian（伊朗总统）要管好自己的嘴。",
+      "u": "https://wallstreetcn.com/livenews/3122359",
+      "time": "21:18",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "两连板001339，澄清与英伟达合作关系",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnk9497335.shtml",
+      "time": "21:12",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美国总统特朗普：必要时，美国可能会接管霍尔木兹海峡，可能会收取海峡通行费。\n\n接管海峡将意味着美国攫取20%的石油（收益）。\n\n我昨夜与伊朗官员们通话，用了脏话（expletive）。\n\n告诉伊朗人，如果关闭海峡，伊朗人民将没有国家。（福克",
+      "u": "https://wallstreetcn.com/livenews/3122357",
+      "time": "21:11",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "下周资本市场大事提醒：美伊在瑞士开始谈判 华尔街屏息以待美光科技财报 深交所史上最大规模IPO来了",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-21/doc-inieetnk9481014.shtml",
+      "time": "21:06",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "美国副总统万斯：今天的会议意味着技术磋商开始。\n\n今天与伊朗的对话不会解决所有分歧。",
+      "u": "https://wallstreetcn.com/livenews/3122353",
+      "time": "20:55",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国副总统万斯在伊朗会谈之后表示：问题在于，我们还能在中东实现多少进展。\n\n总统特朗普要求我们翻开新的篇章。\n\n最近数小时取得很大的进展。\n\n预计未来数小时还将取得更多进展。\n\n如果伊朗弃核，美国愿意转变与伊朗人民的关系。\n\n特朗普承诺推动",
+      "u": "https://wallstreetcn.com/livenews/3122351",
+      "time": "20:50",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗总统称随着谈判启动，卡塔尔将释放60亿美元资金",
+      "u": "https://wallstreetcn.com/livenews/3122349",
+      "time": "20:27",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "巴基斯坦外长Ishaq Dar：美伊双方已就降低浓缩铀丰度达成一致。\n\n伊朗的浓缩铀丰度将从60%降至0.7%。",
+      "u": "https://wallstreetcn.com/livenews/3122348",
+      "time": "20:26",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "供应链公司：已向苹果首款折叠屏iPhone小批量供货",
+      "u": "https://wallstreetcn.com/livenews/3122346",
+      "time": "20:24",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "中东股市｜周日（6月21日），沙特证交所全股指数收跌0.40%，报11076.67点。\n\n沙特阿美（ARAMCO.AB）收跌0.23%，报26.46沙特里亚尔。\n\n埃及证交所EGX 30指数收涨0.11%，报52679.45点。\n\n阿曼MS",
+      "u": "https://wallstreetcn.com/livenews/3122339",
+      "time": "20:23",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "消息人士称伊朗无意与国际原子能机构总干事谈判",
+      "u": "https://wallstreetcn.com/livenews/3122341",
+      "time": "19:48",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗消息人士：若以继续军事行动，海峡不会重开",
+      "u": "https://wallstreetcn.com/livenews/3122338",
+      "time": "19:39",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗总统办公室：谈判首要任务是结束黎以冲突",
+      "u": "https://wallstreetcn.com/livenews/3122337",
+      "time": "19:38",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗、美国和卡塔尔开会讨论黎巴嫩局势",
+      "u": "https://wallstreetcn.com/livenews/3122336",
+      "time": "19:15",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国和伊朗准备在瑞士启动关于长期停火的谈判",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-21/doc-inieeper7658741.shtml",
+      "time": "18:43",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗总统：不会制造核武器 不会放弃铀浓缩权利",
+      "u": "https://wallstreetcn.com/livenews/3122333",
+      "time": "18:13",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "中国人民银行行长潘功胜会见印度尼西亚财政部部长普尔巴亚·尤迪·萨德瓦",
+      "u": "https://wallstreetcn.com/livenews/3122329",
+      "time": "17:46",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗外交部发言人：美国未执行谅解备忘录第一条",
+      "u": "https://wallstreetcn.com/livenews/3122321",
       "time": "17:00",
-      "src": "sina_股票"
-    },
-    {
-      "t": "部分主观私募规模显著缩水",
-      "u": "https://wallstreetcn.com/livenews/3122232",
-      "time": "16:21",
       "src": "wscn_全球"
     },
     {
-      "t": "知名私募，规模腰斩",
-      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczxrv8707032.shtml",
-      "time": "15:53",
-      "src": "sina_A股"
-    },
-    {
-      "t": "新型量子传感器可探测引力波和暗物质",
-      "u": "https://wallstreetcn.com/livenews/3122228",
-      "time": "15:35",
+      "t": "伊朗外交部：伊美与调解方四方会谈将在21日下午举行",
+      "u": "https://wallstreetcn.com/livenews/3122320",
+      "time": "16:40",
       "src": "wscn_全球"
     },
     {
-      "t": "德银“向沃什投降”：今年将加息50基点，甚至可能在7月提前加息",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-20/doc-inicztix8803602.shtml",
-      "time": "14:08",
+      "t": "周六福于6月18日斥资799.57万港元回购49.61万股",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqs9747101.shtml",
+      "time": "15:24",
       "src": "sina_A股"
     },
     {
-      "t": "特朗普特使与伊朗外长均将前往瑞士举行会谈",
-      "u": "https://finance.sina.com.cn/world/2026-06-20/doc-inicztix8795454.shtml",
-      "time": "13:53",
+      "t": "均胜电子于6月18日斥资144.22万港元回购10万股",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqu1063300.shtml",
+      "time": "15:20",
       "src": "sina_A股"
     },
     {
-      "t": "以色列空袭黎南部致5人死亡",
-      "u": "https://wallstreetcn.com/livenews/3122223",
-      "time": "13:20",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "以色列再次袭击黎巴嫩南部奈拜提耶",
-      "u": "https://wallstreetcn.com/livenews/3122221",
-      "time": "12:49",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "英国拟强制Meta、YouTube等平台推送更多本地新闻内容",
-      "u": "https://wallstreetcn.com/livenews/3122220",
-      "time": "12:39",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "巴基斯坦内政部长周六将访问伊朗",
-      "u": "https://finance.sina.com.cn/world/2026-06-20/doc-inicznzv4002515.shtml",
-      "time": "12:06",
+      "t": "美高梅中国于6月18日斥资约199.14万港元回购19.82万股",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqu1061676.shtml",
+      "time": "15:15",
       "src": "sina_A股"
     },
     {
-      "t": "多家外资行：全球资本对中国市场的信心攀升，境外投资者增持中国资产的意愿持续增强",
-      "u": "https://wallstreetcn.com/livenews/3122213",
-      "time": "11:24",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗称不信任美国 正在做两手准备",
-      "u": "https://wallstreetcn.com/livenews/3122212",
-      "time": "11:10",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "五角大楼或需800亿美元为伊朗战事“埋单”",
-      "u": "https://wallstreetcn.com/livenews/3122209",
-      "time": "10:50",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "上证所公开谴责鄂尔多斯控股股东：未及时披露一致行动关系并多次增持公司股票",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-20/doc-iniczhuc8980067.shtml",
-      "time": "10:29",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "最新！美媒：伊朗外长将赴瑞士，美总统特使正在途中！猛烈抛售，英国突传大消息",
-      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-inicznzx0753061.shtml",
-      "time": "10:24",
+      "t": "知乎-W于6月17日斥资11.93万美元回购11.39万股",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqu1061307.shtml",
+      "time": "15:14",
       "src": "sina_A股"
     },
     {
-      "t": "见证历史！A股市值TOP10，有一半是科技股",
-      "u": "https://finance.sina.com.cn/stock/bxjj/2026-06-20/doc-iniczhua2193315.shtml",
-      "time": "09:59",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "芯片股狂欢周！美股基金流入创新高，日经7万点，韩股一年涨两倍",
-      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhtx4073888.shtml",
-      "time": "09:42",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "短期看跌！美联储“吓坏”高盛：大幅下调金价预期",
-      "u": "https://finance.sina.com.cn/roll/2026-06-20/doc-iniczhtx4072005.shtml",
-      "time": "09:40",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "“新美联储通讯社”：1996还是1999？沃什的第一场考验是“如何看AI”",
-      "u": "https://finance.sina.com.cn/money/forex/forexroll/2026-06-20/doc-iniczhua2187776.shtml",
-      "time": "09:35",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "美媒：美国、卡塔尔拟联手解冻伊朗百亿资金",
-      "u": "https://wallstreetcn.com/livenews/3122203",
-      "time": "09:07",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美国、卡塔尔拟向伊朗解冻数十亿美元冻结资金",
-      "u": "https://finance.sina.com.cn/world/2026-06-20/doc-iniczhtx4057136.shtml",
-      "time": "09:05",
+      "t": "赤子城科技于6月18日斥资159.07万港元回购19万股",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqr2965965.shtml",
+      "time": "15:13",
       "src": "sina_A股"
     },
     {
-      "t": "美媒：伊朗外长将赴瑞士 美总统特使正在途中",
-      "u": "https://wallstreetcn.com/livenews/3122200",
-      "time": "08:48",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "“60天耗完，他们一分钱都拿不到”！特朗普再发威胁，伊朗：美国必须确保以色列遵守谅解备忘录",
-      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczhua2160914.shtml",
-      "time": "08:34",
+      "t": "德康农牧获董事长王德根增持1万股 每股作价42.48港元",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqv7835583.shtml",
+      "time": "15:10",
       "src": "sina_A股"
     },
     {
-      "t": "国际金价惊魂跳水！美联储鹰派只是导火索，多头踩踏出逃？",
-      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczhuc8937320.shtml",
-      "time": "08:34",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "亚马逊旗下电影部门放弃拍摄有关OpenAI的电影。（纽约时报）",
-      "u": "https://wallstreetcn.com/livenews/3122199",
-      "time": "08:33",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗官员：不会在黎巴嫩停火问题上退让",
-      "u": "https://wallstreetcn.com/livenews/3122198",
-      "time": "08:25",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美联储加息悬念再起，美元指数飙至13个月新高，日本“隐形防线”面临大考",
-      "u": "https://finance.sina.com.cn/money/forex/hbfx/2026-06-20/doc-iniczanc0945806.shtml",
-      "time": "08:17",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "国际油价V型反弹，美股期货全线下跌，以色列“同意停火”后再次空袭黎巴嫩南部",
-      "u": "https://finance.sina.com.cn/wm/2026-06-20/doc-iniczanc0926246.shtml",
-      "time": "07:09",
+      "t": "中国心连心化肥获执行董事闫蕴华增持10.4万股 每股作价约10.32港元",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqu1059157.shtml",
+      "time": "15:10",
       "src": "sina_A股"
     },
     {
-      "t": "6月20日隔夜要闻：特朗普对伊朗协议定调 意在驳斥美国失败论 油价上涨 美伊核谈遇阻且油轮通行放缓",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-iniczanc0922174.shtml",
-      "time": "07:02",
+      "t": "恒安国际获执行董事许大座增持10万股 每股作价约24.14港元",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqs9740965.shtml",
+      "time": "15:09",
       "src": "sina_A股"
     },
     {
-      "t": "*ST集友: *ST集友:集友股份关于筹划重大资产重组的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/603429.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "603429 *ST集友"
-    },
-    {
-      "t": "*ST集友: *ST集友:集友股份关于控股股东、实际控制人拟协议转让部分公司股份暨可能发生权益变动的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/603429.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "603429 *ST集友"
-    },
-    {
-      "t": "长江通信: 长江通信:长江通信关于发行股份购买资产并募集配套资金暨关联交易之标的资产业绩承诺期满减值测试情况的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600345.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "600345 长江通信"
-    },
-    {
-      "t": "长江通信: 长江通信:武汉长江通信产业集团股份有限公司关于重大资产重组标的资产减值测试审核报告",
-      "u": "https://data.eastmoney.com/notices/detail/600345.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "600345 长江通信"
-    },
-    {
-      "t": "*ST正平: *ST正平:正平股份关于股票交易的风险提示公告",
-      "u": "https://data.eastmoney.com/notices/detail/603843.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "603843 *ST正平"
-    },
-    {
-      "t": "ST美克: ST美克:美克国际家居用品股份有限公司关于子公司被法院裁定受理清算暨指定管理人的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600337.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "600337 ST美克"
-    },
-    {
-      "t": "阿拉丁: 阿拉丁:阿拉丁关于股东减持股份计划公告",
-      "u": "https://data.eastmoney.com/notices/detail/688179.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "688179 阿拉丁"
-    },
-    {
-      "t": "*ST禾信: *ST禾信:2026年第二次临时股东会决议公告",
-      "u": "https://data.eastmoney.com/notices/detail/688622.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "688622 *ST禾信"
-    },
-    {
-      "t": "*ST禾信: *ST禾信:关于为全资子公司提供担保的公告",
-      "u": "https://data.eastmoney.com/notices/detail/688622.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "688622 *ST禾信"
-    },
-    {
-      "t": "*ST禾信: *ST禾信:北京市中伦(广州)律师事务所关于广州禾信仪器股份有限公司2026年第二次临时股东会的法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/688622.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "688622 *ST禾信"
-    },
-    {
-      "t": "ST洲际: ST洲际:洲际油气股份有限公司关于控股股东被申请破产清算的进展公告",
-      "u": "https://data.eastmoney.com/notices/detail/600759.html",
-      "time": "06-19",
-      "src": "em_announcement",
-      "s": "600759 ST洲际"
-    },
-    {
-      "t": "伊朗副外长：美国必须确保以色列遵守谅解备忘录",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-20/doc-inicyweh2347334.shtml",
-      "time": "04:24",
+      "t": "旭日企业获董事长杨振鑫增持1.2万股 每股作价1.35港元",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqs9740664.shtml",
+      "time": "15:08",
       "src": "sina_A股"
     },
     {
-      "t": "伊朗副外长：美国须约束以色列遵守美伊谅解备忘录",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicyrwk2463122.shtml",
-      "time": "03:29",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国国务院：黎巴嫩和以色列将于6月23-25日在华盛顿会谈",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicyrwk2440984.shtml",
-      "time": "01:57",
-      "src": "sina_A股"
-    },
-    {
-      "t": "欧洲股市因伊朗推迟谈判下跌 诺和诺德股价逆势大涨",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-20/doc-inicyrwk2440138.shtml",
-      "time": "01:54",
+      "t": "贝克微获Asian Equity Special Opportunities Portfolio Master Fund Limited增持2.13万股",
+      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-06-21/doc-inieeaqv7833739.shtml",
+      "time": "15:06",
       "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-20 19:02 CST",
-    "sector": 9,
-    "market": 45,
+    "updated": "2026-06-22 01:40 CST",
+    "sector": 13,
+    "market": 70,
     "match_sectors": [
-      "AI芯片",
-      "五粮液",
+      "中际旭创",
       "保险",
-      "存储",
-      "茅台",
-      "银行",
-      "黄金"
+      "六氟化钨",
+      "券商",
+      "医药",
+      "半导体",
+      "服务器",
+      "算力",
+      "钨",
+      "铜",
+      "铜箔",
+      "铝",
+      "银行"
     ]
   },
   "sectorStocks": {},
   "sectorTags": {
-    "AI芯片": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "CPO/硅光": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "光模块": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "AI芯片": "🟡 平盘 | 🔥 字节跳动采购5万颗国产AI芯片+英伟达G",
+    "CPO/硅光": "🟡 平盘 | 🔥 中际旭创市值超茅台称王A股(1.5万亿)",
+    "光模块": "🟡 平盘 | 🟢 800G光模块订单4500万只+1.6T",
     "光纤光缆": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "连接器/铜连接": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "PCB/覆铜板": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "MLCC电容": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "PCB/覆铜板": "🟡 平盘 | 🟢 电子板块周涨+17.49%领涨全市场，A",
+    "MLCC电容": "🟡 平盘 | 🟢 AI驱动涨价周期启动，村田/三星电机大手",
     "电子树脂/PPE": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "电子铜箔": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "HBM/存储芯片": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "HBM/存储芯片": "🟡 平盘 | 🟢 Q2 DRAM涨58-63%+NAND涨",
     "AI服务器/超节点": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "液冷散热": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "交换机/网络": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -13446,21 +13867,21 @@
     "数据中心/AIDC": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "半导体设备": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "光刻胶": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "先进封装CoWoS": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "先进封装CoWoS": "🟡 平盘 | 🟢 台积电CoWoS产能持续扩张+玻璃基板封",
     "半导体硅片": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "六氟化钨WF₆": "🟡 平盘 | 六氟化钨WF₆",
-    "玻璃基板TGV": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "玻璃基板TGV": "🟡 平盘 | 🟢 台积电公开玻璃基板应用进展，沃格光电成都",
     "培育钻石/散热": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "超导/核聚变": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "碳纤维": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "碳纤维": "🟡 平盘 | 🟢 低空经济+eVTOL放量拉动T800碳纤",
     "算电协同": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "电网设备/特高压": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "火电/电力运营": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "算力租赁/GPU云": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "Token工厂/模型推理": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "稀土永磁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "稀土永磁": "🟡 平盘 | 🔥 章源钨业连涨两轮长单价(累+20%)+矿",
     "钼/小金属": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电子特气/工业气体": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电子特气/工业气体": "🟡 平盘 | 🟢 WF₆供需紧张外溢，电子特气板块整体受益",
     "半导体靶材": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "AI眼镜/AR硬件": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "AI智能体/应用": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
@@ -13999,5 +14420,14 @@
       "603658 安图生物",
       "002223 鱼跃医疗"
     ]
+  },
+  "_eventsMeta": {
+    "updated": "2026-06-22 01:41 CST",
+    "total": 56,
+    "hand": 48,
+    "macro": 8,
+    "ai": 0,
+    "schedule": "daily at 10:00 CST",
+    "source": "NBS 2026 schedule + AI sentinel news + hand-curated"
   }
 }
