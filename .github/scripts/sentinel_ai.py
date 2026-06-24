@@ -115,6 +115,46 @@ def build_prompt(d):
     winners_str = '\n'.join([f"  {w['s']}: {w.get('stks','')[:100]}" for w in winners[:6]])
     losers_str = '\n'.join([f"  {l['s']}: {l.get('stks','')[:100]}" for l in losers[:6]])
 
+    # ── ⭐ NEW: 北向资金 ──
+    nb = d.get('northbound', {})
+    nb_str = ''
+    if nb.get('points', 0) > 0:
+        nb_str = f"北向资金: 沪股通{nb.get('hgt_yi',0)}亿 深股通{nb.get('sgt_yi',0)}亿 合计净{nb.get('net_yi',0)}亿 | 状态:{nb.get('status','?')}"
+    else:
+        nb_str = f"北向资金: 暂无实时数据 ({nb.get('status','?')})"
+
+    # ── ⭐ NEW: 同花顺热点归因 Top10 ──
+    hot = d.get('_hotReasons', {})
+    hot_str = ''
+    if hot.get('total', 0) > 0:
+        hot_tags = ', '.join([f"{t['tag']}({t['count']})" for t in hot.get('topReasons', [])[:10]])
+        hot_str = f"热点题材频率: {hot_tags}"
+        hot_top5 = hot.get('stocks', [])[:5]
+        if hot_top5:
+            hot_str += '\n热点Top5: ' + ' | '.join([f"{s['c']} {s['n']} {s['reason']} +{s['chg']}%" for s in hot_top5])
+    else:
+        hot_str = f"热点归因: {hot.get('status','暂无')}"
+
+    # ── ⭐ NEW: 龙虎榜摘要 ──
+    lhbf = d.get('lhbFull', {})
+    lhb_str = ''
+    if lhbf.get('total', 0) > 0:
+        top_lhb = lhbf.get('stocks', [])[:8]
+        lhb_str = f"龙虎榜{lhbf['total']}条, 净买Top8:\n"
+        lhb_str += '\n'.join([f"  {s['c']} {s['n']} 净买{s['net']}万 {s.get('reason','')[:20]} 涨跌{s.get('chg',0)}%" for s in top_lhb])
+    else:
+        lhb_str = '龙虎榜: 今日无数据'
+
+    # ── ⭐ NEW: 解禁预警 ──
+    lockup = d.get('lockupAlerts', {})
+    lockup_str = ''
+    if lockup.get('alerts'):
+        top_lockup = lockup['alerts'][:5]
+        lockup_str = f"未来90天解禁: {len(lockup['alerts'])}批, 重点关注:\n"
+        lockup_str += '\n'.join([f"  {a['d']} {a['c']} {a['n']} {a['type']} {a['shares']}万股({a['ratio']}%)" for a in top_lockup])
+    else:
+        lockup_str = '解禁预警: 未来90天无重大解禁'
+
     # Read recent real news for the AI to reference (two channels)
     ns = d.get('_newsSector', [])[:15]
     nm = d.get('_newsMarket', [])[:10]
@@ -150,6 +190,18 @@ def build_prompt(d):
 
 ═══ 25大热力板块 ═══
 {heat_str}
+
+═══ ⭐ 北向资金(新增) ═══
+{nb_str}
+
+═══ ⭐ 同花顺热点归因(新增) ═══
+{hot_str}
+
+═══ ⭐ 龙虎榜Top8(新增) ═══
+{lhb_str}
+
+═══ ⭐ 解禁预警(新增) ═══
+{lockup_str}
 
 ═══ 你的任务 ═══
 

@@ -30,6 +30,8 @@ jobs:
         run: python .github/scripts/discover_sectors.py
       - name: Score sectors
         run: python .github/scripts/score_sectors.py
+      - name: Enrich data (北向/龙虎榜/解禁/热点/融资融券)
+        run: python .github/scripts/fetch_enrich.py
       - name: Build events + layout
         run: python .github/scripts/fetch_events.py
       - name: Commit and push
