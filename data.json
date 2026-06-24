@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-24 19:33 CST",
+  "updated": "2026-06-25 06:44 CST (enriched)",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1980334,
+  "updateCount": 1980378,
   "recap": {
     "index": [
       {
@@ -150,7 +150,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-24 19:32",
+      "updated": "2026-06-25 06:43",
       "tiers": [
         {
           "boardCount": 4,
@@ -870,7 +870,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/24 19:32 GitHub Actions云更新 | 468只 | 6板块",
+    "note": "06/25 06:43 GitHub Actions云更新 | 460只 | 0板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -2832,16 +2832,16 @@
     "cloud": true,
     "autoUpdate": true,
     "interval": "15min",
-    "stockCount": 468,
-    "liveCount": 100,
-    "updateCount": 1980334,
+    "stockCount": 460,
+    "liveCount": 0,
+    "updateCount": 1980378,
     "trading": false
   },
   "sectors": [
     {
       "name": "AI芯片",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -2871,7 +2871,7 @@
     {
       "name": "PCB/覆铜板",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -2895,7 +2895,7 @@
     {
       "name": "HBM/存储芯片",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -2925,7 +2925,7 @@
     {
       "name": "数据中心/AIDC",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -2943,7 +2943,7 @@
     {
       "name": "算力租赁/GPU云",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -2960,8 +2960,8 @@
     },
     {
       "name": "半导体设备",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -2973,7 +2973,7 @@
     {
       "name": "先进封装CoWoS",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -3039,13 +3039,13 @@
     {
       "name": "人形机器人",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
       "name": "商业航天",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -3147,7 +3147,7 @@
     {
       "name": "黄金/贵金属",
       "sig": "good",
-      "msg": "板块均涨+0.0%，6条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -3171,13 +3171,13 @@
     {
       "name": "银行",
       "sig": "good",
-      "msg": "板块均涨+0.0%，7条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
       "u": ""
     },
     {
       "name": "券商",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -3189,7 +3189,7 @@
     {
       "name": "房地产开发",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -3207,7 +3207,7 @@
     {
       "name": "医药/CRO",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -3290,7 +3290,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-25 00:03 CST",
+    "updated": "2026-06-25 06:44 CST",
     "top3": [
       {
         "r": 1,
@@ -3311,7 +3311,387 @@
         ]
       }
     ],
-    "picks": []
+    "picks": [],
+    "sectors": [
+      {
+        "name": "AI芯片",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "CPO/硅光",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "光模块",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "光纤光缆",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "连接器/铜连接",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "PCB/覆铜板",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "MLCC电容",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电子树脂/PPE",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电子铜箔",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "HBM/存储芯片",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "AI服务器/超节点",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "液冷散热",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "交换机/网络",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电源/DrMOS",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "数据中心/AIDC",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "算电协同",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电网设备/特高压",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "算力租赁/GPU云",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "Token工厂/模型推理",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "火电/电力运营",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "半导体设备",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "u": ""
+      },
+      {
+        "name": "光刻胶",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "先进封装CoWoS",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "半导体硅片",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "半导体靶材",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "六氟化钨WF6",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "玻璃基板TGV",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "培育钻石/散热",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "超导/核聚变",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "稀土永磁",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "钼/小金属",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "碳纤维",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "电子特气/工业气体",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "人形机器人",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "商业航天",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "u": ""
+      },
+      {
+        "name": "6G/通信",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "固态电池",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "低空经济eVTOL",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "空间计算/物理AI",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "AI眼镜/AR硬件",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "AI智能体/应用",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "核电/核能",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "量子计算/量子科技",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "卫星互联网/北斗",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "锂矿/盐湖提锂",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "锂电池/电解液",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "光伏/太阳能",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "风电",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "储能",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "新能源汽车",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "煤炭",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "黄金/贵金属",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "u": ""
+      },
+      {
+        "name": "铜铝有色",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "化工",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "钢铁",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "银行",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+        "u": ""
+      },
+      {
+        "name": "券商",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "保险",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "房地产开发",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "白酒",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "食品饮料",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "医药/CRO",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      },
+      {
+        "name": "医疗器械",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "u": ""
+      }
+    ]
   },
   "events": [
     {
@@ -11155,426 +11535,72 @@
   ],
   "_newsSector": [
     {
-      "t": "3万亿新纪录！芯片行情极致演绎，159131爆量冲高5%，资金加速涌入1.5亿份，港股医药强势回血",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-24/doc-iniepeiu6249408.shtml",
-      "time": "19:30",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "MHMarkets迈汇:黄金预期下修仍留弹性",
-      "u": "https://finance.sina.com.cn/money/future/roll/2026-06-24/doc-iniepeir8271259.shtml",
-      "time": "19:24",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "台积电涨价引爆！先进封装环节活跃，长电科技登顶A股吸金榜！电子ETF华宝（515260）反包大涨4.57%逼近前高",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-24/doc-iniepeir8270633.shtml",
-      "time": "19:23",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "尾盘突发，兆易创新涨停，天孚通信急拉！华宝基金科技ETF收涨3.67%创新高，159363单日大举吸金",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-24/doc-iniepeir8269904.shtml",
-      "time": "19:22",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "黄金大跌！又一投行下调目标价",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeir8268995.shtml",
-      "time": "19:01",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "大反弹！港股存储、半导体大涨",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeiq1471410.shtml",
-      "time": "18:41",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "邦达亚洲:华尔街投行下调金价预期 黄金刷新8日低位",
-      "u": "https://finance.sina.com.cn/money/forex/forexfxyc/2026-06-24/doc-iniepeir8244518.shtml",
-      "time": "18:39",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "17家商业银行共计发行“二永债”9800亿元",
-      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-06-24/doc-iniepeiu6224601.shtml",
-      "time": "18:37",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "17家商业银行，共计发行9800亿元！",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeiw3000983.shtml",
-      "time": "18:37",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "中国进出口银行副行长王康应邀出席第四届链博会供应链服务主题活动",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeiu6220020.shtml",
-      "time": "18:32",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "瑞丰银行：张玉璐董事任职资格获核准",
-      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-24/doc-iniepeiu6209875.shtml",
-      "time": "18:19",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "科创50再创新高！券商提醒：估值已处历史高位，7月“业绩验金”时刻即将来临",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeiq1449900.shtml",
-      "time": "18:10",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "多家大银行被点名，审计报告有什么警示？",
-      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-24/doc-iniepeiw3020712.shtml",
-      "time": "18:09",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "黄金投资再念“紧箍咒” 国有大行叫停个人竞价交易",
-      "u": "https://finance.sina.com.cn/roll/2026-06-24/doc-iniepeiu6212586.shtml",
-      "time": "18:09",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "庞淑钦任中国进出口银行上海分行党委书记、行长",
-      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-24/doc-iniepeir8222852.shtml",
-      "time": "18:08",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "果汁厂跨界PCB！安德利：溢价5倍接盘亏损资产，实控人已套现5.7亿",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeiu6203872.shtml",
-      "time": "18:04",
+      "t": "大宗商品综述：油价延续跌势 黄金跌破4000美元 工业金属继续下滑",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvk2670276.shtml",
+      "time": "06:39",
       "src": "sina_A股"
     },
     {
-      "t": "三大指数集体收涨，市场主线再度聚焦半导体，机构：短线或仍以震荡分化为主| 华宝基金3A日报（2026.6.24）",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-24/doc-iniepeiq1441361.shtml",
-      "time": "18:01",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "马斯克再施金融炼金术：给SpaceX添债数十亿美元 利息负担反减轻",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeiu6184584.shtml",
-      "time": "17:39",
+      "t": "6月25日隔夜要闻：黄金跌破4000美元 油价回吐战时涨幅 比特币跌破6万美元 小摩下调特斯拉Q2汽车交付预期",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvk2656058.shtml",
+      "time": "06:30",
       "src": "sina_A股"
     },
     {
-      "t": "安博166.3亿美元收购英国物流地产商塞格鲁遭拒",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeir8200402.shtml",
-      "time": "17:31",
+      "t": "6月25日外盘头条：美光盘后股价大涨 营收翻四倍 谷歌又有两名AI干将跳槽Anthropic 美大型银行通过压力测试",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvc7886813.shtml",
+      "time": "05:30",
       "src": "sina_A股"
     },
     {
-      "t": "人形机器人制造商Agility公司将通过25亿美元SPAC交易上市",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeir8197957.shtml",
-      "time": "17:26",
+      "t": "美联储压力测试显示：在资本规则改革之际，美国银行业可承受7080亿美元的损失",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvc7865761.shtml",
+      "time": "04:39",
       "src": "sina_A股"
     },
     {
-      "t": "4000美元关口，黄金守得住吗？",
-      "u": "https://finance.sina.com.cn/roll/2026-06-24/doc-inienxzy3075642.shtml",
-      "time": "17:07",
+      "t": "SpaceX投资者David George看好星舰 称发展太空AI算力不可避免",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpn2738174.shtml",
+      "time": "04:31",
       "src": "sina_A股"
     },
     {
-      "t": "黄金、白银大涨大跌！多家银行宣布：停办！",
-      "u": "https://finance.sina.com.cn/roll/2026-06-24/doc-inienxzy3075446.shtml",
-      "time": "17:01",
+      "t": "美国大型银行通过美联储压力测试 为派息和回购铺平道路",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpe1216536.shtml",
+      "time": "04:30",
+      "src": "sina_A股"
+    },
+    {
+      "t": "高通拿下Meta数据中心处理器订单 AI硬件业务取得突破",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpf7975755.shtml",
+      "time": "03:35",
+      "src": "sina_A股"
+    },
+    {
+      "t": "SpaceX发行的250亿美元债券走弱 长期债券领跌",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfh1295699.shtml",
+      "time": "01:49",
+      "src": "sina_A股"
+    },
+    {
+      "t": "半导体板块逆大盘上涨行情走弱",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfh1262580.shtml",
+      "time": "00:26",
+      "src": "sina_A股"
+    },
+    {
+      "t": "OpenAI和博通开发首款定制化人工智能芯片 比传统GPU节省约50%成本",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfq2783555.shtml",
+      "time": "00:23",
       "src": "sina_A股"
     }
   ],
   "_newsMarket": [
     {
-      "t": "跨境TRS新增规模被叫停，私募紧急应对，海外科技投资或受影响",
-      "u": "https://wallstreetcn.com/livenews/3124013",
-      "time": "19:28",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "CXO成反弹急先锋？高CXO含量港股通医疗ETF华宝（159137）盘中劲涨5.44%！创新药同步回血，520880上探4%",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-24/doc-iniepeiq1495055.shtml",
-      "time": "19:26",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "现货白银失守60美元/盎司，创去年12月以来新低",
-      "u": "https://wallstreetcn.com/livenews/3124011",
-      "time": "19:16",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "现货白银日内跌幅达2.0%，报60.25美元/盎司。",
-      "u": "https://wallstreetcn.com/livenews/3124010",
-      "time": "19:14",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗外交部：暂无允许国际原子能机构检查核设施的计划",
-      "u": "https://wallstreetcn.com/livenews/3124001",
-      "time": "18:58",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "央行：6月25日将开展5000亿元MLF操作 期限为1年期",
-      "u": "https://finance.sina.com.cn/china/2026-06-24/doc-iniepeir8255935.shtml",
-      "time": "18:56",
-      "src": "sina_A股"
-    },
-    {
-      "t": "南华期货：拟制定回购总金额不超过港币1.3亿元的H股回购方案。",
-      "u": "https://wallstreetcn.com/livenews/3124000",
-      "time": "18:56",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "亿纬锂能：截至本公告披露日，公司全资孙公司EBIL收到参股公司思摩尔国际现金分红款3.75亿港币。",
-      "u": "https://wallstreetcn.com/livenews/3123998",
-      "time": "18:56",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "央行：6月25日开展5000亿元MLF操作",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-24/doc-iniepeir8258174.shtml",
-      "time": "18:53",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "中国央行：6月25日将开展5000亿元MLF操作",
-      "u": "https://wallstreetcn.com/livenews/3123993",
-      "time": "18:53",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "中芯国际：发行股份购买中芯北方49%股权实施完成，新增股份5.47亿股上市",
-      "u": "https://wallstreetcn.com/livenews/3123992",
-      "time": "18:48",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "传音控股港股IPO三重压力？巨头环伺净利腰斩现金流恶化 控股股东套现机构被套",
-      "u": "https://finance.sina.com.cn/stock/observe/2026-06-24/doc-iniepeiw3001189.shtml",
-      "time": "18:43",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "圣阳股份：截至目前，公司液冷储能系统产品处于市场化推广与应用落地推进阶段，已中标项目，尚未完成交付，亦未形成营业收入；公司钠离子电池产品、固态电池产品已完成第三方机构验证测试，目前处于典型场景试点应用阶段，尚未产生营业收入，距离批量化生产仍",
-      "u": "https://wallstreetcn.com/livenews/3123988",
-      "time": "18:39",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "四方精创：发行境外上市H股股份获得中国证监会备案。",
-      "u": "https://wallstreetcn.com/livenews/3123985",
-      "time": "18:38",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "工信部公开征求《闪烁晶体用稀土氧化物》等37项行业标准报批意见。",
-      "u": "https://wallstreetcn.com/livenews/3123984",
-      "time": "18:37",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "工信部公开征求《脑机接口信息系统脑电数据格式要求》等5项通信行业标准报批意见。",
-      "u": "https://wallstreetcn.com/livenews/3123983",
-      "time": "18:37",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "沃尔玛斥资14亿美元收购的广告科技公司估值水平究竟高不高",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeiq1463088.shtml",
-      "time": "18:33",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国国务卿卢比奥与阿联酋总统讨论伊朗谅解备忘录、国防和商务事宜。（彭博）",
-      "u": "https://wallstreetcn.com/livenews/3123980",
-      "time": "18:31",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "获美国政府资金扶持、由前英特尔CEO掌舵的芯片制造初创企业拟融资3.5亿美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeiq1460596.shtml",
-      "time": "18:30",
-      "src": "sina_A股"
-    },
-    {
-      "t": "3万亿大挪移！“老大哥”被取代，这个方向正在被抢筹",
-      "u": "https://finance.sina.com.cn/stock/roll/2026-06-24/doc-iniepeiu6218013.shtml",
-      "time": "18:29",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "泸州老窖推低度新品“28度高光”，6月25日上市！公司回应：电商平台主卖，线下也有售卖",
-      "u": "https://finance.sina.com.cn/roll/2026-06-24/doc-iniepeiw2991569.shtml",
-      "time": "18:25",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "安联：约1250亿美元船舶及货物滞留波斯湾",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeir8233666.shtml",
-      "time": "18:23",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英镑兑美元下跌0.4%至1.3156，触及去年11月26日以来的最低水平。",
-      "u": "https://wallstreetcn.com/livenews/3123976",
-      "time": "18:22",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "印度：印美两国对双边贸易协定（BTA）核心要素进行了全面审议。\n\n印美就扩大市场准入和数字贸易展开会谈。\n\n印美讨论削减非关税壁垒及供应链问题。\n\n印美会谈聚焦达成临时协议的路径。\n\n印美会谈重申对达成平衡协议的承诺。\n\n印美重申扩大双边贸",
-      "u": "https://wallstreetcn.com/livenews/3123975",
-      "time": "18:21",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "中国企业数据资产入表最新报告：非上市公司入表增速放缓，上市公司入表稳步增长",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-24/doc-iniepeir8223498.shtml",
-      "time": "18:09",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "SK海力士申请美国IPO",
-      "u": "https://wallstreetcn.com/livenews/3123965",
-      "time": "18:07",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "乌克兰称袭击俄罗斯奥伦堡天然气处理厂",
-      "u": "https://wallstreetcn.com/livenews/3123964",
-      "time": "18:04",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "中央国债登记结算有限责任公司发布民营企业再贷款业务操作指引",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-24/doc-iniepeiw2974073.shtml",
-      "time": "18:02",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "商务部部长助理张力会见沙特国际电力和水务公司董事长阿布纳扬",
-      "u": "https://wallstreetcn.com/livenews/3123956",
-      "time": "17:59",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "商务部：发挥举报对出口管制违法违规行为的监督作用是国际通行做法",
-      "u": "https://wallstreetcn.com/livenews/3123954",
-      "time": "17:56",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "SK海力士拟发行45.45万亿韩元新存托凭证",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeiq1437575.shtml",
-      "time": "17:54",
-      "src": "sina_A股"
-    },
-    {
-      "t": "年内暴涨1771%！智谱又考虑融一大笔钱，规模远超IPO募资",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-24/doc-iniepeir8217770.shtml",
-      "time": "17:52",
-      "src": "sina_A股"
-    },
-    {
-      "t": "【五部门联合启动工业5G独立专网试点】工业和信息化部今天（24日）联合国务院国资委等五部门共同启动工业5G独立专网试点，通过机制创新支持5G深度赋能关键行业领域。工业5G独立专网是指由工业企业主导建设接入网、核心网等关键设施，可不依赖于公共",
-      "u": "https://wallstreetcn.com/livenews/3123950",
-      "time": "17:50",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "三星回应将回购价值近90万亿韩元的股票用于发放奖金：正在考虑，细节尚未确定",
-      "u": "https://wallstreetcn.com/livenews/3123946",
-      "time": "17:46",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "昀冢科技：控股子公司拟设立项目公司实施高性能多层片式陶瓷电容器生产项目，拟投资总额为15亿元",
-      "u": "https://wallstreetcn.com/livenews/3123945",
-      "time": "17:41",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "德国企业信心因寄望伊朗紧张局势缓和而小幅走高",
-      "u": "https://finance.sina.com.cn/world/2026-06-24/doc-iniepeir8205621.shtml",
-      "time": "17:39",
-      "src": "sina_A股"
-    },
-    {
-      "t": "软银孙正义寄望“超级AI” 瞄准6.189万亿美元净资产价值",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeiu6182348.shtml",
-      "time": "17:35",
-      "src": "sina_A股"
-    },
-    {
-      "t": "4万亿企业年金，3年赚了11.31%，更多打工人有望受益",
-      "u": "https://finance.sina.com.cn/wm/2026-06-24/doc-iniepeiw2956262.shtml",
-      "time": "17:26",
-      "src": "sina_A股"
-    },
-    {
-      "t": "布伦特原油跌破76美元，创伊朗冲突爆发以来最低价位",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-iniepeir8192608.shtml",
-      "time": "17:17",
-      "src": "sina_A股"
-    },
-    {
-      "t": "全球股市大跌后科技股反弹，三星大涨9%",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-inienxzs1543450.shtml",
-      "time": "17:13",
-      "src": "sina_A股"
-    },
-    {
-      "t": "SK海力士美股上市拟定于7月10日",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-inienxzw6291597.shtml",
-      "time": "17:03",
-      "src": "sina_A股"
-    },
-    {
       "t": "胜负彩第26088期欧洲四大机构最新数据(17:00)",
       "u": "https://sports.sina.com.cn/l/2026-06-22/doc-iniefuxw9054582.shtml",
       "time": "17:00",
       "src": "sina_股票"
-    },
-    {
-      "t": "【LPG半年报】在战争中寻找新的稳态",
-      "u": "https://finance.sina.com.cn/money/future/fmnews/2026-06-24/doc-inienxzs1543890.shtml",
-      "time": "16:53",
-      "src": "sina_A股"
-    },
-    {
-      "t": "【甲醇半年报】协议达成 产业格局转变",
-      "u": "https://finance.sina.com.cn/money/future/fmnews/2026-06-24/doc-inienxzt8320963.shtml",
-      "time": "16:53",
-      "src": "sina_A股"
-    },
-    {
-      "t": "德国10年期国债收益率跌至三个月低点 油价回落至美伊冲突前水平",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-inienxzs1526754.shtml",
-      "time": "16:47",
-      "src": "sina_A股"
-    },
-    {
-      "t": "机构：美联储政策观察标尺转向温和，中长期看好金价中枢抬升",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-24/doc-inienxzs1527187.shtml",
-      "time": "16:45",
-      "src": "sina_A股"
-    },
-    {
-      "t": "安永：上半年香港IPO募资已超2000亿港元 位居全球第二",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-24/doc-inienxzw6284674.shtml",
-      "time": "16:42",
-      "src": "sina_A股"
-    },
-    {
-      "t": "军工巨头KNDS计划登陆巴黎、法兰克福两地交易所上市",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-24/doc-inienxzs1521547.shtml",
-      "time": "16:40",
-      "src": "sina_A股"
     },
     {
       "t": "伊朗国脚喊话：比利时说刷净胜球，我们不能被羞辱",
@@ -11583,28 +11609,292 @@
       "src": "sina_股票"
     },
     {
-      "t": "*ST西旅: *ST西旅:关于西安旅游股份有限公司2026年第四次临时股东会的法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/000610.html",
-      "time": "06-25",
-      "src": "em_announcement",
-      "s": "000610 *ST西旅"
+      "t": "A股公司年度“红包”派发进行时，“双创”板块成现金分红硬核力量",
+      "u": "https://wallstreetcn.com/livenews/3124274",
+      "time": "06:39",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "科特迪瓦从国际货币基金组织（IMF）解锁8.328亿美元资金支持，此前IMF完成了对该国的（财政健康状况）评估。",
+      "u": "https://wallstreetcn.com/livenews/3124271",
+      "time": "06:33",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "直接融资势头超过信贷，金融“脱媒”深化倒逼银行转型",
+      "u": "https://wallstreetcn.com/livenews/3124269",
+      "time": "06:31",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "资金涌入科技成长ETF",
+      "u": "https://wallstreetcn.com/livenews/3124268",
+      "time": "06:25",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "年内净自购逾70亿元，公募基金释放看多信号",
+      "u": "https://wallstreetcn.com/livenews/3124266",
+      "time": "06:23",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "中长期美债收益率跌超10个基点",
+      "u": "https://wallstreetcn.com/livenews/3124265",
+      "time": "06:23",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "多家A股公司主动补税，折射企业税务合规新常态",
+      "u": "https://wallstreetcn.com/livenews/3124263",
+      "time": "06:16",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "严控风格漂移，公募分阶段纠偏“盲盒基金”",
+      "u": "https://wallstreetcn.com/livenews/3124262",
+      "time": "06:15",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美元复苏，新兴市场货币连续第五个交易日下跌",
+      "u": "https://wallstreetcn.com/livenews/3124260",
+      "time": "06:02",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "纳指期货亚太盘初涨2.2%，美光科技给出的业绩展望强劲",
+      "u": "https://wallstreetcn.com/livenews/3124259",
+      "time": "06:01",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "渣打：美国经济的“例外论”可能会支撑美元走强",
+      "u": "https://wallstreetcn.com/livenews/3124258",
+      "time": "05:47",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "特朗普政府向国会申请876亿美元追加拨款，主要用于伊朗战争相关支出",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfva1119437.shtml",
+      "time": "05:45",
+      "src": "sina_A股"
+    },
+    {
+      "t": "原油：油价回吐战时涨幅 更多油轮通过霍尔木兹海峡",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvk2636557.shtml",
+      "time": "05:40",
+      "src": "sina_A股"
+    },
+    {
+      "t": "保护消费者免受数据中心成本影响的美国法案获推进",
+      "u": "https://wallstreetcn.com/livenews/3124253",
+      "time": "05:29",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "北约秘书长吕特：与美国总统特朗普的会谈情况不错。\n\n特朗普致力于北约联盟，希望盟友们增加（军费）开支。",
+      "u": "https://wallstreetcn.com/livenews/3124252",
+      "time": "05:25",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "纽约汇市：美元指数升至七个月高点 美联储加息押注盖过油价影响",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvh5850895.shtml",
+      "time": "05:22",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美光：预计存储芯片供应紧张将持续至2027财年之后，预计将在2028年逐步改善。\n\n还“看不到”供应将在何时追赶上需求。",
+      "u": "https://wallstreetcn.com/livenews/3124251",
+      "time": "05:22",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "特朗普政府寻求6.72亿美元用于移除伊朗核材料",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfva1106252.shtml",
+      "time": "05:21",
+      "src": "sina_A股"
+    },
+    {
+      "t": "在美股时段交易的费城金银指数收跌4.10%，报313.41点。\n\n在全球市场全天交易的纽约证交所ARCA金矿开采商指数跌3.91%，报2152.67点，北京时间21:30美股开盘之前维持微幅下跌状态、持稳于2228点附近，之后持续扩大跌幅、",
+      "u": "https://wallstreetcn.com/livenews/3124250",
+      "time": "05:19",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "6月25日美股成交额前20：美光科技盘后大涨 营收翻两番 毛利率跃升近85%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-inieqfvk2623278.shtml",
+      "time": "05:15",
+      "src": "sina_A股"
+    },
+    {
+      "t": "周三（6月24日）纽约尾盘，标普500股指期货最终涨0.58%，道指期货涨0.59%，纳斯达克100股指期货涨1.49%。\n\n罗素2000股指期货涨0.79%。",
+      "u": "https://wallstreetcn.com/livenews/3124243",
+      "time": "05:05",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "周三（6月24日）纽约尾盘（周四北京时间04:59），离岸人民币（CNH）兑美元报6.8132元，较周二纽约尾盘跌184点，日内整体交投于6.7910-6.8195元区间。",
+      "u": "https://wallstreetcn.com/livenews/3124242",
+      "time": "05:04",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "智利国家铜业公司将在投资审查中权衡资产出售事宜",
+      "u": "https://wallstreetcn.com/livenews/3124241",
+      "time": "05:03",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "纽约期金周三跌3.2%，现货黄金失守4000美元整数位心理关口，白银跌超6%",
+      "u": "https://wallstreetcn.com/livenews/3124240",
+      "time": "05:00",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "白宫要求美国国会山围绕伊朗和埃博拉疫情拨款876亿美元。",
+      "u": "https://wallstreetcn.com/livenews/3124238",
+      "time": "04:52",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "特朗普回应拒签住房法案：比任何人都懂房地产，降息才是关键",
+      "u": "https://wallstreetcn.com/livenews/3124235",
+      "time": "04:40",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国常驻联合国代表：伊朗出售石油是暂时的 制裁并未解除",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpf7994656.shtml",
+      "time": "04:32",
+      "src": "sina_A股"
+    },
+    {
+      "t": "比特币再次跌破6万美元关口 几大支撑力量均现动摇",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpn2738486.shtml",
+      "time": "04:32",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国债市：国债上涨 受油价和科技股延续跌势影响",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpk5961839.shtml",
+      "time": "04:31",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美股大类资产类ETF涨跌各异",
+      "u": "https://wallstreetcn.com/livenews/3124233",
+      "time": "04:30",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "6月25日收盘：道指转涨 纳指标普三连跌 美光发布财报盘后大涨",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpk5960061.shtml",
+      "time": "04:24",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美能源部长：美国已终结伊朗封锁霍尔木兹海峡的能力",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpn2722438.shtml",
+      "time": "03:42",
+      "src": "sina_A股"
+    },
+    {
+      "t": "比特币再次跌破6万美元关口，创下自2024年10月以来的最低水平",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpe1200083.shtml",
+      "time": "03:39",
+      "src": "sina_A股"
+    },
+    {
+      "t": "霍尔木兹海峡重开后原油供应激增 油市过剩迹象开始浮现",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpn2712362.shtml",
+      "time": "03:12",
+      "src": "sina_A股"
+    },
+    {
+      "t": "谷歌两名人工智能研发干将据悉计划跳槽至Anthropic",
+      "u": "https://finance.sina.com.cn/world/2026-06-25/doc-iniepzpn2711936.shtml",
+      "time": "03:11",
+      "src": "sina_A股"
+    },
+    {
+      "t": "欧洲央行管委Zigman：价格稳定至关重要 油价下跌会有所帮助",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpf7962179.shtml",
+      "time": "02:51",
+      "src": "sina_A股"
+    },
+    {
+      "t": "俄罗斯金融市场重挫 油价下跌与央行偏鹰立场打击投资者信心",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepzpk5929480.shtml",
+      "time": "02:51",
+      "src": "sina_A股"
+    },
+    {
+      "t": "摩根大通下调特斯拉第二季度汽车交付量预期",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfn6042448.shtml",
+      "time": "01:57",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国5年期国债中标收益率创2025年1月以来最高",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfh1297804.shtml",
+      "time": "01:55",
+      "src": "sina_A股"
+    },
+    {
+      "t": "特朗普：伊朗正在做出重大让步",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfn6031818.shtml",
+      "time": "01:29",
+      "src": "sina_A股"
+    },
+    {
+      "t": "贝森特：美伊谈判涵盖伊朗重返美元体系 强调美元主导地位至关重要",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfi8062138.shtml",
+      "time": "01:22",
+      "src": "sina_A股"
+    },
+    {
+      "t": "欧洲央行执委Schnabel称或需继续加息 以实现2%通胀目标",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfn6021941.shtml",
+      "time": "01:02",
+      "src": "sina_A股"
+    },
+    {
+      "t": "摩根大通上调标普500指数目标位至7800点，同时警示市场或出现“闪崩”",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfi8053480.shtml",
+      "time": "00:59",
+      "src": "sina_A股"
+    },
+    {
+      "t": "着手勾勒经济议程 伯纳姆团队酝酿拆分财政部并推动英国央行改革",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfq2796415.shtml",
+      "time": "00:56",
+      "src": "sina_A股"
+    },
+    {
+      "t": "谷歌进入道指后，道指风格愈发趋近纳指",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfq2796323.shtml",
+      "time": "00:56",
+      "src": "sina_A股"
+    },
+    {
+      "t": "奥多比：亚马逊会员日助力打造今年迄今为止规模最高的线上购物日",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-25/doc-iniepvfq2778173.shtml",
+      "time": "00:10",
+      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-24 19:33 CST",
-    "sector": 22,
-    "market": 67,
+    "updated": "2026-06-25 06:44 CST",
+    "sector": 10,
+    "market": 48,
     "match_sectors": [
-      "PCB",
+      "GPU",
       "SpaceX",
-      "先进封装",
-      "券商",
-      "医药",
       "半导体",
-      "地产",
-      "天孚",
-      "存储",
-      "机器人",
+      "数据中心",
+      "算力",
       "银行",
       "黄金"
     ]
@@ -11616,65 +11906,65 @@
     "光模块": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "光纤光缆": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "连接器/铜连接": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "PCB/覆铜板": "🔥 板均涨3.6% | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "PCB/覆铜板": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "MLCC电容": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电子树脂/PPE": "🔴 偏弱 -2.4% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电子铜箔": "🔥 板均涨3.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "HBM/存储芯片": "🔥 板均涨4.0% | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "电子树脂/PPE": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电子铜箔": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "HBM/存储芯片": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "AI服务器/超节点": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "液冷散热": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "交换机/网络": "🔥 板均涨3.8% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "电源/DrMOS": "🔥 板均涨6.3% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "数据中心/AIDC": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "半导体设备": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "光刻胶": "🔥 板均涨5.4% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "先进封装CoWoS": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "交换机/网络": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电源/DrMOS": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "数据中心/AIDC": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "半导体设备": "🟡 平盘 | 板块均涨+0.0%，2条相关消息，表现稳健。",
+    "光刻胶": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "先进封装CoWoS": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "半导体硅片": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "六氟化钨WF₆": "🟡 平盘 | 六氟化钨WF₆",
     "玻璃基板TGV": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "培育钻石/散热": "🟢 偏强 +1.4% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "超导/核聚变": "🔥 板均涨10.0% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "碳纤维": "🟢 偏强 +2.2% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "培育钻石/散热": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "超导/核聚变": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "碳纤维": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "算电协同": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "电网设备/特高压": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "火电/电力运营": "🔴 偏弱 -1.8% | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "算力租赁/GPU云": "🟢 偏强 +1.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "Token工厂/模型推理": "🔥 板均涨4.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "稀土永磁": "🔴 偏弱 -1.9% | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "钼/小金属": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "电子特气/工业气体": "🟢 偏强 +1.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "半导体靶材": "🔥 板均涨4.2% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "火电/电力运营": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "算力租赁/GPU云": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "Token工厂/模型推理": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "稀土永磁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "钼/小金属": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "电子特气/工业气体": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "半导体靶材": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "AI眼镜/AR硬件": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "AI智能体/应用": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "核电/核能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "量子计算/量子科技": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "卫星互联网/北斗": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "人形机器人": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "商业航天": "🔴 偏弱 -2.3% | 板块均涨+0.0%，2条相关消息，表现稳健。",
+    "商业航天": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
     "6G/通信": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "固态电池": "🟢 偏强 +2.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "低空经济eVTOL": "🔴 偏弱 -2.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "空间计算/物理AI": "🔥 板均涨5.8% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "固态电池": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "低空经济eVTOL": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "空间计算/物理AI": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "钨稀土": "🟡 平盘 | 钨稀土",
-    "锂矿/盐湖提锂": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "锂电池/电解液": "🔴 回调 -3.4% | 板块均涨+0.0%，横盘整理，等待催化。",
+    "锂矿/盐湖提锂": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "锂电池/电解液": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "光伏/太阳能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "风电": "🔴 偏弱 -1.3% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "储能": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "新能源汽车": "🔴 偏弱 -1.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "煤炭": "🔴 偏弱 -2.5% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "黄金/贵金属": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "铜铝有色": "🔴 回调 -4.1% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "化工": "🟢 偏强 +2.4% | 板块均涨+0.0%，2条相关消息，表现稳健。",
-    "钢铁": "🔴 偏弱 -1.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "银行": "🔴 偏弱 -1.7% | 板块均涨+0.0%，5条相关消息，表现稳健。",
-    "券商": "🔴 偏弱 -1.5% | 板块均涨+0.0%，2条相关消息，表现稳健。",
-    "保险": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
-    "房地产开发": "🔴 回调 -4.2% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "白酒": "🔴 偏弱 -1.2% | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "风电": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "储能": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "新能源汽车": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "煤炭": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "黄金/贵金属": "🟡 平盘 | 板块均涨+0.0%，6条相关消息，表现稳健。",
+    "铜铝有色": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "化工": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "钢铁": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "银行": "🟡 平盘 | 板块均涨+0.0%，7条相关消息，表现稳健。",
+    "券商": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "保险": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
+    "房地产开发": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "白酒": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
     "食品饮料": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。",
-    "医药/CRO": "🔥 板均涨3.6% | 板块均涨+0.0%，横盘整理，等待催化。",
-    "医疗器械": "🔴 偏弱 -2.5% | 板块均涨+0.0%，横盘整理，等待催化。"
+    "医药/CRO": "🟡 平盘 | 板块均涨+0.0%，方向不明朗，1条消息待发",
+    "医疗器械": "🟡 平盘 | 板块均涨+0.0%，横盘整理，等待催化。"
   },
   "sectorFixedStocks": {
     "AI芯片": [
@@ -12182,143 +12472,484 @@
       "002223 鱼跃医疗"
     ]
   },
+  "northbound": {
+    "date": "2026-06-25",
+    "hgt_yi": -9.28,
+    "sgt_yi": -31.1,
+    "net_yi": -40.38,
+    "points": 262,
+    "status": "实时"
+  },
+  "lhbFull": {
+    "date": "",
+    "total": 0,
+    "stocks": [],
+    "status": "无数据(非交易日?)"
+  },
+  "_hotReasons": {
+    "date": "2026-06-25",
+    "total": 46,
+    "stocks": [
+      {
+        "c": "603986",
+        "n": "兆易创新",
+        "reason": "Qt合作+存储芯片涨价+一季报大增",
+        "chg": 10.0,
+        "turnover": 8.95,
+        "amount": 3994484
+      },
+      {
+        "c": "603713",
+        "n": "密尔克卫",
+        "reason": "半导体物流+化工供应链+回购",
+        "chg": 10.0,
+        "turnover": 4.92,
+        "amount": 51903
+      },
+      {
+        "c": "603324",
+        "n": "盛剑科技",
+        "reason": "半导体附属装备+光刻胶剥离液+产品测试进展",
+        "chg": 10.01,
+        "turnover": 11.11,
+        "amount": 69905
+      },
+      {
+        "c": "600379",
+        "n": "宝光股份",
+        "reason": "氦气+电子特气+真空灭弧室+央企",
+        "chg": 9.98,
+        "turnover": 21.35,
+        "amount": 102043
+      },
+      {
+        "c": "688123",
+        "n": "聚辰股份",
+        "reason": "存储芯片+EEPROM+VPD芯片",
+        "chg": 20.0,
+        "turnover": 16.78,
+        "amount": 407843
+      },
+      {
+        "c": "603203",
+        "n": "快克智能",
+        "reason": "TCB热压键合设备+先进封装+精密焊接+光模块",
+        "chg": 10.01,
+        "turnover": 6.97,
+        "amount": 149202
+      },
+      {
+        "c": "603045",
+        "n": "福达合金",
+        "reason": "AI数据中心+电接触材料+贵金属循环+一季报扭亏",
+        "chg": 10.01,
+        "turnover": 12.15,
+        "amount": 147691
+      },
+      {
+        "c": "605598",
+        "n": "上海港湾",
+        "reason": "商业航天+钙钛矿电池+海外基建+重大合同",
+        "chg": 9.99,
+        "turnover": 3.72,
+        "amount": 33050
+      },
+      {
+        "c": "688593",
+        "n": "新相微",
+        "reason": "MicroLED光互连+显示驱动芯片+一季报增长",
+        "chg": 19.99,
+        "turnover": 8.21,
+        "amount": 126249
+      },
+      {
+        "c": "603938",
+        "n": "三孚股份",
+        "reason": "高纯四氯化硅涨价+光纤材料+存储芯片",
+        "chg": 10.0,
+        "turnover": 13.55,
+        "amount": 352339
+      },
+      {
+        "c": "603297",
+        "n": "永新光学",
+        "reason": "半导体光学+光学龙头+收购江丰生物股权",
+        "chg": 10.0,
+        "turnover": 2.92,
+        "amount": 41057
+      },
+      {
+        "c": "600877",
+        "n": "电科芯片",
+        "reason": "硅基模拟半导体芯片+卫星通信芯片+央企",
+        "chg": 9.98,
+        "turnover": 5.01,
+        "amount": 91731
+      },
+      {
+        "c": "600497",
+        "n": "驰宏锌锗",
+        "reason": "锗价上涨+锗龙头+铟+央企",
+        "chg": 10.0,
+        "turnover": 9.49,
+        "amount": 548409
+      },
+      {
+        "c": "600141",
+        "n": "兴发集团",
+        "reason": "磷化工+磷化铟+存储芯片材料+液冷",
+        "chg": 9.99,
+        "turnover": 6.51,
+        "amount": 325234
+      },
+      {
+        "c": "603001",
+        "n": "奥康国际",
+        "reason": "皮鞋+C2M+大股东再质押+业绩扭亏",
+        "chg": 10.04,
+        "turnover": 8.02,
+        "amount": 44741
+      },
+      {
+        "c": "600596",
+        "n": "新安股份",
+        "reason": "光纤上游+液冷服务器+有机硅+一季报增长",
+        "chg": 9.99,
+        "turnover": 8.03,
+        "amount": 181468
+      },
+      {
+        "c": "601133",
+        "n": "柏诚股份",
+        "reason": "洁净室+长鑫产业链+存储芯片",
+        "chg": 9.99,
+        "turnover": 5.44,
+        "amount": 89480
+      },
+      {
+        "c": "605366",
+        "n": "宏柏新材",
+        "reason": "光纤概念+高纯四氯化硅+含硫硅烷+券商推荐",
+        "chg": 10.0,
+        "turnover": 8.84,
+        "amount": 77730
+      },
+      {
+        "c": "605020",
+        "n": "永和股份",
+        "reason": "制冷剂涨价+氟化工+液冷+一季报增长",
+        "chg": 9.99,
+        "turnover": 8.75,
+        "amount": 166238
+      },
+      {
+        "c": "603399",
+        "n": "永杉锂业",
+        "reason": "锂盐+四川锂盐项目+钼",
+        "chg": 10.02,
+        "turnover": 15.91,
+        "amount": 174489
+      },
+      {
+        "c": "600246",
+        "n": "万通发展",
+        "reason": "PCIe5.0量产+AI算力交换芯片+买入评级",
+        "chg": 10.01,
+        "turnover": 11.16,
+        "amount": 388471
+      },
+      {
+        "c": "603061",
+        "n": "金海通",
+        "reason": "半导体测试设备+可转债募资+一季报增长",
+        "chg": 10.0,
+        "turnover": 3.55,
+        "amount": 115959
+      },
+      {
+        "c": "600563",
+        "n": "法拉电子",
+        "reason": "薄膜电容器+AI数据中心电源+产能扩张",
+        "chg": 10.0,
+        "turnover": 7.36,
+        "amount": 289114
+      },
+      {
+        "c": "603650",
+        "n": "彤程新材",
+        "reason": "光刻胶树脂+H股上市",
+        "chg": 10.0,
+        "turnover": 6.01,
+        "amount": 276178
+      },
+      {
+        "c": "600176",
+        "n": "中国巨石",
+        "reason": "PCB概念+电子布+一季报增长+央企",
+        "chg": 9.99,
+        "turnover": 4.27,
+        "amount": 1080739
+      },
+      {
+        "c": "603698",
+        "n": "航天工程",
+        "reason": "实控人航天科技+绿氢工程+煤气化+央企",
+        "chg": 10.01,
+        "turnover": 3.66,
+        "amount": 70056
+      },
+      {
+        "c": "603386",
+        "n": "骏亚科技",
+        "reason": "PCB+高多层HDI+拟15.57亿投建+人形机器人",
+        "chg": 9.99,
+        "turnover": 6.89,
+        "amount": 43272
+      },
+      {
+        "c": "600226",
+        "n": "亨通股份",
+        "reason": "PCB概念+电解铜箔+铜箔增资",
+        "chg": 10.03,
+        "turnover": 10.44,
+        "amount": 346844
+      },
+      {
+        "c": "603929",
+        "n": "亚翔集成",
+        "reason": "半导体洁净室+新加坡布局+一季报倍增",
+        "chg": 10.0,
+        "turnover": 3.01,
+        "amount": 144941
+      },
+      {
+        "c": "600584",
+        "n": "长电科技",
+        "reason": "先进封装+CPO光引擎+央企",
+        "chg": 10.0,
+        "turnover": 14.38,
+        "amount": 2378860
+      },
+      {
+        "c": "600105",
+        "n": "永鼎股份",
+        "reason": "光芯片+光纤光缆+超导带材",
+        "chg": 10.0,
+        "turnover": 10.69,
+        "amount": 1051173
+      },
+      {
+        "c": "603989",
+        "n": "艾华集团",
+        "reason": "MLPC+AI服务器+铝电解电容+薄膜电容",
+        "chg": 10.0,
+        "turnover": 4.57,
+        "amount": 84413
+      },
+      {
+        "c": "603083",
+        "n": "剑桥科技",
+        "reason": "CPO/NPO+1.6T光模块+高速光模块",
+        "chg": 10.0,
+        "turnover": 11.15,
+        "amount": 789988
+      },
+      {
+        "c": "600026",
+        "n": "中远海能",
+        "reason": "VLCC运力扩张+一季报增长",
+        "chg": 10.02,
+        "turnover": 3.3,
+        "amount": 285678
+      },
+      {
+        "c": "605151",
+        "n": "西上海",
+        "reason": "汽车产业链+比亚迪概念+高管增持",
+        "chg": 9.99,
+        "turnover": 2.77,
+        "amount": 7753
+      },
+      {
+        "c": "688403",
+        "n": "汇成股份",
+        "reason": "HITS先进封装+存储芯片+显示驱动封测",
+        "chg": 19.99,
+        "turnover": 8.53,
+        "amount": 293609
+      },
+      {
+        "c": "600703",
+        "n": "三安光电",
+        "reason": "CPO+光芯片+碳化硅+化合物半导体",
+        "chg": 9.98,
+        "turnover": 4.62,
+        "amount": 484696
+      },
+      {
+        "c": "603407",
+        "n": "长裕集团",
+        "reason": "氧氯化锆+陶瓷载板+光通讯+业绩增长",
+        "chg": 10.0,
+        "turnover": 24.12,
+        "amount": 75236
+      },
+      {
+        "c": "605277",
+        "n": "新亚电子",
+        "reason": "高速铜缆+戴尔供应链+消费电子线材龙头",
+        "chg": 9.98,
+        "turnover": 7.22,
+        "amount": 53097
+      },
+      {
+        "c": "601872",
+        "n": "招商轮船",
+        "reason": "提前终止减持+VLCC运价+油气运输+央企",
+        "chg": 9.99,
+        "turnover": 1.32,
+        "amount": 229966
+      },
+      {
+        "c": "600667",
+        "n": "太极实业",
+        "reason": "存储芯片封测+SK海力士+无锡国资+一季报增长",
+        "chg": 9.99,
+        "turnover": 10.16,
+        "amount": 479187
+      },
+      {
+        "c": "603678",
+        "n": "火炬电子",
+        "reason": "MLCC涨价+存储代理+商业航天",
+        "chg": 10.0,
+        "turnover": 3.59,
+        "amount": 114706
+      },
+      {
+        "c": "600909",
+        "n": "华安证券",
+        "reason": "证券+间接持有长鑫存储股份+财富管理+安徽国资",
+        "chg": 10.04,
+        "turnover": 10.27,
+        "amount": 582509
+      },
+      {
+        "c": "605069",
+        "n": "正和生态",
+        "reason": "智谱AI+水务机器狗+生态水利",
+        "chg": 10.0,
+        "turnover": 14.09,
+        "amount": 43077
+      },
+      {
+        "c": "603948",
+        "n": "建业股份",
+        "reason": "电子化学品+超纯氨+低碳脂肪胺+高股息",
+        "chg": 10.01,
+        "turnover": 1.76,
+        "amount": 7634
+      },
+      {
+        "c": "603317",
+        "n": "天味食品",
+        "reason": "收购湘式调料+川味调料+优化业务+回购",
+        "chg": 9.99,
+        "turnover": 0.55,
+        "amount": 8553
+      }
+    ],
+    "topReasons": [
+      {
+        "tag": "央企",
+        "count": 7
+      },
+      {
+        "tag": "一季报增长",
+        "count": 7
+      },
+      {
+        "tag": "存储芯片",
+        "count": 4
+      },
+      {
+        "tag": "回购",
+        "count": 2
+      },
+      {
+        "tag": "先进封装",
+        "count": 2
+      },
+      {
+        "tag": "商业航天",
+        "count": 2
+      },
+      {
+        "tag": "液冷",
+        "count": 2
+      },
+      {
+        "tag": "PCB概念",
+        "count": 2
+      },
+      {
+        "tag": "光芯片",
+        "count": 2
+      },
+      {
+        "tag": "CPO",
+        "count": 2
+      },
+      {
+        "tag": "Qt合作",
+        "count": 1
+      },
+      {
+        "tag": "存储芯片涨价",
+        "count": 1
+      },
+      {
+        "tag": "一季报大增",
+        "count": 1
+      },
+      {
+        "tag": "半导体物流",
+        "count": 1
+      },
+      {
+        "tag": "化工供应链",
+        "count": 1
+      },
+      {
+        "tag": "半导体附属装备",
+        "count": 1
+      },
+      {
+        "tag": "光刻胶剥离液",
+        "count": 1
+      },
+      {
+        "tag": "产品测试进展",
+        "count": 1
+      },
+      {
+        "tag": "氦气",
+        "count": 1
+      },
+      {
+        "tag": "电子特气",
+        "count": 1
+      }
+    ],
+    "status": "ok"
+  },
   "_eventsMeta": {
-    "updated": "2026-06-25 00:03 CST",
+    "updated": "2026-06-25 06:44 CST",
     "total": 16,
     "hand": 8,
     "macro": 8,
     "ai": 0,
     "schedule": "daily at 10:00 CST",
     "source": "NBS 2026 schedule + AI sentinel news + hand-curated"
-  },
-  "_backtest": {
-    "records": [
-      {
-        "date": "2026-06-24",
-        "day_of_week": 2,
-        "picks": [
-          {
-            "c": "600549",
-            "n": "厦门钨业",
-            "why": "钨全产业链龙头+WF₆/钨矿双催化，7.1日本停产倒计时7天，钨精矿突破50万/吨年内+200%Q1利润+189%，全球钨短缺至2027",
-            "sec": "六氟化钨WF6",
-            "entry_price": 0,
-            "entry_chg": 0,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "002085",
-            "n": "万丰奥威",
-            "why": "最纯正eVTOL标的，新民航法7.1施行倒计时7天，拟25亿收购飞机工业股权(持股升至90%)，低空三剑客龙头，华创证券强推目标价20.2元",
-            "sec": "低空经济eVTOL",
-            "entry_price": 0,
-            "entry_chg": 0,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "002446",
-            "n": "盛路通信",
-            "why": "基站射频天线龙头，MWC上海明日开幕首次设6G专区，6G试验频率获批+3GPP R21时间表确立，达沃斯AI/量子主题加持",
-            "sec": "6G通信",
-            "entry_price": 0,
-            "entry_chg": 0,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "603986",
-            "n": "兆易创新",
-            "why": "NOR Flash龙头，美光6/25财报预期暴增(营收+3倍EPS+10倍)，DRAM合约价Q2大涨75%，铠侠退出释放25%全球市场，Q1净利+523%",
-            "sec": "存储芯片",
-            "entry_price": 0,
-            "entry_chg": 0,
-            "pct_1d": 0,
-            "result": "flat"
-          },
-          {
-            "c": "002460",
-            "n": "赣锋锂业",
-            "why": "固态电池全球唯一三线并行，500Wh/kg小批量量产+400Wh/kg循环突破1100次，万吨级硫化物电解质产线6月建成，锂100%自给+宝马合作",
-            "sec": "固态电池",
-            "entry_price": 0,
-            "entry_chg": 0,
-            "pct_1d": 0,
-            "result": "flat"
-          }
-        ],
-        "top3_summary": [
-          "📊 大盘实时: 上证指数 +0.11% | 深证成指 +1.24% | 创业板指",
-          "🔥 今日最热板块: 半导体靶材, 电子铜箔, 化工, 液冷散热, 光纤光缆"
-        ],
-        "result": {
-          "winners": 0,
-          "losers": 0,
-          "neutral": 5,
-          "total": 5,
-          "hit_rate": 0.0,
-          "settled_date": "2026-06-25"
-        }
-      },
-      {
-        "date": "2026-06-25",
-        "day_of_week": 3,
-        "picks": [
-          {
-            "c": "600549",
-            "n": "厦门钨业",
-            "why": "钨全产业链龙头+WF₆/钨矿双催化，7.1日本停产倒计时7天，钨精矿突破50万/吨年内+200%Q1利润+189%，全球钨短缺至2027",
-            "sec": "六氟化钨WF6",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "002085",
-            "n": "万丰奥威",
-            "why": "最纯正eVTOL标的，新民航法7.1施行倒计时7天，拟25亿收购飞机工业股权(持股升至90%)，低空三剑客龙头，华创证券强推目标价20.2元",
-            "sec": "低空经济eVTOL",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "002446",
-            "n": "盛路通信",
-            "why": "基站射频天线龙头，MWC上海明日开幕首次设6G专区，6G试验频率获批+3GPP R21时间表确立，达沃斯AI/量子主题加持",
-            "sec": "6G通信",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "603986",
-            "n": "兆易创新",
-            "why": "NOR Flash龙头，美光6/25财报预期暴增(营收+3倍EPS+10倍)，DRAM合约价Q2大涨75%，铠侠退出释放25%全球市场，Q1净利+523%",
-            "sec": "存储芯片",
-            "entry_price": 0,
-            "entry_chg": 0
-          },
-          {
-            "c": "002460",
-            "n": "赣锋锂业",
-            "why": "固态电池全球唯一三线并行，500Wh/kg小批量量产+400Wh/kg循环突破1100次，万吨级硫化物电解质产线6月建成，锂100%自给+宝马合作",
-            "sec": "固态电池",
-            "entry_price": 0,
-            "entry_chg": 0
-          }
-        ],
-        "top3_summary": [
-          "📊 大盘实时: 上证指数 +0.11% | 深证成指 +1.24% | 创业板指",
-          "🔥 今日最热板块: 半导体靶材, 电子铜箔, 化工, 液冷散热, 光纤光缆"
-        ]
-      }
-    ],
-    "stats": {
-      "total_days": 1,
-      "total_picks": 5,
-      "total_wins": 0,
-      "overall_hit_rate": 0.0,
-      "recent_5d_hit_rate": 0.0,
-      "last_updated": "2026-06-25"
-    }
   }
 }
