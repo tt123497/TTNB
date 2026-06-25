@@ -1479,7 +1479,7 @@ function loadFeedbackHistory(){
       <div class="section" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px" id="recapLosers">
         <div class="section-title" style="color:var(--red);font-size:1rem">📉 领跌方向</div>
         ${D.recap.losers.map(makeLoserGroup).join('')}
-      </div>
+      </div>`;
     // ── AI简报回测 ──
     var bt=D._backtest; if(bt&&bt.stats){
       rc+='<div style="margin-top:16px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)"><div class="section-title" style="font-size:.95rem">🎯 AI简报回测 命中率:'+(bt.stats.overall_hit_rate||0)+'%</div><div style="font-size:.76rem;color:var(--dim);margin-bottom:4px">'+ (bt.stats.total_days||0) +'天累计 · '+ (bt.stats.total_picks||0) +'只标的 · '+ (bt.stats.total_wins||0) +'只上涨</div>';

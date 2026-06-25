@@ -26,6 +26,12 @@ jobs:
       - name: 抓取最新新闻
         run: python .github/scripts/fetch_news.py
 
+      - name: 数据增强 (enrich/tierA/tierB)
+        run: |
+          python .github/scripts/fetch_enrich.py
+          python .github/scripts/fetch_tierA.py
+          python .github/scripts/fetch_tierB.py
+
       - name: AI 分析 + 生成简报
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

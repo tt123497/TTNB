@@ -2,10 +2,10 @@ name: 📰 每日简报
 
 on:
   schedule:
-    # 早盘后 (CST 10:00 = UTC 2:00)
-    - cron: '0 2 * * 1-5'
-    # 收盘后 (CST 15:30 = UTC 7:30)
-    - cron: '30 7 * * 1-5'
+    # 早盘后 (CST 10:02 = UTC 2:02) — staggered 2min to avoid race
+    - cron: '2 2 * * 1-5'
+    # 收盘后 (CST 15:32 = UTC 7:32) — staggered 2min to avoid race
+    - cron: '32 7 * * 1-5'
   workflow_dispatch:
 
 jobs:

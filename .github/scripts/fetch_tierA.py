@@ -223,8 +223,12 @@ def main():
         print("data.json not found — run fetch_data.py first")
         return
 
-    with open(DATA_PATH, 'r', encoding='utf-8') as f:
-        d = json.load(f)
+    try:
+        with open(DATA_PATH, 'r', encoding='utf-8') as f:
+            d = json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"ERROR: corrupted data.json, cannot continue: {e}")
+        return
 
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
     is_heavy = (cst.minute % 30 < 5)
@@ -275,10 +279,12 @@ def main():
             d['indReports'] = {"reports": [], "status": "pending"}
         print(f"  ⏭️  巨潮公告+行业研报: skipped (next at :00/:30)")
 
-    # ── Save ──
+    # ── Save (atomic) ──
     d['updated'] = cst.strftime('%Y-%m-%d %H:%M CST') + ' (tierA)'
-    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+    tmp_path = DATA_PATH + '.tmp'
+    with open(tmp_path, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, DATA_PATH)
 
     print(f"TierA done → {DATA_PATH}")
 

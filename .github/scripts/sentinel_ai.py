@@ -24,12 +24,18 @@ OUR_SECTORS = '''锂矿/盐湖提锂, 锂电池/电解液, 光伏/太阳能, 风
   白酒, 食品饮料, 医药/CRO, 医疗器械'''
 
 def load_data():
-    with open(DATA_PATH, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    try:
+        with open(DATA_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"ERROR: corrupted data.json: {e}")
+        return None
 
 def save_data(d):
-    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+    tmp_path = DATA_PATH + '.tmp'
+    with open(tmp_path, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, DATA_PATH)
 
 def call_ai(prompt_text, max_tokens=4000):
     if not API_KEY:
@@ -155,14 +161,18 @@ def build_prompt(d):
     else:
         lockup_str = '解禁预警: 未来90天无重大解禁'
 
-    # Read recent real news for the AI to reference (two channels)
+    # Read recent real news for the AI to reference (three channels)
     ns = d.get('_newsSector', [])[:15]
     nm = d.get('_newsMarket', [])[:10]
-    if ns or nm:
+    gn = d.get('globalNews', {}).get('headlines', [])[:10]
+    if ns or nm or gn:
         news_text = '══ 赛道新闻 ══\n'
         news_text += '\n'.join([f"  [{n.get('time','?')}] {n.get('t','')}  {n.get('u','')}" for n in ns])
         news_text += '\n══ 市场宏观 ══\n'
         news_text += '\n'.join([f"  [{n.get('time','?')}] {n.get('t','')}  {n.get('u','')}" for n in nm])
+        if gn:
+            news_text += '\n══ 东财7x24快讯 ══\n'
+            news_text += '\n'.join([f"  [{n.get('ts','?')}] {n.get('t','')}" for n in gn])
     else:
         news_text = '暂无实时新闻'
 
@@ -247,6 +257,9 @@ def main():
         return
 
     d = load_data()
+    if d is None:
+        print("ERROR: cannot load data.json, giving up")
+        return
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
 
     prompt = build_prompt(d)

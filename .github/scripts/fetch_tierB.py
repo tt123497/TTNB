@@ -266,8 +266,12 @@ def main():
         print("data.json not found")
         return
 
-    with open(DATA_PATH, 'r', encoding='utf-8') as f:
-        d = json.load(f)
+    try:
+        with open(DATA_PATH, 'r', encoding='utf-8') as f:
+            d = json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"ERROR: corrupted data.json, cannot continue: {e}")
+        return
 
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
     minute = cst.minute
@@ -381,10 +385,12 @@ def main():
         d['dividendHist'] = dh
         print(f"  B9 分红送转: {len(dh)}只")
 
-    # Save
+    # Save (atomic)
     d['updated'] = cst.strftime('%Y-%m-%d %H:%M CST') + f' (tierB-{batch_label})'
-    with open(DATA_PATH, 'w', encoding='utf-8') as f:
+    tmp_path = DATA_PATH + '.tmp'
+    with open(tmp_path, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, DATA_PATH)
 
     print(f"TierB done → {DATA_PATH}")
 
