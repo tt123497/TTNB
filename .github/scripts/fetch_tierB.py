@@ -36,8 +36,7 @@ def _em_fetch(url, encoding='utf-8', extra_headers=None, retries=2):
         time.sleep(wait + random.uniform(0.1, 0.5))
     for i in range(retries):
         try:
-            headers = {'User-Agent': UA, 'Accept': '*/*',
-                       'Referer': 'https://data.eastmoney.com/'}
+            headers = {'User-Agent': UA, 'Accept': '*/*'}
             if extra_headers:
                 headers.update(extra_headers)
             req = Request(url, headers=headers)
@@ -95,15 +94,18 @@ def fetch_stock_info_em(code):
     try:
         secid = get_secid(code)
         url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={secid}&fields=f57,f58,f84,f85,f116,f117,f127"
-        text = _em_fetch(url)
+        text = _em_fetch(url, extra_headers={'Referer': 'https://quote.eastmoney.com/'})
         if not text:
             return None
         d = json.loads(text).get("data", {})
+        if not d:
+            return None
         return {
-            "ind": d.get("f127", ""), "tot": d.get("f84", 0), "flt": d.get("f85", 0),
-            "eps": d.get("f57", 0), "bvps": d.get("f58", 0),
-            "listDate": d.get("f117", ""),
-        } if d else None
+            "ind": d.get("f127", "") or "",
+            "tot": d.get("f84", 0) or 0,
+            "flt": d.get("f85", 0) or 0,
+            "listDate": str(d.get("f117", ""))[:10] if d.get("f117") else "",
+        }
     except:
         return None
 
@@ -113,7 +115,7 @@ def fetch_fund_flow_min(code):
     try:
         secid = get_secid(code)
         url = f"https://push2.eastmoney.com/api/qt/stock/fflow/kline/get?secid={secid}&klt=1&lmt=60"
-        text = _em_fetch(url)
+        text = _em_fetch(url, extra_headers={'Referer': 'https://quote.eastmoney.com/'})
         if not text:
             return None
         d = json.loads(text)
@@ -135,7 +137,7 @@ def fetch_fund_flow_min(code):
 def fetch_stock_news(code):
     try:
         url = f"https://search-api-web.eastmoney.com/search/jsonp?cb=j&param=%7B%22uid%22%3A%22%22%2C%22keyword%22%3A%22{code}%22%2C%22type%22%3A%5B%22cmsArticleWebOld%22%5D%2C%22pageIndex%22%3A1%2C%22pageSize%22%3A3%7D"
-        text = _em_fetch(url)
+        text = _em_fetch(url, extra_headers={'Referer': 'https://so.eastmoney.com/'})
         if not text or "j(" not in text:
             return []
         j = json.loads(text[2:-1])
@@ -150,7 +152,7 @@ def fetch_fund_flow_120d(code):
     try:
         secid = get_secid(code)
         url = f"https://push2his.eastmoney.com/api/qt/stock/fflow/daykline/get?secid={secid}&lmt=120&fields1=f1,f2,f3&fields2=f51,f52,f53,f54,f55,f56"
-        text = _em_fetch(url)
+        text = _em_fetch(url, extra_headers={'Referer': 'https://quote.eastmoney.com/'})
         if not text:
             return None
         d = json.loads(text)

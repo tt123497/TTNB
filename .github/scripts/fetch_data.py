@@ -827,6 +827,14 @@ def main():
                         filtered = main + kcb[:3]
                         lev['stocks'] = filtered[:8]
                         continue
+            # 2.5. Try SECTOR_FIXED_STOCKS fallback (handles compound names like "六氟化钨/低空经济")
+            if not lev.get('stocks'):
+                for part in sec_name.split('/'):
+                    part = part.strip()
+                    fixed = SECTOR_FIXED_STOCKS.get(part, [])
+                    if fixed:
+                        lev['stocks'] = fixed[:8]
+                        break
             # 3. Keep existing stocks untouched (don't wipe in after-hours)
     preserve['layout'] = existing_layout
 
