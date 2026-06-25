@@ -69,8 +69,6 @@ def fetch_global_news():
         return {"headlines": [], "updated": "", "status": "fetch failed"}
     try:
         d = json.loads(text)
-        if d.get('code') != '0' and d.get('code') != 0:
-            return {"headlines": [], "updated": "", "status": f"API error: {d.get('message','?')}"}
         items = (d.get("data") or {}).get("fastNewsList", [])
         if not items:
             return {"headlines": [], "updated": "", "status": "empty"}
