@@ -715,7 +715,7 @@ def main():
     preserve = {}
     old_livePrices = {}
     old_sectorStocks = {}
-    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta']
+    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta', 'sectorStocks', 'sectorTags', 'lhbFull', 'lockupAlerts', 'marginSummary', 'northbound', '_hotReasons']
     old_cycle = None
     old_briefing_date = ''
     if os.path.exists(DATA_PATH):
@@ -791,6 +791,7 @@ def main():
     if existing_layout:
         for lev in existing_layout:
             sec_name = lev.get('s', '')
+            existing_stocks = lev.get('stocks', [])
             # 1. Try fixed stocks first
             fixed = SECTOR_FIXED_STOCKS.get(sec_name, [])
             if fixed:
@@ -799,8 +800,8 @@ def main():
                 if len(kcb) <= 3:
                     lev['stocks'] = fixed[:8]
                     continue
-            # 2. Try to match via alias from heat data
-            if sectors:
+            # 2. Only try board API repair during market hours (sectors has data)
+            if sectors and len(sectors) > 0:
                 bcode = ''
                 for h in sectors:
                     if h['n'] == sec_name:
@@ -825,7 +826,8 @@ def main():
                         kcb = [s for s in bstocks if is_kcb_cyb(s.split()[0])]
                         filtered = main + kcb[:3]
                         lev['stocks'] = filtered[:8]
-            # 3. Fallback: leave whatever stocks exist (or empty if none)
+                        continue
+            # 3. Keep existing stocks untouched (don't wipe in after-hours)
     preserve['layout'] = existing_layout
 
     old_recap = preserve.pop('_oldRecap', {}) or {}
