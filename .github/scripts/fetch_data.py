@@ -832,6 +832,12 @@ def main():
                 for part in sec_name.split('/'):
                     part = part.strip()
                     fixed = SECTOR_FIXED_STOCKS.get(part, [])
+                    if not fixed:
+                        # Fuzzy match: part is substring of a fixed key, or vice versa
+                        for fk in SECTOR_FIXED_STOCKS:
+                            if part in fk or fk in part:
+                                fixed = SECTOR_FIXED_STOCKS[fk]
+                                break
                     if fixed:
                         lev['stocks'] = fixed[:8]
                         break
