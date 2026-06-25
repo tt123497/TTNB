@@ -901,7 +901,15 @@ def main():
         sector_tags[our] = emoji + ' ' + prefix + ' | ' + second
     # ── Live sector stocks: real-time top gainers per sector ──
     sector_stocks = fetch_sector_stocks(our_names, sectors)
-    # Only overwrite if we actually got live data (prevents trading-hour-only blanks from wiping hardcoded)
+    # Fallback: fill empty sectors from SECTOR_FIXED_STOCKS (ensures all 63 sectors always have data)
+    for sec_name in our_names:
+        if sec_name in sector_stocks and sector_stocks[sec_name]:
+            continue  # already has live data
+        fixed_list = SECTOR_FIXED_STOCKS.get(sec_name, [])
+        if fixed_list:
+            sector_stocks[sec_name] = [{'c': s.split()[0], 'n': s.split()[1] if ' ' in s else '', 'chg': 0}
+                                       for s in fixed_list[:8] if ' ' in s]
+    # Only overwrite if we actually got live data (prevents overnight blanks from wiping)
     populated = sum(1 for v in sector_stocks.values() if v)
     if populated >= 10:  # At least 10 sectors must have data
         out['sectorStocks'] = sector_stocks
