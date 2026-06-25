@@ -715,7 +715,7 @@ def main():
     preserve = {}
     old_livePrices = {}
     old_sectorStocks = {}
-    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta', 'sectorStocks', 'sectorTags', 'lhbFull', 'lockupAlerts', 'marginSummary', 'northbound', '_hotReasons']
+    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta', 'sectorTags', 'lhbFull', 'lockupAlerts', 'marginSummary', 'northbound', '_hotReasons']
     old_cycle = None
     old_briefing_date = ''
     if os.path.exists(DATA_PATH):
@@ -909,28 +909,30 @@ def main():
         if fixed_list:
             sector_stocks[sec_name] = [{'c': s.split()[0], 'n': s.split()[1] if ' ' in s else '', 'chg': 0}
                                        for s in fixed_list[:8] if ' ' in s]
-    # Only overwrite if we actually got live data (prevents overnight blanks from wiping)
     populated = sum(1 for v in sector_stocks.values() if v)
-    if populated >= 10:  # At least 10 sectors must have data
-        out['sectorStocks'] = sector_stocks
+    # Save for merge below (AFTER preserve, to avoid old data overwriting fresh)
+    _fresh_sector_stocks = sector_stocks
+    _fresh_sector_stocks_pop = populated
+    if populated >= 10:
         stock_count = sum(1 for v in sector_stocks.values() for _ in v)
         print(f'  sectorStocks: {populated} sectors with live stocks, {stock_count} total')
     else:
-        # Keep previous sectorStocks if they exist
-        if preserve.get('sectorStocks') and sum(1 for v in preserve['sectorStocks'].values() if v) >= 10:
-            out['sectorStocks'] = preserve['sectorStocks']
-            psc = sum(1 for v in preserve["sectorStocks"].values() if v)
-            print(f"  sectorStocks: kept existing ({psc} sectors)")
-        else:
-            print(f'  sectorStocks: skipped ({populated} sectors too few, likely non-trading)')
+        print(f'  sectorStocks: only {populated} sectors from API, will fall back')
 
     # Merge preserved fields
     out.update(preserve)
-    # Keep previous livePrices/sectorStocks when API returns empty (after-hours)
+    # ── Write sectorStocks AFTER preserve merge (prevent old data from overwriting fresh) ──
+    if _fresh_sector_stocks_pop >= 10:
+        out['sectorStocks'] = _fresh_sector_stocks
+    elif preserve.get('sectorStocks') and sum(1 for v in preserve['sectorStocks'].values() if v) >= 10:
+        out['sectorStocks'] = preserve['sectorStocks']
+        print(f"  sectorStocks: kept existing ({sum(1 for v in preserve['sectorStocks'].values() if v)} sectors)")
+    else:
+        out['sectorStocks'] = old_sectorStocks
+        print(f"  sectorStocks: kept old ({sum(1 for v in old_sectorStocks.values() if v)} sectors)")
+    # Keep previous livePrices when API returns empty (after-hours)
     if not live:
         out['livePrices'] = old_livePrices
-    if not out.get('sectorStocks'):
-        out['sectorStocks'] = old_sectorStocks
     out['sectorTags'] = sector_tags  # always fresh, not from cache
     out['recap']['cycle'] = cycle
     out['sectorFixedStocks'] = SECTOR_FIXED_STOCKS if SECTOR_FIXED_STOCKS else {}
