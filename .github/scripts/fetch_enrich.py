@@ -345,8 +345,8 @@ def main():
 
     # ── Time gating for heavy ops ──
     # Light ops (northbound + lhb + hot reasons): every cycle (~5s total)
-    # Heavy ops (lockup scan + margin): every 30 min (to stay within 5-min cycle budget)
-    run_heavy = (cst.minute % 30 < 5)  # first 5 min of each half-hour
+    # Heavy ops (lockup scan + margin): every 10 min (reduced from 30 for freshness)
+    run_heavy = (cst.minute % 10 < 3)  # first 3 min of each 10-min block
 
     # ── 1. 北向资金 (always run, non-EastMoney, ~1s) ──
     nb = fetch_northbound()

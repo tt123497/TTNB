@@ -882,6 +882,12 @@ def main():
         if not sec: continue
         chg = v.get('chg_pct', 0)
         sec_avg.setdefault(sec, []).append(chg)
+    # Fallback: use sectorStocks chg values when live prices are sparse
+    for sec_name, stocks in out.get('sectorStocks', {}).items():
+        if sec_name in sec_avg: continue
+        stock_chgs = [s['chg'] for s in stocks if isinstance(s, dict) and s.get('chg', 0) != 0]
+        if stock_chgs:
+            sec_avg[sec_name] = stock_chgs
     for sec, chgs in sec_avg.items():
         sec_avg[sec] = sum(chgs) / len(chgs) if chgs else 0
 
