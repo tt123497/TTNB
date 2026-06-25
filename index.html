@@ -1266,13 +1266,15 @@ function loadFeedbackHistory(){
 
   // ════ OVERVIEW ════
   let ov=`<div class="tab-panel on" id="panel-overview">
-    <div class="stat-strip">
+    <div class="stat-strip" id="statStrip">
       <div class="stat-chip"><div class="val" style="color:var(--red)">${majorCount}</div><div class="lbl">🔥 强势赛道</div></div>
       <div class="stat-chip"><div class="val" style="color:${(()=>{var f=D.recap.flow;if(!f||!f.length)return'var(--dim)';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'var(--red)':'var(--green)';})()}">${(()=>{var f=D.recap.flow;if(!f||!f.length)return'—';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'净流入':'净流出';})()}</div><div class="lbl">💸 资金</div></div>
       <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztCount!=null?D.recap.ztCount:(D.recap.ztLadder?D.recap.ztLadder.totalCount:'—')}</div><div class="lbl">🪜 涨停</div></div>
       <div class="stat-chip"><div class="val" style="color:${D.recap.dtCount>5?'var(--red)':'var(--green)'}">${D.recap.dtCount!=null?D.recap.dtCount:'—'}</div><div class="lbl">📉 跌停</div></div>
       <div class="stat-chip"><div class="val" style="color:${(()=>{var nb=D.northbound;if(!nb||!nb.net_yi)return'var(--dim)';return nb.net_yi>0?'var(--red)':'var(--green)';})()}">${(()=>{var nb=D.northbound;if(!nb)return'—';var n=nb.net_yi||0;return (n>=0?'+':'')+n.toFixed(1)+'亿';})()}</div><div class="lbl">🌏 北向</div></div>
-    </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>`;
+    </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>
+
+<div id="overviewStrips">
 
   // ── 龙虎榜 strip (优先 lhbFull, 回退 lhb) ──
   (function(){
@@ -1388,6 +1390,8 @@ function loadFeedbackHistory(){
       ov+='</div>';
     }
   })();
+
+  ov+=`</div>`;
 
   D.groups.forEach(g=>{
     ov+=`<div class="group-hd">${g.n}</div><div class="card-grid">`;
@@ -1945,6 +1949,15 @@ function loadFeedbackHistory(){
         if(d._backtest) D._backtest=d._backtest;
         if(d.marginSummary) D.marginSummary=d.marginSummary;
         if(d.lockupAlerts) D.lockupAlerts=d.lockupAlerts;
+        // ── Refresh overview strips ──
+        (function(){
+          var os=document.getElementById('overviewStrips'); if(!os) return;
+          var sb=document.getElementById('statStrip');
+          if(sb&&D.northbound){
+            var nbDiv=sb.querySelector('.stat-chip:last-child');
+            if(nbDiv){ var net=D.northbound.net_yi||0; nbDiv.querySelector('.val').textContent=(net>=0?'+':'')+net.toFixed(1)+'亿'; nbDiv.querySelector('.val').style.color=net>0?'var(--red)':'var(--green)'; }
+          }
+        })();
         renderStockList();
         // Recap panel
         if(currentRecapDate!=='today')return; // skip refresh when viewing history
