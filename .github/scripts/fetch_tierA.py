@@ -61,15 +61,19 @@ def fetch_json(url, encoding='utf-8', extra_headers=None):
 
 # ═══ A1: 东财全球资讯7x24 ═══
 def fetch_global_news():
-    """东财7x24快讯 — single call, returns 30 headlines."""
+    """东财7x24快讯 — single call, returns 25 headlines."""
     trace = str(uuid.uuid4())
-    url = f"https://np-weblist.eastmoney.com/comm/web/getFastNewsList?client=web&biz=web_724&fastColumn=102&pageSize=25&req_trace={trace}"
-    text = _em_fetch(url)
+    url = f"https://np-weblist.eastmoney.com/comm/web/getFastNewsList?client=web&biz=web_724&fastColumn=102&sortEnd=&pageSize=25&req_trace={trace}"
+    text = _em_fetch(url, extra_headers={'Referer': 'https://kuaixun.eastmoney.com/'})
     if not text:
         return {"headlines": [], "updated": "", "status": "fetch failed"}
     try:
         d = json.loads(text)
-        items = d.get("data", {}).get("fastNewsList", [])
+        if d.get('code') != '0' and d.get('code') != 0:
+            return {"headlines": [], "updated": "", "status": f"API error: {d.get('message','?')}"}
+        items = (d.get("data") or {}).get("fastNewsList", [])
+        if not items:
+            return {"headlines": [], "updated": "", "status": "empty"}
         headlines = []
         for item in items:
             headlines.append({
@@ -82,25 +86,27 @@ def fetch_global_news():
             "updated": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
             "status": "ok"
         }
-    except:
-        return {"headlines": [], "updated": "", "status": "parse error"}
+    except Exception as e:
+        return {"headlines": [], "updated": "", "status": f"parse error: {str(e)[:60]}"}
 
 
 # ═══ A2: 行业板块排名增强 ═══
 def fetch_industry_ranking():
     """Enhanced sector ranking with up/down counts + leader info."""
-    url = "https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=80&po=1&np=1&fltt=2&invt=2&fs=m:90+t:2&fields=f2,f3,f4,f12,f14,f104,f105,f140"
-    text = _em_fetch(url)
+    url = "https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=80&po=1&np=1&fltt=2&invt=2&fs=m:90+t:2&fields=f2,f3,f4,f12,f14,f104,f105,f140&ut=bd1d9ddb04089700cf9c27f6f7426281"
+    text = _em_fetch(url, extra_headers={'Referer': 'https://quote.eastmoney.com/'})
     if not text:
         return []
     try:
         d = json.loads(text)
         items = d.get("data", {}).get("diff", [])
+        if not items:
+            return []
         return [{
             "n": i.get("f14", ""), "chg": round(i.get("f3", 0) or 0, 2),
             "upCnt": i.get("f104", 0) or 0, "dnCnt": i.get("f105", 0) or 0,
             "ld": i.get("f140", "") or "", "bk": i.get("f12", "")
-        } for i in (items or []) if i.get("f14")]
+        } for i in items if i.get("f14")]
     except:
         return []
 
