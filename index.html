@@ -1264,10 +1264,32 @@ function loadFeedbackHistory(){
       <div class="stat-chip"><div class="val" style="color:${(()=>{var f=D.recap.flow;if(!f||!f.length)return'var(--dim)';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'var(--red)':'var(--green)';})()}">${(()=>{var f=D.recap.flow;if(!f||!f.length)return'—';var pos=f.filter(x=>x.amt.indexOf('+')>=0).length;return pos>=Math.ceil(f.length/2)?'净流入':'净流出';})()}</div><div class="lbl">💸 资金</div></div>
       <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztCount!=null?D.recap.ztCount:(D.recap.ztLadder?D.recap.ztLadder.totalCount:'—')}</div><div class="lbl">🪜 涨停</div></div>
       <div class="stat-chip"><div class="val" style="color:${D.recap.dtCount>5?'var(--red)':'var(--green)'}">${D.recap.dtCount!=null?D.recap.dtCount:'—'}</div><div class="lbl">📉 跌停</div></div>
+      <div class="stat-chip"><div class="val" style="color:${(()=>{var nb=D.northbound;if(!nb||!nb.net_yi)return'var(--dim)';return nb.net_yi>0?'var(--red)':'var(--green)';})()}">${(()=>{var nb=D.northbound;if(!nb)return'—';var n=nb.net_yi||0;return (n>=0?'+':'')+n.toFixed(1)+'亿';})()}</div><div class="lbl">🌏 北向</div></div>
     </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>`;
 
-  // ── 龙虎榜 strip (from data.json) ──
+  // ── 龙虎榜 strip (优先 lhbFull, 回退 lhb) ──
   (function(){
+    var lhbFull=D.lhbFull;
+    if(lhbFull&&lhbFull.stocks&&lhbFull.stocks.length){
+      var stocks=lhbFull.stocks.slice(0,10);
+      var top5=stocks.slice(0,5), bot5=stocks.filter(function(s){return s.net<0}).slice(0,5);
+      var lhbHtml='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
+      lhbHtml+='<div style="border:1px solid rgba(239,68,68,.20);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--red);margin-bottom:6px">🪜 龙虎榜·净买TOP5 <span style="font-size:.68rem;color:var(--dim);font-weight:400">'+lhbFull.date+' 共'+lhbFull.total+'条</span></div>';
+      top5.forEach(function(s){
+        lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="window.open(\'tdxstock://'+s.c+'\',\'_blank\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--red);font-weight:700;font-size:.8rem">'+(s.net>0?'+':'')+s.net.toFixed(0)+'万</span><span style="font-size:.64rem;color:var(--dim);max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(s.reason||'')+'</span></div>';
+      });
+      lhbHtml+='</div>';
+      lhbHtml+='<div style="border:1px solid rgba(34,197,94,.18);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--green);margin-bottom:6px">净卖TOP5</div>';
+      if(bot5.length){
+        bot5.forEach(function(s){
+          lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="window.open(\'tdxstock://'+s.c+'\',\'_blank\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--green);font-weight:700;font-size:.8rem">'+s.net.toFixed(0)+'万</span><span style="font-size:.64rem;color:var(--dim)">'+(s.reason||'')+'</span></div>';
+        });
+      } else {
+        lhbHtml+='<div style="font-size:.82rem;color:var(--dim);padding:8px 0">全市场净买入为主</div>';
+      }
+      lhbHtml+='</div></div>';
+      ov+=lhbHtml;
+    } else {
     var lhb=D.recap.lhb;
     if(lhb&&lhb.topBuy&&lhb.topBuy.length){
       var topB=lhb.topBuy.slice(0,5), topS=lhb.topSell.slice(0,5);
@@ -1285,7 +1307,7 @@ function loadFeedbackHistory(){
       });
       lhbHtml+='</div></div>';
       ov+=lhbHtml;
-    }
+    }} // end else (old lhb fallback)
   })();
 
   // ── Top-3 / Bottom-3 sector strip (from real-time price averages) ──
@@ -1316,6 +1338,16 @@ function loadFeedbackHistory(){
     });
     strip+='</div></div>';
     ov+=strip;
+  })();
+
+  // ── 热点归因 strip (from _hotReasons) ──
+  (function(){
+    var hr=D._hotReasons;
+    if(hr&&hr.topReasons&&hr.topReasons.length){
+      var tags=hr.topReasons.slice(0,10).map(function(t){return '<span style="display:inline-block;padding:4px 10px;margin:2px 4px 2px 0;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:.78rem;color:var(--text);white-space:nowrap"><span style="color:var(--blue);font-weight:600">#'+t.tag+'</span> <span style="color:var(--dim)">'+t.count+'</span></span>';}).join('');
+      var hotTop=hr.stocks?hr.stocks.slice(0,3).map(function(s){return '<span style="color:var(--amber);font-size:.76rem">'+s.c+' '+s.n+' <span style="color:var(--red)">+'+s.chg+'%</span> <span style="color:var(--sub)">'+s.reason+'</span></span>';}).join(' &nbsp;|&nbsp; '):'';
+      ov+='<div style="margin-bottom:16px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)"><div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="font-size:.82rem;font-weight:700">🏷️ 热点归因</span><span style="font-size:.68rem;color:var(--dim)">'+hr.date+' · '+hr.total+'只</span></div>'+tags+(hotTop?'<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">🔥 '+hotTop+'</div>':'')+'</div>';
+    }
   })();
 
   D.groups.forEach(g=>{
