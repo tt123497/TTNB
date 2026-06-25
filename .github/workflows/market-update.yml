@@ -32,6 +32,10 @@ jobs:
         run: python .github/scripts/score_sectors.py
       - name: Enrich data (北向/龙虎榜/解禁/热点/融资融券)
         run: python .github/scripts/fetch_enrich.py
+      - name: Tier A (全球资讯/行业排名/腾讯估值)
+        run: python .github/scripts/fetch_tierA.py
+      - name: Tier B (概念板块/资金流/龙虎榜席位/大宗/股东户数/分红)
+        run: python .github/scripts/fetch_tierB.py
       - name: Build events + layout
         run: python .github/scripts/fetch_events.py
       - name: Commit and push

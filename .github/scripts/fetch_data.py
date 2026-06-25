@@ -715,7 +715,7 @@ def main():
     preserve = {}
     old_livePrices = {}
     old_sectorStocks = {}
-    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta', 'sectorTags', 'lhbFull', 'lockupAlerts', 'marginSummary', 'northbound', '_hotReasons']
+    preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout', 'bHistory', 'concepts', 'dynamicSectors', '_newsSector', '_newsMarket', '_newsMeta', 'sectorTags', 'lhbFull', 'lockupAlerts', 'marginSummary', 'northbound', '_hotReasons', 'globalNews', 'industryRank', 'tencentVal', 'cninfoAlerts', 'indReports', 'conceptBlocks', 'stockInfo_em', 'fundFlowMin', 'stockNews', 'fundFlow120', 'dragonSeats', 'blockTrades', 'holderNum', 'dividendHist']
     old_cycle = None
     old_briefing_date = ''
     if os.path.exists(DATA_PATH):

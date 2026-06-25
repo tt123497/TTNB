@@ -324,6 +324,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .flash-item .fi-dot{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0}
 .flash-item .fi-dot.sector{background:var(--blue)}
 .flash-item .fi-dot.market{background:var(--amber)}
+.flash-item .fi-dot.global{background:var(--teal)}
 .flash-item .fi-body{flex:1;min-width:0}
 .flash-item .fi-title{color:var(--text);font-size:.88rem}
 .flash-item .fi-title a{color:var(--text);text-decoration:none}
@@ -1356,6 +1357,38 @@ function loadFeedbackHistory(){
     }
   })();
 
+  // ── 融资融券 strip ──
+  (function(){
+    var ms=D.marginSummary;
+    if(ms&&ms.stocks&&ms.stocks.length){
+      var bull=ms.stocks.filter(function(s){return s.change_5d>0});
+      var bear=ms.stocks.filter(function(s){return s.change_5d<0});
+      ov+='<div style="margin-bottom:16px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">';
+      ov+='<div style="font-size:.82rem;font-weight:700;margin-bottom:6px">💰 融资融券 · 5日杠杆变化 <span style="font-size:.68rem;color:var(--dim)">'+bull.length+'加杠杆 / '+bear.length+'去杠杆</span></div>';
+      ov+='<div style="display:flex;flex-wrap:wrap;gap:4px 14px">';
+      bull.slice(0,6).forEach(function(s){
+        ov+='<span style="font-size:.76rem"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+s.c+'</span> <span style="color:var(--text)">'+s.n+'</span> <span style="color:var(--red);font-weight:600">+'+s.change_5d+'%</span></span>';
+      });
+      bear.slice(0,3).forEach(function(s){
+        ov+='<span style="font-size:.76rem"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+s.c+'</span> <span style="color:var(--text)">'+s.n+'</span> <span style="color:var(--green);font-weight:600">'+s.change_5d+'%</span></span>';
+      });
+      ov+='</div></div>';
+    }
+  })();
+
+  // ── 解禁预警 strip ──
+  (function(){
+    var la=D.lockupAlerts;
+    if(la&&la.alerts&&la.alerts.length){
+      ov+='<div style="margin-bottom:16px;padding:10px 12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:var(--radius-sm)">';
+      ov+='<div style="font-size:.82rem;font-weight:700;color:var(--red);margin-bottom:4px">🔓 解禁预警 · 未来'+la.forwardDays+'天 <span style="font-size:.68rem;color:var(--dim);font-weight:400">'+la.alerts.length+'批待解禁</span></div>';
+      la.alerts.slice(0,6).forEach(function(a){
+        ov+='<div style="font-size:.76rem;padding:2px 0"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+a.c+'</span> '+a.n+' <span style="color:var(--amber)">'+a.d+'</span> '+a.type+' <span style="color:var(--red);font-weight:600">'+a.ratio+'%</span></div>';
+      });
+      ov+='</div>';
+    }
+  })();
+
   D.groups.forEach(g=>{
     ov+=`<div class="group-hd">${g.n}</div><div class="card-grid">`;
     g.sectors.forEach(s=>{
@@ -1777,12 +1810,13 @@ function loadFeedbackHistory(){
     },100);
   }
 
-  // Flash news renderer
+  // Flash news renderer (includes globalNews from Tier A)
   function renderFlashNews(sectorNews, marketNews){
     var el=document.getElementById('flashFeed');
     if(!el)return;
     var items=sectorNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'sector'};})
-      .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'market'};}));
+      .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'market'};}))
+      .concat((D.globalNews||{}).headlines||[].map(function(n){return {t:n.t,u:'',time:n.ts,src:'em_7x24',ch:'global'};}));
     items.sort(function(a,b){return (b.time||'').localeCompare(a.time||'');});
     var h='';
     items.forEach(function(item){
@@ -1896,8 +1930,11 @@ function loadFeedbackHistory(){
           bhEl.innerHTML=makeBHistoryHTML(d.bHistory);
         }
         // ── Flash News refresh ──
-        if(d._newsSector||d._newsMarket){
-          renderFlashNews(d._newsSector||[], d._newsMarket||[]);
+        if(d._newsSector||d._newsMarket||d.globalNews){
+          D._newsSector=d._newsSector||[];
+          D._newsMarket=d._newsMarket||[];
+          D.globalNews=d.globalNews||{headlines:[]};
+          renderFlashNews(D._newsSector, D._newsMarket);
         }
         // ── Stock list refresh from live sector data ──
         if(d.sectorStocks){D.sectorStocks=d.sectorStocks;}
