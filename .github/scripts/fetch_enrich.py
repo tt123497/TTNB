@@ -383,6 +383,8 @@ def main():
         lockup_icon = '🔴' if lockup['alerts'] else '✅'
         print(f"  {lockup_icon} 解禁预警: 扫描{lockup['scanned']}只, {len(lockup['alerts'])}批待解禁 [30min batch]")
     else:
+        if 'lockupAlerts' not in d:
+            d['lockupAlerts'] = {"scanned": 0, "alerts": [], "forwardDays": 90, "status": "pending next cycle"}
         print(f"  ⏭️  解禁预警: skipped (next at :00/:30)")
 
     # ── 5. 融资融券 (heavy, every 30min) ──
@@ -393,7 +395,12 @@ def main():
         inc = sum(1 for s in margin['stocks'] if s.get('change_5d', 0) > 0)
         print(f"  ✅ 融资融券: {len(margin['stocks'])}只, {inc}只加杠杆 [30min batch]")
     elif not run_heavy:
-        print(f"  ⏭️  融资融券: skipped (next at :00/:30)")
+        # Preserve existing or set empty defaults
+        if 'lockupAlerts' not in d:
+            d['lockupAlerts'] = {"scanned": 0, "alerts": [], "forwardDays": 90, "status": "pending next cycle"}
+        if 'marginSummary' not in d:
+            d['marginSummary'] = {"stocks": [], "status": "pending next cycle"}
+        print(f"  ⏭️  融资融券/解禁: skipped (next at :00/:30)")
     else:
         print(f"  ⚠️  融资融券: no codes to scan")
 

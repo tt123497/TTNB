@@ -1097,6 +1097,12 @@ function loadFeedbackHistory(){
     if(data.bHistory&&data.bHistory.length) D.bHistory=data.bHistory;
     if(data._newsSector) D._newsSector=data._newsSector;
     if(data._newsMarket) D._newsMarket=data._newsMarket;
+    if(data.northbound) D.northbound=data.northbound;
+    if(data.lhbFull) D.lhbFull=data.lhbFull;
+    if(data._hotReasons) D._hotReasons=data._hotReasons;
+    if(data._backtest) D._backtest=data._backtest;
+    if(data.marginSummary) D.marginSummary=data.marginSummary;
+    if(data.lockupAlerts) D.lockupAlerts=data.lockupAlerts;
     // Populate flash news on initial load
     if(data._newsSector || data._newsMarket){
       renderFlashNews(data._newsSector||[], data._newsMarket||[]);
@@ -1896,6 +1902,12 @@ function loadFeedbackHistory(){
         // ── Stock list refresh from live sector data ──
         if(d.sectorStocks){D.sectorStocks=d.sectorStocks;}
         if(d.sectorFixedStocks){D.sectorFixedStocks=d.sectorFixedStocks;}
+        if(d.northbound) D.northbound=d.northbound;
+        if(d.lhbFull) D.lhbFull=d.lhbFull;
+        if(d._hotReasons) D._hotReasons=d._hotReasons;
+        if(d._backtest) D._backtest=d._backtest;
+        if(d.marginSummary) D.marginSummary=d.marginSummary;
+        if(d.lockupAlerts) D.lockupAlerts=d.lockupAlerts;
         renderStockList();
         // Recap panel
         if(currentRecapDate!=='today')return; // skip refresh when viewing history
