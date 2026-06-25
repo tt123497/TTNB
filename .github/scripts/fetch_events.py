@@ -381,11 +381,16 @@ def main():
 
     merged.sort(key=parse_date)
 
+    # Expire past events older than 30 days (except hand-curated with links)
+    cutoff = (today - timedelta(days=30))
+    merged = [e for e in merged
+              if parse_date(e).date() >= cutoff
+              or (e.get('u','') and parse_date(e).date() >= cutoff - timedelta(days=60))]
+
     # Cap at 100: trim oldest non-hand past events if needed
     if len(merged) > 100:
         future = [e for e in merged if parse_date(e).date() >= today]
         past = [e for e in merged if parse_date(e).date() < today]
-        # Keep hand-curated past forever, trim others
         past_hand = [e for e in past if e.get('u','').strip()]
         past_other = [e for e in past if not e.get('u','').strip()]
         past_other = past_other[-max(0, 30 - len(past_hand)):]
