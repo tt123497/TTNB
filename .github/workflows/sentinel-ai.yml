@@ -18,7 +18,9 @@ jobs:
       contents: write
     steps:
       - name: Checkout (via gh CLI)
-        run: gh repo clone tt123497/TTNB .
+        run: |
+          rm -rf ./* .[!.]* ..?* 2>/dev/null || true
+          gh repo clone tt123497/TTNB .
       - name: Setup Python deps
         run: pip install --upgrade pip mootdx pandas requests numpy openpyxl --quiet
 
