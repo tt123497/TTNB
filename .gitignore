@@ -1,3 +1,10 @@
 *.pyc
 __pycache__/
 remote_data.json
+data.json.tmp
+akshare-one-mcp/
+akshare_mcp_server/
+pytdx-formula-interpreter/
+.mcp.json
+skills_catalog.json
+update_weekend.py

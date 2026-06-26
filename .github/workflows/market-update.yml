@@ -6,7 +6,6 @@ on:
       - main
   schedule:
     # CST 9:00-15:55 every 5min (UTC 1:00-7:55)
-    # GitHub cron only accepts hour ranges, not mixed hour+minute combos reliably
     - cron: '*/5 1-7 * * 1-5'
     # Weekend noon snapshot (CST Saturday 10:00 = UTC 2:00)
     - cron: '0 2 * * 6'
@@ -28,26 +27,24 @@ jobs:
         run: |
           rm -rf ./* .[!.]* ..?* 2>/dev/null || true
           gh repo clone tt123497/TTNB .
+
       - name: Setup Python deps
         run: |
           python -m pip install --upgrade pip --quiet || true
-          python -m pip install mootdx pandas requests numpy openpyxl --quiet
-      - name: Fetch data
-        run: python .github/scripts/fetch_data.py
-      - name: Fetch news
-        run: python .github/scripts/fetch_news.py
+          python -m pip install mootdx requests pandas numpy openpyxl --quiet
+
+      - name: Run unified update (a-stock-data 28 endpoints)
+        run: python run_update.py
+
       - name: Discover sectors
         run: python .github/scripts/discover_sectors.py
+
       - name: Score sectors
         run: python .github/scripts/score_sectors.py
-      - name: Enrich data (北向/龙虎榜/解禁/热点/融资融券)
-        run: python .github/scripts/fetch_enrich.py
-      - name: Tier A (全球资讯/行业排名/腾讯估值)
-        run: python .github/scripts/fetch_tierA.py
-      - name: Tier B (概念板块/资金流/龙虎榜席位/大宗/股东户数/分红)
-        run: python .github/scripts/fetch_tierB.py
+
       - name: Build events + layout
         run: python .github/scripts/fetch_events.py
+
       - name: Commit and push
         run: |
           git config user.name "Sentinel Bot"
