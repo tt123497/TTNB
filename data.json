@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27 07:09 CST (tierA)",
+  "updated": "2026-06-27 07:15 CST (tierB-B-slow)",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1980572,
   "recap": {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-27 07:08",
+      "updated": "2026-06-27 07:09",
       "tiers": [
         {
           "boardCount": 6,
@@ -747,7 +747,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/27 07:08 GitHub Actions云更新 | 435只 | 50板块",
+    "note": "06/27 07:09 GitHub Actions云更新 | 435只 | 50板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -9692,7 +9692,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-27 07:08 CST",
+    "updated": "2026-06-27 07:10 CST",
     "top3": [
       {
         "r": 1,
@@ -19604,7 +19604,7 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 07:08 CST",
+    "updated": "2026-06-27 07:09 CST",
     "sector": 4,
     "market": 64,
     "match_sectors": [
@@ -19614,7 +19614,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-27 07:09 CST",
+    "updated": "2026-06-27 07:23 CST",
     "total": 16,
     "hand": 8,
     "macro": 8,
@@ -19706,8 +19706,8 @@
   "northbound": {
     "date": "2026-06-27",
     "hgt_yi": -9.28,
-    "sgt_yi": 379.75,
-    "net_yi": 370.47,
+    "sgt_yi": -31.1,
+    "net_yi": -40.38,
     "points": 262,
     "status": "实时"
   },
@@ -20642,7 +20642,7 @@
         "ts": "2026-06-27 03:22:38"
       }
     ],
-    "updated": "2026-06-26 23:09 UTC",
+    "updated": "2026-06-26 23:15 UTC",
     "status": "ok"
   },
   "tencentVal": {
@@ -24590,5 +24590,10 @@
       "002240 盛新锂能"
     ]
   },
-  "industryRank": []
+  "industryRank": [],
+  "fundFlow120": {},
+  "dragonSeats": {},
+  "blockTrades": {},
+  "holderNum": {},
+  "dividendHist": {}
 }
