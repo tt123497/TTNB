@@ -14,7 +14,10 @@ on:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: china
+    defaults:
+      run:
+        shell: bash
     permissions:
       contents: write
     steps:
@@ -45,7 +48,7 @@ jobs:
           git add data.json
           git diff --staged --quiet && exit 0
           for i in 1 2 3; do
-            git commit -m "Update $(TZ='Asia/Shanghai' date '+%H:%M')"
+            git commit -m "Update $(date '+%H:%M')"
             git pull --rebase origin main && git push origin main && exit 0
             git rebase --abort 2>/dev/null; git reset --soft HEAD~1 2>/dev/null
             sleep 3

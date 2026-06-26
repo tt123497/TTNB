@@ -10,7 +10,10 @@ on:
 
 jobs:
   briefing:
-    runs-on: ubuntu-latest
+    runs-on: china
+    defaults:
+      run:
+        shell: bash
     permissions:
       contents: write
     steps:
@@ -34,4 +37,4 @@ jobs:
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
           git add data.json
-          git diff --staged --quiet || (git commit -m "📰 $(TZ='Asia/Shanghai' date '+%H:%M') 简报更新" && git push)
+          git diff --staged --quiet || (git commit -m "📰 $(date '+%H:%M') 简报更新" && git push)
