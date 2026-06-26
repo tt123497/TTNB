@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26 22:08 CST (tierA)",
+  "updated": "2026-06-26 22:16 CST (tierB-B-slow)",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1980536,
   "recap": {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-26 22:01",
+      "updated": "2026-06-26 22:10",
       "tiers": [
         {
           "boardCount": 6,
@@ -747,7 +747,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/26 22:01 GitHub Actions云更新 | 435只 | 50板块",
+    "note": "06/26 22:10 GitHub Actions云更新 | 435只 | 50板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -9369,8 +9369,8 @@
     },
     {
       "name": "半导体设备",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -9448,7 +9448,7 @@
     {
       "name": "人形机器人",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -9538,7 +9538,7 @@
     {
       "name": "储能",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -9555,8 +9555,8 @@
     },
     {
       "name": "黄金/贵金属",
-      "sig": "good",
-      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+      "sig": "neutral",
+      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
       "u": ""
     },
     {
@@ -9580,7 +9580,7 @@
     {
       "name": "银行",
       "sig": "good",
-      "msg": "板块均涨+0.0%，8条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，7条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -9592,7 +9592,7 @@
     {
       "name": "保险",
       "sig": "good",
-      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+      "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -9603,8 +9603,8 @@
     },
     {
       "name": "白酒",
-      "sig": "neutral",
-      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+      "sig": "good",
+      "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
       "u": ""
     },
     {
@@ -9616,7 +9616,7 @@
     {
       "name": "医药/CRO",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -9692,7 +9692,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-26 22:02 CST",
+    "updated": "2026-06-26 22:10 CST",
     "top3": [
       {
         "r": 1,
@@ -9837,8 +9837,8 @@
       },
       {
         "name": "半导体设备",
-        "sig": "good",
-        "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -9916,7 +9916,7 @@
       {
         "name": "人形机器人",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
         "u": ""
       },
       {
@@ -10006,7 +10006,7 @@
       {
         "name": "储能",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -10023,8 +10023,8 @@
       },
       {
         "name": "黄金/贵金属",
-        "sig": "good",
-        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "sig": "neutral",
+        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
         "u": ""
       },
       {
@@ -10048,7 +10048,7 @@
       {
         "name": "银行",
         "sig": "good",
-        "msg": "板块均涨+0.0%，8条相关消息，表现稳健。",
+        "msg": "板块均涨+0.0%，7条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -10060,7 +10060,7 @@
       {
         "name": "保险",
         "sig": "good",
-        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
+        "msg": "板块均涨+0.0%，3条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -10071,8 +10071,8 @@
       },
       {
         "name": "白酒",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
+        "sig": "good",
+        "msg": "板块均涨+0.0%，2条相关消息，表现稳健。",
         "u": ""
       },
       {
@@ -10084,7 +10084,7 @@
       {
         "name": "医药/CRO",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -18829,6 +18829,24 @@
       "src": "sina_7x24财经"
     },
     {
+      "t": "保险中介之殇！1元保险牌照，你敢买吗？",
+      "u": "https://finance.sina.com.cn/money/insurance/bxyx/2026-06-26/doc-inieuccn5101865.shtml",
+      "time": "21:40",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "中国银行召开2025年年度股东会",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-26/doc-inieuccq1876291.shtml",
+      "time": "21:40",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "永泰能源：公司在保证现有煤电能源产业基本盘稳定增长的同时，有序推进储能产业战略布局",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-26/doc-inieuccn5099210.shtml",
+      "time": "21:38",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "高盛策略师看好大型科技股 称半导体板块波动较大",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-26/doc-inietwvq5207382.shtml",
       "time": "21:27",
@@ -18871,9 +18889,21 @@
       "src": "sina_7x24财经"
     },
     {
+      "t": "原掌门人无法正常履职，白酒龙头换帅！| 盘后公告精选",
+      "u": "https://finance.sina.com.cn/roll/2026-06-26/doc-inietwvs1972578.shtml",
+      "time": "20:58",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "秘而不宣的人事：合资券商迎六周年，主帅已悄悄换人",
       "u": "https://finance.sina.com.cn/stock/quanshang/qsyj/2026-06-26/doc-inietwvs1984415.shtml",
       "time": "20:53",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "稳居创新第一梯队！ 复宏汉霖连续六年荣登中国医药创新企业100强榜单",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-06-26/doc-inietwvk0495414.shtml",
+      "time": "20:50",
       "src": "sina_7x24财经"
     },
     {
@@ -18881,42 +18911,6 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-26/doc-inietwvq5177735.shtml",
       "time": "20:49",
       "src": "sina_A股"
-    },
-    {
-      "t": "ATFX科普:沪金COMEX黄金伦敦金产品力大盘点",
-      "u": "https://finance.sina.com.cn/money/forex/forexroll/2026-06-26/doc-inietwvk0480569.shtml",
-      "time": "20:42",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "688072，拟购买半导体资产！下周一停牌",
-      "u": "https://finance.sina.com.cn/wm/2026-06-26/doc-inietwvq5169281.shtml",
-      "time": "20:33",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "金价5个月大跌30%，工行、建行、招行、广发银行：这类业务即将关闭，尽快卖出或平仓",
-      "u": "https://finance.sina.com.cn/wm/2026-06-26/doc-inietwvq5173575.shtml",
-      "time": "20:32",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "上半年险资调研A股上市公司6500余次，AI、半导体、机器人为主要布局方向",
-      "u": "https://finance.sina.com.cn/money/insurance/xzdt/2026-06-26/doc-inietwvs1946654.shtml",
-      "time": "20:26",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "中国工商银行与巴西财政部举行工作会谈",
-      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-26/doc-inietwvq5169824.shtml",
-      "time": "20:24",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "资金出逃！黄金ETF集体下跌",
-      "u": "https://finance.sina.com.cn/wm/2026-06-26/doc-inietwvs1940332.shtml",
-      "time": "20:23",
-      "src": "sina_7x24财经"
     },
     {
       "t": "德意志银行称通胀预期下修或为欧洲央行年内维持利率不变打开空间",
@@ -18945,6 +18939,24 @@
   ],
   "_newsMarket": [
     {
+      "t": "据CNBC报道，OpenAI尚未确定IPO时间表，尚未开始与投资者进行“试水”会议。\n\n此前，媒体周四报道称，OpenAI考虑推后至2027年再美国IPO。",
+      "u": "https://wallstreetcn.com/livenews/3125359",
+      "time": "22:09",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "视频 | 千亿国信证券因多项违规被警告+全面整改",
+      "u": "https://finance.sina.com.cn/money/fund/jjgsgd/2026-06-26/doc-inieuccn5105187.shtml",
+      "time": "22:06",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "预测市场Polymarket美国交易所上线六周后，年化营收突破10亿美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-26/doc-inieucch0412723.shtml",
+      "time": "22:03",
+      "src": "sina_A股"
+    },
+    {
       "t": "纽约金日内涨幅达1.0%，报4089.9美元/盎司。",
       "u": "https://wallstreetcn.com/livenews/3125356",
       "time": "22:01",
@@ -18955,6 +18967,12 @@
       "u": "https://finance.sina.com.cn/world/2026-06-26/doc-inieuccq1868910.shtml",
       "time": "21:48",
       "src": "sina_A股"
+    },
+    {
+      "t": "增持1.49亿股！兴蓉环境获信环绿色控股举牌，持股达5%",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-26/doc-inieuccn5099303.shtml",
+      "time": "21:41",
+      "src": "sina_7x24财经"
     },
     {
       "t": "费城半导体指数跌幅扩大至超5%。",
@@ -18979,6 +18997,12 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-26/doc-inietwvs1986466.shtml",
       "time": "21:31",
       "src": "sina_A股"
+    },
+    {
+      "t": "中船防务：目前公司大股东、管理层无增持计划",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-06-26/doc-inieuccq1858169.shtml",
+      "time": "21:31",
+      "src": "sina_7x24财经"
     },
     {
       "t": "美股盘初：纳指跌1.1%，费城半导体指数跌超4%，美光科技跌约6%",
@@ -19017,10 +19041,34 @@
       "src": "wscn_全球"
     },
     {
+      "t": "苹果宣布涨价后市值蒸发1.8万亿元",
+      "u": "https://finance.sina.com.cn/stock/wbstock/2026-06-26/doc-inietwvq5210894.shtml",
+      "time": "21:20",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "舜宇光学科技拟发行人民币高级债券，今日起召开投资者电话会议",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-06-26/doc-inieuccq1871881.shtml",
+      "time": "21:14",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "现货白银日内涨幅达2.0%，报59.1美元/盎司。\n\n现货黄金日内涨幅达1%，报4064.56美元/盎司。",
       "u": "https://wallstreetcn.com/livenews/3125333",
       "time": "21:02",
       "src": "wscn_全球"
+    },
+    {
+      "t": "复星国际分拆复星安特金赴港上市 已向联交所提交上市申请",
+      "u": "https://finance.sina.com.cn/stock/zqgd/2026-06-26/doc-inietwvs1973320.shtml",
+      "time": "21:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "贝尔生物IPO状态变更为提交注册",
+      "u": "https://finance.sina.com.cn/stock/zqgd/2026-06-26/doc-inietwvs1980625.shtml",
+      "time": "21:00",
+      "src": "sina_7x24财经"
     },
     {
       "t": "夜盘期货开盘，沪银涨逾2%，沪锡涨逾1%；原油、纯苯、苯乙烯跌逾2%，沥青、丙烯、甲醇、低硫燃油、聚丙烯跌逾1%。",
@@ -19065,22 +19113,10 @@
       "src": "wscn_全球"
     },
     {
-      "t": "630将至！分红险演示利率将从3.9%降至3.5% 消费者保单权益是否受影响？",
-      "u": "https://finance.sina.com.cn/roll/2026-06-26/doc-inietwvq5177385.shtml",
-      "time": "20:47",
-      "src": "sina_7x24财经"
-    },
-    {
       "t": "603922，被证监会立案！公司称无法与实控人取得联系！",
       "u": "https://finance.sina.com.cn/wm/2026-06-26/doc-inietwvs1949431.shtml",
       "time": "20:41",
       "src": "sina_A股"
-    },
-    {
-      "t": "央行、海关总署公开征求意见！",
-      "u": "https://finance.sina.com.cn/money/bank/bank_yhfg/2026-06-26/doc-inietwvk0497345.shtml",
-      "time": "20:39",
-      "src": "sina_7x24财经"
     },
     {
       "t": "协创数据：拟定增募资不超过80亿元，用于协创数据智算中心建设项目、数据存储拓展升级扩产项目、补充流动资金及偿还银行贷款。",
@@ -19119,12 +19155,6 @@
       "src": "wscn_全球"
     },
     {
-      "t": "上市险企分红首破千亿，中国平安占近半",
-      "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-06-26/doc-inietwvk0471683.shtml",
-      "time": "20:20",
-      "src": "sina_7x24财经"
-    },
-    {
       "t": "苹果提价敲响AI成本警钟 亚洲科技股遭遇重创",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-26/doc-inietwvs1929438.shtml",
       "time": "20:15",
@@ -19141,12 +19171,6 @@
       "u": "https://finance.sina.com.cn/stock/s/2026-06-26/doc-inietwvs1934140.shtml",
       "time": "19:58",
       "src": "sina_A股"
-    },
-    {
-      "t": "天海防务：拟向特定对象发行A股股票募资不超10亿元用于高端绿色船舶扩产等项目",
-      "u": "https://wallstreetcn.com/livenews/3125303",
-      "time": "19:56",
-      "src": "wscn_全球"
     },
     {
       "t": "中科闻歌登陆港交所，上市首日盘中最高涨幅超105%",
@@ -19203,12 +19227,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "盛达资源被证监会立案！律师提醒股民最新索赔条件",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-06-26/doc-inietspn0497164.shtml",
-      "time": "17:53",
-      "src": "sina_A股"
-    },
-    {
       "t": "*ST华闻: *ST华闻:关于持股5%以上股东持股被动稀释触及1%整数倍及跨越5%整数倍的提示性公告",
       "u": "https://data.eastmoney.com/notices/detail/000793.html",
       "time": "06-27",
@@ -19221,54 +19239,27 @@
       "time": "06-27",
       "src": "em_announcement",
       "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:中信证券股份有限公司关于华闻传媒投资集团股份有限公司详式权益变动报告书之财务顾问核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:详式权益变动报告书",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:关于股东权益变动暨控股股东、实际控制人发生变更的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "兖矿能源: 兖矿能源:北京市金杜律师事务所关于兖矿能源集团股份有限公司分拆物泊科技股份有限公司至香港联合交易所有限公司上市事宜股票交易自查期间相关机构及人员买卖股票情况的专项核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/600188.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "600188 兖矿能源"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-26 22:02 CST",
-    "sector": 20,
-    "market": 50,
+    "updated": "2026-06-26 22:10 CST",
+    "sector": 19,
+    "market": 54,
     "match_sectors": [
       "SpaceX",
       "五粮液",
       "保险",
+      "储能",
       "光模块",
       "券商",
+      "医药",
       "半导体",
-      "机器人",
-      "银行",
-      "黄金"
+      "白酒",
+      "银行"
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-26 22:08 CST",
+    "updated": "2026-06-26 22:24 CST",
     "total": 16,
     "hand": 8,
     "macro": 8,
@@ -20096,6 +20087,21 @@
   "globalNews": {
     "headlines": [
       {
+        "t": "电脑涨价潮来了 多个电脑热门机型售价大幅上调",
+        "s": "【电脑涨价潮来了 多个电脑热门机型售价大幅上调】苹果公司最近宣布，上调全球多个市场部分笔记本电脑和平板电脑售价，涨幅在16%至25%不等。国内市场多款热门电脑机型售价也出现大幅上调",
+        "ts": "2026-06-26 22:14:26"
+      },
+      {
+        "t": "美股跌幅迅速收窄 标普500指数率先转涨",
+        "s": "【美股跌幅迅速收窄 标普500指数率先转涨】美股跌幅迅速收窄，标普500指数率先转涨，道指微幅下跌0.06%，纳指跌幅收窄至0.2%。",
+        "ts": "2026-06-26 22:09:35"
+      },
+      {
+        "t": "报道：OpenAI尚未确定IPO时间表",
+        "s": "【报道：OpenAI尚未确定IPO时间表】据报道，OpenAI尚未确定IPO时间表，尚未开始与投资者进行“试水”会议。",
+        "ts": "2026-06-26 22:08:49"
+      },
+      {
         "t": "法拉利首款纯电跑车国内售价公布：398.8万起",
         "s": "【法拉利首款纯电跑车国内售价公布：398.8万起】6月26日晚，法拉利首款纯电跑车Luce亚洲首发，国内建议零售价398.8万元起。",
         "ts": "2026-06-26 22:04:46"
@@ -20204,24 +20210,9 @@
         "t": "Omdia：到2035年全球蜂窝物联网连接数预计达到59亿",
         "s": "【Omdia：到2035年全球蜂窝物联网连接数预计达到59亿】Omdia发布的最新研究报告显示，未来十年蜂窝物联网市场将保持强劲增长，到2035年全球蜂窝物联网连接数预计达到59亿",
         "ts": "2026-06-26 21:31:38"
-      },
-      {
-        "t": "美股三大指数集体低开 存储芯片概念走低",
-        "s": "【美股三大指数集体低开 存储芯片概念走低】美股三大指数集体低开，道琼斯指数跌0.36%，标普500指数跌0.65%，纳斯达克综合指数跌1.03%。美股存储芯片概念走低，闪迪、美光科",
-        "ts": "2026-06-26 21:30:44"
-      },
-      {
-        "t": "荣科科技：自6月30日起被实施其他风险警示 股票简称变更为“ST荣科”",
-        "s": "【荣科科技：自6月30日起被实施其他风险警示 股票简称变更为“ST荣科”】荣科科技(300290.SZ)公告称，公司股票自2026年6月30日起被实施其他风险警示，股票简称变更为“",
-        "ts": "2026-06-26 21:24:50"
-      },
-      {
-        "t": "高盛策略师看好大型科技股 称半导体板块波动较大",
-        "s": "【高盛策略师看好大型科技股 称半导体板块波动较大】高盛集团策略师Christian Mueller-Glissmann表示，随着芯片制造商股价持续波动，大型科技股在AI交易热潮中可",
-        "ts": "2026-06-26 21:24:32"
       }
     ],
-    "updated": "2026-06-26 14:08 UTC",
+    "updated": "2026-06-26 14:16 UTC",
     "status": "ok"
   },
   "tencentVal": {
@@ -24169,5 +24160,10 @@
       "002240 盛新锂能"
     ]
   },
-  "industryRank": []
+  "industryRank": [],
+  "fundFlow120": {},
+  "dragonSeats": {},
+  "blockTrades": {},
+  "holderNum": {},
+  "dividendHist": {}
 }
