@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27 07:25 CST (tierA)",
+  "updated": "2026-06-27 07:26 CST (tierA)",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1980573,
   "recap": {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-27 07:24",
+      "updated": "2026-06-27 07:25",
       "tiers": [
         {
           "boardCount": 6,
@@ -747,7 +747,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/27 07:24 GitHub Actions云更新 | 435只 | 50板块",
+    "note": "06/27 07:25 GitHub Actions云更新 | 435只 | 50板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -9692,7 +9692,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-27 07:24 CST",
+    "updated": "2026-06-27 07:26 CST",
     "top3": [
       {
         "r": 1,
@@ -19309,6 +19309,18 @@
       "src": "wscn_全球"
     },
     {
+      "t": "仙工智能登陆港股，能否撑起24倍PS",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyie1636664.shtml",
+      "time": "07:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "领益智造登陆港股 “果链女王”以AI智造再闯资本新局",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyia4859903.shtml",
+      "time": "07:00",
+      "src": "sina_7x24财经"
+    },
+    {
       "t": "京东方回归A股牌桌中央",
       "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyhx6991833.shtml",
       "time": "07:00",
@@ -19589,24 +19601,12 @@
       "u": "https://wallstreetcn.com/livenews/3125455",
       "time": "04:09",
       "src": "wscn_全球"
-    },
-    {
-      "t": "SpaceX本周跌超17%，周五收盘后将被纳入罗素1000指数",
-      "u": "https://wallstreetcn.com/livenews/3125453",
-      "time": "04:02",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "原油：WTI跌破每桶70美元 船只继续通过霍尔木兹海峡",
-      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7027326.shtml",
-      "time": "04:00",
-      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 07:24 CST",
+    "updated": "2026-06-27 07:26 CST",
     "sector": 4,
-    "market": 63,
+    "market": 65,
     "match_sectors": [
       "算力",
       "铝",
@@ -19614,7 +19614,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-27 07:25 CST",
+    "updated": "2026-06-27 07:26 CST",
     "total": 16,
     "hand": 8,
     "macro": 8,
@@ -20642,7 +20642,7 @@
         "ts": "2026-06-27 03:22:38"
       }
     ],
-    "updated": "2026-06-26 23:25 UTC",
+    "updated": "2026-06-26 23:26 UTC",
     "status": "ok"
   },
   "tencentVal": {
