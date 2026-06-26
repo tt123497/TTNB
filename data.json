@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-27 07:15 CST (tierB-B-slow)",
+  "updated": "2026-06-27 07:25 CST (tierA)",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1980572,
+  "updateCount": 1980573,
   "recap": {
     "index": [
       {
@@ -288,7 +288,7 @@
       }
     ],
     "ztLadder": {
-      "updated": "2026-06-27 07:09",
+      "updated": "2026-06-27 07:24",
       "tiers": [
         {
           "boardCount": 6,
@@ -747,7 +747,7 @@
       "total": 0,
       "date": ""
     },
-    "note": "06/27 07:09 GitHub Actions云更新 | 435只 | 50板块",
+    "note": "06/27 07:24 GitHub Actions云更新 | 435只 | 50板块",
     "cycle": {
       "phase": "风险偏好回暖",
       "phaseIcon": "🌤️",
@@ -9243,7 +9243,7 @@
     "interval": "15min",
     "stockCount": 435,
     "liveCount": 431,
-    "updateCount": 1980572,
+    "updateCount": 1980573,
     "trading": false
   },
   "sectors": [
@@ -9692,7 +9692,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-27 07:10 CST",
+    "updated": "2026-06-27 07:24 CST",
     "top3": [
       {
         "r": 1,
@@ -19297,10 +19297,28 @@
   ],
   "_newsMarket": [
     {
+      "t": "周五（6月26日），美股纳斯达克生物科技指数收涨超2.2%，连续五天创收盘历史新高。\n\n成分股Pyxis Oncology收涨24.22%，Humacyte、ATAI Beckley、Moderna（莫德纳）、Immunitybio Inc",
+      "u": "https://wallstreetcn.com/livenews/3125495",
+      "time": "07:13",
+      "src": "wscn_全球"
+    },
+    {
       "t": "南美洲玻利维亚将转向浮动汇率制度，结束长达十五年的美元挂钩机制",
       "u": "https://wallstreetcn.com/livenews/3125493",
       "time": "07:03",
       "src": "wscn_全球"
+    },
+    {
+      "t": "京东方回归A股牌桌中央",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyhx6991833.shtml",
+      "time": "07:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗革命卫队称打击美军驻点以回应沿海地区遭袭",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieuyia4860345.shtml",
+      "time": "06:45",
+      "src": "sina_A股"
     },
     {
       "t": "全球最大锂生产商美国雅宝（Albemarle）认为，其电池储能业务需求正稳步增长，与电动汽车需求的不规律形成反差。\n\n该公司首席商务官Eric Norris）表示：“电网储能在全球的分布更加均匀，这是一个很有意思的需求驱动因素。”（路透）",
@@ -19583,30 +19601,12 @@
       "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7027326.shtml",
       "time": "04:00",
       "src": "sina_A股"
-    },
-    {
-      "t": "纳斯达克金龙中国指数收涨0.70%，报5730.18点，本周累计下跌将近5.57%。\n\n热门中概股里，网易初步收涨7.8%，拼多多涨4.5%，新东方、蔚来、百胜中国、理想至多涨4.2%，阿里涨0.1%，日月光半导体跌3.7%。\n\n中概互联网",
-      "u": "https://wallstreetcn.com/livenews/3125451",
-      "time": "04:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "纳指连跌五天",
-      "u": "https://wallstreetcn.com/livenews/3125449",
-      "time": "04:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美元指数本周涨约0.6%",
-      "u": "https://wallstreetcn.com/livenews/3125447",
-      "time": "03:51",
-      "src": "wscn_全球"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 07:09 CST",
+    "updated": "2026-06-27 07:24 CST",
     "sector": 4,
-    "market": 64,
+    "market": 63,
     "match_sectors": [
       "算力",
       "铝",
@@ -19614,7 +19614,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-27 07:23 CST",
+    "updated": "2026-06-27 07:25 CST",
     "total": 16,
     "hand": 8,
     "macro": 8,
@@ -20642,7 +20642,7 @@
         "ts": "2026-06-27 03:22:38"
       }
     ],
-    "updated": "2026-06-26 23:15 UTC",
+    "updated": "2026-06-26 23:25 UTC",
     "status": "ok"
   },
   "tencentVal": {
@@ -24590,10 +24590,5 @@
       "002240 盛新锂能"
     ]
   },
-  "industryRank": [],
-  "fundFlow120": {},
-  "dragonSeats": {},
-  "blockTrades": {},
-  "holderNum": {},
-  "dividendHist": {}
+  "industryRank": []
 }
