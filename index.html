@@ -1219,7 +1219,12 @@ function loadFeedbackHistory(){
     if(data.layout&&data.layout.length){
       var hardLayout=D.layout||[], cloudLayout=data.layout||[];
       var lseen={}; hardLayout.forEach(function(l){lseen[l.e]=1;});
-      cloudLayout.forEach(function(l){if(!lseen[l.e]){hardLayout.push(l);lseen[l.e]=1;}});
+      // 用云端布局更新标的(实时价来自 sector_fixed_stocks + 通达信/腾讯)
+      cloudLayout.forEach(function(l){
+        if(lseen[l.e]){
+          hardLayout.forEach(function(h){if(h.e===l.e&&l.stocks&&l.stocks.length>0)h.stocks=l.stocks;});
+        }else{hardLayout.push(l);lseen[l.e]=1;}
+      });
       D.layout=hardLayout;
     }
     if(data.updated) D.updated=data.updated;
@@ -2292,7 +2297,7 @@ function loadFeedbackHistory(){
 	        var lop=document.getElementById("panel-layout");if(lop&&d.layout){
 	          // merge cloud layout to hardcoded
 	          var lseen2={}; D.layout.forEach(function(l){lseen2[l.e]=1;});
-	          d.layout.forEach(function(l){if(!lseen2[l.e]){D.layout.push(l);lseen2[l.e]=1;}});
+	          d.layout.forEach(function(l){if(lseen2[l.e]){D.layout.forEach(function(h){if(h.e===l.e&&l.stocks&&l.stocks.length>0)h.stocks=l.stocks;});}else{D.layout.push(l);lseen2[l.e]=1;}});
 	          var ll=lop.querySelector(".layout-list");
 	          if(ll&&D.layout.length){
 	            var layFut=[], layPst=[];

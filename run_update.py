@@ -252,6 +252,51 @@ def fetch_sector_stocks(heat_data, our_names, prefer_tdx=True):
 
     return result
 
+def fill_layout_stocks(layout_list, sector_stocks, fixed_stocks):
+    """
+    用固定标的池 + 实时价填充布局卡标的。
+    替代旧 fetch_data.py 的 auto-repair layout stocks 逻辑，
+    数据源从东财板块API → sector_fixed_stocks.py + 通达信/腾讯实时价
+    """
+    if not layout_list or not fixed_stocks:
+        return layout_list
+
+    for lev in layout_list:
+        sec_name = lev.get('s', '')
+        if not sec_name:
+            continue
+
+        # 统一从 sector_fixed_stocks.py 取标的——单一数据源
+        fixed = fixed_stocks.get(sec_name, [])
+        if not fixed:
+            for fk in fixed_stocks:
+                if sec_name[:2] in fk or fk[:2] in sec_name:
+                    fixed = fixed_stocks[fk]
+                    break
+
+        if fixed:
+            stocks = []
+            for fs in fixed[:6]:
+                parts = fs.split()
+                if not parts or len(parts[0]) != 6:
+                    continue
+                code = parts[0]
+                name = ' '.join(parts[1:]) if len(parts) > 1 else code
+                chg = 0
+                # 从 sectorStocks 找最新涨跌幅
+                for sec, ss in (sector_stocks or {}).items():
+                    for s in ss:
+                        if s.get('c') == code:
+                            chg = s.get('chg', 0)
+                            break
+                    if chg != 0:
+                        break
+                stocks.append({'c': code, 'n': name, 'chg': round(chg, 1)})
+            stocks.sort(key=lambda x: -x['chg'])
+            lev['stocks'] = stocks[:6]
+
+    return layout_list
+
 def fetch_zt_ladder(cst):
     """连板梯队"""
     return ad.get_zt_pool()
@@ -1086,6 +1131,13 @@ def main():
     sector_stocks = fetch_sector_stocks(heat, OUR_SECTORS, prefer_tdx=use_tdx)
     pop = sum(1 for v in sector_stocks.values() if v)
     print(f"  sectorStocks: {pop} sectors with stocks")
+
+    # 填充布局卡标的: sector_fixed_stocks.py + 实时价
+    if preserve.get('layout'):
+        preserve['layout'] = fill_layout_stocks(
+            preserve['layout'], sector_stocks, SECTOR_FIXED_STOCKS
+        )
+        print(f"  layout stocks: filled {len(preserve['layout'])} cards")
 
     # ── 8. 组装 data.json ──
     cycle = old_cycle or auto_cycle(indices)
