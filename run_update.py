@@ -919,7 +919,8 @@ def main():
             pass
     preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout',
                      'bHistory', 'concepts', 'dynamicSectors', '_eventsMeta', 'sectorTags',
-                     '_sectorTracker', '_promoteQueue', '_hot_uncovered', '_backtest']
+                     '_sectorTracker', '_promoteQueue', '_hot_uncovered', '_backtest',
+                     '_newsSector', '_newsMarket', '_newsMeta', 'globalNews']
     preserve = {k: old.get(k) for k in preserve_keys if k in old and old.get(k)}
     # Sync root↔briefing: 前端读双路径, AI write 路径可能不同步
     if preserve.get('picks') and not preserve.get('briefing',{}).get('picks'):
@@ -1009,12 +1010,7 @@ def main():
 
     # ── 5. Tier A ──
     print("── Tier A ──")
-    gn = fetch_global_news()
-    print(f"  全球资讯: {len(gn['headlines'])}条")
-
-    # 多源新闻管道: 新浪4频道 + 东财公告 + 华尔街见闻
-    ns_sector, ns_market = fetch_all_news()
-    print(f"  赛道新闻: {len(ns_sector)}条, 市场新闻: {len(ns_market)}条")
+    # 新闻管道(globalNews)由 news_loop 每分钟独立更新, 此处跳过避免覆盖
 
     ir = fetch_industry_ranking(live=live, stock_sector=stock_sector)
     print(f"  行业排名: {len(ir)}个")
@@ -1187,10 +1183,6 @@ def main():
         'lockupAlerts': lockup,
         'marginSummary': margin,
         '_hotReasons': hot,
-        'globalNews': gn,
-        '_newsSector': ns_sector,
-        '_newsMarket': ns_market,
-        '_newsMeta': {'updated': cst.strftime('%Y-%m-%d %H:%M CST'), 'sector': len(ns_sector), 'market': len(ns_market)},
         'industryRank': ir,
         'tencentVal': tv,
         'cninfoAlerts': ca,
