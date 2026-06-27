@@ -88,24 +88,31 @@ def _dedup(ns):
 
 if __name__ == '__main__':
     os.chdir(DIR)
-    try:
-        cst = _now()
-        s1,m1 = _sina_news(); s2,m2 = _em_ann(); w = _wscn(); g = _em_7x24()
-        ns = _dedup(s1+s2); nm = _dedup(m1+m2+w)
-        print(f'[{cst.strftime("%H:%M:%S")}] 赛道:{len(ns)} 市场:{len(nm)} 7x24:{len(g.get("headlines",[]))}')
+    # Daemon mode: loop forever, fetch every 60s, write to log file
+    LOG = os.path.join(DIR, 'news_watch_output.log')
+    while True:
+        try:
+            cst = _now()
+            s1,m1 = _sina_news(); s2,m2 = _em_ann(); w = _wscn(); g = _em_7x24()
+            ns = _dedup(s1+s2); nm = _dedup(m1+m2+w)
+            msg = f'[{cst.strftime("%H:%M:%S")}] 赛道:{len(ns)} 市场:{len(nm)} 7x24:{len(g.get("headlines",[]))}'
+            with open(LOG,'a',encoding='utf-8') as lf: lf.write(msg+'\n')
 
-        data = {}
-        if os.path.exists(DATA_PATH):
-            try: data = json.load(open(DATA_PATH,'r',encoding='utf-8'))
-            except: pass
-        data['_newsSector'] = ns[:50]; data['_newsMarket'] = nm[:50]
-        data['_newsMeta'] = {'updated': cst.strftime('%Y-%m-%d %H:%M CST'), 'sector': len(ns), 'market': len(nm)}
-        data['globalNews'] = g
-        tmp = DATA_PATH+'.tmp'
-        json.dump(data, open(tmp,'w',encoding='utf-8'), ensure_ascii=False, indent=2)
-        os.replace(tmp, DATA_PATH)
+            data = {}
+            if os.path.exists(DATA_PATH):
+                try: data = json.load(open(DATA_PATH,'r',encoding='utf-8'))
+                except: pass
+            data['_newsSector'] = ns[:50]; data['_newsMarket'] = nm[:50]
+            data['_newsMeta'] = {'updated': cst.strftime('%Y-%m-%d %H:%M CST'), 'sector': len(ns), 'market': len(nm)}
+            data['globalNews'] = g
+            tmp = DATA_PATH+'.tmp'
+            json.dump(data, open(tmp,'w',encoding='utf-8'), ensure_ascii=False, indent=2)
+            os.replace(tmp, DATA_PATH)
 
-        os.system('git add data.json 2>nul & git commit -m "news" 2>nul & git pull --rebase origin main 2>nul & git push origin main 2>nul')
-    except Exception as e:
-        print(f'ERR: {e}')
-        sys.exit(1)
+            for i in range(3):
+                if os.system('git add data.json 2>nul & git commit -m "news" 2>nul & git pull --rebase origin main 2>nul & git push origin main 2>nul') == 0:
+                    break
+                time.sleep(2)
+        except Exception as e:
+            with open(LOG,'a',encoding='utf-8') as lf: lf.write(f'ERR: {e}\n')
+        time.sleep(60)
