@@ -317,14 +317,17 @@ def fetch_northbound():
         return {"date": "", "hgt_yi": 0, "sgt_yi": 0, "net_yi": 0, "points": 0, "status": "无数据"}
 
 def fetch_hot_reasons():
-    """同花顺热点归因"""
+    """同花顺热点归因 — 兼容 sentinel_ai.py 旧字段名"""
     data = ad.get_hot_sector_themes()
     if isinstance(data, dict):
         hs = data.get('hot_stocks', [])
         tt = data.get('top_themes', [])
         data['total'] = len(hs)
         data['topReasons'] = tt
-        data['stocks'] = hs
+        # 字段名映射: code→c, name→n, chg_pct→chg
+        data['stocks'] = [{'c': s.get('code',''), 'n': s.get('name',''),
+                           'reason': s.get('reason',''), 'chg': s.get('chg_pct',0),
+                           'turnover': s.get('turnover',0)} for s in hs]
     return data
 
 def fetch_lockup_alerts(codes):
