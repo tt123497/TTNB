@@ -7561,7 +7561,7 @@
         "ts": "2026-06-27 16:49:48"
       }
     ],
-    "updated": "2026-06-27 10:56 UTC",
+    "updated": "2026-06-27 10:57 UTC",
     "status": "ok"
   },
   "_newsSector": [],
@@ -7595,30 +7595,12 @@
       "u": "https://data.eastmoney.com/notices/detail/000793.html",
       "time": "06-27",
       "src": "em_ann"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:中信证券股份有限公司关于华闻传媒投资集团股份有限公司详式权益变动报告书之财务顾问核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:详式权益变动报告书",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:关于股东权益变动暨控股股东、实际控制人发生变更的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 18:56 CST",
+    "updated": "2026-06-27 18:57 CST",
     "sector": 0,
-    "market": 8
+    "market": 5
   },
   "industryRank": [
     {
