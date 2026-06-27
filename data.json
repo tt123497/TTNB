@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-27 09:14 CST",
+  "updated": "2026-06-27 09:19 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1980580,
+  "updateCount": 1980581,
   "recap": {
     "index": [
       {
@@ -996,7 +996,7 @@
       "riskLabel": "中等风险",
       "suggestion": "持仓聚焦贵金属、AI硬件和商业航天，谨慎追高"
     },
-    "note": "06/27 09:11 a-stock-data统一更新 | 314只 | 58板块"
+    "note": "06/27 09:15 a-stock-data统一更新 | 314只 | 58板块"
   },
   "livePrices": {
     "sz000002": {
@@ -2576,7 +2576,7 @@
     "interval": "5min",
     "stockCount": 314,
     "liveCount": 314,
-    "updateCount": 1980580,
+    "updateCount": 1980581,
     "trading": false
   },
   "sectorTags": {
@@ -2713,9 +2713,9 @@
   },
   "northbound": {
     "date": "2026-06-27",
-    "hgt_yi": -9.28,
-    "sgt_yi": -31.1,
-    "net_yi": -40.38,
+    "hgt_yi": 2.25,
+    "sgt_yi": 379.75,
+    "net_yi": 382.0,
     "points": 262,
     "status": "收盘"
   },
@@ -3634,7 +3634,7 @@
         "name": "兴业股份",
         "reason": "铸造树脂+光刻胶+业绩增长",
         "chg_pct": 9.982,
-        "turnover": 3.5300000000000002,
+        "turnover": 3.53,
         "amount": 14202
       },
       {
@@ -3834,7 +3834,7 @@
         "name": "百润股份",
         "reason": "中报预增+预调鸡尾酒+威士忌",
         "chg_pct": 10.0,
-        "turnover": 1.6400000000000001,
+        "turnover": 1.64,
         "amount": 19698
       },
       {
@@ -4303,7 +4303,7 @@
         "name": "兴业股份",
         "reason": "铸造树脂+光刻胶+业绩增长",
         "chg_pct": 9.982,
-        "turnover": 3.5300000000000002,
+        "turnover": 3.53,
         "amount": 14202
       },
       {
@@ -4503,7 +4503,7 @@
         "name": "百润股份",
         "reason": "中报预增+预调鸡尾酒+威士忌",
         "chg_pct": 10.0,
-        "turnover": 1.6400000000000001,
+        "turnover": 1.64,
         "amount": 19698
       },
       {
@@ -4684,7 +4684,7 @@
         "ts": "2026-06-27 08:27:00"
       }
     ],
-    "updated": "2026-06-27 01:14 UTC",
+    "updated": "2026-06-27 01:19 UTC",
     "status": "ok"
   },
   "industryRank": [
@@ -6483,7 +6483,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-27 09:14 CST",
+    "updated": "2026-06-27 09:19 CST",
     "top3": [
       {
         "r": 1,
@@ -16405,7 +16405,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-27 09:15 CST",
+    "updated": "2026-06-27 09:19 CST",
     "total": 16,
     "hand": 8,
     "macro": 8,
