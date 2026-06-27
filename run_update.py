@@ -149,9 +149,15 @@ def fetch_live_prices(codes, prefer_tdx=True):
 def fetch_sector_heat(live=None, stock_sector=None):
     """
     赛道热度 → [{n,s,c,bk}]
-    优先级: 东财 push2 行业板块 → 从个股现价自算
+    优先级: 从个股现价自算 → 东财行业板块降级
     """
-    # L1: 东财行业板块 (独有数据，但可能被风控)
+    # L1: 从个股现价自算赛道平均涨跌（不依赖东财）
+    if live and stock_sector:
+        heat = ad.compute_sector_heat_from_stocks(live, stock_sector)
+        if heat:
+            return heat
+
+    # L2 降级: 东财行业板块 (可能被风控)
     comp = ad.industry_comparison(50)
     if comp['total'] > 0:
         sectors = []
@@ -163,76 +169,87 @@ def fetch_sector_heat(live=None, stock_sector=None):
                 'c': 'var(--red)' if pct > 0 else 'var(--green)',
                 'bk': r.get('code', '')
             })
-        if sectors:
-            return sectors
-
-    # L2 降级: 从个股现价自算赛道平均涨跌
-    if live and stock_sector:
-        return ad.compute_sector_heat_from_stocks(live, stock_sector)
+        return sectors
 
     return []
 
-def fetch_sector_stocks(heat_data, our_names):
-    """每个赛道从东财板块API拉取领涨股"""
-    # Build board name → code
-    name_to_bcode = {h['n']: h.get('bk', '') for h in heat_data if h.get('bk')}
-
-    # Build all boards list
-    all_boards = {}
-    for mkt in ['m:90+t:3', 'm:90+t:2']:
-        try:
-            url = f"https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=500&po=1&np=1&fltt=2&invt=2&fid=f3&fs={mkt}&fields=f2,f3,f12,f14"
-            r = ad.em_get(url, timeout=10)
-            for h in r.json().get('data', {}).get('diff', []):
-                n = h.get('f14', '')
-                if n and n not in all_boards:
-                    all_boards[n] = h.get('f12', '')
-        except:
-            pass
-
-    def find_bcode(sec_name):
-        # Direct match
-        if sec_name in name_to_bcode:
-            return name_to_bcode[sec_name]
-        # Substring
-        for bn, bc in name_to_bcode.items():
-            if len(sec_name) >= 2 and sec_name[:2] in bn:
-                return bc
-        # All boards
-        for bn, bc in all_boards.items():
-            if len(sec_name) >= 2 and sec_name[:2] in bn:
-                return bc
-        return ''
-
+def fetch_sector_stocks(heat_data, our_names, prefer_tdx=True):
+    """
+    各赛道标的 — 优先级: sector_fixed_stocks + 通达信实时价 > 腾讯实时价 > 东财板块API
+    不用东财做标的发现，用固定池+实时行情。
+    """
     result = {}
-    for sec in our_names:
-        bcode = find_bcode(sec)
-        if not bcode:
-            result[sec] = []
-            continue
+    if not SECTOR_FIXED_STOCKS:
+        return result
 
-        stocks = []
+    # 收集所有固定标的代码 → 批量取实时价
+    all_codes = set()
+    sec_codes = {}
+    for sec_name in our_names:
+        fixed = SECTOR_FIXED_STOCKS.get(sec_name, [])
+        if not fixed:
+            # 模糊匹配
+            for fk in SECTOR_FIXED_STOCKS:
+                if sec_name[:2] in fk or fk[:2] in sec_name:
+                    fixed = SECTOR_FIXED_STOCKS[fk]
+                    break
+        codes = []
+        for s in fixed[:8]:
+            parts = s.split()
+            if parts and len(parts[0]) == 6:
+                codes.append(parts[0])
+        sec_codes[sec_name] = codes
+        all_codes.update(codes)
+
+    all_codes = sorted(all_codes)
+
+    # L1: 通达信 TCP (最快，不封IP)
+    tdx_prices = {}
+    if prefer_tdx:
         try:
-            url = f"https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=25&po=1&np=1&fltt=2&invt=2&fid=f3&fs=b:{bcode}&fields=f2,f3,f12,f14"
-            r = ad.em_get(url, timeout=10)
-            for s in r.json().get('data', {}).get('diff', []):
-                code = s.get('f12', '')
-                name = s.get('f14', '')
-                chg = s.get('f3', 0)
-                if code and name:
-                    stocks.append({'c': code, 'n': name, 'chg': round(chg, 1)})
-        except:
+            tdx_prices = ad.mootdx_quotes(all_codes) or {}
+        except Exception:
             pass
 
-        stocks.sort(key=lambda x: x['chg'], reverse=True)
-        cyb_kcb = [s for s in stocks if s['c'].startswith(('300','301','688','689'))]
-        main_bd = [s for s in stocks if s['c'].startswith(('600','601','603','605','000','001','002','003'))]
-        filtered = cyb_kcb[:3] + main_bd
-        filtered.sort(key=lambda x: x['chg'], reverse=True)
-        up_stocks = [s for s in filtered if s['chg'] > 0]
-        if len(up_stocks) >= 3:
-            filtered = up_stocks
-        result[sec] = filtered[:8]
+    # L2: 腾讯 HTTP (不封IP)
+    tx_prices = {}
+    if len(tdx_prices) < len(all_codes) * 0.3:
+        try:
+            tx_prices = ad.tencent_quote(all_codes)
+        except Exception:
+            pass
+
+    # 组装结果
+    for sec_name in our_names:
+        stocks = []
+        for code in sec_codes.get(sec_name, [])[:8]:
+            # 优先通达信价格
+            q = tdx_prices.get(code, {})
+            price = q.get('price', 0) or 0
+            chg_pct = q.get('chg_pct', 0) or 0
+            name = q.get('name', '')
+
+            # 再试腾讯
+            if not price or not name:
+                tx = tx_prices.get(code, {})
+                if tx:
+                    price = tx.get('price', 0) or 0
+                    chg_pct = tx.get('change_pct', 0) or 0
+                    name = tx.get('name', '')
+
+            # 从固定池拿名字
+            if not name:
+                fixed_list = SECTOR_FIXED_STOCKS.get(sec_name, [])
+                for fs in fixed_list:
+                    if fs.startswith(code):
+                        name = fs[7:] if len(fs) > 7 else code
+                        break
+
+            stocks.append({'c': code, 'n': name or code, 'chg': round(chg_pct, 1)})
+
+        stocks.sort(key=lambda x: -x['chg'])
+        result[sec_name] = stocks[:8]
+
     return result
 
 def fetch_zt_ladder(cst):
@@ -383,8 +400,17 @@ def fetch_global_news():
 
 def fetch_industry_ranking(live=None, stock_sector=None):
     """
-    行业板块排名 — 优先级: 东财 → 个股聚合降级
+    行业板块排名 — 优先级: 个股聚合 → 东财降级
     """
+    # L1: 从个股现价自算
+    if live and stock_sector:
+        heat = ad.compute_sector_heat_from_stocks(live, stock_sector)
+        if heat:
+            return [{"n": h['n'], "chg": float(h['s'].replace('%','').replace('+','')),
+                     "upCnt": 0, "dnCnt": 0, "ld": "", "bk": h.get('bk','')}
+                    for h in heat[:80]]
+
+    # L2 降级: 东财
     comp = ad.industry_comparison(80)
     if comp['total'] > 0:
         return [{
@@ -393,12 +419,6 @@ def fetch_industry_ranking(live=None, stock_sector=None):
             "ld": r.get('leader', '') or '', "bk": r.get('code', '')
         } for r in (comp['top'] + comp['bottom'])]
 
-    # 降级: 从个股现价自算
-    if live and stock_sector:
-        heat = ad.compute_sector_heat_from_stocks(live, stock_sector)
-        return [{"n": h['n'], "chg": float(h['s'].replace('%','').replace('+','')),
-                 "upCnt": 0, "dnCnt": 0, "ld": "", "bk": h.get('bk','')}
-                for h in heat[:80]]
     return []
 
 def fetch_tencent_val(codes):
@@ -849,26 +869,8 @@ def main():
     sec_tags = generate_sector_tags(live, stock_sector, heat)
     print(f"  sectorTags: {len(sec_tags)}")
 
-    sector_stocks = fetch_sector_stocks(heat, OUR_SECTORS)
+    sector_stocks = fetch_sector_stocks(heat, OUR_SECTORS, prefer_tdx=use_tdx)
     pop = sum(1 for v in sector_stocks.values() if v)
-    # Fallback: fill empty sectors from fixed stocks when EastMoney is unreachable
-    if pop < 10 and SECTOR_FIXED_STOCKS:
-        for sec_name in OUR_SECTORS:
-            if sec_name in sector_stocks and sector_stocks[sec_name]:
-                continue
-            fixed_list = SECTOR_FIXED_STOCKS.get(sec_name, [])
-            if not fixed_list:
-                # Fuzzy match
-                for fk in SECTOR_FIXED_STOCKS:
-                    if sec_name[:2] in fk or fk[:2] in sec_name:
-                        fixed_list = SECTOR_FIXED_STOCKS[fk]
-                        break
-            if fixed_list:
-                sector_stocks[sec_name] = [
-                    {'c': s.split()[0], 'n': ' '.join(s.split()[1:]) if ' ' in s else s.split()[0], 'chg': 0}
-                    for s in fixed_list[:8] if ' ' in s
-                ]
-        pop = sum(1 for v in sector_stocks.values() if v)
     print(f"  sectorStocks: {pop} sectors with stocks")
 
     # ── 8. 组装 data.json ──
