@@ -7441,6 +7441,12 @@
   "_newsSector": [],
   "_newsMarket": [
     {
+      "t": "暴增10000%！A股大牛股突然刷屏！",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-27/doc-inievzus1347731.shtml",
+      "time": "18:28",
+      "src": "sina_7x24"
+    },
+    {
       "t": "100%国产化，我国两款核聚变堆使用的超导磁铁取得新突破",
       "u": "https://wallstreetcn.com/livenews/3125587",
       "time": "18:21",
@@ -7490,9 +7496,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 18:38 CST",
+    "updated": "2026-06-27 18:39 CST",
     "sector": 0,
-    "market": 8
+    "market": 9
   },
   "industryRank": [
     {
