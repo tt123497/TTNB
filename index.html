@@ -1351,7 +1351,7 @@ function loadFeedbackHistory(){
       <div class="stat-chip"><div class="val" style="color:${(()=>{var nb=D.northbound;if(!nb||!nb.net_yi)return'var(--dim)';return nb.net_yi>0?'var(--red)':'var(--green)';})()}">${(()=>{var nb=D.northbound;if(!nb)return'—';var n=nb.net_yi||0;return (n>=0?'+':'')+n.toFixed(1)+'亿';})()}</div><div class="lbl">🌏 北向</div></div>
     </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>
 
-<div id="overviewStrips">
+<div id="overviewStrips">`;
 
   // ── 龙虎榜 strip (优先 lhbFull, 回退 lhb) ──
   (function(){
