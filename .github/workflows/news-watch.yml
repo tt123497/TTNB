@@ -2,12 +2,8 @@ name: News Watch (1min)
 
 on:
   schedule:
-    # 周六全天每5分钟
-    - cron: '*/5 * * * 6'
-    # 周日全天每5分钟
-    - cron: '*/5 * * * 0'
-    # 工作日非交易时段每5分钟 (UTC 0,8-23 = 避开 1-7)
-    - cron: '*/5 0,8-23 * * 1-5'
+    # 7x24每小时每分钟
+    - cron: '* * * * *'
   workflow_dispatch:
 
 jobs:
