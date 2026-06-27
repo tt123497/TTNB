@@ -16,6 +16,18 @@ sys.path.insert(0, DIR)
 
 import a_stock_data as ad
 
+# ── 加载固定标的池 ──
+SECTOR_FIXED_STOCKS = {}
+try:
+    SFS_PATH = os.path.join(DIR, 'sector_fixed_stocks.py')
+    with open(SFS_PATH, encoding='utf-8') as _sfs:
+        _sfs_src = _sfs.read()
+    _sfs_ns = {}
+    exec(_sfs_src, _sfs_ns)
+    SECTOR_FIXED_STOCKS = _sfs_ns.get('SECTOR_FIXED_STOCKS', {})
+except Exception:
+    SECTOR_FIXED_STOCKS = {}
+
 DATA_PATH = os.path.join(DIR, 'data.json')
 BHISTORY_PATH = os.path.join(DIR, 'briefing-history.json')
 CST = timezone(timedelta(hours=8))
@@ -839,6 +851,24 @@ def main():
 
     sector_stocks = fetch_sector_stocks(heat, OUR_SECTORS)
     pop = sum(1 for v in sector_stocks.values() if v)
+    # Fallback: fill empty sectors from fixed stocks when EastMoney is unreachable
+    if pop < 10 and SECTOR_FIXED_STOCKS:
+        for sec_name in OUR_SECTORS:
+            if sec_name in sector_stocks and sector_stocks[sec_name]:
+                continue
+            fixed_list = SECTOR_FIXED_STOCKS.get(sec_name, [])
+            if not fixed_list:
+                # Fuzzy match
+                for fk in SECTOR_FIXED_STOCKS:
+                    if sec_name[:2] in fk or fk[:2] in sec_name:
+                        fixed_list = SECTOR_FIXED_STOCKS[fk]
+                        break
+            if fixed_list:
+                sector_stocks[sec_name] = [
+                    {'c': s.split()[0], 'n': ' '.join(s.split()[1:]) if ' ' in s else s.split()[0], 'chg': 0}
+                    for s in fixed_list[:8] if ' ' in s
+                ]
+        pop = sum(1 for v in sector_stocks.values() if v)
     print(f"  sectorStocks: {pop} sectors with stocks")
 
     # ── 8. 组装 data.json ──
@@ -869,6 +899,7 @@ def main():
         },
         'sectorTags': sec_tags,
         'sectorStocks': sector_stocks,
+        'sectorFixedStocks': SECTOR_FIXED_STOCKS,
         # Enriched fields
         'northbound': nb,
         'lhbFull': {'date': lhb['date'], 'total': lhb['total'], 'stocks': lhb.get('topBuy',[])+lhb.get('topSell',[]), 'status': 'ok'},
