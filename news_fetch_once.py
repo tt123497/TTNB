@@ -109,10 +109,12 @@ if __name__ == '__main__':
             json.dump(data, open(tmp,'w',encoding='utf-8'), ensure_ascii=False, indent=2)
             os.replace(tmp, DATA_PATH)
 
-            for i in range(3):
-                if os.system('git add data.json 2>nul & git commit -m "news" 2>nul & git pull --rebase origin main 2>nul & git push origin main 2>nul') == 0:
-                    break
-                time.sleep(2)
+            import subprocess as _sp
+            cf = 0x08000000  # CREATE_NO_WINDOW
+            _sp.run('git add data.json', shell=True, cwd=DIR, capture_output=True, timeout=10, creationflags=cf)
+            _sp.run('git commit -m news', shell=True, cwd=DIR, capture_output=True, timeout=10, creationflags=cf)
+            _sp.run('git pull --rebase origin main', shell=True, cwd=DIR, capture_output=True, timeout=15, creationflags=cf)
+            _sp.run('git push origin main', shell=True, cwd=DIR, capture_output=True, timeout=15, creationflags=cf)
         except Exception as e:
             with open(LOG,'a',encoding='utf-8') as lf: lf.write(f'ERR: {e}\n')
         time.sleep(60)
