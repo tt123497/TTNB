@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - 'data.json'
+      - 'briefing-history.json'
       - 'archive/**'
       - 'index.html'
       - '.github/workflows/**'
@@ -54,7 +55,7 @@ jobs:
         run: |
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
-          git add data.json archive/ 2>/dev/null || git add data.json
+          git add data.json briefing-history.json archive/ 2>/dev/null || git add data.json briefing-history.json 2>/dev/null || git add data.json
           git diff --staged --quiet && exit 0
           for i in 1 2 3; do
             git commit -m "Update $(date '+%H:%M')"

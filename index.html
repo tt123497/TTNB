@@ -1006,6 +1006,32 @@ function go(tab){
   // Start real-time price refresh when entering stocks tab during trading
   if(tab==='stocks'&&isMarketOpen()===true){ refreshLivePrices(); }
   if(tab==='overview') updateLiveDot();
+  // 懒加载简报历史（只在第一次点简报 Tab 时加载）
+  if(tab==='briefing' && !D.bHistory.length && !window._bHistoryLoaded){
+    loadBHistory();
+  }
+}
+
+// ══ 简报历史懒加载 ══
+function loadBHistory(){
+  var container=document.getElementById('bHistoryContainer');
+  if(!container) return;
+  container.innerHTML='<div style="color:var(--dim);text-align:center;padding:20px">⏳ 加载历史简报...</div>';
+  fetch('./briefing-history.json?t='+Date.now())
+    .then(function(r){return r.json()})
+    .then(function(d){
+      window._bHistoryLoaded=true;
+      if(d&&d.length){
+        D.bHistory=d;
+        container.innerHTML=makeBHistoryHTML(d);
+      }else{
+        container.innerHTML='';
+      }
+    })
+    .catch(function(){
+      window._bHistoryLoaded=true;
+      container.innerHTML='<div style="color:var(--dim);font-size:.8rem;padding:10px">历史简报加载失败</div>';
+    });
 }
 
 // ══ Live Indicator — reflects real market & data status ══
@@ -1168,7 +1194,7 @@ function loadFeedbackHistory(){
     if(data.nextSentinel) D.next=data.nextSentinel;
     if(data.livePrices) D.livePrices=data.livePrices;
     if(data.sectorFixedStocks) D.sectorFixedStocks=data.sectorFixedStocks;
-    if(data.bHistory&&data.bHistory.length) D.bHistory=data.bHistory;
+    // bHistory 不再随 data.json 下载，改为懒加载（见 go('briefing')）
     if(data._newsSector) D._newsSector=data._newsSector;
     if(data._newsMarket) D._newsMarket=data._newsMarket;
     if(data.northbound) D.northbound=data.northbound;
@@ -1581,7 +1607,7 @@ function loadFeedbackHistory(){
   br+=`</div><div class="section"><div class="section-title">🎯 精选标的 Top ${D.picks.length}</div><div class="pick-row">`;
   D.picks.forEach(function(p){br+=makePickItem(p);});
   br+=`</div></div>`;
-  br+=makeBHistoryHTML(D.bHistory);
+  br+=`<div id="bHistoryContainer"></div>`;
   br+=`</div>`;
 
   // ════ FLASH NEWS ════
@@ -2015,11 +2041,10 @@ function loadFeedbackHistory(){
             picksDiv.innerHTML=picksHtml;
           }
         }
-        // Briefing history refresh
-        if(d.bHistory&&d.bHistory.length){
-          var bhEl=bp.querySelector('#briefingHistory');
-          if(!bhEl){bhEl=document.createElement('div');bhEl.id='briefingHistory';bp.appendChild(bhEl);}
-          bhEl.innerHTML=makeBHistoryHTML(d.bHistory);
+        // Briefing history refresh — 改为懒加载，不随 data.json 刷新
+        // 如已加载过，重新拉取 briefing-history.json
+        if(window._bHistoryLoaded){
+          loadBHistory();
         }
         // ── Flash News refresh ──
         if(d._newsSector||d._newsMarket||d.globalNews){

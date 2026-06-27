@@ -17,6 +17,7 @@ sys.path.insert(0, DIR)
 import a_stock_data as ad
 
 DATA_PATH = os.path.join(DIR, 'data.json')
+BHISTORY_PATH = os.path.join(DIR, 'briefing-history.json')
 CST = timezone(timedelta(hours=8))
 
 # ═══════════════════════════════════════════════════════════════
@@ -34,11 +35,18 @@ def load_data():
         return {}
 
 def save_data(d):
-    """原子写入 data.json"""
+    """原子写入 data.json，bHistory 单独写到 briefing-history.json"""
+    bHistory = d.pop('bHistory', None)
     tmp = DATA_PATH + '.tmp'
     with open(tmp, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
     os.replace(tmp, DATA_PATH)
+    # bHistory 独立文件，减少 data.json 体积
+    if bHistory is not None:
+        btmp = BHISTORY_PATH + '.tmp'
+        with open(btmp, 'w', encoding='utf-8') as f:
+            json.dump(bHistory, f, ensure_ascii=False, indent=2)
+        os.replace(btmp, BHISTORY_PATH)
 
 def codes_from_data(d):
     """从 data.json 提取所有6位代码"""
@@ -723,6 +731,13 @@ def main():
 
     # 0. Load existing data
     old = load_data()
+    # bHistory 从独立文件加载
+    if os.path.exists(BHISTORY_PATH):
+        try:
+            with open(BHISTORY_PATH, 'r', encoding='utf-8') as f:
+                old['bHistory'] = json.load(f)
+        except (json.JSONDecodeError, IOError):
+            pass
     preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout',
                      'bHistory', 'concepts', 'dynamicSectors', '_newsSector',
                      '_newsMarket', '_newsMeta', '_eventsMeta', 'sectorTags',
@@ -879,13 +894,16 @@ def main():
     # Write
     save_data(out)
 
-    # Archive at market close
+    # Archive at market close — 只存复盘必需字段，不存全量
     if trading and cst.hour == 15 and cst.minute < 45:
         archive_dir = os.path.join(DIR, 'archive')
         os.makedirs(archive_dir, exist_ok=True)
         date_key = cst.strftime('%Y-%m-%d')
         archive_path = os.path.join(archive_dir, f'{date_key}.json')
-        shutil.copy2(DATA_PATH, archive_path)
+        # 只存复盘和简报字段，减小 archive 体积
+        archive_data = {k: out.get(k) for k in ['recap','top3','picks','briefing','updated'] if k in out}
+        with open(archive_path, 'w', encoding='utf-8') as f:
+            json.dump(archive_data, f, ensure_ascii=False, indent=2)
         existing = sorted(
             [f.replace('.json','') for f in os.listdir(archive_dir)
              if f.endswith('.json') and f != 'index.json'],
