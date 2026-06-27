@@ -2216,16 +2216,6 @@ function loadFeedbackHistory(){
             idxHtml+='</div>'; idxDiv.innerHTML=idxHtml;
           }
 
-          // Flow section
-            var maxV=0; r.flow.forEach(function(f){var vv=Math.abs(parseFloat(f.amt.replace(/亿/g,'')));if(vv>maxV)maxV=vv;});
-            if(maxV===0)maxV=100;
-            var colors=['var(--blue)','var(--purple)','var(--cyan)','var(--teal)','var(--amber)','var(--red)'];
-            var flHtml='<div class="section-title">💸 主力资金</div><div class="recap-bar">';
-            r.flow.forEach(function(f){var v=Math.abs(parseFloat(f.amt.replace(/亿/g,'')));var p=v/maxV*100;flHtml+='<div style="width:'+Math.max(p,3)+'%;background:'+colors[r.flow.indexOf(f)%6]+'"></div>';});
-            flHtml+='</div><div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.84rem">';
-            r.flow.forEach(function(f,i){flHtml+='<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:'+colors[i]+';margin-right:4px"></span>'+f.n+' '+f.amt+'</span>';});
-            flHtml+='</div>'; flDiv.innerHTML=flHtml;
-          }
 
           // Heat section
           var htDiv=document.getElementById('recapHeat');if(htDiv&&r.heat&&r.heat.length){
