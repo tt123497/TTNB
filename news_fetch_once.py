@@ -109,12 +109,7 @@ if __name__ == '__main__':
             json.dump(data, open(tmp,'w',encoding='utf-8'), ensure_ascii=False, indent=2)
             os.replace(tmp, DATA_PATH)
 
-            import subprocess as _sp
-            cf = 0x08000000  # CREATE_NO_WINDOW
-            _sp.run('git add data.json', shell=True, cwd=DIR, capture_output=True, timeout=10, creationflags=cf)
-            _sp.run('git commit -m news', shell=True, cwd=DIR, capture_output=True, timeout=10, creationflags=cf)
-            _sp.run('git pull --rebase origin main', shell=True, cwd=DIR, capture_output=True, timeout=15, creationflags=cf)
-            _sp.run('git push origin main', shell=True, cwd=DIR, capture_output=True, timeout=15, creationflags=cf)
+            # 只写本地 data.json, 不推 (由 market-update.yml 每5分钟统一推送)
         except Exception as e:
             with open(LOG,'a',encoding='utf-8') as lf: lf.write(f'ERR: {e}\n')
         time.sleep(60)
