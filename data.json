@@ -7564,7 +7564,50 @@
     "updated": "2026-06-27 11:22 UTC",
     "status": "ok"
   },
-  "_newsSector": [],
+  "_newsSector": [
+    {
+      "t": "重要突破！周末利好来了！万亿赛道核聚变堆超导磁体，传出重磅消息",
+      "u": "https://finance.sina.com.cn/stock/zqgd/2026-06-27/doc-inievvnu1424339.shtml",
+      "time": "16:26",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "算力出海提速，有企业高端光模块出口暴增100倍",
+      "u": "https://finance.sina.com.cn/stock/hyyj/2026-06-27/doc-inievreq0074662.shtml",
+      "time": "13:55",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "芯片股再现恐慌抛售，存储三巨头跌超10%，中概股逆势上扬，金银反弹超1%",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inievequ0193722.shtml",
+      "time": "09:53",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "SpaceX即将入选纳斯达克100指数 为被动买入潮铺平道路",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyhx7044320.shtml",
+      "time": "08:31",
+      "src": "sina_A股"
+    },
+    {
+      "t": "在罗素指数重新权重前 SpaceX股价小幅上涨",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyia4902748.shtml",
+      "time": "08:24",
+      "src": "sina_A股"
+    },
+    {
+      "t": "机器人产品营收暴涨！T链龙头业绩曝光",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inieuyhw0252337.shtml",
+      "time": "08:07",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "华菱钢铁补税及滞纳金近7亿元，一季度扣非净利大跌九成",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inieuyhw0245555.shtml",
+      "time": "08:00",
+      "src": "sina_7x24"
+    }
+  ],
   "_newsMarket": [
     {
       "t": "下周A股解禁市值逾1000亿元",
@@ -7583,12 +7626,126 @@
       "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inievvns4672851.shtml",
       "time": "17:25",
       "src": "sina_A股"
+    },
+    {
+      "t": "主力资金大调仓，超267亿元撤出“易中天”",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inievvns4629604.shtml",
+      "time": "15:49",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "A股又现大牛股，5股年内狂飙超200%，一退市股单日重挫95%",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inievkww4811116.shtml",
+      "time": "13:05",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "最新！葛卫东、章建平联手重仓一家公司！未来大规模回购成长期趋势！",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-27/doc-inievkwy1566047.shtml",
+      "time": "11:03",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "苹果涨价或预示粘性通胀来袭，美联储票委“倒戈”预计年内加息",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieveqv6952074.shtml",
+      "time": "09:26",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "IPO雷达| 光远新材二次闯关，应收账款高增",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieuyhw0244706.shtml",
+      "time": "08:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "6月27日隔夜要闻：美股收跌 铝价连跌四周 金价走高 美伊冲突再起 美以黎达成三方框架协议",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyie1631823.shtml",
+      "time": "07:01",
+      "src": "sina_A股"
+    },
+    {
+      "t": "仙工智能登陆港股，能否撑起24倍PS",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyie1636664.shtml",
+      "time": "07:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "领益智造登陆港股 “果链女王”以AI智造再闯资本新局",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyia4859903.shtml",
+      "time": "07:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "沃什首批重要任命之一：任命两位美联储经济学家为顾问，聚焦利率研究",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutzh1740553.shtml",
+      "time": "06:18",
+      "src": "sina_A股"
+    },
+    {
+      "t": "6月27日外盘头条：美国对伊朗发动打击 特朗普对欧再发关税威胁 甲骨文股价本周暴跌19%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0302772.shtml",
+      "time": "05:57",
+      "src": "sina_A股"
+    },
+    {
+      "t": "IPO承诺加速落地！马斯克获批收购光通信企业Mesh，推进太空算力战略",
+      "u": "https://finance.sina.com.cn/stock/t/2026-06-27/doc-inieutze4958871.shtml",
+      "time": "05:48",
+      "src": "sina_A股"
+    },
+    {
+      "t": "6月27日美股成交额前20：美光科技跌超6%，芯片股持续下挫",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieuyia4849728.shtml",
+      "time": "05:00",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国股市：标普500指数收盘微跌 华尔街轮动加速",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyy0253195.shtml",
+      "time": "04:53",
+      "src": "sina_A股"
+    },
+    {
+      "t": "标普确认美国信用评级为AA+ 展望仍为稳定",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7025670.shtml",
+      "time": "04:44",
+      "src": "sina_A股"
+    },
+    {
+      "t": "纽约汇市：美元指数微跌 交易员下调美联储加息预期",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutze4908440.shtml",
+      "time": "04:43",
+      "src": "sina_A股"
+    },
+    {
+      "t": "6月27日收盘：美股三大指数收跌 芯片股领跌 西部数据大跌13% 美光科技跌超6%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutze4916958.shtml",
+      "time": "04:20",
+      "src": "sina_A股"
+    },
+    {
+      "t": "原油：WTI跌破每桶70美元 船只继续通过霍尔木兹海峡",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7027326.shtml",
+      "time": "04:00",
+      "src": "sina_A股"
+    },
+    {
+      "t": "苹果Vision Pro头显和智能眼镜部门负责人将离职加入OpenAI",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuptc7129672.shtml",
+      "time": "03:50",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美联储官员卡什卡里称通胀压力更趋广泛 央行或需加息",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuptc7104715.shtml",
+      "time": "03:03",
+      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
     "updated": "2026-06-27 19:22 CST",
-    "sector": 0,
-    "market": 3
+    "sector": 7,
+    "market": 22
   },
   "industryRank": [
     {
