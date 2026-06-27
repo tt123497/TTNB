@@ -303,7 +303,7 @@ def main():
     existing = data.get('events', [])
 
     # Separate: hand (has URL AND not macro) vs macro vs AI (no URL) vs new AI (with URL, not macro, not hand)
-    macro_patterns = ['章源钨业']
+    macro_patterns = ['FAKE_REMOVED']
 
     hand_evs = [e for e in existing if e.get('u','').strip()
         and not any(kw in e.get('e','') for kw in macro_patterns)]
@@ -339,7 +339,7 @@ def main():
         # Drop old macro noise (LPR/MLF/FOMC/NFP/CPI etc.) — sector=宏观/全部 but NOT 章源钨业
         if k in all_keys:
             continue
-        if ev.get('s') == MACRO_S and '章源钨业' not in ev.get('e', ''):
+        if ev.get('s') == MACRO_S and 'FAKE_REMOVED' not in ev.get('e', ''):
             continue  # macro noise, dropped
         merged.append(ev)
 
@@ -348,7 +348,7 @@ def main():
     # (catches FOMC/LPR/MLF/NFP/CPI/交割日 regardless of classification)
     echo_count_before = len(merged)
     merged = [e for e in merged
-              if e.get('s') != MACRO_S or '章源钨业' in e.get('e', '')]
+              if e.get('s') != MACRO_S or 'FAKE_REMOVED' in e.get('e', '')]
     dropped = echo_count_before - len(merged)
     if dropped > 0:
         print(f'Purged {dropped} macro noise events (FOMC/LPR/MLF/NFP/CPI/etc)')
