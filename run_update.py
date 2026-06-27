@@ -917,6 +917,15 @@ def main():
                      'bHistory', 'concepts', 'dynamicSectors', '_eventsMeta', 'sectorTags',
                      '_sectorTracker', '_promoteQueue', '_hot_uncovered', '_backtest']
     preserve = {k: old.get(k) for k in preserve_keys if k in old and old.get(k)}
+    # Sync root↔briefing: 前端读双路径, AI write 路径可能不同步
+    if preserve.get('picks') and not preserve.get('briefing',{}).get('picks'):
+        preserve.setdefault('briefing',{})['picks'] = preserve['picks']
+    if preserve.get('top3') and not preserve.get('briefing',{}).get('top3'):
+        preserve.setdefault('briefing',{})['top3'] = preserve['top3']
+    if preserve.get('briefing',{}).get('picks') and not preserve.get('picks'):
+        preserve['picks'] = preserve['briefing']['picks']
+    if preserve.get('briefing',{}).get('top3') and not preserve.get('top3'):
+        preserve['top3'] = preserve['briefing']['top3']
     old_recap = old.get('recap', {})
     old_live = old.get('livePrices', {})
     old_cycle = old_recap.get('cycle')
