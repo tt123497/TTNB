@@ -251,40 +251,8 @@ def next_biz(y, m, day):
 def fmt_d(d): return f'{d.month}月{d.day}日'
 
 def generate_macro():
-    """Only keep sector-specific recurring events that you can actually pre-position for.
-    No FOMC/LPR/MLF/NFP/CPI — nobody buys stocks ahead of a PMI release.
-    Only 章源钨业 monthly quotes survive as truly pre-positionable."""
-    cst = datetime.now(timezone.utc) + timedelta(hours=8)
-    today = cst.date()
-    evs = []
-
-    # Only one recurring event that matters for pre-positioning
-    # 只生成当月的2条（上半月+下半月），不预生成未来几个月
-    zyw_url = 'https://quote.eastmoney.com/sz002842.html'
-    m, y = cst.month, cst.year
-    for day, lb in [(1, '上半月'), (15, '下半月')]:
-        if day <= cal.monthrange(y, m)[1]:
-            qd = next_biz(y, m, day)
-            if qd.month == m:
-                evs.append({'d': fmt_d(qd), 'icon': '💰',
-                    'e': f'章源钨业{m}月{lb}长单报价', 's': '钨/稀土',
-                    'big': 1,
-                    'desc': f'{m}月{lb}钨精矿定价催化，提前布局钨矿股',
-                    'u': zyw_url})
-
-    seen = set()
-    deduped = []
-    for e in evs:
-        k = (e['d'], e['e'])
-        if k not in seen:
-            seen.add(k)
-            deduped.append(e)
-
-    def pd(e):
-        m = re.search(r'(\d+)月(\d+)日', e['d'])
-        return (int(m.group(1)), int(m.group(2))) if m else (99, 99)
-    deduped.sort(key=pd)
-    return deduped
+    """No auto-generated events. All events must be hand-curated with verified sources."""
+    return []
 
 # ═══════════════════════════════════════════════════
 # MAIN
