@@ -1564,6 +1564,8 @@ function loadFeedbackHistory(){
     <div class="layout-list" id="layoutList">`;
   var layoutFuture=[], layoutPast=[];
   if(D.layout)D.layout.forEach(function(ev){ var d=realDays(ev.d); if(d<0) layoutPast.push(ev); else layoutFuture.push(ev); });
+  layoutFuture.sort(function(a,b){return realDays(a.d)-realDays(b.d);});
+  layoutPast.sort(function(a,b){return realDays(b.d)-realDays(a.d);});
   layoutFuture.forEach(function(ev){ lo+=makeLayoutCard(ev); });
   if(layoutPast.length){
     lo+=`<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details id="pastLayoutDetails"><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem">(${layoutPast.length}张)</span></summary><div style="margin-top:8px">`;
@@ -2286,7 +2288,10 @@ function loadFeedbackHistory(){
 	          var ll=lop.querySelector(".layout-list");
 	          if(ll&&D.layout.length){
 	            var layFut=[], layPst=[];
-	            D.layout.forEach(function(ev){ var dd=realDays(ev.d); if(dd<0) layPst.push(ev); else layFut.push(ev); });	            var loHtml=""+layFut.map(makeLayoutCard).join("");
+	            D.layout.forEach(function(ev){ var dd=realDays(ev.d); if(dd<0) layPst.push(ev); else layFut.push(ev); });
+layFut.sort(function(a,b){return realDays(a.d)-realDays(b.d);});
+layPst.sort(function(a,b){return realDays(b.d)-realDays(a.d);});
+var loHtml=""+layFut.map(makeLayoutCard).join("");
 	            if(layPst.length){
 	              loHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem">('+layPst.length+'张)</span></summary><div style="margin-top:8px">'+layPst.map(makeLayoutCard).join("")+'</div></details></div>';
 	            }
