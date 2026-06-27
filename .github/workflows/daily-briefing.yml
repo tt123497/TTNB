@@ -45,5 +45,5 @@ jobs:
         run: |
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
-          git add data.json
+          git add data.json archive/ 2>/dev/null || git add data.json
           git diff --staged --quiet || (git commit -m "📰 $(date '+%H:%M') 简报更新" && git push)

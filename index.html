@@ -1941,12 +1941,17 @@ function loadFeedbackHistory(){
           var item=items[0], fc=item.Code||'', fn=item.Name||'';
           if(!fc||fc.length!==6){showResult('','—',0,0,'未找到匹配股票');delete window[cbName];return;}
           var emcode=(fc.startsWith('6')||fc.startsWith('68'))?'1.'+fc:'0.'+fc;
-          fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14')
-            .then(function(r){return r.json()}).then(function(d2){
-              var s=d2.data; if(!s){showResult(fc,fn,0,0,'无行情');delete window[cbName];return;}
-              showResult(fc,fn,s.f2||0,s.f3||0,'✅ 东财实时');
-              delete window[cbName];
-            }).catch(function(){showResult(fc,fn,0,0,'行情获取失败');delete window[cbName];});
+          // 改用 JSONP 避免 CORS 问题
+          var qcb='_qcb_'+Date.now(); window[qcb]=function(d2){
+            delete window[qcb];
+            var s=d2.data; if(!s){showResult(fc,fn,0,0,'无行情');delete window[cbName];return;}
+            showResult(fc,fn,s.f2||0,s.f3||0,'✅ 东财实时');
+            delete window[cbName];
+          };
+          var qs=document.createElement('script');
+          qs.src='https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14&cb='+qcb;
+          qs.onerror=function(){if(qs.parentNode)qs.parentNode.removeChild(qs);delete window[qcb];showResult(fc,fn,0,0,'行情获取失败');delete window[cbName];};
+          document.head.appendChild(qs);
         };
         var sn=document.createElement('script');
         sn.src='https://searchapi.eastmoney.com/api/suggest/get?input='+encodeURIComponent(input)+'&type=14&count=5&cb='+cbName;
@@ -1962,16 +1967,20 @@ function loadFeedbackHistory(){
       showResult(code,lp.name||code,lp.price,lp.chg_pct,'本地实时');
       return;
     }
-    // 2. EastMoney API
+    // 2. EastMoney API (JSONP 避免 CORS)
     showResult(code,'查询中...',0,0,'联网查询中...');
     var emcode=(code.startsWith('6')||code.startsWith('68'))?'1.'+code:'0.'+code;
-    fetch('https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14,f15,f16,f17,f18')
-      .then(function(r){return r.json()}).then(function(d){
-        var s=d.data; if(!s){showResult(code,'-',0,0,'查无此股');return;}
-        var name=s.f14||code, price=s.f2||0, chg=s.f3||0, high=s.f15||0, low=s.f16||0, open=s.f17||0;
-        showResult(code,name,price,chg,'实时 | 开'+open.toFixed(2)+' 高'+high.toFixed(2)+' 低'+low.toFixed(2));
-        if(D.livePrices)D.livePrices[sina]={price:price,chg_pct:chg,name:name};
-      }).catch(function(){showResult(code,'-',0,0,'网络不通,请重试');});
+    var scb='_scb_'+Date.now(); window[scb]=function(d){
+      delete window[scb];
+      var s=d.data; if(!s){showResult(code,'-',0,0,'查无此股');return;}
+      var name=s.f14||code, price=s.f2||0, chg=s.f3||0, high=s.f15||0, low=s.f16||0, open=s.f17||0;
+      showResult(code,name,price,chg,'实时 | 开'+open.toFixed(2)+' 高'+high.toFixed(2)+' 低'+low.toFixed(2));
+      if(D.livePrices)D.livePrices[sina]={price:price,chg_pct:chg,name:name};
+    };
+    var ss=document.createElement('script');
+    ss.src='https://push2.eastmoney.com/api/qt/stock/get?secid='+emcode+'&fields=f2,f3,f12,f14,f15,f16,f17,f18&cb='+scb;
+    ss.onerror=function(){if(ss.parentNode)ss.parentNode.removeChild(ss);delete window[scb];showResult(code,'-',0,0,'网络不通,请重试');};
+    document.head.appendChild(ss);
   }
   function showResult(code,name,price,chg,msg){
     var res=document.getElementById('stockResult');res.style.display='block';
