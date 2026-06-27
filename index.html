@@ -2265,11 +2265,14 @@ function loadFeedbackHistory(){
         }
         // Calendar refresh (sorted future/past)
         var cp=document.getElementById('panel-calendar');if(cp&&d.events){
+          // 合并云端事件到本地硬编码 (不覆盖)
+          var seen2={}; D.events.forEach(function(e){seen2[e.e]=1;});
+          d.events.forEach(function(e){if(!seen2[e.e]){D.events.push(e);seen2[e.e]=1;}});
           var evtList=cp.querySelector('.evt-list');
-          if(evtList&&d.events.length){
+          if(evtList&&D.events.length){
             var today=new Date(); today.setHours(0,0,0,0);
             var fut=[], pst=[];
-            d.events.forEach(function(e){
+            D.events.forEach(function(e){
               var ed=evDate(e);
               if(ed.getTime()===new Date(new Date().getFullYear(),11,31).getTime()){ fut.push(e); }
               else if(ed<today) pst.push(e); else fut.push(e);
@@ -2286,10 +2289,13 @@ function loadFeedbackHistory(){
 
 	        // Layout refresh (split future/past with collapsible past)
 	        var lop=document.getElementById("panel-layout");if(lop&&d.layout){
+	          // merge cloud layout to hardcoded
+	          var lseen2={}; D.layout.forEach(function(l){lseen2[l.e]=1;});
+	          d.layout.forEach(function(l){if(!lseen2[l.e]){D.layout.push(l);lseen2[l.e]=1;}});
 	          var ll=lop.querySelector(".layout-list");
-	          if(ll&&d.layout.length){
+	          if(ll&&D.layout.length){
 	            var layFut=[], layPst=[];
-	            d.layout.forEach(function(ev){ var dd=realDays(ev.d); if(dd<0) layPst.push(ev); else layFut.push(ev); });	            var loHtml=""+layFut.map(makeLayoutCard).join("");
+	            D.layout.forEach(function(ev){ var dd=realDays(ev.d); if(dd<0) layPst.push(ev); else layFut.push(ev); });	            var loHtml=""+layFut.map(makeLayoutCard).join("");
 	            if(layPst.length){
 	              loHtml+='<div style="margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)"><details><summary class="section-title" style="color:var(--dim);cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;user-select:none">📂 已过期 · 历史归档 <span style="font-size:.78rem">('+layPst.length+'张)</span></summary><div style="margin-top:8px">'+layPst.map(makeLayoutCard).join("")+'</div></details></div>';
 	            }
