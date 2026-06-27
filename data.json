@@ -7583,24 +7583,12 @@
       "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inievvns4672851.shtml",
       "time": "17:25",
       "src": "sina_A股"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:关于持股5%以上股东持股被动稀释触及1%整数倍及跨越5%整数倍的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:简式权益变动报告书",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
     "updated": "2026-06-27 18:57 CST",
     "sector": 0,
-    "market": 5
+    "market": 3
   },
   "industryRank": [
     {
