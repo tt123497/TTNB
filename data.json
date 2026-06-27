@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-27 10:40 CST",
+  "updated": "2026-06-27 10:45 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1980586,
+  "updateCount": 1980587,
   "recap": {
     "index": [
       {
@@ -996,7 +996,7 @@
       "riskLabel": "中等风险",
       "suggestion": "持仓聚焦贵金属、AI硬件和商业航天，谨慎追高"
     },
-    "note": "06/27 10:36 a-stock-data统一更新 | 309只 | 58板块"
+    "note": "06/27 10:41 a-stock-data统一更新 | 309只 | 58板块"
   },
   "livePrices": {
     "sz000002": {
@@ -2551,7 +2551,7 @@
     "interval": "5min",
     "stockCount": 309,
     "liveCount": 309,
-    "updateCount": 1980586,
+    "updateCount": 1980587,
     "trading": false
   },
   "sectorTags": {
@@ -4659,7 +4659,7 @@
         "ts": "2026-06-27 09:11:56"
       }
     ],
-    "updated": "2026-06-27 02:40 UTC",
+    "updated": "2026-06-27 02:44 UTC",
     "status": "ok"
   },
   "industryRank": [
@@ -6458,7 +6458,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-27 10:40 CST",
+    "updated": "2026-06-27 10:45 CST",
     "top3": [
       {
         "r": 1,
@@ -9920,7 +9920,7 @@
     ]
   },
   "_eventsMeta": {
-    "updated": "2026-06-27 10:40 CST",
+    "updated": "2026-06-27 10:45 CST",
     "total": 10,
     "hand": 8,
     "macro": 2,
