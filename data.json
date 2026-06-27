@@ -7503,6 +7503,18 @@
       "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inieuyhw0252337.shtml",
       "time": "08:07",
       "src": "sina_7x24"
+    },
+    {
+      "t": "华菱钢铁补税及滞纳金近7亿元，一季度扣非净利大跌九成",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inieuyhw0245555.shtml",
+      "time": "08:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "黄金价格大跌，消费者权益保护指南",
+      "u": "https://finance.sina.com.cn/consume/xiaofei/2026-06-27/doc-inietfxy2051085.shtml",
+      "time": "06:30",
+      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -7558,12 +7570,6 @@
       "t": "京东方回归A股牌桌中央",
       "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyhx6991833.shtml",
       "time": "07:00",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "黄金价格大跌，消费者权益保护指南",
-      "u": "https://finance.sina.com.cn/consume/xiaofei/2026-06-27/doc-inietfxy2051085.shtml",
-      "time": "06:30",
       "src": "sina_7x24"
     },
     {
@@ -7664,9 +7670,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 14:25 CST",
-    "sector": 5,
-    "market": 26
+    "updated": "2026-06-27 14:26 CST",
+    "sector": 7,
+    "market": 25
   },
   "industryRank": [
     {
