@@ -13,8 +13,10 @@ on:
   schedule:
     # CST 9:00-15:55 every 5min (UTC 1:00-7:55)
     - cron: '*/5 1-7 * * 1-5'
-    # Weekend noon snapshot (CST Saturday 10:00 = UTC 2:00)
-    - cron: '0 2 * * 6'
+    # 周六每5分钟
+    - cron: '*/5 * * * 6'
+    # 周日每5分钟
+    - cron: '*/5 * * * 0'
   workflow_dispatch:
 
 jobs:
