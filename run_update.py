@@ -65,9 +65,13 @@ def codes_from_data(d):
     codes = set()
     for lev in d.get('layout', []):
         for s in lev.get('stocks', []):
-            parts = (s or '').split()
-            if parts and len(parts[0]) == 6:
-                codes.add(parts[0])
+            if isinstance(s, dict):
+                c = s.get('c', '')
+            else:
+                parts = (s or '').split()
+                c = parts[0] if parts else ''
+            if c and len(c) == 6:
+                codes.add(c)
     for sec_stocks in d.get('sectorStocks', {}).values():
         for s in (sec_stocks or []):
             c = s.get('c', '') if isinstance(s, dict) else ((s or '').split()[0] if s else '')
