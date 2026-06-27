@@ -1206,10 +1206,23 @@ function loadFeedbackHistory(){
         s.st.forEach(function(st){stockInfo[st.c]=stockInfo[st.c]||{name:st.n, sector:s.n, pos:'板块成分', tag:s.tag, ind:'新晋热门'};});
       });
     }
+    // AI简报/精选 — cloud优先, 但保留硬编码兜底
     if(data.top3&&data.top3.length) D.top3=data.top3;
     if(data.picks&&data.picks.length) D.picks=data.picks;
-    if(data.events&&data.events.length) D.events=data.events;
-    if(data.layout&&data.layout.length) D.layout=data.layout;
+    // 事件日历: data.json补充硬编码, 不覆盖 (硬编码35+手选事件)
+    if(data.events&&data.events.length){
+      var hardEvents=D.events||[], cloudEvents=data.events||[];
+      var seen={}; hardEvents.forEach(function(e){seen[e.e]=1;});
+      cloudEvents.forEach(function(e){if(!seen[e.e]){hardEvents.push(e);seen[e.e]=1;}});
+      D.events=hardEvents;
+    }
+    // 布局: data.json补充硬编码
+    if(data.layout&&data.layout.length){
+      var hardLayout=D.layout||[], cloudLayout=data.layout||[];
+      var lseen={}; hardLayout.forEach(function(l){lseen[l.e]=1;});
+      cloudLayout.forEach(function(l){if(!lseen[l.e]){hardLayout.push(l);lseen[l.e]=1;}});
+      D.layout=hardLayout;
+    }
     if(data.updated) D.updated=data.updated;
     if(data.nextSentinel) D.next=data.nextSentinel;
     if(data.livePrices) D.livePrices=data.livePrices;
