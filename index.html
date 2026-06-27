@@ -1684,7 +1684,7 @@ function loadFeedbackHistory(){
   let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道精选标的 · 固定维护（主板优先，科创/创业板≤3只）</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>
     <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码或名称查任意股票,如 600519、茅台" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
     <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div>
-    <div class="section" id="sectorStockList"><div class="section-title">📋 展示固定精选标的（63赛道×6只） | ⏳ 等待实时行情数据...</div></div>
+    <div class="section" id="sectorStockList"><div class="section-title">📋 赛道精选标的（按热度排序） | ⏳ 等待实时行情数据...</div></div>
     </div></div>`;
 
   // ════ RESEARCH ════
@@ -1891,15 +1891,27 @@ function loadFeedbackHistory(){
     D.groups.forEach(function(g){g.sectors.forEach(function(s){all.push(s);});});
     if(!all.length){el.innerHTML='<div class="section-title">⏳ 加载中...</div>';return;}
 
-    var html='';
+    // 按赛道涨跌幅排序（最热排前面）
+    var tags=D.sectorTags||{};
     all.forEach(function(s){
+      var tagStr=tags[s.n]||'';
+      var m=tagStr.match(/([+\-]?\d+\.?\d*)%/);
+      s._heatChg=m?parseFloat(m[1]):-999;
+    });
+    all.sort(function(a,b){return (b._heatChg||-999)-(a._heatChg||-999);});
+
+    var html='<div style="margin-bottom:12px;padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.82rem;color:var(--sub)">🔥 按赛道涨跌幅排序，最热排最前面。前5名标 🔥热门</div>';
+
+    all.forEach(function(s,idx){
       var fixedStocks = D.sectorFixedStocks || {};
       var live=(D.sectorStocks||{})[s.n]||[];
       var sorted=live.slice().sort(function(a,b){return (b.chg||0)-(a.chg||0);});
       var hasLive=sorted.length>0;
       var countLabel=hasLive?sorted.length+'只':'等待数据';
+      var heatLabel=s._heatChg>-999?(s._heatChg>=0?'<span style="color:var(--red);font-weight:700">+'+s._heatChg.toFixed(1)+'%</span>':'<span style="color:var(--green);font-weight:700">'+s._heatChg.toFixed(1)+'%</span>'):'';
+      var hotBadge=idx<5&&s._heatChg>0?'<span style="margin-left:6px;font-size:.72rem;padding:2px 6px;border-radius:8px;background:rgba(239,68,68,.15);color:var(--red)">🔥热门</span>':'';
 
-      html+='<details class="tbl-wrap" '+(s.sig==='major'?'open':'')+'><summary class="tbl-title">'+s.icon+' '+s.n+' <span style="font-size:.78rem;color:var(--dim);margin-left:4px">'+countLabel+'</span><span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary>';
+      html+='<details class="tbl-wrap" '+(idx<3&&s._heatChg>0?'open':'')+'><summary class="tbl-title">'+s.icon+' '+s.n+' <span style="font-size:.78rem;color:var(--dim);margin-left:4px">'+countLabel+'</span> '+heatLabel+hotBadge+'<span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary>';
 
       // Fixed stocks fallback when no live data
       if(!hasLive && fixedStocks[s.n]){

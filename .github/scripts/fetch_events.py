@@ -259,19 +259,18 @@ def generate_macro():
     evs = []
 
     # Only one recurring event that matters for pre-positioning
+    # 只生成当月的2条（上半月+下半月），不预生成未来几个月
     zyw_url = 'https://quote.eastmoney.com/sz002842.html'
-    for off in range(4):
-        m, y = cst.month + off, cst.year
-        if m > 12: m -= 12; y += 1
-        for day, lb in [(1, '上半月'), (15, '下半月')]:
-            if day <= cal.monthrange(y, m)[1]:
-                qd = next_biz(y, m, day)
-                if qd.month == m:
-                    evs.append({'d': fmt_d(qd), 'icon': '💰',
-                        'e': f'章源钨业{m}月{lb}长单报价', 's': '钨/稀土',
-                        'big': 1,
-                        'desc': f'{m}月{lb}钨精矿定价催化，提前布局钨矿股',
-                        'u': zyw_url})
+    m, y = cst.month, cst.year
+    for day, lb in [(1, '上半月'), (15, '下半月')]:
+        if day <= cal.monthrange(y, m)[1]:
+            qd = next_biz(y, m, day)
+            if qd.month == m:
+                evs.append({'d': fmt_d(qd), 'icon': '💰',
+                    'e': f'章源钨业{m}月{lb}长单报价', 's': '钨/稀土',
+                    'big': 1,
+                    'desc': f'{m}月{lb}钨精矿定价催化，提前布局钨矿股',
+                    'u': zyw_url})
 
     seen = set()
     deduped = []
