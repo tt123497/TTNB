@@ -869,6 +869,115 @@ def main():
     irp = fetch_ind_reports()
     print(f"  行业研报: {len(irp.get('reports',[]))}篇")
 
+    # ── 5b. 缺失端点补充 (a-stock-data 28端点全覆盖) ──
+    print("── L2/L6 研报+基础 ──")
+
+    # K线数据 (前5只关键标的, 日线最近20根)
+    kline_data = {}
+    for c in code_list[:5]:
+        try:
+            kl = ad.mootdx_klines(c, category=4, offset=20)
+            if kl is not None and len(kl) > 0:
+                kline_data[c] = [{'d': str(r.get('date','')), 'o': float(r.get('open',0)), 'c': float(r.get('close',0)), 'h': float(r.get('high',0)), 'l': float(r.get('low',0)), 'v': float(r.get('vol',0))} for r in kl[-20:]]
+        except: pass
+    print(f"  K线: {len(kline_data)}只")
+
+    # 一致预期EPS
+    eps_data = {}
+    for c in code_list[:10]:
+        try:
+            df = ad.ths_eps_forecast(c)
+            if df is not None and not df.empty:
+                eps_data[c] = str(df.to_dict())  # 简化序列化
+        except: pass
+    print(f"  一致预期EPS: {len(eps_data)}只")
+
+    # 财务快照
+    fin_data = {}
+    if use_tdx:
+        for c in code_list[:5]:
+            try:
+                fin = ad.mootdx_finance(c)
+                if fin:
+                    fin_data[c] = {k: str(v) for k, v in fin.items() if k in ['eps','roe','bvps','profit','income','liutongguben','zongguben']}
+            except: pass
+    print(f"  财务快照: {len(fin_data)}只 (tdx={use_tdx})")
+
+    # 个股研报
+    report_data = {}
+    for c in code_list[:5]:
+        try:
+            reports = ad.eastmoney_reports(c, max_pages=1)
+            if reports:
+                report_data[c] = [{'t': r.get('title','')[:80], 'org': r.get('orgSName',''), 'd': str(r.get('publishDate',''))[:10], 'eps': r.get('predictThisYearEps','')} for r in reports[:3]]
+        except: pass
+    print(f"  个股研报: {len(report_data)}只")
+
+    # 概念板块归属
+    concept_data = {}
+    for c in code_list[:50]:
+        try:
+            blocks = ad.eastmoney_concept_blocks(c)
+            if blocks.get('concept_tags'):
+                concept_data[c] = blocks['concept_tags'][:10]
+        except: pass
+        time.sleep(0.1)
+    print(f"  概念板块: {len(concept_data)}只")
+
+    # 个股新闻
+    stock_news_data = {}
+    for c in code_list[:10]:
+        try:
+            news = ad.eastmoney_stock_news(c, 5)
+            if news:
+                stock_news_data[c] = [{'t': n['title'][:80], 'ts': n['time'], 'src': n['source']} for n in news[:3]]
+        except: pass
+        time.sleep(0.1)
+    print(f"  个股新闻: {len(stock_news_data)}只")
+
+    # 新浪三表
+    sina_data = {}
+    for c in code_list[:5]:
+        try:
+            lrb = ad.sina_financial_report(c, 'lrb', 4)
+            if lrb:
+                sina_data[c] = {'利润表': lrb[:4]}
+        except: pass
+    print(f"  新浪三表: {len(sina_data)}只")
+
+    # F10 公司资料
+    f10_data = {}
+    if use_tdx:
+        for c in code_list[:5]:
+            try:
+                text = ad.mootdx_f10(c, '公司概况')
+                if text and len(str(text)) > 50:
+                    f10_data[c] = str(text)[:500]
+            except: pass
+    print(f"  F10: {len(f10_data)}只")
+
+    # 股东户数
+    holder_data = {}
+    for c in code_list[:10]:
+        try:
+            h = ad.holder_num_change(c, 3)
+            if h:
+                holder_data[c] = [{'d': r['date'], 'num': r.get('holder_num',0), 'chg': r.get('change_ratio',0)} for r in h[:3]]
+        except: pass
+        time.sleep(0.15)
+    print(f"  股东户数: {len(holder_data)}只")
+
+    # 分红送转
+    div_data = {}
+    for c in code_list[:10]:
+        try:
+            d = ad.dividend_history(c, 5)
+            if d:
+                div_data[c] = [{'d': r['date'], 'bonus': r.get('bonus_rmb',0), 'plan': r.get('plan','')} for r in d[:3]]
+        except: pass
+        time.sleep(0.15)
+    print(f"  分红送转: {len(div_data)}只")
+
     # ── 6. 赛道标签 ──
     sec_tags = generate_sector_tags(live, stock_sector, heat)
     print(f"  sectorTags: {len(sec_tags)}")
@@ -919,6 +1028,17 @@ def main():
         'indReports': irp,
         # Health
         '_health': hc,
+        # a-stock-data 28端点全覆盖: 研报/财务/K线/概念/新闻
+        'klineData': kline_data,
+        'epsForecast': eps_data,
+        'finSnapshot': fin_data,
+        'stockReports': report_data,
+        'conceptData': concept_data,
+        'stockNewsData': stock_news_data,
+        'sinaReport': sina_data,
+        'f10Data': f10_data,
+        'holderData': holder_data,
+        'dividendData': div_data,
     }
 
     # Merge preserved fields

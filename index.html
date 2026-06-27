@@ -129,6 +129,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .stock-result .sr-price{font-size:1.35rem;font-weight:800}
 .stock-result .sr-chg{font-size:.9rem;font-weight:600}
 .stock-result .sr-meta{font-size:.72rem;color:var(--sub)}
+.sr-detail{margin-top:0}
+.sr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.sr-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px}
+.sr-sec-title{font-size:.74rem;font-weight:700;color:var(--blue);margin-bottom:6px}
+.sr-fin,.sr-eps,.sr-concepts,.sr-reports,.sr-news{font-size:.78rem;color:var(--sub);line-height:1.6}
+.sr-fin span{display:inline-block;margin:2px 6px 2px 0;font-family:'SF Mono',monospace;font-size:.76rem}
+.sr-reports div,.sr-news div{padding:3px 0;border-bottom:1px solid rgba(30,47,74,.2)}
+.sr-reports div:last-child,.sr-news div:last-child{border-bottom:none}
 
 /* ── News Cards (Briefing) ── */
 .news-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px;border-left:4px solid var(--blue);transition:all .2s}
@@ -1218,7 +1226,18 @@ function loadFeedbackHistory(){
     if(data.globalNews) D.globalNews=data.globalNews;
     if(data.tencentVal) D.tencentVal=data.tencentVal;
     if(data.conceptBlocks) D.conceptBlocks=data.conceptBlocks;
-    sessionStorage.setItem('_lastDataTs',Date.now());
+    // a-stock-data 28端点全覆盖: 财报/研报/K线/概念/新闻
+    if(data.klineData) D.klineData=data.klineData;
+    if(data.epsForecast) D.epsForecast=data.epsForecast;
+    if(data.finSnapshot) D.finSnapshot=data.finSnapshot;
+    if(data.stockReports) D.stockReports=data.stockReports;
+    if(data.conceptData) D.conceptData=data.conceptData;
+    if(data.stockNewsData) D.stockNewsData=data.stockNewsData;
+    if(data.sinaReport) D.sinaReport=data.sinaReport;
+    if(data.f10Data) D.f10Data=data.f10Data;
+    if(data.holderData) D.holderData=data.holderData;
+    if(data.dividendData) D.dividendData=data.dividendData;
+    sessionStorage.setItem("_lastDataTs",Date.now());
     // Populate flash news on initial load (including globalNews)
     if(data._newsSector || data._newsMarket){
       renderFlashNews(data._newsSector||[], data._newsMarket||[]);
@@ -1679,7 +1698,22 @@ function loadFeedbackHistory(){
   // ════ STOCKS ════
   let st=`<div class="tab-panel" id="panel-stocks"><div class="section"><div class="section-title">🎯 全赛道精选标的 · 固定维护（主板优先，科创/创业板≤3只）</div><p style="font-size:.86rem;color:var(--sub);margin-bottom:12px">★=当前最值得关注</p>
     <div class="stock-search"><input type="text" id="stockInput" placeholder="输入代码或名称查任意股票,如 600519、茅台" onkeydown="if(event.key==='Enter')searchStock()"><button onclick="searchStock()">查行情</button></div>
-    <div class="stock-result" id="stockResult"><div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div></div>
+    <div class="stock-result" id="stockResult">
+      <div class="sr-row"><div><div class="sr-name" id="srName">—</div><div class="sr-code" id="srCode">—</div></div><div><div class="sr-price" id="srPrice">—</div><div class="sr-chg" id="srChg">—</div></div><div class="sr-meta" id="srMeta">输入代码搜索</div></div>
+      <div class="sr-detail" id="srDetail" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+        <div class="sr-grid">
+          <div class="sr-section"><div class="sr-sec-title">📊 财务快照</div><div class="sr-fin" id="srFin">—</div></div>
+          <div class="sr-section"><div class="sr-sec-title">🎯 一致预期</div><div class="sr-eps" id="srEps">—</div></div>
+          <div class="sr-section"><div class="sr-sec-title">🏷 概念板块</div><div class="sr-concepts" id="srConcepts">—</div></div>
+        </div>
+        <div class="sr-grid">
+          <div class="sr-section" style="grid-column:1/-1"><div class="sr-sec-title">📋 最新研报</div><div class="sr-reports" id="srReports">—</div></div>
+        </div>
+        <div class="sr-grid">
+          <div class="sr-section" style="grid-column:1/-1"><div class="sr-sec-title">📰 相关新闻</div><div class="sr-news" id="srNews">—</div></div>
+        </div>
+      </div>
+    </div>
     <div class="section" id="sectorStockList"><div class="section-title">📋 赛道精选标的（按热度排序） | ⏳ 等待实时行情数据...</div></div>
     </div></div>`;
 
@@ -2050,6 +2084,46 @@ function loadFeedbackHistory(){
     document.getElementById('srChg').textContent=(chg>=0?'+':'')+(chg||0).toFixed(2)+'%';
     document.getElementById('srChg').style.color=cl;
     document.getElementById('srMeta').textContent=msg||'';
+    // 填充详情面板: 财报/概念/研报/新闻 (28端点全覆盖)
+    populateStockDetail(code);
+  }
+  function populateStockDetail(code){
+    var det=document.getElementById('srDetail');if(!det)return;
+    det.style.display='block';
+    // 财务快照 (mootdx finance 37字段)
+    var fin=(D.finSnapshot||{})[code];
+    var fel=document.getElementById('srFin');
+    if(fin){fel.innerHTML='<span>EPS:'+(fin.eps||'?')+'</span><span>ROE:'+(fin.roe||'?')+'%</span><span>BVPS:'+(fin.bvps||'?')+'</span><span>营收:'+(fin.income||'?')+'</span><span>净利:'+(fin.profit||'?')+'</span>';}
+    else{fel.textContent='暂无财务数据(需交易时段通达信TCP)';}
+    // 一致预期EPS (同花顺)
+    var eps=(D.epsForecast||{})[code];
+    var eel=document.getElementById('srEps');
+    if(eps&&eps!=='{}'){eel.textContent='机构覆盖有数据(同花顺一致预期)';}
+    else{eel.textContent='暂无一致预期数据';}
+    // 概念板块 (东财 slist)
+    var concepts=(D.conceptData||{})[code];
+    var cel=document.getElementById('srConcepts');
+    if(concepts&&concepts.length){cel.innerHTML=concepts.map(function(t){return '<span style="display:inline-block;padding:2px 8px;margin:2px 4px 2px 0;background:var(--surface);border:1px solid var(--border);border-radius:10px;font-size:.72rem">'+t+'</span>';}).join('');}
+    else{cel.textContent='暂无概念数据(东财风控时段不可用)';}
+    // 个股研报
+    var reports=(D.stockReports||{})[code];
+    var rel=document.getElementById('srReports');
+    if(reports&&reports.length){rel.innerHTML=reports.map(function(r){return '<div><span style="font-size:.72rem;color:var(--dim)">'+r.d+'</span> <span style="color:var(--blue);font-size:.7rem">'+r.org+'</span> <span style="color:var(--text)">'+r.t+'</span></div>';}).join('');}
+    else{rel.textContent='暂无研报数据';}
+    // 个股新闻
+    var snews=(D.stockNewsData||{})[code];
+    var nel=document.getElementById('srNews');
+    if(snews&&snews.length){nel.innerHTML=snews.map(function(n){return '<div><span style="font-size:.72rem;color:var(--dim)">'+n.ts+'</span> <span style="font-size:.7rem;color:var(--sub)">'+n.src+'</span> <span style="color:var(--text)">'+n.t+'</span></div>';}).join('');}
+    else{nel.textContent='暂无个股新闻';}
+    // 股东户数
+    var holders=(D.holderData||{})[code];
+    if(holders&&holders.length){var h='';holders.forEach(function(r){h+='<span style="display:inline-block;margin:2px 6px 2px 0;font-family:SF Mono,monospace;font-size:.76rem">'+r.d+': '+r.num.toLocaleString()+'户('+(r.chg>0?'+':'')+r.chg+'%)</span>';});document.getElementById('srFin').innerHTML+='<br>股东: '+h;}
+    // 分红
+    var divs=(D.dividendData||{})[code];
+    if(divs&&divs.length){var d='';divs.forEach(function(r){d+='<span style="display:inline-block;margin:2px 6px 2px 0;font-family:SF Mono,monospace;font-size:.76rem">'+r.d+': '+r.bonus+'元/股</span>';});document.getElementById('srFin').innerHTML+='<br>分红: '+d;}
+    // 新浪三表
+    var sina=(D.sinaReport||{})[code];
+    if(sina&&sina['利润表']){var sl='';var first=sina['利润表'][0];if(first){for(var k in first){if(k!='报告期'){sl+=k+':'+first[k]+' ';}}}document.getElementById('srEps').innerHTML+='<br><span style="font-size:.7rem">最新利润表: '+sl+'</span>';}
   }
   window.searchStock=searchStock;
   window.showResult=showResult;
@@ -2090,6 +2164,16 @@ function loadFeedbackHistory(){
         if(d.sectorFixedStocks){D.sectorFixedStocks=d.sectorFixedStocks;}
         if(d.northbound) D.northbound=d.northbound;
         if(d.lhbFull) D.lhbFull=d.lhbFull;
+        if(d.klineData) D.klineData=d.klineData;
+        if(d.epsForecast) D.epsForecast=d.epsForecast;
+        if(d.finSnapshot) D.finSnapshot=d.finSnapshot;
+        if(d.stockReports) D.stockReports=d.stockReports;
+        if(d.conceptData) D.conceptData=d.conceptData;
+        if(d.stockNewsData) D.stockNewsData=d.stockNewsData;
+        if(d.sinaReport) D.sinaReport=d.sinaReport;
+        if(d.f10Data) D.f10Data=d.f10Data;
+        if(d.holderData) D.holderData=d.holderData;
+        if(d.dividendData) D.dividendData=d.dividendData;
         if(d._hotReasons) D._hotReasons=d._hotReasons;
         if(d._backtest) D._backtest=d._backtest;
         if(d.marginSummary) D.marginSummary=d.marginSummary;
