@@ -819,7 +819,7 @@ def main():
     lhb = fetch_lhb_full()
     print(f"  lhb: {lhb['total']} stocks")
 
-    # ZT/DT count from clist
+    # ZT/DT count — L1: 东财全市场扫描 → L2: ztLadder总计数
     zt_count = dt_count = 0
     try:
         r = ad.em_get('http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=500&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f3,f12,f14', timeout=10)
@@ -828,7 +828,11 @@ def main():
         dt_list = [i for i in items if i.get('f3',0) <= -9.9]
         zt_count = len(zt_list)
         dt_count = len(dt_list)
-    except: pass
+    except:
+        # 东财不通用连板池计数兜底
+        if zt:
+            zt_count = zt.get('totalCount', 0) or 0
+        dt_count = 0  # 跌停只能用东财
 
     winners, losers = compute_winners_losers(live, stock_sector, heat)
 
