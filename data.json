@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-27 11:21 CST",
+  "updated": "2026-06-27 11:46 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1980589,
+  "updateCount": 1980591,
   "recap": {
     "index": [
       {
@@ -996,7 +996,7 @@
       "riskLabel": "中等风险",
       "suggestion": "持仓聚焦贵金属、AI硬件和商业航天，谨慎追高"
     },
-    "note": "06/27 11:15 a-stock-data统一更新 | 398只 | 58板块"
+    "note": "06/27 11:40 a-stock-data统一更新 | 398只 | 58板块"
   },
   "livePrices": {
     "sz000001": {
@@ -2996,7 +2996,7 @@
     "interval": "5min",
     "stockCount": 398,
     "liveCount": 398,
-    "updateCount": 1980589,
+    "updateCount": 1980591,
     "trading": false
   },
   "sectorTags": {
@@ -7489,6 +7489,31 @@
   "globalNews": {
     "headlines": [
       {
+        "t": "巴基斯坦发生5.1级地震 震源深度10千米",
+        "s": "【巴基斯坦发生5.1级地震 震源深度10千米】中国地震台网正式测定：06月27日11时06分在巴基斯坦（北纬30.45度，东经69.70度）发生5.1级地震，震源深度10千米。",
+        "ts": "2026-06-27 11:38:54"
+      },
+      {
+        "t": "教育部发布“高校招生录取期间谨防受骗”相关预警",
+        "s": "【教育部发布“高校招生录取期间谨防受骗”相关预警】2026年高考落下帷幕，查分、志愿填报、录取等环节成为考生和家长关注的焦点，一些机构或个人为牟取经济利益盯上了这个关键时期，打着各",
+        "ts": "2026-06-27 11:38:53"
+      },
+      {
+        "t": "国内造纸行业迎来一轮大范围涨价潮 最高涨200元/吨",
+        "s": "【国内造纸行业迎来一轮大范围涨价潮 最高涨200元/吨】国内造纸行业迎来一轮大范围、多品类同步涨价潮，覆盖纱管纸、白卡纸、牛卡纸、灰纸板、文化纸等主流纸张，从头部浆纸龙头到区域中小",
+        "ts": "2026-06-27 11:36:13"
+      },
+      {
+        "t": "纳米比亚大力拓展对华旅游合作",
+        "s": "【纳米比亚大力拓展对华旅游合作】纳米比亚旅游局首席执行官塞布隆·奇卡卢6月26日在首都温得和克举行的业界会议上说，纳米比亚将进一步加强对华旅游合作，大力吸引中国游客。",
+        "ts": "2026-06-27 11:30:26"
+      },
+      {
+        "t": "中国工商银行获准担任非洲人民币联合清算行",
+        "s": "【中国工商银行获准担任非洲人民币联合清算行】6月26日，中国人民银行发布公告，为促进中非贸易投资便利化，决定授权南非标准银行和中国工商银行担任非洲人民币联合清算行。非洲人民币联合清",
+        "ts": "2026-06-27 11:25:10"
+      },
+      {
         "t": "约2500名海员已撤离霍尔木兹海峡",
         "s": "【约2500名海员已撤离霍尔木兹海峡】国际海事组织秘书长多明格斯6月26日表示，据国际海事组织初步统计，自23日启动霍尔木兹海峡地区滞留海员疏散计划以来，已有115艘船舶上的约25",
         "ts": "2026-06-27 11:14:26"
@@ -7587,35 +7612,373 @@
         "t": "走近国家超级计算深圳中心“灵晟”超级计算机",
         "s": "【走近国家超级计算深圳中心“灵晟”超级计算机】日前，在德国汉堡举行的国际超级计算大会公布新出炉的全球超算TOP500榜单，中国自主研制的“灵晟”超级计算机排名第一，成为继2017年",
         "ts": "2026-06-27 09:50:16"
-      },
-      {
-        "t": "京东：在欧洲推出机器人维修服务 已在英德等国建立JoyRobocare维修中心",
-        "s": "【京东：在欧洲推出机器人维修服务 已在英德等国建立JoyRobocare维修中心】6月27日，据京东黑板报消息，日前，京东在欧洲推出JoyRobocare机器人维修服务，并已在英国",
-        "ts": "2026-06-27 09:38:05"
-      },
-      {
-        "t": "国家统计局：1—5月份铜、铝等产品价格维持在较高水平 推动有色行业利润增长117.1%",
-        "s": "【国家统计局：1—5月份铜、铝等产品价格维持在较高水平 推动有色行业利润增长117.1%】于卫宁表示，原材料制造业利润快速增长。1—5月份，规模以上原材料制造业利润同比增长83.1",
-        "ts": "2026-06-27 09:36:45"
-      },
-      {
-        "t": "国家统计局：1—5月份电子专用材料制造、电子电路制造行业利润分别增长665.4%、19.7%",
-        "s": "【国家统计局：1—5月份电子专用材料制造、电子电路制造行业利润分别增长665.4%、19.7%】国家统计局工业司首席统计师于卫宁解读2026年1—5月份工业企业利润数据。于卫宁表示",
-        "ts": "2026-06-27 09:34:13"
-      },
-      {
-        "t": "微型牙科机器人可进入口腔修整牙体",
-        "s": "【微型牙科机器人可进入口腔修整牙体】瑞士巴塞尔大学研究团队开发出一款仅有酒塞大小的微型牙科机器人，有望自动完成牙体预备工作，并与数字化牙冠制作流程衔接，未来可将传统需要多次就诊的治",
-        "ts": "2026-06-27 09:33:22"
-      },
-      {
-        "t": "国家统计局：1—5月份电子行业利润增长103.9% 对全部规模以上工业企业利润增长的贡献率达43.1%",
-        "s": "【国家统计局：1—5月份电子行业利润增长103.9% 对全部规模以上工业企业利润增长的贡献率达43.1%】从行业看，全球人工智能技术变革带来高端算力芯片和存储芯片需求爆发，推动电子",
-        "ts": "2026-06-27 09:32:28"
       }
     ],
-    "updated": "2026-06-27 03:19 UTC",
+    "updated": "2026-06-27 03:44 UTC",
     "status": "ok"
+  },
+  "_newsSector": [
+    {
+      "t": "芯片股再现恐慌抛售，存储三巨头跌超10%，中概股逆势上扬，金银反弹超1%",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inievequ0193722.shtml",
+      "time": "09:53",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "SpaceX即将入选纳斯达克100指数 为被动买入潮铺平道路",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyhx7044320.shtml",
+      "time": "08:31",
+      "src": "sina_A股"
+    },
+    {
+      "t": "在罗素指数重新权重前 SpaceX股价小幅上涨",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyia4902748.shtml",
+      "time": "08:24",
+      "src": "sina_A股"
+    },
+    {
+      "t": "机器人产品营收暴涨！T链龙头业绩曝光",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inieuyhw0252337.shtml",
+      "time": "08:07",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "华菱钢铁补税及滞纳金近7亿元，一季度扣非净利大跌九成",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inieuyhw0245555.shtml",
+      "time": "08:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "6月27日隔夜要闻：美股收跌 铝价连跌四周 金价走高 美伊冲突再起 美以黎达成三方框架协议",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyie1631823.shtml",
+      "time": "07:01",
+      "src": "sina_A股"
+    },
+    {
+      "t": "黄金价格大跌，消费者权益保护指南",
+      "u": "https://finance.sina.com.cn/consume/xiaofei/2026-06-27/doc-inietfxy2051085.shtml",
+      "time": "06:30",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "IPO承诺加速落地！马斯克获批收购光通信企业Mesh，推进太空算力战略",
+      "u": "https://finance.sina.com.cn/stock/t/2026-06-27/doc-inieutze4958871.shtml",
+      "time": "05:48",
+      "src": "sina_A股"
+    },
+    {
+      "t": "大宗商品综述：油价下挫 铝价连跌四周 金价走高",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1698885.shtml",
+      "time": "05:10",
+      "src": "sina_A股"
+    }
+  ],
+  "_newsMarket": [
+    {
+      "t": "伊朗革命卫队：打击美军多个目标以回应美空袭伊朗",
+      "u": "https://wallstreetcn.com/livenews/3125536",
+      "time": "10:40",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美军公布最新袭击伊朗画面",
+      "u": "https://wallstreetcn.com/livenews/3125535",
+      "time": "10:37",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "资本市场“光谷板块”总市值突破1.8万亿",
+      "u": "https://wallstreetcn.com/livenews/3125534",
+      "time": "10:36",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "韩国政府组建跨部门机构应对涉AI犯罪",
+      "u": "https://wallstreetcn.com/livenews/3125531",
+      "time": "10:32",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "揭秘OpenAI错综复杂的商业合作网络：几年内背负6650亿美元账单",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inievequ0216227.shtml",
+      "time": "10:23",
+      "src": "sina_A股"
+    },
+    {
+      "t": "国家统计局：1—5月石油加工行业同比扭亏为盈，化工行业利润增长71.6%",
+      "u": "https://wallstreetcn.com/livenews/3125523",
+      "time": "09:45",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "京东：在欧洲推出机器人维修服务，已在英德等国建立JoyRobocare维修中心",
+      "u": "https://wallstreetcn.com/livenews/3125522",
+      "time": "09:40",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "苹果涨价或预示粘性通胀来袭，美联储票委“倒戈”预计年内加息",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieveqv6952074.shtml",
+      "time": "09:26",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "我国医疗器械产业创新发展势头强劲",
+      "u": "https://wallstreetcn.com/livenews/3125518",
+      "time": "09:25",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗高级官员：特朗普不遵守谈判和停火原则",
+      "u": "https://wallstreetcn.com/livenews/3125517",
+      "time": "09:21",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "中国银行行长张辉会见巴西财政部部长达里奥·杜里甘",
+      "u": "https://wallstreetcn.com/livenews/3125514",
+      "time": "09:06",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美副总统威胁：若伊朗诉诸暴力，将遭武力回击",
+      "u": "https://wallstreetcn.com/livenews/3125513",
+      "time": "09:04",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "今年港股首发募资前十大IPO名单中，A+H企业独占8席",
+      "u": "https://wallstreetcn.com/livenews/3125508",
+      "time": "08:49",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "6月以来新发基金破千亿元，权益类基金担当主力军，凸显机构看多后市信心",
+      "u": "https://wallstreetcn.com/livenews/3125507",
+      "time": "08:47",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "上下游扩产忙，半导体设备迎来增长大年",
+      "u": "https://wallstreetcn.com/livenews/3125506",
+      "time": "08:46",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "险资机构“组队”投资不动产新范式",
+      "u": "https://wallstreetcn.com/livenews/3125505",
+      "time": "08:46",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "有券商新客理财约定年化收益率高达8.18%",
+      "u": "https://wallstreetcn.com/livenews/3125504",
+      "time": "08:45",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "量子科技迎三重积极变化，产业发展直面长周期考验",
+      "u": "https://wallstreetcn.com/livenews/3125503",
+      "time": "08:45",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "Anthropic：Mythos 5可重新部署至一批美国机构",
+      "u": "https://wallstreetcn.com/livenews/3125501",
+      "time": "08:33",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "SpaceX成为纳斯达克100指数史上最快纳入成分股之一，预计权重将低于1%",
+      "u": "https://wallstreetcn.com/livenews/3125499",
+      "time": "08:15",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "IPO雷达| 光远新材二次闯关，应收账款高增",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieuyhw0244706.shtml",
+      "time": "08:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "机构调研热情稍减，热门股仍受关注",
+      "u": "https://wallstreetcn.com/livenews/3125498",
+      "time": "07:31",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "周五（6月26日），美股纳斯达克生物科技指数收涨超2.2%，连续五天创收盘历史新高。\n\n成分股Pyxis Oncology收涨24.22%，Humacyte、ATAI Beckley、Moderna（莫德纳）、Immunitybio Inc",
+      "u": "https://wallstreetcn.com/livenews/3125495",
+      "time": "07:13",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "南美洲玻利维亚将转向浮动汇率制度，结束长达十五年的美元挂钩机制",
+      "u": "https://wallstreetcn.com/livenews/3125493",
+      "time": "07:03",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "仙工智能登陆港股，能否撑起24倍PS",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyie1636664.shtml",
+      "time": "07:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "领益智造登陆港股 “果链女王”以AI智造再闯资本新局",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyia4859903.shtml",
+      "time": "07:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "京东方回归A股牌桌中央",
+      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyhx6991833.shtml",
+      "time": "07:00",
+      "src": "sina_7x24财经"
+    },
+    {
+      "t": "伊朗革命卫队称打击美军驻点以回应沿海地区遭袭",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieuyia4860345.shtml",
+      "time": "06:45",
+      "src": "sina_A股"
+    },
+    {
+      "t": "万斯谈美军打击伊朗：暴力必将遭到暴力回应",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1746612.shtml",
+      "time": "06:31",
+      "src": "sina_A股"
+    },
+    {
+      "t": "沃什首批重要任命之一：任命两位美联储经济学家为顾问，聚焦利率研究",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutzh1740553.shtml",
+      "time": "06:18",
+      "src": "sina_A股"
+    },
+    {
+      "t": "报道：美国对伊朗的打击尚不意味着恢复大规模作战行动",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1730010.shtml",
+      "time": "06:00",
+      "src": "sina_A股"
+    },
+    {
+      "t": "*ST华闻: *ST华闻:关于持股5%以上股东持股被动稀释触及1%整数倍及跨越5%整数倍的提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-27",
+      "src": "em_announcement"
+    },
+    {
+      "t": "*ST华闻: *ST华闻:简式权益变动报告书",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-27",
+      "src": "em_announcement"
+    },
+    {
+      "t": "*ST华闻: *ST华闻:中信证券股份有限公司关于华闻传媒投资集团股份有限公司详式权益变动报告书之财务顾问核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-27",
+      "src": "em_announcement"
+    },
+    {
+      "t": "*ST华闻: *ST华闻:详式权益变动报告书",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-27",
+      "src": "em_announcement"
+    },
+    {
+      "t": "*ST华闻: *ST华闻:关于股东权益变动暨控股股东、实际控制人发生变更的提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-27",
+      "src": "em_announcement"
+    },
+    {
+      "t": "兖矿能源: 兖矿能源:北京市金杜律师事务所关于兖矿能源集团股份有限公司分拆物泊科技股份有限公司至香港联合交易所有限公司上市事宜股票交易自查期间相关机构及人员买卖股票情况的专项核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/600188.html",
+      "time": "06-27",
+      "src": "em_announcement"
+    },
+    {
+      "t": "6月27日外盘头条：美国对伊朗发动打击 特朗普对欧再发关税威胁 甲骨文股价本周暴跌19%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0302772.shtml",
+      "time": "05:57",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗革命卫队：多份与美冲突相关声明为伪造内容",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutzh1749911.shtml",
+      "time": "05:52",
+      "src": "sina_A股"
+    },
+    {
+      "t": "ISNA：伊朗伊斯兰革命卫队称德黑兰将回应美国在海峡附近的袭击",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0291038.shtml",
+      "time": "05:41",
+      "src": "sina_A股"
+    },
+    {
+      "t": "福克斯新闻：美国今晚对伊朗的军事打击行动已经结束",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyz7062508.shtml",
+      "time": "05:34",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗革命卫队：挫败美军袭击 将严厉回应",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutyz7072877.shtml",
+      "time": "05:32",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国对伊朗发动打击 以回应霍尔木兹海峡货船遭袭",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1700786.shtml",
+      "time": "05:13",
+      "src": "sina_A股"
+    },
+    {
+      "t": "6月27日美股成交额前20：美光科技跌超6%，芯片股持续下挫",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieuyia4849728.shtml",
+      "time": "05:00",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国股市：标普500指数收盘微跌 华尔街轮动加速",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyy0253195.shtml",
+      "time": "04:53",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美军称对伊朗实施打击以回应商船遭袭事件",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutze4921539.shtml",
+      "time": "04:51",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国称对伊朗目标发动打击 以回应此前船只遇袭",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0251841.shtml",
+      "time": "04:51",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国债市：短期美债领涨 油价下跌提供支撑",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0250437.shtml",
+      "time": "04:48",
+      "src": "sina_A股"
+    },
+    {
+      "t": "消息人士称伊朗南部港口城市码头传出爆炸声",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutzh1692676.shtml",
+      "time": "04:47",
+      "src": "sina_A股"
+    },
+    {
+      "t": "标普确认美国信用评级为AA+ 展望仍为稳定",
+      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7025670.shtml",
+      "time": "04:44",
+      "src": "sina_A股"
+    }
+  ],
+  "_newsMeta": {
+    "updated": "2026-06-27 11:40 CST",
+    "sector": 9,
+    "market": 50
   },
   "industryRank": [
     {
@@ -11573,7 +11936,7 @@
     {
       "name": "HBM/存储芯片",
       "sig": "neutral",
-      "msg": "板块均涨+0.1%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.1%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -11717,13 +12080,13 @@
     {
       "name": "人形机器人",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
       "name": "商业航天",
       "sig": "neutral",
-      "msg": "板块均涨-0.7%，横盘整理，等待催化。",
+      "msg": "板块均涨-0.7%，方向不明朗，2条消息待发酵。",
       "u": ""
     },
     {
@@ -11843,7 +12206,7 @@
     {
       "name": "钢铁",
       "sig": "neutral",
-      "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+      "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
       "u": ""
     },
     {
@@ -11961,7 +12324,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-06-27 11:21 CST",
+    "updated": "2026-06-27 11:46 CST",
     "top3": [
       {
         "r": 1,
@@ -12041,7 +12404,7 @@
       {
         "name": "HBM/存储芯片",
         "sig": "neutral",
-        "msg": "板块均涨+0.1%，横盘整理，等待催化。",
+        "msg": "板块均涨+0.1%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -12185,13 +12548,13 @@
       {
         "name": "人形机器人",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
         "name": "商业航天",
         "sig": "neutral",
-        "msg": "板块均涨-0.7%，横盘整理，等待催化。",
+        "msg": "板块均涨-0.7%，方向不明朗，2条消息待发酵。",
         "u": ""
       },
       {
@@ -12311,7 +12674,7 @@
       {
         "name": "钢铁",
         "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
+        "msg": "板块均涨+0.0%，方向不明朗，1条消息待发酵。",
         "u": ""
       },
       {
@@ -15078,352 +15441,8 @@
       "stars": 3
     }
   ],
-  "_newsSector": [
-    {
-      "t": "6月27日隔夜要闻：美股收跌 铝价连跌四周 金价走高 美伊冲突再起 美以黎达成三方框架协议",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieuyie1631823.shtml",
-      "time": "07:01",
-      "src": "sina_A股"
-    },
-    {
-      "t": "黄金价格大跌，消费者权益保护指南",
-      "u": "https://finance.sina.com.cn/consume/xiaofei/2026-06-27/doc-inietfxy2051085.shtml",
-      "time": "06:30",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "IPO承诺加速落地！马斯克获批收购光通信企业Mesh，推进太空算力战略",
-      "u": "https://finance.sina.com.cn/stock/t/2026-06-27/doc-inieutze4958871.shtml",
-      "time": "05:48",
-      "src": "sina_A股"
-    },
-    {
-      "t": "大宗商品综述：油价下挫 铝价连跌四周 金价走高",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1698885.shtml",
-      "time": "05:10",
-      "src": "sina_A股"
-    }
-  ],
-  "_newsMarket": [
-    {
-      "t": "周五（6月26日），美股纳斯达克生物科技指数收涨超2.2%，连续五天创收盘历史新高。\n\n成分股Pyxis Oncology收涨24.22%，Humacyte、ATAI Beckley、Moderna（莫德纳）、Immunitybio Inc",
-      "u": "https://wallstreetcn.com/livenews/3125495",
-      "time": "07:13",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "南美洲玻利维亚将转向浮动汇率制度，结束长达十五年的美元挂钩机制",
-      "u": "https://wallstreetcn.com/livenews/3125493",
-      "time": "07:03",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "仙工智能登陆港股，能否撑起24倍PS",
-      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyie1636664.shtml",
-      "time": "07:00",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "领益智造登陆港股 “果链女王”以AI智造再闯资本新局",
-      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyia4859903.shtml",
-      "time": "07:00",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "京东方回归A股牌桌中央",
-      "u": "https://finance.sina.com.cn/roll/2026-06-27/doc-inieuyhx6991833.shtml",
-      "time": "07:00",
-      "src": "sina_7x24财经"
-    },
-    {
-      "t": "伊朗革命卫队称打击美军驻点以回应沿海地区遭袭",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieuyia4860345.shtml",
-      "time": "06:45",
-      "src": "sina_A股"
-    },
-    {
-      "t": "全球最大锂生产商美国雅宝（Albemarle）认为，其电池储能业务需求正稳步增长，与电动汽车需求的不规律形成反差。\n\n该公司首席商务官Eric Norris）表示：“电网储能在全球的分布更加均匀，这是一个很有意思的需求驱动因素。”（路透）",
-      "u": "https://wallstreetcn.com/livenews/3125490",
-      "time": "06:43",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "力拓铝业及锂业务单元负责人Jérôme Pécresse表示：“未来两年，锂需求在电动汽车与储能之间的分布将更加均衡。”该公司计划到2028年提升锂产能。",
-      "u": "https://wallstreetcn.com/livenews/3125489",
-      "time": "06:42",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "锂生产商押注电池储能，需求重心逐渐超越电动汽车",
-      "u": "https://wallstreetcn.com/livenews/3125488",
-      "time": "06:42",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "万斯谈美军打击伊朗：暴力必将遭到暴力回应",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1746612.shtml",
-      "time": "06:31",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗国家媒体援引伊斯兰革命卫队消息报道称，该部队已针对美军在该地区的多个部署地点实施打击。",
-      "u": "https://wallstreetcn.com/livenews/3125481",
-      "time": "06:28",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "中国驻加拿大大使Wang Di（王迪）表示，根据协议，吉利控股集团旗下的路特斯品牌（Lotus）电动汽车将于下月抵达加拿大。\n\n“吉利电动汽车将于下月抵达加拿大，届时将在蒙特利尔举行交车仪式。”\n\n奇瑞和比亚迪等其他中国品牌正在与加拿大政府",
-      "u": "https://wallstreetcn.com/livenews/3125480",
-      "time": "06:23",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "沃什首批重要任命之一：任命两位美联储经济学家为顾问，聚焦利率研究",
-      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutzh1740553.shtml",
-      "time": "06:18",
-      "src": "sina_A股"
-    },
-    {
-      "t": "万斯：美国将对伊朗“以暴制暴”",
-      "u": "https://wallstreetcn.com/livenews/3125478",
-      "time": "06:10",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美国发动袭击之后，伊朗伊斯兰革命卫队公共关系办公室（PRO）尚未发布声明。（伊朗媒体Fars新闻社）",
-      "u": "https://wallstreetcn.com/livenews/3125477",
-      "time": "06:01",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "报道：美国对伊朗的打击尚不意味着恢复大规模作战行动",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1730010.shtml",
-      "time": "06:00",
-      "src": "sina_A股"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:关于持股5%以上股东持股被动稀释触及1%整数倍及跨越5%整数倍的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:简式权益变动报告书",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:中信证券股份有限公司关于华闻传媒投资集团股份有限公司详式权益变动报告书之财务顾问核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:详式权益变动报告书",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "*ST华闻: *ST华闻:关于股东权益变动暨控股股东、实际控制人发生变更的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/000793.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "000793 *ST华闻"
-    },
-    {
-      "t": "兖矿能源: 兖矿能源:北京市金杜律师事务所关于兖矿能源集团股份有限公司分拆物泊科技股份有限公司至香港联合交易所有限公司上市事宜股票交易自查期间相关机构及人员买卖股票情况的专项核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/600188.html",
-      "time": "06-27",
-      "src": "em_announcement",
-      "s": "600188 兖矿能源"
-    },
-    {
-      "t": "6月27日外盘头条：美国对伊朗发动打击 特朗普对欧再发关税威胁 甲骨文股价本周暴跌19%",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0302772.shtml",
-      "time": "05:57",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗革命卫队：多份与美冲突相关声明为伪造内容",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutzh1749911.shtml",
-      "time": "05:52",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗官员：特朗普在谈判原则及停火协议上毫无诚意",
-      "u": "https://wallstreetcn.com/livenews/3125475",
-      "time": "05:50",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "标普500指数的11个板块中，医疗保健板块收涨3.16%，可选消费、房地产板块至多涨1.55%，能源板块则收跌0.41%，电信板块跌0.56%，信息技术/科技板块跌1.05%，工业板块跌1.53%。",
-      "u": "https://wallstreetcn.com/livenews/3125473",
-      "time": "05:45",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "ISNA：伊朗伊斯兰革命卫队称德黑兰将回应美国在海峡附近的袭击",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0291038.shtml",
-      "time": "05:41",
-      "src": "sina_A股"
-    },
-    {
-      "t": "福克斯新闻：美国今晚对伊朗的军事打击行动已经结束",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyz7062508.shtml",
-      "time": "05:34",
-      "src": "sina_A股"
-    },
-    {
-      "t": "伊朗革命卫队：挫败美军袭击 将严厉回应",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutyz7072877.shtml",
-      "time": "05:32",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国官员：美方现在完成对伊朗的袭击。（CNN）",
-      "u": "https://wallstreetcn.com/livenews/3125471",
-      "time": "05:32",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "房地产ETF收涨超1.5%，领涨美大类资产类ETF，纳指ETF则跌约1.4%，布油基金跌超3.7%",
-      "u": "https://wallstreetcn.com/livenews/3125470",
-      "time": "05:26",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "医疗业ETF收涨3%，与生物科技ETF领跑美股行业ETF",
-      "u": "https://wallstreetcn.com/livenews/3125469",
-      "time": "05:26",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "伊朗革命卫队：挫败美军袭击，将严厉回应",
-      "u": "https://wallstreetcn.com/livenews/3125467",
-      "time": "05:20",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美国对伊朗发动打击 以回应霍尔木兹海峡货船遭袭",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutzh1700786.shtml",
-      "time": "05:13",
-      "src": "sina_A股"
-    },
-    {
-      "t": "周五（6月26日）纽约尾盘，标普500股指期货最终跌0.34%，道指期货跌0.31%，纳斯达克100股指期货跌1.53%。\n\n罗素2000股指期货跌0.11%。",
-      "u": "https://wallstreetcn.com/livenews/3125464",
-      "time": "05:12",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "6月27日美股成交额前20：美光科技跌超6%，芯片股持续下挫",
-      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieuyia4849728.shtml",
-      "time": "05:00",
-      "src": "sina_A股"
-    },
-    {
-      "t": "黄金、白银周五涨超1%，本周现货黄金跌1.9%、白银跌约9.5%",
-      "u": "https://wallstreetcn.com/livenews/3125462",
-      "time": "04:58",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美军称对伊朗发动打击以回应商船遭袭事件",
-      "u": "https://wallstreetcn.com/livenews/3125461",
-      "time": "04:55",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美国股市：标普500指数收盘微跌 华尔街轮动加速",
-      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyy0253195.shtml",
-      "time": "04:53",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美军对伊朗目标的袭击“正在发生”。（福克斯新闻）",
-      "u": "https://wallstreetcn.com/livenews/3125459",
-      "time": "04:52",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美军称对伊朗实施打击以回应商船遭袭事件",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutze4921539.shtml",
-      "time": "04:51",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国称对伊朗目标发动打击 以回应此前船只遇袭",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0251841.shtml",
-      "time": "04:51",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国债市：短期美债领涨 油价下跌提供支撑",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutyy0250437.shtml",
-      "time": "04:48",
-      "src": "sina_A股"
-    },
-    {
-      "t": "消息人士称伊朗南部港口城市码头传出爆炸声",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-27/doc-inieutzh1692676.shtml",
-      "time": "04:47",
-      "src": "sina_A股"
-    },
-    {
-      "t": "以色列据称与黎巴嫩达成旨在结束冲突的框架协议",
-      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7026618.shtml",
-      "time": "04:46",
-      "src": "sina_A股"
-    },
-    {
-      "t": "标普确认美国信用评级为AA+ 展望仍为稳定",
-      "u": "https://finance.sina.com.cn/world/2026-06-27/doc-inieutyz7025670.shtml",
-      "time": "04:44",
-      "src": "sina_A股"
-    },
-    {
-      "t": "纽约汇市：美元指数微跌 交易员下调美联储加息预期",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutze4908440.shtml",
-      "time": "04:43",
-      "src": "sina_A股"
-    },
-    {
-      "t": "据伊朗伊斯兰共和国广播公司：塔赫罗耶赫市和锡里克市传出三声不明来源的爆炸声。",
-      "u": "https://wallstreetcn.com/livenews/3125468",
-      "time": "04:22",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "6月27日收盘：美股三大指数收跌 芯片股领跌 西部数据大跌13% 美光科技跌超6%",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-27/doc-inieutze4916958.shtml",
-      "time": "04:20",
-      "src": "sina_A股"
-    },
-    {
-      "t": "标普：确认美国“AA+/A-1+”主权信用评级，展望维持稳定。",
-      "u": "https://wallstreetcn.com/livenews/3125455",
-      "time": "04:09",
-      "src": "wscn_全球"
-    }
-  ],
-  "_newsMeta": {
-    "updated": "2026-06-27 07:26 CST",
-    "sector": 4,
-    "market": 65,
-    "match_sectors": [
-      "算力",
-      "铝",
-      "黄金"
-    ]
-  },
   "_eventsMeta": {
-    "updated": "2026-06-27 11:21 CST",
+    "updated": "2026-06-27 11:46 CST",
     "total": 10,
     "hand": 8,
     "macro": 2,
@@ -15526,6 +15545,68 @@
       ]
     }
   },
+  "_promoteQueue": [
+    {
+      "name": "昨日连板_含一字",
+      "bk": "BK1051",
+      "days": 2,
+      "max_pct": 3.1,
+      "first_seen": "2026-06-26",
+      "stocks": [
+        {
+          "c": "605366",
+          "n": "宏柏新材",
+          "chg": 10.0
+        },
+        {
+          "c": "000823",
+          "n": "超声电子",
+          "chg": 10.0
+        },
+        {
+          "c": "002674",
+          "n": "兴业科技",
+          "chg": 10.0
+        },
+        {
+          "c": "600667",
+          "n": "太极实业",
+          "chg": 6.2
+        },
+        {
+          "c": "603678",
+          "n": "火炬电子",
+          "chg": 5.8
+        },
+        {
+          "c": "002080",
+          "n": "中材科技",
+          "chg": 5.1
+        },
+        {
+          "c": "002822",
+          "n": "ST中装",
+          "chg": 5.1
+        },
+        {
+          "c": "603595",
+          "n": "ST东尼",
+          "chg": 5.0
+        },
+        {
+          "c": "603989",
+          "n": "艾华集团",
+          "chg": 4.2
+        },
+        {
+          "c": "002990",
+          "n": "盛视科技",
+          "chg": 3.6
+        }
+      ],
+      "discovered": "2026-06-27"
+    }
+  ],
   "_hot_uncovered": [
     {
       "n": "昨日打二板以上表现",
@@ -15669,67 +15750,5 @@
       "recent_5d_hit_rate": 0.0,
       "last_updated": "2026-06-27"
     }
-  },
-  "_promoteQueue": [
-    {
-      "name": "昨日连板_含一字",
-      "bk": "BK1051",
-      "days": 2,
-      "max_pct": 3.1,
-      "first_seen": "2026-06-26",
-      "stocks": [
-        {
-          "c": "605366",
-          "n": "宏柏新材",
-          "chg": 10.0
-        },
-        {
-          "c": "000823",
-          "n": "超声电子",
-          "chg": 10.0
-        },
-        {
-          "c": "002674",
-          "n": "兴业科技",
-          "chg": 10.0
-        },
-        {
-          "c": "600667",
-          "n": "太极实业",
-          "chg": 6.2
-        },
-        {
-          "c": "603678",
-          "n": "火炬电子",
-          "chg": 5.8
-        },
-        {
-          "c": "002080",
-          "n": "中材科技",
-          "chg": 5.1
-        },
-        {
-          "c": "002822",
-          "n": "ST中装",
-          "chg": 5.1
-        },
-        {
-          "c": "603595",
-          "n": "ST东尼",
-          "chg": 5.0
-        },
-        {
-          "c": "603989",
-          "n": "艾华集团",
-          "chg": 4.2
-        },
-        {
-          "c": "002990",
-          "n": "盛视科技",
-          "chg": 3.6
-        }
-      ],
-      "discovered": "2026-06-27"
-    }
-  ]
+  }
 }
