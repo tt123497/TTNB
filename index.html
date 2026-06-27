@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>📡 LIVE · 股市哨兵</title>
+<title>股市哨兵 · 赛道监控</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -1048,7 +1048,7 @@ function updateLiveDot(){
   var el=document.getElementById('liveDot'); if(!el) return;
   var st=isMarketOpen(), now=Date.now();
   if(st===true){
-    el.textContent='盘中'; el.className='live';
+    el.textContent='盘中·5min延'; el.className='live';
     // Check data freshness
     var lastFetch=parseInt(sessionStorage.getItem('_lastDataTs')||'0');
     if(now-lastFetch>600000){el.textContent='数据过期';el.className='live stale';}
@@ -1252,7 +1252,15 @@ function loadFeedbackHistory(){
     }
     renderAll();
     setTimeout(renderStockList,300);
-  }).catch(function(){ renderAll(); setTimeout(renderStockList,500); });
+  }).catch(function(){
+    // data.json 加载失败：渲染兜底数据 + 提示用户
+    renderAll(); setTimeout(renderStockList,500);
+    var t=document.createElement('div');
+    t.style.cssText='position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:9999;padding:10px 20px;border-radius:10px;font-size:.84rem;font-weight:600;background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3);box-shadow:var(--shadow)';
+    t.textContent='⚠️ 数据更新失败，当前显示兜底数据（可能非最新）';
+    document.body.appendChild(t);
+    setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},8000);
+  });
 
   // Helper: compute real countdown days from today to event date (mirrors calendar logic)
   function realDays(ds){
