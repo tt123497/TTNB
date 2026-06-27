@@ -1003,8 +1003,8 @@ function go(tab){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));
   document.getElementById('pill-'+tab).classList.add('on');
   document.getElementById('panel-'+tab).classList.add('on');
-  // Start real-time price refresh when entering stocks tab during trading
-  if(tab==='stocks'&&isMarketOpen()===true){ refreshLivePrices(); }
+  // 盘中任何 Tab 都启动实时股价轮询
+  if(isMarketOpen()===true){ refreshLivePrices(); }
   if(tab==='overview') updateLiveDot();
   // 懒加载简报历史（只在第一次点简报 Tab 时加载）
   if(tab==='briefing' && !D.bHistory.length && !window._bHistoryLoaded){
@@ -1053,7 +1053,7 @@ function updateLiveDot(){
     var lastFetch=parseInt(sessionStorage.getItem('_lastDataTs')||'0');
     if(now-lastFetch>600000){el.textContent='数据过期';el.className='live stale';}
   }else if(st==='pre'){el.textContent='盘前';el.className='live off';}
-  else if(st==='lunch'){el.textContent='午休';el.className='live off';}
+  else if(st==='lunch'){el.textContent='午休·5min延';el.className='live off';}
   else{el.textContent='休市';el.className='live off';}
   // During trading, refresh stock prices every 60s
   if(st===true){setTimeout(updateLiveDot,60000);}
@@ -1061,71 +1061,87 @@ function updateLiveDot(){
 }
 setTimeout(updateLiveDot,1000);
 
-// ══ Real-time price fresher (trading hours only) ══
+// ══ 实时股价轮询 (盘中每3秒，腾讯API，不封IP) ══
 var _priceTimer=null;
+var _rtPriceCache={}; // 实时价格缓存
+
 function refreshLivePrices(){
   var st=isMarketOpen();
   if(st!==true){if(_priceTimer)clearInterval(_priceTimer);_priceTimer=null;return;}
-  if(!_priceTimer) _priceTimer=setInterval(refreshLivePrices,60000);
-  // Only refresh if we have sector stocks data
-  var panels=document.querySelectorAll('#panel-stocks .sector-table');
-  if(!panels.length) return;
-  // Batch-fetch prices for all visible stock codes
+  if(!_priceTimer) _priceTimer=setInterval(refreshLivePrices,3000); // 3秒一次
+
+  // 收集当前页面所有显示股价的股票代码
   var codes=[];
-  panels.forEach(function(p){
-    var rows=p.querySelectorAll('.stk-row');
-    rows.forEach(function(r){
-      var c=(r.getAttribute('data-code')||'').trim();
-      if(c&&c.length===6) codes.push(c);
-    });
+  // 1. sector-table 里的股票
+  document.querySelectorAll('.stk-row[data-code]').forEach(function(r){
+    var c=(r.getAttribute('data-code')||'').trim();
+    if(c&&c.length===6&&codes.indexOf(c)<0) codes.push(c);
+  });
+  // 2. 标的搜索结果
+  var srCode=document.getElementById('srCode');
+  if(srCode){var sc=(srCode.textContent||'').trim(); if(sc.length===6&&codes.indexOf(sc)<0)codes.push(sc);}
+  // 3. chain-card 里的 c-pill
+  document.querySelectorAll('.c-pill').forEach(function(p){
+    var m=(p.textContent||'').match(/(\d{6})/);
+    if(m&&codes.indexOf(m[1])<0) codes.push(m[1]);
+  });
+  // 4. recap 里的 winners/losers
+  document.querySelectorAll('.recap-chip, .heat-tag').forEach(function(el){
+    var m=(el.textContent||'').match(/(\d{6})/);
+    if(m&&codes.indexOf(m[1])<0) codes.push(m[1]);
   });
   if(!codes.length) return;
-  // Use Tencent API (no IP ban, fastest)
+
+  // 腾讯批量行情 (CORS全开，不封IP)
   var prefixed=codes.slice(0,80).map(function(c){
-    return (c.startsWith('6')||c.startsWith('9'))?'sh'+c:'sz'+c;
+    return ((c.startsWith('6')||c.startsWith('9'))?'sh':'sz')+c;
   });
-  var script=document.createElement('script');
-  var cb='_qp'+Date.now();
-  window[cb]=function(data){
-    try{
-      Object.keys(data||{}).forEach(function(code){
-        var q=data[code]; if(!q) return;
+  fetch('https://qt.gtimg.cn/q='+prefixed.join(','))
+    .then(function(r){return r.arrayBuffer();})
+    .then(function(buf){
+      // 腾讯返回GBK编码，需手动解码
+      var txt=new TextDecoder('gbk').decode(buf);
+      var lines=txt.split(';');
+      lines.forEach(function(line){
+        var eq=line.indexOf('='); if(eq<0) return;
+        var parts=line.split('"'); if(parts.length<2) return;
+        var vals=parts[1].split('~'); if(vals.length<40) return;
+        var code=vals[2]; if(!code||code.length!==6) return;
+        var price=parseFloat(vals[3])||0;
+        var chg=parseFloat(vals[32])||0;
+        var name=vals[1];
+        _rtPriceCache[code]={price:price,chg:chg,name:name,ts:Date.now()};
+        // 更新 livePrices
         var pfx=(code.startsWith('6')||code.startsWith('9'))?'sh':'sz';
-        var key=pfx+code;
         D.livePrices=D.livePrices||{};
-        D.livePrices[key]={price:q.price||0,chg_pct:q.change_pct||0,name:q.name||''};
-        // Update DOM cells
-        var cells=document.querySelectorAll('.stk-row[data-code="'+code+'"] .stk-price');
-        cells.forEach(function(cell){
-          var p=q.price||0;
-          cell.textContent=p>=100?p.toFixed(1):(p>=1?p.toFixed(2):p.toFixed(3));
-          var chg=q.change_pct||0;
-          cell.style.color=chg>=0?'var(--red)':'var(--green)';
-        });
-        var chgCells=document.querySelectorAll('.stk-row[data-code="'+code+'"] .stk-chg');
-        chgCells.forEach(function(cell){
-          var chg=q.change_pct||0;
-          cell.textContent=(chg>=0?'+':'')+chg.toFixed(2)+'%';
-          cell.style.color=chg>=0?'var(--red)':'var(--green)';
-        });
+        D.livePrices[pfx+code]={price:price,chg_pct:chg,name:name};
+        // 更新 DOM
+        updatePriceInDOM(code,price,chg);
       });
-    }catch(e){}
-    delete window[cb];
-  };
-  // Tencent batch quote via JSONP
-  var url='https://qt.gtimg.cn/q='+prefixed.join(',');
-  fetch(url).then(function(r){return r.text();}).then(function(txt){
-    var result={};
-    var lines=txt.split(';');
-    lines.forEach(function(line){
-      var eq=line.indexOf('='); if(eq<0) return;
-      var parts=line.split('"'); if(parts.length<2) return;
-      var vals=parts[1].split('~'); if(vals.length<40) return;
-      var code=vals[2]; if(!code||code.length!==6) return;
-      result[code]={name:vals[1],price:parseFloat(vals[3])||0,change_pct:parseFloat(vals[32])||0};
-    });
-    if(window[cb]) window[cb](result);
-  }).catch(function(){});
+    }).catch(function(){});
+}
+
+// 更新页面上所有该代码的价格显示
+function updatePriceInDOM(code,price,chg){
+  var color=chg>=0?'var(--red)':'var(--green)';
+  var pStr=price>=100?price.toFixed(1):(price>=1?price.toFixed(2):price.toFixed(3));
+  var cStr=(chg>=0?'+':'')+chg.toFixed(2)+'%';
+
+  // sector-table
+  document.querySelectorAll('.stk-row[data-code="'+code+'"] .stk-price').forEach(function(c){
+    c.textContent=pStr; c.style.color=color;
+  });
+  document.querySelectorAll('.stk-row[data-code="'+code+'"] .stk-chg').forEach(function(c){
+    c.textContent=cStr; c.style.color=color;
+  });
+
+  // 标的搜索结果
+  var srCode=document.getElementById('srCode');
+  if(srCode&&(srCode.textContent||'').trim()===code){
+    var sp=document.getElementById('srPrice'), sc=document.getElementById('srChg');
+    if(sp){sp.textContent=pStr;sp.style.color=color;}
+    if(sc){sc.textContent=cStr;sc.style.color=color;}
+  }
 }
 
 // ══ Feedback system (localStorage + mailto) ══
