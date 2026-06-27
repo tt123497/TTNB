@@ -7596,7 +7596,7 @@
         "ts": "2026-06-27 12:03:51"
       }
     ],
-    "updated": "2026-06-27 06:15 UTC",
+    "updated": "2026-06-27 06:16 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7643,6 +7643,12 @@
       "u": "https://wallstreetcn.com/livenews/3125549",
       "time": "13:40",
       "src": "wscn_全球"
+    },
+    {
+      "t": "A股又现大牛股，5股年内狂飙超200%，一退市股单日重挫95%",
+      "u": "https://finance.sina.com.cn/wm/2026-06-27/doc-inievkww4811116.shtml",
+      "time": "13:05",
+      "src": "sina_7x24"
     },
     {
       "t": "苹果涨价或预示粘性通胀来袭，美联储票委“倒戈”预计年内加息",
@@ -7784,9 +7790,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-27 14:15 CST",
+    "updated": "2026-06-27 14:16 CST",
     "sector": 5,
-    "market": 25
+    "market": 26
   },
   "industryRank": [
     {
