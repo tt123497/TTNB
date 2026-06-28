@@ -1078,7 +1078,8 @@ def main():
                 if len(kline_data) < 3:
                     print(f"    mootdx K线失败 {c}: {e}")
         # L2: eastmoney HTTP 降级 (mootdx不可用或返回空时)
-        if not kl or len(kl) == 0:
+        # 注意: mootdx_klines可能返回DataFrame, 不能用 not kl 做布尔判断
+        if kl is None or len(kl) == 0:
             try:
                 pfx = ad.get_prefix(c)
                 secid = f"{'1' if pfx == 'sh' else '0'}.{c}"
