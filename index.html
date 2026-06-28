@@ -2445,41 +2445,41 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
   // Stock hover tooltip
   var tipEl=document.getElementById('stockTip'), tipTimer=null, tipCode='';
   function showTip(e, code){
-    if(code===tipCode) return; tipCode=code;
-    clearTimeout(tipTimer);
-    var info=stockInfo[code];
+	    if(code===tipCode) return; tipCode=code;
+	    clearTimeout(tipTimer);
+	    var info=stockInfo[code];
 	    if(!info){
-	      var nm=''; var he=document.querySelector('.stk-row[data-code="'+code+'"] .name');
-	      if(he) nm=he.textContent.trim();
+	      var nm=''; var row=document.querySelector('.stk-row[data-code="'+code+'"]');
+	      if(row){var nc=row.querySelector('.name'); if(nc) nm=nc.textContent.trim();}
+	      if(!nm){var t=e.target; while(t&&t!==document.body){var tx=(t.textContent||'').trim(); var m2=tx.match(/\d{6}\s+(\S+)/); if(m2){nm=m2[1];break;} t=t.parentElement;}}
 	      info=stockInfo[code]={name:nm||code, sector:'', group:'', pos:'—', tag:'', ind:'—'};
 	    }
-    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
-    var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-    var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'—');
-    var concepts=[];
-    if(info.concepts&&info.concepts.length) concepts=info.concepts;
-    else if(lp&&lp.concepts&&lp.concepts.length) concepts=lp.concepts.filter(function(c){return c&&c.trim();});
-    // Deduplicate and remove empty
-    var seen={}; var clean=[];
-    concepts.forEach(function(c){if(c&&!seen[c]){seen[c]=1;clean.push(c);}});
-    var cx=clean.length?clean.slice(0,6).join(' · '):null;
-    var cxHtml=cx?'<div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div>':'';
-    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div>'+cxHtml+'<div style="font-size:.7rem;color:var(--sub);margin-top:3px">'+info.pos+' | '+info.group+' · '+info.tag+'</div>';
-    tipEl.style.display='block';
-    tipTimer=setTimeout(function(){var x=e.clientX+15,y=e.clientY-10;if(x+240>window.innerWidth)x=e.clientX-250;if(y+120>window.innerHeight)y=e.clientY-130;tipEl.style.left=x+'px';tipEl.style.top=y+'px';},80);
-  }
-  function hideTip(){tipCode='';tipEl.style.display='none';}
-  document.getElementById('mainContent').addEventListener('mousemove',function(e){
-    var el=e.target, code='';
-    while(el&&el!==this&&!code){
-      var t=el.textContent.trim(); var m=t&&t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.layout-card')||el.classList.contains('stk-snippet'))){
-        code=m[1]; break;
-      }
-      el=el.parentElement;
-    }
-    if(code) showTip(e, code); else hideTip();
-  });
+	    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
+	    var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
+	    var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'—');
+	    var concepts=[];
+	    if(info.concepts&&info.concepts.length) concepts=info.concepts;
+	    else if(lp&&lp.concepts&&lp.concepts.length) concepts=lp.concepts.filter(function(c){return c&&c.trim();});
+	    var seen={}; var clean=[];
+	    concepts.forEach(function(c){if(c&&!seen[c]){seen[c]=1;clean.push(c);}});
+	    var cx=clean.length?clean.slice(0,6).join(' · '):null;
+	    var cxHtml=cx?'<div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div>':'';
+	    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div>'+cxHtml;
+	    tipEl.style.display='block';
+	    var x=e.clientX+15,y=e.clientY-10; if(x+240>window.innerWidth)x=e.clientX-250; if(y+120>window.innerHeight)y=e.clientY-130; tipEl.style.left=x+'px';tipEl.style.top=y+'px';
+	  }
+	  function hideTip(){tipCode='';tipEl.style.display='none';}
+	  document.getElementById('mainContent').addEventListener('mousemove',function(e){
+	    var el=e.target, code='';
+	    while(el&&el!==this&&!code){
+	      var t=(el.textContent||'').trim(); var m=t&&t.match(/(\d{6})/);
+	      if(m&&el.closest&&(el.closest('.stk-row')||el.closest('.c-pill')||el.closest('.pick-item')||el.closest('.layout-card')||el.closest('.zt-stock'))){
+	        code=m[1]; break;
+	      }
+	      el=el.parentElement;
+	    }
+	    if(code) showTip(e, code); else hideTip();
+	  });
 
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
