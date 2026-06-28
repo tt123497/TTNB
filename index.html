@@ -1957,9 +1957,10 @@ function loadFeedbackHistory(){
   function renderFlashNews(sectorNews, marketNews){
     var el=document.getElementById('flashFeed');
     if(!el)return;
-    var items=sectorNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'sector'};})
-      .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'market'};}))
-      .concat(((D.globalNews||{}).headlines||[]).map(function(n){var ts=n.ts||'';var tm=ts.length>=16?ts.substring(11,16):ts;return {t:n.t,u:n.u||('https://www.baidu.com/s?wd='+encodeURIComponent(n.t)),time:tm,src:'em_7x24',ch:'global'};}));
+    var nowTs=Date.now()/1000;
+    var items=sectorNews.map(function(n){return {t:n.t,u:n.u,time:n.time,ts:n.ts||0,src:n.src,ch:'sector'};})
+      .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,ts:n.ts||0,src:n.src,ch:'market'};}))
+      .concat(((D.globalNews||{}).headlines||[]).map(function(n){var ts=n.ts||'';var tm=ts.length>=16?ts.substring(11,16):ts;return {t:n.t,u:n.u||('https://www.baidu.com/s?wd='+encodeURIComponent(n.t)),time:tm,ts:0,src:'em_7x24',ch:'global'};}));
     // 过滤与股市完全无关的全球资讯（仅过滤global路，sector/market不过滤）
     // 策略：默认保留。军事冲突/地缘政治/宏观政策等间接影响股市的一律保留
     // 仅过滤纯体育/娱乐/教育/人道救灾类
@@ -1970,7 +1971,14 @@ function loadFeedbackHistory(){
       if(_ik.test(t))return false;
       return true;
     });
-    items.sort(function(a,b){return (b.time||'').localeCompare(a.time||'');});
+    // 排序: 有ts的按时间戳倒序(最新在前), 无ts(em公告/global)按time字符串倒序
+    items.sort(function(a,b){
+      var at=a.ts||0, bt=b.ts||0;
+      if(at&&bt) return bt-at;
+      if(at&&!bt) return -1;
+      if(!at&&bt) return 1;
+      return (b.time||'').localeCompare(a.time||'');
+    });
     var h='';
     items.forEach(function(item){
       h+='<div class="flash-item"><span class="fi-time">'+(item.time||'')+'</span><div class="fi-dot '+(item.ch||'market')+'"></div><div class="fi-body"><div class="fi-title">'+(item.u?'<a href="'+item.u+'" target="_blank" rel="noopener">'+item.t+'</a>':item.t)+'</div><div class="fi-src"><span>'+((item.src||'').replace('sina_','').replace('em_',''))+'</span></div></div></div>';
