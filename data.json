@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 07:15:52"
       }
     ],
-    "updated": "2026-06-28 03:37 UTC",
+    "updated": "2026-06-28 03:38 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7579,6 +7579,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "周末，一大波利好来了！明天A股怎么走？",
+      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexpwa3256674.shtml",
+      "time": "11:22",
+      "src": "sina_7x24"
+    },
     {
       "t": "一夜之间，4家A股公司被查被罚",
       "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexpvy6475092.shtml",
@@ -7605,9 +7611,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 11:37 CST",
+    "updated": "2026-06-28 11:38 CST",
     "sector": 2,
-    "market": 4
+    "market": 5
   },
   "industryRank": [
     {
