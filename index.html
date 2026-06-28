@@ -1407,23 +1407,11 @@ function loadFeedbackHistory(){
   if(D.sectorTags){Object.keys(D.sectorTags).forEach(function(k){var t=D.sectorTags[k];if(t.indexOf('板均涨')>=0||t.indexOf('板涨')>=0)majorCount++;});}
   if(majorCount===0){majorCount=allSectors.filter(function(s){return s.avgChg>=3;}).length;}
   const goodCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=0).length:0;
-  var marketSummary='';
-  (function(){
-    var ztTotal=D.recap.ztCount!=null?D.recap.ztCount:(D.recap.ztLadder?D.recap.ztLadder.totalCount:0);
-    if(majorCount>=3&&ztTotal>=80) marketSummary='🔥 强势普涨——涨停潮延续，赛道全面走强，可积极布局';
-    else if(majorCount>=2&&ztTotal>=50) marketSummary='📈 偏强格局——热点轮动健康，精选主线标的';
-    else if(majorCount>=1&&ztTotal>=30) marketSummary='⚖️ 温和偏多——局部热点活跃，控制仓位参与';
-    else if(ztTotal>0) marketSummary='🟡 市场分化——少量涨停，需精选个股';
-    else marketSummary='等待盘中数据更新';
-  })();
+
 
   // ════ OVERVIEW ════
   let ov=`<div class="tab-panel on" id="panel-overview">
-    <div class="stat-strip" id="statStrip">
-      <div class="stat-chip"><div class="val" style="color:var(--red)">${majorCount}</div><div class="lbl">🔥 强势赛道</div></div>
-      <div class="stat-chip"><div class="val" style="color:var(--amber)">${D.recap.ztCount!=null?D.recap.ztCount:(D.recap.ztLadder?D.recap.ztLadder.totalCount:'—')}</div><div class="lbl">🪜 涨停</div></div>
-      <div class="stat-chip"><div class="val" style="color:${(()=>{var nb=D.northbound;if(!nb||!nb.net_yi)return'var(--dim)';return nb.net_yi>0?'var(--red)':'var(--green)';})()}">${(()=>{var nb=D.northbound;if(!nb)return'—';var n=nb.net_yi||0;return (n>=0?'+':'')+n.toFixed(1)+'亿';})()}</div><div class="lbl">🌏 北向</div></div>
-    </div><div style="font-size:.88rem;font-weight:600;color:var(--sub);text-align:center;padding:8px;margin-bottom:8px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">${marketSummary}</div>
+
 
 <div id="overviewStrips">`;
 
@@ -2199,11 +2187,6 @@ function loadFeedbackHistory(){
         // ── Refresh overview strips ──
         (function(){
           var os=document.getElementById('overviewStrips'); if(!os) return;
-          var sb=document.getElementById('statStrip');
-          if(sb&&D.northbound){
-            var nbDiv=sb.querySelector('.stat-chip:last-child');
-            if(nbDiv){ var net=D.northbound.net_yi||0; nbDiv.querySelector('.val').textContent=(net>=0?'+':'')+net.toFixed(1)+'亿'; nbDiv.querySelector('.val').style.color=net>0?'var(--red)':'var(--green)'; }
-          }
         })();
         renderStockList();
         // Recap panel
