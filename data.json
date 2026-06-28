@@ -37,12 +37,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "多只A股，集体公告！涉及供货英伟达、PCB、特种纤维布、液冷散热……",
-      "u": "https://finance.sina.com.cn/stock/roll/2026-06-28/doc-inieykzq0400332.shtml",
-      "time": "19:13",
-      "src": "sina_7x24"
-    },
-    {
       "t": "重庆钢铁: 重庆钢铁:关于部分董事、高级管理人员增持公司A股计划的公告",
       "u": "https://data.eastmoney.com/notices/detail/601005.html",
       "time": "06-29",
@@ -202,8 +196,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:12 CST",
-    "sector": 8,
+    "updated": "2026-06-28 21:13 CST",
+    "sector": 7,
     "market": 25
   },
   "globalNews": {
@@ -334,7 +328,7 @@
         "ts": "2026-06-28 18:36:32"
       }
     ],
-    "updated": "2026-06-28 13:12 UTC",
+    "updated": "2026-06-28 13:13 UTC",
     "status": "ok"
   }
 }
