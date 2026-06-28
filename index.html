@@ -1590,6 +1590,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // ════ OVERVIEW ════
   let ov=`<div class="tab-panel on" id="panel-overview">
+  <div style="font-size:.65rem;color:var(--dim);text-align:right;padding:2px 8px;opacity:.5">v20260629.1</div>
 
 
 <div id="overviewStrips">`;
@@ -1702,6 +1703,19 @@ document.addEventListener('DOMContentLoaded',function(){
     ov+=`</div>`;
   });
   ov+=`</div>`;
+  // Force DOM update: after render, refresh all c-chg elements
+  setTimeout(function(){
+    D.groups.forEach(function(g){
+      g.sectors.forEach(function(s){
+        var el = document.getElementById('cchg-'+s.id);
+        if(el && typeof s.avgChg==='number' && !isNaN(s.avgChg)){
+          el.textContent = (s.avgChg>=0?'+':'') + s.avgChg.toFixed(1) + '%';
+          el.style.color = s.avgChg>=0 ? 'var(--red)' : 'var(--green)';
+        }
+      });
+    });
+  }, 100);
+  // end forced update
 
   
 
