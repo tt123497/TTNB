@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 07:15:52"
       }
     ],
-    "updated": "2026-06-28 03:40 UTC",
+    "updated": "2026-06-28 03:42 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7586,12 +7586,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "美官员称中东地区美军设施未受到重大影响",
-      "u": "https://wallstreetcn.com/livenews/3125625",
-      "time": "10:41",
-      "src": "wscn_全球"
-    },
-    {
       "t": "8家公司集中披露股东减持意向，天宸股份3%比例上限与峰岹科技并列最高",
       "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexpvy0781727.shtml",
       "time": "10:35",
@@ -7605,9 +7599,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 11:40 CST",
+    "updated": "2026-06-28 11:42 CST",
     "sector": 1,
-    "market": 5
+    "market": 4
   },
   "industryRank": [
     {
