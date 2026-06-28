@@ -20596,12 +20596,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "A股公司业绩大降45%，实控人入主5年闪电退场，明起停牌",
-      "u": "https://finance.sina.com.cn/wm/2026-06-28/doc-inieyrin0324597.shtml",
-      "time": "21:46",
-      "src": "sina_A股"
-    },
-    {
       "t": "中富通: 中富通:关于公司股东、高级管理人员股份减持计划的预披露公告",
       "u": "https://data.eastmoney.com/notices/detail/300560.html",
       "time": "06-29",
@@ -20699,9 +20693,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 23:45 CST",
+    "updated": "2026-06-28 23:46 CST",
     "sector": 5,
-    "market": 20
+    "market": 19
   },
   "globalNews": {
     "headlines": [
@@ -20831,7 +20825,7 @@
         "ts": "2026-06-28 19:37:27"
       }
     ],
-    "updated": "2026-06-28 15:45 UTC",
+    "updated": "2026-06-28 15:46 UTC",
     "status": "ok"
   }
 }
