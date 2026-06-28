@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 09:22:50"
       }
     ],
-    "updated": "2026-06-28 05:34 UTC",
+    "updated": "2026-06-28 05:35 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7572,11 +7572,18 @@
       "src": "sina_7x24"
     }
   ],
-  "_newsMarket": [],
+  "_newsMarket": [
+    {
+      "t": "再添重磅里程碑，三条世界级高性能碳纤维生产线集中投产",
+      "u": "https://wallstreetcn.com/livenews/3125633",
+      "time": "13:34",
+      "src": "wscn_全球"
+    }
+  ],
   "_newsMeta": {
-    "updated": "2026-06-28 13:34 CST",
+    "updated": "2026-06-28 13:35 CST",
     "sector": 1,
-    "market": 0
+    "market": 1
   },
   "industryRank": [
     {
