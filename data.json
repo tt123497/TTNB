@@ -1,6 +1,12 @@
 {
   "_newsSector": [
     {
+      "t": "半导体牛股大动作！下周一停牌",
+      "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieykzn3654116.shtml",
+      "time": "20:53",
+      "src": "sina_A股"
+    },
+    {
       "t": "2800亿存储龙头，公司董事通过集中竞价，减持套现13.83亿元！",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieykzq6072208.shtml",
       "time": "20:21",
@@ -190,8 +196,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 20:57 CST",
-    "sector": 7,
+    "updated": "2026-06-28 20:59 CST",
+    "sector": 8,
     "market": 24
   },
   "globalNews": {
@@ -322,7 +328,7 @@
         "ts": "2026-06-28 18:03:58"
       }
     ],
-    "updated": "2026-06-28 12:57 UTC",
+    "updated": "2026-06-28 12:59 UTC",
     "status": "ok"
   }
 }
