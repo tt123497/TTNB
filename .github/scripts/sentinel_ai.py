@@ -108,15 +108,17 @@ def validate_output(result):
         if not n.get('s') or not isinstance(n['s'], list):
             n['s'] = []
 
-        # 铁律一：检查 URL
+        # 铁律一：检查 URL（允许东财具体页面，只禁止首页和搜索页）
         u = n.get('u', '')
-        if not u or 'eastmoney.com/' in u.lower() and not any(x in u.lower() for x in ['/roll/', '/doc-', '/news/', '/stock/', '/money/', '/fund/', '/bond/']):
+        is_em = 'eastmoney.com/' in u.lower()
+        is_specific = any(x in u.lower() for x in ['/roll/', '/doc-', '/news/', '/stock/', '/money/', '/fund/', '/bond/', '/notices/', '/report/', '/announcement/', '/detail/'])
+        if not u or (is_em and not is_specific):
             bad_url_count += 1
             print(f'WARN: top3[{i}] URL泛链接: {u[:60]}')
 
-        # 铁律二：检查定价状态
+        # 铁律二：检查定价状态（兼容"未定价""尚未被定价""已定价""已被定价""反向催化"等变体）
         body = n.get('b', '')
-        has_pricing = any(kw in body for kw in ['已定价', '未定价', '反向催化'])
+        has_pricing = any(kw in body for kw in ['定价', '反向催化'])
         if not has_pricing:
             no_pricing_count += 1
             print(f'WARN: top3[{i}] 缺少定价状态判断')
