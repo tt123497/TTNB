@@ -1151,6 +1151,118 @@ function loadFeedbackHistory(){
   }).join('');
 }
 
+// ═══════════════════════════════════════════════════════════════
+// 全局函数: 个股跳转 + 浮窗 (放在 IIFE 外部, 确保不受 IIFE 执行错误影响)
+// ═══════════════════════════════════════════════════════════════
+function _emCode(code){
+  var c=String(code);
+  if(c[0]==='6'||c[0]==='9') return 'sh'+c;
+  if(c[0]==='8') return 'bj'+c;
+  return 'sz'+c;
+}
+function openStock(code){
+  if(!code||!/^\d{6}$/.test(code)) return;
+  if(navigator.platform&&navigator.platform.indexOf('Win')<0){
+    window.open('https://quote.eastmoney.com/concept/'+_emCode(code)+'.html','_blank');
+    return;
+  }
+  var fallbackTimer=setTimeout(function(){
+    window.open('https://quote.eastmoney.com/concept/'+_emCode(code)+'.html','_blank');
+  },1500);
+  var onBlur=function(){
+    clearTimeout(fallbackTimer);
+    window.removeEventListener('blur',onBlur);
+  };
+  window.addEventListener('blur',onBlur);
+  window.open('tdxstock://'+code,'_blank');
+}
+
+var _tipEl=null,_tipCode=null;
+function _showTip(e,code){
+  if(!_tipEl) _tipEl=document.getElementById('stockTip');
+  if(!_tipEl) return;
+  if(code===_tipCode){
+    _tipEl.style.left=(e.clientX+15)+'px';
+    _tipEl.style.top=(e.clientY+8)+'px';
+    return;
+  }
+  _tipCode=code;
+  // stockInfo 可能在 IIFE 内部定义, 用 window.stockInfo 兜底
+  var stockInfo=window.stockInfo||{};
+  var info=stockInfo[code];
+  if(!info){var nm=code,tr=document.querySelector('.stk-row[data-code="'+code+'"]');if(tr){var nc=tr.querySelector('.name');if(nc)nm=nc.textContent.trim();}info=stockInfo[code]={name:nm,sector:'',group:'',pos:'',tag:'',ind:''};}
+  var D=window.D||{};
+  var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code],ph='';
+  if(lp&&lp.price){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+(lp.chg_pct>=0?'+':'')+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
+  var secLine='';
+  if(info.ind||info.sector){
+    secLine='<div class="st-sector">';
+    if(info.ind) secLine+='🏭 '+info.ind;
+    if(info.ind&&info.sector) secLine+=' · ';
+    if(info.sector) secLine+=info.sector;
+    secLine+='</div>';
+  }
+  var conceptLine='';
+  var concepts=(D.conceptData||{})[code];
+  if(concepts&&concepts.length){
+    var tags=concepts.slice(0,5).map(function(t){var s=String(t).trim();return s.length>8?s.slice(0,8)+'…':s;});
+    conceptLine='<div class="st-chain" style="color:var(--sub)">💡 '+tags.join(' / ')+'</div>';
+  }
+  var chainLine='';
+  if(info.pos&&info.pos!=='—'){chainLine='<div class="st-chain">🔗 '+info.pos+'</div>';}
+  var tagLine='';
+  if(info.tag){var tagShort=info.tag.split('|')[0].trim();if(tagShort) tagLine='<div class="st-chain" style="color:var(--blue)">'+tagShort+'</div>';}
+  _tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+secLine+conceptLine+chainLine+tagLine;
+  _tipEl.style.display='block';
+  _tipEl.style.left=(e.clientX+15)+'px';
+  _tipEl.style.top=(e.clientY+8)+'px';
+}
+function _hideTip(){_tipCode=null;if(_tipEl)_tipEl.style.display='none';}
+
+// 全局事件绑定 (DOM 加载后立即执行, 不依赖 IIFE)
+document.addEventListener('DOMContentLoaded',function(){
+  var mc=document.getElementById('mainContent');
+  if(!mc) return;
+
+  // 浮窗: mouseover
+  mc.addEventListener('mouseover',function(e){
+    var el=e.target,code='';
+    while(el&&el!==this&&!code){
+      var t=el.textContent.trim(),m=t&&t.match(/(\d{6})/);
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('code')||(el.closest&&el.closest('.pick-item'))||(el.closest&&el.closest('tr'))||(el.closest&&el.closest('.layout-card'))||el.classList.contains('stk-snippet'))){code=m[1];break;}
+      el=el.parentElement;
+    }
+    if(code)_showTip(e,code);else _hideTip();
+  },true);
+
+  // 浮窗: mouseout
+  mc.addEventListener('mouseout',function(e){
+    var rt=e.relatedTarget;
+    if(!rt||!this.contains(rt)) _hideTip();
+  },true);
+
+  // 点击跳转: click
+  mc.addEventListener('click',function(e){
+    var el=e.target,code='';
+    if(el.closest&&(el.closest('.c-pill')||el.closest('.zt-stock')||el.closest('.sc')||el.closest('td.code')||el.closest('tr'))){
+      var pill=el.closest('.c-pill')||el.closest('.zt-stock');
+      if(pill){var t=pill.textContent.trim();var m=t.match(/(\d{6})/);if(m)code=m[1];}
+      if(!code&&el.closest('.pick-item')){
+        var pi=el.closest('.pick-item'), pc=pi.querySelector('.pi-code');
+        if(pc){var m=pc.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
+      }
+      if(!code&&el.closest('td.code')){var m=el.closest('td.code').textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
+      if(!code&&el.closest('tr')){var td=el.closest('tr').querySelector('td.code');if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}}
+      if(code){e.stopPropagation();openStock(code);return;}
+    }
+    while(el&&el!==this){
+      if(el.classList.contains('zt-tier-header')){el.closest('.zt-tier').classList.toggle('collapsed');return;}
+      if(el.classList.contains('pick-item')){el.classList.toggle('collapsed');return;}
+      el=el.parentElement;
+    }
+  },true);
+});
+
 (function build(){
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
@@ -2439,155 +2551,11 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     var ldv=document.getElementById('recapLosers');if(ldv&&r.losers){var lh='<div class="section-title" style="color:var(--red);font-size:1rem">🔴 领跌方向</div>';r.losers.forEach(function(l){lh+='<div style="margin-bottom:12px"><div style="color:var(--red);font-weight:600;font-size:.88rem;margin-bottom:4px">❌ '+l.s+'</div><div style="font-size:.78rem;color:var(--sub);line-height:1.9">'+l.stks.split(' / ').map(function(st){return '<div style="font-family:SF Mono,Fira Code,monospace;font-size:.76rem;padding:2px 0">  '+st+'</div>';}).join('')+'</div></div></div>';});ldv.innerHTML=lh;}
   }
 
-  // ═══════════════════════════════════════════════════════════════
-  // 个股跳转统一入口 — 通达信协议优先, 失败降级东财网页
-  // ═══════════════════════════════════════════════════════════════
-  function _emCode(code){
-    // 6位代码 → 东财市场前缀 (sh/sz/bj)
-    var c=String(code);
-    if(c[0]==='6'||c[0]==='9') return 'sh'+c;
-    if(c[0]==='8') return 'bj'+c;
-    return 'sz'+c;
-  }
-  function openStock(code){
-    if(!code||!/^\d{6}$/.test(code)) return;
-    // 非Windows直接降级东财网页 (tdxstock:// 协议只在Windows生效)
-    if(navigator.platform&&navigator.platform.indexOf('Win')<0){
-      window.open('https://quote.eastmoney.com/concept/'+_emCode(code)+'.html','_blank');
-      return;
-    }
-    // Windows: 尝试 tdxstock:// 协议, 1.5秒内无响应(窗口未失焦)则降级东财
-    var fallbackTimer=setTimeout(function(){
-      window.open('https://quote.eastmoney.com/concept/'+_emCode(code)+'.html','_blank');
-    },1500);
-    var onBlur=function(){
-      clearTimeout(fallbackTimer);
-      window.removeEventListener('blur',onBlur);
-    };
-    window.addEventListener('blur',onBlur);
-    // 用 window.open 触发协议 (比 iframe 更可靠, 浏览器兼容性更好)
-    window.open('tdxstock://'+code,'_blank');
-  }
-  window.openStock=openStock;
+  // openStock/showTip/click/mouseover/mouseout 已移到 IIFE 外部 (全局作用域)
+  // 确保即使 IIFE 执行出错, 浮窗和跳转功能仍能正常工作
 
-  // Event delegation (capture phase — fires before card onclick)
-  document.getElementById('mainContent').addEventListener('click',function(e){
-    var el=e.target, code='';
-    // Stock click: stop bubble immediately to prevent card onclick="go('chain')"
-    if(el.closest&&(el.closest('.c-pill')||el.closest('.zt-stock')||el.closest('.sc')||el.closest('td.code')||el.closest('tr'))){
-      var pill=el.closest('.c-pill')||el.closest('.zt-stock');
-      if(pill){var t=pill.textContent.trim();var m=t.match(/(\d{6})/);if(m)code=m[1];}
-      if(!code&&el.closest('.pick-item')){
-        var pi=el.closest('.pick-item'), pc=pi.querySelector('.pi-code');
-        if(pc){var m=pc.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
-      }
-      if(!code&&el.closest('td.code')){var m=el.closest('td.code').textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
-      if(!code&&el.closest('tr')){var td=el.closest('tr').querySelector('td.code');if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}}
-      if(code){e.stopPropagation();openStock(code);return;}
-    }
-    // ZT tier header click → collapse
-    while(el&&el!==this){
-      if(el.classList.contains('zt-tier-header')){el.closest('.zt-tier').classList.toggle('collapsed');return;}
-      if(el.classList.contains('pick-item')){el.classList.toggle('collapsed');return;}
-      el=el.parentElement;
-    }
-  },true);
+  // Final updateBar refresh from data.json
 
-  // Stock hover tooltip — 悬停个股代码显示 行业+赛道+产业链位置+价格
-  var tipEl=document.getElementById('stockTip'),tipCode=null;
-  function showTip(e,code){
-    if(code===tipCode){
-      // 同一代码: 只更新位置, 让浮窗跟随鼠标
-      tipEl.style.left=(e.clientX+15)+'px';
-      tipEl.style.top=(e.clientY+8)+'px';
-      return;
-    }
-    tipCode=code;
-    var info=stockInfo[code];
-    if(!info){var nm=code,tr=document.querySelector('.stk-row[data-code="'+code+'"]');if(tr){var nc=tr.querySelector('.name');if(nc)nm=nc.textContent.trim();}info=stockInfo[code]={name:nm,sector:'',group:'',pos:'',tag:'',ind:''};}
-
-    // 价格行 (红涨绿跌 — A股惯例)
-    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code],ph='';
-    if(lp&&lp.price){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+(lp.chg_pct>=0?'+':'')+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-
-    // 行业 + 赛道行 (兑现文档承诺: "显示行业+概念+产业链位置")
-    var secLine='';
-    if(info.ind||info.sector){
-      secLine='<div class="st-sector">';
-      if(info.ind) secLine+='🏭 '+info.ind;
-      if(info.ind&&info.sector) secLine+=' · ';
-      if(info.sector) secLine+=info.sector;
-      secLine+='</div>';
-    }
-
-    // 概念板块行 (从 D.conceptData 取, 东财 slist)
-    var conceptLine='';
-    var concepts=(D.conceptData||{})[code];
-    if(concepts&&concepts.length){
-      // 最多显示5个概念, 每个截断到8字
-      var tags=concepts.slice(0,5).map(function(t){
-        var s=String(t).trim();
-        return s.length>8?s.slice(0,8)+'…':s;
-      });
-      conceptLine='<div class="st-chain" style="color:var(--sub)">💡 '+tags.join(' / ')+'</div>';
-    }
-
-    // 产业链位置行 (上游/中游/下游)
-    var chainLine='';
-    if(info.pos&&info.pos!=='—'){
-      chainLine='<div class="st-chain">🔗 '+info.pos+'</div>';
-    }
-
-    // 赛道标签行 (如 "⚡ 暴跌 −4.8%")
-    var tagLine='';
-    if(info.tag){
-      var tagShort=info.tag.split('|')[0].trim();
-      if(tagShort) tagLine='<div class="st-chain" style="color:var(--blue)">'+tagShort+'</div>';
-    }
-
-    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+secLine+conceptLine+chainLine+tagLine;
-    tipEl.style.display='block';
-    tipEl.style.left=(e.clientX+15)+'px';
-    tipEl.style.top=(e.clientY+8)+'px';
-  }
-  function hideTip(){tipCode=null;tipEl.style.display='none';}
-
-  // mouseover: 命中股票代码 → 显示浮窗
-  document.getElementById('mainContent').addEventListener('mouseover',function(e){
-    var el=e.target,code='';
-    while(el&&el!==this&&!code){
-      var t=el.textContent.trim(),m=t&&t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('code')||(el.closest&&el.closest('.pick-item'))||(el.closest&&el.closest('tr'))||(el.closest&&el.closest('.layout-card'))||el.classList.contains('stk-snippet'))){code=m[1];break;}
-      el=el.parentElement;
-    }
-    if(code)showTip(e,code);else hideTip();
-  },true);
-
-  // mouseout: 鼠标离开代码区域 → 隐藏浮窗 (修复浮窗不消失的问题)
-  document.getElementById('mainContent').addEventListener('mouseout',function(e){
-    var el=e.target,code='';
-    while(el&&el!==this&&!code){
-      var t=el.textContent.trim(),m=t&&t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('code')||(el.closest&&el.closest('.pick-item'))||(el.closest&&el.closest('tr'))||(el.closest&&el.closest('.layout-card'))||el.classList.contains('stk-snippet'))){code=m[1];break;}
-      el=el.parentElement;
-    }
-    // 检查鼠标是否移向了另一个股票代码或非代码区域
-    var rt=e.relatedTarget,rtCode='';
-    if(rt){
-      var relEl=rt,relT='';
-      while(relEl&&relEl!==this&&!rtCode){
-        relT=relEl.textContent.trim();
-        var rm=relT&&relT.match(/(\d{6})/);
-        if(rm&&(relEl.classList.contains('c-pill')||relEl.classList.contains('zt-stock')||relEl.classList.contains('code')||(relEl.closest&&relEl.closest('.pick-item'))||(relEl.closest&&relEl.closest('tr'))||(relEl.closest&&relEl.closest('.layout-card'))||relEl.classList.contains('stk-snippet'))){rtCode=rm[1];break;}
-        relEl=relEl.parentElement;
-      }
-    }
-    // 如果离开代码区域且没进入新代码 → 隐藏
-    if(code&&!rtCode) hideTip();
-  },true);
-
-  // 鼠标移出整个 mainContent → 隐藏 (兜底)
-  document.getElementById('mainContent').addEventListener('mouseleave',hideTip);
     // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
     if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动更新 | a-stock-data 28端点`;}
