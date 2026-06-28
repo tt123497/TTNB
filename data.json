@@ -7561,10 +7561,16 @@
         "ts": "2026-06-28 09:22:50"
       }
     ],
-    "updated": "2026-06-28 05:40 UTC",
+    "updated": "2026-06-28 05:41 UTC",
     "status": "ok"
   },
   "_newsSector": [
+    {
+      "t": "存储芯片龙头获两路资金大举加仓",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-iniexucu3951033.shtml",
+      "time": "13:30",
+      "src": "sina_7x24"
+    },
     {
       "t": "明天，半导体零部件龙头来了",
       "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexucu3941463.shtml",
@@ -7581,8 +7587,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 13:40 CST",
-    "sector": 1,
+    "updated": "2026-06-28 13:41 CST",
+    "sector": 2,
     "market": 1
   },
   "industryRank": [
