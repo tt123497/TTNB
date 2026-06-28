@@ -2442,7 +2442,11 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     }
   },true);
 
-  // Stock hover tooltip
+  // DEBUG tooltip detector
+  var _dbg=document.createElement('div');
+  _dbg.style.cssText='position:fixed;bottom:10px;right:10px;z-index:99999;background:#ff0;color:#000;padding:6px 10px;font-size:12px;border-radius:4px;font-family:monospace';
+  document.body.appendChild(_dbg);
+// Stock hover tooltip
   try{
   var tipEl=document.getElementById("stockTip");
   if(tipEl){
