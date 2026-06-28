@@ -17,6 +17,12 @@
       "u": "https://finance.sina.com.cn/stock/roll/2026-06-28/doc-inieykzq0400332.shtml",
       "time": "19:13",
       "src": "sina_7x24"
+    },
+    {
+      "t": "重庆钢铁: 重庆钢铁:关于部分董事、高级管理人员增持公司A股计划的公告",
+      "u": "https://data.eastmoney.com/notices/detail/601005.html",
+      "time": "06-29",
+      "src": "em_ann"
     }
   ],
   "_newsMarket": [
@@ -55,12 +61,108 @@
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-28/doc-inieykzq0401036.shtml",
       "time": "19:23",
       "src": "sina_7x24"
+    },
+    {
+      "t": "中富通: 中富通:关于公司股东、高级管理人员股份减持计划的预披露公告",
+      "u": "https://data.eastmoney.com/notices/detail/300560.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST发展: *ST发展:关于股票交易异常波动的公告",
+      "u": "https://data.eastmoney.com/notices/detail/000838.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST龙大: ST龙大:关于控股股东权益变动触及1%整数倍及跨越5%整数倍、持股5%以上的股东权益变动触及1%整数倍的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002726.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST达华: ST达华:股票交易异常波动公告",
+      "u": "https://data.eastmoney.com/notices/detail/002512.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "信通电子: 信通电子:关于部分董事、高级管理人员及大股东自愿承诺6个月内不减持公司股份的公告",
+      "u": "https://data.eastmoney.com/notices/detail/001388.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST东易: *ST东易:关于股价异常波动暨风险提示的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002713.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST发展: *ST发展:关于控股股东财信地产、间接控股股东财信集团破产重整第二次债权人会议二次表决通知的公告",
+      "u": "https://data.eastmoney.com/notices/detail/000838.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST中装: ST中装:深圳市中装建设集团股份有限公司公开发行可转换公司债券受托管理事务报告(2025年度)",
+      "u": "https://data.eastmoney.com/notices/detail/002822.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "江苏华辰: 江苏华辰:江苏华辰关于限制性股票回购注销完成及实施2025年年度权益分派调整“华辰转债”转股价格的公告",
+      "u": "https://data.eastmoney.com/notices/detail/603097.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "明微电子: 明微电子:持股5%以上股东减持股份计划公告",
+      "u": "https://data.eastmoney.com/notices/detail/688699.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "银河微电: 银河微电:董事会关于本次交易符合《上市公司重大资产重组管理办法》第十一条、第四十三条和第四十四条规定的说明",
+      "u": "https://data.eastmoney.com/notices/detail/688689.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "金山办公: 金山办公:金山办公关于以集中竞价方式回购股份方案的预案",
+      "u": "https://data.eastmoney.com/notices/detail/688111.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "银河微电: 银河微电:董事会关于本次交易是否构成重大资产重组,关联交易及重组上市的说明",
+      "u": "https://data.eastmoney.com/notices/detail/688689.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "银河微电: 银河微电:董事会关于本次交易符合《上海证券交易所科创板股票上市规则》第11.2条、《科创板上市公司持续监管办法(试行)》第二十条及《上海证券交易所上市公司重大资产重组审核规则》第八",
+      "u": "https://data.eastmoney.com/notices/detail/688689.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "银河微电: 银河微电:董事会关于本次交易相关主体不存在《上市公司监管指引第7号——上市公司重大资产重组相关股票异常交易监管》第十二条或《上海证券交易所上市公司自律监管指引第6号——重大资产重组",
+      "u": "https://data.eastmoney.com/notices/detail/688689.html",
+      "time": "06-29",
+      "src": "em_ann"
+    },
+    {
+      "t": "银河微电: 银河微电:董事会关于本次交易符合《上市公司监管指引第9号——上市公司筹划和实施重大资产重组的监管要求》第四条规定的说明",
+      "u": "https://data.eastmoney.com/notices/detail/688689.html",
+      "time": "06-29",
+      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 20:45 CST",
-    "sector": 3,
-    "market": 6
+    "updated": "2026-06-28 20:46 CST",
+    "sector": 4,
+    "market": 22
   },
   "globalNews": {
     "headlines": [
@@ -190,7 +292,7 @@
         "ts": "2026-06-28 18:00:41"
       }
     ],
-    "updated": "2026-06-28 12:45 UTC",
+    "updated": "2026-06-28 12:46 UTC",
     "status": "ok"
   }
 }
