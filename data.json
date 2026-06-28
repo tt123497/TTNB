@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 04:00:39"
       }
     ],
-    "updated": "2026-06-28 01:48 UTC",
+    "updated": "2026-06-28 01:49 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7588,12 +7588,6 @@
       "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexipy4067636.shtml",
       "time": "08:05",
       "src": "sina_7x24"
-    },
-    {
-      "t": "688072，拟购买半导体公司，股票停牌！股价已涨近5倍！",
-      "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexiqa6521288.shtml",
-      "time": "07:48",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -7602,18 +7596,12 @@
       "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexiqe3304485.shtml",
       "time": "08:05",
       "src": "sina_7x24"
-    },
-    {
-      "t": "中东，突发！特朗普威胁：伊朗或将不复存在！美军发动打击！",
-      "u": "https://finance.sina.com.cn/world/2026-06-28/doc-iniexiqa6520286.shtml",
-      "time": "07:48",
-      "src": "sina_A股"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 09:48 CST",
-    "sector": 5,
-    "market": 2
+    "updated": "2026-06-28 09:49 CST",
+    "sector": 4,
+    "market": 1
   },
   "industryRank": [
     {
