@@ -93,12 +93,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "中泰策略：重要IPO周期蓄势待发",
-      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-inieykzq6061122.shtml",
-      "time": "19:27",
-      "src": "sina_7x24"
-    },
-    {
       "t": "中富通: 中富通:关于公司股东、高级管理人员股份减持计划的预披露公告",
       "u": "https://data.eastmoney.com/notices/detail/300560.html",
       "time": "06-29",
@@ -196,9 +190,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:26 CST",
+    "updated": "2026-06-28 21:27 CST",
     "sector": 6,
-    "market": 26
+    "market": 25
   },
   "globalNews": {
     "headlines": [],
