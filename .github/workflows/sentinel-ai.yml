@@ -2,10 +2,8 @@ name: AI Sentinel
 
 on:
   schedule:
-    # CST 9:00-15:00 every hour (UTC 1:00-7:00), comma-separated — GitHub Actions hates multi-line crons
+    # CST 9:00-15:00 every hour (UTC 1:00-7:00), 仅交易日(周一~周五)
     - cron: '0 1,2,3,4,5,6,7 * * 1-5'
-    # Saturday CST 10:00 (UTC 2:00)
-    - cron: '0 2 * * 6'
   workflow_dispatch:
 
 jobs:
