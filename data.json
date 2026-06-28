@@ -19410,12 +19410,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "美国史上最大风电场投产，行业却步入低谷",
-      "u": "https://wallstreetcn.com/livenews/3125688",
-      "time": "22:02",
-      "src": "wscn_全球"
-    },
-    {
       "t": "A股公司业绩大降45%，实控人入主5年闪电退场，明起停牌",
       "u": "https://finance.sina.com.cn/wm/2026-06-28/doc-inieyrin0324597.shtml",
       "time": "21:46",
@@ -19453,9 +19447,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 23:01 CST",
+    "updated": "2026-06-28 23:02 CST",
     "sector": 5,
-    "market": 9
+    "market": 8
   },
   "globalNews": {
     "headlines": [
@@ -19585,7 +19579,7 @@
         "ts": "2026-06-28 19:35:05"
       }
     ],
-    "updated": "2026-06-28 15:01 UTC",
+    "updated": "2026-06-28 15:03 UTC",
     "status": "ok"
   }
 }
