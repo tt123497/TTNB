@@ -39,6 +39,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "美国农业部长Rollins：就若干工业光伏项目发函纽约州长Kathy Hochul。",
+      "u": "https://wallstreetcn.com/livenews/3125682",
+      "time": "21:39",
+      "src": "wscn_全球"
+    },
+    {
       "t": "阿科力筹划控股权变更！股价提前涨停......",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0311033.shtml",
       "time": "21:25",
@@ -196,9 +202,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:38 CST",
+    "updated": "2026-06-28 21:40 CST",
     "sector": 6,
-    "market": 26
+    "market": 27
   },
   "globalNews": {
     "headlines": [],
