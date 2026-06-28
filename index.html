@@ -1888,7 +1888,7 @@ function loadFeedbackHistory(){
         html+='<table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>现价</th><th>涨跌幅</th></tr></thead><tbody>';
         fixed.forEach(function(f){
           var parts=f.split(' ');
-          var code=parts[0], name=parts.slice(1).join(' ');
+          var code=parts[0], name=parts.slice(1).join(' ');if(!stockInfo[code])stockInfo[code]={name:name,sector:s.n,group:'',pos:'固定池',tag:'',ind:'—'};
           var sina=(code.startsWith('60')||code.startsWith('68'))?'sh'+code:'sz'+code;
           var lp=(D.livePrices||{})[sina];
           var p=lp&&lp.price?lp.price:0, chg=lp&&lp.chg_pct?lp.chg_pct:0;
@@ -1899,7 +1899,7 @@ function loadFeedbackHistory(){
       }else if(!hasLive && s.st && s.st.length){
         // Third-level fallback: hardcoded st[] for initial render before data.json loads
         html+='<table class="tbl"><thead><tr><th>代码</th><th>名称</th><th>现价</th><th>涨跌幅</th></tr></thead><tbody>';
-        s.st.forEach(function(st){
+        s.st.forEach(function(st){if(!stockInfo[st.c])stockInfo[st.c]={name:st.n,sector:s.n,group:'',pos:'—',tag:'',ind:'—'};
           var sina=(st.c.startsWith('60')||st.c.startsWith('68'))?'sh'+st.c:'sz'+st.c;
           var lp=(D.livePrices||{})[sina];
           var p=lp&&lp.price?lp.price:0, chg=lp&&lp.chg_pct?lp.chg_pct:0;
@@ -2447,7 +2447,12 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
   function showTip(e, code){
     if(code===tipCode) return; tipCode=code;
     clearTimeout(tipTimer);
-    var info=stockInfo[code]; if(!info) return;
+    var info=stockInfo[code];
+	    if(!info){
+	      var nm=''; var he=document.querySelector('.stk-row[data-code="'+code+'"] .name');
+	      if(he) nm=he.textContent.trim();
+	      info=stockInfo[code]={name:nm||code, sector:'', group:'', pos:'—', tag:'', ind:'—'};
+	    }
     var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
     var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
     var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'—');
