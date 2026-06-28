@@ -20564,12 +20564,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "明日复牌！688689，拟收购半导体资产",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0321294.shtml",
-      "time": "21:49",
-      "src": "sina_A股"
-    },
-    {
       "t": "重庆钢铁: 重庆钢铁:关于部分董事、高级管理人员增持公司A股计划的公告",
       "u": "https://data.eastmoney.com/notices/detail/601005.html",
       "time": "06-29",
@@ -20693,8 +20687,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 23:48 CST",
-    "sector": 5,
+    "updated": "2026-06-28 23:50 CST",
+    "sector": 4,
     "market": 19
   },
   "globalNews": {
@@ -20825,7 +20819,7 @@
         "ts": "2026-06-28 19:44:02"
       }
     ],
-    "updated": "2026-06-28 15:49 UTC",
+    "updated": "2026-06-28 15:50 UTC",
     "status": "ok"
   }
 }
