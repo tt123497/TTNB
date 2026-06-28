@@ -2423,7 +2423,7 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
   document.getElementById('mainContent').addEventListener('click',function(e){
     var el=e.target, code='';
     // Stock click: stop bubble immediately to prevent card onclick="go('chain')"
-    if(el.closest('.c-pill')||el.closest('.zt-stock')||el.closest('.sc')||el.closest('td.code')||el.closest('tr')){
+    if(el.closest&&(el.closest('.c-pill')||el.closest('.zt-stock')||el.closest('.sc')||el.closest('td.code')||el.closest('tr'))){
       var pill=el.closest('.c-pill')||el.closest('.zt-stock');
       if(pill){var t=pill.textContent.trim();var m=t.match(/(\d{6})/);if(m)code=m[1];}
       if(!code&&el.closest('.pick-item')){
@@ -2458,7 +2458,7 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     var el=e.target,code='';
     while(el&&el!==this&&!code){
       var t=el.textContent.trim(),m=t&&t.match(/(\d{6})/);
-      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.layout-card')||el.classList.contains('stk-snippet'))){code=m[1];break;}
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('code')||(el.closest&&el.closest('.pick-item'))||(el.closest&&el.closest('tr'))||(el.closest&&el.closest('.layout-card'))||el.classList.contains('stk-snippet'))){code=m[1];break;}
       el=el.parentElement;
     }
     if(code)showTip(e,code);else hideTip();
