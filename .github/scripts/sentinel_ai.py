@@ -37,47 +37,64 @@ def save_data(d):
         json.dump(d, f, ensure_ascii=False, indent=2)
     os.replace(tmp_path, DATA_PATH)
 
-def call_ai(prompt_text, max_tokens=4000):
+def call_ai(prompt_text, max_tokens=4000, retries=2):
     if not API_KEY:
         print('NO API KEY')
         return None
-    payload = {
-        'model': 'deepseek-v4-pro',
-        'messages': [
-            {'role': 'system', 'content': '你是A股实时市场分析师。每小时扫描一次数据变化，重点捕捉最近一小时的异动。严格按JSON格式输出，赛道名只用系统指定名称。'},
-            {'role': 'user', 'content': prompt_text}
-        ],
-        'temperature': 0.3,
-        'max_tokens': max_tokens,
-        'response_format': {'type': 'json_object'}
-    }
-    req = Request(API_URL, data=json.dumps(payload).encode('utf-8'),
-        headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {API_KEY}'})
-    try:
-        r = urlopen(req, timeout=90)
-        raw = r.read().decode('utf-8')
-        resp = json.loads(raw)
-        content = resp['choices'][0]['message']['content']
-        # try to fix common JSON issues
-        if content.startswith('```json'):
-            content = content[7:]
-        if content.startswith('```'):
-            content = content[3:]
-        if content.endswith('```'):
-            content = content[:-3]
-        content = content.strip()
-        return json.loads(content)
-    except json.JSONDecodeError as e:
-        print(f'AI JSON error: {e}')
-        # Save raw for debugging
-        debug_path = os.path.join(DIR, '_sentinel_debug.json')
-        with open(debug_path, 'w', encoding='utf-8') as f:
-            f.write(content)
-        print(f'Raw content saved to _sentinel_debug.json ({len(content)} chars)')
-        return None
-    except Exception as e:
-        print(f'AI error: {e}')
-        return None
+
+    # 优先用快速模型, 失败再切推理模型
+    models = ['deepseek-chat', 'deepseek-v4-pro']
+    for attempt in range(retries + 1):
+        model = models[0] if attempt == 0 else models[-1]
+        payload = {
+            'model': model,
+            'messages': [
+                {'role': 'system', 'content': '你是A股实时市场分析师。每小时扫描一次数据变化，重点捕捉最近一小时的异动。严格按JSON格式输出，赛道名只用系统指定名称。'},
+                {'role': 'user', 'content': prompt_text}
+            ],
+            'temperature': 0.3,
+            'max_tokens': max_tokens,
+            'response_format': {'type': 'json_object'}
+        }
+        req = Request(API_URL, data=json.dumps(payload).encode('utf-8'),
+            headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {API_KEY}'})
+        try:
+            print(f'  API call attempt {attempt+1}/{retries+1} model={model} timeout=180s...')
+            r = urlopen(req, timeout=180)
+            raw = r.read().decode('utf-8')
+            resp = json.loads(raw)
+            content = resp['choices'][0]['message']['content']
+            # try to fix common JSON issues
+            if content.startswith('```json'):
+                content = content[7:]
+            if content.startswith('```'):
+                content = content[3:]
+            if content.endswith('```'):
+                content = content[:-3]
+            content = content.strip()
+            result = json.loads(content)
+            print(f'  OK ({len(content)} chars, model reported: {resp.get("model", "?")})')
+            return result
+        except json.JSONDecodeError as e:
+            print(f'  JSON error: {e}')
+            # Save raw for debugging
+            debug_path = os.path.join(DIR, '_sentinel_debug.json')
+            try:
+                with open(debug_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                print(f'  Raw saved to _sentinel_debug.json ({len(content)} chars)')
+            except:
+                pass
+            # Don't retry on JSON errors — the model output is malformed
+            return None
+        except Exception as e:
+            print(f'  API error (attempt {attempt+1}): {e}')
+            if attempt < retries:
+                import time as _time
+                wait = 10 * (attempt + 1)
+                print(f'  Retrying in {wait}s...')
+                _time.sleep(wait)
+    return None
 
 def validate_output(result):
     """Return True if AI output meets quality standards (两条铁律 + 信号灯)"""
