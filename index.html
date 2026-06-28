@@ -1590,7 +1590,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // ════ OVERVIEW ════
   let ov=`<div class="tab-panel on" id="panel-overview">
-  <div style="font-size:.65rem;color:var(--dim);text-align:right;padding:2px 8px;opacity:.5">v20260629.1</div>
 
 
 <div id="overviewStrips">`;
@@ -1693,7 +1692,7 @@ document.addEventListener('DOMContentLoaded',function(){
       ov+=`<div class="card sig-${s.sig}" id="scard-${s.id}" onclick="go('chain');setTimeout(()=>{var el=document.getElementById('chain-${s.id}');el.open=true;requestAnimationFrame(()=>{requestAnimationFrame(()=>{var topbarH=document.querySelector('.topbar')?.offsetHeight||46;var navH=document.querySelector('.nav')?.offsetHeight||46;var rect=el.getBoundingClientRect();var targetY=window.scrollY+rect.top-topbarH-navH-24;window.scrollTo({top:targetY,behavior:'smooth'});});});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1500)},100)">
         <div class="c-icon">${s.icon}</div>
         <div class="c-name">${s.n}</div>
-        <div class="c-chg" id="cchg-${s.id}" style="font-size:.9rem;font-weight:700;color:${(s.avgChg||0)>=0?'var(--red)':'var(--green)'}">${typeof s.avgChg==='number'&&!isNaN(s.avgChg)?(s.avgChg>=0?'+':'')+s.avgChg.toFixed(1)+'%':'—'}</div>
+        <div class="c-chg" id="cchg-${s.id}" style="font-size:.9rem;font-weight:700"></div>
         <div class="c-tag" id="ctag-${s.id}" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
         <div class="c-desc">${s.d}</div>
         <div class="c-msg" id="cmsg-${s.id}"${s.msg?'':' style="display:none"'}>${s.msg&&s.u?'<a href="'+s.u+'" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">📰 '+s.msg+'</a>':(s.msg||'')}</div>
@@ -1703,19 +1702,23 @@ document.addEventListener('DOMContentLoaded',function(){
     ov+=`</div>`;
   });
   ov+=`</div>`;
-  // Force DOM update: after render, refresh all c-chg elements
+  // After DOM render, fill all sector card change% from D.groups
   setTimeout(function(){
     D.groups.forEach(function(g){
       g.sectors.forEach(function(s){
         var el = document.getElementById('cchg-'+s.id);
-        if(el && typeof s.avgChg==='number' && !isNaN(s.avgChg)){
-          el.textContent = (s.avgChg>=0?'+':'') + s.avgChg.toFixed(1) + '%';
-          el.style.color = s.avgChg>=0 ? 'var(--red)' : 'var(--green)';
+        if (!el) return;
+        var v = s.avgChg;
+        if (v != null && !isNaN(v)) {
+          el.textContent = (v>=0?'+':'') + v.toFixed(1) + '%';
+          el.style.color = v>=0 ? 'var(--red)' : 'var(--green)';
+        } else {
+          el.textContent = '—';
+          el.style.color = 'var(--dim)';
         }
       });
     });
-  }, 100);
-  // end forced update
+  }, 200);
 
   
 
@@ -2500,7 +2503,7 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
                 tagEl.style.color=s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)';
               }
               var chgEl=document.getElementById('cchg-'+s.id);
-              if(chgEl&&typeof s.avgChg==='number'&&!isNaN(s.avgChg)){
+              if(chgEl && s.avgChg != null && !isNaN(s.avgChg)){
                 chgEl.textContent=(s.avgChg>=0?'+':'')+s.avgChg.toFixed(1)+'%';
                 chgEl.style.color=s.avgChg>=0?'var(--red)':'var(--green)';
               }
