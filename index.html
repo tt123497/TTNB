@@ -2442,50 +2442,28 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     }
   },true);
 
-  // DEBUG tooltip detector
-  var _dbg=document.createElement('div');
-  _dbg.style.cssText='position:fixed;bottom:10px;right:10px;z-index:99999;background:#ff0;color:#000;padding:6px 10px;font-size:12px;border-radius:4px;font-family:monospace';
-  document.body.appendChild(_dbg);
-// Stock hover tooltip
-  try{
-  var tipEl=document.getElementById("stockTip");
-  if(tipEl){
-  var tipCode="";
-  function showTip(e, code){
-    if(code===tipCode) return;
-    tipCode=code;
-    tipEl.style.display="block";
-    tipEl.style.left=(e.clientX+18)+"px";
-    tipEl.style.top=(e.clientY+8)+"px";
-    if(tipEl._code===code) return;
-    tipEl._code=code;
-    var info=stockInfo[code]||{};
-    var nm=info.name||code;
-    var lp=(D.livePrices||{})["sh"+code]||(D.livePrices||{})["sz"+code];
-    var hp="";
-    if(lp&&lp.price){
-      var cl=lp.chg_pct>=0?"var(--red)":"var(--green)";
-      hp="<div class=st-price style=color:"+cl+">"+Number(lp.price).toFixed(2)+" "+(lp.chg_pct>=0?"+":"")+Number(lp.chg_pct).toFixed(1)+"%</div>";
-    }
-    tipEl.innerHTML="<div class=st-name>"+nm+"</div><div class=st-code>"+code+"</div>"+hp;
+  // Stock hover tooltip
+  var tipEl=document.getElementById('stockTip'),tipCode=null;
+  function showTip(e,code){
+    if(code===tipCode) return; tipCode=code;
+    var info=stockInfo[code];
+    if(!info){var nm=code,tr=document.querySelector('.stk-row[data-code="'+code+'"]');if(tr){var nc=tr.querySelector('.name');if(nc)nm=nc.textContent.trim();}info=stockInfo[code]={name:nm,sector:'',group:'',pos:'',tag:'',ind:''};}
+    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code],ph='';
+    if(lp&&lp.price){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+(lp.chg_pct>=0?'+':'')+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
+    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph;
+    tipEl.style.display='block';tipEl.style.left=(e.clientX+15)+'px';tipEl.style.top=(e.clientY+8)+'px';
   }
-  function hideTip(){
-    tipCode="";
-    tipEl.style.display="none";
-    tipEl._code="";
-  }
-  document.addEventListener("mousemove",function(e){
-    var el=e.target;
-    while(el&&el!==document.body){
-      var t=el.textContent||"";
-      var m=t.match(/(\d{6})/);
-      if(m){showTip(e,m[1]);_dbg.textContent=m[1]+" "+(stockInfo[m[1]]||{}).name||"";_dbg.style.background="#0f0";return;}
+  function hideTip(){tipCode=null;tipEl.style.display='none';}
+  document.getElementById('mainContent').addEventListener('mouseover',function(e){
+    var el=e.target,code='';
+    while(el&&el!==this&&!code){
+      var t=el.textContent.trim(),m=t&&t.match(/(\d{6})/);
+      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('code')||el.closest('.pick-item')||el.closest('tr')||el.closest('.layout-card')||el.classList.contains('stk-snippet'))){code=m[1];break;}
       el=el.parentElement;
     }
-    hideTip();_dbg.textContent="NO CODE";_dbg.style.background="#ff0";
-  });
-  }}catch(e){}
-  // Final updateBar refresh from data.json
+    if(code)showTip(e,code);else hideTip();
+  },true);
+    // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
     if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动更新 | a-stock-data 28端点`;}
   }).catch(()=>{});
