@@ -1187,11 +1187,11 @@ function _showTip(e,code){
     return;
   }
   _tipCode=code;
-  // stockInfo 可能在 IIFE 内部定义, 用 window.stockInfo 兜底
+  // stockInfo 在 IIFE 内部定义, 这里通过 window.stockInfo 访问
   var stockInfo=window.stockInfo||{};
   var info=stockInfo[code];
-  if(!info){var nm=code,tr=document.querySelector('.stk-row[data-code="'+code+'"]');if(tr){var nc=tr.querySelector('.name');if(nc)nm=nc.textContent.trim();}info=stockInfo[code]={name:nm,sector:'',group:'',pos:'',tag:'',ind:''};}
-  var D=window.D||{};
+  if(!info){var nm=code,tr=document.querySelector('.stk-row[data-code="'+code+'"]');if(tr){var nc=tr.querySelector('.name');if(nc)nm=nc.textContent.trim();}info=stockInfo[code]={name:nm,sector:'',group:'',pos:'',tag:'',ind:''};window.stockInfo=stockInfo;}
+  // D 是脚本顶部的 const, 同一 script 作用域内可直接访问
   var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code],ph='';
   if(lp&&lp.price){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+(lp.chg_pct>=0?'+':'')+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
   var secLine='';
@@ -1411,8 +1411,8 @@ document.addEventListener('DOMContentLoaded',function(){
     return 999;
   }
 
-  // Build stock → info lookup for hover tooltips
-  var stockInfo={};
+  // Build stock → info lookup for hover tooltips — 暴露到全局供 _showTip 使用
+  var stockInfo=window.stockInfo=window.stockInfo||{};
   // Sector → derived industry mapping
   var secInd={'AI芯片':'半导体','CPO/光模块':'光通信','光模块':'光通信','光纤光缆':'通信设备','连接器/铜连接':'电子元器件',
     'PCB/覆铜板':'电子元器件','MLCC电容':'电子元器件','电子树脂/PPE':'化工','电子铜箔':'有色金属',
