@@ -19366,6 +19366,12 @@
   },
   "_newsSector": [
     {
+      "t": "多只翻倍牛股，密集公告！涉英伟达概念、电子布、液冷等热门赛道",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-28/doc-inieyriq2749626.shtml",
+      "time": "22:05",
+      "src": "sina_7x24"
+    },
+    {
       "t": "明日复牌！688689，拟收购半导体资产",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0321294.shtml",
       "time": "21:49",
@@ -19537,8 +19543,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:25 CST",
-    "sector": 4,
+    "updated": "2026-06-28 22:26 CST",
+    "sector": 5,
     "market": 24
   },
   "globalNews": {
@@ -19669,7 +19675,7 @@
         "ts": "2026-06-28 19:01:59"
       }
     ],
-    "updated": "2026-06-28 14:25 UTC",
+    "updated": "2026-06-28 14:27 UTC",
     "status": "ok"
   }
 }
