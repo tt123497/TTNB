@@ -30,10 +30,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout (via gh CLI)
+      - name: Checkout (via git clone with token)
         run: |
           rm -rf ./* .[!.]* ..?* 2>/dev/null || true
-          gh repo clone tt123497/TTNB .
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/tt123497/TTNB.git" .
+          git config user.name "Sentinel Bot"
+          git config user.email "bot@sentinel.local"
 
       - name: Setup Python deps
         run: |
@@ -93,8 +95,6 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config user.name "Sentinel Bot"
-          git config user.email "bot@sentinel.local"
           git add data.json briefing-history.json archive/ 2>/dev/null || git add data.json briefing-history.json 2>/dev/null || git add data.json
           git diff --staged --quiet && exit 0
           for i in 1 2 3; do
