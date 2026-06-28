@@ -781,8 +781,8 @@ def generate_sector_tags(live, stock_sector, heat_data):
         elif avg >= 3:   emoji = '📈'; prefix = '上涨 +' + pct_s
         elif avg >= 1:   emoji = '▲';  prefix = '偏强 +' + pct_s
         elif avg >= -1:  emoji = '➖'; prefix = '平盘'
-        elif avg >= -3:  emoji = '▼';  prefix = '偏弱 −' + pct_s
-        else:            emoji = '⚡'; prefix = '暴跌 −' + pct_s
+        elif avg >= -3:  emoji = '▼';  prefix = '偏弱 -' + pct_s
+        else:            emoji = '⚡'; prefix = '暴跌 -' + pct_s
         tags[our] = f"{emoji} {prefix} | {our}"
     return tags
 
