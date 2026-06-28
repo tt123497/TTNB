@@ -849,12 +849,12 @@ def generate_sector_tags(live, stock_sector, heat_data):
         chgs = sec_avg.get(our, [])
         avg = sum(chgs) / len(chgs) if chgs else 0
         pct_s = '%.1f%%' % abs(avg)
-        if avg >= 5: emoji = '🔥'; prefix = '板均涨' + pct_s
-        elif avg >= 3: emoji = '🔥'; prefix = '板均涨' + pct_s
-        elif avg >= 1: emoji = '🟢'; prefix = '偏强 +' + pct_s
-        elif avg >= -1: emoji = '🟡'; prefix = '平盘'
-        elif avg >= -3: emoji = '🔴'; prefix = '偏弱 -' + pct_s
-        else: emoji = '🔴'; prefix = '回调 -' + pct_s
+        if avg >= 5:     emoji = '🔥'; prefix = '暴涨 +' + pct_s
+        elif avg >= 3:   emoji = '📈'; prefix = '上涨 +' + pct_s
+        elif avg >= 1:   emoji = '▲';  prefix = '偏强 +' + pct_s
+        elif avg >= -1:  emoji = '➖'; prefix = '平盘'
+        elif avg >= -3:  emoji = '▼';  prefix = '偏弱 −' + pct_s
+        else:            emoji = '⚡'; prefix = '暴跌 −' + pct_s
         tags[our] = f"{emoji} {prefix} | {our}"
     return tags
 

@@ -458,10 +458,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 <tr><td>数据引擎</td><td>a-stock-data V3.2.4 （28端点，三层降级）</td></tr></table></div>
 
 <div class="help-section"><h4>🏷️ 标签说明</h4>
-<table class="help-tbl"><tr><td>🔥 板均涨X%</td><td>赛道均涨≥3%</td></tr>
-<tr><td>🟢 偏强 +X%</td><td>均涨1-3%</td></tr>
-<tr><td>🟡 平盘</td><td>均涨±1%</td></tr>
-<tr><td>🔴 偏弱 -X%</td><td>均跌1-3%</td></tr>
+<table class="help-tbl"><tr><td>🔥 暴涨 +X%</td><td>赛道均涨≥5%</td></tr>
+<tr><td>📈 上涨 +X%</td><td>均涨3-5%</td></tr>
+<tr><td>▲ 偏强 +X%</td><td>均涨1-3%</td></tr>
+<tr><td>➖ 平盘</td><td>均涨±1%</td></tr>
+<tr><td>▼ 偏弱 −X%</td><td>均跌1-3%</td></tr>
 <tr><td>★重点</td><td>产业链核心标的（龙头）</td></tr>
 <tr><td>⚡关键</td><td>事件日历中的硬催化（停产/涨价/法规/财报）</td></tr></table></div>
 
@@ -1369,7 +1370,7 @@ function loadFeedbackHistory(){
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
   // Count major from our exact sectors using real stock price averages
   var majorCount=0;
-  if(D.sectorTags){Object.keys(D.sectorTags).forEach(function(k){var t=D.sectorTags[k];if(t.indexOf('板均涨')>=0||t.indexOf('板涨')>=0)majorCount++;});}
+  if(D.sectorTags){Object.keys(D.sectorTags).forEach(function(k){var t=D.sectorTags[k];if(t.indexOf('涨')>=0&&t.indexOf('跌')<0)majorCount++;});}
   if(majorCount===0){majorCount=allSectors.filter(function(s){return s.avgChg>=3;}).length;}
   const goodCount=D.recap.heat?D.recap.heat.filter(h=>parseFloat(h.s)>=0).length:0;
 
