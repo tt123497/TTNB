@@ -48,6 +48,9 @@ jobs:
       - name: Score sectors
         run: python .github/scripts/score_sectors.py
 
+      - name: News backup (fetch_news.py)
+        run: python .github/scripts/fetch_news.py
+
       - name: Build events + layout
         run: python .github/scripts/fetch_events.py
 

@@ -123,7 +123,7 @@ def fetch_sina_news():
 
             if is_sector:
                 sector_news.append(entry)
-            elif is_market:
+            if is_market:
                 market_news.append(entry)
             # If neither sector nor market, drop it
 

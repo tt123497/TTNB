@@ -86,6 +86,44 @@ def codes_from_data(d):
                 codes.add(m.group(1))
     return sorted(codes)
 
+def priority_code_list(codes, preserve):
+    """Reorder codes so briefing picks + layout stocks come first."""
+    import re
+    priority = []
+    seen = set()
+
+    # Tier 1: briefing picks (AI-selected daily picks — most important)
+    for src in [preserve.get('picks', []), preserve.get('briefing', {}).get('picks', [])]:
+        for p in (src or []):
+            c = p.get('c', '') if isinstance(p, dict) else ''
+            if c and len(c) == 6 and c not in seen:
+                priority.append(c)
+                seen.add(c)
+
+    # Tier 2: layout card stocks (visible on dashboard)
+    for lev in preserve.get('layout', []):
+        for s in lev.get('stocks', []):
+            c = s.get('c', '') if isinstance(s, dict) else ''
+            if c and len(c) == 6 and c not in seen:
+                priority.append(c)
+                seen.add(c)
+
+    # Tier 3: top3 briefing topics (may reference stock codes in text)
+    for t3 in preserve.get('top3', []):
+        text = t3.get('t', '') if isinstance(t3, dict) else str(t3)
+        for m in re.finditer(r'\b(\d{6})\b', text):
+            c = m.group(1)
+            if c not in seen:
+                priority.append(c)
+                seen.add(c)
+
+    # Tier 4: remaining codes, alphabetically sorted
+    for c in codes:
+        if c not in seen:
+            priority.append(c)
+
+    return priority
+
 def get_sector_mapping():
     """从 index.html 提取 {code: sector_name} 映射"""
     mapping = {}
@@ -582,8 +620,8 @@ def fetch_tencent_val(codes):
 def fetch_cninfo_alerts(codes):
     """巨潮公告 (关键标的)"""
     alerts = []
-    for code in (codes or [])[:5]:
-        time.sleep(0.5)
+    for code in (codes or [])[:20]:
+        time.sleep(0.3)
         try:
             anns = ad.cninfo_announcements(code, 3)
             for a in anns[:3]:
@@ -948,8 +986,9 @@ def main():
 
     # 2. 提取代码
     codes = codes_from_data(old or {})
+    prioritized = priority_code_list(codes, preserve)
     stock_sector = get_sector_mapping()
-    print(f"  Codes: {len(codes)} stocks, {len(stock_sector)} sector-mapped")
+    print(f"  Codes: {len(codes)} stocks, {len(prioritized)} prioritized, {len(stock_sector)} sector-mapped")
 
     # ── 3. 实时行情 ──
     print("── L1 行情 ──")
@@ -1001,7 +1040,7 @@ def main():
     print(f"  热点归因: {hot.get('total_stocks', 0)}只, {len(hot.get('top_themes', []))}题材")
 
     # Heavy ops (every 30min) / Free: run every cycle for now
-    code_list = codes[:80]
+    code_list = prioritized[:120]  # was codes[:80], now prioritized for briefing picks first
     lockup = fetch_lockup_alerts(code_list) if code_list else {"scanned": 0, "alerts": [], "forwardDays": 90}
     print(f"  解禁预警: {lockup['scanned']}只, {len(lockup['alerts'])}批")
 
@@ -1018,7 +1057,7 @@ def main():
     tv = fetch_tencent_val(code_list)
     print(f"  腾讯估值: {len(tv)}只")
 
-    ca = fetch_cninfo_alerts(code_list[:5]) if code_list else {"alerts": [], "status": "no data"}
+    ca = fetch_cninfo_alerts(code_list[:20]) if code_list else {"alerts": [], "status": "no data"}
     print(f"  巨潮公告: {len(ca.get('alerts',[]))}条")
 
     irp = fetch_ind_reports()
@@ -1029,7 +1068,7 @@ def main():
 
     # K线数据 (前5只关键标的, 日线最近20根)
     kline_data = {}
-    for c in code_list[:5]:
+    for c in code_list[:20]:
         try:
             kl = ad.mootdx_klines(c, category=4, offset=20)
             if kl is not None and len(kl) > 0:
@@ -1039,7 +1078,7 @@ def main():
 
     # 一致预期EPS
     eps_data = {}
-    for c in code_list[:10]:
+    for c in code_list[:30]:
         try:
             df = ad.ths_eps_forecast(c)
             if df is not None and not df.empty:
@@ -1050,7 +1089,7 @@ def main():
     # 财务快照
     fin_data = {}
     if use_tdx:
-        for c in code_list[:5]:
+        for c in code_list[:20]:
             try:
                 fin = ad.mootdx_finance(c)
                 if fin:
@@ -1070,29 +1109,29 @@ def main():
 
     # 概念板块归属
     concept_data = {}
-    for c in code_list[:50]:
+    for c in code_list[:80]:
         try:
             blocks = ad.eastmoney_concept_blocks(c)
             if blocks.get('concept_tags'):
                 concept_data[c] = blocks['concept_tags'][:10]
         except: pass
-        time.sleep(0.1)
+        time.sleep(0.06)
     print(f"  概念板块: {len(concept_data)}只")
 
     # 个股新闻
     stock_news_data = {}
-    for c in code_list[:10]:
+    for c in code_list[:30]:
         try:
             news = ad.eastmoney_stock_news(c, 5)
             if news:
                 stock_news_data[c] = [{'t': n['title'][:80], 'ts': n['time'], 'src': n['source']} for n in news[:3]]
         except: pass
-        time.sleep(0.1)
+        time.sleep(0.08)
     print(f"  个股新闻: {len(stock_news_data)}只")
 
     # 新浪三表
     sina_data = {}
-    for c in code_list[:5]:
+    for c in code_list[:20]:
         try:
             lrb = ad.sina_financial_report(c, 'lrb', 4)
             if lrb:
@@ -1103,7 +1142,7 @@ def main():
     # F10 公司资料
     f10_data = {}
     if use_tdx:
-        for c in code_list[:5]:
+        for c in code_list[:20]:
             try:
                 text = ad.mootdx_f10(c, '公司概况')
                 if text and len(str(text)) > 50:
@@ -1113,24 +1152,24 @@ def main():
 
     # 股东户数
     holder_data = {}
-    for c in code_list[:10]:
+    for c in code_list[:30]:
         try:
             h = ad.holder_num_change(c, 3)
             if h:
                 holder_data[c] = [{'d': r['date'], 'num': r.get('holder_num',0), 'chg': r.get('change_ratio',0)} for r in h[:3]]
         except: pass
-        time.sleep(0.15)
+        time.sleep(0.08)
     print(f"  股东户数: {len(holder_data)}只")
 
     # 分红送转
     div_data = {}
-    for c in code_list[:10]:
+    for c in code_list[:30]:
         try:
             d = ad.dividend_history(c, 5)
             if d:
                 div_data[c] = [{'d': r['date'], 'bonus': r.get('bonus_rmb',0), 'plan': r.get('plan','')} for r in d[:3]]
         except: pass
-        time.sleep(0.15)
+        time.sleep(0.08)
     print(f"  分红送转: {len(div_data)}只")
 
     # ── 6. 赛道标签 ──

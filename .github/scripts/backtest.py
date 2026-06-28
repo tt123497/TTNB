@@ -15,23 +15,70 @@ UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(DIR, 'data.json')
 
-def fetch_prices(codes):
-    """Batch fetch current prices for a list of stock codes."""
+def fetch_prices(codes, fallback=None, fallback_tencent=None):
+    """Batch fetch current prices for a list of stock codes.
+    Priority: livePrices from data.json > tencentVal > EastMoney API
+    """
     if not codes:
         return {}
-    secids = []
-    for c in codes:
-        pf = '1.' if c.startswith(('60', '68')) else '0.'
-        secids.append(pf + c)
-    url = 'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14&secids=' + ','.join(secids) + '&ut=bd1d9ddb04089700cf9c27f6f7426281'
-    try:
-        req = Request(url, headers={'User-Agent': UA, 'Accept': '*/*'})
-        with urlopen(req, timeout=12) as r:
-            data = json.loads(r.read().decode('utf-8', errors='replace'))
-        return {s.get('f12', ''): {'price': s.get('f2', 0), 'chg': s.get('f3', 0), 'name': s.get('f14', '')}
-                for s in data.get('data', {}).get('diff', [])}
-    except:
-        return {}
+
+    result = {}
+
+    # Tier 1: Use livePrices from data.json (last real prices captured during trading)
+    if fallback:
+        for c in codes:
+            for prefix in ['sh', 'sz']:
+                key = f"{prefix}{c}"
+                if key in fallback:
+                    lp = fallback[key]
+                    price = lp.get('price', 0) if isinstance(lp, dict) else 0
+                    if price and price > 0:
+                        result[c] = {
+                            'price': price,
+                            'chg': lp.get('chg_pct', 0) if isinstance(lp, dict) else 0,
+                            'name': lp.get('name', '') if isinstance(lp, dict) else ''
+                        }
+                    break
+            if c in result:
+                continue
+
+    # Tier 1.5: Use tencentVal from data.json (PE/PB/price snapshot)
+    if fallback_tencent:
+        for c in codes:
+            if c in result:
+                continue
+            if c in fallback_tencent:
+                tv = fallback_tencent[c]
+                price = tv.get('p', 0) if isinstance(tv, dict) else 0
+                if price and price > 0:
+                    result[c] = {
+                        'price': price,
+                        'chg': tv.get('chg', 0) if isinstance(tv, dict) else 0,
+                        'name': tv.get('n', '') if isinstance(tv, dict) else ''
+                    }
+
+    # Tier 2: EastMoney API (only for codes we haven't found yet)
+    remaining = [c for c in codes if c not in result]
+    if remaining:
+        secids = []
+        for c in remaining:
+            pf = '1.' if c.startswith(('60', '68')) else '0.'
+            secids.append(pf + c)
+        url = 'http://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f12,f14&secids=' + ','.join(secids) + '&ut=bd1d9ddb04089700cf9c27f6f7426281'
+        try:
+            req = Request(url, headers={'User-Agent': UA, 'Accept': '*/*'})
+            with urlopen(req, timeout=12) as r:
+                api_data = json.loads(r.read().decode('utf-8', errors='replace'))
+            for s in api_data.get('data', {}).get('diff', []):
+                code = s.get('f12', '')
+                price = s.get('f2', 0)
+                # Only accept non-zero prices (skip post-market zeros)
+                if price and price > 0:
+                    result[code] = {'price': price, 'chg': s.get('f3', 0), 'name': s.get('f14', '')}
+        except:
+            pass
+
+    return result
 
 def main():
     cst = datetime.now(timezone.utc) + timedelta(hours=8)
@@ -44,6 +91,9 @@ def main():
                 data = json.load(f)
             except:
                 pass
+
+    live_prices = data.get('livePrices', {})
+    tencent_val = data.get('tencentVal', {})
 
     bhistory = data.get('_backtest', {'records': [], 'stats': {}})
     records = bhistory.get('records', [])
@@ -65,7 +115,7 @@ def main():
         for rec in unsettled:
             for p in rec.get('picks', []):
                 all_codes.append(p['c'])
-        prices = fetch_prices(all_codes)
+        prices = fetch_prices(all_codes, fallback=live_prices, fallback_tencent=tencent_val)
 
         for rec in unsettled:
             rec_prices = {p['c']: p for p in rec.get('picks', [])}
@@ -104,7 +154,7 @@ def main():
     if picks and not any(r.get('date') == today_str for r in records):
         # Fetch closing prices
         codes = [p['c'] for p in picks if p.get('c')]
-        prices = fetch_prices(codes)
+        prices = fetch_prices(codes, fallback=live_prices, fallback_tencent=tencent_val)
 
         today_picks = []
         for p in picks:
