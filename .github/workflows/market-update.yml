@@ -35,16 +35,46 @@ jobs:
           rm -rf ./* .[!.]* ..?* 2>/dev/null || true
           gh repo clone tt123497/TTNB .
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
       - name: Setup Python deps
         run: |
-          python --version
-          python -m pip install --upgrade pip --quiet || true
-          python -m pip install mootdx requests pandas numpy openpyxl --quiet
+          # 全面查找Python (Windows自托管runner)
+          PY_BIN=""
+          # 方法1: which
+          for cmd in python python3; do
+            p=$(which $cmd 2>/dev/null) && PY_BIN="$p" && break
+          done
+          # 方法2: cmd.exe where (搜索Windows PATH)
+          if [ -z "$PY_BIN" ]; then
+            p=$(cmd.exe /c "where python" 2>/dev/null | tr -d '\r' | head -1)
+            if [ -n "$p" ] && [ -f "$p" ]; then
+              PY_BIN=$(echo "$p" | sed 's|\\|/|g; s|^C:|/c|i; s|^D:|/d|i')
+            fi
+          fi
+          # 方法3: 搜索常见安装路径
+          if [ -z "$PY_BIN" ]; then
+            for p in /c/Python3*/python.exe \
+                     "/c/Program Files/Python3"*/python.exe \
+                     "/c/Users/Administrator/AppData/Local/Programs/Python/Python3"*/python.exe \
+                     /c/ProgramData/Anaconda3/python.exe \
+                     /c/ProgramData/miniconda3/python.exe \
+                     /d/Python3*/python.exe \
+                     /d/Anaconda3/python.exe; do
+              if [ -f "$p" ]; then PY_BIN="$p"; break; fi
+            done
+          fi
+          if [ -z "$PY_BIN" ]; then
+            echo "ERROR: Python not found. Debugging:"
+            echo "PATH=$PATH"
+            cmd.exe /c "where python" 2>/dev/null | tr -d '\r' || echo "where: nothing"
+            ls /c/Python3*/python.exe 2>/dev/null || echo "no /c/Python3*"
+            ls "/c/Users/Administrator/AppData/Local/Programs/Python/Python3"*/python.exe 2>/dev/null || echo "no AppData Python"
+            exit 1
+          fi
+          echo "$(dirname "$PY_BIN")" >> $GITHUB_PATH
+          echo "Python found: $PY_BIN"
+          "$PY_BIN" --version
+          "$PY_BIN" -m pip install --upgrade pip --quiet || true
+          "$PY_BIN" -m pip install mootdx requests pandas numpy openpyxl --quiet
 
       - name: Run unified update (a-stock-data 28 endpoints)
         run: python run_update.py
