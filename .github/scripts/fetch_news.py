@@ -117,7 +117,8 @@ def fetch_sina_news():
             entry = {
                 't': title.strip()[:120],
                 'u': url_link,
-                'time': ts.strftime('%H:%M'),
+                'time': ts.strftime('%m-%d %H:%M'),
+                'ts': int(ts.timestamp()),
                 'src': 'sina_' + ch_name
             }
 
@@ -168,6 +169,7 @@ def fetch_em_announcements():
                 't': f'{stock_name}: {title[:90]}' if stock_name else title[:110],
                 'u': f'https://data.eastmoney.com/notices/detail/{stock_code}.html' if stock_code else '',
                 'time': date_str[-5:] if len(date_str) >= 5 else date_str,
+                'ts': 0,
                 'src': 'em_announcement',
                 's': f'{stock_code} {stock_name}' if stock_code else ''
             }
@@ -209,7 +211,7 @@ def fetch_wallstreetcn():
                 continue
             all_news.append({
                 't': title.strip()[:120], 'u': url_link,
-                'time': ts.strftime('%H:%M'), 'src': 'wscn_' + ch_name
+                'time': ts.strftime('%m-%d %H:%M'), 'ts': int(ts.timestamp()), 'src': 'wscn_' + ch_name
             })
         time.sleep(0.3)
     return all_news
@@ -222,7 +224,7 @@ def dedup(news_list):
         if key not in seen:
             seen.add(key)
             result.append(n)
-    result.sort(key=lambda n: n.get('time', ''), reverse=True)
+    result.sort(key=lambda n: n.get('ts', 0), reverse=True)
     return result
 
 def main():

@@ -1113,17 +1113,6 @@ def main():
         except: pass
     print(f"  一致预期EPS: {len(eps_data)}只")
 
-    # 财务快照
-    fin_data = {}
-    if use_tdx:
-        for c in code_list[:20]:
-            try:
-                fin = ad.mootdx_finance(c)
-                if fin:
-                    fin_data[c] = {k: str(v) for k, v in fin.items() if k in ['eps','roe','bvps','profit','income','liutongguben','zongguben']}
-            except: pass
-    print(f"  财务快照: {len(fin_data)}只 (tdx={use_tdx})")
-
     # 个股研报
     report_data = {}
     for c in code_list[:5]:
@@ -1144,25 +1133,6 @@ def main():
         except: pass
         time.sleep(0.06)
     print(f"  概念板块: {len(concept_data)}只")
-
-    # 个股新闻 (eastmoney HTTP) — 带错误日志, 风控时降速
-    stock_news_data = {}
-    news_fail_cnt = 0
-    for c in code_list[:30]:
-        try:
-            news = ad.eastmoney_stock_news(c, 5)
-            if news:
-                stock_news_data[c] = [{'t': n['title'][:80], 'ts': n['time'], 'src': n['source']} for n in news[:3]]
-            else:
-                news_fail_cnt += 1
-        except Exception as e:
-            news_fail_cnt += 1
-            if news_fail_cnt <= 3:
-                print(f"    个股新闻失败 {c}: {e}")
-        time.sleep(0.12)
-    if news_fail_cnt > 10:
-        print(f"    ⚠ 个股新闻大面积失败({news_fail_cnt}/30), 疑似东财风控")
-    print(f"  个股新闻: {len(stock_news_data)}只 (失败{news_fail_cnt})")
 
     # 新浪三表
     sina_data = {}
@@ -1266,10 +1236,8 @@ def main():
         # a-stock-data 28端点全覆盖: 研报/财务/K线/概念/新闻
         'klineData': kline_data,
         'epsForecast': eps_data,
-        'finSnapshot': fin_data,
         'stockReports': report_data,
         'conceptData': concept_data,
-        'stockNewsData': stock_news_data,
         'sinaReport': sina_data,
         'f10Data': f10_data,
         'holderData': holder_data,
@@ -1287,8 +1255,6 @@ def main():
     issues = []
     checks = {
         'klineData': (kline_data, 5),
-        'finSnapshot': (fin_data, 5),
-        'stockNewsData': (stock_news_data, 10),
         'f10Data': (f10_data, 5),
     }
     for field, (val, min_n) in checks.items():
