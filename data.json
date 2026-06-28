@@ -51,6 +51,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "下周A股1000亿元巨额解禁来袭，一股解禁金额高达400亿",
+      "u": "https://finance.sina.com.cn/wm/2026-06-28/doc-inieykzn3656970.shtml",
+      "time": "20:58",
+      "src": "sina_7x24"
+    },
+    {
       "t": "中东股市收盘播报｜沙特股市创将近四个月收盘新低，阿美创约四个月最大单日跌幅",
       "u": "https://wallstreetcn.com/livenews/3125670",
       "time": "20:57",
@@ -196,9 +202,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:09 CST",
+    "updated": "2026-06-28 21:10 CST",
     "sector": 8,
-    "market": 24
+    "market": 25
   },
   "globalNews": {
     "headlines": [
@@ -328,7 +334,7 @@
         "ts": "2026-06-28 18:36:32"
       }
     ],
-    "updated": "2026-06-28 13:09 UTC",
+    "updated": "2026-06-28 13:10 UTC",
     "status": "ok"
   }
 }
