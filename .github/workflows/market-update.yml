@@ -107,7 +107,8 @@ jobs:
           git diff --staged --quiet && exit 0
           for i in 1 2 3; do
             git commit -m "Update $(date '+%H:%M')"
-            git pull --rebase origin main && git push origin main && exit 0
+            # -X theirs: rebase冲突时用我们的data.json覆盖(news_loop会重新获取新闻)
+            git pull --rebase -X theirs origin main && git push origin main && exit 0
             git rebase --abort 2>/dev/null; git reset --soft HEAD~1 2>/dev/null
             sleep 5
           done
