@@ -1488,37 +1488,9 @@ function loadFeedbackHistory(){
     ov+=strip;
   })();
 
-  // ── 热点归因 strip (from _hotReasons) ──
-  (function(){
-    var hr=D._hotReasons;
-    var reasons=hr.topReasons||hr.top_themes||[];
-    if(reasons.length){
-      var tags=reasons.slice(0,10).map(function(t){return '<span style="display:inline-block;padding:4px 10px;margin:2px 4px 2px 0;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:.78rem;color:var(--text);white-space:nowrap"><span style="color:var(--blue);font-weight:600">#'+(t.tag||t.name||'')+'</span> <span style="color:var(--dim)'+(t.count!==undefined?'':'')+'">'+(t.count||'')+'</span></span>';}).join('');
-      var stocks=hr.stocks||hr.hot_stocks||[];
-      var hotTop=stocks.length?stocks.slice(0,3).map(function(s){var c=s.c||s.code,n=s.n||s.name,ch=(s.chg||s.chg_pct)||0;return '<span style="color:var(--amber);font-size:.76rem">'+c+' '+n+' <span style="color:'+(ch>=0?'var(--red)':'var(--green')+'">+'+(ch>=0?ch:ch)+'%</span> <span style="color:var(--sub)">'+(s.reason||'')+'</span></span>'}).join(' &nbsp;|&nbsp; '):'';
-      var total=hr.total||hr.total_stocks||reasons.reduce(function(s,t){return s+(t.count||0)},0);
-      ov+='<div id="hotStrip" style="margin-bottom:16px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)"><div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="font-size:.82rem;font-weight:700">🏷️ 热点归因</span><span style="font-size:.68rem;color:var(--dim)">'+(hr.date||'')+total+'只</span></div>'+tags+(hotTop?'<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">🔥 '+hotTop+'</div>':'')+'</div>';
-    }
-  })();
+  // 热点归因 strip 已移除
 
-  // ── 融资融券 strip ──
-  (function(){
-    var ms=D.marginSummary;
-    if(ms&&ms.stocks&&ms.stocks.length){
-      var bull=ms.stocks.filter(function(s){return s.change_5d>0});
-      var bear=ms.stocks.filter(function(s){return s.change_5d<0});
-      ov+='<div id="marginStrip" style="margin-bottom:16px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">';
-      ov+='<div style="font-size:.82rem;font-weight:700;margin-bottom:6px">💰 融资融券 · 5日杠杆变化 <span style="font-size:.68rem;color:var(--dim)">'+bull.length+'加杠杆 / '+bear.length+'去杠杆</span></div>';
-      ov+='<div style="display:flex;flex-wrap:wrap;gap:4px 14px">';
-      bull.slice(0,6).forEach(function(s){
-        ov+='<span style="font-size:.76rem"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+s.c+'</span> <span style="color:var(--text)">'+s.n+'</span> <span style="color:var(--red);font-weight:600">+'+s.change_5d+'%</span></span>';
-      });
-      bear.slice(0,3).forEach(function(s){
-        ov+='<span style="font-size:.76rem"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+s.c+'</span> <span style="color:var(--text)">'+s.n+'</span> <span style="color:var(--green);font-weight:600">'+s.change_5d+'%</span></span>';
-      });
-      ov+='</div></div>';
-    }
-  })();
+  // 融资融券 strip 已移除
 
   // ── 解禁预警 strip ──
   (function(){
@@ -2349,32 +2321,7 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
           lhbEl.innerHTML=lhbHtml;
         }
 
-        // Hot-reasons strip
-        var hotEl=document.getElementById('hotStrip');
-        if(hotEl&&D._hotReasons&&D._hotReasons.topReasons&&D._hotReasons.topReasons.length){
-          var hr=D._hotReasons;
-          var tags=hr.topReasons.slice(0,10).map(function(t){return '<span style="display:inline-block;padding:4px 10px;margin:2px 4px 2px 0;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:.78rem;color:var(--text);white-space:nowrap"><span style="color:var(--blue);font-weight:600">#'+t.tag+'</span> <span style="color:var(--dim)">'+t.count+'</span></span>';}).join('');
-          var hotTop=hr.stocks?hr.stocks.slice(0,3).map(function(s){return '<span style="color:var(--amber);font-size:.76rem">'+s.c+' '+s.n+' <span style="color:var(--red)">+'+s.chg+'%</span> <span style="color:var(--sub)">'+s.reason+'</span></span>';}).join(' &nbsp;|&nbsp; '):'';
-          hotEl.innerHTML='<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="font-size:.82rem;font-weight:700">🏷️ 热点归因</span><span style="font-size:.68rem;color:var(--dim)">'+hr.date+' · '+hr.total+'只</span></div>'+tags+(hotTop?'<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">🔥 '+hotTop+'</div>':'');
-        }
-
-        // Margin-trading strip
-        var marginEl=document.getElementById('marginStrip');
-        if(marginEl&&D.marginSummary&&D.marginSummary.stocks&&D.marginSummary.stocks.length){
-          var ms=D.marginSummary;
-          var bull=ms.stocks.filter(function(s){return s.change_5d>0});
-          var bear=ms.stocks.filter(function(s){return s.change_5d<0});
-          var marginHtml='<div style="font-size:.82rem;font-weight:700;margin-bottom:6px">💰 融资融券 · 5日杠杆变化 <span style="font-size:.68rem;color:var(--dim)">'+bull.length+'加杠杆 / '+bear.length+'去杠杆</span></div>';
-          marginHtml+='<div style="display:flex;flex-wrap:wrap;gap:4px 14px">';
-          bull.slice(0,6).forEach(function(s){
-            marginHtml+='<span style="font-size:.76rem"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+s.c+'</span> <span style="color:var(--text)">'+s.n+'</span> <span style="color:var(--red);font-weight:600">+'+s.change_5d+'%</span></span>';
-          });
-          bear.slice(0,3).forEach(function(s){
-            marginHtml+='<span style="font-size:.76rem"><span style="font-family:SF Mono,monospace;color:var(--dim)">'+s.c+'</span> <span style="color:var(--text)">'+s.n+'</span> <span style="color:var(--green);font-weight:600">'+s.change_5d+'%</span></span>';
-          });
-          marginHtml+='</div>';
-          marginEl.innerHTML=marginHtml;
-        }
+        // 融资融券 strip refresh 已移除
 
         // Lockup-alert strip
         var lockupEl=document.getElementById('lockupStrip');
