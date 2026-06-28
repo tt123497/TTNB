@@ -20578,12 +20578,6 @@
   ],
   "_newsMarket": [
     {
-      "t": "内存短缺对苹果和微软造成冲击，但对小型企业而言堪称“生存危机”",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-28/doc-inieyriq2757625.shtml",
-      "time": "22:48",
-      "src": "sina_A股"
-    },
-    {
       "t": "伊拉克在反腐行动中拘留的官员包括负责分销事务的副石油部长，美以发动伊朗战争后曾制裁该官员",
       "u": "https://wallstreetcn.com/livenews/3125697",
       "time": "00:05",
@@ -20591,9 +20585,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 00:47 CST",
+    "updated": "2026-06-29 00:48 CST",
     "sector": 1,
-    "market": 2
+    "market": 1
   },
   "globalNews": {
     "headlines": [
@@ -20723,7 +20717,7 @@
         "ts": "2026-06-28 20:00:53"
       }
     ],
-    "updated": "2026-06-28 16:47 UTC",
+    "updated": "2026-06-28 16:48 UTC",
     "status": "ok"
   }
 }
