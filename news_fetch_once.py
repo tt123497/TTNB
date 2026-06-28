@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 from urllib.request import Request, urlopen
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(DIR, 'data.json')
+NEWS_PATH = os.path.join(DIR, 'news.json')
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 CST = timezone(timedelta(hours=8))
 SECTOR_KW = ['六氟化钨','WF6','AI芯片','GPU','HBM','CPO','硅光','光模块','光纤光缆','PCB','MLCC','电子树脂','PPE','铜箔','HVLP','存储','液冷','服务器','数据中心','AIDC','半导体','光刻胶','先进封装','CoWoS','靶材','机器人','Optimus','商业航天','SpaceX','卫星','固态电池','低空经济','eVTOL','电网','特高压','火电','风电','光伏','储能','锂矿','锂电池','新能源车','稀土','小金属','核能','量子','6G','连接器','AI眼镜','碳纤维','钨','钼','钠电池','玻璃基板','TGV','培育钻石','DrMOS','电源','算电协同','Token工厂','医药','CRO','医疗器械','白酒','食品','银行','券商','保险','房地产','煤炭','黄金','铜铝','贵金属','钢铁','化工','超导','空间计算','交换机']
@@ -135,7 +135,7 @@ def _dedup(ns):
 
 if __name__ == '__main__':
     os.chdir(DIR)
-    # Single-run mode: fetch once, write data.json, exit (for cloud CI pipeline)
+    # Single-run mode: fetch once, write news.json, exit (for cloud CI pipeline)
     LOG = os.path.join(DIR, 'news_watch_output.log')
     try:
         cst = _now()
@@ -144,17 +144,17 @@ if __name__ == '__main__':
         msg = f'[{cst.strftime("%H:%M:%S")}] 赛道:{len(ns)} 市场:{len(nm)} 7x24:{len(g.get("headlines",[]))}'
         with open(LOG,'a',encoding='utf-8') as lf: lf.write(msg+'\n')
 
-        data = {}
-        if os.path.exists(DATA_PATH):
-            try: data = json.load(open(DATA_PATH,'r',encoding='utf-8'))
+        news = {}
+        if os.path.exists(NEWS_PATH):
+            try: news = json.load(open(NEWS_PATH,'r',encoding='utf-8'))
             except: pass
-        data['_newsSector'] = ns[:50]; data['_newsMarket'] = nm[:50]
-        data['_newsMeta'] = {'updated': cst.strftime('%Y-%m-%d %H:%M CST'), 'sector': len(ns), 'market': len(nm)}
-        data['globalNews'] = g
-        tmp = DATA_PATH+'.tmp'
-        json.dump(data, open(tmp,'w',encoding='utf-8'), ensure_ascii=False, indent=2)
-        os.replace(tmp, DATA_PATH)
+        news['_newsSector'] = ns[:50]; news['_newsMarket'] = nm[:50]
+        news['_newsMeta'] = {'updated': cst.strftime('%Y-%m-%d %H:%M CST'), 'sector': len(ns), 'market': len(nm)}
+        news['globalNews'] = g
+        tmp = NEWS_PATH+'.tmp'
+        json.dump(news, open(tmp,'w',encoding='utf-8'), ensure_ascii=False, indent=2)
+        os.replace(tmp, NEWS_PATH)
 
-        # 只写本地 data.json, 不推 (由 market-update.yml 每5分钟统一推送)
+        # 只写本地 news.json, 不推 (由 news-watch.yml 统一推送)
     except Exception as e:
         with open(LOG,'a',encoding='utf-8') as lf: lf.write(f'ERR: {e}\n')

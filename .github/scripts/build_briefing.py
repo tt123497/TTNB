@@ -2,6 +2,8 @@
 """Build daily briefing from market data - runs 2x/day"""
 import json, os, time
 from datetime import datetime, timezone, timedelta
+
+CST = timezone(timedelta(hours=8))
 from urllib.request import Request, urlopen
 
 UA = 'Mozilla/5.0'
@@ -33,7 +35,7 @@ def get_market_temperature():
     except: return None
 
 def build_briefing():
-    cst = datetime.now(timezone.utc) + timedelta(hours=8)
+    cst = datetime.now(CST)
     top_stocks = get_top_gainers()
 
     # Read existing data.json
@@ -88,8 +90,21 @@ def build_briefing():
             's': [f"{s['c']} {s['n']}" for s in top_stocks[:5]]
         })
 
-    # Archive old briefing to history before overwriting
+    # Check if there's a recent AI-generated briefing — preserve it
     old_briefing = existing.get('briefing', {})
+    if old_briefing.get('_ai') and old_briefing.get('updated'):
+        # AI briefing exists, check if it's still fresh (< 3 hours)
+        try:
+            ai_time = datetime.strptime(old_briefing['updated'], '%Y-%m-%d %H:%M CST')
+            ai_time = ai_time.replace(tzinfo=timezone(timedelta(hours=8)))
+            age_min = (cst - ai_time).total_seconds() / 60
+            if age_min < 180 and len(old_briefing.get('picks', [])) >= 5:
+                print(f"AI briefing preserved (age={age_min:.0f}min), skip auto-gen")
+                return
+        except (ValueError, TypeError):
+            pass  # Can't parse time, fall through to auto-generate
+
+    # Archive old briefing to history before overwriting
     bHistory = existing.get('bHistory', [])
     if old_briefing and old_briefing.get('top3'):
         last_date = bHistory[0].get('updated','') if bHistory else ''

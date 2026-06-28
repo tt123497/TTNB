@@ -397,6 +397,7 @@ def main():
                 d['bHistory'] = bHistory[:30]
 
         b['updated'] = cst.strftime('%Y-%m-%d %H:%M CST')
+        b['_ai'] = True  # 标记AI生成, build_briefing.py 看到此标记会保留
         d['briefing'] = b
         d['top3'] = b['top3']
         d['picks'] = b['picks']
