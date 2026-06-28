@@ -42,7 +42,7 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/tt123497/TTNB.git"
+          git remote set-url origin "git@github.com:tt123497/TTNB.git"
 
       - name: Setup Python deps
         run: |
