@@ -31,12 +31,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "慧翰股份：存储芯片涨价是当前行业共性问题",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieykzq0422439.shtml",
-      "time": "19:31",
-      "src": "sina_7x24"
-    },
-    {
       "t": "重庆钢铁: 重庆钢铁:关于部分董事、高级管理人员增持公司A股计划的公告",
       "u": "https://data.eastmoney.com/notices/detail/601005.html",
       "time": "06-29",
@@ -44,6 +38,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "阿科力筹划控股权变更！股价提前涨停......",
+      "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0311033.shtml",
+      "time": "21:25",
+      "src": "sina_A股"
+    },
     {
       "t": "601005，股价跌到1.14元！多名高管将增持股份，董事长倡议核心骨干“积极买入”！去年公司净亏超27亿元",
       "u": "https://finance.sina.com.cn/wm/2026-06-28/doc-inieykzs2865499.shtml",
@@ -196,9 +196,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:31 CST",
-    "sector": 7,
-    "market": 25
+    "updated": "2026-06-28 21:32 CST",
+    "sector": 6,
+    "market": 26
   },
   "globalNews": {
     "headlines": [
@@ -328,7 +328,7 @@
         "ts": "2026-06-28 18:46:04"
       }
     ],
-    "updated": "2026-06-28 13:31 UTC",
+    "updated": "2026-06-28 13:32 UTC",
     "status": "ok"
   }
 }
