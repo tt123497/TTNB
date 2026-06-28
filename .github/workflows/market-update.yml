@@ -37,6 +37,9 @@ jobs:
 
       - name: Configure git
         run: |
+          # 自托管runner: safe.directory可能用Windows路径设置, bash用Unix路径, 需重新设置
+          git config --global --add safe.directory '*'
+          cd "$GITHUB_WORKSPACE"
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/tt123497/TTNB.git"
