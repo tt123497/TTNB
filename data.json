@@ -19372,6 +19372,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "银河微电披露资产收购预案 拟全资控股恒泰柯，补齐中高压功率半导体版图",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieyrin0326476.shtml",
+      "time": "22:03",
+      "src": "sina_7x24"
+    },
+    {
       "t": "明日复牌！688689，拟收购半导体资产",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0321294.shtml",
       "time": "21:49",
@@ -19543,8 +19549,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:46 CST",
-    "sector": 5,
+    "updated": "2026-06-28 22:47 CST",
+    "sector": 6,
     "market": 24
   },
   "globalNews": {
@@ -19675,7 +19681,7 @@
         "ts": "2026-06-28 19:19:28"
       }
     ],
-    "updated": "2026-06-28 14:46 UTC",
+    "updated": "2026-06-28 14:47 UTC",
     "status": "ok"
   }
 }
