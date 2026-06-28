@@ -54,10 +54,27 @@ def call_ai(prompt_text, max_tokens=4000):
     req = Request(API_URL, data=json.dumps(payload).encode('utf-8'),
         headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {API_KEY}'})
     try:
-        r = urlopen(req, timeout=60)
-        resp = json.loads(r.read().decode('utf-8'))
+        r = urlopen(req, timeout=90)
+        raw = r.read().decode('utf-8')
+        resp = json.loads(raw)
         content = resp['choices'][0]['message']['content']
+        # try to fix common JSON issues
+        if content.startswith('```json'):
+            content = content[7:]
+        if content.startswith('```'):
+            content = content[3:]
+        if content.endswith('```'):
+            content = content[:-3]
+        content = content.strip()
         return json.loads(content)
+    except json.JSONDecodeError as e:
+        print(f'AI JSON error: {e}')
+        # Save raw for debugging
+        debug_path = os.path.join(DIR, '_sentinel_debug.json')
+        with open(debug_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f'Raw content saved to _sentinel_debug.json ({len(content)} chars)')
+        return None
     except Exception as e:
         print(f'AI error: {e}')
         return None
@@ -264,7 +281,7 @@ def main():
 
     prompt = build_prompt(d)
     print(f'Sending AI prompt ({len(prompt)} chars)...')
-    result = call_ai(prompt, max_tokens=8000)
+    result = call_ai(prompt, max_tokens=16000)
     if not result:
         return
 
