@@ -2479,10 +2479,10 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     while(el&&el!==document.body){
       var t=el.textContent||"";
       var m=t.match(/(\d{6})/);
-      if(m){showTip(e,m[1]);return;}
+      if(m){showTip(e,m[1]);_dbg.textContent=m[1]+" "+(stockInfo[m[1]]||{}).name||"";_dbg.style.background="#0f0";return;}
       el=el.parentElement;
     }
-    hideTip();
+    hideTip();_dbg.textContent="NO CODE";_dbg.style.background="#ff0";
   });
   }}catch(e){}
   // Final updateBar refresh from data.json
