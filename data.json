@@ -19438,18 +19438,12 @@
       "u": "https://finance.sina.com.cn/jjxw/2026-06-28/doc-inieyrin0318134.shtml",
       "time": "21:08",
       "src": "sina_7x24"
-    },
-    {
-      "t": "美股是在泡沫中狂欢，还是在押注美国国运",
-      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-inieykzq0435187.shtml",
-      "time": "21:03",
-      "src": "sina_7x24"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 23:02 CST",
+    "updated": "2026-06-28 23:04 CST",
     "sector": 5,
-    "market": 8
+    "market": 7
   },
   "globalNews": {
     "headlines": [
@@ -19579,7 +19573,7 @@
         "ts": "2026-06-28 19:35:05"
       }
     ],
-    "updated": "2026-06-28 15:03 UTC",
+    "updated": "2026-06-28 15:04 UTC",
     "status": "ok"
   }
 }
