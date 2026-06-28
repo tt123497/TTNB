@@ -19388,12 +19388,6 @@
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieykzq6072208.shtml",
       "time": "20:21",
       "src": "sina_A股"
-    },
-    {
-      "t": "存储芯片概念股，融资客大幅加仓（附名单）！下周投资者最看好这个板块",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieykzn3642170.shtml",
-      "time": "20:16",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -19453,8 +19447,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:15 CST",
-    "sector": 5,
+    "updated": "2026-06-28 22:17 CST",
+    "sector": 4,
     "market": 9
   },
   "globalNews": {
@@ -19585,7 +19579,7 @@
         "ts": "2026-06-28 18:59:50"
       }
     ],
-    "updated": "2026-06-28 14:15 UTC",
+    "updated": "2026-06-28 14:17 UTC",
     "status": "ok"
   }
 }
