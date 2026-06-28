@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 03:20:04"
       }
     ],
-    "updated": "2026-06-28 01:26 UTC",
+    "updated": "2026-06-28 01:27 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7594,12 +7594,6 @@
       "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexiqa6521288.shtml",
       "time": "07:48",
       "src": "sina_7x24"
-    },
-    {
-      "t": "拟收购光模块公司，马斯克也要站在“光”里？",
-      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexche6645038.shtml",
-      "time": "07:27",
-      "src": "sina_A股"
     }
   ],
   "_newsMarket": [
@@ -7617,8 +7611,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 09:26 CST",
-    "sector": 6,
+    "updated": "2026-06-28 09:27 CST",
+    "sector": 5,
     "market": 2
   },
   "industryRank": [
