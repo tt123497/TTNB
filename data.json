@@ -20087,6 +20087,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "17家A股公司，提示风险",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-28/doc-inieykzs2842486.shtml",
+      "time": "19:45",
+      "src": "sina_7x24"
+    },
+    {
       "t": "中泰策略：重要IPO周期蓄势待发",
       "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-inieykzq6061122.shtml",
       "time": "19:27",
@@ -20226,9 +20232,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 19:50 CST",
+    "updated": "2026-06-28 19:51 CST",
     "sector": 4,
-    "market": 23
+    "market": 24
   },
   "globalNews": {
     "headlines": [
@@ -20358,7 +20364,7 @@
         "ts": "2026-06-28 16:55:39"
       }
     ],
-    "updated": "2026-06-28 11:50 UTC",
+    "updated": "2026-06-28 11:51 UTC",
     "status": "ok"
   },
   "_sectorTracker": {
