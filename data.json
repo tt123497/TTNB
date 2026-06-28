@@ -1,6 +1,12 @@
 {
   "_newsSector": [
     {
+      "t": "明日复牌！688689，拟收购半导体资产",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-28/doc-inieyrin5966878.shtml",
+      "time": "21:49",
+      "src": "sina_7x24"
+    },
+    {
       "t": "半导体大牛股，紧急发布澄清声明",
       "u": "https://finance.sina.com.cn/stock/hyyj/2026-06-28/doc-inieyrik3533972.shtml",
       "time": "21:16",
@@ -196,8 +202,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:53 CST",
-    "sector": 6,
+    "updated": "2026-06-28 21:54 CST",
+    "sector": 7,
     "market": 26
   },
   "globalNews": {
@@ -328,7 +334,7 @@
         "ts": "2026-06-28 18:55:17"
       }
     ],
-    "updated": "2026-06-28 13:53 UTC",
+    "updated": "2026-06-28 13:54 UTC",
     "status": "ok"
   }
 }
