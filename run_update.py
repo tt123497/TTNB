@@ -1057,15 +1057,15 @@ def main():
         except Exception: pass
     print(f"  个股研报: {len(report_data)}只")
 
-    # 概念板块归属
+    # 概念板块归属 — 扩大到150只, 加长 sleep 避免风控
     concept_data = {}
-    for c in code_list[:80]:
+    for c in code_list[:150]:
         try:
             blocks = ad.eastmoney_concept_blocks(c)
             if blocks.get('concept_tags'):
                 concept_data[c] = blocks['concept_tags'][:10]
         except Exception: pass
-        time.sleep(0.06)
+        time.sleep(0.15)  # 0.06→0.15, 150只×0.15s≈22s, 避免东财风控
     print(f"  概念板块: {len(concept_data)}只")
 
     # 新浪三表

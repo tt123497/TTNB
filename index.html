@@ -1212,8 +1212,12 @@ function _showTip(e,code){
   var conceptLine='';
   var concepts=(D.conceptData||{})[code];
   if(concepts&&concepts.length){
+    // 有东财真实概念数据: 显示前5个
     var tags=concepts.slice(0,5).map(function(t){var s=String(t).trim();return s.length>8?s.slice(0,8)+'…':s;});
     conceptLine='<div class="st-chain" style="color:var(--sub)">💡 '+tags.join(' / ')+'</div>';
+  }else if(info.sector){
+    // 兜底: 没有东财概念时, 用赛道名作为概念显示
+    conceptLine='<div class="st-chain" style="color:var(--sub)">💡 '+info.sector+'</div>';
   }
   var chainLine='';
   if(info.pos&&info.pos!=='—'){chainLine='<div class="st-chain">🔗 '+info.pos+'</div>';}
