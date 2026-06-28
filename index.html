@@ -25,15 +25,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 /* ── Help Button ── */
 .help-btn{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:16px;background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.25);cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .15s}
-.help-btn:hover{background:rgba(59,130,246,.22);border-color:var(--blue)}
-.refresh-btn{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:16px;background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25);cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .15s;position:relative}
-.refresh-btn:hover:not(:disabled){background:rgba(34,197,94,.22);border-color:var(--green)}
-.refresh-btn:disabled{opacity:.6;cursor:not-allowed}
-.refresh-btn.spinning{color:var(--amber);border-color:var(--amber);background:rgba(245,158,11,.12)}
-.refresh-toast{position:fixed;top:60px;right:20px;z-index:9998;padding:12px 20px;border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;max-width:380px;animation:slideIn .3s ease}
-.refresh-toast.ok{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3)}
-.refresh-toast.err{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
-.refresh-toast.info{background:rgba(59,130,246,.15);color:var(--blue);border:1px solid rgba(59,130,246,.3)}
 @keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
 .help-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .help-modal{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;max-width:640px;width:92vw;max-height:82vh;overflow:hidden;box-shadow:var(--shadow-lg)}
@@ -425,8 +416,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   <div class="brand">📡 <em>股市哨兵</em> · 全市场赛道监控</div>
   <div style="display:flex;align-items:center;gap:8px">
     <button class="help-btn" onclick="document.getElementById('helpModal').style.display='flex'">📖 使用说明</button>
-	    <button class="refresh-btn" id="refreshBtn" onclick="manualRefresh()" title="触发GitHub Actions云端更新行情数据">🔄 手动刷新</button>
-    <div class="live" id="liveDot">加载中...</div>
+	    <div class="live" id="liveDot">加载中...</div>
   </div>
 </div>
 
@@ -475,16 +465,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 <tr><td>★重点</td><td>产业链核心标的（龙头）</td></tr>
 <tr><td>⚡关键</td><td>事件日历中的硬催化（停产/涨价/法规/财报）</td></tr></table></div>
 
-<div class="help-section"><h4>🔧 手动刷新手把手教学</h4>
-<p><b>什么时候用：</b>上班打开网站发现数据没更新，点右上角🔄按钮。GitHub Actions cron偶尔不触发，这是保底手段。</p>
-<p><b>第一次使用（30秒配置，一劳永逸）：</b></p>
-<p>1. 打开 <a href="https://github.com/settings/tokens" target="_blank" style="color:var(--blue)">github.com/settings/tokens</a></p>
-<p>2. 点 <b>Generate new token (classic)</b></p>
-<p>3. 勾选 <b>workflow</b> 权限（其他全部不勾）</p>
-<p>4. 复制生成的 token（ghp_开头），粘贴到浏览器弹窗</p>
-<p>5. 以后点🔄按钮就能直接触发更新，<b>永远不需要再输 token</b></p>
-<p><b>工作原理：</b>按钮 → 调用GitHub API → 触发 market-update.yml 在GitHub云端执行 → 拉行情写data.json → GitHub Pages自动部署 → 网站刷新。全程约90秒。</p>
-<p style="color:var(--amber)"><b>安全说明：</b>Token 仅存在你浏览器本地（localStorage），不会上传到任何服务器。每次调用直接访问 api.github.com，没有中间人。</p></div>
 
 <div class="help-section"><h4>🖱️ 操作技巧</h4>
 <p>• 悬停任意标的代码 → 显示行业+概念+产业链位置浮窗</p>
@@ -578,16 +558,11 @@ const D={
        st:[{c:"688256",n:"寒武纪",pick:1},{c:"688041",n:"海光信息",pick:1},{c:"603986",n:"兆易创新",pick:0},{c:"002230",n:"科大讯飞",pick:0},{c:"600570",n:"恒生电子",pick:0},{c:"002415",n:"海康威视",pick:0},{c:"000063",n:"中兴通讯",pick:0}],
        ch:{up:"EDA→华大九天/概伦电子",mid:"AI芯片→<em>寒武纪/海光/沐曦/景嘉微/龙芯</em>",down:"AI服务器→富士康/浪潮"},
        ev:"📌Q2国产芯片订单放量"},
-      {id:"cpo",n:"CPO/硅光",icon:"💡",sig:"major",tag:"🔥最热|黄仁勋引爆",stars:5,
+      {id:"cpo",n:"CPO/光模块",icon:"💡",sig:"major",tag:"🔥最热|黄仁勋引爆",stars:5,
        d:"Computex黄仁勋宣布硅光CPO交换机量产。中际旭创股价超茅台,联讯仪器上市40天涨23倍破2000元。6/9板块+4.6%主力净流入187亿。",
        st:[{c:"300308",n:"中际旭创",pick:1},{c:"300394",n:"天孚通信",pick:1},{c:"688498",n:"源杰科技",pick:0},{c:"002281",n:"光迅科技",pick:0},{c:"000938",n:"紫光股份",pick:0},{c:"600487",n:"亨通光电",pick:0},{c:"002897",n:"意华股份",pick:0}],
        ch:{up:"光芯片→源杰/长光华芯",mid:"CPO模块→<em>中际旭创/天孚</em>",down:"交换机"},
        ev:"⚡6月Computex|📌2028规模量产"},
-      {id:"optmod",n:"光模块",icon:"🔌",sig:"major",tag:"🔥暴增|1.6T元年",stars:5,
-       d:"新易盛净利+231-249%,800G/1.6T放量。全球光模块市场2025年超150亿美元CAGR22%。华工科技800G LPO Q4交付。",
-       st:[{c:"300502",n:"新易盛",pick:1},{c:"300308",n:"中际旭创",pick:1},{c:"000988",n:"华工科技",pick:0},{c:"002281",n:"光迅科技",pick:0},{c:"601138",n:"工业富联",pick:0},{c:"002396",n:"星网锐捷",pick:0}],
-       ch:{up:"光芯片/电芯片",mid:"光模块→<em>新易盛/旭创/华工</em>",down:"数据中心"},
-       ev:"📌2026=1.6T商业化元年"},
       {id:"fiber",n:"光纤光缆",icon:"🔗",sig:"good",tag:"🟢爆发|亨通+332%",stars:4,
        d:"亨通光电2连板年内+332%创新高。长飞光纤涨停。黄仁勋称铜缆→光纤过渡不可逆。亚马逊与康宁签数十亿美元光纤采购。",
        st:[{c:"600487",n:"亨通光电",pick:1},{c:"601869",n:"长飞光纤",pick:1},{c:"600522",n:"中天科技",pick:0},{c:"000070",n:"特发信息",pick:0},{c:"002491",n:"通鼎互联",pick:0},{c:"600345",n:"长江通信",pick:0}],
@@ -667,7 +642,7 @@ const D={
        st:[{c:"002229",n:"鸿博股份",pick:1},{c:"603220",n:"中贝通信",pick:1},{c:"603985",n:"恒润股份",pick:0},{c:"603629",n:"利通电子",pick:0},{c:"000977",n:"浪潮信息",pick:0},{c:"300738",n:"奥飞数据",pick:0}],
        ch:{up:"GPU→英伟达/AMD",mid:"租赁→<em>鸿博/中贝/恒润</em>",down:"大模型/AI应用"},
        ev:"⚡H800租金+150%|📌供给缺口持续到2027"},
-      {id:"token_factory",n:"Token工厂/模型推理",icon:"🏭",sig:"good",tag:"🟢爆发|AI应用落地",stars:4,
+      {id:"token_factory",n:"",icon:"🏭",sig:"good",tag:"🟢爆发|AI应用落地",stars:4,
        d:"大模型从训练走向推理，Token即产品。优刻得UCloud推理云(DeepSeek核心服务商)，青云科技AI推理平台(政企客户)，首都在线GPU推理集群(海外)，光环新网AWS+自建推理节点。全球推理算力需求2026年增长450%，算力炼油厂模式跑通。",
        st:[{c:"688158",n:"优刻得",pick:1},{c:"300383",n:"光环新网",pick:1},{c:"300442",n:"润泽科技",pick:0},{c:"000977",n:"浪潮信息",pick:0},{c:"603019",n:"中科曙光",pick:0}],
        ch:{up:"GPU/算力→英伟达/鸿博",mid:"推理云→<em>优刻得/青云/光环</em>",down:"AI应用/企业客户"},
@@ -708,7 +683,7 @@ const D={
     {n:"💎 新兴材料 · 稀缺资源",sectors:[
       {id:"wf6",n:"六氟化钨WF₆",icon:"🔴",sig:"major",tag:"🔥重大|日本7.1停产",stars:5,
        d:"厦门钨业PE23倍Q1+189%。昊华科技补涨。",
-       st:[{c:"600549",n:"厦门钨业",pick:1},{c:"688146",n:"中船特气",pick:1},{c:"600378",n:"昊华科技",pick:0},{c:"002842",n:"翔鹭钨业",pick:0},{c:"000657",n:"中钨高新",pick:0}],
+       st:[{c:"600549",n:"厦门钨业",pick:1},{c:"688146",n:"中船特气",pick:1},{c:"600160",n:"巨化股份",pick:0},{c:"002842",n:"翔鹭钨业",pick:0},{c:"000657",n:"中钨高新",pick:0}],
        ch:{up:"钨矿→<em>厦门/翔鹭</em>",mid:"WF₆→<em>中船特气/昊华</em>",down:"台积电/三星"},
        ev:"⚡7.1日本停产|📊8月半年报"},
       {id:"glass",n:"玻璃基板TGV",icon:"🔵",sig:"neutral",tag:"🟡中性|高位分化",stars:4,
@@ -743,7 +718,7 @@ const D={
        ev:"📌低空经济+商业航天双驱动"},
       {id:"elec_gas",n:"电子特气/工业气体",icon:"💨",sig:"major",tag:"🔥涨停潮|电子化学品",stars:5,
        d:"电子特气是半导体制造的'血液'，国产化率仅15%。中船特气国内WF₆/N F₃龙头(全球WF₆产能第一2000吨)，昊华科技含氟电子特气(六氟化硫/四氟化碳)，雅克科技前驱体+SOD，华特气体光刻用氟碳气体。6/10工业气体板块涨停潮，中船特气+18%领涨。",
-       st:[{c:"688146",n:"中船特气",pick:1},{c:"600378",n:"昊华科技",pick:1},{c:"002409",n:"雅克科技",pick:0},{c:"688268",n:"华特气体",pick:0},{c:"002915",n:"中欣氟材",pick:0}],
+       st:[{c:"688146",n:"中船特气",pick:1},{c:"002549",n:"凯美特气",pick:1},{c:"002409",n:"雅克科技",pick:0},{c:"688268",n:"华特气体",pick:0},{c:"002915",n:"中欣氟材",pick:0}],
        ch:{up:"氟/硅原料→中欣氟材/多氟多",mid:"电子特气→<em>中船特气/昊华/华特</em>",down:"晶圆厂/面板厂→中芯/京东方"},
        ev:"⚡电子特气国产化率15%|📌半导体上游最紧缺环节"},
     ]},
@@ -783,7 +758,7 @@ const D={
        st:[{c:"002241",n:"歌尔股份",pick:1},{c:"002475",n:"立讯精密",pick:1},{c:"603303",n:"得邦照明"},{c:"688007",n:"光峰科技"},{c:"300433",n:"蓝思科技"},{c:"002273",n:"水晶光电"}],
        ch:{up:"MicroLED/光波导→光峰/舜宇",mid:"整机→<em>雷鸟/华为/歌尔</em>",down:"鸿蒙AI/应用→字节/华为"},
        ev:"⚡6/16深圳AI眼镜展|📌300+国际团参展"},
-      {id:"ai_agent",n:"AI智能体/应用",icon:"🤖",sig:"major",tag:"🔥最热|天娱4连板",stars:5,
+      {id:"ai_agent",n:"AI应用/模型推理",icon:"🤖",sig:"major",tag:"🔥最热|天娱4连板",stars:5,
        d:"AI应用层爆发——从模型到产品。天娱数科AI营销4连板(午盘净流入19.99亿两市第一)，南兴股份/城市传媒/拓维信息涨停。讯飞星火5.0日活破亿，华为盘古大模型企业用户50万+。2026全球AI应用市场规模$620亿(+68%)。Agent元年：微软Copilot/AI Coding Agent产业化。",
        st:[{c:"002354",n:"天娱数科",pick:1},{c:"002230",n:"科大讯飞",pick:1},{c:"002236",n:"大华股份",pick:0},{c:"002415",n:"海康威视",pick:0},{c:"603859",n:"能科科技",pick:0}],
        ch:{up:"大模型→讯飞/文心/通义",mid:"AI应用→<em>天娱/讯飞/大华</em>",down:"企业客户/消费者→各行业"},
@@ -964,13 +939,13 @@ const D={
     {d:"6月18日",icon:"📊",lead:3,e:"5月半导体销售额数据发布(SIA)",s:"半导体全链",big:0,stocks:[{c:"002371",n:"北方华创"},{c:"688012",n:"中微公司"},{c:"600703",n:"三安光电"},{c:"603501",n:"韦尔股份"},{c:"688256",n:"寒武纪"},{c:"300782",n:"卓胜微"}],u:"https://www.semiconductors.org/data-resources/"},
     {d:"6月25日",icon:"💾",lead:5,e:"NAND Flash Q3合约价谈判窗口",s:"存储芯片",big:0,stocks:[{c:"301308",n:"江波龙"},{c:"688525",n:"佰维存储"},{c:"603986",n:"兆易创新"},{c:"001309",n:"德明利"},{c:"002436",n:"兴森科技"},{c:"300458",n:"全志科技"}],u:""},
     {d:"6月28日",icon:"📡",lead:5,e:"6G标准制定IMT-2030推进组全会",s:"6G通信",big:0,stocks:[{c:"600498",n:"烽火通信"},{c:"000063",n:"中兴通讯"},{c:"600105",n:"永鼎股份"},{c:"300136",n:"信维通信"},{c:"300394",n:"天孚通信"},{c:"688313",n:"仕佳光子"}],u:"https://www.itu.int/hub/2026/03/imt-2030-technical-requirements-for-the-6g-future/"},
-    {d:"7月1日",icon:"🤖",lead:5,e:"WAIC 2026世界人工智能大会(上海)",s:"AI智能体/应用",big:1,stocks:[{c:"688256",n:"寒武纪"},{c:"688041",n:"海光信息"},{c:"300308",n:"中际旭创"},{c:"002230",n:"科大讯飞"},{c:"300383",n:"光环新网"},{c:"688158",n:"优刻得"}],u:"https://www.worldaic.com.cn/"},
+    {d:"7月1日",icon:"🤖",lead:5,e:"WAIC 2026世界人工智能大会(上海)",s:"AI应用/模型推理",big:1,stocks:[{c:"688256",n:"寒武纪"},{c:"688041",n:"海光信息"},{c:"300308",n:"中际旭创"},{c:"002230",n:"科大讯飞"},{c:"300383",n:"光环新网"},{c:"688158",n:"优刻得"}],u:"https://www.worldaic.com.cn/"},
     {d:"7月5日",icon:"⚙️",lead:5,e:"SEMICON West 2026",s:"半导体设备",big:0,stocks:[{c:"002371",n:"北方华创"},{c:"688012",n:"中微公司"},{c:"688072",n:"拓荆科技"},{c:"688082",n:"盛美上海"},{c:"603690",n:"至纯科技"},{c:"688200",n:"华峰测控"}],u:"https://www.semiconwest.org/"},
     {d:"7月10日",icon:"📊",lead:3,e:"台积电6月营收发布",s:"半导体全链",big:0,stocks:[{c:"688981",n:"中芯国际"},{c:"002371",n:"北方华创"},{c:"688012",n:"中微公司"},{c:"600703",n:"三安光电"},{c:"688256",n:"寒武纪"},{c:"300782",n:"卓胜微"}],u:"https://investor.tsmc.com/"},
     {d:"7月10日",icon:"🚗",lead:3,e:"中汽协6月汽车销量发布",s:"新能源汽车",big:0,stocks:[{c:"002594",n:"比亚迪"},{c:"300750",n:"宁德时代"},{c:"601127",n:"赛力斯"},{c:"600104",n:"上汽集团"},{c:"300014",n:"亿纬锂能"},{c:"002460",n:"赣锋锂业"}],u:"http://www.auto-stats.org.cn/"},
     {d:"8月17日",icon:"⚙️",lead:7,e:"IEEE CASE 2026 国际自动化大会(沈阳)",s:"人形机器人",big:0,stocks:[{c:"300024",n:"机器人"},{c:"688017",n:"绿的谐波"},{c:"300660",n:"拓斯达"},{c:"002747",n:"埃斯顿"},{c:"688165",n:"埃夫特"},{c:"002698",n:"博实股份"}],u:"https://www.ieee-ras.org/conferences-workshops/fully-sponsored/case/"},
     {d:"8月20日",icon:"🧠",lead:7,e:"ICDIA 2026 中国集成电路创芯大会(南京)",s:"AI芯片",big:1,stocks:[{c:"688256",n:"寒武纪"},{c:"688041",n:"海光信息"},{c:"300782",n:"卓胜微"},{c:"603986",n:"兆易创新"},{c:"002415",n:"海康威视"},{c:"688981",n:"中芯国际"}],u:"https://www.eetrend.com/content/2026/100601753.html"},
-    {d:"8月25日",icon:"📟",lead:7,e:"elexcon 2026 深圳国际电子展",s:"AI智能体/应用",big:0,stocks:[{c:"300383",n:"光环新网"},{c:"688158",n:"优刻得"},{c:"002230",n:"科大讯飞"},{c:"688256",n:"寒武纪"},{c:"002415",n:"海康威视"},{c:"300024",n:"机器人"}],u:"https://www.elexcon.com/"},
+    {d:"8月25日",icon:"📟",lead:7,e:"elexcon 2026 深圳国际电子展",s:"AI应用/模型推理",big:0,stocks:[{c:"300383",n:"光环新网"},{c:"688158",n:"优刻得"},{c:"002230",n:"科大讯飞"},{c:"688256",n:"寒武纪"},{c:"002415",n:"海康威视"},{c:"300024",n:"机器人"}],u:"https://www.elexcon.com/"},
     {d:"8月31日",icon:"⚙️",lead:10,e:"CSEAC 2026 半导体设备材料展(无锡)",s:"半导体设备",big:1,stocks:[{c:"002371",n:"北方华创"},{c:"688012",n:"中微公司"},{c:"688072",n:"拓荆科技"},{c:"688082",n:"盛美上海"},{c:"603690",n:"至纯科技"},{c:"688200",n:"华峰测控"}],u:"https://www.zidonghua.com.cn/news/need/166838.html"},
   ],
 
@@ -981,13 +956,13 @@ const D={
     {d:"6月18日",icon:"📊",e:"5月半导体销售额数据发布(SIA)",s:"半导体全链",big:0,desc:"验证存储/逻辑芯片涨价是否加速传导",u:"https://www.semiconductors.org/data-resources/"},
     {d:"6月25日",icon:"💾",e:"NAND Flash Q3合约价谈判窗口",s:"存储芯片",big:0,desc:"Q2已预估季增58-63%,Q3能否继续是关键",u:""},
     {d:"6月28日",icon:"📡",e:"6G标准制定IMT-2030推进组全会",s:"6G通信",big:0,desc:"关注技术方案与频谱规划进展",u:"https://www.itu.int/hub/2026/03/imt-2030-technical-requirements-for-the-6g-future/"},
-    {d:"7月1日",icon:"🤖",e:"WAIC 2026世界人工智能大会(上海)",s:"AI智能体/应用",big:1,desc:"AI芯片/智能体/机器人/AI应用全球前沿发布",u:"https://www.worldaic.com.cn/"},
+    {d:"7月1日",icon:"🤖",e:"WAIC 2026世界人工智能大会(上海)",s:"AI应用/模型推理",big:1,desc:"AI芯片/智能体/机器人/AI应用全球前沿发布",u:"https://www.worldaic.com.cn/"},
     {d:"7月5日",icon:"⚙️",e:"SEMICON West 2026",s:"半导体设备",big:0,desc:"全球半导体设备订单及新技术发布",u:"https://www.semiconwest.org/"},
     {d:"7月10日",icon:"📊",e:"台积电6月营收发布",s:"半导体全链",big:0,desc:"先进制程稼动率及CoWoS产能扩张进度",u:"https://investor.tsmc.com/"},
     {d:"7月10日",icon:"🚗",e:"中汽协6月汽车销量发布",s:"新能源汽车",big:0,desc:"验证新能源渗透率及比亚迪/新势力份额变化",u:"http://www.auto-stats.org.cn/"},
     {d:"8月17日",icon:"⚙️",e:"IEEE CASE 2026 国际自动化大会(沈阳)",s:"人形机器人",big:0,desc:"IEEE旗舰会议,具身智能机器人与半导体制造",u:"https://www.ieee-ras.org/conferences-workshops/fully-sponsored/case/"},
     {d:"8月20日",icon:"🧠",e:"ICDIA 2026 中国集成电路创芯大会(南京)",s:"AI芯片",big:1,desc:"500+IC设计公司,AI芯片/Chiplet/存算一体前沿主题",u:"https://www.eetrend.com/content/2026/100601753.html"},
-    {d:"8月25日",icon:"📟",e:"elexcon 2026 深圳国际电子展",s:"AI智能体/应用",big:0,desc:"AI+具身智能+汽车电子三展联动,8+高峰论坛",u:"https://www.elexcon.com/"},
+    {d:"8月25日",icon:"📟",e:"elexcon 2026 深圳国际电子展",s:"AI应用/模型推理",big:0,desc:"AI+具身智能+汽车电子三展联动,8+高峰论坛",u:"https://www.elexcon.com/"},
     {d:"8月31日",icon:"⚙️",e:"CSEAC 2026 半导体设备材料展(无锡)",s:"半导体设备",big:1,desc:"1300+展商,国内半导体全产业链年度最大盛会",u:"https://www.zidonghua.com.cn/news/need/166838.html"},
   ],
 
@@ -1197,14 +1172,6 @@ function loadFeedbackHistory(){
       if(data.recap.dtCount!=null) D.recap.dtCount=data.recap.dtCount;
       if(data.concepts){Object.keys(data.concepts).forEach(function(c){if(stockInfo[c])stockInfo[c].concepts=data.concepts[c];});}
     }
-    // Dynamic sectors: append new hot sectors found at noon
-    if(data.dynamicSectors&&data.dynamicSectors.length){
-      D.groups.push({n:'🔥 每日热门 · '+data.dynamicSectors[0].date, sectors:data.dynamicSectors});
-      // Enrich stockInfo
-      data.dynamicSectors.forEach(function(s){
-        s.st.forEach(function(st){stockInfo[st.c]=stockInfo[st.c]||{name:st.n, sector:s.n, pos:'板块成分', tag:s.tag, ind:'新晋热门'};});
-      });
-    }
     // AI简报/精选 — cloud优先, 但保留硬编码兜底
     if(data.top3&&data.top3.length) D.top3=data.top3;
     if(data.picks&&data.picks.length) D.picks=data.picks;
@@ -1322,7 +1289,7 @@ function loadFeedbackHistory(){
   // Build stock → info lookup for hover tooltips
   var stockInfo={};
   // Sector → derived industry mapping
-  var secInd={'AI芯片':'半导体','CPO/硅光':'光通信','光模块':'光通信','光纤光缆':'通信设备','连接器/铜连接':'电子元器件',
+  var secInd={'AI芯片':'半导体','CPO/光模块':'光通信','光模块':'光通信','光纤光缆':'通信设备','连接器/铜连接':'电子元器件',
     'PCB/覆铜板':'电子元器件','MLCC电容':'电子元器件','电子树脂/PPE':'化工','电子铜箔':'有色金属',
     'HBM/存储芯片':'半导体','AI服务器/超节点':'计算机设备','液冷散热':'机械设备','交换机/网络':'通信设备',
     '电源/DrMOS':'半导体','数据中心/AIDC':'IT服务','半导体设备':'半导体','光刻胶':'化工',
@@ -1396,7 +1363,7 @@ function loadFeedbackHistory(){
   }
 
   function renderAll(){
-    document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | <a href="#" onclick="manualRefresh();return false" style="color:var(--cyan);text-decoration:none">🔄手动刷新</a> | 交易日每5分钟自动更新 | a-stock-data 28端点`;
+    document.getElementById('updateBar').innerHTML=`📡 <b>${D.updated}</b> 更新 | ${D.next} | 交易日每5分钟自动更新 | a-stock-data 28端点`;
   document.getElementById('navBar').innerHTML=TABS.map((t,i)=>`<div class="nav-pill${i===0?' on':''}" id="pill-${t}" onclick="go('${t}')">${TLABEL[t]}</div>`).join('');
 
   const allSectors=[];D.groups.forEach(g=>g.sectors.forEach(s=>allSectors.push(s)));
@@ -2486,108 +2453,12 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
 
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
-    if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | <a href="#" onclick="manualRefresh();return false" style="color:var(--cyan);text-decoration:none">🔄手动刷新</a> | 交易日每5分钟自动更新 | a-stock-data 28端点`;}
+    if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动更新 | a-stock-data 28端点`;}
   }).catch(()=>{});
 })();
 
 // ═══════════════════════════════════════════════════════════════
 // 手动刷新 — 触发GitHub Actions云端更新(无需家里电脑开机)
-// ═══════════════════════════════════════════════════════════════
-var REFRESH_REPO = 'tt123497/TTNB';
-var REFRESH_WF = 'market-update.yml';
-
-function showToast(msg, type){
-  var old = document.querySelector('.refresh-toast');
-  if(old) old.remove();
-  var t = document.createElement('div');
-  t.className = 'refresh-toast ' + (type||'info');
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(function(){ t.remove(); }, 6000);
-}
-
-function getToken(){ return localStorage.getItem('gh_pat_v1'); }
-function setToken(tok){ localStorage.setItem('gh_pat_v1', tok); }
-
-function manualRefresh(){
-  var btn = document.getElementById('refreshBtn');
-  if(!btn){ // called from updateBar link
-    showToast('📡 正在向 GitHub Actions 发送更新指令...', 'info');
-  }
-  var token = getToken();
-  if(!token){
-    token = prompt(
-      '🔑 首次使用需要你的 GitHub Personal Access Token\n\n'+
-      '获取方式(30秒)：\n'+
-      '1. 打开 https://github.com/settings/tokens\n'+
-      '2. 点 "Generate new token (classic)"\n'+
-      '3. 勾选 workflow 权限\n'+
-      '4. 复制生成的 token，粘贴到这里\n\n'+
-      'Token 只存你浏览器本地，不上传任何服务器。'
-    );
-    if(!token) return;
-    setToken(token);
-  }
-  if(btn){ btn.disabled = true; btn.classList.add('spinning'); btn.textContent = '⏳ 触发中...'; }
-  showToast('📡 正在向 GitHub Actions 发送更新指令...', 'info');
-
-  var api = 'https://api.github.com/repos/' + REFRESH_REPO;
-  fetch(api + '/actions/workflows', {
-    headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' }
-  }).then(function(r){
-    if(!r.ok) throw new Error('HTTP ' + r.status + ' — token可能无效，点按钮重新输入');
-    return r.json();
-  }).then(function(wfs){
-    var wid = null;
-    for(var i=0; i<wfs.workflows.length; i++){
-      if(wfs.workflows[i].path === '.github/workflows/' + REFRESH_WF){
-        wid = wfs.workflows[i].id; break;
-      }
-    }
-    if(!wid) throw new Error('未找到 ' + REFRESH_WF);
-    return fetch(api + '/actions/workflows/' + wid + '/dispatches', {
-      method: 'POST',
-      headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' },
-      body: JSON.stringify({ ref: 'main' })
-    });
-  }).then(function(r){
-    if(r.status === 204){
-      showToast('✅ 云端更新已触发！约90秒后页面自动刷新...', 'ok');
-      if(btn) btn.textContent = '⏳ 等待更新...';
-      var attempts = 0;
-      function check(){
-        attempts++;
-        fetch('./data.json?t='+Date.now()).then(function(r2){return r2.json();}).then(function(d2){
-          // Check if data timestamp changed
-          if(attempts >= 30){
-            showToast('🎉 数据更新完成，重载页面...', 'ok');
-            setTimeout(function(){ location.reload(); }, 500);
-          } else {
-            if(btn) btn.textContent = '⏳ 等待中(' + (attempts*5) + 's)...';
-            setTimeout(check, 5000);
-          }
-        }).catch(function(){
-          if(attempts < 30) setTimeout(check, 5000);
-          else location.reload();
-        });
-      }
-      setTimeout(check, 20000);
-    } else {
-      throw new Error('触发失败 HTTP ' + r.status);
-    }
-  }).catch(function(err){
-    if(btn){ btn.disabled = false; btn.classList.remove('spinning'); btn.textContent = '🔄 手动刷新'; }
-    var msg = err.message || String(err);
-    if(msg.indexOf('401') !== -1 || msg.indexOf('token') !== -1){
-      localStorage.removeItem('gh_pat_v1');
-      showToast('🔑 Token 无效，已清除。请重新点击按钮输入。', 'err');
-    } else if(msg.indexOf('403') !== -1){
-      showToast('🚫 403 禁止。Token 可能没有 workflow 权限或已过期。', 'err');
-    } else {
-      showToast('❌ ' + msg, 'err');
-    }
-  });
-}
-</script>
+// ═══════════════════════════════════════════════════════════════</script>
 </body>
 </html>
