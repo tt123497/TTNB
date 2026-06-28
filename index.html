@@ -96,7 +96,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .card.sig-good::before{background:var(--grad3)}
 .card.sig-neutral::before{background:var(--border)}
 .card .c-icon{font-size:1.8rem;margin-bottom:10px}
-.card .c-name{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.card .c-name{font-size:1.05rem;font-weight:700;margin-bottom:2px}
+.card .c-chg{font-size:1.1rem;font-weight:700;margin-bottom:6px}
 .card .c-tag{font-size:.95rem;font-weight:600;margin-bottom:10px}
 .card .c-desc{font-size:.88rem;color:var(--sub);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .c-msg{font-size:.78rem;color:var(--sub);margin:4px 0;line-height:1.5}
@@ -1422,6 +1423,8 @@ document.addEventListener('DOMContentLoaded',function(){
         g.sectors.forEach(function(s){
           if(data.sectorTags[s.n]){ s.tag = data.sectorTags[s.n]; s.avgChg = parseFloat(s.tag.split('%')[0].replace(/[^0-9.\-+]/g,'')); }
         });
+        // 按热度(涨跌幅)排序, 有数据的排前面
+        g.sectors.sort(function(a,b){ return (b.avgChg||-999) - (a.avgChg||-999); });
       });
     }
     // Override hardcoded stocks with live sector stocks from EastMoney API
@@ -1684,6 +1687,7 @@ document.addEventListener('DOMContentLoaded',function(){
       ov+=`<div class="card sig-${s.sig}" id="scard-${s.id}" onclick="go('chain');setTimeout(()=>{var el=document.getElementById('chain-${s.id}');el.open=true;requestAnimationFrame(()=>{requestAnimationFrame(()=>{var topbarH=document.querySelector('.topbar')?.offsetHeight||46;var navH=document.querySelector('.nav')?.offsetHeight||46;var rect=el.getBoundingClientRect();var targetY=window.scrollY+rect.top-topbarH-navH-24;window.scrollTo({top:targetY,behavior:'smooth'});});});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1500)},100)">
         <div class="c-icon">${s.icon}</div>
         <div class="c-name">${s.n}</div>
+        <div class="c-chg" id="cchg-${s.id}" style="font-size:.9rem;font-weight:700;color:${(s.avgChg||0)>=0?'var(--red)':'var(--green)'}">${typeof s.avgChg==='number'?(s.avgChg>=0?'+':'')+s.avgChg.toFixed(1)+'%':'—'}</div>
         <div class="c-tag" id="ctag-${s.id}" style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'}">${s.tag.split('|')[0]}</div>
         <div class="c-desc">${s.d}</div>
         <div class="c-msg" id="cmsg-${s.id}"${s.msg?'':' style="display:none"'}>${s.msg&&s.u?'<a href="'+s.u+'" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">📰 '+s.msg+'</a>':(s.msg||'')}</div>
@@ -2475,6 +2479,11 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
               if(tagEl){
                 tagEl.textContent=(s.tag||'').split('|')[0]||'';
                 tagEl.style.color=s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)';
+              }
+              var chgEl=document.getElementById('cchg-'+s.id);
+              if(chgEl&&typeof s.avgChg==='number'){
+                chgEl.textContent=(s.avgChg>=0?'+':'')+s.avgChg.toFixed(1)+'%';
+                chgEl.style.color=s.avgChg>=0?'var(--red)':'var(--green)';
               }
               var msgEl=document.getElementById('cmsg-'+s.id);
               if(msgEl){
