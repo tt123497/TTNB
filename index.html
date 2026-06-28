@@ -1166,6 +1166,7 @@ function openStock(code){
     window.open('https://quote.eastmoney.com/concept/'+_emCode(code)+'.html','_blank');
     return;
   }
+  // Windows: 尝试 tdxstock:// 协议, 1.5秒内无响应(窗口未失焦)则降级东财
   var fallbackTimer=setTimeout(function(){
     window.open('https://quote.eastmoney.com/concept/'+_emCode(code)+'.html','_blank');
   },1500);
@@ -1174,7 +1175,13 @@ function openStock(code){
     window.removeEventListener('blur',onBlur);
   };
   window.addEventListener('blur',onBlur);
-  window.open('tdxstock://'+code,'_blank');
+  // 用隐藏 iframe 触发协议 (避免 window.open 弹空白页 + 黑框)
+  var iframe=document.createElement('iframe');
+  iframe.style.cssText='width:0;height:0;border:0;position:absolute;left:-9999px;';
+  iframe.src='tdxstock://'+code;
+  document.body.appendChild(iframe);
+  // 2秒后移除 iframe
+  setTimeout(function(){if(iframe.parentNode)iframe.parentNode.removeChild(iframe);},2000);
 }
 
 var _tipEl=null,_tipCode=null;
@@ -1988,6 +1995,18 @@ document.addEventListener('DOMContentLoaded',function(){
     D.groups.forEach(function(g){g.sectors.forEach(function(s){all.push(s);});});
     if(!all.length){el.innerHTML='<div class="section-title">⏳ 加载中...</div>';return;}
 
+    // 保存用户已展开的赛道 (避免 loadLive 刷新时自动闭合)
+    var openedSectors={};
+    el.querySelectorAll('details.tbl-wrap[open]').forEach(function(d){
+      var sum=d.querySelector('summary.tbl-title');
+      if(sum){
+        var text=sum.textContent.trim();
+        // 提取赛道名 (summary 第一个空格前的内容, 去掉图标)
+        var m=text.match(/[\u4e00-\u9fa5\/\(\)A-Za-z0-9·]+/);
+        if(m) openedSectors[m[0]]=true;
+      }
+    });
+
     // 按赛道涨跌幅排序（最热排前面）
     var tags=D.sectorTags||{};
     all.forEach(function(s){
@@ -2009,7 +2028,9 @@ document.addEventListener('DOMContentLoaded',function(){
       var heatLabel=s._heatChg>-999?(s._heatChg>=0?'<span style="color:var(--red);font-weight:700">+'+s._heatChg.toFixed(1)+'%</span>':'<span style="color:var(--green);font-weight:700">'+s._heatChg.toFixed(1)+'%</span>'):'';
       var hotBadge=idx<5&&s._heatChg>0?'<span style="margin-left:6px;font-size:.72rem;padding:2px 6px;border-radius:8px;background:rgba(239,68,68,.15);color:var(--red)">🔥热门</span>':'';
 
-      html+='<details class="tbl-wrap" '+(idx<3&&s._heatChg>0?'open':'')+'><summary class="tbl-title">'+s.icon+' '+s.n+' <span style="font-size:.78rem;color:var(--dim);margin-left:4px">'+countLabel+'</span> '+heatLabel+hotBadge+'<span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary>';
+      // 保留用户已展开的赛道, 否则前3热门默认展开
+      var shouldOpen = openedSectors[s.n] || (idx<3 && s._heatChg>0);
+      html+='<details class="tbl-wrap" '+(shouldOpen?'open':'')+'><summary class="tbl-title">'+s.icon+' '+s.n+' <span style="font-size:.78rem;color:var(--dim);margin-left:4px">'+countLabel+'</span> '+heatLabel+hotBadge+'<span style="margin-left:auto;font-size:.72rem;color:var(--dim)">▾</span></summary>';
 
       // Fixed stocks fallback when no live data
       if(!hasLive && fixedStocks[s.n]){
@@ -2055,16 +2076,8 @@ document.addEventListener('DOMContentLoaded',function(){
       html+='</details>';
     });
     el.innerHTML=html;
-    // Hook click to open TDX
-    setTimeout(function(){
-      el.querySelectorAll('.stk-row').forEach(function(tr){
-        tr.addEventListener('click',function(e){
-          e.stopPropagation();
-          var code=this.getAttribute('data-code');
-          if(code)openStock(code);
-        });
-      });
-    },100);
+    // click 跳转已由全局事件代理处理 (DOMContentLoaded 时绑定), 这里不再重复绑定
+    // 避免每次 renderStockList 都重复添加监听器
   }
 
   // Flash news renderer (includes globalNews from Tier A)
