@@ -1,6 +1,12 @@
 {
   "_newsSector": [
     {
+      "t": "停牌前股价大涨！688689，拟购买半导体公司100%股权！",
+      "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyets0517002.shtml",
+      "time": "17:15",
+      "src": "sina_A股"
+    },
+    {
       "t": "重庆钢铁: 重庆钢铁:关于部分董事、高级管理人员增持公司A股计划的公告",
       "u": "https://data.eastmoney.com/notices/detail/601005.html",
       "time": "06-29",
@@ -106,8 +112,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 18:16 CST",
-    "sector": 1,
+    "updated": "2026-06-28 18:17 CST",
+    "sector": 2,
     "market": 16
   },
   "globalNews": {
@@ -238,7 +244,7 @@
         "ts": "2026-06-28 15:37:29"
       }
     ],
-    "updated": "2026-06-28 10:16 UTC",
+    "updated": "2026-06-28 10:17 UTC",
     "status": "ok"
   },
   "sectorFixedStocks": {
