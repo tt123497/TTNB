@@ -19422,12 +19422,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "特朗普政府质询美国纽约州在农业用地上的光伏项目",
-      "u": "https://wallstreetcn.com/livenews/3125682",
-      "time": "21:39",
-      "src": "wscn_全球"
-    },
-    {
       "t": "阿科力筹划控股权变更！股价提前涨停......",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0311033.shtml",
       "time": "21:25",
@@ -19549,9 +19543,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:38 CST",
+    "updated": "2026-06-28 22:39 CST",
     "sector": 5,
-    "market": 25
+    "market": 24
   },
   "globalNews": {
     "headlines": [
@@ -19681,7 +19675,7 @@
         "ts": "2026-06-28 19:01:59"
       }
     ],
-    "updated": "2026-06-28 14:38 UTC",
+    "updated": "2026-06-28 14:39 UTC",
     "status": "ok"
   }
 }
