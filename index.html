@@ -2002,7 +2002,7 @@ function loadFeedbackHistory(){
     if(!el)return;
     var items=sectorNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'sector'};})
       .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'market'};}))
-      .concat((D.globalNews||{}).headlines||[].map(function(n){return {t:n.t,u:'',time:n.ts,src:'em_7x24',ch:'global'};}));
+      .concat(((D.globalNews||{}).headlines||[]).map(function(n){var ts=n.ts||'';var tm=ts.length>=16?ts.substring(11,16):ts;return {t:n.t,u:n.u||('https://www.baidu.com/s?wd='+encodeURIComponent(n.t)),time:tm,src:'em_7x24',ch:'global'};}));
     items.sort(function(a,b){return (b.time||'').localeCompare(a.time||'');});
     var h='';
     items.forEach(function(item){
