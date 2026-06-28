@@ -13,6 +13,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "立新能源：公司在建独立储能项目按建设计划有序推进",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieykzq0421651.shtml",
+      "time": "19:58",
+      "src": "sina_7x24"
+    },
+    {
       "t": "“旗手”酝酿归位？券商周线3连阳，逻辑直指“站在科创里”",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-28/doc-inieykzq0400249.shtml",
       "time": "19:19",
@@ -172,8 +178,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 20:53 CST",
-    "sector": 5,
+    "updated": "2026-06-28 20:54 CST",
+    "sector": 6,
     "market": 23
   },
   "globalNews": {
@@ -304,7 +310,7 @@
         "ts": "2026-06-28 18:03:58"
       }
     ],
-    "updated": "2026-06-28 12:53 UTC",
+    "updated": "2026-06-28 12:54 UTC",
     "status": "ok"
   }
 }
