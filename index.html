@@ -2003,6 +2003,16 @@ function loadFeedbackHistory(){
     var items=sectorNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'sector'};})
       .concat(marketNews.map(function(n){return {t:n.t,u:n.u,time:n.time,src:n.src,ch:'market'};}))
       .concat(((D.globalNews||{}).headlines||[]).map(function(n){var ts=n.ts||'';var tm=ts.length>=16?ts.substring(11,16):ts;return {t:n.t,u:n.u||('https://www.baidu.com/s?wd='+encodeURIComponent(n.t)),time:tm,src:'em_7x24',ch:'global'};}));
+    // 过滤与股市无关的全球资讯（仅过滤global路，sector/market不过滤）
+    var _sk=/A股|港股|美股|大盘|指数|涨停|跌停|板块|概念|资金|北向|融资|融券|业绩|财报|分红|回购|增减持|定增|并购|重组|上市|退市|解禁|股东|证监会|交易所|沪深|创业|科创|基金|ETF|利率|汇率|降息|加息|降准|CPI|PPI|GDP|社融|关税|原油|黄金|白银|稀土|芯片|半导体|新能源|光伏|储能|医药|白酒|消费|地产|银行|券商|保险|期货|市值|估值|成交|产业链|供应链|签约|投产|量产|交付|订单|涨价|降价|利润|营收|净利|增速|环比|同比|产能|扩产|停产|召回|加密货币|苹果|iOS|手机|商运|集团|总裁|CEO|董事长|高管|辞职|停牌|复牌|打新|中签|限售|注册制|铜|铝|锂|钴/;
+    var _ik=/美军|空袭|导弹|革命卫队|军事目标|防空|警报|恐怖|击毙|阵亡|停火|交火|炮击|轰炸|核武|地震|海啸|洪水|泥石流|台风|救灾|遇难|捐赠|世界杯|欧洲杯|奥运|亚运|决赛|半决赛|裁判|球员|教练|高考|中考|录取|演唱会|音乐节|电影节|明星|演员|歌手|网红|电视剧|综艺|基辅|爆炸声|内塔尼亚胡|真主党|贪腐|丑闻|恐袭|军方|飞行物/;
+    items=items.filter(function(item){
+      if(item.ch!=='global')return true;
+      var t=item.t||'';
+      if(_sk.test(t))return true;
+      if(_ik.test(t))return false;
+      return false;
+    });
     items.sort(function(a,b){return (b.time||'').localeCompare(a.time||'');});
     var h='';
     items.forEach(function(item){
