@@ -20608,12 +20608,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "阿科力筹划控股权变更！股价提前涨停......",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieyrin0311033.shtml",
-      "time": "21:25",
-      "src": "sina_A股"
-    },
-    {
       "t": "中富通: 中富通:关于公司股东、高级管理人员股份减持计划的预披露公告",
       "u": "https://data.eastmoney.com/notices/detail/300560.html",
       "time": "06-29",
@@ -20711,9 +20705,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 23:25 CST",
+    "updated": "2026-06-28 23:27 CST",
     "sector": 5,
-    "market": 22
+    "market": 21
   },
   "globalNews": {
     "headlines": [
@@ -20843,7 +20837,7 @@
         "ts": "2026-06-28 19:35:05"
       }
     ],
-    "updated": "2026-06-28 15:25 UTC",
+    "updated": "2026-06-28 15:27 UTC",
     "status": "ok"
   }
 }
