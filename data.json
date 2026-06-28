@@ -19404,6 +19404,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "内存短缺对苹果和微软造成冲击，但对小型企业而言堪称“生存危机”",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-28/doc-inieyriq2757625.shtml",
+      "time": "22:48",
+      "src": "sina_A股"
+    },
+    {
       "t": "澳大利亚Firmus Technologies与英伟达达成人工智能合作协议",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-28/doc-inieyriq2746741.shtml",
       "time": "22:04",
@@ -19549,9 +19555,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:47 CST",
+    "updated": "2026-06-28 22:49 CST",
     "sector": 6,
-    "market": 24
+    "market": 25
   },
   "globalNews": {
     "headlines": [
@@ -19681,7 +19687,7 @@
         "ts": "2026-06-28 19:19:28"
       }
     ],
-    "updated": "2026-06-28 14:47 UTC",
+    "updated": "2026-06-28 14:49 UTC",
     "status": "ok"
   }
 }
