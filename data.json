@@ -7,6 +7,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "存储芯片概念股，融资客大幅加仓（附名单）！下周投资者最看好这个板块",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieykzn3642170.shtml",
+      "time": "20:16",
+      "src": "sina_7x24"
+    },
+    {
       "t": "“旗手”酝酿归位？券商周线3连阳，逻辑直指“站在科创里”",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-28/doc-inieykzq0400249.shtml",
       "time": "19:19",
@@ -26,6 +32,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "下周A股解禁市值超千亿元",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieykzs2849831.shtml",
+      "time": "20:22",
+      "src": "sina_7x24"
+    },
     {
       "t": "中东股市收盘播报｜周日（6月28日），阿曼MSM 30指数收涨0.97%，报7387.48点。\n\n卡塔尔证交所指数收涨0.12%，结束此前连续六个交易日下跌的趋势，报10293.72点。\n\n科威特证交所超级市场价格回报指数收跌0.12%，连",
       "u": "https://wallstreetcn.com/livenews/3125670",
@@ -160,9 +172,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 20:51 CST",
-    "sector": 4,
-    "market": 22
+    "updated": "2026-06-28 20:52 CST",
+    "sector": 5,
+    "market": 23
   },
   "globalNews": {
     "headlines": [
@@ -292,7 +304,7 @@
         "ts": "2026-06-28 18:03:58"
       }
     ],
-    "updated": "2026-06-28 12:51 UTC",
+    "updated": "2026-06-28 12:52 UTC",
     "status": "ok"
   }
 }
