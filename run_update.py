@@ -1097,6 +1097,9 @@ def main():
                 if len(kline_data) < 3:
                     print(f"    eastmoney K线降级失败 {c}: {e}")
         if kl is not None and len(kl) > 0:
+            # mootdx_klines可能返回DataFrame, 迭代得到列名(str)而非行(dict), 需统一转换
+            if hasattr(kl, 'to_dict'):
+                kl = kl.to_dict('records')
             kline_data[c] = [{'d': str(r.get('date','')), 'o': float(r.get('open',0)), 'c': float(r.get('close',0)), 'h': float(r.get('high',0)), 'l': float(r.get('low',0)), 'v': float(r.get('vol',0))} for r in kl[-20:]]
     print(f"  K线: {len(kline_data)}只")
 
