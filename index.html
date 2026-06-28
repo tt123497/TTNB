@@ -2445,42 +2445,60 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
   // Stock hover tooltip
   var tipEl=document.getElementById('stockTip'), tipTimer=null, tipCode='';
   function showTip(e, code){
-	    if(code===tipCode) return; tipCode=code;
-	    clearTimeout(tipTimer);
-	    var info=stockInfo[code];
-	    if(!info){
-	      var nm=''; var row=document.querySelector('.stk-row[data-code="'+code+'"]');
-	      if(row){var nc=row.querySelector('.name'); if(nc) nm=nc.textContent.trim();}
-	      if(!nm){var t=e.target; while(t&&t!==document.body){var tx=(t.textContent||'').trim(); var m2=tx.match(/\d{6}\s+(\S+)/); if(m2){nm=m2[1];break;} t=t.parentElement;}}
-	      info=stockInfo[code]={name:nm||code, sector:'', group:'', pos:'—', tag:'', ind:'—'};
-	    }
-	    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
-	    var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-	    var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'—');
-	    var concepts=[];
-	    if(info.concepts&&info.concepts.length) concepts=info.concepts;
-	    else if(lp&&lp.concepts&&lp.concepts.length) concepts=lp.concepts.filter(function(c){return c&&c.trim();});
-	    var seen={}; var clean=[];
-	    concepts.forEach(function(c){if(c&&!seen[c]){seen[c]=1;clean.push(c);}});
-	    var cx=clean.length?clean.slice(0,6).join(' · '):null;
-	    var cxHtml=cx?'<div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div>':'';
-	    tipEl.innerHTML='<div class="st-name">'+info.name+'</div><div class="st-code">'+code+'</div>'+ph+'<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div>'+cxHtml;
-	    tipEl.style.display='block';
-	    var x=e.clientX+15,y=e.clientY-10; if(x+240>window.innerWidth)x=e.clientX-250; if(y+120>window.innerHeight)y=e.clientY-130; tipEl.style.left=x+'px';tipEl.style.top=y+'px';
-	  }
-	  function hideTip(){tipCode='';tipEl.style.display='none';}
-	  document.getElementById('mainContent').addEventListener('mousemove',function(e){
-	    var el=e.target, code='';
-	    while(el&&el!==this&&!code){
-	      var t=el.textContent.trim(); var m=t&&t.match(/(\d{6})/);
-	      if(m&&(el.classList.contains('c-pill')||el.classList.contains('zt-stock')||el.classList.contains('sc')||el.classList.contains('code')||el.classList.contains('name')||el.closest('.pick-item')||el.closest('tr')||el.closest('.layout-card')||el.classList.contains('stk-snippet'))){
-	        code=m[1]; break;
-	      }
-	      el=el.parentElement;
-	    }
-	    if(code) showTip(e, code); else hideTip();
-	  });
-
+    if(code===tipCode) return; tipCode=code;
+    clearTimeout(tipTimer);
+    var info=stockInfo[code];
+    if(!info){
+      var nm=code;
+      var all=document.querySelectorAll('.stk-row[data-code], td.code, .c-pill, .pick-item');
+      for(var j=0;j<all.length;j++){
+        var t=all[j].textContent.trim();
+        if(t.indexOf(code)>=0){
+          var m2=t.match(/\d{6}\s+(.+?)(?:\s+|$)/);
+          if(m2){nm=m2[1];break;}
+        }
+      }
+      info=stockInfo[code]={name:nm||code, sector:'', group:'', pos:'', tag:'', ind:''};
+    }
+    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
+    var ph='';
+    if(lp&&lp.price){
+      var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';
+      ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+(lp.chg_pct>=0?'+':'')+Number(lp.chg_pct).toFixed(1)+'%</span></div>';
+    }
+    var ind=info.ztInd||info.ind||'';
+    var cx='';
+    var concepts=info.concepts||(lp&&lp.concepts?lp.concepts:[]);
+    if(concepts.length){
+      var seen={},clean=[];
+      concepts.forEach(function(c){if(c&&!seen[c]){seen[c]=1;clean.push(c);}});
+      cx=clean.slice(0,6).join(' · ');
+    }
+    var ht='<div class="st-name">'+info.name+'</div>';
+    ht+='<div class="st-code">'+code+'</div>';
+    if(ph) ht+=ph;
+    if(ind) ht+='<div style="font-size:.76rem;margin-top:4px"><span style="color:var(--dim)">行业</span> '+ind+'</div>';
+    if(cx) ht+='<div style="font-size:.76rem;margin-top:2px;line-height:1.5"><span style="color:var(--dim)">概念</span> <span style="color:var(--blue)">'+cx+'</span></div>';
+    tipEl.innerHTML=ht;
+    tipEl.style.display='block';
+    var x=e.clientX+18,y=e.clientY+8;
+    if(x+260>window.innerWidth) x=e.clientX-270;
+    if(y+150>window.innerHeight) y=e.clientY-160;
+    tipEl.style.left=x+'px';tipEl.style.top=y+'px';
+  }
+  function hideTip(){tipCode='';tipEl.style.display='none';}
+  document.addEventListener('mousemove',function(e){
+    var el=e.target, code='';
+    while(el&&el!==document.body&&!code){
+      var t=el.textContent.trim();
+      var m=t.match(/(\d{6})/);
+      if(m&&(el.closest('.stk-row')||el.closest('.c-pill')||el.closest('.pick-item')||el.closest('td')||el.closest('.zt-stock')||el.closest('.layout-card'))){
+        code=m[1]; break;
+      }
+      el=el.parentElement;
+    }
+    if(code) showTip(e, code); else hideTip();
+  });
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
     if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动更新 | a-stock-data 28端点`;}
