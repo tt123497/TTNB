@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 09:22:42"
       }
     ],
-    "updated": "2026-06-28 05:22 UTC",
+    "updated": "2026-06-28 05:23 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7578,18 +7578,11 @@
       "src": "sina_7x24"
     }
   ],
-  "_newsMarket": [
-    {
-      "t": "周末，一大波利好来了！明天A股怎么走？",
-      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexpwa3256674.shtml",
-      "time": "11:22",
-      "src": "sina_7x24"
-    }
-  ],
+  "_newsMarket": [],
   "_newsMeta": {
-    "updated": "2026-06-28 13:22 CST",
+    "updated": "2026-06-28 13:23 CST",
     "sector": 2,
-    "market": 1
+    "market": 0
   },
   "industryRank": [
     {
