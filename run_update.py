@@ -145,7 +145,30 @@ def now_cst():
     return datetime.now(timezone.utc) + timedelta(hours=8)
 
 def is_trading(cst):
-    return cst.weekday() < 5 and 9 <= cst.hour < 15
+    """
+    判断是否为A股交易时段。
+    优先使用 chinese_calendar 库判断法定节假日 (春节/国庆/清明等),
+    库不可用时回退到简单的周一到周五判断。
+
+    交易时段: 周一到周五 9:15-15:00 (含集合竞价, 含午休时段)
+    """
+    # 周末一定不交易
+    if cst.weekday() >= 5:
+        return False
+    if not (9 <= cst.hour < 15):
+        return False
+    # 法定节假日判断 (chinese_calendar 库)
+    try:
+        import chinese_calendar as cc
+        # chinese_calendar 的 is_holiday 接受 date 对象
+        d = cst.date()
+        if cc.is_holiday(d):
+            return False
+        # is_workday 返回 True 表示是工作日 (含调休)
+        return cc.is_workday(d)
+    except Exception:
+        # chinese_calendar 库不可用或日期超出范围, 回退到简单判断
+        return True
 
 # ═══════════════════════════════════════════════════════════════
 # 1. 实时行情 (L1: 通达信 > 腾讯 > 东财 + 新浪兜底)
@@ -400,7 +423,7 @@ def fetch_northbound():
             "points": len(hsgt),
             "status": "实时" if is_trading(cst) else "收盘"
         }
-    except:
+    except Exception:
         return {"date": "", "hgt_yi": 0, "sgt_yi": 0, "net_yi": 0, "points": 0, "status": "无数据"}
 
 def fetch_hot_reasons():
@@ -438,7 +461,7 @@ def fetch_lockup_alerts(codes):
                     'ratio': ratio
                 })
             scanned += 1
-        except:
+        except Exception:
             pass
     alerts.sort(key=lambda x: (x['d'], -x['ratio']))
     return {"scanned": scanned, "alerts": alerts[:30], "forwardDays": 90}
@@ -470,118 +493,21 @@ def fetch_margin_summary(codes):
                     'change_5d': change_5d,
                     'rzmre_wan': round((latest.get("RZMRE") or 0) / 10000, 0),
                 })
-        except:
+        except Exception:
             pass
     summary.sort(key=lambda x: -x['change_5d'])
     return {"stocks": summary, "status": "ok" if summary else "无数据"}
 
 # ═══════════════════════════════════════════════════════════════
-# 3. Tier A — 全球资讯/行业排名/腾讯估值/公告/研报
+# 3. Tier A — 行业排名/腾讯估值/公告/研报
 # ═══════════════════════════════════════════════════════════════
 
-def fetch_global_news():
-    """东财7x24全球资讯"""
-    news = ad.eastmoney_global_news(25)
-    return {
-        "headlines": [{"t": n['title'][:130], "s": n['summary'][:90], "ts": n['time']} for n in news],
-        "updated": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
-        "status": "ok" if news else "empty"
-    }
-
-# ═══════════════════════════════════════════════════════════════
-# 3b. 多源新闻管道 (新浪4频道 + 东财公告 + 华尔街见闻)
-# 原 fetch_news.py 完整逻辑迁移
-# ═══════════════════════════════════════════════════════════════
-
-SECTOR_KW = ['六氟化钨','WF6','电子特气','钨矿','钨精矿','钼矿','稀土永磁','钕铁硼','AI芯片','GPU','算力','HBM','CPO','硅光','光模块','光芯片','中际旭创','天孚','新易盛','PCB','覆铜板','MLCC','电容','被动元件','电子树脂','PPE','铜箔','HVLP','存储','佰维','江波龙','液冷','散热','交换机','服务器','超节点','数据中心','AIDC','半导体','光刻胶','先进封装','CoWoS','硅片','靶材','机器人','Optimus','宇树','绿的谐波','拓普','商业航天','SpaceX','千帆','卫星','朱雀','固态电池','低空经济','eVTOL','电网设备','特高压','火电','变压器','风电','光伏','储能','锂矿','锂电池','新能源车','电解液','隔膜','煤炭','黄金','铜','铝','钢铁','化工','银行','券商','保险','白酒','茅台','医药','CRO','医疗器械','钼','钨','稀土','小金属','核能','量子','AI眼镜','6G','连接器','电源','DrMOS','培育钻石','碳纤维','锂矿','盐湖提锂','钠电池','锰','钒电池']
-MARKET_KW = ['A股','沪指','深指','创业板','科创板','沪深300','涨停','跌停','北向资金','主力资金','机构','游资','ETF','央行','降息','降准','LPR','MLF','社融','M2','证监会','交易所','国常会','国务院','发改委','工信部','人民币','汇率','美元','美联储','FOMC','GDP','PMI','CPI','PPI','半年报','年报','季报','业绩预告','分红','回购','增持','减持','解禁','牛市','熊市','美股','港股','纳指','标普','道指','非农','美债','地缘','中东','俄罗斯','伊朗','朝鲜','关税','制裁','英伟达','苹果','微软','谷歌','特斯拉','亚马逊','Meta','台积电','三星','SK海力士','ASML','原油','布伦特','WTI','黄金期货','LME','IPO','并购重组','万亿']
-NOISE_KW = ['足球','世界杯','奥运','NBA','英超','欧冠','比赛','联赛','明星','婚礼','离婚','八卦','娱乐','综艺','唱歌','电影','天气预报','地震','洪水','动物','猫','狗','熊猫','围棋','象棋','电竞','游戏','手游']
-
-def _fetch_json(url, timeout=10):
-    from urllib.request import Request, urlopen
-    try:
-        req = Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36', 'Referer': 'https://finance.sina.com.cn/'})
-        with urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode('utf-8', errors='replace'))
-    except: return None
-
-def fetch_sina_news():
-    cst = now_cst()
-    sector_news, market_news = [], []
-    channels = [('2512','股票'), ('2516','A股'), ('2509','7x24财经'), ('1689','产业')]
-    for ch_id, ch_name in channels:
-        url = f'https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid={ch_id}&k=&num=60&page=1&r={time.time()}'
-        data = _fetch_json(url)
-        if not data or not data.get('result'): continue
-        for it in data['result'].get('data', []):
-            title = it.get('title','') or it.get('intro','')
-            if not title or any(kw in title for kw in NOISE_KW): continue
-            try: ts = datetime.fromtimestamp(int(it.get('ctime','0')), tz=timezone.utc) + timedelta(hours=8)
-            except: ts = cst
-            age_h = (cst - ts).total_seconds() / 3600
-            max_age = 0.5 if (9 <= cst.hour < 15 and cst.weekday() < 5) else 24
-            if age_h > max_age: continue
-            entry = {'t': title.strip()[:120], 'u': it.get('url',''), 'time': ts.strftime('%H:%M'), 'src': 'sina_'+ch_name}
-            if any(kw in title for kw in SECTOR_KW): sector_news.append(entry)
-            elif any(kw in title for kw in MARKET_KW): market_news.append(entry)
-    return sector_news, market_news
-
-def fetch_em_announcements():
-    SIG_WORDS = ['业绩','盈利','亏损','分红','回购','增持','减持','重组','停牌','退市','上市','首发','IPO','非公开','配股','质押','冻结','拍卖','预亏','预增','扭亏','合同','中标','重大','诉讼','*ST','ST','股权转让','要约','收购','合并','涨价','停产','限产','减产','投产','量产','获批','通过']
-    SKIP_WORDS = ['董事会第','监事会第','独立董事','审计委员会','薪酬与考核','制度修订','工作细则','管理制度','信息知情人','防控控股','网上申购','中签率']
-    sector_news, market_news = [], []
-    for ann_type in ['A','SFA','SHA']:
-        url = f'https://np-anotice-stock.eastmoney.com/api/security/ann?page_size=40&page_index=1&ann_type={ann_type}&sr=-1&client_source=web'
-        data = _fetch_json(url)
-        if not data or data.get('success') != 1: continue
-        for it in data.get('data',{}).get('list',[]):
-            title = it.get('title','') or ''
-            if any(w in title for w in SKIP_WORDS) or not any(w in title for w in SIG_WORDS): continue
-            codes = it.get('codes',[])
-            stock_code = codes[0].get('stock_code','') if codes else ''
-            stock_name = codes[0].get('short_name','') if codes else ''
-            date_str = (it.get('notice_date','') or '')[:10]
-            entry = {'t': f'{stock_name}: {title[:90]}' if stock_name else title[:110], 'u': f'https://data.eastmoney.com/notices/detail/{stock_code}.html' if stock_code else '', 'time': date_str[-5:] if len(date_str)>=5 else date_str, 'src': 'em_announcement'}
-            if any(kw in title for kw in SECTOR_KW): sector_news.append(entry)
-            else: market_news.append(entry)
-    return sector_news, market_news
-
-def fetch_wallstreetcn():
-    cst = now_cst()
-    all_news = []
-    for ch, ch_name in [('global-channel','全球'), ('china-channel','中国')]:
-        url = f'https://api-one.wallstcn.com/apiv1/content/lives?channel={ch}&client=pc&limit=40&first=1'
-        data = _fetch_json(url, timeout=10)
-        if not data or not data.get('data'): continue
-        for it in data['data'].get('items',[]):
-            title = it.get('title','') or it.get('content_text','') or ''
-            url_link = it.get('uri','') or ''
-            if url_link and not url_link.startswith('http'): url_link = 'https://wallstreetcn.com' + url_link
-            try: ts = datetime.fromtimestamp(it.get('display_time',0) or 0, tz=timezone.utc) + timedelta(hours=8)
-            except: ts = cst
-            age_h = (cst - ts).total_seconds() / 3600
-            max_age = 0.5 if (9 <= cst.hour < 15 and cst.weekday() < 5) else 24
-            if age_h > max_age: continue
-            if not (any(kw in title for kw in SECTOR_KW) or any(kw in title for kw in MARKET_KW)): continue
-            all_news.append({'t': title.strip()[:120], 'u': url_link, 'time': ts.strftime('%H:%M'), 'src': 'wscn_'+ch_name})
-        time.sleep(0.3)
-    return all_news
-
-def _dedup(news_list):
-    seen = set(); result = []
-    for n in news_list:
-        key = n['t'][:50]
-        if key not in seen: seen.add(key); result.append(n)
-    result.sort(key=lambda n: n.get('time',''), reverse=True)
-    return result
-
-def fetch_all_news():
-    sina_s, sina_m = fetch_sina_news()
-    em_s, em_m = fetch_em_announcements()
-    wscn = fetch_wallstreetcn()
-    sector_all = _dedup(sina_s + em_s)
-    market_all = _dedup(sina_m + em_m + wscn)
-    return sector_all[:50], market_all[:50]
+# 新闻采集逻辑已提取到 news_sources.py (单一数据源, 与 news_watch.py 共享)
+# 新闻数据由 news_watch.py 独立写入 news.json, 不再写入 data.json
+from news_sources import (
+    SECTOR_KW, MARKET_KW, NOISE_KW,
+    fetch_all_news, fetch_global_news,
+)
 
 def fetch_industry_ranking(live=None, stock_sector=None):
     """
@@ -626,7 +552,7 @@ def fetch_cninfo_alerts(codes):
             anns = ad.cninfo_announcements(code, 3)
             for a in anns[:3]:
                 alerts.append({'c': code, 't': a['title'][:100], 'd': a['date']})
-        except:
+        except Exception:
             pass
     return {"alerts": alerts[:20], "status": "ok" if alerts else "no data"}
 
@@ -655,7 +581,7 @@ def fetch_concept_blocks(codes):
             blocks = ad.eastmoney_concept_blocks(c)
             if blocks.get('concept_tags'):
                 cb[c] = blocks['concept_tags'][:15]
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return cb
@@ -673,7 +599,7 @@ def fetch_stock_info_em(codes):
                     "flt": info.get("float_shares", 0),
                     "listDate": str(info.get("list_date", ""))[:10]
                 }
-        except:
+        except Exception:
             pass
         time.sleep(0.2)
     return si
@@ -687,7 +613,7 @@ def fetch_fund_flow_min(codes):
             if flows:
                 total = sum(f.get('main_net', 0) for f in flows[-10:])
                 ff[c] = round(total / 10000, 1)
-        except:
+        except Exception:
             pass
         time.sleep(0.2)
     return ff
@@ -700,7 +626,7 @@ def fetch_stock_news_batch(codes):
             news = ad.eastmoney_stock_news(c, 3)
             if news:
                 sn[c] = [n['title'][:80] for n in news[:3]]
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return sn
@@ -715,7 +641,7 @@ def fetch_fund_flow_120d_batch(codes):
                 n5d = sum(f.get('main_net', 0) for f in flows[-5:])
                 n20d = sum(f.get('main_net', 0) for f in flows[-20:])
                 ff[c] = {"n5d": round(n5d / 10000, 1), "n20d": round(n20d / 10000, 1)}
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return ff
@@ -723,11 +649,13 @@ def fetch_fund_flow_120d_batch(codes):
 def fetch_dragon_seats_batch(codes):
     """龙虎榜席位(个股)"""
     ds = {}
+    # 动态计算30天前的日期, 替代原来的硬编码 '2026-06-01'
+    from_date = (now_cst() - timedelta(days=30)).strftime('%Y-%m-%d')
     for c in (codes or [])[:25]:
         try:
             data = ad.eastmoney_datacenter(
                 "RPT_DAILYBILLBOARD_DETAILSNEW",
-                filter_str=f'(SECURITY_CODE="{c}")(TRADE_DATE>=\'2026-06-01\')',
+                filter_str=f'(SECURITY_CODE="{c}")(TRADE_DATE>=\'{from_date}\')',
                 page_size=3, sort_columns="TRADE_DATE", sort_types="-1",
             )
             if data:
@@ -737,7 +665,7 @@ def fetch_dragon_seats_batch(codes):
                     "net_wan": round(float(latest.get("BILLBOARD_NET_AMT") or 0) / 10000, 1),
                     "reason": (latest.get("EXPLANATION") or "")[:40],
                 }
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return ds
@@ -763,7 +691,7 @@ def fetch_block_trades_batch(codes):
                     "amt": round(float(latest.get("DEAL_AMT") or 0) / 10000, 0),
                     "buyer": (latest.get("BUYER_NAME") or "")[:20],
                 }
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return bt
@@ -785,7 +713,7 @@ def fetch_holder_nums_batch(codes):
                     "holders": latest.get("HOLDER_NUM", 0),
                     "chg_pct": round(float(latest.get("HOLDER_NUM_RATIO") or 0), 1),
                 }
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return hn
@@ -807,7 +735,7 @@ def fetch_dividends_batch(codes):
                     "bonus": round(float(latest.get("PRETAX_BONUS_RMB") or 0), 2),
                     "plan": (latest.get("ASSIGN_PROGRESS") or "")[:20],
                 }
-        except:
+        except Exception:
             pass
         time.sleep(0.3)
     return dh
@@ -872,11 +800,16 @@ def compute_winners_losers(live, stock_sector, heat_data):
             'c': code, 'n': v.get('name', ''), 'chg': chg
         })
 
-    # Sort heat
-    sorted_heat = sorted(heat_data, key=lambda x:
-        float(x['s'].replace('%','').replace('+','').replace('-','-')), reverse=True)
-    gainers = [h for h in sorted_heat if float(h['s'].replace('%','').replace('+','')) > 0]
-    decliners = [h for h in sorted_heat if float(h['s'].replace('%','').replace('+','')) < 0]
+    # Sort heat — 用正则提取数字, 避免脆弱的字符串替换链
+    import re as _re
+    def _parse_pct(s):
+        """从 '+5.7%' 或 '-3.2%' 中提取浮点数"""
+        m = _re.search(r'[-+]?\d+\.?\d*', s or '')
+        return float(m.group()) if m else 0.0
+
+    sorted_heat = sorted(heat_data, key=lambda x: _parse_pct(x['s']), reverse=True)
+    gainers = [h for h in sorted_heat if _parse_pct(h['s']) > 0]
+    decliners = [h for h in sorted_heat if _parse_pct(h['s']) < 0]
 
     def match_sec(em_name):
         """Map EM sector name → our sector name"""
@@ -913,7 +846,7 @@ def auto_cycle(indices):
     try:
         avg_chg = sum(float(i['chg'].replace('%','').replace('+','')) for i in major) / len(major)
         up_count = sum(1 for i in major if i.get('up', False))
-    except:
+    except Exception:
         avg_chg = 0; up_count = 0
 
     if avg_chg > 1.5 and up_count >= 3:
@@ -957,8 +890,9 @@ def main():
             pass
     preserve_keys = ['sectors', 'top3', 'picks', 'briefing', 'events', 'layout',
                      'bHistory', 'concepts', 'dynamicSectors', '_eventsMeta', 'sectorTags',
-                     '_sectorTracker', '_promoteQueue', '_hot_uncovered', '_backtest',
-                     '_newsSector', '_newsMarket', '_newsMeta', 'globalNews']
+                     '_sectorTracker', '_promoteQueue', '_hot_uncovered', '_backtest']
+    # 新闻字段 (_newsSector/_newsMarket/_newsMeta/globalNews) 已迁移到 news.json,
+    # 由 news_watch.py 独立管理, 不再写入 data.json
     preserve = {k: old.get(k) for k in preserve_keys if k in old and old.get(k)}
     # Sync root↔briefing: 前端读双路径, AI write 路径可能不同步
     if preserve.get('picks') and not preserve.get('briefing',{}).get('picks'):
@@ -1006,7 +940,7 @@ def main():
         r = ad.em_get('https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:90+t:3&fields=f3,f12,f14,f62', timeout=10)
         items = r.json().get('data',{}).get('diff',[]) or []
         fund = [{'n': i.get('f14',''), 'amt': f"{'+' if float(i.get('f62',0) or 0) > 0 else ''}{abs(float(i.get('f62',0) or 0)) / 100000000:.1f}亿"} for i in items]
-    except: pass
+    except Exception: pass
 
     zt = fetch_zt_ladder(cst)
     print(f"  ztLadder: {zt and zt.get('totalCount',0) or 0} stocks")
@@ -1023,7 +957,7 @@ def main():
         dt_list = [i for i in items if i.get('f3',0) <= -9.9]
         zt_count = len(zt_list)
         dt_count = len(dt_list)
-    except:
+    except Exception:
         # 东财不通用连板池计数兜底
         if zt:
             zt_count = zt.get('totalCount', 0) or 0
@@ -1110,7 +1044,7 @@ def main():
             df = ad.ths_eps_forecast(c)
             if df is not None and not df.empty:
                 eps_data[c] = str(df.to_dict())  # 简化序列化
-        except: pass
+        except Exception: pass
     print(f"  一致预期EPS: {len(eps_data)}只")
 
     # 个股研报
@@ -1120,7 +1054,7 @@ def main():
             reports = ad.eastmoney_reports(c, max_pages=1)
             if reports:
                 report_data[c] = [{'t': r.get('title','')[:80], 'org': r.get('orgSName',''), 'd': str(r.get('publishDate',''))[:10], 'eps': r.get('predictThisYearEps','')} for r in reports[:3]]
-        except: pass
+        except Exception: pass
     print(f"  个股研报: {len(report_data)}只")
 
     # 概念板块归属
@@ -1130,7 +1064,7 @@ def main():
             blocks = ad.eastmoney_concept_blocks(c)
             if blocks.get('concept_tags'):
                 concept_data[c] = blocks['concept_tags'][:10]
-        except: pass
+        except Exception: pass
         time.sleep(0.06)
     print(f"  概念板块: {len(concept_data)}只")
 
@@ -1141,7 +1075,7 @@ def main():
             lrb = ad.sina_financial_report(c, 'lrb', 4)
             if lrb:
                 sina_data[c] = {'利润表': lrb[:4]}
-        except: pass
+        except Exception: pass
     print(f"  新浪三表: {len(sina_data)}只")
 
     # F10 公司资料
@@ -1152,7 +1086,7 @@ def main():
                 text = ad.mootdx_f10(c, '公司概况')
                 if text and len(str(text)) > 50:
                     f10_data[c] = str(text)[:500]
-            except: pass
+            except Exception: pass
     print(f"  F10: {len(f10_data)}只")
 
     # 股东户数
@@ -1162,7 +1096,7 @@ def main():
             h = ad.holder_num_change(c, 3)
             if h:
                 holder_data[c] = [{'d': r['date'], 'num': r.get('holder_num',0), 'chg': r.get('change_ratio',0)} for r in h[:3]]
-        except: pass
+        except Exception: pass
         time.sleep(0.08)
     print(f"  股东户数: {len(holder_data)}只")
 
@@ -1173,7 +1107,7 @@ def main():
             d = ad.dividend_history(c, 5)
             if d:
                 div_data[c] = [{'d': r['date'], 'bonus': r.get('bonus_rmb',0), 'plan': r.get('plan','')} for r in d[:3]]
-        except: pass
+        except Exception: pass
         time.sleep(0.08)
     print(f"  分红送转: {len(div_data)}只")
 

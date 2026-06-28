@@ -56,22 +56,19 @@
 
 ```
 index.html          — 前端单页应用 (9 Tab)
-data.json           — 云端产出的数据文件 (被 Git 忽略)
+data.json           — 云端产出的数据文件 (提交到仓库, 由 GitHub Pages 直接服务)
+news.json           — 快讯数据 (由 news_watch.py 独立写入, 与 data.json 分离避免并发冲突)
+briefing-history.json — AI 简报历史 (懒加载, 减小首屏体积)
 run_update.py       — 统一数据更新入口 (替代旧5个脚本)
 a_stock_data.py     — a-stock-data 28端点函数库
+news_sources.py     — 新闻采集公共模块 (news_watch.py 和 run_update.py 共享)
 sector_fixed_stocks.py — 55+赛道固定标的池
+news_watch.py       — 60秒快讯守护进程 (本地运行, 写 news.json)
 .github/scripts/    — 旧独立脚本 (已被 run_update.py 替代)
-  fetch_data.py     — 原行情采集
-  fetch_news.py     — 原多源新闻 (新浪+东财公告+华尔街见闻)
-  fetch_enrich.py   — 原增强层 (北向/龙虎榜/解禁/两融/热点)
-  fetch_tierA.py    — 原 Tier A (全球资讯/行业排名/腾讯估值/公告/研报)
-  fetch_tierB.py    — 原 Tier B (概念/个股信息/资金流/新闻)
   sentinel_ai.py    — AI 哨兵 (读 data.json → DeepSeek → 写简报)
   fetch_events.py   — 事件日历+布局生成
   score_sectors.py  — 赛道信号评分
   discover_sectors.py — 热门赛道发现
-  build_briefing.py — 简报构建
-  backtest.py       — 回测统计
 .github/workflows/  — GitHub Actions
   market-update.yml — 每5分钟行情更新
   sentinel-ai.yml   — 每小时AI哨兵

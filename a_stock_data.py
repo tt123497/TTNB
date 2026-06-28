@@ -289,10 +289,68 @@ def tencent_quote(codes):
 def tencent_indices(index_codes=None):
     """
     腾讯财经指数行情。默认: 上证/深证/创业板/科创50/沪深300/上证50
+
+    注意: 指数代码不能直接用 tencent_quote(), 因为 get_prefix() 会把
+    上证指数(000001)误判为深圳市场(sz000001=平安银行),
+    导致返回错误数据。这里直接指定正确的市场前缀。
     """
     if index_codes is None:
         index_codes = ["000001", "399001", "399006", "000688", "000300", "000016"]
-    return tencent_quote(index_codes)
+
+    # 指数代码 → 正确的市场前缀 (不依赖 get_prefix, 避免误判)
+    INDEX_PREFIX = {
+        "000001": "sh",  # 上证指数
+        "000016": "sh",  # 上证50
+        "000300": "sh",  # 沪深300
+        "000688": "sh",  # 科创50
+        "000905": "sh",  # 中证500
+        "000852": "sh",  # 中证1000
+        "399001": "sz",  # 深证成指
+        "399006": "sz",  # 创业板指
+        "399005": "sz",  # 中小板指
+    }
+
+    from urllib.request import Request, urlopen
+    prefixed = [f"{INDEX_PREFIX.get(c, 'sh')}{c}" for c in index_codes]
+    url = "https://qt.gtimg.cn/q=" + ",".join(prefixed)
+    try:
+        req = Request(url)
+        req.add_header("User-Agent", UA)
+        resp = urlopen(req, timeout=10)
+        data = resp.read().decode("gbk", errors='replace')
+    except Exception:
+        return {}
+
+    result = {}
+    for line in data.strip().split("\n"):
+        if not line.strip() or "=" not in line or '"' not in line:
+            continue
+        vals = line.split('"')[1].split("~")
+        if len(vals) < 5:
+            continue
+        code = vals[2] if len(vals) > 2 else ""
+        if not code or len(code) != 6:
+            continue
+        try:
+            # 指数行情字段和个股不完全一致, 但关键字段位置相同:
+            # vals[1]=名称, vals[3]=最新点位, vals[32]=涨跌幅(如果有)
+            price = float(vals[3]) if vals[3] else 0
+            # 涨跌幅: 优先 vals[32], 不存在时从 vals[3]和vals[4]计算
+            if len(vals) > 32 and vals[32]:
+                change_pct = float(vals[32])
+            elif len(vals) > 4 and vals[4] and float(vals[4]) != 0:
+                change_pct = (price - float(vals[4])) / float(vals[4]) * 100
+            else:
+                change_pct = 0
+            result[code] = {
+                "name": vals[1],
+                "price": price,
+                "last_close": float(vals[4]) if len(vals) > 4 and vals[4] else 0,
+                "change_pct": change_pct,
+            }
+        except (ValueError, IndexError):
+            continue
+    return result
 
 
 # ── 1.3 百度股市通 K线 (带MA5/10/20) ──
@@ -438,7 +496,6 @@ def _sina_index_fallback(names):
             text = r.read().decode('gbk', errors='replace')
         results = []
         labels = list(names.values())
-        rev = {v: k for k, v in sina_names.items()}
         for i, line in enumerate(text.strip().split('\n')):
             if '=' not in line:
                 continue
@@ -1553,19 +1610,19 @@ def health_check(fast=True):
     try:
         q = tencent_quote(['000001'])
         results['tencent'] = len(q) > 0
-    except:
+    except Exception:
         results['tencent'] = False
     # 东财
     try:
         r = em_get('https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=1&po=1&np=1&fltt=2&invt=2&fs=m:0+t:1&fields=f12', timeout=10)
         results['eastmoney'] = r.status_code == 200
-    except:
+    except Exception:
         results['eastmoney'] = False
     # 同花顺
     try:
         hot = ths_hot_reason()
         results['10jqka'] = len(hot) > 0
-    except:
+    except Exception:
         results['10jqka'] = False
     return results
 

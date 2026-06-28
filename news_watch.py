@@ -1,16 +1,29 @@
 #!/usr/bin/env python3
-"""news_watch — 60秒快讯守护进程, 全HTTP零封禁"""
+"""news_watch — 60秒快讯守护进程, 全HTTP零封禁
+
+架构说明 (2026-06-28 修复并发写入竞态):
+  本进程只写 news.json, 不再读写 data.json。
+  run_update.py (GitHub Actions) 只写 data.json。
+  两者写不同文件, git rebase 不再冲突, 不再丢数据。
+  index.html 分别 fetch data.json 和 news.json。
+"""
 import json, os, sys, time, re, uuid
 from datetime import datetime, timezone, timedelta
 from urllib.request import Request, urlopen
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(DIR, 'data.json')
+NEWS_PATH = os.path.join(DIR, 'news.json')   # 独立文件, 不再碰 data.json
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 CST = timezone(timedelta(hours=8))
-SECTOR_KW = ['六氟化钨','WF6','AI芯片','GPU','HBM','CPO','硅光','光模块','PCB','MLCC','电子树脂','PPE','铜箔','HVLP','存储','液冷','服务器','数据中心','AIDC','半导体','光刻胶','先进封装','CoWoS','靶材','机器人','Optimus','商业航天','SpaceX','卫星','固态电池','低空经济','eVTOL','电网','特高压','火电','风电','光伏','储能','锂矿','锂电池','新能源车','稀土','小金属','核能','量子','6G','连接器','AI眼镜','碳纤维','钨','钼','钠电池']
-MARKET_KW = ['A股','沪指','跌停','涨停','北向资金','主力资金','央行','降息','降准','LPR','证监会','人民币','汇率','美联储','GDP','PMI','CPI','半年报','红利','回购','增持','减持','解禁','IPO','美股','港股','纳指','标普','英伟达','苹果','特斯拉','台积电','原油','黄金','地缘','中东','关税','制裁','非农']
-NOISE_KW = ['足球','世界杯','奥运','NBA','联赛','明星','婚礼','八卦','娱乐','综艺','电影','地震','洪水','猫','狗','熊猫','围棋','电竞','游戏','手游']
+
+# 关键词列表 — 与 news_sources.py 保持一致 (单一数据源)
+try:
+    from news_sources import SECTOR_KW, MARKET_KW, NOISE_KW
+except ImportError:
+    # 兜底: news_sources.py 不存在时用内置列表
+    SECTOR_KW = ['六氟化钨','WF6','AI芯片','GPU','HBM','CPO','硅光','光模块','PCB','MLCC','电子树脂','PPE','铜箔','HVLP','存储','液冷','服务器','数据中心','AIDC','半导体','光刻胶','先进封装','CoWoS','靶材','机器人','Optimus','商业航天','SpaceX','卫星','固态电池','低空经济','eVTOL','电网','特高压','火电','风电','光伏','储能','锂矿','锂电池','新能源车','稀土','小金属','核能','量子','6G','连接器','AI眼镜','碳纤维','钨','钼','钠电池']
+    MARKET_KW = ['A股','沪指','跌停','涨停','北向资金','主力资金','央行','降息','降准','LPR','证监会','人民币','汇率','美联储','GDP','PMI','CPI','半年报','红利','回购','增持','减持','解禁','IPO','美股','港股','纳指','标普','英伟达','苹果','特斯拉','台积电','原油','黄金','地缘','中东','关税','制裁','非农']
+    NOISE_KW = ['足球','世界杯','奥运','NBA','联赛','明星','婚礼','八卦','娱乐','综艺','电影','地震','洪水','猫','狗','熊猫','围棋','电竞','游戏','手游']
 
 def _fetch(url, extra_headers=None, timeout=10):
     try:
@@ -18,9 +31,13 @@ def _fetch(url, extra_headers=None, timeout=10):
         if extra_headers: h.update(extra_headers)
         with urlopen(Request(url, headers=h), timeout=timeout) as r:
             return json.loads(r.read().decode('utf-8', errors='replace'))
-    except: return None
+    except Exception: return None
 
 def _now(): return datetime.now(timezone.utc) + timedelta(hours=8)
+
+def _is_trading(cst):
+    """交易时段判断 — 周一到周五 9-15点 (节假日判断由 run_update 的 chinese_calendar 负责)"""
+    return cst.weekday() < 5 and 9 <= cst.hour < 15
 
 def _sina_news():
     cst, sn, mn = _now(), [], []
@@ -31,8 +48,9 @@ def _sina_news():
             t = it.get('title','') or it.get('intro','')
             if not t or any(k in t for k in NOISE_KW): continue
             try: ts = datetime.fromtimestamp(int(it.get('ctime','0')), tz=timezone.utc) + timedelta(hours=8)
-            except: ts = cst
-            if (cst-ts).total_seconds()/3600 > (0.5 if 9<=cst.hour<15 and cst.weekday()<5 else 24): continue
+            except Exception: ts = cst
+            max_age = 0.5 if _is_trading(cst) else 24
+            if (cst-ts).total_seconds()/3600 > max_age: continue
             e = {'t': t.strip()[:120], 'u': it.get('url',''), 'time': ts.strftime('%H:%M'), 'src': 'sina_'+nm}
             if any(k in t for k in SECTOR_KW): sn.append(e)
             elif any(k in t for k in MARKET_KW): mn.append(e)
@@ -61,10 +79,10 @@ def _wscn():
         if not d or not d.get('data'): continue
         for it in d['data'].get('items',[]):
             t = it.get('title','') or it.get('content_text','') or ''
-            u = it.get('uri','') or '';
+            u = it.get('uri','') or ''
             if u and not u.startswith('http'): u = 'https://wallstreetcn.com'+u
             try: ts = datetime.fromtimestamp(it.get('display_time',0) or 0, tz=timezone.utc) + timedelta(hours=8)
-            except: ts = cst
+            except Exception: ts = cst
             if (cst-ts).total_seconds()/3600 > 1: continue
             if any(k in t for k in SECTOR_KW) or any(k in t for k in MARKET_KW):
                 rs.append({'t': t.strip()[:120], 'u': u, 'time': ts.strftime('%H:%M'), 'src': 'wscn_'+nm})
@@ -86,8 +104,28 @@ def _dedup(ns):
     rs.sort(key=lambda n: n.get('time',''), reverse=True)
     return rs
 
+def _save_news(news_data):
+    """原子写入 news.json (不再写 data.json)"""
+    tmp = NEWS_PATH + '.tmp'
+    with open(tmp, 'w', encoding='utf-8') as f:
+        json.dump(news_data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, NEWS_PATH)
+
+def _git_push():
+    """只 commit + push news.json, 不碰 data.json — 避免与 run_update.py 冲突"""
+    for i in range(3):
+        cmd = (f'cd {DIR} && git add news.json 2>/dev/null '
+               f'&& git commit -m "📡 {_now().strftime("%H:%M")} 快讯" 2>/dev/null '
+               f'&& git pull --rebase origin main 2>/dev/null '
+               f'&& git push origin main 2>/dev/null')
+        if os.system(cmd) == 0:
+            return True
+        time.sleep(2)
+    return False
+
 def main_loop():
     print(f'📡 news_watch 启动: 新浪4频道 + 东财公告 + 华尔街见闻 + 东财7x24 (全HTTP, 零封禁)')
+    print(f'   写入目标: news.json (独立文件, 不再写 data.json)')
     while True:
         try:
             cst = _now()
@@ -95,22 +133,19 @@ def main_loop():
             ns = _dedup(s1+s2); nm = _dedup(m1+m2+w)
             print(f'[{cst.strftime("%H:%M:%S")}] 赛道:{len(ns)} 市场:{len(nm)} 7x24:{len(g.get("headlines",[]))}')
 
-            data = {}
-            if os.path.exists(DATA_PATH):
-                try:
-                    with open(DATA_PATH,'r',encoding='utf-8') as f: data = json.load(f)
-                except: pass
-            data['_newsSector'] = ns[:50]; data['_newsMarket'] = nm[:50]
-            data['_newsMeta'] = {'updated': cst.strftime('%Y-%m-%d %H:%M CST'), 'sector': len(ns), 'market': len(nm)}
-            data['globalNews'] = g
-            tmp = DATA_PATH+'.tmp'
-            with open(tmp,'w',encoding='utf-8') as f: json.dump(data, f, ensure_ascii=False, indent=2)
-            os.replace(tmp, DATA_PATH)
-
-            for i in range(3):
-                if os.system('cd '+DIR+' && git add data.json 2>/dev/null && git commit -m "📡 '+cst.strftime('%H:%M')+' 快讯" 2>/dev/null && git pull --rebase origin main 2>/dev/null && git push origin main 2>/dev/null') == 0:
-                    break
-                time.sleep(2)
+            # 只写 news.json, 不再读写 data.json
+            news_data = {
+                '_newsSector': ns[:50],
+                '_newsMarket': nm[:50],
+                '_newsMeta': {
+                    'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
+                    'sector': len(ns),
+                    'market': len(nm),
+                },
+                'globalNews': g,
+            }
+            _save_news(news_data)
+            _git_push()
         except Exception as e:
             print(f'ERR: {e}')
         time.sleep(60)

@@ -2,9 +2,16 @@
 __pycache__/
 remote_data.json
 data.json.tmp
+news.json.tmp
 akshare-one-mcp/
 akshare_mcp_server/
 pytdx-formula-interpreter/
 .mcp.json
 skills_catalog.json
 update_weekend.py
+# 凭证文件 - 永远不要提交
+*.pkl
+*.cookie
+*.session
+.env
+.env.local

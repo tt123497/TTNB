@@ -10,8 +10,8 @@ start "" /min python -m http.server 8080 -d D:\projects\market-dashboard
 echo        http://localhost:8080
 echo.
 echo [2/3] 数据引擎 启动...
-start "" /min python D:\projects\market-dashboard\auto_data.py
-echo        每30分钟自动抓行情
+start "" /min python D:\projects\market-dashboard\run_update.py
+echo        统一数据更新 (a-stock-data 28端点)
 echo.
 echo [3/3] 公网隧道 启动...
 start "" /min powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command "npx --yes localtunnel --port 8080 2>&1 | ForEach-Object { if ($_ -match 'your url is: (https://[^\s]+)') { $Matches[1] | Out-File 'D:\projects\market-dashboard\public-url.txt'; Write-Host $Matches[1] } }"

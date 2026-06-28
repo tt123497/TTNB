@@ -7,13 +7,13 @@ on:
     paths-ignore:
       - 'data.json'
       - 'briefing-history.json'
+      - 'news.json'
       - 'archive/**'
       - 'index.html'
       - '.github/workflows/**'
   schedule:
-    # CST 9:00-15:55 every 5min (UTC 1:00-7:55)
-    - cron: '*/5 1-7 * * 1-5'
-    # 7x24每5分钟兜底 (新闻全天更新)
+    # 每5分钟全量更新 (7x24, 含非交易时段新闻采集)
+    # 原来有两个 cron, 第二个 */5 * * * * 已完全覆盖第一个, 删除冗余
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
@@ -83,7 +83,7 @@ jobs:
           echo "Python found: $PY_BIN"
           "$PY_BIN" --version
           "$PY_BIN" -m pip install --upgrade pip --quiet || true
-          "$PY_BIN" -m pip install mootdx requests pandas numpy openpyxl --quiet
+          "$PY_BIN" -m pip install mootdx requests pandas numpy openpyxl chinese_calendar --quiet
 
       - name: Run unified update (a-stock-data 28 endpoints)
         run: python run_update.py
@@ -94,8 +94,8 @@ jobs:
       - name: Score sectors
         run: python .github/scripts/score_sectors.py
 
-      - name: News backup (fetch_news.py)
-        run: python .github/scripts/fetch_news.py
+      # fetch_news.py 已废弃 — 新闻采集由 news_watch.py (本地60秒) 独立写入 news.json
+      # 新闻逻辑已提取到 news_sources.py 公共模块
 
       - name: Build events + layout
         run: python .github/scripts/fetch_events.py
@@ -103,12 +103,14 @@ jobs:
       - name: Commit and push
         run: |
           set +e  # 禁用-e模式, 允许git push失败后重试
+          # 只 add data.json/briefing-history.json/archive — 不碰 news.json
+          # news.json 由 news_watch.py (本地60秒) 独立写入和 push, 避免并发冲突
           git add data.json briefing-history.json archive/ 2>/dev/null || git add data.json briefing-history.json 2>/dev/null || git add data.json
           git diff --staged --quiet && exit 0
           for i in 1 2 3; do
             git commit -m "Update $(date '+%H:%M')"
-            # -X theirs: rebase冲突时用我们的data.json覆盖(news_loop会重新获取新闻)
-            git pull --rebase -X theirs origin main && git push origin main && exit 0
+            # 普通rebase即可: 两边写不同文件(data.json vs news.json), 不会冲突
+            git pull --rebase origin main && git push origin main && exit 0
             git rebase --abort 2>/dev/null; git reset --soft HEAD~1 2>/dev/null
             sleep 5
           done
