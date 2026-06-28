@@ -19384,12 +19384,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "2800亿存储龙头，公司董事通过集中竞价，减持套现13.83亿元！",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieykzq6072208.shtml",
-      "time": "20:21",
-      "src": "sina_A股"
-    },
-    {
       "t": "重庆钢铁: 重庆钢铁:关于部分董事、高级管理人员增持公司A股计划的公告",
       "u": "https://data.eastmoney.com/notices/detail/601005.html",
       "time": "06-29",
@@ -19549,8 +19543,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:20 CST",
-    "sector": 5,
+    "updated": "2026-06-28 22:21 CST",
+    "sector": 4,
     "market": 25
   },
   "globalNews": {
@@ -19681,7 +19675,7 @@
         "ts": "2026-06-28 19:01:59"
       }
     ],
-    "updated": "2026-06-28 14:20 UTC",
+    "updated": "2026-06-28 14:22 UTC",
     "status": "ok"
   }
 }
