@@ -2451,11 +2451,11 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     if(!info){
       var nm=''; var he=document.querySelector('.stk-row[data-code="'+code+'"] .name');
       if(he) nm=he.textContent.trim();
-      info=stockInfo[code]={name:nm||code, sector:'', group:'', pos:'\u2014', tag:'', ind:'\u2014'};
+      info=stockInfo[code]={name:nm||code, sector:'', group:'', pos:'—', tag:'', ind:'—'};
     }
     var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
     var ph=''; if(lp){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';var ar=lp.chg_pct>=0?'+':'';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+ar+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-    var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'\u2014');
+    var ind=info.ztInd||info.ind||(lp&&lp.industry?lp.industry:'—');
     var concepts=[];
     if(info.concepts&&info.concepts.length) concepts=info.concepts;
     else if(lp&&lp.concepts&&lp.concepts.length) concepts=lp.concepts.filter(function(c){return c&&c.trim();});
