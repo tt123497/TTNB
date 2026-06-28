@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 04:40:32"
       }
     ],
-    "updated": "2026-06-28 02:08 UTC",
+    "updated": "2026-06-28 02:09 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7582,18 +7582,12 @@
       "u": "https://finance.sina.com.cn/stock/roll/2026-06-28/doc-iniexiqe3307300.shtml",
       "time": "08:18",
       "src": "sina_7x24"
-    },
-    {
-      "t": "存储利好来了！苹果，想买长鑫存储芯片！",
-      "u": "https://finance.sina.com.cn/stock/roll/2026-06-28/doc-iniexiqa0848659.shtml",
-      "time": "08:09",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [],
   "_newsMeta": {
-    "updated": "2026-06-28 10:08 CST",
-    "sector": 4,
+    "updated": "2026-06-28 10:09 CST",
+    "sector": 3,
     "market": 0
   },
   "industryRank": [
