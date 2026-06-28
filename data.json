@@ -1,6 +1,12 @@
 {
   "_newsSector": [
     {
+      "t": "半导体大牛股，紧急发布澄清声明",
+      "u": "https://finance.sina.com.cn/stock/hyyj/2026-06-28/doc-inieyrik3533972.shtml",
+      "time": "21:16",
+      "src": "sina_7x24"
+    },
+    {
       "t": "半导体牛股大动作！下周一停牌",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-28/doc-inieykzn3654116.shtml",
       "time": "20:53",
@@ -190,8 +196,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:29 CST",
-    "sector": 6,
+    "updated": "2026-06-28 21:30 CST",
+    "sector": 7,
     "market": 25
   },
   "globalNews": {
@@ -322,7 +328,7 @@
         "ts": "2026-06-28 18:46:04"
       }
     ],
-    "updated": "2026-06-28 13:29 UTC",
+    "updated": "2026-06-28 13:30 UTC",
     "status": "ok"
   }
 }
