@@ -19410,6 +19410,12 @@
       "src": "wscn_全球"
     },
     {
+      "t": "A股公司业绩大降45%，实控人入主5年闪电退场，明起停牌",
+      "u": "https://finance.sina.com.cn/wm/2026-06-28/doc-inieyrin0324597.shtml",
+      "time": "21:46",
+      "src": "sina_A股"
+    },
+    {
       "t": "“央行中的央行”拉响AI泡沫警报：万亿美元资本支出狂潮恐演变为漫长崩盘",
       "u": "https://finance.sina.com.cn/stock/2026-06-28/doc-inieyriq2740628.shtml",
       "time": "21:42",
@@ -19543,9 +19549,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:26 CST",
+    "updated": "2026-06-28 22:28 CST",
     "sector": 5,
-    "market": 24
+    "market": 25
   },
   "globalNews": {
     "headlines": [
@@ -19675,7 +19681,7 @@
         "ts": "2026-06-28 19:01:59"
       }
     ],
-    "updated": "2026-06-28 14:27 UTC",
+    "updated": "2026-06-28 14:28 UTC",
     "status": "ok"
   }
 }
