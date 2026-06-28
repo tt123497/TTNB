@@ -1,50 +1,50 @@
-# tdxstock:// protocol handler — 一键打开个股
+﻿# tdxstock:// protocol handler 鈥?涓€閿墦寮€涓偂
 param([string]$url='')
 
-# 1. 从 URL 提取6位代码
+# 1. 浠?URL 鎻愬彇6浣嶄唬鐮?
 $code = ''
 if ($url -match 'tdxstock://(\d{6})') { $code = $Matches[1] }
 if ($url -match 'tdxstock://([^/]+)') { $code = $Matches[1] }
 if (-not $code -or $code.Length -ne 6) { exit }
 
-# 2. 自动检测通达信安装路径 (不再硬编码)
+# 2. 鑷姩妫€娴嬮€氳揪淇″畨瑁呰矾寰?(涓嶅啀纭紪鐮?
 $tdxPath = $null
 $candidates = @(
   'D:\tongxinda\TdxW.exe',
   'C:\new_tdx\TdxW.exe',
   'D:\new_tdx\TdxW.exe',
-  'D:\通达信\TdxW.exe',
-  'C:\通达信\TdxW.exe',
-  'D:\新通达信\TdxW.exe',
-  'C:\Program Files\通达信\TdxW.exe',
-  'D:\Program Files\通达信\TdxW.exe',
+  'D:\閫氳揪淇TdxW.exe',
+  'C:\閫氳揪淇TdxW.exe',
+  'D:\鏂伴€氳揪淇TdxW.exe',
+  'C:\Program Files\閫氳揪淇TdxW.exe',
+  'D:\Program Files\閫氳揪淇TdxW.exe',
   'E:\tongxinda\TdxW.exe',
   'E:\new_tdx\TdxW.exe'
 )
 foreach ($p in $candidates) {
   if (Test-Path $p) { $tdxPath = $p; break }
 }
-# 仍未找到: 搜索注册表中的 TdxW.exe
+# 浠嶆湭鎵惧埌: 鎼滅储娉ㄥ唽琛ㄤ腑鐨?TdxW.exe
 if (-not $tdxPath) {
   try {
     $reg = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\TdxW.exe' -ErrorAction SilentlyContinue
     if ($reg -and $reg.'(default)') { $tdxPath = $reg.'(default)' }
   } catch {}
 }
-# 最后兜底: 用 Get-Process 找已运行的通达信
+# 鏈€鍚庡厹搴? 鐢?Get-Process 鎵惧凡杩愯鐨勯€氳揪淇?
 if (-not $tdxPath) {
   $proc = Get-Process -Name 'TdxW' -ErrorAction SilentlyContinue
   if ($proc) { $tdxPath = $proc.Path }
 }
 
-# 3. 启动通达信 (如果没运行)
+# 3. 鍚姩閫氳揪淇?(濡傛灉娌¤繍琛?
 $tdxProcess = Get-Process -Name 'TdxW' -ErrorAction SilentlyContinue
 if (-not $tdxProcess -and $tdxPath) {
   Start-Process -FilePath $tdxPath -WindowStyle Maximized
   Start-Sleep -Seconds 5
 }
 
-# 4. 把通达信窗口拉到前台并最大化
+# 4. 鎶婇€氳揪淇＄獥鍙ｆ媺鍒板墠鍙板苟鏈€澶у寲
 try {
   Add-Type @"
     using System;
@@ -63,7 +63,7 @@ try {
     }
 } catch {}
 
-# 5. 模拟键盘输入代码 + 回车 (敲入通达信键盘精灵)
+# 5. 妯℃嫙閿洏杈撳叆浠ｇ爜 + 鍥炶溅 (鏁插叆閫氳揪淇￠敭鐩樼簿鐏?
 Add-Type -AssemblyName System.Windows.Forms
 Start-Sleep -Milliseconds 200
 [System.Windows.Forms.SendKeys]::SendWait($code)
