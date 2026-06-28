@@ -99,12 +99,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "A股、H股股价齐跌，可孚医疗打出回购加增持组合拳",
-      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-06-28/doc-inieykzq6068863.shtml",
-      "time": "19:52",
-      "src": "sina_7x24"
-    },
-    {
       "t": "中富通: 中富通:关于公司股东、高级管理人员股份减持计划的预披露公告",
       "u": "https://data.eastmoney.com/notices/detail/300560.html",
       "time": "06-29",
@@ -202,9 +196,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:51 CST",
+    "updated": "2026-06-28 21:52 CST",
     "sector": 6,
-    "market": 27
+    "market": 26
   },
   "globalNews": {
     "headlines": [
@@ -334,7 +328,7 @@
         "ts": "2026-06-28 18:55:17"
       }
     ],
-    "updated": "2026-06-28 13:51 UTC",
+    "updated": "2026-06-28 13:52 UTC",
     "status": "ok"
   }
 }
