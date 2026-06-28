@@ -102,12 +102,14 @@ jobs:
 
       - name: Commit and push
         run: |
+          set +e  # 禁用-e模式, 允许git push失败后重试
           git add data.json briefing-history.json archive/ 2>/dev/null || git add data.json briefing-history.json 2>/dev/null || git add data.json
           git diff --staged --quiet && exit 0
           for i in 1 2 3; do
             git commit -m "Update $(date '+%H:%M')"
             git pull --rebase origin main && git push origin main && exit 0
             git rebase --abort 2>/dev/null; git reset --soft HEAD~1 2>/dev/null
-            sleep 3
+            sleep 5
           done
           echo "Push failed after retries"
+          exit 0  # push失败不阻塞workflow, 下次定时会重试
