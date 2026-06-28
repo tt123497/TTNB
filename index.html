@@ -2491,8 +2491,8 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
     var el=e.target, code='';
     while(el&&el!==document.body&&!code){
       var t=el.textContent.trim();
-      var m=t.match(/(\d{6})/);
-      if(m&&(el.closest('.stk-row')||el.closest('.c-pill')||el.closest('.pick-item')||el.closest('td')||el.closest('.zt-stock')||el.closest('.layout-card'))){
+      var m=t.match(/(\d{6})/);
+      if(m&&el.closest&&(el.closest('.stk-row')||el.closest('.c-pill')||el.closest('.pick-item')||el.closest('td')||el.closest('.zt-stock')||el.closest('.layout-card'))){
         code=m[1]; break;
       }
       el=el.parentElement;
