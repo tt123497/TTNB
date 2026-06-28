@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 07:15:52"
       }
     ],
-    "updated": "2026-06-28 03:38 UTC",
+    "updated": "2026-06-28 03:39 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7569,12 +7569,6 @@
       "t": "事关薪酬制度！12家券商同日宣布",
       "u": "https://finance.sina.com.cn/stock/quanshang/2026-06-28/doc-iniexpvy0807288.shtml",
       "time": "11:32",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "存储芯片成本大涨，苹果美光打起“口水战”，到底谁为涨价买单？",
-      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexiqe3346758.shtml",
-      "time": "09:39",
       "src": "sina_7x24"
     }
   ],
@@ -7611,8 +7605,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 11:38 CST",
-    "sector": 2,
+    "updated": "2026-06-28 11:39 CST",
+    "sector": 1,
     "market": 5
   },
   "industryRank": [
