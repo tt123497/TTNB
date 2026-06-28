@@ -15,6 +15,7 @@ jobs:
     env:
       PYTHONUTF8: '1'
       LANG: zh_CN.UTF-8
+      GH_TOKEN: ${{ github.token }}
     permissions:
       contents: write
     steps:
