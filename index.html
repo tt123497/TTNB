@@ -2443,33 +2443,44 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
   },true);
 
   // Stock hover tooltip
-  var tipEl=document.getElementById('stockTip'), tipCode='';
+  try{
+  var tipEl=document.getElementById("stockTip");
+  if(tipEl){
+  var tipCode="";
   function showTip(e, code){
-    if(code===tipCode) return; tipCode=code;
-    tipEl.style.display='block';
-    tipEl.style.left=(e.clientX+18)+'px';tipEl.style.top=(e.clientY+8)+'px';
-    if(tipEl._code===code) return; tipEl._code=code;
-    var info=stockInfo[code];
-    var nm=code, ind='', pos='';
-    if(info){nm=info.name||code; ind=info.ztInd||info.ind||''; pos=info.pos||'';}
-    var lp=(D.livePrices||{})['sh'+code]||(D.livePrices||{})['sz'+code];
-    var ph='';
-    if(lp&&lp.price){var cl=lp.chg_pct>=0?'var(--red)':'var(--green)';ph='<div class="st-price" style="color:'+cl+'">'+Number(lp.price).toFixed(2)+' <span style="font-size:.78rem">'+(lp.chg_pct>=0?'+':'')+Number(lp.chg_pct).toFixed(1)+'%</span></div>';}
-    var h='<div class="st-name">'+nm+'</div><div class="st-code">'+code+'</div>'+ph;
-    if(ind||pos) h+='<div style="font-size:.76rem;margin-top:2px;color:var(--sub)">'+ind+(pos?' · '+pos:'')+'</div>';
-    tipEl.innerHTML=h;
+    if(code===tipCode) return;
+    tipCode=code;
+    tipEl.style.display="block";
+    tipEl.style.left=(e.clientX+18)+"px";
+    tipEl.style.top=(e.clientY+8)+"px";
+    if(tipEl._code===code) return;
+    tipEl._code=code;
+    var info=stockInfo[code]||{};
+    var nm=info.name||code;
+    var lp=(D.livePrices||{})["sh"+code]||(D.livePrices||{})["sz"+code];
+    var hp="";
+    if(lp&&lp.price){
+      var cl=lp.chg_pct>=0?"var(--red)":"var(--green)";
+      hp="<div class=st-price style=color:"+cl+">"+Number(lp.price).toFixed(2)+" "+(lp.chg_pct>=0?"+":"")+Number(lp.chg_pct).toFixed(1)+"%</div>";
+    }
+    tipEl.innerHTML="<div class=st-name>"+nm+"</div><div class=st-code>"+code+"</div>"+hp;
   }
-  function hideTip(){tipCode='';tipEl.style.display='none';tipEl._code='';}
-  document.addEventListener('mousemove',function(e){
-    var el=e.target, code='';
+  function hideTip(){
+    tipCode="";
+    tipEl.style.display="none";
+    tipEl._code="";
+  }
+  document.addEventListener("mousemove",function(e){
+    var el=e.target;
     while(el&&el!==document.body){
-      var t=el.textContent.trim();
-      var m=t&&t.match(/(\d{6})/);
-      if(m&&el.closest){code=m[1];break;}
+      var t=el.textContent||"";
+      var m=t.match(/(\d{6})/);
+      if(m){showTip(e,m[1]);return;}
       el=el.parentElement;
     }
-    if(code) showTip(e, code); else hideTip();
+    hideTip();
   });
+  }}catch(e){}
   // Final updateBar refresh from data.json
   fetch('./data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
     if(d.updated){document.getElementById('updateBar').innerHTML=`📡 <b>${d.updated}</b> | ${d.nextSentinel||'等待下次扫描'} | 交易日每5分钟自动更新 | a-stock-data 28端点`;}
