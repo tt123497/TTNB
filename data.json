@@ -57,12 +57,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST皇庭: *ST皇庭:股票交易异常波动公告",
-      "u": "https://data.eastmoney.com/notices/detail/000056.html",
-      "time": "06-29",
-      "src": "em_ann"
-    },
-    {
       "t": "华辰转债: 江苏华辰:江苏华辰关于限制性股票回购注销完成及实施2025年年度权益分派调整“华辰转债”转股价格的公告",
       "u": "https://data.eastmoney.com/notices/detail/113695.html",
       "time": "06-29",
@@ -112,9 +106,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 17:49 CST",
+    "updated": "2026-06-28 17:51 CST",
     "sector": 1,
-    "market": 17
+    "market": 16
   },
   "globalNews": {
     "headlines": [
@@ -244,7 +238,7 @@
         "ts": "2026-06-28 15:34:12"
       }
     ],
-    "updated": "2026-06-28 09:49 UTC",
+    "updated": "2026-06-28 09:51 UTC",
     "status": "ok"
   }
 }
