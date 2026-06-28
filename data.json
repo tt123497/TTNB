@@ -20602,12 +20602,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "“央行中的央行”拉响AI泡沫警报：万亿美元资本支出狂潮恐演变为漫长崩盘",
-      "u": "https://finance.sina.com.cn/stock/2026-06-28/doc-inieyriq2740628.shtml",
-      "time": "21:42",
-      "src": "sina_7x24"
-    },
-    {
       "t": "中富通: 中富通:关于公司股东、高级管理人员股份减持计划的预披露公告",
       "u": "https://data.eastmoney.com/notices/detail/300560.html",
       "time": "06-29",
@@ -20705,9 +20699,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 23:41 CST",
+    "updated": "2026-06-28 23:42 CST",
     "sector": 5,
-    "market": 21
+    "market": 20
   },
   "globalNews": {
     "headlines": [
@@ -20837,7 +20831,7 @@
         "ts": "2026-06-28 19:37:27"
       }
     ],
-    "updated": "2026-06-28 15:41 UTC",
+    "updated": "2026-06-28 15:43 UTC",
     "status": "ok"
   }
 }
