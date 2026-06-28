@@ -20582,12 +20582,6 @@
   ],
   "_newsMarket": [
     {
-      "t": "AI初创公司Firmus携手英伟达在印尼建设数据中心",
-      "u": "https://wallstreetcn.com/livenews/3125692",
-      "time": "23:14",
-      "src": "wscn_全球"
-    },
-    {
       "t": "内存短缺对苹果和微软造成冲击，但对小型企业而言堪称“生存危机”",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-28/doc-inieyriq2757625.shtml",
       "time": "22:48",
@@ -20697,9 +20691,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 00:14 CST",
+    "updated": "2026-06-29 00:15 CST",
     "sector": 2,
-    "market": 19
+    "market": 18
   },
   "globalNews": {
     "headlines": [
@@ -20829,7 +20823,7 @@
         "ts": "2026-06-28 19:56:51"
       }
     ],
-    "updated": "2026-06-28 16:14 UTC",
+    "updated": "2026-06-28 16:15 UTC",
     "status": "ok"
   }
 }
