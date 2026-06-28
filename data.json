@@ -20083,6 +20083,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "苹果涨价拖累果链，机构：果链龙头韧性强，AI驱动的换机周期依然成立！",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-28/doc-inieykzq0401036.shtml",
+      "time": "19:23",
+      "src": "sina_7x24"
+    },
+    {
       "t": "中国人民银行行长潘功胜出席国际清算银行行长例会及年度股东大会",
       "u": "https://wallstreetcn.com/livenews/3125657",
       "time": "19:05",
@@ -20210,9 +20216,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 19:26 CST",
+    "updated": "2026-06-28 19:27 CST",
     "sector": 4,
-    "market": 21
+    "market": 22
   },
   "globalNews": {
     "headlines": [
@@ -20342,7 +20348,7 @@
         "ts": "2026-06-28 16:18:10"
       }
     ],
-    "updated": "2026-06-28 11:26 UTC",
+    "updated": "2026-06-28 11:27 UTC",
     "status": "ok"
   },
   "_sectorTracker": {
