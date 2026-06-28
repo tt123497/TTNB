@@ -39,6 +39,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "澳大利亚Firmus Technologies与英伟达达成人工智能合作协议",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-28/doc-inieyriq2746741.shtml",
+      "time": "22:04",
+      "src": "sina_A股"
+    },
+    {
       "t": "美国史上最大风电场投产，行业却步入低谷",
       "u": "https://wallstreetcn.com/livenews/3125688",
       "time": "22:02",
@@ -184,9 +190,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 22:04 CST",
+    "updated": "2026-06-28 22:05 CST",
     "sector": 6,
-    "market": 24
+    "market": 25
   },
   "globalNews": {
     "headlines": [
@@ -316,7 +322,7 @@
         "ts": "2026-06-28 18:59:44"
       }
     ],
-    "updated": "2026-06-28 14:04 UTC",
+    "updated": "2026-06-28 14:05 UTC",
     "status": "ok"
   }
 }
