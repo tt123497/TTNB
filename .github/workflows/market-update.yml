@@ -35,19 +35,16 @@ jobs:
           rm -rf ./* .[!.]* ..?* 2>/dev/null || true
           gh repo clone tt123497/TTNB .
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Setup Python deps
         run: |
-          # Windows自托管runner: 用py launcher查找Python并加入PATH
-          PY_BIN=$(py -c "import sys; print(sys.executable)" 2>/dev/null || which python3 2>/dev/null || which python 2>/dev/null)
-          if [ -z "$PY_BIN" ]; then
-            echo "ERROR: Python not found on runner"
-            exit 1
-          fi
-          echo "$(dirname "$PY_BIN")" >> $GITHUB_PATH
-          echo "Python found: $PY_BIN"
-          "$PY_BIN" --version
-          "$PY_BIN" -m pip install --upgrade pip --quiet || true
-          "$PY_BIN" -m pip install mootdx requests pandas numpy openpyxl --quiet
+          python --version
+          python -m pip install --upgrade pip --quiet || true
+          python -m pip install mootdx requests pandas numpy openpyxl --quiet
 
       - name: Run unified update (a-stock-data 28 endpoints)
         run: python run_update.py
