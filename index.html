@@ -1176,13 +1176,47 @@ function openStock(code){
   };
   window.addEventListener('blur',onBlur);
   // 用隐藏 iframe 触发协议 (避免 window.open 弹空白页 + 黑框)
+  // iframe 放在屏幕外, display:none 会导致某些浏览器不触发协议
   var iframe=document.createElement('iframe');
-  iframe.style.cssText='width:0;height:0;border:0;position:absolute;left:-9999px;';
+  iframe.style.cssText='width:1px;height:1px;border:0;position:fixed;left:0;top:0;opacity:0;pointer-events:none;';
   iframe.src='tdxstock://'+code;
   document.body.appendChild(iframe);
-  // 2秒后移除 iframe
-  setTimeout(function(){if(iframe.parentNode)iframe.parentNode.removeChild(iframe);},2000);
+  // 1.5秒后移除 iframe (配合上面的 fallbackTimer)
+  setTimeout(function(){if(iframe.parentNode)iframe.parentNode.removeChild(iframe);},1500);
 }
+
+// 跳转到产业链页并定位到个股所在赛道
+function goToChain(code){
+  // 从 stockInfo 找到该股票所属赛道
+  var stockInfo=window.stockInfo||{};
+  var info=stockInfo[code];
+  var secId='';
+  if(info&&info.sector){
+    // 从 D.groups 找到赛道的 id
+    D.groups.forEach(function(g){
+      g.sectors.forEach(function(s){
+        if(s.n===info.sector||s.n.indexOf(info.sector)>=0||info.sector.indexOf(s.n)>=0){
+          secId=s.id;
+        }
+      });
+    });
+  }
+  // 切换到产业链页
+  go('chain');
+  // 展开对应赛道并滚动定位
+  setTimeout(function(){
+    if(secId){
+      var el=document.getElementById('chain-'+secId);
+      if(el){
+        el.open=true;
+        el.scrollIntoView({behavior:'smooth',block:'center'});
+        el.classList.add('flash');
+        setTimeout(function(){el.classList.remove('flash');},1500);
+      }
+    }
+  },200);
+}
+window.goToChain=goToChain;
 
 var _tipEl=null,_tipCode=null;
 function _showTip(e,code){
@@ -1253,6 +1287,9 @@ document.addEventListener('DOMContentLoaded',function(){
   },true);
 
   // 点击跳转: click
+  // 总览页(overview)的个股 → 跳转产业链对应位置
+  // 产业链页(chain)的个股 → 跳转通达信
+  // 其他位置的个股 → 跳转通达信
   mc.addEventListener('click',function(e){
     var el=e.target,code='';
     if(el.closest&&(el.closest('.c-pill')||el.closest('.zt-stock')||el.closest('.sc')||el.closest('td.code')||el.closest('tr'))){
@@ -1264,7 +1301,20 @@ document.addEventListener('DOMContentLoaded',function(){
       }
       if(!code&&el.closest('td.code')){var m=el.closest('td.code').textContent.trim().match(/(\d{6})/);if(m)code=m[1];}
       if(!code&&el.closest('tr')){var td=el.closest('tr').querySelector('td.code');if(td){var m=td.textContent.trim().match(/(\d{6})/);if(m)code=m[1];}}
-      if(code){e.stopPropagation();openStock(code);return;}
+      if(code){
+        e.stopPropagation();
+        // 判断当前在哪个面板
+        var panelOv=document.getElementById('panel-overview');
+        var isOverview=panelOv&&panelOv.classList.contains('on');
+        if(isOverview){
+          // 总览页: 跳转产业链对应位置
+          goToChain(code);
+        }else{
+          // 其他页(含产业链): 跳转通达信
+          openStock(code);
+        }
+        return;
+      }
     }
     while(el&&el!==this){
       if(el.classList.contains('zt-tier-header')){el.closest('.zt-tier').classList.toggle('collapsed');return;}
