@@ -39,7 +39,13 @@
   ],
   "_newsMarket": [
     {
-      "t": "美国农业部长Rollins：就若干工业光伏项目发函纽约州长Kathy Hochul。",
+      "t": "“央行中的央行”拉响AI泡沫警报：万亿美元资本支出狂潮恐演变为漫长崩盘",
+      "u": "https://finance.sina.com.cn/stock/2026-06-28/doc-inieyriq2740628.shtml",
+      "time": "21:42",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "美国农业部长Rollins：就若干工业光伏项目发函纽约州长Kathy Hochul。\n\nHochul有30天的时间来解释农场上的那些太阳能项目。",
       "u": "https://wallstreetcn.com/livenews/3125682",
       "time": "21:39",
       "src": "wscn_全球"
@@ -202,9 +208,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 21:42 CST",
+    "updated": "2026-06-28 21:43 CST",
     "sector": 6,
-    "market": 27
+    "market": 28
   },
   "globalNews": {
     "headlines": [],
