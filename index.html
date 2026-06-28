@@ -2469,7 +2469,7 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
               // update tag from sectorTags
               if(d.sectorTags && d.sectorTags[s.n]){
                 s.tag=d.sectorTags[s.n];
-                s.avgChg=parseFloat(s.tag.split('%')[0].replace(/[^0-9.\-+]/g,''));
+                s.avgChg=parseFloat(s.tag.split('%')[0].replace(/[−–]/g,'-').replace(/[^0-9.\-+]/g,''));
               }
               // apply to DOM
               var card=document.getElementById('scard-'+s.id);
