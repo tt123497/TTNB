@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 04:40:32"
       }
     ],
-    "updated": "2026-06-28 02:27 UTC",
+    "updated": "2026-06-28 02:28 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7578,11 +7578,18 @@
       "src": "sina_7x24"
     }
   ],
-  "_newsMarket": [],
+  "_newsMarket": [
+    {
+      "t": "输麻了！韩国小组出局，11亿韩元出线奖金泡汤！约487万人民币",
+      "u": "https://finance.sina.com.cn/world/2026-06-28/doc-iniexpwa3231383.shtml",
+      "time": "10:26",
+      "src": "sina_A股"
+    }
+  ],
   "_newsMeta": {
-    "updated": "2026-06-28 10:27 CST",
+    "updated": "2026-06-28 10:28 CST",
     "sector": 2,
-    "market": 0
+    "market": 1
   },
   "industryRank": [
     {
