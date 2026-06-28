@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 09:22:42"
       }
     ],
-    "updated": "2026-06-28 05:11 UTC",
+    "updated": "2026-06-28 05:12 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7584,18 +7584,12 @@
       "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexpwa3256674.shtml",
       "time": "11:22",
       "src": "sina_7x24"
-    },
-    {
-      "t": "一夜之间，4家A股公司被查被罚",
-      "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexpvy6475092.shtml",
-      "time": "11:11",
-      "src": "sina_7x24"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 13:11 CST",
+    "updated": "2026-06-28 13:12 CST",
     "sector": 2,
-    "market": 2
+    "market": 1
   },
   "industryRank": [
     {
