@@ -975,12 +975,12 @@ def main():
 
     # 1. 健康检查 (fast=True 跳过TCP探测，节省启动时间)
     hc = ad.health_check(fast=True)
-    # 交易时段再认真测通达信
-    if trading:
-        try:
-            hc['mootdx'] = ad.tdx_available()
-        except:
-            pass
+    # 始终检测通达信（K线/财务/F10是静态数据，周末也能获取，不应受交易时段限制）
+    try:
+        hc['mootdx'] = ad.tdx_available()
+    except Exception as e:
+        hc['mootdx'] = False
+        print(f"  mootdx检测失败: {e}")
     print(f"  Health: {hc}")
     use_tdx = hc.get('mootdx', False)
 
@@ -1066,14 +1066,37 @@ def main():
     # ── 5b. 缺失端点补充 (a-stock-data 28端点全覆盖) ──
     print("── L2/L6 研报+基础 ──")
 
-    # K线数据 (前5只关键标的, 日线最近20根)
+    # K线数据 (前20只关键标的, 日线最近20根) — mootdx优先, eastmoney HTTP降级
     kline_data = {}
     for c in code_list[:20]:
-        try:
-            kl = ad.mootdx_klines(c, category=4, offset=20)
-            if kl is not None and len(kl) > 0:
-                kline_data[c] = [{'d': str(r.get('date','')), 'o': float(r.get('open',0)), 'c': float(r.get('close',0)), 'h': float(r.get('high',0)), 'l': float(r.get('low',0)), 'v': float(r.get('vol',0))} for r in kl[-20:]]
-        except: pass
+        kl = None
+        # L1: mootdx TCP (最快，不封IP)
+        if use_tdx:
+            try:
+                kl = ad.mootdx_klines(c, category=4, offset=20)
+            except Exception as e:
+                if len(kline_data) < 3:
+                    print(f"    mootdx K线失败 {c}: {e}")
+        # L2: eastmoney HTTP 降级 (mootdx不可用或返回空时)
+        if not kl or len(kl) == 0:
+            try:
+                pfx = ad.get_prefix(c)
+                secid = f"{'1' if pfx == 'sh' else '0'}.{c}"
+                r = ad.em_get(f'http://push2his.eastmoney.com/api/qt/stock/kline/get?secid={secid}&fields1=f1,f2,f3&fields2=f51,f52,f53,f54,f55,f56,f57&klt=101&fqt=0&lmt=20', timeout=8)
+                kls = r.json().get('data', {}).get('klines', []) if r else []
+                if kls:
+                    kl = []
+                    for row in kls[-20:]:
+                        parts = row.split(',')
+                        if len(parts) >= 7:
+                            kl.append({'date': parts[0], 'open': float(parts[1]),
+                                       'close': float(parts[2]), 'high': float(parts[3]),
+                                       'low': float(parts[4]), 'vol': float(parts[5])})
+            except Exception as e:
+                if len(kline_data) < 3:
+                    print(f"    eastmoney K线降级失败 {c}: {e}")
+        if kl is not None and len(kl) > 0:
+            kline_data[c] = [{'d': str(r.get('date','')), 'o': float(r.get('open',0)), 'c': float(r.get('close',0)), 'h': float(r.get('high',0)), 'l': float(r.get('low',0)), 'v': float(r.get('vol',0))} for r in kl[-20:]]
     print(f"  K线: {len(kline_data)}只")
 
     # 一致预期EPS
@@ -1118,16 +1141,24 @@ def main():
         time.sleep(0.06)
     print(f"  概念板块: {len(concept_data)}只")
 
-    # 个股新闻
+    # 个股新闻 (eastmoney HTTP) — 带错误日志, 风控时降速
     stock_news_data = {}
+    news_fail_cnt = 0
     for c in code_list[:30]:
         try:
             news = ad.eastmoney_stock_news(c, 5)
             if news:
                 stock_news_data[c] = [{'t': n['title'][:80], 'ts': n['time'], 'src': n['source']} for n in news[:3]]
-        except: pass
-        time.sleep(0.08)
-    print(f"  个股新闻: {len(stock_news_data)}只")
+            else:
+                news_fail_cnt += 1
+        except Exception as e:
+            news_fail_cnt += 1
+            if news_fail_cnt <= 3:
+                print(f"    个股新闻失败 {c}: {e}")
+        time.sleep(0.12)
+    if news_fail_cnt > 10:
+        print(f"    ⚠ 个股新闻大面积失败({news_fail_cnt}/30), 疑似东财风控")
+    print(f"  个股新闻: {len(stock_news_data)}只 (失败{news_fail_cnt})")
 
     # 新浪三表
     sina_data = {}
@@ -1247,6 +1278,24 @@ def main():
     # Fallback livePrices
     if not live:
         out['livePrices'] = old_live
+
+    # 数据完整性校验（防止静默失败）
+    issues = []
+    checks = {
+        'klineData': (kline_data, 5),
+        'finSnapshot': (fin_data, 5),
+        'stockNewsData': (stock_news_data, 10),
+        'f10Data': (f10_data, 5),
+    }
+    for field, (val, min_n) in checks.items():
+        actual = len(val) if val else 0
+        if actual < min_n:
+            issues.append(f"{field}: {actual}/{min_n}")
+    if issues:
+        print(f"  ⚠ 数据完整性告警: {'; '.join(issues)}")
+        out.setdefault('_health', {})['issues'] = issues
+    else:
+        print(f"  ✓ 数据完整性校验通过")
 
     # Write
     save_data(out)
