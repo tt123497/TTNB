@@ -19,6 +19,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "慧翰股份：存储芯片涨价是当前行业共性问题",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-28/doc-inieykzq0422439.shtml",
+      "time": "19:31",
+      "src": "sina_7x24"
+    },
+    {
       "t": "“旗手”酝酿归位？券商周线3连阳，逻辑直指“站在科创里”",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-28/doc-inieykzq0400249.shtml",
       "time": "19:19",
@@ -60,6 +66,12 @@
       "t": "港股IPO招股书“注水”严重，监管连发警示，聚慧、丰宜和巴奴被拿来当典型案例",
       "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-28/doc-inieykzs2844660.shtml",
       "time": "20:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "A股、H股股价齐跌，可孚医疗打出回购加增持组合拳",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-06-28/doc-inieykzq6068863.shtml",
+      "time": "19:52",
       "src": "sina_7x24"
     },
     {
@@ -178,9 +190,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 20:54 CST",
-    "sector": 6,
-    "market": 23
+    "updated": "2026-06-28 20:55 CST",
+    "sector": 7,
+    "market": 24
   },
   "globalNews": {
     "headlines": [
@@ -310,7 +322,7 @@
         "ts": "2026-06-28 18:03:58"
       }
     ],
-    "updated": "2026-06-28 12:54 UTC",
+    "updated": "2026-06-28 12:55 UTC",
     "status": "ok"
   }
 }
