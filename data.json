@@ -7561,7 +7561,7 @@
         "ts": "2026-06-28 08:33:58"
       }
     ],
-    "updated": "2026-06-28 04:34 UTC",
+    "updated": "2026-06-28 04:35 UTC",
     "status": "ok"
   },
   "_newsSector": [
@@ -7584,18 +7584,12 @@
       "u": "https://finance.sina.com.cn/stock/relnews/2026-06-28/doc-iniexpvy6475092.shtml",
       "time": "11:11",
       "src": "sina_7x24"
-    },
-    {
-      "t": "8家公司集中披露股东减持意向，天宸股份3%比例上限与峰岹科技并列最高",
-      "u": "https://finance.sina.com.cn/roll/2026-06-28/doc-iniexpvy0781727.shtml",
-      "time": "10:35",
-      "src": "sina_7x24"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-28 12:34 CST",
+    "updated": "2026-06-28 12:35 CST",
     "sector": 1,
-    "market": 3
+    "market": 2
   },
   "industryRank": [
     {
