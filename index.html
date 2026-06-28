@@ -714,7 +714,7 @@ const D={
        ev:"⚡SK海力士以钼代钨|📌三星钼采购翻倍"},
       {id:"carbon",n:"碳纤维",icon:"🪶",sig:"neutral",tag:"🟡稳健|低空+航天双驱",stars:3,
        d:"光威复材T800碳纤维龙头,供货eVTOL/火箭。中复神鹰产能国内第一T1100级。低空经济+商业航天双轮驱动轻量化材料需求。",
-       st:[{c:"300699",n:"光威复材",pick:1},{c:"688295",n:"中复神鹰",pick:1},{c:"002529",n:"*ST海源",pick:0},{c:"600143",n:"金发科技",pick:0},{c:"002768",n:"国恩股份",pick:0}],
+       st:[{c:"300699",n:"光威复材",pick:1},{c:"688295",n:"中复神鹰",pick:1},{c:"600143",n:"金发科技",pick:0},{c:"002768",n:"国恩股份",pick:0}],
        ch:{up:"丙烯腈→吉林化纤",mid:"碳纤维→<em>光威/中复神鹰</em>",down:"eVTOL/火箭/军工"},
        ev:"📌低空经济+商业航天双驱动"},
       {id:"elec_gas",n:"电子特气/工业气体",icon:"💨",sig:"major",tag:"🔥涨停潮|电子化学品",stars:5,
@@ -870,7 +870,7 @@ const D={
        ev:"📌批价企稳+中报验证"},
       {id:"foodbev",n:"食品饮料",icon:"🍜",sig:"neutral",tag:"🟡复苏|消费韧性",stars:3,
        d:"CPI若触底回升利好食品。海天味业调味品龙头(渠道库存去化)，伊利股份乳制品龙头(安慕希/畅意高端化)，双汇发展肉制品(成本猪价下行)，安井食品预制菜(餐饮复苏)。",
-       st:[{c:"603288",n:"海天味业",pick:1},{c:"600887",n:"伊利股份",pick:1},{c:"000895",n:"双汇发展",pick:0},{c:"603345",n:"安井食品",pick:0},{c:"603517",n:"ST绝味",pick:0}],
+       st:[{c:"603288",n:"海天味业",pick:1},{c:"600887",n:"伊利股份",pick:1},{c:"000895",n:"双汇发展",pick:0},{c:"603345",n:"安井食品",pick:0},{c:"002557",n:"洽洽食品",pick:0}],
        ch:{up:"原料→大豆/玉米",mid:"加工→<em>海天/伊利</em>",down:"零售→永辉/盒马"},
        ev:"📌CPI触底+消费复苏"},
       {id:"pharma",n:"医药/CRO",icon:"💊",sig:"neutral",tag:"🟡触底|集采边际改善",stars:4,
@@ -1306,6 +1306,16 @@ function loadFeedbackHistory(){
       });
     });
   });
+  // Register fixed stocks for hover tooltip (covers stocks not in hardcoded st[])
+  if(data.sectorFixedStocks){
+    D.sectorFixedStocks = data.sectorFixedStocks;
+    Object.keys(data.sectorFixedStocks).forEach(function(sec){
+      data.sectorFixedStocks[sec].forEach(function(f){
+        var parts=f.split(' '), code=parts[0], name=parts.slice(1).join(' ');
+        if(!stockInfo[code]) stockInfo[code]={name:name, sector:sec, group:'', pos:'固定池', tag:'', ind:secInd[sec]||sec};
+      });
+    });
+  }
   // Enrich with ZT ladder industry if available, and create entries for stocks not in our sectors
   if(D.recap.ztLadder&&D.recap.ztLadder.tiers){
     D.recap.ztLadder.tiers.forEach(function(t){
@@ -1870,7 +1880,8 @@ function loadFeedbackHistory(){
       var live=(D.sectorStocks||{})[s.n]||[];
       var sorted=live.slice().sort(function(a,b){return (b.chg||0)-(a.chg||0);});
       var hasLive=sorted.length>0;
-      var countLabel=hasLive?sorted.length+'只':'等待数据';
+      var fixedCount = fixedStocks[s.n]?fixedStocks[s.n].length:0;
+      var countLabel=hasLive?sorted.length+'只':(fixedCount?fixedCount+'只(固定池)':'等待数据');
       var heatLabel=s._heatChg>-999?(s._heatChg>=0?'<span style="color:var(--red);font-weight:700">+'+s._heatChg.toFixed(1)+'%</span>':'<span style="color:var(--green);font-weight:700">'+s._heatChg.toFixed(1)+'%</span>'):'';
       var hotBadge=idx<5&&s._heatChg>0?'<span style="margin-left:6px;font-size:.72rem;padding:2px 6px;border-radius:8px;background:rgba(239,68,68,.15);color:var(--red)">🔥热门</span>':'';
 
@@ -2102,7 +2113,14 @@ function loadFeedbackHistory(){
         }
         // ── Stock list refresh from live sector data ──
         if(d.sectorStocks){D.sectorStocks=d.sectorStocks;}
-        if(d.sectorFixedStocks){D.sectorFixedStocks=d.sectorFixedStocks;}
+        if(d.sectorFixedStocks){D.sectorFixedStocks=d.sectorFixedStocks;
+          Object.keys(d.sectorFixedStocks).forEach(function(sec){
+            d.sectorFixedStocks[sec].forEach(function(f){
+              var parts=f.split(' '), code=parts[0], name=parts.slice(1).join(' ');
+              if(!stockInfo[code]) stockInfo[code]={name:name, sector:sec, group:'', pos:'固定池', tag:'', ind:secInd[sec]||sec};
+            });
+          });
+        }
         if(d.northbound) D.northbound=d.northbound;
         if(d.lhbFull) D.lhbFull=d.lhbFull;
         if(d.klineData) D.klineData=d.klineData;
