@@ -20764,6 +20764,36 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST大晟: *ST大晟:关于2025年年度报告的信息披露监管问询函的回复公告",
+      "u": "https://data.eastmoney.com/notices/detail/600892.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST大晟: *ST大晟:中勤万信会计师事务所(特殊普通合伙)关于大晟时代文化投资股份有限公司2025年年度报告的信息披露监管问询函的回复",
+      "u": "https://data.eastmoney.com/notices/detail/600892.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "联合精密: 联合精密:2025年年度分红派息、转增股本实施公告",
+      "u": "https://data.eastmoney.com/notices/detail/001268.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST艾艾: *ST艾艾:艾艾精密工业输送系统(上海)股份有限公司关于撤销退市风险警示暨停牌的公告",
+      "u": "https://data.eastmoney.com/notices/detail/603580.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST艾艾: *ST艾艾:中审亚太关于艾艾精密工业输送系统(上海)股份有限公司2025年年度报告的信息披露监管问询函的回复",
+      "u": "https://data.eastmoney.com/notices/detail/603580.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST艾艾: *ST艾艾:艾艾精密工业输送系统(上海)股份有限公司关于2025年年度报告的信息披露监管问询函的回复公告",
       "u": "https://data.eastmoney.com/notices/detail/603580.html",
       "time": "06-30",
@@ -20866,28 +20896,16 @@
       "src": "em_ann"
     },
     {
-      "t": "ST长方: ST长方:关于公司股票交易被实施其他风险警示相关事项的进展公告",
-      "u": "https://data.eastmoney.com/notices/detail/300301.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "轻纺城: 轻纺城:轻纺城2025年度差异化分红专项法律意见书",
       "u": "https://data.eastmoney.com/notices/detail/600790.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "拉普拉斯: 拉普拉斯:关于股东减持股份结果公告",
-      "u": "https://data.eastmoney.com/notices/detail/688726.html",
       "time": "06-30",
       "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:31 CST",
+    "updated": "2026-06-29 19:32 CST",
     "sector": 8,
-    "market": 44
+    "market": 47
   },
   "globalNews": {
     "headlines": [
@@ -21017,7 +21035,7 @@
         "ts": "2026-06-29 18:49:27"
       }
     ],
-    "updated": "2026-06-29 11:31 UTC",
+    "updated": "2026-06-29 11:32 UTC",
     "status": "ok"
   }
 }
