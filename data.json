@@ -20758,16 +20758,28 @@
       "src": "sina_A股"
     },
     {
-      "t": "百度旗下昆仑芯要求IPO投资者采购其芯片",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6999729.shtml",
-      "time": "18:25",
-      "src": "sina_A股"
+      "t": "*ST东智: *ST东智:关于筹划控制权变更事项进展暨复牌的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002175.html",
+      "time": "06-30",
+      "src": "em_ann"
     },
     {
-      "t": "昔日地产大佬许荣茂父子拟被罚770万元，儿子许世坛拟被禁入6年，旗下公司港股市值6年蒸发99%",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-29/doc-inifapyq5367452.shtml",
-      "time": "18:24",
-      "src": "sina_A股"
+      "t": "*ST东智: *ST东智:广西东方智造科技股份有限公司简式权益变动报告书",
+      "u": "https://data.eastmoney.com/notices/detail/002175.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST东智: *ST东智:详式权益变动报告",
+      "u": "https://data.eastmoney.com/notices/detail/002175.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST东智: *ST东智:关于控股股东协议转让股权暨控制权拟发生变更的提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/002175.html",
+      "time": "06-30",
+      "src": "em_ann"
     },
     {
       "t": "国风新材: 国风新材:国元证券股份有限公司关于安徽国风新材料股份有限公司本次交易方案调整不构成重大调整的核查意见",
@@ -20784,12 +20796,6 @@
     {
       "t": "*ST东智: *ST东智:中银国际证券股份有限公司关于广西东方智造科技股份有限公司详式权益变动报告书之财务顾问核查意见",
       "u": "https://data.eastmoney.com/notices/detail/002175.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "国风新材: 国风新材:关于本次交易方案调整不构成重大调整的公告",
-      "u": "https://data.eastmoney.com/notices/detail/000859.html",
       "time": "06-30",
       "src": "em_ann"
     },
@@ -20819,9 +20825,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:24 CST",
+    "updated": "2026-06-29 20:25 CST",
     "sector": 18,
-    "market": 23
+    "market": 24
   },
   "globalNews": {
     "headlines": [
@@ -20951,7 +20957,7 @@
         "ts": "2026-06-29 19:36:33"
       }
     ],
-    "updated": "2026-06-29 12:24 UTC",
+    "updated": "2026-06-29 12:25 UTC",
     "status": "ok"
   }
 }
