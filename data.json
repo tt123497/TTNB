@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "韩国一银行行长监守自盗挪用7000万韩元，事后竟用玩具假钞填金库造假",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhw3760842.shtml",
+      "time": "20:58",
+      "src": "sina_7x24"
+    },
+    {
       "t": "辽宁振兴银行陷“二次还款”与征信投诉漩涡",
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhq2088095.shtml",
       "time": "20:58",
@@ -20657,12 +20663,6 @@
       "t": "太保产险天津分公司被罚30万元：给予投保人、被保险人或受益人保险合同约定以外的利益等",
       "u": "https://finance.sina.com.cn/jryx/fd/2026-06-29/doc-inifauhq2065368.shtml",
       "time": "20:22",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "光大银行：将于8月20日派发末期股息每10股0.7元",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhw3724740.shtml",
-      "time": "20:17",
       "src": "sina_7x24"
     },
     {
@@ -20756,12 +20756,6 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2060301.shtml",
       "time": "20:10",
       "src": "sina_A股"
-    },
-    {
-      "t": "Strategy宣布授权10亿美元优先股回购计划",
-      "u": "https://wallstreetcn.com/livenews/3126156",
-      "time": "20:03",
-      "src": "wscn_全球"
     },
     {
       "t": "鲟龙科技港股上市在即：鱼子酱界“隐形冠军”的稀缺叙事 与17亿水下资产的信任博弈",
@@ -20990,12 +20984,18 @@
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
       "src": "em_ann"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:北京大成(广州)律师事务所关于广州禾信仪器股份有限公司2023年限制性股票与股票期权激励计划作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权事项的法",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-30",
+      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:02 CST",
+    "updated": "2026-06-29 21:03 CST",
     "sector": 20,
-    "market": 52
+    "market": 51
   },
   "globalNews": {
     "headlines": [
@@ -21125,7 +21125,7 @@
         "ts": "2026-06-29 19:53:59"
       }
     ],
-    "updated": "2026-06-29 13:02 UTC",
+    "updated": "2026-06-29 13:04 UTC",
     "status": "ok"
   }
 }
