@@ -20628,12 +20628,6 @@
       "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifapyw7006480.shtml",
       "time": "18:32",
       "src": "sina_7x24"
-    },
-    {
-      "t": "人民银行3000亿元隔夜逆回购首次落地，短端流动性管理更精细",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-29/doc-inifapys2142850.shtml",
-      "time": "18:29",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -20746,6 +20740,18 @@
       "src": "sina_A股"
     },
     {
+      "t": "ST百利: ST百利:国浩律师(广州)事务所关于湖南百利工程科技股份有限公司2025年年度股东会的法律意见",
+      "u": "https://data.eastmoney.com/notices/detail/603959.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST百利: ST百利:2025年年度股东会决议公告",
+      "u": "https://data.eastmoney.com/notices/detail/603959.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "东北制药: 东北制药:关于回购注销部分限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/000597.html",
       "time": "06-30",
@@ -20810,30 +20816,12 @@
       "u": "https://data.eastmoney.com/notices/detail/002207.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "泰达股份: 泰达股份:天津泰达资源循环集团股份有限公司重大资产出售暨关联交易实施情况报告书",
-      "u": "https://data.eastmoney.com/notices/detail/000652.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "泰达股份: 泰达股份:中国银河证券股份有限公司关于天津泰达资源循环集团股份有限公司重大资产出售暨关联交易实施情况之独立财务顾问核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/000652.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "泰达股份: 泰达股份:上海市锦天城律师事务所关于天津泰达资源循环集团股份有限公司重大资产出售暨关联交易实施情况之法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/000652.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:47 CST",
-    "sector": 11,
-    "market": 32
+    "updated": "2026-06-29 19:48 CST",
+    "sector": 10,
+    "market": 31
   },
   "globalNews": {
     "headlines": [
@@ -20963,7 +20951,7 @@
         "ts": "2026-06-29 19:12:47"
       }
     ],
-    "updated": "2026-06-29 11:47 UTC",
+    "updated": "2026-06-29 11:48 UTC",
     "status": "ok"
   }
 }
