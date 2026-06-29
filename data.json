@@ -20968,12 +20968,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易符合《上市公司监管指引第9号——上市公司筹划和实施重大资产重组的监管要求》第四条规定的说明",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -20990,12 +20984,18 @@
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
       "src": "em_ann"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:关于调整并签订房屋租赁合同暨关联交易的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-30",
+      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:05 CST",
+    "updated": "2026-06-29 21:06 CST",
     "sector": 20,
-    "market": 51
+    "market": 50
   },
   "globalNews": {
     "headlines": [
@@ -21125,7 +21125,7 @@
         "ts": "2026-06-29 19:55:18"
       }
     ],
-    "updated": "2026-06-29 13:05 UTC",
+    "updated": "2026-06-29 13:06 UTC",
     "status": "ok"
   }
 }
