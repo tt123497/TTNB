@@ -20588,6 +20588,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "国有大行反腐纵深推进，中国农业银行同一日两人被查",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhu6999491.shtml",
+      "time": "21:00",
+      "src": "sina_7x24"
+    },
+    {
       "t": "山西首家存款破万亿银行换掌门人，向弟海就任山西农商联合银行董事长",
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhw3774863.shtml",
       "time": "21:00",
@@ -20750,12 +20756,6 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5297379.shtml",
       "time": "20:30",
       "src": "sina_A股"
-    },
-    {
-      "t": "海川智能：拟通过股权受让形式以人民币1.3亿元购买南京集溢半导体科技有限公司15.30%的股权。标的公司主要产品为砷化镓（GaAs）晶片、原材料4N金属镓（N代表纯度），该两类产品2025年收入占比分别约为84.77%、15.02%。",
-      "u": "https://wallstreetcn.com/livenews/3126171",
-      "time": "20:24",
-      "src": "wscn_全球"
     },
     {
       "t": "日本IPO数量跌至15年低点，短期未见快速回暖迹象",
@@ -20921,9 +20921,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:23 CST",
-    "sector": 20,
-    "market": 38
+    "updated": "2026-06-29 21:24 CST",
+    "sector": 21,
+    "market": 37
   },
   "globalNews": {
     "headlines": [
@@ -21053,7 +21053,7 @@
         "ts": "2026-06-29 20:05:31"
       }
     ],
-    "updated": "2026-06-29 13:23 UTC",
+    "updated": "2026-06-29 13:24 UTC",
     "status": "ok"
   }
 }
