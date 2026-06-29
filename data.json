@@ -20764,6 +20764,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "国风新材: 国风新材:关于本次交易方案调整不构成重大调整的公告",
+      "u": "https://data.eastmoney.com/notices/detail/000859.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "秦川机床: 秦川机床:关于持股5%以上股东减持股份预披露公告",
       "u": "https://data.eastmoney.com/notices/detail/000837.html",
       "time": "06-30",
@@ -20792,16 +20798,10 @@
       "u": "https://data.eastmoney.com/notices/detail/688469.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "*ST国中: *ST国中:关于股份回购实施结果暨股份变动的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600187.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:20 CST",
+    "updated": "2026-06-29 20:21 CST",
     "sector": 17,
     "market": 21
   },
@@ -20933,7 +20933,7 @@
         "ts": "2026-06-29 19:33:54"
       }
     ],
-    "updated": "2026-06-29 12:20 UTC",
+    "updated": "2026-06-29 12:22 UTC",
     "status": "ok"
   }
 }
