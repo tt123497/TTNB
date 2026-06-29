@@ -20672,12 +20672,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "太保产险天津分公司被罚30万元：给予投保人、被保险人或受益人保险合同约定以外的利益等",
-      "u": "https://finance.sina.com.cn/jryx/fd/2026-06-29/doc-inifauhq2065368.shtml",
-      "time": "20:22",
-      "src": "sina_7x24"
-    },
-    {
       "t": "Charter与SpaceX密谈手机业务合作 股价大涨",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyq5412566.shtml",
       "time": "20:06",
@@ -20690,12 +20684,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "分析师：SpaceX 250亿美元债券发行巨大需求，但也可能给投资者带来隐忧",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapys2183103.shtml",
-      "time": "19:52",
-      "src": "sina_A股"
-    },
-    {
       "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易符合《关于加强证券公司在投资银行类业务中聘请第三方等廉洁从业风险防控的意见的相关规定》之核查意见",
       "u": "https://data.eastmoney.com/notices/detail/002932.html",
       "time": "06-30",
@@ -20703,6 +20691,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "原油技术面与地缘风险交织 市场关注52周均线得失",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5317512.shtml",
+      "time": "21:14",
+      "src": "sina_A股"
+    },
     {
       "t": "Palantir携手英伟达主攻主权AI 股价延续反弹势头",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2094191.shtml",
@@ -20938,30 +20932,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易信息首次披露前公司股票价格波动情况的核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司控股股东、实际控制人关于本次重组交易作出相关承诺",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司及经办人员关于不存在不得参与上市公司重大资产重组相关情形的说明",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易符合《上市公司监管指引第9号——上市公司筹划和实施重大资产重组的监管要求》第四条规定的核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -20978,18 +20948,12 @@
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "*ST禾信: *ST禾信:关于调整并签订房屋租赁合同暨关联交易的公告",
-      "u": "https://data.eastmoney.com/notices/detail/688622.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:14 CST",
-    "sector": 22,
-    "market": 47
+    "updated": "2026-06-29 21:15 CST",
+    "sector": 20,
+    "market": 43
   },
   "globalNews": {
     "headlines": [
@@ -21119,7 +21083,7 @@
         "ts": "2026-06-29 20:01:45"
       }
     ],
-    "updated": "2026-06-29 13:14 UTC",
+    "updated": "2026-06-29 13:15 UTC",
     "status": "ok"
   }
 }
