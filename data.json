@@ -20570,6 +20570,18 @@
   },
   "_newsSector": [
     {
+      "t": "SpaceX 250亿美元债券发行获超额认购，却或将让投资者陷入配置难题",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw7068408.shtml",
+      "time": "20:02",
+      "src": "sina_A股"
+    },
+    {
+      "t": "真金白银入场！上市银行高管密集增持，多家银行成立市值管理小组",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-29/doc-inifapys2185742.shtml",
+      "time": "19:56",
+      "src": "sina_7x24"
+    },
+    {
       "t": "分析师：SpaceX 250亿美元债券发行巨大需求，但也可能给投资者带来隐忧",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapys2183103.shtml",
       "time": "19:52",
@@ -20643,6 +20655,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "兆易创新、华虹宏力双双创新高！规模最大港股通信息技术ETF华宝（159131）强势收涨2.15%",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyy3844175.shtml",
+      "time": "20:01",
+      "src": "sina_7x24"
+    },
     {
       "t": "【风华高科：公司为“国内唯一通过英伟达全系列MLCC认证的企业”的信息不属实】风华高科股票交易严重异常波动的公告，公司关注到近期有媒体提及公司“针对代理商0402、0603芯片电阻、MLCC全线暂停接单”，经核查，以上信息不属实，为做好部分",
       "u": "https://wallstreetcn.com/livenews/3126148",
@@ -20725,12 +20743,6 @@
       "t": "AirTrunk据悉接近提交上市申请 或为新加坡2017年以来最大规模IPO",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6987200.shtml",
       "time": "18:09",
-      "src": "sina_A股"
-    },
-    {
-      "t": "中东地缘风险溢价消退 迪拜股市将创一年最佳季度表现",
-      "u": "https://finance.sina.com.cn/world/2026-06-29/doc-inifapyw6980885.shtml",
-      "time": "18:01",
       "src": "sina_A股"
     },
     {
@@ -20897,8 +20909,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:01 CST",
-    "sector": 12,
+    "updated": "2026-06-29 20:02 CST",
+    "sector": 14,
     "market": 42
   },
   "globalNews": {
@@ -21029,7 +21041,7 @@
         "ts": "2026-06-29 19:28:24"
       }
     ],
-    "updated": "2026-06-29 12:01 UTC",
+    "updated": "2026-06-29 12:02 UTC",
     "status": "ok"
   }
 }
