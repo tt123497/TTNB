@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "从1元到亿元，保险中介牌照叫价呈现“云泥之别”",
+      "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-06-29/doc-inifapyy3830617.shtml",
+      "time": "19:42",
+      "src": "sina_7x24"
+    },
+    {
       "t": "券商异动频发，这次不一样？掘金科技牛“赢麻了”，机构高呼：不是科技胜似科技！",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyy3826908.shtml",
       "time": "19:38",
@@ -20621,12 +20627,6 @@
       "t": "兴业银行大幅上调黄金延期保证金！多家银行集体取消“个人杠杆炒金”？",
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifapyq5364220.shtml",
       "time": "18:25",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "浙商银行：拟发行不超过1400亿元金融债券",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifapys2139928.shtml",
-      "time": "18:23",
       "src": "sina_7x24"
     }
   ],
@@ -20722,12 +20722,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "ATFX本周前瞻:6月非农来袭凯文沃什论坛讲话 美国独立纪念日",
-      "u": "https://finance.sina.com.cn/money/forex/forexroll/2026-06-29/doc-inifapys2138002.shtml",
-      "time": "18:19",
-      "src": "sina_7x24"
-    },
-    {
       "t": "AirTrunk据悉接近提交上市申请 或为新加坡2017年以来最大规模IPO",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6987200.shtml",
       "time": "18:09",
@@ -20746,10 +20740,10 @@
       "src": "sina_A股"
     },
     {
-      "t": "高盛：美股或再迎强劲财报季 经济增长和AI热潮料推动每股收益增长",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifaiss5472329.shtml",
-      "time": "17:43",
-      "src": "sina_A股"
+      "t": "百普赛斯: 百普赛斯:关于回购公司股份方案的公告",
+      "u": "https://data.eastmoney.com/notices/detail/301080.html",
+      "time": "06-30",
+      "src": "em_ann"
     },
     {
       "t": "*ST实达: *ST实达:福建实达集团股份有限公司股票交易异常波动公告",
@@ -20816,18 +20810,12 @@
       "u": "https://data.eastmoney.com/notices/detail/000652.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "海兴电力: 海兴电力:国浩律师(上海)事务所关于杭州海兴电力科技股份有限公司差异化分红事项之法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/603556.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:41 CST",
+    "updated": "2026-06-29 19:43 CST",
     "sector": 10,
-    "market": 32
+    "market": 30
   },
   "globalNews": {
     "headlines": [
@@ -20835,6 +20823,11 @@
         "t": "首次！全球最火存储ETF纳入中国芯片龙头兆易创新",
         "s": "【首次！全球最火存储ETF纳入中国芯片龙头】全球首只内存领域主动管理型ETF——Roundhill Memory ETF（DRAM）近日进行调仓，首次将A股存储龙头兆易创新纳入投资",
         "ts": "2026-06-29 19:39:22"
+      },
+      {
+        "t": "2连板有研硅：所处的半导体行业具有较强的周期性受行业供需关系等多重因素影响",
+        "s": "【2连板有研硅：所处的半导体行业具有较强的周期性受行业供需关系等多重因素影响】有研硅(688432.SH)公告称，公司所处的半导体行业具有较强的周期性，受宏观经济形势、下游消费电子",
+        "ts": "2026-06-29 19:38:43"
       },
       {
         "t": "伊朗军方仅允许船只经拉腊克岛以南航道通过霍尔木兹海峡",
@@ -20950,14 +20943,9 @@
         "t": "霍尼韦尔航空航天公司完成从霍尼韦尔技术集团的剥离",
         "s": "【霍尼韦尔航空航天公司完成从霍尼韦尔技术集团的剥离】霍尼韦尔航空航天公司完成从霍尼韦尔技术集团的剥离，并开始于纳斯达克上市交易。",
         "ts": "2026-06-29 19:08:13"
-      },
-      {
-        "t": "沃顿科技：2026年初至本公告披露日 涉及半导体及液冷领域的业务收入占公司营业收入比例不超过1%",
-        "s": "【沃顿科技：2026年初至本公告披露日 涉及半导体及液冷领域的业务收入占公司营业收入比例不超过1%】沃顿科技(000920.SZ)公告称，公司关注到近期市场对半导体及液冷行业关注度",
-        "ts": "2026-06-29 19:06:05"
       }
     ],
-    "updated": "2026-06-29 11:41 UTC",
+    "updated": "2026-06-29 11:43 UTC",
     "status": "ok"
   }
 }
