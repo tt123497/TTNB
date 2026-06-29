@@ -20770,6 +20770,18 @@
       "src": "sina_A股"
     },
     {
+      "t": "ST龙大: ST龙大:关于变更回购股份用途的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002726.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST龙大: ST龙大:关于控股股东所持公司927万股股份被强制执行进展情况的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002726.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST明德: *ST明德:北京大成律师事务所关于武汉明德生物科技股份有限公司重大资产购买的法律意见书",
       "u": "https://data.eastmoney.com/notices/detail/002932.html",
       "time": "06-30",
@@ -20962,18 +20974,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易采取的保密措施及保密制度的说明",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST明德: *ST明德:资产评估报告-中联沪评字【2026】第58号",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -20999,7 +20999,7 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:08 CST",
+    "updated": "2026-06-29 21:09 CST",
     "sector": 21,
     "market": 50
   },
@@ -21131,7 +21131,7 @@
         "ts": "2026-06-29 19:58:59"
       }
     ],
-    "updated": "2026-06-29 13:08 UTC",
+    "updated": "2026-06-29 13:09 UTC",
     "status": "ok"
   }
 }
