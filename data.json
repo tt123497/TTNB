@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "加拿大黄金勘探企业San Lorenzo拓展Arco de Oro矿化系统 钻探见矿良好",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2082325.shtml",
+      "time": "20:51",
+      "src": "sina_A股"
+    },
+    {
       "t": "欧洲投资银行向空客提供34.2亿美元贷款 力挺欧洲技术主权",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5303847.shtml",
       "time": "20:49",
@@ -20710,12 +20716,6 @@
       "src": "wscn_全球"
     },
     {
-      "t": "兆易创新、华虹宏力双双创新高！规模最大港股通信息技术ETF华宝（159131）强势收涨2.15%",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyy3844175.shtml",
-      "time": "20:01",
-      "src": "sina_7x24"
-    },
-    {
       "t": "鲟龙科技港股上市在即：鱼子酱界“隐形冠军”的稀缺叙事 与17亿水下资产的信任博弈",
       "u": "https://finance.sina.com.cn/stock/observe/2026-06-29/doc-inifapys2171284.shtml",
       "time": "19:30",
@@ -20788,12 +20788,6 @@
       "src": "em_ann"
     },
     {
-      "t": "石基信息: 石基信息:关于公司发行股份购买资产获得深圳证券交易所并购重组审核委员会审核通过的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002153.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "*ST禾信: *ST禾信:关于作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权的公告",
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
@@ -20813,9 +20807,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:51 CST",
-    "sector": 14,
-    "market": 26
+    "updated": "2026-06-29 20:52 CST",
+    "sector": 15,
+    "market": 24
   },
   "globalNews": {
     "headlines": [],
