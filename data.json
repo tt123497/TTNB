@@ -20722,6 +20722,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600860.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST天喻: *ST天喻:关于股票交易被叠加实施其他风险警示的进展公告",
       "u": "https://data.eastmoney.com/notices/detail/300205.html",
       "time": "06-30",
@@ -20762,16 +20768,10 @@
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "芯联集成: 芯联集成:芯联集成电路制造股份有限公司股东减持股份计划完成暨权益变动触及5%刻度的公告",
-      "u": "https://data.eastmoney.com/notices/detail/688469.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:45 CST",
+    "updated": "2026-06-29 20:46 CST",
     "sector": 14,
     "market": 19
   },
@@ -20903,7 +20903,7 @@
         "ts": "2026-06-29 19:52:43"
       }
     ],
-    "updated": "2026-06-29 12:45 UTC",
+    "updated": "2026-06-29 12:46 UTC",
     "status": "ok"
   }
 }
