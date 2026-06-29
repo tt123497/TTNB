@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "6家保险中介“失联”背后：行业清退加速，中小机构生死时速",
+      "u": "https://finance.sina.com.cn/money/insurance/bxyx/2026-06-29/doc-inifauhq2116747.shtml",
+      "time": "21:57",
+      "src": "sina_7x24"
+    },
+    {
       "t": "进出口银行完成2025年度自身运营碳核算",
       "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhu7012116.shtml",
       "time": "21:40",
@@ -20696,16 +20702,10 @@
       "src": "sina_A股"
     },
     {
-      "t": "“玻璃桥”冲击到底有多大？华尔街：FAU厂商面临颠覆压力，AI光模块企业暂时相对安全",
-      "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifauhn5308836.shtml",
-      "time": "20:49",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "江苏银行副行长高增银拟任省委管理领导班子企业正职",
-      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhw3748389.shtml",
-      "time": "20:48",
-      "src": "sina_7x24"
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易符合《关于加强证券公司在投资银行类业务中聘请第三方等廉洁从业风险防控的意见的相关规定》之核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
     }
   ],
   "_newsMarket": [
@@ -20816,15 +20816,158 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5297379.shtml",
       "time": "20:30",
       "src": "sina_A股"
+    },
+    {
+      "t": "ST龙元: ST龙元:龙元建设关于股票交易异常波动的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600491.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST龙元: ST龙元:龙元建设关于公司股票存在可能因股价低于面值被终止上市的风险提示公告",
+      "u": "https://data.eastmoney.com/notices/detail/600491.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST龙大: ST龙大:关于变更回购股份用途的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002726.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST龙大: ST龙大:关于控股股东所持公司927万股股份被强制执行进展情况的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002726.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:北京大成律师事务所关于武汉明德生物科技股份有限公司重大资产购买的法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:立信会计师事务所(特殊普通合伙)及经办人员关于不存在不得参与上市公司重大资产重组相关情形的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易是否存在直接或间接有偿聘请其他第三方机构或个人的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易是否构成重大资产重组、关联交易及重组上市的核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司重大资产购买报告书(草案)",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易定价的依据及公平合理性说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:中联资产评估咨询(上海)有限公司及经办人员关于不存在不得参与上市公司重大资产重组相关情形的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于武汉明德生物科技股份有限公司重大资产购买之独立财务顾问报告",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次重大资产重组前业绩异常或存在拟置出资产情形的相关事项之专项核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易产业政策及交易类型的核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易相关主体不存在《上市公司监管指引第7号——上市公司重大资产重组相关股票异常交易监管》第十二条不得参与任何上市公司重大资产重组情形的核",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:标的方相关声明与承诺",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:审计报告-信会师报字[2026]第ZE50204号",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:关于暂不召开股东会审议本次交易相关事项的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易前十二个月内购买、出售资产情况的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司关于本次重组交易作出的相关承诺",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:北京大成律师事务所关于武汉明德生物科技股份有限公司重大资产重组前业绩异常或存在拟置出资产情形的专项核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易符合《上市公司重大资产重组管理办法》第十一条及不适用第四十三条、第四十四条规定的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600860.html",
+      "time": "06-30",
+      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:57 CST",
+    "updated": "2026-06-29 21:58 CST",
     "sector": 23,
-    "market": 18
+    "market": 41
   },
   "globalNews": {
     "headlines": [
+      {
+        "t": "瑞银上调台积电目标估值 看好未来三年产能扩张与提价预期",
+        "s": "【瑞银上调台积电目标估值 看好未来三年产能扩张与提价预期】瑞银于周一上调全球晶圆代工龙头台积电的目标股价，由3000新台币提升至3400新台币，维持“买入”投资评级。同时券商上调台",
+        "ts": "2026-06-29 21:53:32"
+      },
       {
         "t": "美股半导体股多数上涨 应用材料涨近6%",
         "s": "【美股半导体股多数上涨 应用材料涨近6%】美股半导体股多数上涨，设备股应用材料涨近6%，科磊涨近5%，泛林集团涨超3%；台积电涨超2%，博通、英伟达涨超1%。",
@@ -20944,14 +21087,9 @@
         "t": "Meta对Claude和Codex使用施加限制",
         "s": "【Meta对Claude和Codex使用施加限制】据报道，内部文件显示，Meta因担心模型蒸馏风险，对Anthropic的Claude和OpenAI的Codex使用施加限制。",
         "ts": "2026-06-29 21:08:00"
-      },
-      {
-        "t": "报告：65%的受访者认为100万元资金足够养老",
-        "s": "【报告：65%的受访者认为100万元资金足够养老】调研显示，约86%的受访者认为理想养老资金在300万元以内，65%的受访者认为100万元资金就足够养老。",
-        "ts": "2026-06-29 21:08:00"
       }
     ],
-    "updated": "2026-06-29 13:57 UTC",
+    "updated": "2026-06-29 13:58 UTC",
     "status": "ok"
   }
 }
