@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "Rocket Lab拟收购Iridium 挑战SpaceX太空霸主地位",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3755052.shtml",
+      "time": "20:56",
+      "src": "sina_A股"
+    },
+    {
       "t": "张玉璐获批担任瑞丰银行董事",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhq2085183.shtml",
       "time": "20:56",
@@ -20618,6 +20624,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "两家银行参股同业",
+      "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifauhw3748852.shtml",
+      "time": "20:35",
+      "src": "sina_7x24"
+    },
+    {
       "t": "“重银转债”转股致股本扩容 重庆银行下调2025年度每股分配比例",
       "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhw3734848.shtml",
       "time": "20:32",
@@ -20651,12 +20663,6 @@
       "t": "光大银行：齐晔担任风险管理委员会委员",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhw3721702.shtml",
       "time": "20:13",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "万亿重庆银行，股东格局生变",
-      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhn5293094.shtml",
-      "time": "20:10",
       "src": "sina_7x24"
     },
     {
@@ -20746,6 +20752,42 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易符合《上市公司监管指引第9号——上市公司筹划和实施重大资产重组的监管要求》第四条规定的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易前12个月内购买、出售资产情况的核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:关于披露重组报告书暨一般风险提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易摊薄即期回报填补措施及承诺事项的核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易相关主体不存在《上市公司监管指引第7号——上市公司重大资产重组相关股票异常交易监管》第十二条不得参与任何上市公司重大资产重",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST明德: *ST明德:重大资产重组前业绩异常或拟置出资产的专项核查报告",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST华闻: *ST华闻:关于华闻传媒投资集团股份有限公司重整计划执行情况的监督报告",
       "u": "https://data.eastmoney.com/notices/detail/000793.html",
       "time": "06-30",
@@ -20819,9 +20861,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:56 CST",
-    "sector": 18,
-    "market": 23
+    "updated": "2026-06-29 20:58 CST",
+    "sector": 19,
+    "market": 29
   },
   "globalNews": {
     "headlines": [],
