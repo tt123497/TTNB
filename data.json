@@ -20716,12 +20716,6 @@
       "src": "wscn_全球"
     },
     {
-      "t": "两只A股，终止上市！",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-29/doc-inifapyq5405527.shtml",
-      "time": "19:41",
-      "src": "sina_7x24"
-    },
-    {
       "t": "鲟龙科技港股上市在即：鱼子酱界“隐形冠军”的稀缺叙事 与17亿水下资产的信任博弈",
       "u": "https://finance.sina.com.cn/stock/observe/2026-06-29/doc-inifapys2171284.shtml",
       "time": "19:30",
@@ -20801,9 +20795,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:32 CST",
+    "updated": "2026-06-29 20:33 CST",
     "sector": 18,
-    "market": 20
+    "market": 19
   },
   "globalNews": {
     "headlines": [
@@ -20933,7 +20927,7 @@
         "ts": "2026-06-29 19:42:33"
       }
     ],
-    "updated": "2026-06-29 12:32 UTC",
+    "updated": "2026-06-29 12:33 UTC",
     "status": "ok"
   }
 }
