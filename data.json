@@ -20618,12 +20618,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "生物医药股，绝地反弹",
-      "u": "https://finance.sina.com.cn/stock/hyyj/2026-06-29/doc-inifapyw6993053.shtml",
-      "time": "18:05",
-      "src": "sina_7x24"
-    },
-    {
       "t": "存储芯片龙头，股价新高",
       "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifaisy7092665.shtml",
       "time": "17:29",
@@ -20873,8 +20867,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:23 CST",
-    "sector": 10,
+    "updated": "2026-06-29 19:24 CST",
+    "sector": 9,
     "market": 40
   },
   "globalNews": {
@@ -21005,7 +20999,7 @@
         "ts": "2026-06-29 18:40:44"
       }
     ],
-    "updated": "2026-06-29 11:23 UTC",
+    "updated": "2026-06-29 11:24 UTC",
     "status": "ok"
   }
 }
