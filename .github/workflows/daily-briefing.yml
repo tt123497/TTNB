@@ -72,4 +72,11 @@ jobs:
           git config user.name "Sentinel Bot"
           git config user.email "bot@sentinel.local"
           git add data.json briefing-history.json archive/ 2>/dev/null || git add data.json briefing-history.json 2>/dev/null || git add data.json
-          git diff --staged --quiet || (git commit -m "📰 $(date '+%H:%M') 简报更新" && git push)
+          git diff --staged --quiet && exit 0
+          for i in 1 2 3; do
+            git commit -m "daily $(date '+%H:%M')"
+            git pull --rebase -X theirs origin main && git push origin main && exit 0
+            git rebase --abort 2>/dev/null; git reset --soft HEAD~1 2>/dev/null
+            sleep 5
+          done
+          exit 0
