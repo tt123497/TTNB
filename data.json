@@ -20588,6 +20588,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "恒生银行李秀怡：内地企业出海进入深水区，香港打造黄金跳板",
+      "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifauhu7001008.shtml",
+      "time": "21:13",
+      "src": "sina_7x24"
+    },
+    {
       "t": "Charter与SpaceX传出合作消息 股价大涨超24%",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5316574.shtml",
       "time": "21:12",
@@ -20776,6 +20782,18 @@
       "src": "sina_A股"
     },
     {
+      "t": "ST龙元: ST龙元:龙元建设关于股票交易异常波动的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600491.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST龙元: ST龙元:龙元建设关于公司股票存在可能因股价低于面值被终止上市的风险提示公告",
+      "u": "https://data.eastmoney.com/notices/detail/600491.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "ST龙大: ST龙大:关于变更回购股份用途的公告",
       "u": "https://data.eastmoney.com/notices/detail/002726.html",
       "time": "06-30",
@@ -20908,18 +20926,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易符合《上市公司重大资产重组管理办法》第十一条及不适用第四十三条、第四十四条规定的核查意见",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易信息首次披露前公司股票价格波动情况的说明",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -20933,8 +20939,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:28 CST",
-    "sector": 23,
+    "updated": "2026-06-29 21:30 CST",
+    "sector": 24,
     "market": 37
   },
   "globalNews": {
@@ -21065,7 +21071,7 @@
         "ts": "2026-06-29 20:14:34"
       }
     ],
-    "updated": "2026-06-29 13:29 UTC",
+    "updated": "2026-06-29 13:30 UTC",
     "status": "ok"
   }
 }
