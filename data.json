@@ -20638,6 +20638,12 @@
       "src": "wscn_全球"
     },
     {
+      "t": "两只A股，终止上市！",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-29/doc-inifapyq5405527.shtml",
+      "time": "19:41",
+      "src": "sina_7x24"
+    },
+    {
       "t": "创新药突然爆发，批量涨超10%！药ETF、港股通创新药ETF（520880）罕见暴涨8%！医疗同步反攻",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyy3829299.shtml",
       "time": "19:41",
@@ -20746,6 +20752,60 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST华西: *ST华西:关于召开2026年第二次临时股东会的通知",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《公司章程》(2026年6月)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《公司章程》修订对照表",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《董事会议事规则》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《董事和高级管理人员所持本公司股份及其变动管理办法》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《内部控制评价办法》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《内部审计制度》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《股东会议事规则》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "傲农生物: 傲农生物:福建傲农生物科技集团股份有限公司关于控股股东的一致行动人增持股份结果公告",
+      "u": "https://data.eastmoney.com/notices/detail/603363.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST华西: *ST华西:《募集资金管理办法》(2026年6月修订)",
       "u": "https://data.eastmoney.com/notices/detail/002630.html",
       "time": "06-30",
@@ -20776,20 +20836,8 @@
       "src": "em_ann"
     },
     {
-      "t": "东北制药: 东北制药:关于回购注销部分限制性股票减少注册资本暨通知债权人的公告",
-      "u": "https://data.eastmoney.com/notices/detail/000597.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "东时转债: ST东时:关于公司股票被实施其他风险警示相关事项的进展公告",
       "u": "https://data.eastmoney.com/notices/detail/113575.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "百普赛斯: 百普赛斯:关于回购公司股份方案的公告",
-      "u": "https://data.eastmoney.com/notices/detail/301080.html",
       "time": "06-30",
       "src": "em_ann"
     },
@@ -20837,12 +20885,17 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:50 CST",
+    "updated": "2026-06-29 19:52 CST",
     "sector": 10,
-    "market": 34
+    "market": 42
   },
   "globalNews": {
     "headlines": [
+      {
+        "t": "风华高科：英伟达未对公司开展任何产品认证 公司高端项目尚处建设阶段",
+        "s": "【风华高科：英伟达未对公司开展任何产品认证 公司高端项目尚处建设阶段】风华高科(000636.SZ)公告称，公司澄清，媒体提及的“针对代理商全线暂停接单”不属实，仅为部分产品暂缓接",
+        "ts": "2026-06-29 19:48:52"
+      },
       {
         "t": "中巨芯：公司存在市场情绪过热及非理性炒作情形",
         "s": "【中巨芯：公司存在市场情绪过热及非理性炒作情形】中巨芯6月29日公告，公司2025年度归属于上市公司股东的净利润为负，因此无市盈率倍数，公司存在估值较高的风险，存在市场情绪过热及非",
@@ -20962,14 +21015,9 @@
         "t": "王沪宁出席建设强大国内市场调研协商座谈会",
         "s": "【王沪宁出席建设强大国内市场调研协商座谈会】建设强大国内市场调研协商座谈会6月29日在京召开，就有关民主党派中央、无党派人士开展的重点考察调研成果进行协商。中共中央政治局常委、全国",
         "ts": "2026-06-29 19:20:24"
-      },
-      {
-        "t": "本末动力（北京）科技股份有限公司通过港交所上市聆讯",
-        "s": "【本末动力（北京）科技股份有限公司通过港交所上市聆讯】本末动力（北京）科技股份有限公司更新聆讯后资料集，意味着该公司港交所IPO通过聆讯。",
-        "ts": "2026-06-29 19:19:35"
       }
     ],
-    "updated": "2026-06-29 11:50 UTC",
+    "updated": "2026-06-29 11:52 UTC",
     "status": "ok"
   }
 }
