@@ -20758,6 +20758,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "ST龙韵: ST龙韵:上海龙韵文创科技集团股份有限公司关于实际控制人内部之间的协议转让股份暨权益变动的提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/603729.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "ST萃华: ST萃华:关于公司及部分子公司新增借款逾期的公告",
       "u": "https://data.eastmoney.com/notices/detail/002731.html",
       "time": "06-30",
@@ -20768,16 +20774,10 @@
       "u": "https://data.eastmoney.com/notices/detail/000565.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "浙农股份: 浙农股份:关于股份回购结果暨股份变动公告",
-      "u": "https://data.eastmoney.com/notices/detail/002758.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:08 CST",
+    "updated": "2026-06-29 19:09 CST",
     "sector": 12,
     "market": 22
   },
@@ -20909,7 +20909,7 @@
         "ts": "2026-06-29 18:35:06"
       }
     ],
-    "updated": "2026-06-29 11:08 UTC",
+    "updated": "2026-06-29 11:09 UTC",
     "status": "ok"
   }
 }
