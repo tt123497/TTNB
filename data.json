@@ -20672,12 +20672,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "张玉璐获批担任瑞丰银行董事",
-      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhq2085183.shtml",
-      "time": "20:56",
-      "src": "sina_7x24"
-    },
-    {
       "t": "CVC资本拟收购Irca集团 私募巨头加码食品原料赛道",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3751204.shtml",
       "time": "20:52",
@@ -20957,8 +20951,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 22:15 CST",
-    "sector": 22,
+    "updated": "2026-06-29 22:17 CST",
+    "sector": 21,
     "market": 42
   },
   "globalNews": {
@@ -21089,7 +21083,7 @@
         "ts": "2026-06-29 21:38:31"
       }
     ],
-    "updated": "2026-06-29 14:15 UTC",
+    "updated": "2026-06-29 14:17 UTC",
     "status": "ok"
   }
 }
