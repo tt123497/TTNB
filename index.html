@@ -1761,7 +1761,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     <div class="section" id="recapIndex"><div class="section-title">📊 主要指数</div>
     <div class="recap-grid">${D.recap.index.map(i=>`<div class="recap-chip">
-      <div class="rc-val" style="color:${i.up?'var(--green)':'var(--red)'}">${i.chg}</div>
+      <div class="rc-val" style="color:${i.up?'var(--red)':'var(--green)'}">${i.chg}</div>
       <div class="rc-label">${i.n}</div>
       <div class="rc-sub">${i.v}</div>
     </div>`).join('')}</div></div>

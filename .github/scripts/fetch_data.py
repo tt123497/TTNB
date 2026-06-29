@@ -647,8 +647,9 @@ def auto_cycle(indices):
         label = '高风险'
         sug = '现金为王，等待企稳信号'
 
+    chg_word = '涨' if avg_chg >= 0 else '跌'
     signals = [
-        f"指数均涨{avg_chg:+.1f}%，{up_count}/{len(major)}上涨",
+        f"指数均{chg_word}{abs(avg_chg):.1f}%，{up_count}/{len(major)}上涨",
         f"上证{indices[0].get('v','?')} {indices[0].get('chg','?')}",
         f"深证{indices[1].get('v','?')} {indices[1].get('chg','?')}" if len(indices) > 1 else '',
     ]
@@ -776,9 +777,10 @@ def main():
         }
         preserve['top3'] = ai_top3
 
-    # Auto-generate cycle if no manual one
-    cycle = old_cycle
-    if not cycle and indices:
+    # Auto-generate cycle from latest index data every run
+    # (old_cycle preserved stale judgments like '恐慌下跌' even when market recovered)
+    cycle = None
+    if indices:
         cycle = auto_cycle(indices)
     if not cycle:
         cycle = {'phase': '等待数据', 'phaseIcon': '📊', 'signals': ['行情数据加载中'], 'riskLevel': 'medium', 'riskLabel': '等待', 'suggestion': '等待开盘'}
