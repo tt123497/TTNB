@@ -20658,15 +20658,15 @@
       "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapys2186818.shtml",
       "time": "19:51",
       "src": "sina_7x24"
-    },
-    {
-      "t": "罕见！医药全线爆发，港股通创新药ETF（520880）盘中狂飙9%！光模块延续调整，券商异动频发，什么情况？",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapys2179579.shtml",
-      "time": "19:44",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
+    {
+      "t": "南亚新材：拟投资建设年产1400万平方米高端覆铜板研发及产业化项目，项目总投资额约为人民币7.9亿元。",
+      "u": "https://wallstreetcn.com/livenews/3126181",
+      "time": "20:40",
+      "src": "wscn_全球"
+    },
     {
       "t": "盘前：纳指期货涨1.07% 本周关注非农及沃什讲话",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5297379.shtml",
@@ -20740,18 +20740,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST东智: *ST东智:关于筹划控制权变更事项进展暨复牌的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002175.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST东智: *ST东智:广西东方智造科技股份有限公司简式权益变动报告书",
-      "u": "https://data.eastmoney.com/notices/detail/002175.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "*ST禾信: *ST禾信:关于作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权的公告",
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
@@ -20777,9 +20765,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:40 CST",
-    "sector": 16,
-    "market": 18
+    "updated": "2026-06-29 20:41 CST",
+    "sector": 15,
+    "market": 17
   },
   "globalNews": {
     "headlines": [
@@ -20909,7 +20897,7 @@
         "ts": "2026-06-29 19:48:52"
       }
     ],
-    "updated": "2026-06-29 12:40 UTC",
+    "updated": "2026-06-29 12:41 UTC",
     "status": "ok"
   }
 }
