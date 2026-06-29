@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "进出口银行完成2025年度自身运营碳核算",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhu7012116.shtml",
+      "time": "21:40",
+      "src": "sina_7x24"
+    },
+    {
       "t": "空客获欧洲投资银行34.2亿美元贷款，助力欧洲捍卫技术主权",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3776624.shtml",
       "time": "21:24",
@@ -20800,18 +20806,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "创新药，迎重要制度红利！",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-29/doc-inifauhq2079013.shtml",
-      "time": "20:40",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "南亚新材：拟投资建设年产1400万平方米高端覆铜板研发及产业化项目，项目总投资额约为人民币7.9亿元。",
-      "u": "https://wallstreetcn.com/livenews/3126181",
-      "time": "20:40",
-      "src": "wscn_全球"
-    },
-    {
       "t": "盘前：纳指期货涨1.07% 本周关注非农及沃什讲话",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5297379.shtml",
       "time": "20:30",
@@ -20957,9 +20951,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:39 CST",
-    "sector": 23,
-    "market": 41
+    "updated": "2026-06-29 21:40 CST",
+    "sector": 24,
+    "market": 39
   },
   "globalNews": {
     "headlines": [
@@ -20969,8 +20963,8 @@
         "ts": "2026-06-29 21:38:31"
       },
       {
-        "t": "美光科技跌幅扩大至3%",
-        "s": "美光科技跌幅扩大至3%。",
+        "t": "美光科技跌幅扩大至3% 闪迪跌超5%",
+        "s": "美光科技跌幅扩大至3%，闪迪股价跌超5%。",
         "ts": "2026-06-29 21:37:10"
       },
       {
@@ -21089,7 +21083,7 @@
         "ts": "2026-06-29 20:26:15"
       }
     ],
-    "updated": "2026-06-29 13:39 UTC",
+    "updated": "2026-06-29 13:40 UTC",
     "status": "ok"
   }
 }
