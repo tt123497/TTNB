@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "Charter与SpaceX密谈手机业务合作 股价大涨逾",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyq5412566.shtml",
+      "time": "20:06",
+      "src": "sina_A股"
+    },
+    {
       "t": "SpaceX 250亿美元债券发行获超额认购，却或将让投资者陷入配置难题",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw7068408.shtml",
       "time": "20:02",
@@ -20662,7 +20668,7 @@
   ],
   "_newsMarket": [
     {
-      "t": "Strategy美股盘前涨超4%，公司宣布10亿美元股票回购计划。",
+      "t": "Strategy宣布授权10亿美元优先股回购计划",
       "u": "https://wallstreetcn.com/livenews/3126156",
       "time": "20:03",
       "src": "wscn_全球"
@@ -20759,8 +20765,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:06 CST",
-    "sector": 15,
+    "updated": "2026-06-29 20:07 CST",
+    "sector": 16,
     "market": 16
   },
   "globalNews": {
@@ -20891,7 +20897,7 @@
         "ts": "2026-06-29 19:32:15"
       }
     ],
-    "updated": "2026-06-29 12:06 UTC",
+    "updated": "2026-06-29 12:08 UTC",
     "status": "ok"
   }
 }
