@@ -20750,49 +20750,19 @@
       "u": "https://data.eastmoney.com/notices/detail/603556.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "ST易购: ST易购:关于诉讼、仲裁事项进展的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002024.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST大晟: *ST大晟:关于2025年年度报告的信息披露监管问询函的回复公告",
-      "u": "https://data.eastmoney.com/notices/detail/600892.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST大晟: *ST大晟:关于撤销退市风险警示暨停牌的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600892.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST大晟: *ST大晟:中勤万信会计师事务所(特殊普通合伙)关于大晟时代文化投资股份有限公司2025年年度报告的信息披露监管问询函的回复",
-      "u": "https://data.eastmoney.com/notices/detail/600892.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST艾艾: *ST艾艾:艾艾精密工业输送系统(上海)股份有限公司关于撤销退市风险警示暨停牌的公告",
-      "u": "https://data.eastmoney.com/notices/detail/603580.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:38 CST",
+    "updated": "2026-06-29 19:39 CST",
     "sector": 10,
-    "market": 25
+    "market": 20
   },
   "globalNews": {
     "headlines": [
       {
         "t": "伊朗军方仅允许船只经拉腊克岛以南航道通过霍尔木兹海峡",
-        "s": "【伊朗军方仅允许船只经拉腊克岛以南航道通过霍尔木兹海峡】当地时间29日下午，伊朗军方通告称，所有通过霍尔木兹海峡的船只仅被允许从拉腊克岛以南航道通行。",
-        "ts": "2026-06-29 19:37:06"
+        "s": "【伊朗军方仅允许船只经拉腊克岛以南航道通过霍尔木兹海峡】当地时间29日下午，伊朗军方通告称，所有通过霍尔木兹海峡的船只仅被允许从拉腊克岛以南航道通行。此前，伊朗方面曾在28日发布消",
+        "ts": "2026-06-29 19:37:58"
       },
       {
         "t": "特朗普：关于伊朗问题的会议将于明天在多哈举行",
@@ -20915,7 +20885,7 @@
         "ts": "2026-06-29 19:04:52"
       }
     ],
-    "updated": "2026-06-29 11:38 UTC",
+    "updated": "2026-06-29 11:39 UTC",
     "status": "ok"
   }
 }
