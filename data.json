@@ -20746,6 +20746,54 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST亚振: *ST亚振:关于2025年年度报告信息披露监管问询函的回复公告",
+      "u": "https://data.eastmoney.com/notices/detail/603389.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST亚振: *ST亚振:2025年年度报告(更正后)",
+      "u": "https://data.eastmoney.com/notices/detail/603389.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST亚振: *ST亚振:关于对亚振家居股份有限公司2025年年度报告信息披露监管问询函的回复-中审亚太审字(2026)010006号",
+      "u": "https://data.eastmoney.com/notices/detail/603389.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST亚振: *ST亚振:关于前期会计差错更正的报表影响项目及更正后的财务报表",
+      "u": "https://data.eastmoney.com/notices/detail/603389.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST准油: *ST准油:关于召开2026年第二次临时股东会的通知",
+      "u": "https://data.eastmoney.com/notices/detail/002207.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "泰达股份: 泰达股份:天津泰达资源循环集团股份有限公司重大资产出售暨关联交易实施情况报告书",
+      "u": "https://data.eastmoney.com/notices/detail/000652.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "泰达股份: 泰达股份:中国银河证券股份有限公司关于天津泰达资源循环集团股份有限公司重大资产出售暨关联交易实施情况之独立财务顾问核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/000652.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "泰达股份: 泰达股份:上海市锦天城律师事务所关于天津泰达资源循环集团股份有限公司重大资产出售暨关联交易实施情况之法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/000652.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "海兴电力: 海兴电力:国浩律师(上海)事务所关于杭州海兴电力科技股份有限公司差异化分红事项之法律意见书",
       "u": "https://data.eastmoney.com/notices/detail/603556.html",
       "time": "06-30",
@@ -20753,9 +20801,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:39 CST",
+    "updated": "2026-06-29 19:40 CST",
     "sector": 10,
-    "market": 20
+    "market": 28
   },
   "globalNews": {
     "headlines": [
@@ -20885,7 +20933,7 @@
         "ts": "2026-06-29 19:04:52"
       }
     ],
-    "updated": "2026-06-29 11:39 UTC",
+    "updated": "2026-06-29 11:40 UTC",
     "status": "ok"
   }
 }
