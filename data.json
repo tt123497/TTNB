@@ -20758,6 +20758,30 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST中岩: *ST中岩:国浩律师(成都)事务所关于中化岩土集团股份有限公司2026年第三次临时股东会法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/002542.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST中岩: *ST中岩:关于控股股东提供担保并向其提供反担保并支付担保费暨关联交易的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/002542.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST中岩: *ST中岩:2026年第三次临时股东会决议公告",
+      "u": "https://data.eastmoney.com/notices/detail/002542.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "华亚智能: 华亚智能:关于回购注销部分股票减少注册资本暨通知债权人的公告",
+      "u": "https://data.eastmoney.com/notices/detail/003043.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "ST龙韵: ST龙韵:上海龙韵文创科技集团股份有限公司关于实际控制人内部之间的协议转让股份暨权益变动的提示性公告",
       "u": "https://data.eastmoney.com/notices/detail/603729.html",
       "time": "06-30",
@@ -20777,9 +20801,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:09 CST",
+    "updated": "2026-06-29 19:11 CST",
     "sector": 12,
-    "market": 22
+    "market": 26
   },
   "globalNews": {
     "headlines": [
@@ -20909,7 +20933,7 @@
         "ts": "2026-06-29 18:35:06"
       }
     ],
-    "updated": "2026-06-29 11:09 UTC",
+    "updated": "2026-06-29 11:11 UTC",
     "status": "ok"
   }
 }
