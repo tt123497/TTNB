@@ -20716,12 +20716,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "日元兑美元汇率跌至1986年以来最低水平。",
-      "u": "https://wallstreetcn.com/livenews/3126215",
-      "time": "22:00",
-      "src": "wscn_全球"
-    },
-    {
       "t": "标普500指数一度涨1%。",
       "u": "https://wallstreetcn.com/livenews/3126210",
       "time": "21:55",
@@ -20957,9 +20951,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 22:02 CST",
+    "updated": "2026-06-29 22:03 CST",
     "sector": 23,
-    "market": 41
+    "market": 40
   },
   "globalNews": {
     "headlines": [
@@ -21089,7 +21083,7 @@
         "ts": "2026-06-29 21:22:24"
       }
     ],
-    "updated": "2026-06-29 14:02 UTC",
+    "updated": "2026-06-29 14:03 UTC",
     "status": "ok"
   }
 }
