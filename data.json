@@ -24980,6 +24980,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "中国人民银行广东省分行等三部门联合出台“粤农气候贷”专项方案",
+      "u": "https://wallstreetcn.com/livenews/3126227",
+      "time": "22:24",
+      "src": "wscn_全球"
+    },
+    {
       "t": "美国最高法院允许美联储理事丽莎·库克暂且继续留任。\n\n最高法院拒绝允许总统特朗普立即将库克解除职务。\n\n最高法院扩大总统罢免高级别官员的权力。",
       "u": "https://wallstreetcn.com/livenews/3126225",
       "time": "22:19",
@@ -25233,9 +25239,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 22:24 CST",
+    "updated": "2026-06-29 22:25 CST",
     "sector": 19,
-    "market": 42
+    "market": 43
   },
   "globalNews": {
     "headlines": [
@@ -25365,7 +25371,7 @@
         "ts": "2026-06-29 21:43:52"
       }
     ],
-    "updated": "2026-06-29 14:24 UTC",
+    "updated": "2026-06-29 14:25 UTC",
     "status": "ok"
   }
 }
