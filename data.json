@@ -20570,6 +20570,18 @@
   },
   "_newsSector": [
     {
+      "t": "欧洲投资银行向空客提供34.2亿美元贷款 力挺欧洲技术主权",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5303847.shtml",
+      "time": "20:49",
+      "src": "sina_A股"
+    },
+    {
+      "t": "江苏银行副行长高增银拟任省委管理领导班子企业正职",
+      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhw3748389.shtml",
+      "time": "20:48",
+      "src": "sina_7x24"
+    },
+    {
       "t": "甘肃银行：向关联方甘肃资管批量转让不良债权 交易对价5141万元",
       "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhq2079678.shtml",
       "time": "20:47",
@@ -20636,12 +20648,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "宁夏银行入股黄河农商",
-      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifapys2188823.shtml",
-      "time": "20:00",
-      "src": "sina_7x24"
-    },
-    {
       "t": "分析师：SpaceX 250亿美元债券发行巨大需求，但也可能给投资者带来隐忧",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapys2183103.shtml",
       "time": "19:52",
@@ -20649,6 +20655,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "江苏银行副行长高增银拟任省委管理领导班子企业正职",
+      "u": "https://wallstreetcn.com/livenews/3126183",
+      "time": "20:49",
+      "src": "wscn_全球"
+    },
     {
       "t": "芯片股周一盘前集体反弹 AMD英特尔英伟达有望延续涨势",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3747144.shtml",
@@ -20728,7 +20740,19 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST华闻: *ST华闻:关于华闻传媒投资集团股份有限公司重整计划执行情况的监督报告",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST华闻: *ST华闻:国浩律师(海南)事务所关于华闻传媒投资集团股份有限公司重整计划执行完毕的法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华闻: *ST华闻:2026年第一次临时股东会决议公告",
       "u": "https://data.eastmoney.com/notices/detail/000793.html",
       "time": "06-30",
       "src": "em_ann"
@@ -20795,9 +20819,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:48 CST",
-    "sector": 13,
-    "market": 24
+    "updated": "2026-06-29 20:49 CST",
+    "sector": 14,
+    "market": 27
   },
   "globalNews": {
     "headlines": [
@@ -20927,7 +20951,7 @@
         "ts": "2026-06-29 19:52:43"
       }
     ],
-    "updated": "2026-06-29 12:48 UTC",
+    "updated": "2026-06-29 12:50 UTC",
     "status": "ok"
   }
 }
