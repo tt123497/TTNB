@@ -20770,6 +20770,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "芯联集成: 芯联集成:芯联集成电路制造股份有限公司股东减持股份计划完成暨权益变动触及5%刻度的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688469.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "兴蓉环境: 兴蓉环境:关于回购注销部分限制性股票、减少注册资本并相应修订《公司章程》的公告",
       "u": "https://data.eastmoney.com/notices/detail/000598.html",
       "time": "06-30",
@@ -20816,54 +20822,12 @@
       "u": "https://data.eastmoney.com/notices/detail/600735.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "*ST春天: *ST春天:青海春天关于公司股票交易风险提示的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600381.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST宁科: ST宁科:关于宁夏中科生物科技股份有限公司2026年第二次临时股东会法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/600165.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST宁科: ST宁科:ST宁科2026年第二次临时股东会决议公告",
-      "u": "https://data.eastmoney.com/notices/detail/600165.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST宁科: ST宁科:ST宁科关于对外投资进展暨完成工商变更登记并取得营业执照的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600165.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "傲农生物: 傲农生物:福建傲农生物科技集团股份有限公司关于控股股东的一致行动人增持股份结果公告",
-      "u": "https://data.eastmoney.com/notices/detail/603363.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST华扬: ST华扬:华扬联众数字技术股份有限公司关于上海证券交易所《关于华扬联众数字技术股份有限公司2025年年度报告的信息披露监管问询函》的回复公告",
-      "u": "https://data.eastmoney.com/notices/detail/603825.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST华扬: ST华扬:北京中名国成会计师事务所(特殊普通合伙)关于华扬联众数字技术股份有限公司2025年度年报问询函的专项说明",
-      "u": "https://data.eastmoney.com/notices/detail/603825.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:16 CST",
+    "updated": "2026-06-29 20:17 CST",
     "sector": 17,
-    "market": 31
+    "market": 25
   },
   "globalNews": {
     "headlines": [
@@ -20993,7 +20957,7 @@
         "ts": "2026-06-29 19:32:46"
       }
     ],
-    "updated": "2026-06-29 12:16 UTC",
+    "updated": "2026-06-29 12:17 UTC",
     "status": "ok"
   }
 }
