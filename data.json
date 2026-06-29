@@ -20752,12 +20752,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST东智: *ST东智:关于控股股东协议转让股权暨控制权拟发生变更的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/002175.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "*ST禾信: *ST禾信:关于作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权的公告",
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
@@ -20783,9 +20777,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:39 CST",
+    "updated": "2026-06-29 20:40 CST",
     "sector": 16,
-    "market": 19
+    "market": 18
   },
   "globalNews": {
     "headlines": [
@@ -20915,7 +20909,7 @@
         "ts": "2026-06-29 19:48:52"
       }
     ],
-    "updated": "2026-06-29 12:39 UTC",
+    "updated": "2026-06-29 12:40 UTC",
     "status": "ok"
   }
 }
