@@ -20576,6 +20576,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "宁夏银行入股黄河农商",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifapys2188823.shtml",
+      "time": "20:00",
+      "src": "sina_7x24"
+    },
+    {
       "t": "真金白银入场！上市银行高管密集增持，多家银行成立市值管理小组",
       "u": "https://finance.sina.com.cn/jjxw/2026-06-29/doc-inifapys2185742.shtml",
       "time": "19:56",
@@ -20591,6 +20597,12 @@
       "t": "带领保险系公募规模增长千亿 鄂华回归国寿资产任党委委员",
       "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapys2186818.shtml",
       "time": "19:51",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "罕见！医药全线爆发，港股通创新药ETF（520880）盘中狂飙9%！光模块延续调整，券商异动频发，什么情况？",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapys2179579.shtml",
+      "time": "19:44",
       "src": "sina_7x24"
     },
     {
@@ -20646,17 +20658,11 @@
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifapyy3799123.shtml",
       "time": "18:54",
       "src": "sina_7x24"
-    },
-    {
-      "t": "威海银行：将于7月30日派发末期股息每100股10元",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifapyy3793398.shtml",
-      "time": "18:45",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
     {
-      "t": "Strategy美股盘前涨超4%，公司宣布10亿美元普通股回购计划。",
+      "t": "Strategy美股盘前涨超4%，公司宣布10亿美元股票回购计划。",
       "u": "https://wallstreetcn.com/livenews/3126156",
       "time": "20:03",
       "src": "wscn_全球"
@@ -20750,165 +20756,20 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6987200.shtml",
       "time": "18:09",
       "src": "sina_A股"
-    },
-    {
-      "t": "顺络电子: 顺络电子:关于董事长部分股份质押的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002138.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "奇正藏药: 奇正藏药:关于高级管理人员减持计划期限届满未减持公司股份的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002287.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "南天信息: 南天信息:2025年度分红派息实施公告",
-      "u": "https://data.eastmoney.com/notices/detail/000948.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST联翔: *ST联翔:关于2025年年度报告的信息披露监管问询函回复的公告",
-      "u": "https://data.eastmoney.com/notices/detail/603272.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST联翔: *ST联翔:关于浙江联翔智能家居股份有限公司2025年年度报告的信息披露监管问询函的专项说明",
-      "u": "https://data.eastmoney.com/notices/detail/603272.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST新华锦: ST新华锦:新华锦2026年第二次临时股东会通知",
-      "u": "https://data.eastmoney.com/notices/detail/600735.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST新华锦: ST新华锦:新华锦2026年第二次临时股东会会议资料",
-      "u": "https://data.eastmoney.com/notices/detail/600735.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST新华锦: ST新华锦:新华锦关于收购山东新华锦新材料科技有限公司100%股权涉及采矿权暨关联交易的进展公告",
-      "u": "https://data.eastmoney.com/notices/detail/600735.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST春天: *ST春天:青海春天关于公司股票交易风险提示的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600381.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST宁科: ST宁科:关于宁夏中科生物科技股份有限公司2026年第二次临时股东会法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/600165.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST宁科: ST宁科:ST宁科2026年第二次临时股东会决议公告",
-      "u": "https://data.eastmoney.com/notices/detail/600165.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST宁科: ST宁科:ST宁科关于对外投资进展暨完成工商变更登记并取得营业执照的公告",
-      "u": "https://data.eastmoney.com/notices/detail/600165.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华西: *ST华西:关于召开2026年第二次临时股东会的通知",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华西: *ST华西:《公司章程》(2026年6月)",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华西: *ST华西:《公司章程》修订对照表",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "傲农生物: 傲农生物:福建傲农生物科技集团股份有限公司关于控股股东的一致行动人增持股份结果公告",
-      "u": "https://data.eastmoney.com/notices/detail/603363.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST华扬: ST华扬:华扬联众数字技术股份有限公司关于上海证券交易所《关于华扬联众数字技术股份有限公司2025年年度报告的信息披露监管问询函》的回复公告",
-      "u": "https://data.eastmoney.com/notices/detail/603825.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST华扬: ST华扬:北京中名国成会计师事务所(特殊普通合伙)关于华扬联众数字技术股份有限公司2025年度年报问询函的专项说明",
-      "u": "https://data.eastmoney.com/notices/detail/603825.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST百利: ST百利:国浩律师(广州)事务所关于湖南百利工程科技股份有限公司2025年年度股东会的法律意见",
-      "u": "https://data.eastmoney.com/notices/detail/603959.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST百利: ST百利:2025年年度股东会决议公告",
-      "u": "https://data.eastmoney.com/notices/detail/603959.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "东时转债: ST东时:关于公司股票被实施其他风险警示相关事项的进展公告",
-      "u": "https://data.eastmoney.com/notices/detail/113575.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST实达: *ST实达:福建实达集团股份有限公司股票交易异常波动公告",
-      "u": "https://data.eastmoney.com/notices/detail/600734.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST亚振: *ST亚振:关于2025年年度报告信息披露监管问询函的回复公告",
-      "u": "https://data.eastmoney.com/notices/detail/603389.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST亚振: *ST亚振:关于撤销退市风险警示暨停牌的公告",
-      "u": "https://data.eastmoney.com/notices/detail/603389.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST亚振: *ST亚振:2025年年度报告(更正后)",
-      "u": "https://data.eastmoney.com/notices/detail/603389.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:04 CST",
-    "sector": 14,
-    "market": 41
+    "updated": "2026-06-29 20:05 CST",
+    "sector": 15,
+    "market": 16
   },
   "globalNews": {
     "headlines": [
+      {
+        "t": "宏微科技：目前公司布局的AIDC、人形机器人、核聚变等新兴领域相关业务尚处于前期拓展、技术研发或小批量试点阶段",
+        "s": "【宏微科技：目前公司布局的AIDC、人形机器人、核聚变等新兴领域相关业务尚处于前期拓展、技术研发或小批量试点阶段】宏微科技发布股票交易风险提示公告称，目前公司布局的AIDC、人形机",
+        "ts": "2026-06-29 20:02:15"
+      },
       {
         "t": "实施价格监督员制度暂行规定 市场监管总局公开征求意见",
         "s": "【实施价格监督员制度暂行规定 市场监管总局公开征求意见】市场监管总局表示，建立价格监督员制度，是深入整治“内卷式”竞争的有力抓手，是完善价格治理机制的制度创新，是规范市场价格秩序的",
@@ -20918,6 +20779,11 @@
         "t": "宁德时代枧下窝矿已获批安全生产许可证",
         "s": "【宁德时代枧下窝矿已获批安全生产许可证】宁德时代枧下窝矿复产进度如何？6月29日晚间，有接近宁德时代的行业知情人士告诉《每日经济新闻》记者：“所有与生产相关的证件已经全部拿到手，最",
         "ts": "2026-06-29 20:00:48"
+      },
+      {
+        "t": "ST易购：诉讼一审判决万达集团支付17.47亿元及损失",
+        "s": "【ST易购：诉讼一审判决万达集团支付17.47亿元及损失】ST易购(002024.SZ)公告称，公司及子公司苏宁国际就与万达集团、万达商管的诉讼事项收到南京中院一审判决，判令万达集",
+        "ts": "2026-06-29 19:58:59"
       },
       {
         "t": "安克创新：H股发行价格确定为每股99.32港元",
@@ -21023,19 +20889,9 @@
         "t": "东方钽业：股票交易异常波动 市盈率显著高于行业均值",
         "s": "【东方钽业：股票交易异常波动 市盈率显著高于行业均值】东方钽业(000962.SZ)公告称，公司主要产品原材料为钽铌矿石，钽铌矿石原料90%以上依赖进口，海外进口原材料会受国际政治",
         "ts": "2026-06-29 19:32:15"
-      },
-      {
-        "t": "浙江：要打造脑机接口产业发展的良好生态 引导社会资本加大投入",
-        "s": "【浙江：要打造脑机接口产业发展的良好生态 引导社会资本加大投入】浙江省省长、省政府党组书记刘捷29日上午主持召开省政府党组第94次会议暨省政府第117次常务会议。会议指出，脑机接口",
-        "ts": "2026-06-29 19:31:03"
-      },
-      {
-        "t": "欧洲天然气库存创15年新低",
-        "s": "【欧洲天然气库存创15年新低】英国《金融时报》6月29日刊发的文章说，欧洲即将以至少15年来的最低天然气储存水平进入供暖季，这可能导致今年冬天企业和家庭的能源价格上涨。",
-        "ts": "2026-06-29 19:29:58"
       }
     ],
-    "updated": "2026-06-29 12:04 UTC",
+    "updated": "2026-06-29 12:05 UTC",
     "status": "ok"
   }
 }
