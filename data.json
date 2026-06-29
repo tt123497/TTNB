@@ -20670,12 +20670,6 @@
       "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapys2176089.shtml",
       "time": "19:09",
       "src": "sina_7x24"
-    },
-    {
-      "t": "中国进出口银行行长王春英在波黑开展工作调研",
-      "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapyq5396332.shtml",
-      "time": "19:09",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -20807,8 +20801,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:19 CST",
-    "sector": 18,
+    "updated": "2026-06-29 20:20 CST",
+    "sector": 17,
     "market": 21
   },
   "globalNews": {
@@ -20939,7 +20933,7 @@
         "ts": "2026-06-29 19:33:54"
       }
     ],
-    "updated": "2026-06-29 12:19 UTC",
+    "updated": "2026-06-29 12:20 UTC",
     "status": "ok"
   }
 }
