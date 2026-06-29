@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "光大银行：将于8月20日派发末期股息每10股0.7元",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhw3724740.shtml",
+      "time": "20:17",
+      "src": "sina_7x24"
+    },
+    {
       "t": "光大银行：齐晔担任风险管理委员会委员",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhw3721702.shtml",
       "time": "20:13",
@@ -20582,7 +20588,7 @@
       "src": "sina_7x24"
     },
     {
-      "t": "Charter与SpaceX密谈手机业务合作 股价大涨逾",
+      "t": "Charter与SpaceX密谈手机业务合作 股价大涨",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyq5412566.shtml",
       "time": "20:06",
       "src": "sina_A股"
@@ -20740,18 +20746,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "局势突变！伊朗，最新表态！美股三大期指集体拉升",
-      "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapys2164141.shtml",
-      "time": "19:06",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "长城基金：隔夜逆回购政策推进，债市乐观情绪升温",
-      "u": "https://finance.sina.com.cn/money/fund/jjh/2026-06-29/doc-inifapys2160370.shtml",
-      "time": "19:05",
-      "src": "sina_7x24"
-    },
-    {
       "t": "一段AI假视频，让880亿龙头股价巨震，从4连跌到涨停，超3万股民坐上“过山车”",
       "u": "https://finance.sina.com.cn/stock/s/2026-06-29/doc-inifapyy3809569.shtml",
       "time": "19:02",
@@ -20770,20 +20764,26 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST禾信: *ST禾信:关于作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:北京大成(广州)律师事务所关于广州禾信仪器股份有限公司2023年限制性股票与股票期权激励计划作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权事项的法",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST禾信: *ST禾信:关于调整并签订房屋租赁合同暨关联交易的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688622.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "芯联集成: 芯联集成:芯联集成电路制造股份有限公司股东减持股份计划完成暨权益变动触及5%刻度的公告",
       "u": "https://data.eastmoney.com/notices/detail/688469.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "兴蓉环境: 兴蓉环境:关于回购注销部分限制性股票、减少注册资本并相应修订《公司章程》的公告",
-      "u": "https://data.eastmoney.com/notices/detail/000598.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "兴蓉环境: 兴蓉环境:北京国枫律师事务所关于成都市兴蓉环境股份有限公司2022年限制性股票激励计划第三期解除限售及回购并注销部分限制性股票相关事项的法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/000598.html",
       "time": "06-30",
       "src": "em_ann"
     },
@@ -20792,42 +20792,12 @@
       "u": "https://data.eastmoney.com/notices/detail/600187.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "*ST联翔: *ST联翔:关于2025年年度报告的信息披露监管问询函回复的公告",
-      "u": "https://data.eastmoney.com/notices/detail/603272.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST联翔: *ST联翔:关于浙江联翔智能家居股份有限公司2025年年度报告的信息披露监管问询函的专项说明",
-      "u": "https://data.eastmoney.com/notices/detail/603272.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST新华锦: ST新华锦:新华锦2026年第二次临时股东会通知",
-      "u": "https://data.eastmoney.com/notices/detail/600735.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST新华锦: ST新华锦:新华锦2026年第二次临时股东会会议资料",
-      "u": "https://data.eastmoney.com/notices/detail/600735.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "ST新华锦: ST新华锦:新华锦关于收购山东新华锦新材料科技有限公司100%股权涉及采矿权暨关联交易的进展公告",
-      "u": "https://data.eastmoney.com/notices/detail/600735.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:17 CST",
-    "sector": 17,
-    "market": 25
+    "updated": "2026-06-29 20:18 CST",
+    "sector": 18,
+    "market": 19
   },
   "globalNews": {
     "headlines": [
@@ -20957,7 +20927,7 @@
         "ts": "2026-06-29 19:32:46"
       }
     ],
-    "updated": "2026-06-29 12:17 UTC",
+    "updated": "2026-06-29 12:18 UTC",
     "status": "ok"
   }
 }
