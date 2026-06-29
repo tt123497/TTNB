@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "事关黄金进出口，央行征求意见！个人携带、寄递黄金无需“办证”",
+      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-06-29/doc-inifauhu6944763.shtml",
+      "time": "20:09",
+      "src": "sina_7x24"
+    },
+    {
       "t": "Charter与SpaceX密谈手机业务合作 股价大涨逾",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyq5412566.shtml",
       "time": "20:06",
@@ -20746,12 +20752,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "隔夜逆回购操作3000亿元  专家：7天逆回购政策利率定位仍然明确",
-      "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifapyw7029683.shtml",
-      "time": "19:02",
-      "src": "sina_7x24"
-    },
-    {
       "t": "百度旗下昆仑芯要求IPO投资者采购其芯片",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6999729.shtml",
       "time": "18:25",
@@ -20765,9 +20765,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:11 CST",
-    "sector": 15,
-    "market": 17
+    "updated": "2026-06-29 20:12 CST",
+    "sector": 16,
+    "market": 16
   },
   "globalNews": {
     "headlines": [
@@ -20897,7 +20897,7 @@
         "ts": "2026-06-29 19:32:15"
       }
     ],
-    "updated": "2026-06-29 12:11 UTC",
+    "updated": "2026-06-29 12:12 UTC",
     "status": "ok"
   }
 }
