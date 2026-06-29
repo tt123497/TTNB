@@ -20678,18 +20678,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "Charter与SpaceX密谈手机业务合作 股价大涨",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyq5412566.shtml",
-      "time": "20:06",
-      "src": "sina_A股"
-    },
-    {
-      "t": "SpaceX 250亿美元债券发行获超额认购，却或将让投资者陷入配置难题",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw7068408.shtml",
-      "time": "20:02",
-      "src": "sina_A股"
-    },
-    {
       "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易符合《关于加强证券公司在投资银行类业务中聘请第三方等廉洁从业风险防控的意见的相关规定》之核查意见",
       "u": "https://data.eastmoney.com/notices/detail/002932.html",
       "time": "06-30",
@@ -20914,12 +20902,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST明德: *ST明德:蓝帆医疗相关声明与承诺",
-      "u": "https://data.eastmoney.com/notices/detail/002932.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -20930,18 +20912,12 @@
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "*ST禾信: *ST禾信:北京大成(广州)律师事务所关于广州禾信仪器股份有限公司2023年限制性股票与股票期权激励计划作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权事项的法",
-      "u": "https://data.eastmoney.com/notices/detail/688622.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:20 CST",
-    "sector": 21,
-    "market": 40
+    "updated": "2026-06-29 21:22 CST",
+    "sector": 19,
+    "market": 38
   },
   "globalNews": {
     "headlines": [
@@ -21071,7 +21047,7 @@
         "ts": "2026-06-29 20:02:15"
       }
     ],
-    "updated": "2026-06-29 13:21 UTC",
+    "updated": "2026-06-29 13:22 UTC",
     "status": "ok"
   }
 }
