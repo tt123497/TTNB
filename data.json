@@ -20600,6 +20600,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "工商银行助力财政部在卢森堡成功发行欧元主权债券",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifapys2178096.shtml",
+      "time": "19:28",
+      "src": "sina_7x24"
+    },
+    {
       "t": "半年2893张监管罚单！超六成银行违规问题指向信贷业务",
       "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifapyw7049028.shtml",
       "time": "19:24",
@@ -20710,12 +20716,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "催收公司披上“AI外衣”！第零智能冲港股",
-      "u": "https://finance.sina.com.cn/stock/newstock/2026-06-29/doc-inifapys2149515.shtml",
-      "time": "18:38",
-      "src": "sina_7x24"
-    },
-    {
       "t": "百度旗下昆仑芯要求IPO投资者采购其芯片",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6999729.shtml",
       "time": "18:25",
@@ -20737,12 +20737,6 @@
       "t": "中东地缘风险溢价消退 迪拜股市将创一年最佳季度表现",
       "u": "https://finance.sina.com.cn/world/2026-06-29/doc-inifapyw6980885.shtml",
       "time": "18:01",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英国央行改用多情景预测 皮尔担心决策者将更难达成共识",
-      "u": "https://finance.sina.com.cn/world/2026-06-29/doc-inifapys2127356.shtml",
-      "time": "17:59",
       "src": "sina_A股"
     },
     {
@@ -20927,9 +20921,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:58 CST",
-    "sector": 12,
-    "market": 47
+    "updated": "2026-06-29 20:00 CST",
+    "sector": 13,
+    "market": 45
   },
   "globalNews": {
     "headlines": [
@@ -21059,7 +21053,7 @@
         "ts": "2026-06-29 19:28:24"
       }
     ],
-    "updated": "2026-06-29 11:58 UTC",
+    "updated": "2026-06-29 12:00 UTC",
     "status": "ok"
   }
 }
