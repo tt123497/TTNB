@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "分析师：SpaceX 250亿美元债券发行巨大需求，但也可能给投资者带来隐忧",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapys2183103.shtml",
+      "time": "19:52",
+      "src": "sina_A股"
+    },
+    {
       "t": "28度轻奢新品引爆味蕾！“茅五泸汾洋”集体上攻，华宝基金食品饮料ETF（515710）深V反转上探2.83%！",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyq5402358.shtml",
       "time": "19:44",
@@ -20716,12 +20722,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "单针探底！A股震荡回暖，市场格局生变",
-      "u": "https://finance.sina.com.cn/stock/roll/2026-06-29/doc-inifapys2145701.shtml",
-      "time": "18:31",
-      "src": "sina_7x24"
-    },
-    {
       "t": "百度旗下昆仑芯要求IPO投资者采购其芯片",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyw6999729.shtml",
       "time": "18:25",
@@ -20776,6 +20776,12 @@
       "src": "em_ann"
     },
     {
+      "t": "*ST华西: *ST华西:《关联交易管理办法》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST华西: *ST华西:《董事和高级管理人员所持本公司股份及其变动管理办法》(2026年6月修订)",
       "u": "https://data.eastmoney.com/notices/detail/002630.html",
       "time": "06-30",
@@ -20788,7 +20794,25 @@
       "src": "em_ann"
     },
     {
+      "t": "*ST华西: *ST华西:《重大信息内部报告制度》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《债务融资信息披露制度》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST华西: *ST华西:《内部审计制度》(2026年6月修订)",
+      "u": "https://data.eastmoney.com/notices/detail/002630.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST华西: *ST华西:《年报信息披露重大差错责任追究制度》(2026年6月修订)-wsf",
       "u": "https://data.eastmoney.com/notices/detail/002630.html",
       "time": "06-30",
       "src": "em_ann"
@@ -20819,6 +20843,12 @@
     },
     {
       "t": "ST华扬: ST华扬:华扬联众数字技术股份有限公司关于上海证券交易所《关于华扬联众数字技术股份有限公司2025年年度报告的信息披露监管问询函》的回复公告",
+      "u": "https://data.eastmoney.com/notices/detail/603825.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST华扬: ST华扬:北京中名国成会计师事务所(特殊普通合伙)关于华扬联众数字技术股份有限公司2025年度年报问询函的专项说明",
       "u": "https://data.eastmoney.com/notices/detail/603825.html",
       "time": "06-30",
       "src": "em_ann"
@@ -20885,9 +20915,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:52 CST",
-    "sector": 10,
-    "market": 42
+    "updated": "2026-06-29 19:53 CST",
+    "sector": 11,
+    "market": 46
   },
   "globalNews": {
     "headlines": [
@@ -21017,7 +21047,7 @@
         "ts": "2026-06-29 19:20:24"
       }
     ],
-    "updated": "2026-06-29 11:52 UTC",
+    "updated": "2026-06-29 11:53 UTC",
     "status": "ok"
   }
 }
