@@ -20606,6 +20606,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "中国进出口银行副行长王康赴广东省、香港特别行政区调研",
+      "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapys2176089.shtml",
+      "time": "19:09",
+      "src": "sina_7x24"
+    },
+    {
       "t": "重庆银行：施晓盛担任非执行董事",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifapyy3799123.shtml",
       "time": "18:54",
@@ -20627,12 +20633,6 @@
       "t": "中国银行保险资产管理业协会风险管理专业委员会成立大会暨第一次工作会议在京召开",
       "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-06-29/doc-inifapyw7011719.shtml",
       "time": "18:38",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "招商银行官方辟谣公众号正式上线运行 银行辟谣号再添一员",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifapyw7006480.shtml",
-      "time": "18:32",
       "src": "sina_7x24"
     }
   ],
@@ -20752,6 +20752,24 @@
       "src": "sina_A股"
     },
     {
+      "t": "ST新华锦: ST新华锦:新华锦2026年第二次临时股东会通知",
+      "u": "https://data.eastmoney.com/notices/detail/600735.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST新华锦: ST新华锦:新华锦2026年第二次临时股东会会议资料",
+      "u": "https://data.eastmoney.com/notices/detail/600735.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST新华锦: ST新华锦:新华锦关于收购山东新华锦新材料科技有限公司100%股权涉及采矿权暨关联交易的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/600735.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST春天: *ST春天:青海春天关于公司股票交易风险提示的公告",
       "u": "https://data.eastmoney.com/notices/detail/600381.html",
       "time": "06-30",
@@ -20836,18 +20854,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST华西: *ST华西:《年报信息披露重大差错责任追究制度》(2026年6月修订)-wsf",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华西: *ST华西:《股东会议事规则》(2026年6月修订)",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "傲农生物: 傲农生物:福建傲农生物科技集团股份有限公司关于控股股东的一致行动人增持股份结果公告",
       "u": "https://data.eastmoney.com/notices/detail/603363.html",
       "time": "06-30",
@@ -20927,12 +20933,17 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:55 CST",
+    "updated": "2026-06-29 19:56 CST",
     "sector": 11,
-    "market": 48
+    "market": 49
   },
   "globalNews": {
     "headlines": [
+      {
+        "t": "西班牙政府：将向欧洲芯片公司OpenChip投资1.15亿欧元",
+        "s": "西班牙政府表示，将向欧洲芯片公司OpenChip投资1.15亿欧元。",
+        "ts": "2026-06-29 19:53:59"
+      },
       {
         "t": "蓝佛安会见巴西财政部部长杜里甘",
         "s": "【蓝佛安会见巴西财政部部长杜里甘】财政部部长蓝佛安6月26日在京会见巴西财政部部长杜里甘。双方主要就当前宏观经济形势、中巴在多双边财金合作机制下的交流与合作等中巴财金合作重点问题交",
@@ -21052,14 +21063,9 @@
         "t": "特朗普：油价迅速下降",
         "s": "美国总统特朗普表示，汽油价格正在快速下降。",
         "ts": "2026-06-29 19:22:49"
-      },
-      {
-        "t": "中韩自贸协定第二阶段第15轮谈判在北京举行",
-        "s": "【中韩自贸协定第二阶段第15轮谈判在北京举行】据商务部网站消息，6月22—26日，中韩自贸协定第二阶段第15轮谈判在北京举行。双方就跨境服务贸易、金融服务等议题和负面清单市场准入问",
-        "ts": "2026-06-29 19:21:44"
       }
     ],
-    "updated": "2026-06-29 11:55 UTC",
+    "updated": "2026-06-29 11:56 UTC",
     "status": "ok"
   }
 }
