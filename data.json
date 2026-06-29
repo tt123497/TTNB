@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "向弟海获批担任山西农村商业联合银行董事长",
+      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhq2084111.shtml",
+      "time": "20:54",
+      "src": "sina_7x24"
+    },
+    {
       "t": "CVC资本拟收购Irca集团 私募巨头加码食品原料赛道",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3751204.shtml",
       "time": "20:52",
@@ -20794,6 +20800,12 @@
       "src": "em_ann"
     },
     {
+      "t": "石基信息: 石基信息:关于公司发行股份购买资产获得深圳证券交易所并购重组审核委员会审核通过的公告",
+      "u": "https://data.eastmoney.com/notices/detail/002153.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "*ST禾信: *ST禾信:关于作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权的公告",
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
@@ -20813,9 +20825,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:53 CST",
-    "sector": 16,
-    "market": 24
+    "updated": "2026-06-29 20:54 CST",
+    "sector": 17,
+    "market": 25
   },
   "globalNews": {
     "headlines": [],
