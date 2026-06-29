@@ -20626,6 +20626,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "港股反弹，恒生科技涨超3%",
+      "u": "https://finance.sina.com.cn/stock/roll/2026-06-29/doc-inifapyq5391864.shtml",
+      "time": "19:10",
+      "src": "sina_7x24"
+    },
+    {
       "t": "局势突变！伊朗，最新表态！美股三大期指集体拉升",
       "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifapys2164141.shtml",
       "time": "19:06",
@@ -20858,16 +20864,10 @@
       "u": "https://data.eastmoney.com/notices/detail/688726.html",
       "time": "06-30",
       "src": "em_ann"
-    },
-    {
-      "t": "ST龙韵: ST龙韵:上海龙韵文创科技集团股份有限公司关于实际控制人内部之间的协议转让股份暨权益变动的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/603729.html",
-      "time": "06-30",
-      "src": "em_ann"
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:24 CST",
+    "updated": "2026-06-29 19:26 CST",
     "sector": 9,
     "market": 40
   },
@@ -20999,7 +20999,7 @@
         "ts": "2026-06-29 18:40:44"
       }
     ],
-    "updated": "2026-06-29 11:24 UTC",
+    "updated": "2026-06-29 11:26 UTC",
     "status": "ok"
   }
 }
