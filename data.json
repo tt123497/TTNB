@@ -20706,15 +20706,15 @@
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhw3748389.shtml",
       "time": "20:48",
       "src": "sina_7x24"
-    },
-    {
-      "t": "甘肃银行：向关联方甘肃资管批量转让不良债权 交易对价5141万元",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhq2079678.shtml",
-      "time": "20:47",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
+    {
+      "t": "6月29日增减持汇总：通裕重工等6股披露增持情况，华安证券等8股拟减持（表）",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-29/doc-inifauhn5337594.shtml",
+      "time": "21:52",
+      "src": "sina_7x24"
+    },
     {
       "t": "世界能源理事会秘书长：比转型速度更严峻的挑战，是地缘政治的碎片化",
       "u": "https://wallstreetcn.com/livenews/3126208",
@@ -20813,9 +20813,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:52 CST",
-    "sector": 24,
-    "market": 16
+    "updated": "2026-06-29 21:53 CST",
+    "sector": 23,
+    "market": 17
   },
   "globalNews": {
     "headlines": [
@@ -20945,7 +20945,7 @@
         "ts": "2026-06-29 20:53:29"
       }
     ],
-    "updated": "2026-06-29 13:52 UTC",
+    "updated": "2026-06-29 13:53 UTC",
     "status": "ok"
   }
 }
