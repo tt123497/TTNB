@@ -46,42 +46,11 @@ def load_data():
     except (json.JSONDecodeError, IOError):
         return {}
 
+from sanitize_json import atomic_save_with_briefing_history
+
 def save_data(d):
-    """原子写入 data.json — 带 UTF-8 清洗，消灭 lone surrogate 导致的 JSON 损坏"""
-    import re as _re
-    _SURROGATE_RE = _re.compile(r'[\ud800-\udfff]')
-
-    def _sanitize(obj):
-        """递归清洗所有字符串中的孤立代理对"""
-        if isinstance(obj, str):
-            try:
-                obj = obj.encode('utf-8', errors='replace').decode('utf-8')
-            except Exception:
-                pass
-            return _SURROGATE_RE.sub('?', obj)
-        elif isinstance(obj, dict):
-            return {k: _sanitize(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [_sanitize(v) for v in obj]
-        return obj
-
-    # 分离 bHistory
-    bHistory = d.pop('bHistory', None)
-
-    # 清洗
-    cleaned = _sanitize(d)
-
-    tmp = DATA_PATH + '.tmp'
-    with open(tmp, 'w', encoding='utf-8') as f:
-        json.dump(cleaned, f, ensure_ascii=False, indent=2)
-    os.replace(tmp, DATA_PATH)
-
-    # bHistory 独立文件
-    if bHistory is not None:
-        btmp = BHISTORY_PATH + '.tmp'
-        with open(btmp, 'w', encoding='utf-8') as f:
-            json.dump(_sanitize(bHistory), f, ensure_ascii=False, indent=2)
-        os.replace(btmp, BHISTORY_PATH)
+    """原子写入 — 带 UTF-8 清洗"""
+    atomic_save_with_briefing_history(d, DATA_PATH, BHISTORY_PATH)
 
 def codes_from_data(d):
     """从 data.json 提取所有6位代码"""

@@ -16,6 +16,7 @@ jobs:
       PYTHONUTF8: '1'
       LANG: zh_CN.UTF-8
       GH_TOKEN: ${{ github.token }}
+      TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
     permissions:
       contents: write
     steps:
@@ -50,7 +51,7 @@ jobs:
           echo "$(dirname "$PY_BIN")" >> $GITHUB_PATH
           echo "Python: $PY_BIN"
           "$PY_BIN" -m pip install --upgrade pip --quiet || true
-          "$PY_BIN" -m pip install mootdx pandas requests numpy openpyxl --quiet
+          "$PY_BIN" -m pip install mootdx pandas requests numpy openpyxl tushare --quiet
 
       - name: 统一数据更新
         run: python run_update.py

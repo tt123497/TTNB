@@ -32,9 +32,27 @@ def load_data():
         return None
 
 def save_data(d):
+    """原子写入 data.json — 带 UTF-8 清洗"""
+    import re as _re
+    _SURROGATE_RE = _re.compile(r'[\ud800-\udfff]')
+
+    def _sanitize(obj):
+        if isinstance(obj, str):
+            try:
+                obj = obj.encode('utf-8', errors='replace').decode('utf-8')
+            except Exception:
+                pass
+            return _SURROGATE_RE.sub('?', obj)
+        elif isinstance(obj, dict):
+            return {k: _sanitize(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [_sanitize(v) for v in obj]
+        return obj
+
+    cleaned = _sanitize(d)
     tmp_path = DATA_PATH + '.tmp'
     with open(tmp_path, 'w', encoding='utf-8') as f:
-        json.dump(d, f, ensure_ascii=False, indent=2)
+        json.dump(cleaned, f, ensure_ascii=False, indent=2)
     os.replace(tmp_path, DATA_PATH)
 
 def call_ai(prompt_text, max_tokens=4000, retries=2):
