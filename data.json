@@ -20758,13 +20758,13 @@
       "src": "sina_A股"
     },
     {
-      "t": "Prosus拟斥资50亿美元回购股份、加码并购以拉动业务增长",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifaita3866008.shtml",
-      "time": "17:33",
-      "src": "sina_A股"
+      "t": "*ST大晟: *ST大晟:关于2025年年度报告的信息披露监管问询函的回复公告",
+      "u": "https://data.eastmoney.com/notices/detail/600892.html",
+      "time": "06-30",
+      "src": "em_ann"
     },
     {
-      "t": "*ST大晟: *ST大晟:关于2025年年度报告的信息披露监管问询函的回复公告",
+      "t": "*ST大晟: *ST大晟:关于撤销退市风险警示暨停牌的公告",
       "u": "https://data.eastmoney.com/notices/detail/600892.html",
       "time": "06-30",
       "src": "em_ann"
@@ -20903,7 +20903,7 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:32 CST",
+    "updated": "2026-06-29 19:33 CST",
     "sector": 8,
     "market": 47
   },
@@ -21035,7 +21035,7 @@
         "ts": "2026-06-29 18:49:27"
       }
     ],
-    "updated": "2026-06-29 11:32 UTC",
+    "updated": "2026-06-29 11:34 UTC",
     "status": "ok"
   }
 }
