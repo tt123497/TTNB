@@ -24864,6 +24864,12 @@
   },
   "_newsSector": [
     {
+      "t": "特斯拉早盘涨超3% 深化与SpaceX合作引关注",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifayqn1999890.shtml",
+      "time": "22:26",
+      "src": "sina_A股"
+    },
+    {
       "t": "机器人手公司与特斯拉达成和解 同步完成1100万美元融资",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3811554.shtml",
       "time": "22:14",
@@ -24938,12 +24944,6 @@
     {
       "t": "国有大行反腐纵深推进，中国农业银行同一日两人被查",
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhu6999491.shtml",
-      "time": "21:00",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "山西首家存款破万亿银行换掌门人，向弟海就任山西农商联合银行董事长",
-      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhw3774863.shtml",
       "time": "21:00",
       "src": "sina_7x24"
     },
@@ -25238,6 +25238,12 @@
       "src": "em_ann"
     },
     {
+      "t": "*ST明德: *ST明德:武汉明德生物科技股份有限公司董事会关于本次交易符合《上市公司重大资产重组管理办法》第十一条及不适用第四十三条、第四十四条规定的说明",
+      "u": "https://data.eastmoney.com/notices/detail/002932.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -25245,9 +25251,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 22:26 CST",
+    "updated": "2026-06-29 22:28 CST",
     "sector": 19,
-    "market": 44
+    "market": 45
   },
   "globalNews": {
     "headlines": [
@@ -25377,7 +25383,7 @@
         "ts": "2026-06-29 21:46:00"
       }
     ],
-    "updated": "2026-06-29 14:26 UTC",
+    "updated": "2026-06-29 14:28 UTC",
     "status": "ok"
   }
 }
