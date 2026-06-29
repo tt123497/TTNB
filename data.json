@@ -20640,12 +20640,6 @@
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifapyy3792385.shtml",
       "time": "18:44",
       "src": "sina_7x24"
-    },
-    {
-      "t": "中国银行保险资产管理业协会风险管理专业委员会成立大会暨第一次工作会议在京召开",
-      "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-06-29/doc-inifapyw7011719.shtml",
-      "time": "18:38",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -20824,24 +20818,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST华西: *ST华西:《重大信息内部报告制度》(2026年6月修订)",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华西: *ST华西:《债务融资信息披露制度》(2026年6月修订)",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
-      "t": "*ST华西: *ST华西:《内部审计制度》(2026年6月修订)",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "傲农生物: 傲农生物:福建傲农生物科技集团股份有限公司关于控股股东的一致行动人增持股份结果公告",
       "u": "https://data.eastmoney.com/notices/detail/603363.html",
       "time": "06-30",
@@ -20921,9 +20897,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:00 CST",
-    "sector": 13,
-    "market": 45
+    "updated": "2026-06-29 20:01 CST",
+    "sector": 12,
+    "market": 42
   },
   "globalNews": {
     "headlines": [
@@ -21053,7 +21029,7 @@
         "ts": "2026-06-29 19:28:24"
       }
     ],
-    "updated": "2026-06-29 12:00 UTC",
+    "updated": "2026-06-29 12:01 UTC",
     "status": "ok"
   }
 }
