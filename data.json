@@ -20672,12 +20672,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "“反内卷”走向制度化，揭开银行人奋斗的“AB面”：董事长看到努力，一线员工却在熬“隐性加班”",
-      "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifauhq2067360.shtml",
-      "time": "20:22",
-      "src": "sina_7x24"
-    },
-    {
       "t": "Charter与SpaceX密谈手机业务合作 股价大涨",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapyq5412566.shtml",
       "time": "20:06",
@@ -20951,8 +20945,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:16 CST",
-    "sector": 21,
+    "updated": "2026-06-29 21:17 CST",
+    "sector": 20,
     "market": 42
   },
   "globalNews": {
@@ -21083,7 +21077,7 @@
         "ts": "2026-06-29 20:01:45"
       }
     ],
-    "updated": "2026-06-29 13:16 UTC",
+    "updated": "2026-06-29 13:17 UTC",
     "status": "ok"
   }
 }
