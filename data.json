@@ -20752,7 +20752,25 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST春天: *ST春天:青海春天关于公司股票交易风险提示的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600381.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "ST宁科: ST宁科:关于宁夏中科生物科技股份有限公司2026年第二次临时股东会法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/600165.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST宁科: ST宁科:ST宁科2026年第二次临时股东会决议公告",
+      "u": "https://data.eastmoney.com/notices/detail/600165.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST宁科: ST宁科:ST宁科关于对外投资进展暨完成工商变更登记并取得营业执照的公告",
       "u": "https://data.eastmoney.com/notices/detail/600165.html",
       "time": "06-30",
       "src": "em_ann"
@@ -20836,12 +20854,6 @@
       "src": "em_ann"
     },
     {
-      "t": "*ST华西: *ST华西:《募集资金管理办法》(2026年6月修订)",
-      "u": "https://data.eastmoney.com/notices/detail/002630.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "ST华扬: ST华扬:华扬联众数字技术股份有限公司关于上海证券交易所《关于华扬联众数字技术股份有限公司2025年年度报告的信息披露监管问询函》的回复公告",
       "u": "https://data.eastmoney.com/notices/detail/603825.html",
       "time": "06-30",
@@ -20915,9 +20927,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:54 CST",
+    "updated": "2026-06-29 19:55 CST",
     "sector": 11,
-    "market": 46
+    "market": 48
   },
   "globalNews": {
     "headlines": [
@@ -21047,7 +21059,7 @@
         "ts": "2026-06-29 19:21:44"
       }
     ],
-    "updated": "2026-06-29 11:54 UTC",
+    "updated": "2026-06-29 11:55 UTC",
     "status": "ok"
   }
 }
