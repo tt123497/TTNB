@@ -20570,9 +20570,21 @@
   },
   "_newsSector": [
     {
+      "t": "“重银转债”转股致股本扩容 重庆银行下调2025年度每股分配比例",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhw3734848.shtml",
+      "time": "20:32",
+      "src": "sina_7x24"
+    },
+    {
       "t": "中华联合财险天津分公司被罚30万元：未按照规定使用经批准或者备案的保险条款、保险费率等",
       "u": "https://finance.sina.com.cn/jryx/fd/2026-06-29/doc-inifauhq2066190.shtml",
       "time": "20:23",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "“反内卷”走向制度化，揭开银行人奋斗的“AB面”：董事长看到努力，一线员工却在熬“隐性加班”",
+      "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifauhq2067360.shtml",
+      "time": "20:22",
       "src": "sina_7x24"
     },
     {
@@ -20664,12 +20676,6 @@
       "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-06-29/doc-inifapyy3830617.shtml",
       "time": "19:42",
       "src": "sina_7x24"
-    },
-    {
-      "t": "券商异动频发，这次不一样？掘金科技牛“赢麻了”，机构高呼：不是科技胜似科技！",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyy3826908.shtml",
-      "time": "19:38",
-      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
@@ -20714,18 +20720,6 @@
       "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-29/doc-inifapyq5405527.shtml",
       "time": "19:41",
       "src": "sina_7x24"
-    },
-    {
-      "t": "创新药突然爆发，批量涨超10%！药ETF、港股通创新药ETF（520880）罕见暴涨8%！医疗同步反攻",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyy3829299.shtml",
-      "time": "19:41",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "首次！全球最火存储ETF，纳入中国芯片龙头兆易创新",
-      "u": "https://wallstreetcn.com/livenews/3126133",
-      "time": "19:31",
-      "src": "wscn_全球"
     },
     {
       "t": "鲟龙科技港股上市在即：鱼子酱界“隐形冠军”的稀缺叙事 与17亿水下资产的信任博弈",
@@ -20807,9 +20801,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:31 CST",
-    "sector": 17,
-    "market": 22
+    "updated": "2026-06-29 20:32 CST",
+    "sector": 18,
+    "market": 20
   },
   "globalNews": {
     "headlines": [
@@ -20939,7 +20933,7 @@
         "ts": "2026-06-29 19:42:33"
       }
     ],
-    "updated": "2026-06-29 12:31 UTC",
+    "updated": "2026-06-29 12:32 UTC",
     "status": "ok"
   }
 }
