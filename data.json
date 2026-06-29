@@ -20704,6 +20704,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "Palantir携手英伟达主攻主权AI 股价延续反弹势头",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2094191.shtml",
+      "time": "21:13",
+      "src": "sina_A股"
+    },
+    {
       "t": "周一美股盘前你需要了解的全球要闻",
       "u": "https://wallstreetcn.com/livenews/3126188",
       "time": "20:59",
@@ -20981,9 +20987,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:12 CST",
+    "updated": "2026-06-29 21:14 CST",
     "sector": 22,
-    "market": 46
+    "market": 47
   },
   "globalNews": {
     "headlines": [
@@ -21113,7 +21119,7 @@
         "ts": "2026-06-29 20:01:45"
       }
     ],
-    "updated": "2026-06-29 13:12 UTC",
+    "updated": "2026-06-29 13:14 UTC",
     "status": "ok"
   }
 }
