@@ -20716,6 +20716,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "美股三大指数集体高开，纳指涨0.8%，标普500指数涨0.5%，道指涨0.23%。存储概念股走低，美光科技跌超2%，闪迪跌超1%。",
+      "u": "https://wallstreetcn.com/livenews/3126200",
+      "time": "21:31",
+      "src": "wscn_全球"
+    },
+    {
       "t": "开盘：美股周一高开 科技股反弹，美伊同意暂停敌对行动",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5325487.shtml",
       "time": "21:30",
@@ -20957,9 +20963,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:31 CST",
+    "updated": "2026-06-29 21:32 CST",
     "sector": 24,
-    "market": 40
+    "market": 41
   },
   "globalNews": {
     "headlines": [
@@ -20980,7 +20986,7 @@
       },
       {
         "t": "Meta对Claude和Codex使用施加限制",
-        "s": "【Meta对Claude和Codex使用施加限制】据报道，内部文件显示，Meta因担心模型蒸馏风险，对Claude和Codex的使用施加限制。",
+        "s": "【Meta对Claude和Codex使用施加限制】据报道，内部文件显示，Meta因担心模型蒸馏风险，对Anthropic的Claude和OpenAI的Codex使用施加限制。",
         "ts": "2026-06-29 21:08:00"
       },
       {
@@ -21089,7 +21095,7 @@
         "ts": "2026-06-29 20:14:34"
       }
     ],
-    "updated": "2026-06-29 13:31 UTC",
+    "updated": "2026-06-29 13:32 UTC",
     "status": "ok"
   }
 }
