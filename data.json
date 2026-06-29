@@ -20800,12 +20800,6 @@
       "src": "em_ann"
     },
     {
-      "t": "石基信息: 石基信息:关于公司发行股份购买资产获得深圳证券交易所并购重组审核委员会审核通过的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002153.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "*ST禾信: *ST禾信:关于作废部分已授予尚未归属的限制性股票及注销部分已授予尚未行权的股票期权的公告",
       "u": "https://data.eastmoney.com/notices/detail/688622.html",
       "time": "06-30",
@@ -20825,9 +20819,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:54 CST",
+    "updated": "2026-06-29 20:55 CST",
     "sector": 17,
-    "market": 25
+    "market": 24
   },
   "globalNews": {
     "headlines": [],
