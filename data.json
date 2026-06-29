@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "甘肃银行：向关联方甘肃资管批量转让不良债权 交易对价5141万元",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhq2079678.shtml",
+      "time": "20:47",
+      "src": "sina_7x24"
+    },
+    {
       "t": "“重银转债”转股致股本扩容 重庆银行下调2025年度每股分配比例",
       "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhw3734848.shtml",
       "time": "20:32",
@@ -20642,12 +20648,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "真金白银入场！上市银行高管密集增持，多家银行成立市值管理小组",
-      "u": "https://finance.sina.com.cn/jjxw/2026-06-29/doc-inifapys2185742.shtml",
-      "time": "19:56",
-      "src": "sina_7x24"
-    },
-    {
       "t": "分析师：SpaceX 250亿美元债券发行巨大需求，但也可能给投资者带来隐忧",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifapys2183103.shtml",
       "time": "19:52",
@@ -20655,6 +20655,18 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "芯片股周一盘前集体反弹 AMD英特尔英伟达有望延续涨势",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhw3747144.shtml",
+      "time": "20:47",
+      "src": "sina_A股"
+    },
+    {
+      "t": "创新药，迎重要制度红利！",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-06-29/doc-inifauhq2079013.shtml",
+      "time": "20:40",
+      "src": "sina_7x24"
+    },
     {
       "t": "南亚新材：拟投资建设年产1400万平方米高端覆铜板研发及产业化项目，项目总投资额约为人民币7.9亿元。",
       "u": "https://wallstreetcn.com/livenews/3126181",
@@ -20722,6 +20734,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST华闻: *ST华闻:关于公司重整计划执行完毕的公告",
+      "u": "https://data.eastmoney.com/notices/detail/000793.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "京城股份: 京城股份:京城股份关于回购注销部分A股限制性股票减少注册资本暨通知债权人的公告",
       "u": "https://data.eastmoney.com/notices/detail/600860.html",
       "time": "06-30",
@@ -20771,9 +20789,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:46 CST",
+    "updated": "2026-06-29 20:47 CST",
     "sector": 14,
-    "market": 19
+    "market": 22
   },
   "globalNews": {
     "headlines": [
@@ -20903,7 +20921,7 @@
         "ts": "2026-06-29 19:52:43"
       }
     ],
-    "updated": "2026-06-29 12:46 UTC",
+    "updated": "2026-06-29 12:47 UTC",
     "status": "ok"
   }
 }
