@@ -20752,6 +20752,90 @@
       "src": "sina_A股"
     },
     {
+      "t": "*ST正平: *ST正平:正平股份2025年第三季度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2025年半年度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2024年第三季度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2023年第一季度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2024年年度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2022年年度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份关于前期会计差错更正涉及各期定期报告更正披露公告",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2025年第一季度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2023年半年度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2023年年度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2023年第三季度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2024年第一季度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "*ST正平: *ST正平:正平股份2024年半年度报告(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603843.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST金花: ST金花:金花企业(集团)股份有限公司关于公司股票被实施其他风险警示事项的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/600080.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "ST金花: ST金花:金花企业(集团)股份有限公司关于上海证券交易所对公司2025年年度报告的信息披露监管问询函的回复公告",
       "u": "https://data.eastmoney.com/notices/detail/600080.html",
       "time": "06-30",
@@ -20782,12 +20866,6 @@
       "src": "em_ann"
     },
     {
-      "t": "电投产融: 电投产融:2026年第三次临时股东会的法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/000958.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "ST龙韵: ST龙韵:上海龙韵文创科技集团股份有限公司关于实际控制人内部之间的协议转让股份暨权益变动的提示性公告",
       "u": "https://data.eastmoney.com/notices/detail/603729.html",
       "time": "06-30",
@@ -20795,9 +20873,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:20 CST",
+    "updated": "2026-06-29 19:21 CST",
     "sector": 10,
-    "market": 27
+    "market": 40
   },
   "globalNews": {
     "headlines": [
@@ -20927,7 +21005,7 @@
         "ts": "2026-06-29 18:39:32"
       }
     ],
-    "updated": "2026-06-29 11:20 UTC",
+    "updated": "2026-06-29 11:21 UTC",
     "status": "ok"
   }
 }
