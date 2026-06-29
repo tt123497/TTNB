@@ -20570,6 +20570,12 @@
   },
   "_newsSector": [
     {
+      "t": "28度轻奢新品引爆味蕾！“茅五泸汾洋”集体上攻，华宝基金食品饮料ETF（515710）深V反转上探2.83%！",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifapyq5402358.shtml",
+      "time": "19:44",
+      "src": "sina_7x24"
+    },
+    {
       "t": "从1元到亿元，保险中介牌照叫价呈现“云泥之别”",
       "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-06-29/doc-inifapyy3830617.shtml",
       "time": "19:42",
@@ -20621,6 +20627,12 @@
       "t": "招商银行官方辟谣公众号正式上线运行 银行辟谣号再添一员",
       "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifapyw7006480.shtml",
       "time": "18:32",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "人民银行3000亿元隔夜逆回购首次落地，短端流动性管理更精细",
+      "u": "https://finance.sina.com.cn/jjxw/2026-06-29/doc-inifapys2142850.shtml",
+      "time": "18:29",
       "src": "sina_7x24"
     },
     {
@@ -20740,6 +20752,18 @@
       "src": "sina_A股"
     },
     {
+      "t": "东北制药: 东北制药:关于回购注销部分限制性股票减少注册资本暨通知债权人的公告",
+      "u": "https://data.eastmoney.com/notices/detail/000597.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "东时转债: ST东时:关于公司股票被实施其他风险警示相关事项的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/113575.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "百普赛斯: 百普赛斯:关于回购公司股份方案的公告",
       "u": "https://data.eastmoney.com/notices/detail/301080.html",
       "time": "06-30",
@@ -20813,9 +20837,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:44 CST",
-    "sector": 10,
-    "market": 30
+    "updated": "2026-06-29 19:45 CST",
+    "sector": 12,
+    "market": 32
   },
   "globalNews": {
     "headlines": [
@@ -20945,7 +20969,7 @@
         "ts": "2026-06-29 19:08:13"
       }
     ],
-    "updated": "2026-06-29 11:44 UTC",
+    "updated": "2026-06-29 11:45 UTC",
     "status": "ok"
   }
 }
