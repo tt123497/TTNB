@@ -20576,6 +20576,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "光洋股份如何成为新能源与机器人的“关键先生”",
+      "u": "https://finance.sina.com.cn/stock/wbstock/2026-06-29/doc-inifauhu7004400.shtml",
+      "time": "21:19",
+      "src": "sina_7x24"
+    },
+    {
       "t": "火箭实验室收购卫星运营商铱星通信，意在挑战SpaceX",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhu6996319.shtml",
       "time": "21:18",
@@ -20678,6 +20684,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "“玻璃桥”冲击到底有多大？华尔街：FAU厂商面临颠覆压力，AI光模块企业暂时相对安全",
+      "u": "https://finance.sina.com.cn/roll/2026-06-29/doc-inifauhn5308836.shtml",
+      "time": "20:49",
+      "src": "sina_7x24"
+    },
+    {
       "t": "江苏银行副行长高增银拟任省委管理领导班子企业正职",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhw3748389.shtml",
       "time": "20:48",
@@ -20696,18 +20708,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "两家银行参股同业",
-      "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifauhw3748852.shtml",
-      "time": "20:35",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "“重银转债”转股致股本扩容 重庆银行下调2025年度每股分配比例",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-06-29/doc-inifauhw3734848.shtml",
-      "time": "20:32",
-      "src": "sina_7x24"
-    },
-    {
       "t": "*ST明德: *ST明德:长江证券承销保荐有限公司关于本次交易符合《关于加强证券公司在投资银行类业务中聘请第三方等廉洁从业风险防控的意见的相关规定》之核查意见",
       "u": "https://data.eastmoney.com/notices/detail/002932.html",
       "time": "06-30",
@@ -20715,6 +20715,24 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "开盘：美股周一高开 科技股反弹，美伊同意暂停敌对行动",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5325487.shtml",
+      "time": "21:30",
+      "src": "sina_A股"
+    },
+    {
+      "t": "标普500指数高开37.86点，涨幅0.51%，报7391.88点；\n\n道琼斯工业平均指数高开119.03点，涨幅0.23%，报51995.14点；\n\n纳斯达克综合指数高开204.47点，涨幅0.81%，报25502.09点。",
+      "u": "https://wallstreetcn.com/livenews/3126199",
+      "time": "21:30",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "苹果欲求购长鑫内存，深科技“躺赢”？",
+      "u": "https://finance.sina.com.cn/stock/s/2026-06-29/doc-inifauhu7002673.shtml",
+      "time": "21:17",
+      "src": "sina_A股"
+    },
     {
       "t": "原油技术面与地缘风险交织 市场关注52周均线得失",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5317512.shtml",
@@ -20726,6 +20744,12 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2094191.shtml",
       "time": "21:13",
       "src": "sina_A股"
+    },
+    {
+      "t": "最新：2026上半年IPO中介机构上市排行榜！国泰海通、立信、锦天城第一",
+      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-06-29/doc-inifauhq2102094.shtml",
+      "time": "21:06",
+      "src": "sina_7x24"
     },
     {
       "t": "周一美股盘前你需要了解的全球要闻",
@@ -20773,12 +20797,6 @@
       "t": "盘前：纳指期货涨1.07% 本周关注非农及沃什讲话",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhn5297379.shtml",
       "time": "20:30",
-      "src": "sina_A股"
-    },
-    {
-      "t": "日本IPO数量跌至15年低点，短期未见快速回暖迹象",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2060301.shtml",
-      "time": "20:10",
       "src": "sina_A股"
     },
     {
@@ -20939,9 +20957,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 21:30 CST",
+    "updated": "2026-06-29 21:31 CST",
     "sector": 24,
-    "market": 37
+    "market": 40
   },
   "globalNews": {
     "headlines": [
@@ -21071,7 +21089,7 @@
         "ts": "2026-06-29 20:14:34"
       }
     ],
-    "updated": "2026-06-29 13:30 UTC",
+    "updated": "2026-06-29 13:31 UTC",
     "status": "ok"
   }
 }
