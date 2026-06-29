@@ -20628,12 +20628,6 @@
       "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifaisy7092665.shtml",
       "time": "17:29",
       "src": "sina_A股"
-    },
-    {
-      "t": "角逐美国稀土龙头的惨烈大战",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifaiss5458560.shtml",
-      "time": "17:19",
-      "src": "sina_A股"
     }
   ],
   "_newsMarket": [
@@ -20758,6 +20752,30 @@
       "src": "sina_A股"
     },
     {
+      "t": "ST金花: ST金花:金花企业(集团)股份有限公司关于上海证券交易所对公司2025年年度报告的信息披露监管问询函的回复公告",
+      "u": "https://data.eastmoney.com/notices/detail/600080.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST金花: ST金花:国金证券股份有限公司关于金花企业(集团)股份有限公司2025年年度报告的信息披露监管问询函之核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/600080.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "ST长方: ST长方:关于公司股票交易被实施其他风险警示相关事项的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/300301.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
+      "t": "轻纺城: 轻纺城:轻纺城2025年度差异化分红专项法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/600790.html",
+      "time": "06-30",
+      "src": "em_ann"
+    },
+    {
       "t": "拉普拉斯: 拉普拉斯:关于股东减持股份结果公告",
       "u": "https://data.eastmoney.com/notices/detail/688726.html",
       "time": "06-30",
@@ -20770,12 +20788,6 @@
       "src": "em_ann"
     },
     {
-      "t": "电投产融: 电投产融:2026年第三次临时股东会决议公告",
-      "u": "https://data.eastmoney.com/notices/detail/000958.html",
-      "time": "06-30",
-      "src": "em_ann"
-    },
-    {
       "t": "ST龙韵: ST龙韵:上海龙韵文创科技集团股份有限公司关于实际控制人内部之间的协议转让股份暨权益变动的提示性公告",
       "u": "https://data.eastmoney.com/notices/detail/603729.html",
       "time": "06-30",
@@ -20783,9 +20795,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:18 CST",
-    "sector": 11,
-    "market": 24
+    "updated": "2026-06-29 19:20 CST",
+    "sector": 10,
+    "market": 27
   },
   "globalNews": {
     "headlines": [
@@ -20915,7 +20927,7 @@
         "ts": "2026-06-29 18:39:32"
       }
     ],
-    "updated": "2026-06-29 11:19 UTC",
+    "updated": "2026-06-29 11:20 UTC",
     "status": "ok"
   }
 }
