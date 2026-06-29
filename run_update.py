@@ -1127,7 +1127,8 @@ def main():
         print(f"  layout stocks: filled {len(preserve['layout'])} cards")
 
     # ── 8. 组装 data.json ──
-    cycle = old_cycle or auto_cycle(indices)
+    # 每次都用最新指数重新生成cycle（不再保留旧判断）
+    cycle = auto_cycle(indices) if indices else old_cycle
 
     # ── 8b. Tushare 增强（替换不稳定东财调用 + 新增资金面维度）──
     tushare_data = {}

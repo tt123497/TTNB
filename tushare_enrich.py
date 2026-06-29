@@ -19,7 +19,7 @@ from datetime import datetime, timezone, timedelta
 # 0. 配置
 # ═══════════════════════════════════════════════════════════════
 
-TOKEN = os.environ.get('TUSHARE_TOKEN', '453eea90832043f098a0e8ca764fa4f4')
+TOKEN = os.environ.get('TUSHARE_TOKEN', '')  # 必须从GitHub Secrets注入，不再硬编码
 API_URL = 'https://ts.gyzcloud.top/api'
 
 _pro = None
