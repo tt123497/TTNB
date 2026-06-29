@@ -20570,6 +20570,18 @@
   },
   "_newsSector": [
     {
+      "t": "张玉璐获批担任瑞丰银行董事",
+      "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhq2085183.shtml",
+      "time": "20:56",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "ETF日报：存储扩产和先进制程自主可控逻辑依然强硬，存储龙头上市在即，事件催化紧锣密鼓",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-06-29/doc-inifauhq2085153.shtml",
+      "time": "20:56",
+      "src": "sina_7x24"
+    },
+    {
       "t": "向弟海获批担任山西农村商业联合银行董事长",
       "u": "https://finance.sina.com.cn/jryx/hm/2026-06-29/doc-inifauhq2084111.shtml",
       "time": "20:54",
@@ -20645,12 +20657,6 @@
       "t": "万亿重庆银行，股东格局生变",
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifauhn5293094.shtml",
       "time": "20:10",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "事关黄金进出口，央行征求意见！个人携带、寄递黄金无需“办证”",
-      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-06-29/doc-inifauhu6944763.shtml",
-      "time": "20:09",
       "src": "sina_7x24"
     },
     {
@@ -20740,12 +20746,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "一段AI假视频，让880亿龙头股价巨震，从4连跌到涨停，超3万股民坐上“过山车”",
-      "u": "https://finance.sina.com.cn/stock/s/2026-06-29/doc-inifapyy3809569.shtml",
-      "time": "19:02",
-      "src": "sina_A股"
-    },
-    {
       "t": "*ST华闻: *ST华闻:关于华闻传媒投资集团股份有限公司重整计划执行情况的监督报告",
       "u": "https://data.eastmoney.com/notices/detail/000793.html",
       "time": "06-30",
@@ -20819,9 +20819,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:55 CST",
-    "sector": 17,
-    "market": 24
+    "updated": "2026-06-29 20:56 CST",
+    "sector": 18,
+    "market": 23
   },
   "globalNews": {
     "headlines": [],
