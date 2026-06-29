@@ -27,6 +27,7 @@ jobs:
       PYTHONUTF8: '1'
       LANG: zh_CN.UTF-8
       GH_TOKEN: ${{ github.token }}
+      TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
     permissions:
       contents: write
     steps:
@@ -83,7 +84,7 @@ jobs:
           echo "Python found: $PY_BIN"
           "$PY_BIN" --version
           "$PY_BIN" -m pip install --upgrade pip --quiet || true
-          "$PY_BIN" -m pip install mootdx requests pandas numpy openpyxl chinese_calendar --quiet
+          "$PY_BIN" -m pip install mootdx requests pandas numpy openpyxl chinese_calendar tushare --quiet
 
       - name: Run unified update (a-stock-data 28 endpoints)
         run: python run_update.py

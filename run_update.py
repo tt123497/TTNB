@@ -47,17 +47,40 @@ def load_data():
         return {}
 
 def save_data(d):
-    """原子写入 data.json，bHistory 单独写到 briefing-history.json"""
+    """原子写入 data.json — 带 UTF-8 清洗，消灭 lone surrogate 导致的 JSON 损坏"""
+    import re as _re
+    _SURROGATE_RE = _re.compile(r'[\ud800-\udfff]')
+
+    def _sanitize(obj):
+        """递归清洗所有字符串中的孤立代理对"""
+        if isinstance(obj, str):
+            try:
+                obj = obj.encode('utf-8', errors='replace').decode('utf-8')
+            except Exception:
+                pass
+            return _SURROGATE_RE.sub('?', obj)
+        elif isinstance(obj, dict):
+            return {k: _sanitize(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [_sanitize(v) for v in obj]
+        return obj
+
+    # 分离 bHistory
     bHistory = d.pop('bHistory', None)
+
+    # 清洗
+    cleaned = _sanitize(d)
+
     tmp = DATA_PATH + '.tmp'
     with open(tmp, 'w', encoding='utf-8') as f:
-        json.dump(d, f, ensure_ascii=False, indent=2)
+        json.dump(cleaned, f, ensure_ascii=False, indent=2)
     os.replace(tmp, DATA_PATH)
-    # bHistory 独立文件，减少 data.json 体积
+
+    # bHistory 独立文件
     if bHistory is not None:
         btmp = BHISTORY_PATH + '.tmp'
         with open(btmp, 'w', encoding='utf-8') as f:
-            json.dump(bHistory, f, ensure_ascii=False, indent=2)
+            json.dump(_sanitize(bHistory), f, ensure_ascii=False, indent=2)
         os.replace(btmp, BHISTORY_PATH)
 
 def codes_from_data(d):
@@ -508,6 +531,14 @@ from news_sources import (
     SECTOR_KW, MARKET_KW, NOISE_KW,
     fetch_all_news, fetch_global_news,
 )
+
+# Tushare 增强（可选 — token 不可用时自动跳过）
+try:
+    from tushare_enrich import enrich_data, apply_enrichment, sanitize_obj
+    TUSHARE_AVAILABLE = True
+except ImportError:
+    TUSHARE_AVAILABLE = False
+    print("  [tushare] 模块不可用，跳过增强")
 
 def fetch_industry_ranking(live=None, stock_sector=None):
     """
@@ -1129,6 +1160,27 @@ def main():
     # ── 8. 组装 data.json ──
     cycle = old_cycle or auto_cycle(indices)
 
+    # ── 8b. Tushare 增强（替换不稳定东财调用 + 新增资金面维度）──
+    tushare_data = {}
+    if TUSHARE_AVAILABLE:
+        try:
+            tushare_data = enrich_data(codes, cst) or {}
+            # 如果 tushare 给了更好的数据，覆盖弱数据源
+            if tushare_data.get('_tushare_indices') and (not indices or len(indices) < 3):
+                indices = tushare_data['_tushare_indices']
+                print(f"  [tushare→] 指数降级: 用 tushare 数据")
+            if tushare_data.get('_tushare_zt_ladder') and not zt:
+                zt = tushare_data['_tushare_zt_ladder']
+                print(f"  [tushare→] 连板降级: 用 tushare 数据")
+            if tushare_data.get('_tushare_zt_dt'):
+                zt_dt = tushare_data['_tushare_zt_dt']
+                if not zt_count:
+                    zt_count = zt_dt['zt_count']
+                if not dt_count:
+                    dt_count = zt_dt['dt_count']
+        except Exception as e:
+            print(f"  [tushare] 增强异常: {e}")
+
     out = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
         'nextSentinel': '今日 17:00 收盘复盘' if trading else '下个交易日 9:15 开盘扫描',
@@ -1180,6 +1232,14 @@ def main():
 
     # Merge preserved fields
     out.update(preserve)
+
+    # ── Merge tushare 增强数据 ──
+    if tushare_data:
+        out = apply_enrichment(out, tushare_data) if TUSHARE_AVAILABLE else out
+        # 额外新增字段（不影响现有数据）
+        for key in ['_tushare_moneyflow', '_tushare_meta']:
+            if key in tushare_data and tushare_data[key]:
+                out[key] = tushare_data[key]
 
     # Fallback livePrices
     if not live:
