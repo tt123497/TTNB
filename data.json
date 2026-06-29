@@ -20616,12 +20616,6 @@
       "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-06-29/doc-inifapyq5365581.shtml",
       "time": "18:18",
       "src": "sina_7x24"
-    },
-    {
-      "t": "存储芯片龙头，股价新高",
-      "u": "https://finance.sina.com.cn/wm/2026-06-29/doc-inifaisy7092665.shtml",
-      "time": "17:29",
-      "src": "sina_A股"
     }
   ],
   "_newsMarket": [
@@ -20879,8 +20873,8 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 19:28 CST",
-    "sector": 9,
+    "updated": "2026-06-29 19:29 CST",
+    "sector": 8,
     "market": 42
   },
   "globalNews": {
@@ -21011,7 +21005,7 @@
         "ts": "2026-06-29 18:43:35"
       }
     ],
-    "updated": "2026-06-29 11:28 UTC",
+    "updated": "2026-06-29 11:29 UTC",
     "status": "ok"
   }
 }
