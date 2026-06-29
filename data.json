@@ -20662,6 +20662,12 @@
   ],
   "_newsMarket": [
     {
+      "t": "日本IPO数量跌至15年低点，短期未见快速回暖迹象",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-06-29/doc-inifauhq2060301.shtml",
+      "time": "20:10",
+      "src": "sina_A股"
+    },
+    {
       "t": "Strategy宣布授权10亿美元优先股回购计划",
       "u": "https://wallstreetcn.com/livenews/3126156",
       "time": "20:03",
@@ -20759,9 +20765,9 @@
     }
   ],
   "_newsMeta": {
-    "updated": "2026-06-29 20:10 CST",
+    "updated": "2026-06-29 20:11 CST",
     "sector": 15,
-    "market": 16
+    "market": 17
   },
   "globalNews": {
     "headlines": [
@@ -20891,7 +20897,7 @@
         "ts": "2026-06-29 19:32:15"
       }
     ],
-    "updated": "2026-06-29 12:10 UTC",
+    "updated": "2026-06-29 12:11 UTC",
     "status": "ok"
   }
 }
