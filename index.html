@@ -1432,7 +1432,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if(data.sectorTags){
       D.groups.forEach(function(g){
         g.sectors.forEach(function(s){
-          if(data.sectorTags[s.n]){ s.tag = data.sectorTags[s.n]; s.avgChg = parseFloat(s.tag.split('%')[0].replace(/[−–]/g,'-').replace(/[^0-9.\-+]/g,'')); }
+          if(data.sectorTags[s.n]){ s.tag = data.sectorTags[s.n]; var _parsed = parseFloat(s.tag.split('%')[0].replace(/[−–]/g,'-').replace(/[^0-9.\-+]/g,'')); s.avgChg = isNaN(_parsed) ? 0 : _parsed; }
         });
         // 按热度(涨跌幅)排序, 有数据的排前面
         g.sectors.sort(function(a,b){ return (b.avgChg||-999) - (a.avgChg||-999); });
@@ -1659,13 +1659,13 @@ document.addEventListener('DOMContentLoaded',function(){
     var top3=ranked.slice(0,3), bot3=ranked.slice(-3).reverse();
     var strip='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
     // Strong side
-    strip+='<div style="background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.20);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;color:var(--green);margin-bottom:8px">🟢 实时最强势</div>';
+    strip+='<div style="background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.20);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;color:var(--red);margin-bottom:8px">🔴 实时最强势</div>';
     top3.forEach(function(s){
       strip+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer" onclick="go(\'chain\');setTimeout(function(){var el=document.getElementById(\'chain-'+s.id+'\');if(el){el.open=true;el.scrollIntoView({behavior:\'smooth\'});el.classList.add(\'flash\');setTimeout(function(){el.classList.remove(\'flash\')},1500)}},100)"><span style="font-size:1.1rem">'+s.icon+'</span><span style="font-size:.88rem;font-weight:600;color:var(--text)">'+s.n+'</span><span style="margin-left:auto;font-weight:700;color:'+(s.avg>=0?'var(--red)':'var(--green)')+';font-size:.88rem">'+(s.avg>=0?'+':'')+s.avg.toFixed(1)+'%</span></div>';
     });
     strip+='</div>';
     // Weak side
-    strip+='<div style="background:rgba(239,68,68,.03);border:1px solid rgba(239,68,68,.18);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;color:var(--red);margin-bottom:8px">🔴 实时最弱势</div>';
+    strip+='<div style="background:rgba(34,197,94,.03);border:1px solid rgba(34,197,94,.18);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;color:var(--green);margin-bottom:8px">🟢 实时最弱势</div>';
     bot3.forEach(function(s){
       strip+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer" onclick="go(\'chain\');setTimeout(function(){var el=document.getElementById(\'chain-'+s.id+'\');if(el){el.open=true;el.scrollIntoView({behavior:\'smooth\'});el.classList.add(\'flash\');setTimeout(function(){el.classList.remove(\'flash\')},1500)}},100)"><span style="font-size:1.1rem">'+s.icon+'</span><span style="font-size:.88rem;font-weight:600;color:var(--text)">'+s.n+'</span><span style="margin-left:auto;font-weight:700;color:'+(s.avg>=0?'var(--red)':'var(--green)')+';font-size:.88rem">'+(s.avg>=0?'+':'')+s.avg.toFixed(1)+'%</span></div>';
     });
@@ -2549,7 +2549,8 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
               // update tag from sectorTags
               if(d.sectorTags && d.sectorTags[s.n]){
                 s.tag=d.sectorTags[s.n];
-                s.avgChg=parseFloat(s.tag.split('%')[0].replace(/[−–]/g,'-').replace(/[^0-9.\-+]/g,''));
+                var _p2=parseFloat(s.tag.split('%')[0].replace(/[−–]/g,'-').replace(/[^0-9.\-+]/g,''));
+                s.avgChg=isNaN(_p2)?0:_p2;
               }
               // apply to DOM
               var card=document.getElementById('scard-'+s.id);
