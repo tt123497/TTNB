@@ -146,7 +146,7 @@ def validate_output(result):
         # 铁律一：检查 URL（允许东财具体页面，只禁止首页和搜索页）
         u = n.get('u', '')
         is_em = 'eastmoney.com/' in u.lower()
-        is_specific = any(x in u.lower() for x in ['/roll/', '/doc-', '/news/', '/stock/', '/money/', '/fund/', '/bond/', '/notices/', '/report/', '/announcement/', '/detail/'])
+        is_specific = any(x in u.lower() for x in ['/roll/', '/doc-', '/news/', '/stock/', '/money/', '/fund/', '/bond/', '/notices/', '/report/', '/announcement/', '/detail/', 'quote.eastmoney.com/'])
         if not u or (is_em and not is_specific):
             bad_url_count += 1
             print(f'WARN: top3[{i}] URL泛链接: {u[:60]}')
