@@ -251,9 +251,57 @@ def next_biz(y, m, day):
 
 def fmt_d(d): return f'{d.month}月{d.day}日'
 
-def generate_macro():
-    """No auto-generated events. All events must be hand-curated with verified sources."""
-    return []
+def generate_macro(cst_date):
+    """Generate NBS 2026 macro calendar + key recurring events.
+    Returns events with format: {'d': 'X月Y日', 'e': 'title', 's': '宏观/全部'}"""
+    year = cst_date.year
+    events = []
+    def add(m, d, t):
+        events.append({'d': f'{m}月{d}日', 'e': t, 's': '宏观/全部'})
+    def biz_day(m, d):
+        import calendar as _cal
+        dt = __import__('datetime').datetime(year, m, min(d, _cal.monthrange(year, m)[1]))
+        while dt.weekday() >= 5: dt += __import__('datetime').timedelta(days=1)
+        return dt.day
+    for m in range(1, 13):
+        nm = 1 if m == 12 else m + 1
+        add(nm, biz_day(nm, 1), f'{m}月官方PMI（制造业/非制造业）')
+        add(nm, biz_day(nm, 3), f'{m}月财新PMI')
+        add(nm, biz_day(nm, 10), f'{m}月CPI/PPI')
+        add(nm, biz_day(nm, 13), f'{m}月进出口贸易数据')
+        add(nm, biz_day(nm, 16), f'{m}月工业增加值/社零/固投')
+        add(nm, biz_day(nm, 12), f'{m}月金融数据（M2/社融/新增贷款）')
+        add(m, biz_day(m, 20), f'{m}月LPR报价')
+        add(m, biz_day(m, 15), f'{m}月MLF操作')
+    add(4, 17, 'Q1 GDP数据')
+    add(7, 16, 'Q2 GDP数据 / 上半年国民经济运行')
+    add(10, 19, 'Q3 GDP数据')
+    for m, d in [(1,29),(3,19),(5,7),(6,18),(7,30),(9,17),(11,5),(12,17)]:
+        add(m, biz_day(m, d), 'FOMC利率决议')
+    add(4, 30, 'A股年报/一季报披露截止日')
+    add(8, 31, 'A股中报披露截止日')
+    add(10, 31, 'A股三季报披露截止日')
+    add(3, 5, '全国两会开幕（政协）')
+    add(3, 7, '全国两会（人大）')
+    add(6, 4, '台北Computex 2026')
+    add(7, 10, '世界人工智能大会 WAIC 2026')
+    add(11, 11, '双11电商节')
+    from datetime import datetime, timedelta
+    cst = datetime(year, cst_date.month, cst_date.day)
+    future = []
+    cutoff = cst + timedelta(days=90)
+    for ev in events:
+        parts = ev['d'].replace('月',' ').replace('日','').split()
+        m2, d2 = int(parts[0]), int(parts[1])
+        ev_year = year if m2 >= cst.month - 1 else year + 1
+        try:
+            ed = datetime(ev_year, m2, d2)
+            if ed.date() >= cst_date and ed.date() <= cutoff.date():
+                future.append(ev)
+        except:
+            pass
+    print(f'Macro: {len(future)} events in next 90 days')
+    return future
 
 # ═══════════════════════════════════════════════════
 # MAIN
@@ -290,7 +338,7 @@ def main():
     print(f'Existing: {len(hand_evs)} hand + {len(old_macro)} old-macro + {len(ai_evs)} AI')
 
     # Generate fresh macro
-    macro = generate_macro()
+    macro = generate_macro(today)
     print(f'Fresh macro: {len(macro)} events')
 
     # Merge: hand > fresh-macro > AI > other
@@ -312,15 +360,7 @@ def main():
             continue  # macro noise, dropped
         merged.append(ev)
 
-    # Purge ALL macro noise from merged list
-    # Any event with sector=宏观/全部 that is NOT 章源钨业 gets deleted
-    # (catches FOMC/LPR/MLF/NFP/CPI/交割日 regardless of classification)
-    echo_count_before = len(merged)
-    merged = [e for e in merged
-              if e.get('s') != MACRO_S or 'FAKE_REMOVED' in e.get('e', '')]
-    dropped = echo_count_before - len(merged)
-    if dropped > 0:
-        print(f'Purged {dropped} macro noise events (FOMC/LPR/MLF/NFP/CPI/etc)')
+    # Keep macro events (re-enabled per user request)
 
     # ── URL enrichment: generate links for events missing them ──
     for ev in merged:
