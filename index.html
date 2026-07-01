@@ -1701,11 +1701,12 @@ document.addEventListener('DOMContentLoaded',function(){
       var sorted=items.slice().sort(function(a,b){return (b.main_net||0)-(a.main_net||0);});
       var top5=sorted.slice(0,5), bot5=sorted.slice(-5).reverse();
       var lp=D.livePrices||{};
+      var getName=function(c){return (lp["sz"+c]||lp["sh"+c]||{}).name||c;};
       var strip='<div style="margin-bottom:16px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)"><div style="font-size:.82rem;font-weight:700;margin-bottom:8px">💰 个股主力资金流 <span style="font-size:.68rem;color:var(--dim);font-weight:400">tushare · '+items.length+'只</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">';
       strip+='<div><div style="font-size:.74rem;font-weight:600;color:var(--red);margin-bottom:4px">主力净流入TOP5</div>';
-      top5.forEach(function(r){var n=(lp[r._c]&&lp[r._c].name)||r._c;strip+='<div style="display:flex;justify-content:space-between;font-size:.76rem;padding:2px 0"><span><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.7rem">'+r._c+'</span> '+n+'</span><span style="color:var(--red);font-weight:600">+'+r.main_net.toFixed(1)+'万</span></div>';});
+      top5.forEach(function(r){var n=getName(r._c);strip+='<div style="display:flex;justify-content:space-between;font-size:.76rem;padding:2px 0"><span><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.7rem">'+r._c+'</span> '+n+'</span><span style="color:var(--red);font-weight:600">+'+r.main_net.toFixed(1)+'万</span></div>';});
       strip+='</div><div><div style="font-size:.74rem;font-weight:600;color:var(--green);margin-bottom:4px">主力净流出TOP5</div>';
-      bot5.forEach(function(r){var n=(lp[r._c]&&lp[r._c].name)||r._c;strip+='<div style="display:flex;justify-content:space-between;font-size:.76rem;padding:2px 0"><span><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.7rem">'+r._c+'</span> '+n+'</span><span style="color:var(--green);font-weight:600">'+r.main_net.toFixed(1)+'万</span></div>';});
+      bot5.forEach(function(r){var n=getName(r._c);strip+='<div style="display:flex;justify-content:space-between;font-size:.76rem;padding:2px 0"><span><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.7rem">'+r._c+'</span> '+n+'</span><span style="color:var(--green);font-weight:600">'+r.main_net.toFixed(1)+'万</span></div>';});
       strip+='</div></div></div>';
       ov+=strip;
     }
@@ -1942,9 +1943,10 @@ document.addEventListener('DOMContentLoaded',function(){
     var alerts=(D.cninfoAlerts&&D.cninfoAlerts.alerts)||[];
     if(!alerts.length){el.innerHTML='<div style="color:var(--dim);text-align:center;padding:20px">暂无公告</div>';return;}
     var lp=D.livePrices||{};
+      var getName=function(c){return (lp["sz"+c]||lp["sh"+c]||{}).name||c;};
     var h='';
     alerts.slice(0,20).forEach(function(a){
-      var n=(lp[a.c]&&lp[a.c].name)||a.c;
+      var n=getName(a.c);
       h+='<div style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.78rem"><span style="font-family:SF Mono,monospace;color:var(--dim);min-width:55px;font-size:.72rem">'+a.c+'</span><span style="min-width:80px;color:var(--text);font-weight:600">'+n+'</span><span style="color:var(--dim);min-width:70px;font-size:.72rem">'+a.d+'</span><span style="flex:1;color:var(--sub)">'+a.t+'</span></div>';
     });
     el.innerHTML=h;
