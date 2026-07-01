@@ -1004,6 +1004,13 @@ function go(tab){
   if(tab==='briefing' && !D.bHistory.length && !window._bHistoryLoaded){
     loadBHistory();
   }
+  // 打开快讯Tab时如果还卡在"加载中"，重新拉取
+  if(tab==='flash'){
+    var feed=document.getElementById('flashFeed');
+    if(feed && feed.textContent.indexOf('加载中')>=0){
+      loadNewsData();
+    }
+  }
 }
 
 // ══ 简报历史懒加载 ══
@@ -1480,8 +1487,12 @@ document.addEventListener('DOMContentLoaded',function(){
       if(D._newsSector||D._newsMarket){
         renderFlashNews(D._newsSector||[], D._newsMarket||[]);
       }
-    }).catch(function(){
-      // news.json 不存在 (旧版本) 时回退到 data.json 中已有的新闻字段
+    }).catch(function(e){
+      console.log('news.json load failed:', e);
+      // Fallback: re-render with whatever globalNews we have from data.json
+      if(D.globalNews && (D._newsSector || D._newsMarket)){
+        renderFlashNews(D._newsSector||[], D._newsMarket||[]);
+      }
     });
   }
 
