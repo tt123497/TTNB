@@ -253,11 +253,15 @@ def fmt_d(d): return f'{d.month}月{d.day}日'
 
 def generate_macro(cst_date):
     """Generate NBS 2026 macro calendar + key recurring events.
-    Returns events with format: {'d': 'X月Y日', 'e': 'title', 's': '宏观/全部'}"""
+    Returns events with all required fields: d/icon/e/s/big/desc/u"""
     year = cst_date.year
     events = []
-    def add(m, d, t):
-        events.append({'d': f'{m}月{d}日', 'e': t, 's': '宏观/全部'})
+    def add(m, d, t, icon='📊', big=1, desc='', s='宏观/全部'):
+        import calendar as _cal
+        dt = __import__('datetime').datetime(year, m, min(d, _cal.monthrange(year, m)[1]))
+        while dt.weekday() >= 5: dt += __import__('datetime').timedelta(days=1)
+        desc_val = desc if desc else t[:20]
+        events.append({'d': f'{m}月{dt.day}日', 'icon': icon, 'e': t, 's': s, 'big': big, 'desc': desc_val})
     def biz_day(m, d):
         import calendar as _cal
         dt = __import__('datetime').datetime(year, m, min(d, _cal.monthrange(year, m)[1]))
@@ -265,27 +269,27 @@ def generate_macro(cst_date):
         return dt.day
     for m in range(1, 13):
         nm = 1 if m == 12 else m + 1
-        add(nm, biz_day(nm, 1), f'{m}月官方PMI（制造业/非制造业）')
-        add(nm, biz_day(nm, 3), f'{m}月财新PMI')
-        add(nm, biz_day(nm, 10), f'{m}月CPI/PPI')
-        add(nm, biz_day(nm, 13), f'{m}月进出口贸易数据')
-        add(nm, biz_day(nm, 16), f'{m}月工业增加值/社零/固投')
-        add(nm, biz_day(nm, 12), f'{m}月金融数据（M2/社融/新增贷款）')
-        add(m, biz_day(m, 20), f'{m}月LPR报价')
-        add(m, biz_day(m, 15), f'{m}月MLF操作')
-    add(4, 17, 'Q1 GDP数据')
-    add(7, 16, 'Q2 GDP数据 / 上半年国民经济运行')
-    add(10, 19, 'Q3 GDP数据')
+        add(nm, biz_day(nm, 1), f'{m}月官方PMI（制造业/非制造业）', '🔴', 1, '官方PMI发布')
+        add(nm, biz_day(nm, 3), f'{m}月财新PMI', '📊', 1, '财新PMI发布')
+        add(nm, biz_day(nm, 10), f'{m}月CPI/PPI', '🔴', 1, '通胀数据公布')
+        add(nm, biz_day(nm, 13), f'{m}月进出口贸易数据', '📊', 1, '贸易数据公布')
+        add(nm, biz_day(nm, 16), f'{m}月工业增加值/社零/固投', '📊', 1, '经济数据三合一')
+        add(nm, biz_day(nm, 12), f'{m}月金融数据（M2/社融/新增贷款）', '🔴', 1, '金融数据公布')
+        add(m, biz_day(m, 20), f'{m}月LPR报价', '📅', 1, 'LPR利率决定')
+        add(m, biz_day(m, 15), f'{m}月MLF操作', '📅', 0, 'MLF操作')
+    add(4, 17, 'Q1 GDP数据', '🔴', 1, '一季度GDP公布')
+    add(7, 16, 'Q2 GDP数据 / 上半年国民经济运行', '🔴', 1, '上半年GDP公布')
+    add(10, 19, 'Q3 GDP数据', '🔴', 1, '三季度GDP公布')
     for m, d in [(1,29),(3,19),(5,7),(6,18),(7,30),(9,17),(11,5),(12,17)]:
-        add(m, biz_day(m, d), 'FOMC利率决议')
-    add(4, 30, 'A股年报/一季报披露截止日')
-    add(8, 31, 'A股中报披露截止日')
-    add(10, 31, 'A股三季报披露截止日')
-    add(3, 5, '全国两会开幕（政协）')
-    add(3, 7, '全国两会（人大）')
-    add(6, 4, '台北Computex 2026')
-    add(7, 10, '世界人工智能大会 WAIC 2026')
-    add(11, 11, '双11电商节')
+        add(m, biz_day(m, d), 'FOMC利率决议', '🔴', 1, '美联储利率决议')
+    add(4, 30, 'A股年报/一季报披露截止日', '📊', 1, '年报一季报截止')
+    add(8, 31, 'A股中报披露截止日', '📊', 1, '中报披露截止')
+    add(10, 31, 'A股三季报披露截止日', '📊', 1, '三季报截止')
+    add(3, 5, '全国两会开幕（政协）', '📅', 1, '两会开幕')
+    add(3, 7, '全国两会（人大）', '📅', 1, '人大会议')
+    add(6, 4, '台北Computex 2026', '🚀', 1, '台北电脑展')
+    add(7, 10, '世界人工智能大会 WAIC 2026', '🚀', 1, 'WAIC大会')
+    add(11, 11, '双11电商节', '📅', 0, '双11消费')
     from datetime import datetime, timedelta
     cst = datetime(year, cst_date.month, cst_date.day)
     future = []
@@ -319,17 +323,26 @@ def main():
 
     existing = data.get('events', [])
 
-    # Separate: hand (has URL AND not macro) vs macro vs AI (no URL) vs new AI (with URL, not macro, not hand)
-    macro_patterns = ['FAKE_REMOVED']
+    # Separate: hand (has URL AND not macro) vs macro
+    macro_keywords = ['PMI','CPI','PPI','GDP','MLF','LPR','FOMC','利率决议','进出口','工业增加值',
+                      '社零','固投','金融数据','M2','社融','财报','年报','中报','季报','披露截止']
 
-    hand_evs = [e for e in existing if e.get('u','').strip()
-        and not any(kw in e.get('e','') for kw in macro_patterns)]
+    hand_evs = []
+    old_macro = []
+    for e in existing:
+        e_title = e.get('e','')
+        e_sector = e.get('s','')
+        # Hand: has real URL AND NOT macro
+        has_url = bool(e.get('u','').strip())
+        is_macro = any(kw in e_title for kw in macro_keywords) or e_sector == '宏观/全部'
+        if has_url and not is_macro:
+            hand_evs.append(e)
+        else:
+            old_macro.append(e)
+
     hand_keys = {(e['d'], e['e']) for e in hand_evs}
 
-    old_macro = [e for e in existing
-        if any(kw in e.get('e','') for kw in macro_patterns)]
-
-    # AI events: everything else (with or without URL)
+    # AI events: non-macro, non-hand (from sentinel_ai newEvents)
     macro_keys_used = {(e['d'], e['e']) for e in old_macro}
     ai_evs = [e for e in existing
         if (e['d'], e['e']) not in hand_keys
@@ -353,27 +366,33 @@ def main():
     all_keys = {(e['d'], e['e']) for e in merged}
     for ev in ai_evs:
         k = (ev.get('d',''), ev.get('e',''))
-        # Drop old macro noise (LPR/MLF/FOMC/NFP/CPI etc.) — sector=宏观/全部 but NOT 章源钨业
         if k in all_keys:
             continue
-        if ev.get('s') == MACRO_S and 'FAKE_REMOVED' not in ev.get('e', ''):
-            continue  # macro noise, dropped
         merged.append(ev)
 
-    # Keep macro events (re-enabled per user request)
-
     # ── URL enrichment: generate links for events missing them ──
+    # ── Field normalization: ensure all events have icon/big/desc ──
     for ev in merged:
         if not ev.get('u','').strip():
-            # Generate EastMoney search URL from title keywords
             title = ev.get('e','')
             sector = ev.get('s','')
-            # Use sector + first keyword from title
             search_term = sector.split('/')[0].strip() if sector else title[:8]
             if search_term:
                 ev['u'] = 'https://so.eastmoney.com/news/s?keyword=' + quote(search_term)
             else:
                 ev['u'] = 'https://data.eastmoney.com/'
+        # Ensure standard fields: icon/big/desc
+        if not ev.get('icon'):
+            ev['icon'] = '📅'
+        if 'big' not in ev:
+            # Infer: macro/critical events get big=1
+            e_title = ev.get('e','')
+            s_name = ev.get('s','')
+            ev['big'] = 1 if any(kw in e_title for kw in ['FOMC','GDP','PMI','CPI','LPR','MLF','决议','财报','数据','大会','展会','停产','涨价','法规','年报','中报','季报','两会']) else 0
+            if s_name == '宏观/全部':
+                ev['big'] = 1
+        if not ev.get('desc'):
+            ev['desc'] = ev.get('e','')[:20]
 
     # Sort by date
     def parse_date(ev):

@@ -54,7 +54,8 @@ def build_briefing():
         for i, s in enumerate(top_stocks[:5]):
             picks.append({
                 'r': i+1, 'c': s['c'], 'n': s['n'],
-                'sec': '今日强势', 'why': f"涨幅 {s['chg']:+.1f}%，主力资金关注"
+                'sec': '今日强势', 'why': f"涨幅 {s['chg']:+.1f}%，主力资金关注",
+                'u': f"https://quote.eastmoney.com/sz{s['c']}.html"
             })
 
     # Build top news from market data
@@ -67,27 +68,34 @@ def build_briefing():
     # News 1: Index summary
     if indices:
         idx_str = ' | '.join([f"{i['n']} {i['chg']}" for i in indices[:4]])
+        up_count = sum(1 for i in indices if i['up'])
+        sig = '🟢' if up_count >= 3 else '🟡' if up_count >= 2 else '🔴'
         top3.append({
-            'r': 1, 't': f"📊 大盘实时: {idx_str}",
-            'b': f"更新时间 {cst.strftime('%H:%M')}，数据每15分钟自动刷新。{'市场普涨' if sum(1 for i in indices if i['up']) >= 3 else '市场分化' if sum(1 for i in indices if i['up']) >= 2 else '市场调整'}。",
-            's': []
+            'r': 1, 't': f"{sig} 大盘实时: {idx_str}",
+            'b': f"更新时间 {cst.strftime('%H:%M')}，每10分钟自动刷新。{'市场普涨' if up_count >= 3 else '市场分化' if up_count >= 2 else '市场调整'}。来源可信度：高（交易所实时行情）。已定价。",
+            's': [],
+            'u': 'https://quote.eastmoney.com/center/gridlist.html#hs_a_board'
         })
 
     # News 2: Hottest sectors
     if heat:
         top_sectors = heat[:5]
+        em_code = 'BK0451'  # fallback
         top3.append({
-            'r': 2, 't': f"🔥 今日最热板块: {', '.join([h['n'] for h in top_sectors[:5]])}",
-            'b': f"领涨: {top_sectors[0]['n']} {top_sectors[0]['s']} | 市场风格{'偏科技' if any(k in top_sectors[0]['n'] for k in ['半导','芯片','光','PCB','MLCC','AI']) else '偏周期/消费'}",
-            's': [f"{h['n']} {h['s']}" for h in top_sectors[:5]]
+            'r': 2, 't': f"🟢 今日热点板块: {', '.join([h['n'] for h in top_sectors[:5]])}",
+            'b': f"领涨: {top_sectors[0]['n']} {top_sectors[0]['s']} | 来源可信度：高（东财板块行情实时数据）。已定价（板块日内涨幅已反映）。",
+            's': [f"{h.get('code','')} {h['n']} {h['s']}" for h in top_sectors[:5]],
+            'u': 'https://quote.eastmoney.com/center/boardlist.html#boards-BK'
         })
 
     # News 3: Top individual stocks
     if top_stocks:
+        g = top_stocks[0]
         top3.append({
-            'r': 3, 't': f"🎯 今日强势个股 TOP5",
-            'b': ' | '.join([f"{s['n']}({s['c']}) {s['chg']:+.1f}%" for s in top_stocks[:5]]),
-            's': [f"{s['c']} {s['n']}" for s in top_stocks[:5]]
+            'r': 3, 't': f"🟢 今日强势个股: {g['n']} {g['chg']:+.1f}%领涨",
+            'b': ' | '.join([f"{s['n']}({s['c']}) {s['chg']:+.1f}%" for s in top_stocks[:5]]) + '。来源可信度：高（交易所行情）。已定价。',
+            's': [f"{s['c']} {s['n']}" for s in top_stocks[:5]],
+            'u': 'https://quote.eastmoney.com/center/gridlist.html#hs_a_board'
         })
 
     # Check if there's a recent AI-generated briefing — preserve it
@@ -113,12 +121,14 @@ def build_briefing():
             bHistory = bHistory[:30]
         existing['bHistory'] = bHistory
 
-    # Always generate fresh briefing
+    # Always generate fresh briefing — write both levels (标准: 根层+briefing双写)
     existing['briefing'] = {
         'updated': cst.strftime('%Y-%m-%d %H:%M CST'),
         'top3': top3,
         'picks': picks,
     }
+    existing['top3'] = top3
+    existing['picks'] = picks
     print(f"Briefing auto-generated: {cst.strftime('%H:%M')}")
 
     with open(DATA_PATH, 'w', encoding='utf-8') as f:

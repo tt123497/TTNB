@@ -67,7 +67,7 @@ def call_ai(prompt_text, max_tokens=4000, retries=2):
         payload = {
             'model': model,
             'messages': [
-                {'role': 'system', 'content': '你是A股实时市场分析师。每小时扫描一次数据变化，重点捕捉最近一小时的异动。严格按JSON格式输出，赛道名只用系统指定名称。'},
+                {'role': 'system', 'content': '你是A股实时市场分析师。严格按JSON格式输出，赛道名只用系统指定名称。Top3必须恰好3条（只选未定价/反向催化事件），Picks必须恰好5只（当日涨但未涨停）。每条Top3必须以信号灯emoji开头（🔥🟢🟡🔴），必须有真实新闻URL。禁止股评。禁止超过3条Top3。'},
                 {'role': 'user', 'content': prompt_text}
             ],
             'temperature': 0.3,
@@ -115,27 +115,38 @@ def call_ai(prompt_text, max_tokens=4000, retries=2):
     return None
 
 def validate_output(result):
-    """Return True if AI output meets quality standards (两条铁律 + 信号灯)"""
+    """Return True if AI output meets quality standards (两条铁律 + 信号灯)
+    标准: 3条Top3, 5只Picks, 12+赛道信号"""
     b = result.get('briefing', {})
     top3 = b.get('top3', [])
     picks = b.get('picks', [])
     sectors = result.get('sectors', [])
 
-    if len(top3) < 5:
-        print(f'REJECT: top3 count={len(top3)} < 5')
+    # 数量标准: Top3=3, Picks=5
+    if len(top3) != 3:
+        print(f'REJECT: top3 count={len(top3)} != 3')
         return False
     if len(picks) < 5:
         print(f'REJECT: picks count={len(picks)} < 5')
         return False
-    if len(sectors) < 3:
-        print(f'REJECT: sectors count={len(sectors)} < 3')
+    # Trim picks to exactly 5
+    if len(picks) > 5:
+        picks = picks[:5]
+        b['picks'] = picks
+
+    if len(sectors) < 12:
+        print(f'REJECT: sectors count={len(sectors)} < 12')
         return False
 
-    # 铁律一：来源可信度 — u 不能是泛链接
+    # 铁律一：来源可信度 — u 必须是真实具体URL
     # 铁律二：定价状态 — b 必须含「已定价」「未定价」或「反向催化」
+    # 信号灯 — 每条Top3必须带一个emoji信号灯
     bad_url_count = 0
     no_pricing_count = 0
+    no_signal_count = 0
     banned_titles = []
+    VALID_SIGNALS = {'🔥', '🟢', '🟡', '🔴'}
+
     for i, n in enumerate(top3):
         if not n.get('t') or not n.get('b'):
             print(f'REJECT: top3[{i}] missing title/body')
@@ -143,48 +154,86 @@ def validate_output(result):
         if not n.get('s') or not isinstance(n['s'], list):
             n['s'] = []
 
-        # 铁律一：检查 URL（允许东财具体页面，只禁止首页和搜索页）
+        # 信号灯: 标题前缀必须是 🔥/🟢/🟡/🔴 之一
+        t = n.get('t', '')
+        sig = t[0] if t else ''
+        if sig in VALID_SIGNALS:
+            n['sig'] = sig  # 注入信号灯字段用于前端显示
+        else:
+            no_signal_count += 1
+            # 尝试从body推断
+            if '官方' in n.get('b','') or '重仓' in n.get('b','') or '停产' in n.get('b',''):
+                n['sig'] = '🔥'
+            elif '利好' in n.get('b','') or '涨' in n.get('b',''):
+                n['sig'] = '🟢'
+            elif '利空' in n.get('b','') or '跌' in n.get('b',''):
+                n['sig'] = '🔴'
+            else:
+                n['sig'] = '🟡'
+            print(f'WARN: top3[{i}] 缺少信号灯前缀，从body推断为{n["sig"]}')
+
+        # 铁律一：检查 URL — 必须是具体新闻链接
         u = n.get('u', '')
-        is_em = 'eastmoney.com/' in u.lower()
-        is_specific = any(x in u.lower() for x in ['/roll/', '/doc-', '/news/', '/stock/', '/money/', '/fund/', '/bond/', '/notices/', '/report/', '/announcement/', '/detail/', 'quote.eastmoney.com/'])
-        if not u or (is_em and not is_specific):
+        generic_urls = ['eastmoney.com/', 'data.eastmoney.com', 'topic.eastmoney.com',
+                        'quote.eastmoney.com/sz000001', 'quote.eastmoney.com/sh000001',
+                        'em_data', 'search?keyword=']
+        is_generic = not u or any(g in u.lower() for g in generic_urls)
+        if is_generic:
             bad_url_count += 1
             print(f'WARN: top3[{i}] URL泛链接: {u[:60]}')
+        # 必须有具体path（至少两个/）
+        if u and u.count('/') < 4:
+            bad_url_count += 1
+            print(f'WARN: top3[{i}] URL可能不具体: {u[:60]}')
 
-        # 铁律二：检查定价状态（兼容"未定价""尚未被定价""已定价""已被定价""反向催化"等变体）
+        # 铁律二：检查定价状态
         body = n.get('b', '')
-        has_pricing = any(kw in body for kw in ['定价', '反向催化'])
+        has_pricing = any(kw in body for kw in ['未定价', '已定价', '反向催化'])
         if not has_pricing:
             no_pricing_count += 1
             print(f'WARN: top3[{i}] 缺少定价状态判断')
 
-        # 禁止：股评类标题
-        t = n.get('t', '')
-        if any(kw in t for kw in ['后市策略', '操作建议', '策略', '建议']):
+        # 禁止：股评类/"后市"/"操作建议"/"策略"
+        if any(kw in t for kw in ['后市策略', '操作建议', '策略', '建议', '后市']):
             banned_titles.append(t[:40])
 
     if banned_titles:
         print(f'REJECT: 禁止股评类条目: {banned_titles}')
         return False
-    if bad_url_count > 2:
-        print(f'REJECT: {bad_url_count}条top3使用泛链接 > 2')
+    if bad_url_count > 0:
+        print(f'REJECT: {bad_url_count}条top3使用泛链接，必须全部有具体新闻URL')
         return False
-    if no_pricing_count > 2:
-        print(f'REJECT: {no_pricing_count}条top3缺少定价状态 > 2')
+    if no_pricing_count > 0:
+        print(f'REJECT: {no_pricing_count}条top3缺少定价状态，每条必须标注已定价/未定价/反向催化')
+        return False
+    if no_signal_count > 0 and no_signal_count == len(top3):
+        print(f'REJECT: 所有top3缺少信号灯前缀')
         return False
 
     for i, p in enumerate(picks):
         if not p.get('c') or not p.get('n') or not p.get('why'):
             print(f'REJECT: picks[{i}] missing code/name/why')
             return False
+        # picks必须带u字段
+        if not p.get('u'):
+            p['u'] = f'https://quote.eastmoney.com/sz{p["c"]}.html'
 
-    # Check events
+    # Events must have all required fields
     new_events = result.get('newEvents', [])
     if new_events:
         for i, ev in enumerate(new_events):
             if not ev.get('d') or not ev.get('e'):
                 print('REJECT: newEvents[%d] missing date/title' % i)
                 new_events[i] = None
+            # Ensure standard fields
+            if not ev.get('icon'):
+                ev['icon'] = '📅'
+            if 'big' not in ev:
+                ev['big'] = 1 if any(kw in ev.get('e','') for kw in ['FOMC','GDP','PMI','CPI','LPR','MLF','决议','财报','数据','大会','展会','停产','涨价']) else 0
+            if not ev.get('desc'):
+                ev['desc'] = ev.get('e','')[:20]
+            if not ev.get('s'):
+                ev['s'] = '宏观/全部'
         result['newEvents'] = [ev for ev in new_events if ev is not None]
 
     return True
@@ -344,14 +393,14 @@ def build_prompt(d):
     "suggestion": "操作建议(30字内)"
   }},
   "sectors": [
-    {{"name":"赛道名(必须从下方63赛道列表中选)","sig":"major/good/neutral/negative（按信号灯标准判定，不只看涨跌幅）","msg":"信号描述+数据依据+定价状态, 40字内","u":""}}
+    {{"name":"赛道名(必须从63赛道列表中选)","sig":"major/good/neutral/negative","msg":"信号描述+数据+定价状态,40字内","u":"真实URL"}}
   ],
   "briefing": {{
     "top3": [
-      {{"r":1,"t":"标题(含emoji前缀, 25字内)","b":"正文(150-200字): 事件描述+数据+来源可信度评价+定价状态判断(必须写「已定价」「未定价」或「反向催化」)+股价反应数据","s":["代码 名称"],"u":"真实新闻URL(禁止填 eastmoney.com 泛链接)"}}
+      {{"r":1,"t":"信号灯emoji+标题(🔥=高影响未定价/🟢=正向有限/🟡=方向不明/🔴=负向或利好出尽),25字内","b":"正文(150-200字): (1)事件描述(2)数据(3)来源可信度评价(4)定价状态判断(必须写「已定价」「未定价」或「反向催化」)(5)股价反应数据","s":["代码 名称"],"u":"真实具体新闻URL(必须是完整文章链接,禁止泛首页/搜索页)"}}
     ],
     "picks": [
-      {{"r":1,"c":"6位代码","n":"名称","why":"选中理由+当日涨跌幅(25字内)","sec":"所属赛道(从63赛道中选)"}}
+      {{"r":1,"c":"6位代码","n":"名称","why":"选中理由+当日涨跌幅(25字内)","sec":"所属赛道(从63赛道中选)","u":"https://quote.eastmoney.com/...行情链接"}}
     ]
   }}
 }}
@@ -359,15 +408,13 @@ def build_prompt(d):
 ═══ 63赛道列表(必须从这里面选) ═══
 {OUR_SECTORS}
 
-═══ 要求 ═══
-1. sectors：输出20个赛道，sig 严格按上方信号灯标准判定（不只看涨跌幅%，要结合定价状态）
-2. top3：输出10条，只选「未定价」或「反向催化」的事件。每条 b 字段必须包含：(1)事件描述 (2)数据 (3)来源可信度评价 (4)定价状态判断（必须出现「已定价」「未定价」「反向催化」之一）(5)股价反应数据
-3. top3 的 u 字段必须是具体新闻URL，禁止填 https://data.eastmoney.com/ 首页
-4. 禁止输出「后市策略」「操作建议」类条目——只报道事件，不写股评
-5. picks：输出10只，必须当日涨但未涨停，避开ST/一字板/减持期
-6. picks 的 why 字段必须包含选中理由+当日涨跌幅%数据
-7. newEvents：列出未来30天内A股重要事件(财报/会议/政策/数据/产业), 每条含: d(月+日), icon(emoji), e(标题), s(赛道名), big(1=硬催化如停产/涨价/法规/财报/重要数据, 0=普通), desc(20字内), u(真实URL)
-8. 只用中文, 严格JSON, 不要markdown"""
+═══ 严格要求 ═══
+1. top3：必须恰好3条，只选「未定价」或「反向催化」的事件。每条标题必须以🔥🟢🟡🔴之一开头标记信号灯。b字段必须含：(1)事件(2)数据(3)来源可信度评价(4)定价状态(必须出现「已定价」「未定价」「反向催化」之一)(5)股价反应数据。u字段必须是真实具体新闻文章链接，禁止泛首页/搜索页。
+2. picks：必须恰好5只，当日涨但未涨停，避开ST/一字板/减持期。why含选中理由+当日涨跌幅%。sec从63赛道名中准确选。每只必须带u字段(个股行情页链接)。
+3. sectors：输出20个赛道，sig严格按信号灯标准判定（不是只看涨跌幅%，要结合定价状态），每条msg含数据依据40字内。
+4. 禁止输出「后市策略」「操作建议」「核心-卫星策略」类股评条目！只报道事件，不写股评。
+5. newEvents：列出未来30天内关键事件(财报/会议/政策/数据/产业), 每条含: d(月+日), icon(emoji, 宏观数据🔴 财报📊 会议📅 产业🚀), e(标题), s(赛道名), big(1=硬催化:停产/涨价/法规/财报/重要数据/FOMC决议, 0=普通), desc(20字内), u(真实URL)
+6. 只用中文, 严格JSON, 不要markdown"""
     return prompt
 
 def main():
@@ -436,7 +483,7 @@ def main():
         d['briefing'] = b
         d['top3'] = b['top3']
         d['picks'] = b['picks']
-        print(f"OK  Briefing: {len(b['top3'])} top3, {len(b['picks'])} picks")
+        print(f"OK  Briefing: {len(b['top3'])} top3, {len(b['picks'])} picks [标准:3 top3,5 picks]")
 
     d['updated'] = cst.strftime('%Y-%m-%d %H:%M CST')
     save_data(d)
