@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-01 22:15 CST",
+  "updated": "2026-07-01 22:34 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1981017,
+  "updateCount": 1981018,
   "recap": {
     "index": [
       {
@@ -1632,7 +1632,7 @@
         "指数均跌0.6%"
       ]
     },
-    "note": "07/01 22:07 a-stock-data统一更新 | 539只 | 60板块"
+    "note": "07/01 22:25 a-stock-data统一更新 | 539只 | 60板块"
   },
   "livePrices": {
     "sz000002": {
@@ -4337,7 +4337,7 @@
     "interval": "5min",
     "stockCount": 539,
     "liveCount": 539,
-    "updateCount": 1981017,
+    "updateCount": 1981018,
     "trading": false
   },
   "sectorTags": {
@@ -7906,9 +7906,9 @@
   },
   "northbound": {
     "date": "2026-07-01",
-    "hgt_yi": -9.28,
-    "sgt_yi": -31.1,
-    "net_yi": -40.38,
+    "hgt_yi": 2.25,
+    "sgt_yi": 379.75,
+    "net_yi": 382.0,
     "points": 262,
     "status": "收盘"
   },
@@ -23821,7 +23821,7 @@
         "sec": "创新药/CXO"
       }
     ],
-    "updated": "2026-07-01 22:15 CST",
+    "updated": "2026-07-01 22:34 CST",
     "_ai": true,
     "sectors": [
       {
@@ -25308,7 +25308,7 @@
     }
   ],
   "_eventsMeta": {
-    "updated": "2026-07-01 22:15 CST",
+    "updated": "2026-07-01 22:34 CST",
     "total": 29,
     "hand": 29,
     "macro": 29,
@@ -25780,7 +25780,7 @@
   },
   "_tushare_meta": {
     "api_calls": 38,
-    "updated": "2026-07-01 22:07 CST"
+    "updated": "2026-07-01 22:25 CST"
   },
   "_promoteQueue": []
 }
