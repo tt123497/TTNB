@@ -15,3 +15,10 @@ update_weekend.py
 *.session
 .env
 .env.local
+# 本地运行脚本和日志
+run_all.ps1
+run_all.bat
+setup_task.ps1
+run_all*.log
+.run_all.lock
+news_watch_output.log
