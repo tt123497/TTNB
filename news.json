@@ -1,1 +1,490 @@
-{"_newsSector": [], "_newsMarket": [], "globalNews": []}
+{
+  "_newsSector": [
+    {
+      "t": "Aker Solutions获海上风电高压直流下部结构合同",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihns6190433.shtml",
+      "time": "20:41",
+      "src": "sina_A股"
+    },
+    {
+      "t": "挪威Føn Energy获得波兰海上风电服务合同",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihns6186885.shtml",
+      "time": "20:36",
+      "src": "sina_A股"
+    },
+    {
+      "t": "存储巨头三季度开局承压，闪迪美光高位回调",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihns6183741.shtml",
+      "time": "20:29",
+      "src": "sina_A股"
+    },
+    {
+      "t": "大家财险2026年“7.8全国保险公众宣传日”活动全面启动",
+      "u": "https://finance.sina.com.cn/jryx/insurance/2026-07-01/doc-inifihnu2956603.shtml",
+      "time": "20:23",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "常熟银行：江南商贸集团增持1713万股 持股升至3.84%",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-01/doc-inifihnn0812514.shtml",
+      "time": "20:15",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "一亿资本金的村镇银行，放了四个多亿坏账",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-01/doc-inifihnu2962623.shtml",
+      "time": "20:11",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "1元转让，保险中介牌照不香了",
+      "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-07-01/doc-inifihnn0819218.shtml",
+      "time": "19:58",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "黄金直线升破4020美元，高盛看多金价升至5000美元",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-01/doc-inifiaen4158400.shtml",
+      "time": "19:51",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于江苏江南商贸集团有限责任公司增持股份的公告",
+      "u": "https://data.eastmoney.com/notices/detail/601128.html",
+      "time": "07-02",
+      "src": "em_ann"
+    }
+  ],
+  "_newsMarket": [
+    {
+      "t": "特朗普称伊朗去核化“进展顺利”",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnn0825256.shtml",
+      "time": "20:53",
+      "src": "sina_A股"
+    },
+    {
+      "t": "Nauticus Robotics通过债转股消除400万美元债务",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihns6194757.shtml",
+      "time": "20:50",
+      "src": "sina_A股"
+    },
+    {
+      "t": "Sable Offshore启动4亿美元股权及可转换债券发行",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnk4046792.shtml",
+      "time": "20:49",
+      "src": "sina_A股"
+    },
+    {
+      "t": "越洋钻探与挪威国家石油公司签署挪威海上10亿美元钻井合同",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnu2969895.shtml",
+      "time": "20:48",
+      "src": "sina_A股"
+    },
+    {
+      "t": "壳牌以17亿美元出售美国墨西哥湾深水资产给Talos Energy和Ridgewood",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihns6192547.shtml",
+      "time": "20:45",
+      "src": "sina_A股"
+    },
+    {
+      "t": "公募行业首家 易方达基金正式入驻腾讯ima知识库",
+      "u": "https://wallstreetcn.com/livenews/3127435",
+      "time": "20:44",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "比亚迪势将再次超越特斯拉 成为全球纯电动汽车销量冠军",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnn0821733.shtml",
+      "time": "20:42",
+      "src": "sina_A股"
+    },
+    {
+      "t": "渤海租赁：控股子公司Avolon通过其下属子公司向Frontier购买11架A321NEO订单飞机资产。以空中客车公司公布的2018年目录价格，上述飞机资产目录价格合计约为14.25亿美元。",
+      "u": "https://wallstreetcn.com/livenews/3127434",
+      "time": "20:42",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "报道：伊朗副外长与卡塔尔首相讨论美伊谅解备忘录面临的挑战",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifihnn0821024.shtml",
+      "time": "20:41",
+      "src": "sina_A股"
+    },
+    {
+      "t": "比亚迪储能签约波兰规模最大储能项目",
+      "u": "https://wallstreetcn.com/livenews/3127427",
+      "time": "20:37",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国总统特朗普：与伊朗谈判进展顺利。\n\n因为股市上涨，每个人都在获利。\n\n正在美国建设很多汽车工厂和人工智能基地。\n\n到我卸任时，我们可能占据芯片市场50%的份额。",
+      "u": "https://wallstreetcn.com/livenews/3127425",
+      "time": "20:36",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "Meta美股盘前涨逾5%，报道称Meta正在构建云业务，以出售其富余的AI算力资源。",
+      "u": "https://wallstreetcn.com/livenews/3127424",
+      "time": "20:35",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "21家拟上市企业被抽中现场检查",
+      "u": "https://wallstreetcn.com/livenews/3127423",
+      "time": "20:33",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "盘前：纳指期货跌0.66% 耐克大跌超 3%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnn0819996.shtml",
+      "time": "20:30",
+      "src": "sina_A股"
+    },
+    {
+      "t": "多家MLCC厂商称“正酝酿涨价”，业内看涨至2027年年底",
+      "u": "https://wallstreetcn.com/livenews/3127421",
+      "time": "20:28",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "英国监管“拦路”，Getty Images与Shutterstock 37亿美元合并告吹",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnn0816448.shtml",
+      "time": "20:27",
+      "src": "sina_A股"
+    },
+    {
+      "t": "多头大举押注这只深陷熊市的全球ETF",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihnk4036693.shtml",
+      "time": "20:20",
+      "src": "sina_A股"
+    },
+    {
+      "t": "一批科技股狂飙后拉响警报，A股行情从极致分化走向均衡？",
+      "u": "https://finance.sina.com.cn/roll/2026-07-01/doc-inifihnk4037604.shtml",
+      "time": "20:18",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "常熟银行：江南商贸集团增持1713万股 持股升至3.84%",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-01/doc-inifihnn0812514.shtml",
+      "time": "20:15",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "2.46亿！A股天价离婚案落幕！",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-01/doc-inifihnn0817665.shtml",
+      "time": "20:13",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗称一艘外国船只搁浅 重申必须与该国协调方可通过霍尔木兹海峡",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifihns6174107.shtml",
+      "time": "20:10",
+      "src": "sina_A股"
+    },
+    {
+      "t": "最新ETF管理人TOP20出炉",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-01/doc-inifihnk4035004.shtml",
+      "time": "20:10",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "下周一重大调整！5%涨跌停板将成历史，这些股受影响！",
+      "u": "https://finance.sina.com.cn/stock/roll/2026-07-01/doc-inifihns6194812.shtml",
+      "time": "20:08",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "提醒：北京时间20:15，将公布美国6月ADP就业人数（小非农就业报告）。",
+      "u": "https://wallstreetcn.com/livenews/3127408",
+      "time": "20:05",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "视频 | 雪球产品亏损牵出私募通道安排，华泰证券与北京富纳投资被判赔千万元",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-01/doc-inifihns6169661.shtml",
+      "time": "20:03",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "常熟银行：江南商贸集团于2026年6月9日至2026年6月30日期间，合计增持本行股份1712.86万股，占本行总股本比例为0.47%。",
+      "u": "https://wallstreetcn.com/livenews/3127407",
+      "time": "20:03",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "\"不缺钱\"的保伦股份，IPO前分红近7亿元",
+      "u": "https://finance.sina.com.cn/wm/2026-07-01/doc-inifihnu2955132.shtml",
+      "time": "20:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "黄金直线升破4020美元，高盛看多金价升至5000美元",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-01/doc-inifiaen4158400.shtml",
+      "time": "19:51",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "哈塞特：部分美联储官员可能出于针对特朗普的目的作出政策投票",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifiaeq0933939.shtml",
+      "time": "19:49",
+      "src": "sina_A股"
+    },
+    {
+      "t": "白宫国家经济委员会主任哈塞特：预计美国下半年经济增长约4%",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifiaeu6283341.shtml",
+      "time": "19:25",
+      "src": "sina_A股"
+    },
+    {
+      "t": "以色列划拨土地用于美国在耶路撒冷设立永久大使馆",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifiaen4142928.shtml",
+      "time": "19:11",
+      "src": "sina_A股"
+    },
+    {
+      "t": "高盛：全球股市下半年有望延续涨势 且上涨范围料相当广泛",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifiaew3052653.shtml",
+      "time": "19:10",
+      "src": "sina_A股"
+    },
+    {
+      "t": "欧元区6月份CPI初值同比上升2.8% 分析师预估上升3%",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifiaeq0915484.shtml",
+      "time": "18:58",
+      "src": "sina_A股"
+    },
+    {
+      "t": "欧洲央行管委科赫尔：下一步行动将在加息与按兵不动之间权衡",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifiaew3045810.shtml",
+      "time": "18:57",
+      "src": "sina_A股"
+    },
+    {
+      "t": "市值暴增2万亿美元后 Alphabet为何从AI“顶流”变成“未知数”",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifiaew3045241.shtml",
+      "time": "18:55",
+      "src": "sina_A股"
+    },
+    {
+      "t": "以色列国防部长：如有必要 以色列将再次打击伊朗",
+      "u": "https://finance.sina.com.cn/world/2026-07-01/doc-inifiaeu6267484.shtml",
+      "time": "18:52",
+      "src": "sina_A股"
+    },
+    {
+      "t": "“胡润富豪”回购甬金股份，老婆内幕交易被判缓刑！",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-01/doc-inifiaeu6264826.shtml",
+      "time": "18:37",
+      "src": "sina_A股"
+    },
+    {
+      "t": "莱姆出行IPO发行价定为每股25美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-01/doc-inifiaeq0903583.shtml",
+      "time": "18:28",
+      "src": "sina_A股"
+    },
+    {
+      "t": "华联股份: 华联股份:关于回购公司股份的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/000882.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "气派科技: 气派科技:气派科技股份有限公司2023年限制性股票激励计划部分限制性股票回购注销实施公告",
+      "u": "https://data.eastmoney.com/notices/detail/688216.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "气派科技: 气派科技:北京市天元律师事务所关于气派科技股份有限公司2023年限制性股票激励计划回购注销部分限制性股票实施情况的法律意见",
+      "u": "https://data.eastmoney.com/notices/detail/688216.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于江苏江南商贸集团有限责任公司增持股份的公告",
+      "u": "https://data.eastmoney.com/notices/detail/601128.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "慧智微: 慧智微:股东减持股份计划公告",
+      "u": "https://data.eastmoney.com/notices/detail/688512.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "赛力斯: 赛力斯:关于股份回购进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/601127.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "盛景微: 盛景微:光大证券股份有限公司关于无锡盛景微电子股份有限公司差异化分红事项的核查意见",
+      "u": "https://data.eastmoney.com/notices/detail/603375.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "嘉友国际: 嘉友国际:关于调整以集中竞价交易方式回购股份方案的公告",
+      "u": "https://data.eastmoney.com/notices/detail/603871.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "嘉友国际: 嘉友国际:关于以集中竞价交易方式回购股份的回购报告书(修订版)",
+      "u": "https://data.eastmoney.com/notices/detail/603871.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "城投控股: 城投控股:上海市锦天城律师事务所关于上海城投控股股份有限公司差异化分红事项的法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/600649.html",
+      "time": "07-02",
+      "src": "em_ann"
+    },
+    {
+      "t": "城投控股: 城投控股:上海城投控股股份有限公司关于以集中竞价交易方式回购公司股份的进展公告",
+      "u": "https://data.eastmoney.com/notices/detail/600649.html",
+      "time": "07-02",
+      "src": "em_ann"
+    }
+  ],
+  "globalNews": {
+    "headlines": [
+      {
+        "t": "算力租赁商Nebius盘前下跌5.5%",
+        "s": "【算力租赁商Nebius盘前下跌5.5%】算力租赁商Nebius盘前下跌5.5%，据财联社，Meta宣布计划发展云业务。",
+        "ts": "2026-07-01 20:51:03"
+      },
+      {
+        "t": "ST路通：主要股东要求解除表决权委托协议",
+        "s": "【ST路通：主要股东要求解除表决权委托协议】ST路通(300555.SZ)公告称，公司持股5%以上股东贾清通知华晟云城及其破产管理人，要求解除双方签署的《表决权委托协议》，并立即停",
+        "ts": "2026-07-01 20:46:37"
+      },
+      {
+        "t": "美股存储概念股盘前走低 闪迪跌超6%",
+        "s": "【美股存储概念股盘前走低 闪迪跌超6%】美股存储概念股盘前走低，闪迪跌超6%，西部数据跌超4%，美光科技跌超4%，希捷科技跌3%。",
+        "ts": "2026-07-01 20:43:49"
+      },
+      {
+        "t": "野村证券上调台积电目标价至3,425台币 较目前股价约46.4%的上涨空间",
+        "s": "【野村证券上调台积电目标价至3,425台币 较目前股价约46.4%的上涨空间】野村证券上调多只AI半导体与硬件股目标价，最核心的动作是将台积电目标价从2,820新台币上调至3,42",
+        "ts": "2026-07-01 20:42:25"
+      },
+      {
+        "t": "特朗普：正在美国建设很多汽车工厂和人工智能基地",
+        "s": "美国总统特朗普称，正在美国建设很多汽车工厂和人工智能基地。",
+        "ts": "2026-07-01 20:41:33"
+      },
+      {
+        "t": "美国总统特朗普称赞油价下跌",
+        "s": "美国总统特朗普称赞油价下跌。",
+        "ts": "2026-07-01 20:38:43"
+      },
+      {
+        "t": "比亚迪储能签约波兰规模最大储能项目",
+        "s": "【比亚迪储能签约波兰规模最大储能项目】比亚迪储能近日与Greenvolt Power签署合作协议，共同在波兰开发Siedlce储能项目。该项目总容量达600MW/2.4GWh，建成",
+        "ts": "2026-07-01 20:37:58"
+      },
+      {
+        "t": "Meta盘前上涨5.3%",
+        "s": "Meta盘前股价上涨5.3%。据财联社，此前公司发布云业务进展更新。",
+        "ts": "2026-07-01 20:37:50"
+      },
+      {
+        "t": "2连板先导基电：筹划增资收购磷化铟公司先导微电子控股权",
+        "s": "【2连板先导基电：筹划增资收购磷化铟公司先导微电子控股权】先导基电(600641.SH)公告称，公司拟通过收购整合，纳入标的公司的电子材料业务，从而进一步加强公司的整体盈利能力。公",
+        "ts": "2026-07-01 20:37:38"
+      },
+      {
+        "t": "Meta正在构建一项云业务以出售其过剩的AI算力",
+        "s": "Meta正在构建一项云业务，以出售其过剩的AI算力。",
+        "ts": "2026-07-01 20:35:04"
+      },
+      {
+        "t": "特朗普：与伊朗谈判进展顺利",
+        "s": "美国总统特朗普称，与伊朗谈判进展顺利。",
+        "ts": "2026-07-01 20:34:58"
+      },
+      {
+        "t": "美光科技与通用汽车就内存和存储平台供应达成协议",
+        "s": "美光科技与通用汽车就内存和存储平台供应达成协议。",
+        "ts": "2026-07-01 20:32:21"
+      },
+      {
+        "t": "晶科能源签约意大利200.3MW飞虎3地面电站订单",
+        "s": "【晶科能源签约意大利200.3MW飞虎3地面电站订单】晶科能源消息，近日，晶科能源与意大利知名清洁能源投资商正式签署200.3MW高效组件供货协议，全部采用飞虎3（Tiger Ne",
+        "ts": "2026-07-01 20:28:20"
+      },
+      {
+        "t": "两部门开展农业领域机器人典型应用场景遴选工作",
+        "s": "【两部门开展农业领域机器人典型应用场景遴选工作】工业和信息化部、农业农村部联合开展2026年度农业领域机器人典型应用场景遴选工作。",
+        "ts": "2026-07-01 20:28:00"
+      },
+      {
+        "t": "渤海租赁：控股子公司拟97亿元购买11架A321NEO订单飞机资产",
+        "s": "【渤海租赁：控股子公司拟97亿元购买11架A321NEO订单飞机资产】7月1日，渤海租赁(000415.SZ)公告称，公司控股子公司Avolon下属子公司于2026年6月30日与F",
+        "ts": "2026-07-01 20:27:11"
+      },
+      {
+        "t": "美国企业6月份新增9.8万个工作岗位 表现稳健但低于预期",
+        "s": "【美国企业6月份新增9.8万个工作岗位 表现稳健但低于预期】6月份美国私营部门就业岗位增长依然稳健，进一步表明今年劳动力市场已趋于稳定。根据ADP Research周三发布的数据，",
+        "ts": "2026-07-01 20:25:44"
+      },
+      {
+        "t": "日本岩手县近海发生6.0级地震",
+        "s": "【日本岩手县近海发生6.0级地震】据CCTV国际时讯，日本气象厅消息，当地时间今天（7月1日）21时08分左右，北京时间20时08分左右，日本岩手县附近海域发生6.0级地震，最大震",
+        "ts": "2026-07-01 20:24:16"
+      },
+      {
+        "t": "Challenger报告：美国雇主6月宣布的裁员人数同比下降4.5%",
+        "s": "【Challenger报告：美国雇主6月宣布的裁员人数同比下降4.5%】Challenger报告称，美国雇主6月宣布的裁员人数为45,849人，这是12月以来最低的月度数字，今年迄",
+        "ts": "2026-07-01 20:21:10"
+      },
+      {
+        "t": "昂利康：向特定对象发行股票申请获深交所审核通过",
+        "s": "【昂利康：向特定对象发行股票申请获深交所审核通过】昂利康(002940.SZ)公告称，公司于2026年7月1日收到深交所上市审核中心出具的审核中心意见告知函，认为公司符合发行条件、",
+        "ts": "2026-07-01 20:19:16"
+      },
+      {
+        "t": "复旦MOSS主研发者孙天祥就任百度基础模型研发部负责人",
+        "s": "【复旦MOSS主研发者孙天祥就任百度基础模型研发部负责人】近日，大模型领域技术专家孙天祥正式加入百度，就任基础模型研发部（BMU）负责人。",
+        "ts": "2026-07-01 20:18:00"
+      },
+      {
+        "t": "美国ADP就业数据公布后 美债收益率小幅收窄涨幅",
+        "s": "美国ADP就业数据公布后，美债收益率小幅收窄涨幅。10年期美债收益率最新上涨6.31个基点，报4.485%。",
+        "ts": "2026-07-01 20:17:33"
+      },
+      {
+        "t": "美国6月“小非农”数据低于预期",
+        "s": "【“小非农”数据低于预期】美国6月ADP就业人数为9.8万人，为3月以来最低增幅，低于市场预期的增长11.8万人，前值12.2万人。",
+        "ts": "2026-07-01 20:15:26"
+      },
+      {
+        "t": "行云科技：控股子公司签订55.08亿元算力服务合同",
+        "s": "【行云科技：控股子公司签订55.08亿元算力服务合同】行云科技7月1日公告，公司控股子公司海南行云与VC客户签署《计算平台服务协议》及《补充协议》，提供为期5年的算力服务，合同含税",
+        "ts": "2026-07-01 20:10:33"
+      },
+      {
+        "t": "侃股：寒武纪提示风险是一种主动“降温”",
+        "s": "【侃股：寒武纪提示风险是一种主动“降温”】市场资金在追逐热门科技赛道的过程中，很容易出现情绪过热的情况。当个股短期股价快速拉升，市值快速扩张，市场乐观情绪会持续发酵，投资者容易忽略",
+        "ts": "2026-07-01 20:10:31"
+      },
+      {
+        "t": "翰宇药业：利拉鲁肽注射液获批上市",
+        "s": "【翰宇药业：利拉鲁肽注射液获批上市】翰宇药业公告，公司于近日收到国家药品监督管理局下发的利拉鲁肽（H）注射液《药品注册证书》。",
+        "ts": "2026-07-01 20:10:16"
+      }
+    ],
+    "updated": "2026-07-01 12:55 UTC",
+    "status": "ok"
+  },
+  "_newsMeta": {
+    "updated": "2026-07-01 20:55 CST",
+    "sector": 9,
+    "market": 49
+  }
+}
