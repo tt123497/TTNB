@@ -19,6 +19,7 @@ update_weekend.py
 run_all.ps1
 run_all.bat
 setup_task.ps1
+run_logs/
 run_all*.log
 .run_all.lock
 news_watch_output.log
