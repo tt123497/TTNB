@@ -24389,5 +24389,818 @@
   "_tushare_meta": {
     "api_calls": 38,
     "updated": "2026-07-02 16:55 CST"
+  },
+  "_marketSignals": [
+    {
+      "level": "high",
+      "type": "price_up",
+      "type_label": "产品涨价",
+      "time": "2026-07-02 22:17:13",
+      "title": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "sectors": [
+        "AI应用/模型推理"
+      ],
+      "keyword": "涨价",
+      "url": "",
+      "src": "news_json_global",
+      "detected": "2026-07-02 23:12"
+    },
+    {
+      "level": "high",
+      "type": "capital",
+      "type_label": "资本运作",
+      "time": "07-03",
+      "title": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "sectors": [
+        "银行"
+      ],
+      "keyword": "增持",
+      "url": "https://data.eastmoney.com/notices/detail/601128.html",
+      "src": "em_ann",
+      "detected": "2026-07-02 23:12"
+    }
+  ],
+  "_signalHistory": [
+    {
+      "level": "high",
+      "type": "price_up",
+      "type_label": "产品涨价",
+      "time": "2026-07-02 22:17:13",
+      "title": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "sectors": [
+        "AI应用/模型推理"
+      ],
+      "keyword": "涨价",
+      "url": "",
+      "src": "news_json_global",
+      "detected": "2026-07-02 23:12"
+    },
+    {
+      "level": "high",
+      "type": "capital",
+      "type_label": "资本运作",
+      "time": "07-03",
+      "title": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "sectors": [
+        "银行"
+      ],
+      "keyword": "增持",
+      "url": "https://data.eastmoney.com/notices/detail/601128.html",
+      "src": "em_ann",
+      "detected": "2026-07-02 23:12"
+    }
+  ],
+  "sectorFactors": {
+    "AI芯片": {
+      "factors": [
+        {
+          "name": "国产替代进度",
+          "status": "active",
+          "value": "市值破万亿“自泼冷水”，寒武纪两日蒸发超1400亿",
+          "impact": "bullish",
+          "keyword": "寒武纪",
+          "changed": "21:38",
+          "url": "https://finance.sina.com.cn/stock/s/2026-07-02/doc-inifmrts2601171.shtml"
+        },
+        {
+          "name": "美国出口管制",
+          "status": "warning",
+          "value": "身处私募信贷风暴中心 Blue Owl再度限制基金赎回",
+          "impact": "bearish",
+          "keyword": "限制",
+          "changed": "22:26",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0871086.shtml"
+        },
+        {
+          "name": "AI算力需求",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "芯片涨价",
+          "status": "neutral",
+          "value": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+          "impact": "neutral",
+          "keyword": "涨价",
+          "changed": "2026-07-02 22:17:13",
+          "url": ""
+        }
+      ],
+      "score": 1,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 3
+    },
+    "CPO/光模块": {
+      "factors": [
+        {
+          "name": "英伟达需求",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "产能扩张",
+          "status": "active",
+          "value": "特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+          "impact": "bullish",
+          "keyword": "交付",
+          "changed": "22:35",
+          "url": "https://wallstreetcn.com/livenews/3128118"
+        },
+        {
+          "name": "技术迭代",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "海外竞争",
+          "status": "watch",
+          "value": "",
+          "impact": "neutral",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 3,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "PCB/覆铜板": {
+      "factors": [
+        {
+          "name": "AI服务器需求",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "上游涨价",
+          "status": "active",
+          "value": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+          "impact": "bullish",
+          "keyword": "涨价",
+          "changed": "2026-07-02 22:17:13",
+          "url": ""
+        },
+        {
+          "name": "产能利用率",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 3,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "半导体设备": {
+      "factors": [
+        {
+          "name": "国产替代",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "晶圆厂资本开支",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "美国制裁",
+          "status": "watch",
+          "value": "",
+          "impact": "bearish",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 1,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 0
+    },
+    "HBM/存储芯片": {
+      "factors": [
+        {
+          "name": "产品价格",
+          "status": "active",
+          "value": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+          "impact": "bullish",
+          "keyword": "涨价",
+          "changed": "2026-07-02 22:17:13",
+          "url": ""
+        },
+        {
+          "name": "AI需求拉动",
+          "status": "active",
+          "value": "快手：投资者同意向AI模型可灵注资20亿美元",
+          "impact": "bullish",
+          "keyword": "AI",
+          "changed": "23:03",
+          "url": "https://wallstreetcn.com/livenews/3128128"
+        },
+        {
+          "name": "库存周期",
+          "status": "neutral",
+          "value": "美国能源信息署（EIA）：美国上周EIA天然气库存增加870亿立方英尺，彭博用户预计增长840亿立方英尺、分析师预期增加805亿立方英尺，周环比增幅3.07%（",
+          "impact": "neutral",
+          "keyword": "库存",
+          "changed": "22:30",
+          "url": "https://wallstreetcn.com/livenews/3128114"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 3
+    },
+    "钨稀土": {
+      "factors": [
+        {
+          "name": "产品价格",
+          "status": "active",
+          "value": "多数预测市场合约交易量低迷，用户面临价格剧烈波动与机器人交易风险",
+          "impact": "bullish",
+          "keyword": "价格",
+          "changed": "23:07",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0889034.shtml"
+        },
+        {
+          "name": "供给端变化",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "政策催化",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 3,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "黄金/贵金属": {
+      "factors": [
+        {
+          "name": "金价走势",
+          "status": "active",
+          "value": "招金黄金：银华基金、涌竹投资等多家机构于7月2日调研我司",
+          "impact": "bullish",
+          "keyword": "黄金",
+          "changed": "22:33",
+          "url": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-02/doc-inifmrtu4101038.shtml"
+        },
+        {
+          "name": "地缘风险",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "美联储政策",
+          "status": "neutral",
+          "value": "美国参议员沃伦致信美联储理事沃勒 要求停止推进地区联储改革方案",
+          "impact": "neutral",
+          "keyword": "美联储",
+          "changed": "22:51",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtu4105245.shtml"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 2
+    },
+    "人形机器人": {
+      "factors": [
+        {
+          "name": "量产进度",
+          "status": "active",
+          "value": "特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+          "impact": "bullish",
+          "keyword": "特斯拉",
+          "changed": "22:35",
+          "url": "https://wallstreetcn.com/livenews/3128118"
+        },
+        {
+          "name": "技术突破",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "政策支持",
+          "status": "neutral",
+          "value": "美联储主席沃什：将引入实时数据制定政策，通胀仍然过高",
+          "impact": "neutral",
+          "keyword": "政策",
+          "changed": "21:17",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2578708.shtml"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 2
+    },
+    "创新药/CXO": {
+      "factors": [
+        {
+          "name": "管线进展",
+          "status": "active",
+          "value": "途虎养车拟美股上市 负责人称提高交易流动性 更好地服务股东利益",
+          "impact": "bullish",
+          "keyword": "上市",
+          "changed": "22:42",
+          "url": "https://finance.sina.com.cn/stock/marketresearch/2026-07-02/doc-inifmrtu4100974.shtml"
+        },
+        {
+          "name": "海外授权",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "集采影响",
+          "status": "warning",
+          "value": "科泰电源: 科泰电源:关于全资子公司签订采购合同暨关联交易的公告",
+          "impact": "bearish",
+          "keyword": "采购",
+          "changed": "07-03",
+          "url": "https://data.eastmoney.com/notices/detail/300153.html"
+        }
+      ],
+      "score": 1,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 2
+    },
+    "商业航天": {
+      "factors": [
+        {
+          "name": "发射进度",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "可回收技术",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "政策支持",
+          "status": "neutral",
+          "value": "美联储主席沃什：将引入实时数据制定政策，通胀仍然过高",
+          "impact": "neutral",
+          "keyword": "政策",
+          "changed": "21:17",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2578708.shtml"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "低空经济eVTOL": {
+      "factors": [
+        {
+          "name": "适航认证",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "订单进展",
+          "status": "active",
+          "value": "快手：投资者同意向AI模型可灵注资20亿美元",
+          "impact": "bullish",
+          "keyword": "意向",
+          "changed": "23:03",
+          "url": "https://wallstreetcn.com/livenews/3128128"
+        },
+        {
+          "name": "空域开放",
+          "status": "watch",
+          "value": "",
+          "impact": "neutral",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    }
+  },
+  "_sectorFactorAlerts": [],
+  "_sectorFactorsOld": {
+    "AI芯片": {
+      "factors": [
+        {
+          "name": "国产替代进度",
+          "status": "active",
+          "value": "市值破万亿“自泼冷水”，寒武纪两日蒸发超1400亿",
+          "impact": "bullish",
+          "keyword": "寒武纪",
+          "changed": "21:38",
+          "url": "https://finance.sina.com.cn/stock/s/2026-07-02/doc-inifmrts2601171.shtml"
+        },
+        {
+          "name": "美国出口管制",
+          "status": "warning",
+          "value": "身处私募信贷风暴中心 Blue Owl再度限制基金赎回",
+          "impact": "bearish",
+          "keyword": "限制",
+          "changed": "22:26",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0871086.shtml"
+        },
+        {
+          "name": "AI算力需求",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "芯片涨价",
+          "status": "neutral",
+          "value": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+          "impact": "neutral",
+          "keyword": "涨价",
+          "changed": "2026-07-02 22:17:13",
+          "url": ""
+        }
+      ],
+      "score": 1,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 3
+    },
+    "CPO/光模块": {
+      "factors": [
+        {
+          "name": "英伟达需求",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "产能扩张",
+          "status": "active",
+          "value": "特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+          "impact": "bullish",
+          "keyword": "交付",
+          "changed": "22:35",
+          "url": "https://wallstreetcn.com/livenews/3128118"
+        },
+        {
+          "name": "技术迭代",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "海外竞争",
+          "status": "watch",
+          "value": "",
+          "impact": "neutral",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 3,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "PCB/覆铜板": {
+      "factors": [
+        {
+          "name": "AI服务器需求",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "上游涨价",
+          "status": "active",
+          "value": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+          "impact": "bullish",
+          "keyword": "涨价",
+          "changed": "2026-07-02 22:17:13",
+          "url": ""
+        },
+        {
+          "name": "产能利用率",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 3,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "半导体设备": {
+      "factors": [
+        {
+          "name": "国产替代",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "晶圆厂资本开支",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "美国制裁",
+          "status": "watch",
+          "value": "",
+          "impact": "bearish",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 1,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 0
+    },
+    "HBM/存储芯片": {
+      "factors": [
+        {
+          "name": "产品价格",
+          "status": "active",
+          "value": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+          "impact": "bullish",
+          "keyword": "涨价",
+          "changed": "2026-07-02 22:17:13",
+          "url": ""
+        },
+        {
+          "name": "AI需求拉动",
+          "status": "active",
+          "value": "快手：投资者同意向AI模型可灵注资20亿美元",
+          "impact": "bullish",
+          "keyword": "AI",
+          "changed": "23:03",
+          "url": "https://wallstreetcn.com/livenews/3128128"
+        },
+        {
+          "name": "库存周期",
+          "status": "neutral",
+          "value": "美国能源信息署（EIA）：美国上周EIA天然气库存增加870亿立方英尺，彭博用户预计增长840亿立方英尺、分析师预期增加805亿立方英尺，周环比增幅3.07%（",
+          "impact": "neutral",
+          "keyword": "库存",
+          "changed": "22:30",
+          "url": "https://wallstreetcn.com/livenews/3128114"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 3
+    },
+    "钨稀土": {
+      "factors": [
+        {
+          "name": "产品价格",
+          "status": "active",
+          "value": "多数预测市场合约交易量低迷，用户面临价格剧烈波动与机器人交易风险",
+          "impact": "bullish",
+          "keyword": "价格",
+          "changed": "23:07",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0889034.shtml"
+        },
+        {
+          "name": "供给端变化",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "政策催化",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 3,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "黄金/贵金属": {
+      "factors": [
+        {
+          "name": "金价走势",
+          "status": "active",
+          "value": "招金黄金：银华基金、涌竹投资等多家机构于7月2日调研我司",
+          "impact": "bullish",
+          "keyword": "黄金",
+          "changed": "22:33",
+          "url": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-02/doc-inifmrtu4101038.shtml"
+        },
+        {
+          "name": "地缘风险",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "美联储政策",
+          "status": "neutral",
+          "value": "美国参议员沃伦致信美联储理事沃勒 要求停止推进地区联储改革方案",
+          "impact": "neutral",
+          "keyword": "美联储",
+          "changed": "22:51",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtu4105245.shtml"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 2
+    },
+    "人形机器人": {
+      "factors": [
+        {
+          "name": "量产进度",
+          "status": "active",
+          "value": "特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+          "impact": "bullish",
+          "keyword": "特斯拉",
+          "changed": "22:35",
+          "url": "https://wallstreetcn.com/livenews/3128118"
+        },
+        {
+          "name": "技术突破",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "政策支持",
+          "status": "neutral",
+          "value": "美联储主席沃什：将引入实时数据制定政策，通胀仍然过高",
+          "impact": "neutral",
+          "keyword": "政策",
+          "changed": "21:17",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2578708.shtml"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 2
+    },
+    "创新药/CXO": {
+      "factors": [
+        {
+          "name": "管线进展",
+          "status": "active",
+          "value": "途虎养车拟美股上市 负责人称提高交易流动性 更好地服务股东利益",
+          "impact": "bullish",
+          "keyword": "上市",
+          "changed": "22:42",
+          "url": "https://finance.sina.com.cn/stock/marketresearch/2026-07-02/doc-inifmrtu4100974.shtml"
+        },
+        {
+          "name": "海外授权",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "集采影响",
+          "status": "warning",
+          "value": "科泰电源: 科泰电源:关于全资子公司签订采购合同暨关联交易的公告",
+          "impact": "bearish",
+          "keyword": "采购",
+          "changed": "07-03",
+          "url": "https://data.eastmoney.com/notices/detail/300153.html"
+        }
+      ],
+      "score": 1,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 2
+    },
+    "商业航天": {
+      "factors": [
+        {
+          "name": "发射进度",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "可回收技术",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "政策支持",
+          "status": "neutral",
+          "value": "美联储主席沃什：将引入实时数据制定政策，通胀仍然过高",
+          "impact": "neutral",
+          "keyword": "政策",
+          "changed": "21:17",
+          "url": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2578708.shtml"
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    },
+    "低空经济eVTOL": {
+      "factors": [
+        {
+          "name": "适航认证",
+          "status": "stable",
+          "value": "",
+          "impact": "bullish",
+          "changed": "",
+          "url": ""
+        },
+        {
+          "name": "订单进展",
+          "status": "active",
+          "value": "快手：投资者同意向AI模型可灵注资20亿美元",
+          "impact": "bullish",
+          "keyword": "意向",
+          "changed": "23:03",
+          "url": "https://wallstreetcn.com/livenews/3128128"
+        },
+        {
+          "name": "空域开放",
+          "status": "watch",
+          "value": "",
+          "impact": "neutral",
+          "changed": "",
+          "url": ""
+        }
+      ],
+      "score": 2,
+      "updated": "2026-07-02 23:12 CST",
+      "signal_count": 1
+    }
   }
 }
