@@ -19,16 +19,16 @@
       "src": "sina_A股"
     },
     {
+      "t": "广汽集团上半年销量约77.31万辆 节能与新能源车占比超六成",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-07-02/doc-inifmrtw0881615.shtml",
+      "time": "22:05",
+      "src": "sina_7x24"
+    },
+    {
       "t": "知情人士：Anthropic正与三星洽谈定制AI芯片代工合作",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtq5832255.shtml",
       "time": "21:55",
       "src": "sina_A股"
-    },
-    {
-      "t": "央行公布6月中央银行各项工具流动性投放情况",
-      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-07-02/doc-inifmrtw0852055.shtml",
-      "time": "21:45",
-      "src": "sina_7x24"
     },
     {
       "t": "加州率先禁止食品售出期限标签，统一标注减少浪费",
@@ -50,6 +50,24 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "美股存储芯片指数跌超7%，成分股全线溃败，闪迪盘中跌幅扩大至10%，泰瑞达、拉姆研究、应用材料、希捷科技、西部数据、Rambus、美光科技至多跌7.6%。",
+      "u": "https://wallstreetcn.com/livenews/3128126",
+      "time": "22:57",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "微软投入25亿美元、调动6000名员工组建全新AI落地实施部门",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtu4106526.shtml",
+      "time": "22:54",
+      "src": "sina_A股"
+    },
+    {
+      "t": "太罕见！今夜，102家A股公司提示风险",
+      "u": "https://finance.sina.com.cn/stock/roll/2026-07-02/doc-inifmrtw0885196.shtml",
+      "time": "22:52",
+      "src": "sina_7x24"
+    },
     {
       "t": "美国参议员沃伦致信美联储理事沃勒 要求停止推进地区联储改革方案",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtu4105245.shtml",
@@ -189,58 +207,22 @@
       "src": "wscn_全球"
     },
     {
+      "t": "今日起，港股交易规则改变了",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-07-02/doc-inifmrtq5861116.shtml",
+      "time": "22:16",
+      "src": "sina_7x24"
+    },
+    {
       "t": "早盘：美股继续上扬 道指创盘中历史新高",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtq5838059.shtml",
       "time": "22:02",
       "src": "sina_A股"
     },
     {
-      "t": "起步价2000万的杭州豪宅成交量创十年新高",
-      "u": "https://wallstreetcn.com/livenews/3128100",
-      "time": "22:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "英国央行货币政策委员会（MPC）成员Catherine Mann：通胀风险与经济活动之间的权衡已经让我更加重视通胀顽固性，让我转向支持央行在更长时期内按兵不动，可能需要抵御那样的风险。\n\n在实现重返通胀目标方面，政府的财政措施具有重要作用。",
-      "u": "https://wallstreetcn.com/livenews/3128101",
-      "time": "22:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "据美国纽约联储数据，上个交易日（7月1日，非农就业报告发布的前一天）担保隔夜融资利率（SOFR）报3.66%，之前一天报3.68%。\n\n上个交易日有效的联邦基金利率报3.63%，之前一天报3.63%。",
-      "u": "https://wallstreetcn.com/livenews/3128094",
-      "time": "21:58",
-      "src": "wscn_全球"
-    },
-    {
       "t": "知情人士：Anthropic正与三星洽谈定制AI芯片代工合作",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtq5832255.shtml",
       "time": "21:55",
       "src": "sina_A股"
-    },
-    {
-      "t": "7月2日增减持汇总：中巨芯等4股披露增持情况，瑞晨环保、北玻股份拟减持（表）",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-02/doc-inifmrtq5830865.shtml",
-      "time": "21:53",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "报道：Anthropic正与三星洽谈定制人工智能芯片",
-      "u": "https://wallstreetcn.com/livenews/3128092",
-      "time": "21:53",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "央行公布6月中央银行各项工具流动性投放情况",
-      "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-07-02/doc-inifmrtw0852055.shtml",
-      "time": "21:45",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "终审判赔千万！华泰证券联手私募钻监管空子卖雪球产品，一上市公司老板亏1400万，灰色通道失效？",
-      "u": "https://finance.sina.com.cn/stock/roll/2026-07-02/doc-inifmrtu4088213.shtml",
-      "time": "21:41",
-      "src": "sina_7x24"
     },
     {
       "t": "市值破万亿“自泼冷水”，寒武纪两日蒸发超1400亿",
@@ -303,24 +285,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "OpenAI提议向美国政府出让5%股份",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2563707.shtml",
-      "time": "20:59",
-      "src": "sina_A股"
-    },
-    {
-      "t": "韩国芯片巨头领跌全球科技股，三星SK海力士重挫",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0819636.shtml",
-      "time": "20:58",
-      "src": "sina_A股"
-    },
-    {
-      "t": "Bending Spoons上市首日飙涨40%，IPO市场再迎科技私募新贵",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtq5784971.shtml",
-      "time": "20:56",
-      "src": "sina_A股"
-    },
-    {
       "t": "ST金顶: ST金顶:四川金顶(集团)股份有限公司关于上海证券交易所对公司2025年年度报告的信息披露监管问询函的回复公告",
       "u": "https://data.eastmoney.com/notices/detail/600678.html",
       "time": "07-03",
@@ -349,10 +313,48 @@
       "u": "https://data.eastmoney.com/notices/detail/601128.html",
       "time": "07-03",
       "src": "em_ann"
+    },
+    {
+      "t": "中巨芯: 中巨芯:关于持股5%以上股东增持股份进展的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688549.html",
+      "time": "07-03",
+      "src": "em_ann"
+    },
+    {
+      "t": "中巨芯: 中巨芯:股东减持计划完成暨减持股份结果公告",
+      "u": "https://data.eastmoney.com/notices/detail/688549.html",
+      "time": "07-03",
+      "src": "em_ann"
+    },
+    {
+      "t": "王府井: 王府井:王府井关于以集中竞价交易方式回购股份的预案",
+      "u": "https://data.eastmoney.com/notices/detail/600859.html",
+      "time": "07-03",
+      "src": "em_ann"
     }
   ],
   "globalNews": {
     "headlines": [
+      {
+        "t": "特斯拉跌幅扩大至7.02% 总市值报1.49万亿美元",
+        "s": "特斯拉跌幅扩大至7.02%，总市值报1.49万亿美元。",
+        "ts": "2026-07-02 22:58:56"
+      },
+      {
+        "t": "纳斯达克中国金龙指数跌幅扩大 现跌0.5%",
+        "s": "纳斯达克中国金龙指数跌幅扩大，现跌0.5%，最新报5985.51点。",
+        "ts": "2026-07-02 22:56:37"
+      },
+      {
+        "t": "闪迪日内跌幅扩大至10%",
+        "s": "闪迪日内跌幅扩大至10%。",
+        "ts": "2026-07-02 22:54:16"
+      },
+      {
+        "t": "航运巨头法国达飞集团表示：愿意考虑将物流业务剥离出去",
+        "s": "【航运巨头法国达飞集团表示：愿意考虑将物流业务剥离出去】航运巨头法国达飞集团表示，愿意考虑将物流业务剥离出去。",
+        "ts": "2026-07-02 22:52:26"
+      },
       {
         "t": "纳斯达克100指数延续跌势 目前已跌至1%",
         "s": "纳斯达克100指数延续跌势，目前已跌至1%。",
@@ -457,34 +459,14 @@
         "t": "纳斯达克100指数上涨0.7%",
         "s": "纳斯达克100指数升至盘中高点，现上涨0.7%。",
         "ts": "2026-07-02 22:03:56"
-      },
-      {
-        "t": "美国5月耐用品订单终值环比下降4.5%",
-        "s": "美国5月耐用品订单终值环比下降4.5%，符合市场预期。",
-        "ts": "2026-07-02 22:00:51"
-      },
-      {
-        "t": "华策影视：拟出资4亿元设立AI视频领域投资基金",
-        "s": "【华策影视：拟出资4亿元设立AI视频领域投资基金】华策影视(300133.SZ)公告称，公司拟以自有资金出资4亿元，与杭州亨石资产管理有限公司共同设立青岛华歆策达股权投资合伙企业(",
-        "ts": "2026-07-02 21:58:36"
-      },
-      {
-        "t": "美股太空概念股上扬 Rocket Lab涨近7%",
-        "s": "【美股太空概念股上扬 Rocket Lab涨近7%】美股太空概念股上扬，Rocket Lab涨近7%，AST SpaceMobile涨5%，波音涨近4%，SpaceX涨近2%。",
-        "ts": "2026-07-02 21:57:49"
-      },
-      {
-        "t": "特斯拉跌超3% 此前一度涨超2%",
-        "s": "【特斯拉跌超3% 此前一度涨超2%】特斯拉跌超3%，此前在盘前交易时段一度涨超2%。",
-        "ts": "2026-07-02 21:53:30"
       }
     ],
-    "updated": "2026-07-02 14:51 UTC",
+    "updated": "2026-07-02 15:01 UTC",
     "status": "ok"
   },
   "_newsMeta": {
-    "updated": "2026-07-02 22:51 CST",
+    "updated": "2026-07-02 23:01 CST",
     "sector": 8,
-    "market": 53
+    "market": 47
   }
 }
