@@ -31,12 +31,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "加州率先禁止食品售出期限标签，统一标注减少浪费",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2574249.shtml",
-      "time": "21:11",
-      "src": "sina_A股"
-    },
-    {
       "t": "科泰电源: 科泰电源:关于全资子公司签订采购合同暨关联交易的公告",
       "u": "https://data.eastmoney.com/notices/detail/300153.html",
       "time": "07-03",
@@ -50,6 +44,30 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "苹果大幅上调折叠屏iPhone备货预期，目标直指千万台",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmvzn5757825.shtml",
+      "time": "23:17",
+      "src": "sina_A股"
+    },
+    {
+      "t": "可灵AI落地近30亿美元融资，创全球视频大模型公司融资规模新纪录",
+      "u": "https://wallstreetcn.com/livenews/3128134",
+      "time": "23:17",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "Eightco Holdings披露总资产约3.86亿美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmvzu0761878.shtml",
+      "time": "23:14",
+      "src": "sina_A股"
+    },
+    {
+      "t": "奕境汽车发布“天穹智盾”安全架构，新车将于三季度上市交付",
+      "u": "https://wallstreetcn.com/livenews/3128130",
+      "time": "23:12",
+      "src": "wscn_全球"
+    },
     {
       "t": "快手：投资者同意向AI模型可灵注资20亿美元",
       "u": "https://wallstreetcn.com/livenews/3128128",
@@ -195,28 +213,10 @@
       "src": "sina_A股"
     },
     {
-      "t": "英特尔股价上涨，汇丰银行针对其代工业务给出华尔街最高目标价",
-      "u": "https://wallstreetcn.com/livenews/3128106",
-      "time": "22:21",
-      "src": "wscn_全球"
-    },
-    {
       "t": "特斯拉下跌3.3% 二季度交付量同比大涨25%",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0868171.shtml",
       "time": "22:20",
       "src": "sina_A股"
-    },
-    {
-      "t": "俄罗斯央行：燃油价格可能会让6月CPI上扬大约0.3个百分点。（国际文传电讯社IFX）",
-      "u": "https://wallstreetcn.com/livenews/3128105",
-      "time": "22:18",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "今日起，港股交易规则改变了",
-      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-07-02/doc-inifmrtq5861116.shtml",
-      "time": "22:16",
-      "src": "sina_7x24"
     },
     {
       "t": "早盘：美股继续上扬 道指创盘中历史新高",
@@ -258,30 +258,6 @@
       "t": "美联储主席沃什：将引入实时数据制定政策，通胀仍然过高",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2578708.shtml",
       "time": "21:17",
-      "src": "sina_A股"
-    },
-    {
-      "t": "Medicare推出GLP-1减肥药试点，符合条件者每月仅需50美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0829473.shtml",
-      "time": "21:14",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国三大蛋企涉价格操纵，同意支付330万美元并捐赠5300万枚鸡蛋以达成和解",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtu4051090.shtml",
-      "time": "21:12",
-      "src": "sina_A股"
-    },
-    {
-      "t": "特朗普账户7月4日正式上线，默认投资低费率标普500指数ETF",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtq5797483.shtml",
-      "time": "21:10",
-      "src": "sina_A股"
-    },
-    {
-      "t": "日元兑美元汇率跌破162关口，创40年来新低",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2572635.shtml",
-      "time": "21:09",
       "src": "sina_A股"
     },
     {
@@ -335,6 +311,16 @@
   ],
   "globalNews": {
     "headlines": [
+      {
+        "t": "闪迪日内跌幅扩大至12%",
+        "s": "闪迪日内跌幅扩大至12%。",
+        "ts": "2026-07-02 23:18:04"
+      },
+      {
+        "t": "黑石面向富裕人士的基金5月创下最强单月表现 得益于投资Anthropic",
+        "s": "【黑石面向富裕人士的基金5月创下最强单月表现 得益于投资Anthropic】得益于对AI领域热门企业Anthropic PBC的投资，黑石集团旗下面向富裕人士的私募股权基金5月取得",
+        "ts": "2026-07-02 23:13:42"
+      },
       {
         "t": "费城半导体指数跌幅扩大至4%",
         "s": "费城半导体指数跌幅扩大至4%。美光科技跌5.10%，西部数据跌7.28%，希捷科技跌7.48%，闪迪跌11.53%，铠侠ADR跌12.50%。",
@@ -449,24 +435,14 @@
         "t": "Meta股价下跌3.52%",
         "s": "Meta股价下跌3.52%，报591美元/股，总市值报1.50万亿美元。",
         "ts": "2026-07-02 22:15:14"
-      },
-      {
-        "t": "欧洲主要国家均已承认霍尔木兹海峡通行费是不可避免的",
-        "s": "【欧洲主要国家均已承认霍尔木兹海峡通行费是不可避免的】据报道，欧洲主要国家均已承认，霍尔木兹海峡通行费是不可避免的。",
-        "ts": "2026-07-02 22:13:19"
-      },
-      {
-        "t": "盘后A股上市公司重点业绩公告精选",
-        "s": "【盘后A股上市公司重点业绩公告精选】据不完全统计，截至发稿，盘后包括盐湖股份、锐捷网络、广钢气体、华峰化学、奥飞娱乐、永和股份、星网锐捷、福蓉科技、*ST天箭在内的多家A股上市公司",
-        "ts": "2026-07-02 22:12:05"
       }
     ],
-    "updated": "2026-07-02 15:11 UTC",
+    "updated": "2026-07-02 15:21 UTC",
     "status": "ok"
   },
   "_newsMeta": {
-    "updated": "2026-07-02 23:11 CST",
-    "sector": 8,
-    "market": 47
+    "updated": "2026-07-02 23:21 CST",
+    "sector": 7,
+    "market": 44
   }
 }
