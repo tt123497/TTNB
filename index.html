@@ -1001,7 +1001,11 @@ const D={
   bHistory:[],
   industryRank:[],
   _tushare_moneyflow:{},
-  cninfoAlerts:{alerts:[]}
+  cninfoAlerts:{alerts:[]},
+  _marketSignals:[],
+  _signalHistory:[],
+  sectorFactors:{},
+  _sectorFactorAlerts:[]
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -1424,6 +1428,10 @@ document.addEventListener('DOMContentLoaded',function(){
     if(data.industryRank) D.industryRank=data.industryRank;
     if(data._tushare_moneyflow) D._tushare_moneyflow=data._tushare_moneyflow;
     if(data.cninfoAlerts) D.cninfoAlerts=data.cninfoAlerts;
+    if(data._marketSignals) D._marketSignals=data._marketSignals;
+    if(data._signalHistory) D._signalHistory=data._signalHistory;
+    if(data.sectorFactors) D.sectorFactors=data.sectorFactors;
+    if(data._sectorFactorAlerts) D._sectorFactorAlerts=data._sectorFactorAlerts;
     if(data.globalNews) D.globalNews=data.globalNews;
     if(data.tencentVal) D.tencentVal=data.tencentVal;
     if(data.conceptBlocks) D.conceptBlocks=data.conceptBlocks;
@@ -1861,14 +1869,18 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // ════ FLASH NEWS ════
   let fl=`<div class="tab-panel" id="panel-flash">
-    <div class="section"><div class="section-title">📡 实时快讯 · 市场宏观</div>
-    <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">每5分钟从新浪财经+东财公告抓取。赛道新闻见简报，此处为宏观/政策/外围市场。</p>
+    <div class="section"><div class="section-title">📡 异动信号监控</div>
+    <p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">规则引擎过滤噪音后，按信号级别排序。high=重大催化，medium=中等，low=一般。</p>
+    <div id="signalPanel" style="margin-bottom:20px"></div>
+    </div>
+    <div class="section"><div class="section-title">📰 实时快讯 · 原始新闻流</div>
     <div class="flash-feed" id="flashFeed">
       <div style="color:var(--dim);text-align:center;padding:20px">⏳ 加载中...</div>
     </div></div></div>`;
 
   // ════ CHAIN ════
-  let ch=`<div class="tab-panel" id="panel-chain"><div class="section"><div class="section-title">🗺️ AI全产业链穿透图 · 35赛道（点展开）</div><p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">任何环节出消息→30秒定位全链受益标的。🔥=当前最值得关注</p>`;
+  let ch=`<div class="tab-panel" id="panel-chain"><div class="section"><div class="section-title">🗺️ AI全产业链穿透图 · 67赛道（点展开）</div><p style="font-size:.84rem;color:var(--sub);margin-bottom:12px">任何环节出消息→30秒定位全链受益标的。🔥=当前最值得关注</p>
+    <div id="factorPanel" style="margin-bottom:16px"></div>`;
   D.groups.forEach(g=>{
     ch+=`<div class="group-hd">${g.n}</div>`;
     g.sectors.forEach(s=>{ch+=`<details class="chain-card" id="chain-${s.id}"><summary><span>${s.icon} ${s.n} &nbsp;<span style="color:${s.sig==='major'?'var(--red)':s.sig==='good'?'var(--green)':'var(--sub)'};font-size:.84rem">${s.tag.split('|')[0]}</span></span></summary><div class="chain-body"><div class="chain-row"><span class="cr-label">⬆上游</span><span class="cr-content">${s.ch.up}</span></div><div class="chain-row"><span class="cr-label">🔷中游</span><span class="cr-content">${s.ch.mid}</span></div><div class="chain-row"><span class="cr-label">⬇下游</span><span class="cr-content">${s.ch.down}</span></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">${s.st.map(x=>`<span class="c-pill${x.pick?' pick':''}">${x.c} ${x.n}${x.pick?' ★':''}</span>`).join('')}</div><div style="margin-top:8px;font-size:.82rem;color:var(--sub)">⏰ ${s.ev}</div></div></details>`;});
@@ -1936,6 +1948,64 @@ document.addEventListener('DOMContentLoaded',function(){
     </div></div>`;
 
   document.getElementById('mainContent').innerHTML=ov+lo+rc+br+fl+ch+ca+st+rh;
+
+  // 渲染异动信号
+  (function(){
+    var el=document.getElementById('signalPanel');
+    if(!el)return;
+    var signals=D._marketSignals||[];
+    if(!signals.length){el.innerHTML='<div style="color:var(--dim);text-align:center;padding:20px">暂无异动信号，等待开盘...</div>';return;}
+    var lc={high:'var(--red)',medium:'var(--amber)',low:'var(--dim)'};
+    var ll={high:'🔴 重大',medium:'🟡 中等',low:'⚪ 一般'};
+    var h='';
+    signals.slice(0,30).forEach(function(s){
+      var c=lc[s.level]||'var(--dim)';
+      h+='<div style="display:flex;gap:10px;padding:10px 14px;margin-bottom:6px;background:var(--surface);border:1px solid var(--border);border-left:3px solid '+c+';border-radius:var(--radius-sm);font-size:.84rem">';
+      h+='<span style="font-size:.7rem;color:'+c+';font-weight:600;min-width:50px">'+(ll[s.level]||s.level)+'</span>';
+      h+='<div style="flex:1;min-width:0">';
+      h+='<div style="color:var(--text);line-height:1.5">'+(s.url?'<a href="'+s.url+'" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none">'+s.title+'</a>':s.title)+'</div>';
+      h+='<div style="font-size:.72rem;color:var(--dim);margin-top:3px"><span style="color:var(--blue)">'+s.type_label+'</span> | <span>'+s.sectors.join(', ')+'</span> | <span>'+s.time+'</span></div>';
+      h+='</div></div>';
+    });
+    el.innerHTML=h;
+  })();
+
+  // 渲染赛道因子
+  (function(){
+    var el=document.getElementById('factorPanel');
+    if(!el)return;
+    var sf=D.sectorFactors||{};
+    var sectors=Object.keys(sf).sort(function(a,b){return (sf[b].score||0)-(sf[a].score||0);});
+    if(!sectors.length){el.innerHTML='';return;}
+    var h='<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;margin-bottom:8px">🎯 赛道催化剂因子追踪 <span style="font-size:.68rem;color:var(--dim);font-weight:400">'+sectors.length+'个赛道</span></div>';
+    h+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px">';
+    sectors.forEach(function(s){
+      var info=sf[s];var score=info.score||0;
+      var sc=score>1?'var(--red)':score>0?'var(--amber)':score<0?'var(--green)':'var(--dim)';
+      var sig=info.signal_count||0;
+      var badge=sig>0?'<span style="font-size:.64rem;background:rgba(239,68,68,.15);color:var(--red);padding:1px 5px;border-radius:8px;margin-left:4px">'+sig+'信号</span>':'';
+      h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:var(--card);border-radius:4px;font-size:.76rem"><span>'+s+badge+'</span><span style="font-weight:700;color:'+sc+'">'+(score>0?'+':'')+score+'</span></div>';
+    });
+    h+='</div>';
+    var ws=sectors.filter(function(s){return (sf[s].signal_count||0)>0;});
+    if(ws.length){
+      h+='<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)"><div style="font-size:.74rem;font-weight:600;color:var(--sub);margin-bottom:6px">📋 有新信号的赛道</div>';
+      ws.slice(0,5).forEach(function(s){
+        var info=sf[s];
+        h+='<div style="margin-bottom:8px"><div style="font-size:.78rem;font-weight:600;color:var(--text)">'+s+' (评分'+(info.score>0?'+':'')+info.score+')</div>';
+        (info.factors||[]).forEach(function(f){
+          if(f.value){
+            var fc=f.impact==='bullish'?'var(--red)':f.impact==='bearish'?'var(--green)':'var(--dim)';
+            h+='<div style="font-size:.72rem;padding:2px 0 2px 12px;color:var(--sub)"><span style="color:'+fc+'">●</span> '+f.name+': '+f.value.substring(0,60)+'</div>';
+          }
+        });
+        h+='</div>';
+      });
+      h+='</div>';
+    }
+    h+='</div>';
+    el.innerHTML=h;
+  })();
 
   // 渲染巨潮公告
   (function(){
