@@ -1620,13 +1620,13 @@ document.addEventListener('DOMContentLoaded',function(){
       var lhbHtml='<div id="lhbStrip" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
       lhbHtml+='<div style="border:1px solid rgba(239,68,68,.20);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--red);margin-bottom:6px">🪜 龙虎榜·净买TOP5 <span style="font-size:.68rem;color:var(--dim);font-weight:400">'+lhbFull.date+' 共'+lhbFull.total+'条</span></div>';
       top5.forEach(function(s){
-        lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--red);font-weight:700;font-size:.8rem">'+(s.net>0?'+':'')+s.net.toFixed(0)+'万</span><span style="font-size:.64rem;color:var(--dim);max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(s.reason||'')+'</span></div>';
+        lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--red);font-weight:700;font-size:.8rem">'+(s.net/10000>0?'+':'')+(s.net/10000).toFixed(2)+'亿</span><span style="font-size:.64rem;color:var(--dim);max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(s.reason||'')+'</span></div>';
       });
       lhbHtml+='</div>';
       lhbHtml+='<div style="border:1px solid rgba(34,197,94,.18);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--green);margin-bottom:6px">净卖TOP5</div>';
       if(bot5.length){
         bot5.forEach(function(s){
-          lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--green);font-weight:700;font-size:.8rem">'+s.net.toFixed(0)+'万</span><span style="font-size:.64rem;color:var(--dim)">'+(s.reason||'')+'</span></div>';
+          lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--green);font-weight:700;font-size:.8rem">'+(s.net/10000).toFixed(2)+'亿</span><span style="font-size:.64rem;color:var(--dim)">'+(s.reason||'')+'</span></div>';
         });
       } else {
         lhbHtml+='<div style="font-size:.82rem;color:var(--dim);padding:8px 0">全市场净买入为主</div>';
@@ -1654,35 +1654,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }} // end else (old lhb fallback)
   })();
 
-  // ── Top-3 / Bottom-3 sector strip (from real-time price averages) ──
-  (function(){
-    var ranked=[];
-    D.groups.forEach(function(g){g.sectors.forEach(function(s){
-      var avg=0;
-      if(typeof s.avgChg==='number') avg=s.avgChg;
-      else if(D.sectorTags&&D.sectorTags[s.n]){
-        var m=D.sectorTags[s.n].match(/([-]?\d+\.?\d*)%/);
-        if(m) avg=parseFloat(m[1]);
-      }
-      ranked.push({n:s.n,icon:s.icon,avg:avg,sig:s.sig,id:s.id});
-    });});
-    ranked.sort(function(a,b){return b.avg-a.avg;});
-    var top3=ranked.slice(0,3), bot3=ranked.slice(-3).reverse();
-    var strip='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">';
-    // Strong side
-    strip+='<div style="background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.20);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;color:var(--red);margin-bottom:8px">🔴 实时最强势</div>';
-    top3.forEach(function(s){
-      strip+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer" onclick="go(\'chain\');setTimeout(function(){var el=document.getElementById(\'chain-'+s.id+'\');if(el){el.open=true;el.scrollIntoView({behavior:\'smooth\'});el.classList.add(\'flash\');setTimeout(function(){el.classList.remove(\'flash\')},1500)}},100)"><span style="font-size:1.1rem">'+s.icon+'</span><span style="font-size:.88rem;font-weight:600;color:var(--text)">'+s.n+'</span><span style="margin-left:auto;font-weight:700;color:'+(s.avg>=0?'var(--red)':'var(--green)')+';font-size:.88rem">'+(s.avg>=0?'+':'')+s.avg.toFixed(1)+'%</span></div>';
-    });
-    strip+='</div>';
-    // Weak side
-    strip+='<div style="background:rgba(34,197,94,.03);border:1px solid rgba(34,197,94,.18);border-radius:var(--radius-sm);padding:12px"><div style="font-size:.82rem;font-weight:700;color:var(--green);margin-bottom:8px">🟢 实时最弱势</div>';
-    bot3.forEach(function(s){
-      strip+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer" onclick="go(\'chain\');setTimeout(function(){var el=document.getElementById(\'chain-'+s.id+'\');if(el){el.open=true;el.scrollIntoView({behavior:\'smooth\'});el.classList.add(\'flash\');setTimeout(function(){el.classList.remove(\'flash\')},1500)}},100)"><span style="font-size:1.1rem">'+s.icon+'</span><span style="font-size:.88rem;font-weight:600;color:var(--text)">'+s.n+'</span><span style="margin-left:auto;font-weight:700;color:'+(s.avg>=0?'var(--red)':'var(--green)')+';font-size:.88rem">'+(s.avg>=0?'+':'')+s.avg.toFixed(1)+'%</span></div>';
-    });
-    strip+='</div></div>';
-    ov+=strip;
-  })();
+  // 实时最强势/最弱势 strip 已移除（sectorTags数据与industryRank矛盾，改用tushare行业排名）
 
   // 热点归因 strip 已移除
 
@@ -2601,13 +2573,13 @@ var loHtml=""+layFut.map(makeLayoutCard).join("");
           var lhbHtml='';
           lhbHtml+='<div style="border:1px solid rgba(239,68,68,.20);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--red);margin-bottom:6px">🪜 龙虎榜·净买TOP5 <span style="font-size:.68rem;color:var(--dim);font-weight:400">'+D.lhbFull.date+' 共'+D.lhbFull.total+'条</span></div>';
           top5.forEach(function(s){
-            lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--red);font-weight:700;font-size:.8rem">'+(s.net>0?'+':'')+s.net.toFixed(0)+'万</span><span style="font-size:.64rem;color:var(--dim);max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(s.reason||'')+'</span></div>';
+            lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--red);font-weight:700;font-size:.8rem">'+(s.net/10000>0?'+':'')+(s.net/10000).toFixed(2)+'亿</span><span style="font-size:.64rem;color:var(--dim);max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(s.reason||'')+'</span></div>';
           });
           lhbHtml+='</div>';
           lhbHtml+='<div style="border:1px solid rgba(34,197,94,.18);border-radius:var(--radius-sm);padding:10px 12px"><div style="font-size:.78rem;font-weight:700;color:var(--green);margin-bottom:6px">净卖TOP5</div>';
           if(bot5.length){
             bot5.forEach(function(s){
-              lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--green);font-weight:700;font-size:.8rem">'+s.net.toFixed(0)+'万</span><span style="font-size:.64rem;color:var(--dim)">'+(s.reason||'')+'</span></div>';
+              lhbHtml+='<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:.82rem;cursor:pointer" onclick="openStock(\''+s.c+'\')"><span style="font-family:SF Mono,monospace;color:var(--dim);font-size:.74rem;min-width:55px">'+s.c+'</span><span style="font-weight:600;flex:1">'+s.n+'</span><span style="color:var(--green);font-weight:700;font-size:.8rem">'+(s.net/10000).toFixed(2)+'亿</span><span style="font-size:.64rem;color:var(--dim)">'+(s.reason||'')+'</span></div>';
             });
           } else {
             lhbHtml+='<div style="font-size:.82rem;color:var(--dim);padding:8px 0">全市场净买入为主</div>';
