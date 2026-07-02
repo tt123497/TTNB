@@ -43,18 +43,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "银行板块近30亿增持计划完成，多家银行成立市值管理小组",
-      "u": "https://finance.sina.com.cn/roll/2026-07-02/doc-inifmrts2573188.shtml",
-      "time": "21:04",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "洛阳钼业：截至一季度末公司股东户数为85万户",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-02/doc-inifmrts2588793.shtml",
-      "time": "21:02",
-      "src": "sina_7x24"
-    },
-    {
       "t": "科泰电源: 科泰电源:关于全资子公司签订采购合同暨关联交易的公告",
       "u": "https://data.eastmoney.com/notices/detail/300153.html",
       "time": "07-03",
@@ -68,6 +56,54 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "纳斯达克100指数跌幅扩大至0.5%，费城半导体指数跌超1.8%。",
+      "u": "https://wallstreetcn.com/livenews/3128116",
+      "time": "22:30",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "雅克科技跌停，公司回应：没有六氟化钨相关业务，也没有布局计划",
+      "u": "https://wallstreetcn.com/livenews/3128115",
+      "time": "22:30",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国能源信息署（EIA）：美国上周EIA天然气库存增加870亿立方英尺，彭博用户预计增长840亿立方英尺、分析师预期增加805亿立方英尺，周环比增幅3.07%（之前一周增长2.75%），至2.92万亿立方英尺。",
+      "u": "https://wallstreetcn.com/livenews/3128114",
+      "time": "22:30",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "英特尔上涨 汇丰将目标价上调一倍至200美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtu4094076.shtml",
+      "time": "22:27",
+      "src": "sina_A股"
+    },
+    {
+      "t": "身处私募信贷风暴中心 Blue Owl再度限制基金赎回",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtw0871086.shtml",
+      "time": "22:26",
+      "src": "sina_A股"
+    },
+    {
+      "t": "富国集团策略师：干预风险上升 建议战术性做空美元兑日元",
+      "u": "https://finance.sina.com.cn/world/2026-07-02/doc-inifmrtw0870793.shtml",
+      "time": "22:26",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美股存储概念股走低，闪迪跌近5%，希捷科技跌超2%，西部数据跌1.8%。",
+      "u": "https://wallstreetcn.com/livenews/3128110",
+      "time": "22:26",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "上半年沪市宽基ETF分红总规模达170亿元",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-02/doc-inifmrtw0870504.shtml",
+      "time": "22:25",
+      "src": "sina_A股"
+    },
     {
       "t": "英特尔股价上涨，汇丰银行针对其代工业务给出华尔街最高目标价",
       "u": "https://wallstreetcn.com/livenews/3128106",
@@ -129,18 +165,6 @@
       "src": "wscn_全球"
     },
     {
-      "t": "富国集团策略师：干预风险上升 建议战术性做空美元兑日元",
-      "u": "https://wallstreetcn.com/livenews/3128090",
-      "time": "21:51",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "身处私募信贷风暴中心 Blue Owl再度限制基金赎回",
-      "u": "https://wallstreetcn.com/livenews/3128089",
-      "time": "21:50",
-      "src": "wscn_全球"
-    },
-    {
       "t": "央行公布6月中央银行各项工具流动性投放情况",
       "u": "https://finance.sina.com.cn/money/bank/bank_hydt/2026-07-02/doc-inifmrtw0852055.shtml",
       "time": "21:45",
@@ -193,24 +217,6 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrtq5812695.shtml",
       "time": "21:31",
       "src": "sina_A股"
-    },
-    {
-      "t": "美国6月非农远不及预期，美股三大股指集体走高",
-      "u": "https://wallstreetcn.com/livenews/3128080",
-      "time": "21:31",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "标普500指数高开11.91点，涨幅0.16%，报7495.14点；\n\n道琼斯工业平均指数高开89.98点，涨幅0.17%，报52395.22点；\n\n纳斯达克综合指数高开7.35点，涨幅0.03%，报26047.38点。",
-      "u": "https://wallstreetcn.com/livenews/3128079",
-      "time": "21:30",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "加拿大6月RBC制造业PMI 53，前值 52.9。",
-      "u": "https://wallstreetcn.com/livenews/3128077",
-      "time": "21:30",
-      "src": "wscn_全球"
     },
     {
       "t": "特斯拉预计二季度交付增长3%，分析师估计季度交付量为396,466辆",
@@ -279,24 +285,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "银行板块近30亿增持计划完成，多家银行成立市值管理小组",
-      "u": "https://finance.sina.com.cn/roll/2026-07-02/doc-inifmrts2573188.shtml",
-      "time": "21:04",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "三连板先导基电溢价136%收购实控人旗下磷化铟资产，股价“抢跑”遭监管质疑内幕信息泄露",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-02/doc-inifmrtu4057417.shtml",
-      "time": "21:03",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "宇树科技，IPO注册申请获通过",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkzmt/2026-07-02/doc-inifmrtq5796780.shtml",
-      "time": "21:03",
-      "src": "sina_7x24"
-    },
-    {
       "t": "OpenAI提议向美国政府出让5%股份",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-02/doc-inifmrts2563707.shtml",
       "time": "20:59",
@@ -333,18 +321,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "德国无人机制造商Quantum Systems获得12亿美元融资",
-      "u": "https://finance.sina.com.cn/world/2026-07-02/doc-inifmmms5874994.shtml",
-      "time": "20:08",
-      "src": "sina_A股"
-    },
-    {
-      "t": "以色列副外长呼吁黎巴嫩废除禁止与以色列人接触的禁令",
-      "u": "https://finance.sina.com.cn/world/2026-07-02/doc-inifmmmy0912658.shtml",
-      "time": "20:02",
-      "src": "sina_A股"
-    },
-    {
       "t": "ST金顶: ST金顶:四川金顶(集团)股份有限公司关于上海证券交易所对公司2025年年度报告的信息披露监管问询函的回复公告",
       "u": "https://data.eastmoney.com/notices/detail/600678.html",
       "time": "07-03",
@@ -367,10 +343,47 @@
       "u": "https://data.eastmoney.com/notices/detail/002292.html",
       "time": "07-03",
       "src": "em_ann"
+    },
+    {
+      "t": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "u": "https://data.eastmoney.com/notices/detail/601128.html",
+      "time": "07-03",
+      "src": "em_ann"
+    },
+    {
+      "t": "中巨芯: 中巨芯:关于持股5%以上股东增持股份进展的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688549.html",
+      "time": "07-03",
+      "src": "em_ann"
     }
   ],
   "globalNews": {
     "headlines": [
+      {
+        "t": "美光科技跌幅扩大 现跌2%",
+        "s": "美光科技跌幅扩大至2%。",
+        "ts": "2026-07-02 22:27:58"
+      },
+      {
+        "t": "纳斯达克100指数抹去涨幅",
+        "s": "纳斯达克100指数抹去涨幅，转为下跌。",
+        "ts": "2026-07-02 22:27:40"
+      },
+      {
+        "t": "特斯拉跌幅扩大至5%",
+        "s": "特斯拉跌幅扩大至5%，总市值报1.52万亿美元。",
+        "ts": "2026-07-02 22:24:52"
+      },
+      {
+        "t": "世卫组织：乌干达出现马尔堡病毒感染病例",
+        "s": "【世卫组织：乌干达出现马尔堡病毒感染病例】世界卫生组织7月2日公布，在乌干达发现感染马尔堡病毒感染病例。",
+        "ts": "2026-07-02 22:22:48"
+      },
+      {
+        "t": "美股存储概念股走低 闪迪跌幅扩大至4%",
+        "s": "【美股存储概念股走低 闪迪跌幅扩大至4%】美股存储概念股走低，闪迪跌幅扩大至4%，希捷科技跌超2%，西部数据跌1.8%，美光科技涨幅收窄至0.2%。",
+        "ts": "2026-07-02 22:19:33"
+      },
       {
         "t": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
         "s": "【机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期】群智咨询发文称，随着AI数据中心拉动8英寸需求持续增长，叠加头部代工厂商主动减产、IDM委外订单增加等因素，预计2027",
@@ -470,39 +483,14 @@
         "t": "世卫启动针对本迪布焦型埃博拉病毒的临床试验",
         "s": "【世卫启动针对本迪布焦型埃博拉病毒的临床试验】当地时间7月2日，世卫组织总干事谭德塞表示，已在刚果（金）启动一项评估本迪布焦型埃博拉病毒潜在治疗方法的大型国际临床试验。",
         "ts": "2026-07-02 21:41:41"
-      },
-      {
-        "t": "苹果美股盘初涨2%",
-        "s": "【苹果美股盘初涨2%】苹果美股盘初涨2%。据财联社，苹果上调首款折叠屏iPhone备货预期，目标从700万—800万部增至约1000万部。",
-        "ts": "2026-07-02 21:40:41"
-      },
-      {
-        "t": "稳定币USDC发行商Circle涨超9%",
-        "s": "稳定币USDC发行商Circle盘初走高，最新涨超9%。",
-        "ts": "2026-07-02 21:39:58"
-      },
-      {
-        "t": "汇丰上调英特尔目标价",
-        "s": "【汇丰上调英特尔目标价】汇丰将英特尔目标股价从100美元上调至200美元。",
-        "ts": "2026-07-02 21:39:35"
-      },
-      {
-        "t": "美国白宫经济顾问：对鲍威尔留任美联储的动机表示担忧",
-        "s": "【美国白宫经济顾问：对鲍威尔留任美联储的动机表示担忧】美国白宫经济顾问哈塞特表示，非常不寻常的是鲍威尔仍未离开美联储，对鲍威尔留任美联储的动机表示担忧。",
-        "ts": "2026-07-02 21:39:11"
-      },
-      {
-        "t": "特斯拉抹去早盘涨幅",
-        "s": "【特斯拉抹去早盘涨幅】特斯拉股价抹去了早盘涨幅，目前下跌1.2%。",
-        "ts": "2026-07-02 21:38:08"
       }
     ],
-    "updated": "2026-07-02 14:21 UTC",
+    "updated": "2026-07-02 14:31 UTC",
     "status": "ok"
   },
   "_newsMeta": {
-    "updated": "2026-07-02 22:21 CST",
-    "sector": 11,
-    "market": 54
+    "updated": "2026-07-02 22:31 CST",
+    "sector": 9,
+    "market": 52
   }
 }
