@@ -22622,523 +22622,203 @@
   ],
   "top3": [
     {
-      "r": 1,
-      "t": "🔥 保险板块大涨7.1%",
-      "b": "保险板块今日大涨7.1%，中国人寿涨9.7%，新华保险涨9.6%，中国人保涨7.2%。资金大幅流入，互联网金融板块净流入125.9亿。消息面无直接催化，可能为低估值修复及中报预期。来源可信度：高（行情数据）。定价状态：未定价，股价大幅上涨但仍有空间。",
-      "s": [
-        "601628 中国人寿",
-        "601336 新华保险"
-      ],
-      "u": "https://quote.eastmoney.com/sz000001.html"
+      "t": "🟢 市场预判: bullish (置信度53%)",
+      "s": "指数均涨-4.1%，0/6上涨。北向净流入36.45亿。8个赛道因子偏多。",
+      "b": "指数均涨-4.1%，0/6上涨。北向净流入36.45亿。8个赛道因子偏多。 | 关键位: 上证指数 4029(-2.03%) 深证成指 15499(-3.85%) 创业板指 4017(-5.71%) ",
+      "u": "",
+      "sig": "🟢"
     },
     {
-      "r": 2,
-      "t": "🟢 创新药/CXO板块涨5.8%",
-      "b": "创新药/CXO板块涨5.8%，艾力斯涨15.2%，智飞生物涨5.8%，恒瑞医药涨3.3%。近期创新药审批加速及海外授权利好，但无新公告。来源可信度：高（行情数据）。定价状态：未定价，涨幅较大但政策持续催化。",
-      "s": [
-        "688578 艾力斯",
-        "300122 智飞生物"
-      ],
-      "u": "https://quote.eastmoney.com/sh688578.html"
+      "t": "📊 产品涨价 (1条) - AI应用/模型推理",
+      "s": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "b": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "u": "",
+      "sig": "🟡"
     },
     {
-      "r": 3,
-      "t": "🔥 🔗 交换机/网络板块涨4.4%",
-      "b": "交换机/网络板块涨4.4%，星网锐捷涨停，锐捷网络涨6.8%，紫光股份涨3.7%。受益于AI数据中心建设需求，但无新订单公告。来源可信度：高（行情数据）。定价状态：未定价，板块涨幅温和，仍有空间。",
-      "s": [
-        "002396 星网锐捷",
-        "301165 锐捷网络"
-      ],
-      "u": "https://quote.eastmoney.com/sz002396.html"
+      "t": "📊 资本运作 (1条) - 银行",
+      "s": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "b": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "u": "",
+      "sig": "🟡"
     }
   ],
   "picks": [
     {
       "r": 1,
-      "c": "601628",
-      "n": "中国人寿",
-      "why": "保险龙头，涨9.7%未涨停，资金大幅流入",
-      "sec": "保险",
-      "u": "https://quote.eastmoney.com/sz601628.html"
+      "c": "688498",
+      "n": "源杰科技",
+      "why": "产能扩张: 特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+      "sec": "CPO/光模块",
+      "u": "https://quote.eastmoney.com/sh688498.html"
     },
     {
       "r": 2,
-      "c": "300059",
-      "n": "东方财富",
-      "why": "券商龙头，涨5.2%未涨停，资金净流入",
-      "sec": "券商",
-      "u": "https://quote.eastmoney.com/sz300059.html"
+      "c": "300308",
+      "n": "中际旭创",
+      "why": "产能扩张: 特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+      "sec": "CPO/光模块",
+      "u": "https://quote.eastmoney.com/sz300308.html"
     },
     {
       "r": 3,
-      "c": "688578",
-      "n": "艾力斯",
-      "why": "创新药龙头，涨15.2%未涨停，板块强势",
-      "sec": "创新药/CXO",
-      "u": "https://quote.eastmoney.com/sz688578.html"
+      "c": "000988",
+      "n": "华工科技",
+      "why": "产能扩张: 特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+      "sec": "CPO/光模块",
+      "u": "https://quote.eastmoney.com/sz000988.html"
     },
     {
       "r": 4,
-      "c": "002669",
-      "n": "康达新材",
-      "why": "电子特气概念，涨4.4%未涨停，趋势向好",
-      "sec": "电子特气/工业气体",
-      "u": "https://quote.eastmoney.com/sz002669.html"
+      "c": "600183",
+      "n": "生益科技",
+      "why": "上游涨价: 机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "sec": "PCB/覆铜板",
+      "u": "https://quote.eastmoney.com/sh600183.html"
     },
     {
       "r": 5,
-      "c": "301165",
-      "n": "锐捷网络",
-      "why": "交换机龙头，涨6.8%未涨停，龙虎榜净买3.6亿",
-      "sec": "交换机/网络",
-      "u": "https://quote.eastmoney.com/sz301165.html"
+      "c": "002916",
+      "n": "深南电路",
+      "why": "上游涨价: 机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "sec": "PCB/覆铜板",
+      "u": "https://quote.eastmoney.com/sz002916.html"
     }
   ],
   "briefing": {
-    "top3": [
+    "date": "2026-07-02",
+    "updated": "2026-07-02 23:25 CST",
+    "marketJudgment": {
+      "direction": "bullish",
+      "confidence": 53,
+      "logic": "指数均涨-4.1%，0/6上涨。北向净流入36.45亿。8个赛道因子偏多。",
+      "key_levels": "上证指数 4029(-2.03%) 深证成指 15499(-3.85%) 创业板指 4017(-5.71%) ",
+      "avg_chg": -4.12,
+      "up_count": 0,
+      "total_count": 6,
+      "northbound": 36.45,
+      "factor_avg": 2.0,
+      "bull_sectors": [
+        "CPO/光模块",
+        "PCB/覆铜板",
+        "HBM/存储芯片",
+        "钨稀土",
+        "黄金/贵金属"
+      ],
+      "bear_sectors": [],
+      "high_signals": 2
+    },
+    "watchlist": [
       {
-        "r": 1,
-        "t": "🔥 保险板块大涨7.1%",
-        "b": "保险板块今日大涨7.1%，中国人寿涨9.7%，新华保险涨9.6%，中国人保涨7.2%。资金大幅流入，互联网金融板块净流入125.9亿。消息面无直接催化，可能为低估值修复及中报预期。来源可信度：高（行情数据）。定价状态：未定价，股价大幅上涨但仍有空间。",
-        "s": [
-          "601628 中国人寿",
-          "601336 新华保险"
-        ],
-        "u": "https://quote.eastmoney.com/sz000001.html"
+        "c": "688498",
+        "n": "源杰科技",
+        "sec": "CPO/光模块",
+        "chg": -6.93,
+        "factor_score": 3,
+        "reason": "产能扩张: 特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+        "direction": "long"
       },
       {
-        "r": 2,
-        "t": "🟢 创新药/CXO板块涨5.8%",
-        "b": "创新药/CXO板块涨5.8%，艾力斯涨15.2%，智飞生物涨5.8%，恒瑞医药涨3.3%。近期创新药审批加速及海外授权利好，但无新公告。来源可信度：高（行情数据）。定价状态：未定价，涨幅较大但政策持续催化。",
-        "s": [
-          "688578 艾力斯",
-          "300122 智飞生物"
-        ],
-        "u": "https://quote.eastmoney.com/sh688578.html"
+        "c": "300308",
+        "n": "中际旭创",
+        "sec": "CPO/光模块",
+        "chg": -6.55,
+        "factor_score": 3,
+        "reason": "产能扩张: 特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+        "direction": "long"
       },
       {
-        "r": 3,
-        "t": "🔥 🔗 交换机/网络板块涨4.4%",
-        "b": "交换机/网络板块涨4.4%，星网锐捷涨停，锐捷网络涨6.8%，紫光股份涨3.7%。受益于AI数据中心建设需求，但无新订单公告。来源可信度：高（行情数据）。定价状态：未定价，板块涨幅温和，仍有空间。",
-        "s": [
-          "002396 星网锐捷",
-          "301165 锐捷网络"
-        ],
-        "u": "https://quote.eastmoney.com/sz002396.html"
+        "c": "000988",
+        "n": "华工科技",
+        "sec": "CPO/光模块",
+        "chg": -10.0,
+        "factor_score": 3,
+        "reason": "产能扩张: 特斯拉跌超6%，该公司此前披露的车辆交付数据远超分析师预期",
+        "direction": "long"
+      },
+      {
+        "c": "600183",
+        "n": "生益科技",
+        "sec": "PCB/覆铜板",
+        "chg": -7.8,
+        "factor_score": 3,
+        "reason": "上游涨价: 机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+        "direction": "long"
+      },
+      {
+        "c": "002916",
+        "n": "深南电路",
+        "sec": "PCB/覆铜板",
+        "chg": -5.56,
+        "factor_score": 3,
+        "reason": "上游涨价: 机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+        "direction": "long"
+      },
+      {
+        "c": "002463",
+        "n": "沪电股份",
+        "sec": "PCB/覆铜板",
+        "chg": -10.0,
+        "factor_score": 3,
+        "reason": "上游涨价: 机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+        "direction": "long"
+      },
+      {
+        "c": "002842",
+        "n": "翔鹭钨业",
+        "sec": "钨稀土",
+        "chg": 10.0,
+        "factor_score": 3,
+        "reason": "产品价格: 多数预测市场合约交易量低迷，用户面临价格剧烈波动与机器人交易风险",
+        "direction": "long"
+      },
+      {
+        "c": "600397",
+        "n": "江钨装备",
+        "sec": "钨稀土",
+        "chg": -4.84,
+        "factor_score": 3,
+        "reason": "产品价格: 多数预测市场合约交易量低迷，用户面临价格剧烈波动与机器人交易风险",
+        "direction": "long"
       }
     ],
-    "picks": [
+    "signals": [
       {
-        "r": 1,
-        "c": "601628",
-        "n": "中国人寿",
-        "why": "保险龙头，涨9.7%未涨停，资金大幅流入",
-        "sec": "保险",
-        "u": "https://quote.eastmoney.com/sz601628.html"
+        "type": "产品涨价",
+        "count": 1,
+        "sectors": [
+          "AI应用/模型推理"
+        ],
+        "top": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期"
       },
       {
-        "r": 2,
-        "c": "300059",
-        "n": "东方财富",
-        "why": "券商龙头，涨5.2%未涨停，资金净流入",
-        "sec": "券商",
-        "u": "https://quote.eastmoney.com/sz300059.html"
-      },
-      {
-        "r": 3,
-        "c": "688578",
-        "n": "艾力斯",
-        "why": "创新药龙头，涨15.2%未涨停，板块强势",
-        "sec": "创新药/CXO",
-        "u": "https://quote.eastmoney.com/sz688578.html"
-      },
-      {
-        "r": 4,
-        "c": "002669",
-        "n": "康达新材",
-        "why": "电子特气概念，涨4.4%未涨停，趋势向好",
-        "sec": "电子特气/工业气体",
-        "u": "https://quote.eastmoney.com/sz002669.html"
-      },
-      {
-        "r": 5,
-        "c": "301165",
-        "n": "锐捷网络",
-        "why": "交换机龙头，涨6.8%未涨停，龙虎榜净买3.6亿",
-        "sec": "交换机/网络",
-        "u": "https://quote.eastmoney.com/sz301165.html"
+        "type": "资本运作",
+        "count": 1,
+        "sectors": [
+          "银行"
+        ],
+        "top": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告"
       }
     ],
-    "updated": "2026-07-02 17:03 CST",
-    "_ai": true,
-    "sectors": [
+    "tomorrowEvents": [
       {
-        "name": "AI芯片",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
+        "d": "2026-07-02",
+        "e": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+        "icon": "⚡",
+        "direction": "bullish",
+        "logic": "产品涨价信号，关联板块: AI应用/模型推理",
+        "sectors": []
       },
       {
-        "name": "CPO/光模块",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "光纤光缆",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "连接器/铜连接",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "PCB/覆铜板",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "MLCC电容",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "电子树脂/PPE",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "电子铜箔",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "HBM/存储芯片",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "AI服务器/超节点",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "液冷散热",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "交换机/网络",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "电源/DrMOS",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "数据中心/AIDC",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "算电协同",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "电网设备/特高压",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "算力租赁/GPU云",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "火电/电力运营",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "半导体设备",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "光刻胶",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "先进封装CoWoS",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "半导体硅片",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "半导体靶材",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "六氟化钨WF6",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "玻璃基板TGV",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "培育钻石/散热",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "超导/核聚变",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "稀土永磁",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "钼/小金属",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "碳纤维",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "电子特气/工业气体",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "人形机器人",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "商业航天",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "6G/通信",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "固态电池",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "低空经济eVTOL",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "空间计算/物理AI",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "AI眼镜/AR硬件",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "AI应用/模型推理",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "核电/核能",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "量子计算/量子科技",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "卫星互联网/北斗",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "锂矿/盐湖提锂",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "锂电池/电解液",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "光伏/太阳能",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "风电",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "储能",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "新能源汽车",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "煤炭",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "黄金/贵金属",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "铜铝有色",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "化工",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "钢铁",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "银行",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "券商",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "保险",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "房地产开发",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "白酒",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "食品饮料",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "医药/CRO",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
-      },
-      {
-        "name": "医疗器械",
-        "sig": "neutral",
-        "msg": "板块均涨+0.0%，横盘整理，等待催化。",
-        "u": ""
+        "d": "2026-07-02",
+        "e": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+        "icon": "📌",
+        "direction": "neutral",
+        "logic": "资本运作信号，关联板块: 银行",
+        "sectors": []
       }
-    ]
+    ],
+    "version": "v2"
   },
   "events": [
     {
@@ -23376,15 +23056,6 @@
       "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
     },
     {
-      "d": "9月17日",
-      "icon": "🔴",
-      "e": "FOMC利率决议",
-      "s": "宏观/全部",
-      "big": 1,
-      "desc": "美联储利率决议",
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
-    },
-    {
       "d": "9月21日",
       "icon": "📅",
       "e": "9月LPR报价",
@@ -23392,316 +23063,516 @@
       "big": 1,
       "desc": "LPR利率决定",
       "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+    },
+    {
+      "d": "2026-07-02",
+      "e": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "icon": "⚡",
+      "s": "AI应用/模型推理",
+      "big": 1,
+      "countdown": 0,
+      "impact": {
+        "direction": "bullish",
+        "logic": "产品涨价信号，关联板块: AI应用/模型推理",
+        "sectors": [
+          "AI应用/模型推理"
+        ],
+        "source": "",
+        "detected": "2026-07-02 23:12"
+      },
+      "is_industry": true
+    },
+    {
+      "d": "2026-07-02",
+      "e": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "icon": "📌",
+      "s": "银行",
+      "big": 1,
+      "countdown": 0,
+      "impact": {
+        "direction": "neutral",
+        "logic": "资本运作信号，关联板块: 银行",
+        "sectors": [
+          "银行"
+        ],
+        "source": "https://data.eastmoney.com/notices/detail/601128.html",
+        "detected": "2026-07-02 23:12"
+      },
+      "is_industry": true
+    },
+    {
+      "d": "7月10日",
+      "e": "6月CPI/PPI数据",
+      "icon": "📊",
+      "s": "宏观",
+      "big": 1,
+      "countdown": 8,
+      "impact": {
+        "name": "CPI/PPI数据",
+        "icon": "📊",
+        "sector": "宏观",
+        "direction": "neutral",
+        "logic": "CPI反映通胀。低于2.5%→降息预期升温利好成长股；高于3%→通胀压力利好资源股。",
+        "watch_bull": "CPI<2.5% → 降息预期，利好科技/创新药/地产",
+        "watch_bear": "CPI>3% → 通胀压力，利好黄金/有色/煤炭",
+        "sectors_bull": [
+          "AI芯片",
+          "创新药/CXO",
+          "房地产开发",
+          "券商"
+        ],
+        "sectors_bear": [
+          "黄金/贵金属",
+          "铜铝有色",
+          "煤炭"
+        ]
+      }
+    },
+    {
+      "d": "8月10日",
+      "e": "7月CPI/PPI数据",
+      "icon": "📊",
+      "s": "宏观",
+      "big": 1,
+      "countdown": 39,
+      "impact": {
+        "name": "CPI/PPI数据",
+        "icon": "📊",
+        "sector": "宏观",
+        "direction": "neutral",
+        "logic": "CPI反映通胀。低于2.5%→降息预期升温利好成长股；高于3%→通胀压力利好资源股。",
+        "watch_bull": "CPI<2.5% → 降息预期，利好科技/创新药/地产",
+        "watch_bear": "CPI>3% → 通胀压力，利好黄金/有色/煤炭",
+        "sectors_bull": [
+          "AI芯片",
+          "创新药/CXO",
+          "房地产开发",
+          "券商"
+        ],
+        "sectors_bear": [
+          "黄金/贵金属",
+          "铜铝有色",
+          "煤炭"
+        ]
+      }
+    },
+    {
+      "d": "9月10日",
+      "e": "8月CPI/PPI数据",
+      "icon": "📊",
+      "s": "宏观",
+      "big": 1,
+      "countdown": 70,
+      "impact": {
+        "name": "CPI/PPI数据",
+        "icon": "📊",
+        "sector": "宏观",
+        "direction": "neutral",
+        "logic": "CPI反映通胀。低于2.5%→降息预期升温利好成长股；高于3%→通胀压力利好资源股。",
+        "watch_bull": "CPI<2.5% → 降息预期，利好科技/创新药/地产",
+        "watch_bear": "CPI>3% → 通胀压力，利好黄金/有色/煤炭",
+        "sectors_bull": [
+          "AI芯片",
+          "创新药/CXO",
+          "房地产开发",
+          "券商"
+        ],
+        "sectors_bear": [
+          "黄金/贵金属",
+          "铜铝有色",
+          "煤炭"
+        ]
+      }
     }
   ],
   "layout": [
     {
       "d": "7月3日",
-      "days": 1,
-      "lead": 1,
+      "icon": "📊",
       "e": "6月财新PMI",
-      "icon": "📊",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 1
     },
     {
       "d": "7月10日",
-      "days": 8,
-      "lead": 7,
+      "icon": "🔴",
       "e": "6月CPI/PPI",
-      "icon": "🔴",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月10日",
-      "days": 8,
-      "lead": 7,
-      "e": "世界人工智能大会 WAIC 2026",
       "icon": "🚀",
+      "e": "世界人工智能大会 WAIC 2026",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月13日",
-      "days": 11,
-      "lead": 7,
-      "e": "6月进出口贸易数据",
       "icon": "📊",
+      "e": "6月进出口贸易数据",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月13日",
-      "days": 11,
-      "lead": 7,
-      "e": "6月金融数据（M2/社融/新增贷款）",
       "icon": "🔴",
+      "e": "6月金融数据（M2/社融/新增贷款）",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月15日",
-      "days": 13,
-      "lead": 5,
-      "e": "7月MLF操作",
       "icon": "📅",
+      "e": "7月MLF操作",
       "s": "宏观/全部",
       "big": 0,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 5
     },
     {
       "d": "7月16日",
-      "days": 14,
-      "lead": 7,
-      "e": "6月工业增加值/社零/固投",
       "icon": "📊",
+      "e": "6月工业增加值/社零/固投",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月16日",
-      "days": 14,
-      "lead": 7,
-      "e": "Q2 GDP数据 / 上半年国民经济运行",
       "icon": "🔴",
+      "e": "Q2 GDP数据 / 上半年国民经济运行",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月20日",
-      "days": 18,
-      "lead": 7,
-      "e": "7月LPR报价",
       "icon": "📅",
+      "e": "7月LPR报价",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "7月30日",
-      "days": 28,
-      "lead": 7,
+      "icon": "🔴",
       "e": "FOMC利率决议",
-      "icon": "🔴",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月3日",
-      "days": 32,
-      "lead": 7,
+      "icon": "🔴",
       "e": "7月官方PMI（制造业/非制造业）",
-      "icon": "🔴",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月3日",
-      "days": 32,
-      "lead": 7,
-      "e": "7月财新PMI",
       "icon": "📊",
+      "e": "7月财新PMI",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月10日",
-      "days": 39,
-      "lead": 7,
-      "e": "7月CPI/PPI",
       "icon": "🔴",
+      "e": "7月CPI/PPI",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月12日",
-      "days": 41,
-      "lead": 7,
-      "e": "7月金融数据（M2/社融/新增贷款）",
       "icon": "🔴",
+      "e": "7月金融数据（M2/社融/新增贷款）",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月13日",
-      "days": 42,
-      "lead": 7,
+      "icon": "📊",
       "e": "7月进出口贸易数据",
-      "icon": "📊",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月17日",
-      "days": 46,
-      "lead": 7,
+      "icon": "📊",
       "e": "7月工业增加值/社零/固投",
-      "icon": "📊",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月17日",
-      "days": 46,
-      "lead": 5,
-      "e": "8月MLF操作",
       "icon": "📅",
+      "e": "8月MLF操作",
       "s": "宏观/全部",
       "big": 0,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 5
     },
     {
       "d": "8月20日",
-      "days": 49,
-      "lead": 7,
-      "e": "8月LPR报价",
       "icon": "📅",
+      "e": "8月LPR报价",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "8月31日",
-      "days": 60,
-      "lead": 7,
-      "e": "A股中报披露截止日",
       "icon": "📊",
+      "e": "A股中报披露截止日",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月1日",
-      "days": 61,
-      "lead": 7,
-      "e": "8月官方PMI（制造业/非制造业）",
       "icon": "🔴",
+      "e": "8月官方PMI（制造业/非制造业）",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月3日",
-      "days": 63,
-      "lead": 7,
-      "e": "8月财新PMI",
       "icon": "📊",
+      "e": "8月财新PMI",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月10日",
-      "days": 70,
-      "lead": 7,
+      "icon": "🔴",
       "e": "8月CPI/PPI",
-      "icon": "🔴",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月14日",
-      "days": 74,
-      "lead": 7,
-      "e": "8月进出口贸易数据",
       "icon": "📊",
+      "e": "8月进出口贸易数据",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月14日",
-      "days": 74,
-      "lead": 7,
-      "e": "8月金融数据（M2/社融/新增贷款）",
       "icon": "🔴",
+      "e": "8月金融数据（M2/社融/新增贷款）",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月15日",
-      "days": 75,
-      "lead": 5,
-      "e": "9月MLF操作",
       "icon": "📅",
+      "e": "9月MLF操作",
       "s": "宏观/全部",
       "big": 0,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 5
     },
     {
       "d": "9月16日",
-      "days": 76,
-      "lead": 7,
-      "e": "8月工业增加值/社零/固投",
       "icon": "📊",
+      "e": "8月工业增加值/社零/固投",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
-    },
-    {
-      "d": "9月17日",
-      "days": 77,
-      "lead": 7,
-      "e": "FOMC利率决议",
-      "icon": "🔴",
-      "s": "宏观/全部",
-      "big": 1,
-      "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
     },
     {
       "d": "9月21日",
-      "days": 81,
-      "lead": 7,
-      "e": "9月LPR报价",
       "icon": "📅",
+      "e": "9月LPR报价",
       "s": "宏观/全部",
       "big": 1,
+      "countdown": 0,
       "stocks": [],
-      "u": "https://so.eastmoney.com/news/s?keyword=%E5%AE%8F%E8%A7%82"
+      "lead": 7
+    },
+    {
+      "d": "2026-07-02",
+      "icon": "⚡",
+      "e": "机构：AI应用驱动下 8英寸晶圆将进入新一轮缺货涨价周期",
+      "s": "AI应用/模型推理",
+      "big": 1,
+      "countdown": 0,
+      "impact": {
+        "direction": "bullish",
+        "logic": "产品涨价信号，关联板块: AI应用/模型推理",
+        "sectors": [
+          "AI应用/模型推理"
+        ],
+        "source": "",
+        "detected": "2026-07-02 23:12"
+      }
+    },
+    {
+      "d": "2026-07-02",
+      "icon": "📌",
+      "e": "常熟银行: 常熟银行:江苏常熟农村商业银行股份有限公司关于常熟市投资控股集团有限公司增持股份的公告",
+      "s": "银行",
+      "big": 1,
+      "countdown": 0,
+      "impact": {
+        "direction": "neutral",
+        "logic": "资本运作信号，关联板块: 银行",
+        "sectors": [
+          "银行"
+        ],
+        "source": "https://data.eastmoney.com/notices/detail/601128.html",
+        "detected": "2026-07-02 23:12"
+      }
+    },
+    {
+      "d": "7月10日",
+      "icon": "📊",
+      "e": "6月CPI/PPI数据",
+      "s": "宏观",
+      "big": 1,
+      "countdown": 8,
+      "impact": {
+        "name": "CPI/PPI数据",
+        "icon": "📊",
+        "sector": "宏观",
+        "direction": "neutral",
+        "logic": "CPI反映通胀。低于2.5%→降息预期升温利好成长股；高于3%→通胀压力利好资源股。",
+        "watch_bull": "CPI<2.5% → 降息预期，利好科技/创新药/地产",
+        "watch_bear": "CPI>3% → 通胀压力，利好黄金/有色/煤炭",
+        "sectors_bull": [
+          "AI芯片",
+          "创新药/CXO",
+          "房地产开发",
+          "券商"
+        ],
+        "sectors_bear": [
+          "黄金/贵金属",
+          "铜铝有色",
+          "煤炭"
+        ]
+      }
+    },
+    {
+      "d": "8月10日",
+      "icon": "📊",
+      "e": "7月CPI/PPI数据",
+      "s": "宏观",
+      "big": 1,
+      "countdown": 39,
+      "impact": {
+        "name": "CPI/PPI数据",
+        "icon": "📊",
+        "sector": "宏观",
+        "direction": "neutral",
+        "logic": "CPI反映通胀。低于2.5%→降息预期升温利好成长股；高于3%→通胀压力利好资源股。",
+        "watch_bull": "CPI<2.5% → 降息预期，利好科技/创新药/地产",
+        "watch_bear": "CPI>3% → 通胀压力，利好黄金/有色/煤炭",
+        "sectors_bull": [
+          "AI芯片",
+          "创新药/CXO",
+          "房地产开发",
+          "券商"
+        ],
+        "sectors_bear": [
+          "黄金/贵金属",
+          "铜铝有色",
+          "煤炭"
+        ]
+      }
+    },
+    {
+      "d": "9月10日",
+      "icon": "📊",
+      "e": "8月CPI/PPI数据",
+      "s": "宏观",
+      "big": 1,
+      "countdown": 70,
+      "impact": {
+        "name": "CPI/PPI数据",
+        "icon": "📊",
+        "sector": "宏观",
+        "direction": "neutral",
+        "logic": "CPI反映通胀。低于2.5%→降息预期升温利好成长股；高于3%→通胀压力利好资源股。",
+        "watch_bull": "CPI<2.5% → 降息预期，利好科技/创新药/地产",
+        "watch_bear": "CPI>3% → 通胀压力，利好黄金/有色/煤炭",
+        "sectors_bull": [
+          "AI芯片",
+          "创新药/CXO",
+          "房地产开发",
+          "券商"
+        ],
+        "sectors_bear": [
+          "黄金/贵金属",
+          "铜铝有色",
+          "煤炭"
+        ]
+      }
     }
   ],
   "dynamicSectors": [
@@ -24092,13 +23963,13 @@
     }
   ],
   "_eventsMeta": {
-    "updated": "2026-07-02 17:03 CST",
-    "total": 28,
-    "hand": 0,
-    "macro": 28,
-    "ai": 0,
-    "schedule": "daily at 10:00 CST",
-    "source": "NBS 2026 schedule + AI sentinel news + hand-curated"
+    "updated": "2026-07-02 23:24 CST",
+    "total": 32,
+    "macro": 23,
+    "industry": 2,
+    "hand": 28,
+    "schedule": "每次market-update自动刷新",
+    "version": "v2"
   },
   "_sectorTracker": {
     "猪肉概念": {
