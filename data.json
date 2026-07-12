@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-12 15:42 CST",
+  "updated": "2026-07-12 15:54 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1982046,
+  "updateCount": 1982047,
   "recap": {
     "index": [
       {
@@ -1207,7 +1207,7 @@
         "指数均跌2.4%"
       ]
     },
-    "note": "07/12 15:31 a-stock-data统一更新 | 551只 | 62板块"
+    "note": "07/12 15:44 a-stock-data统一更新 | 551只 | 62板块"
   },
   "livePrices": {
     "sz000002": {
@@ -3972,7 +3972,7 @@
     "interval": "5min",
     "stockCount": 551,
     "liveCount": 551,
-    "updateCount": 1982046,
+    "updateCount": 1982047,
     "trading": false
   },
   "sectorTags": {
@@ -10904,6 +10904,41 @@
   "indReports": {
     "reports": [
       {
+        "t": "食品饮料行业研究：业绩窗口期，持续推荐可见度较高的α标的",
+        "org": "国金证券",
+        "ind": "非白酒",
+        "rating": "买入",
+        "d": "2026-07-12"
+      },
+      {
+        "t": "计算机行业研究：我国可回收火箭迎“0到1”拐点",
+        "org": "国金证券",
+        "ind": "IT服务Ⅱ",
+        "rating": "买入",
+        "d": "2026-07-12"
+      },
+      {
+        "t": "医药健康行业研究：新版基药目录推出，利好慢病创新药基层市场渗透",
+        "org": "国金证券",
+        "ind": "中药Ⅱ",
+        "rating": "买入",
+        "d": "2026-07-12"
+      },
+      {
+        "t": "公用事业行业研究：第四监管周期输配电价出台，重视水电火电景气度向上",
+        "org": "国金证券",
+        "ind": "电力",
+        "rating": "买入",
+        "d": "2026-07-12"
+      },
+      {
+        "t": "大化工周报：涤纶长丝企业库存下降，产销增加",
+        "org": "东吴证券",
+        "ind": "化学制品",
+        "rating": "",
+        "d": "2026-07-12"
+      },
+      {
         "t": "锂电产业链双周报（2026年7月第1期）：电池企业持续斩获储能大单，锂电生产同比快速增长",
         "org": "国信证券",
         "ind": "电池",
@@ -10936,41 +10971,6 @@
         "org": "开源证券",
         "ind": "中药Ⅱ",
         "rating": "持有",
-        "d": "2026-07-12"
-      },
-      {
-        "t": "环保行业2026年二季报业绩前瞻：固废水务运营稳健，金属资源化及SAF有望高增",
-        "org": "华源证券",
-        "ind": "环境治理",
-        "rating": "增持",
-        "d": "2026-07-12"
-      },
-      {
-        "t": "机械设备行业跟踪周报：推荐国产化加速&高景气的半导体设备；看好AIDC产业链液冷和燃机机会",
-        "org": "东吴证券",
-        "ind": "通用设备",
-        "rating": "增持",
-        "d": "2026-07-12"
-      },
-      {
-        "t": "工程机械月报：汇兑影响边际减弱，销量继续超预期",
-        "org": "西南证券",
-        "ind": "工程机械",
-        "rating": "持有",
-        "d": "2026-07-12"
-      },
-      {
-        "t": "原油周报：美伊局势再度紧张，国际油价震荡运行",
-        "org": "东吴证券",
-        "ind": "炼化及贸易",
-        "rating": "",
-        "d": "2026-07-12"
-      },
-      {
-        "t": "医药行业周报：CMC订单加速有望打开成长空间，重点关注康龙化成",
-        "org": "华源证券",
-        "ind": "中药Ⅱ",
-        "rating": "增持",
         "d": "2026-07-12"
       }
     ],
@@ -19902,7 +19902,7 @@
   ],
   "briefing": {
     "date": "2026-07-02",
-    "updated": "2026-07-12 15:42 CST",
+    "updated": "2026-07-12 15:54 CST",
     "marketJudgment": {
       "direction": "bullish",
       "confidence": 53,
@@ -21651,7 +21651,7 @@
     }
   ],
   "_eventsMeta": {
-    "updated": "2026-07-12 15:42 CST",
+    "updated": "2026-07-12 15:54 CST",
     "total": 28,
     "hand": 0,
     "macro": 28,
@@ -23086,110 +23086,45 @@
     }
   ],
   "_tushare_moneyflow": {
-    "000636": {
-      "main_net": 2.7,
-      "buy_sm_wan": 21.6,
-      "sell_sm_wan": 13.9
-    },
-    "000625": {
+    "000831": {
       "main_net": -0.1,
-      "buy_sm_wan": 2.6,
-      "sell_sm_wan": 2.8
-    },
-    "000600": {
-      "main_net": -0.1,
-      "buy_sm_wan": 0.8,
-      "sell_sm_wan": 0.8
-    },
-    "000566": {
-      "main_net": 0.4,
-      "buy_sm_wan": 5.1,
-      "sell_sm_wan": 4.8
-    },
-    "000807": {
-      "main_net": -1.1,
-      "buy_sm_wan": 4.9,
-      "sell_sm_wan": 7.3
-    },
-    "000801": {
-      "main_net": 0.1,
-      "buy_sm_wan": 1.1,
-      "sell_sm_wan": 1.1
-    },
-    "000070": {
-      "main_net": 0.4,
-      "buy_sm_wan": 7.9,
-      "sell_sm_wan": 6.6
-    },
-    "000668": {
-      "main_net": -0.1,
-      "buy_sm_wan": 0.2,
-      "sell_sm_wan": 0.2
-    },
-    "000099": {
-      "main_net": 0.0,
-      "buy_sm_wan": 0.8,
-      "sell_sm_wan": 0.7
-    },
-    "000002": {
-      "main_net": -0.2,
-      "buy_sm_wan": 2.1,
-      "sell_sm_wan": 2.5
-    },
-    "000823": {
-      "main_net": 0.5,
-      "buy_sm_wan": 5.6,
-      "sell_sm_wan": 4.8
-    },
-    "000591": {
-      "main_net": -0.0,
-      "buy_sm_wan": 0.7,
-      "sell_sm_wan": 0.7
-    },
-    "000506": {
-      "main_net": -0.2,
-      "buy_sm_wan": 4.1,
-      "sell_sm_wan": 4.2
-    },
-    "000728": {
-      "main_net": 0.1,
-      "buy_sm_wan": 0.9,
-      "sell_sm_wan": 0.6
-    },
-    "000737": {
-      "main_net": 0.3,
-      "buy_sm_wan": 1.8,
-      "sell_sm_wan": 1.7
+      "buy_sm_wan": 4.3,
+      "sell_sm_wan": 4.3
     },
     "000762": {
       "main_net": -0.0,
       "buy_sm_wan": 2.1,
       "sell_sm_wan": 1.8
     },
-    "000620": {
-      "main_net": -1.0,
-      "buy_sm_wan": 5.0,
-      "sell_sm_wan": 6.3
+    "000823": {
+      "main_net": 0.5,
+      "buy_sm_wan": 5.6,
+      "sell_sm_wan": 4.8
     },
-    "000063": {
-      "main_net": 3.4,
-      "buy_sm_wan": 38.7,
-      "sell_sm_wan": 28.8
+    "000600": {
+      "main_net": -0.1,
+      "buy_sm_wan": 0.8,
+      "sell_sm_wan": 0.8
     },
-    "000725": {
-      "main_net": 30.2,
-      "buy_sm_wan": 94.4,
-      "sell_sm_wan": 52.2
+    "000636": {
+      "main_net": 2.7,
+      "buy_sm_wan": 21.6,
+      "sell_sm_wan": 13.9
     },
     "000408": {
       "main_net": -0.3,
       "buy_sm_wan": 3.2,
       "sell_sm_wan": 3.8
     },
-    "000813": {
-      "main_net": 0.0,
-      "buy_sm_wan": 0.6,
-      "sell_sm_wan": 0.6
+    "000400": {
+      "main_net": -0.0,
+      "buy_sm_wan": 1.1,
+      "sell_sm_wan": 1.1
+    },
+    "000566": {
+      "main_net": 0.4,
+      "buy_sm_wan": 5.1,
+      "sell_sm_wan": 4.8
     },
     "000792": {
       "main_net": -0.0,
@@ -23201,45 +23136,110 @@
       "buy_sm_wan": 16.1,
       "sell_sm_wan": 17.3
     },
+    "000591": {
+      "main_net": -0.0,
+      "buy_sm_wan": 0.7,
+      "sell_sm_wan": 0.7
+    },
+    "000668": {
+      "main_net": -0.1,
+      "buy_sm_wan": 0.2,
+      "sell_sm_wan": 0.2
+    },
     "000809": {
       "main_net": 0.0,
       "buy_sm_wan": 0.3,
       "sell_sm_wan": 0.2
+    },
+    "000725": {
+      "main_net": 30.2,
+      "buy_sm_wan": 94.4,
+      "sell_sm_wan": 52.2
+    },
+    "000801": {
+      "main_net": 0.1,
+      "buy_sm_wan": 1.1,
+      "sell_sm_wan": 1.1
+    },
+    "000070": {
+      "main_net": 0.4,
+      "buy_sm_wan": 7.9,
+      "sell_sm_wan": 6.6
+    },
+    "000737": {
+      "main_net": 0.3,
+      "buy_sm_wan": 1.8,
+      "sell_sm_wan": 1.7
+    },
+    "000002": {
+      "main_net": -0.2,
+      "buy_sm_wan": 2.1,
+      "sell_sm_wan": 2.5
     },
     "000568": {
       "main_net": 0.3,
       "buy_sm_wan": 5.1,
       "sell_sm_wan": 5.0
     },
-    "000630": {
-      "main_net": -0.5,
-      "buy_sm_wan": 5.2,
-      "sell_sm_wan": 6.1
+    "000063": {
+      "main_net": 3.4,
+      "buy_sm_wan": 38.7,
+      "sell_sm_wan": 28.8
+    },
+    "000506": {
+      "main_net": -0.2,
+      "buy_sm_wan": 4.1,
+      "sell_sm_wan": 4.2
+    },
+    "000099": {
+      "main_net": 0.0,
+      "buy_sm_wan": 0.8,
+      "sell_sm_wan": 0.7
+    },
+    "000728": {
+      "main_net": 0.1,
+      "buy_sm_wan": 0.9,
+      "sell_sm_wan": 0.6
+    },
+    "000807": {
+      "main_net": -1.1,
+      "buy_sm_wan": 4.9,
+      "sell_sm_wan": 7.3
+    },
+    "000756": {
+      "main_net": -0.2,
+      "buy_sm_wan": 0.9,
+      "sell_sm_wan": 1.0
     },
     "000800": {
       "main_net": -0.0,
       "buy_sm_wan": 0.3,
       "sell_sm_wan": 0.4
     },
-    "000831": {
+    "000620": {
+      "main_net": -1.0,
+      "buy_sm_wan": 5.0,
+      "sell_sm_wan": 6.3
+    },
+    "000625": {
       "main_net": -0.1,
-      "buy_sm_wan": 4.3,
-      "sell_sm_wan": 4.3
+      "buy_sm_wan": 2.6,
+      "sell_sm_wan": 2.8
     },
-    "000400": {
-      "main_net": -0.0,
-      "buy_sm_wan": 1.1,
-      "sell_sm_wan": 1.1
+    "000630": {
+      "main_net": -0.5,
+      "buy_sm_wan": 5.2,
+      "sell_sm_wan": 6.1
     },
-    "000756": {
-      "main_net": -0.2,
-      "buy_sm_wan": 0.9,
-      "sell_sm_wan": 1.0
+    "000813": {
+      "main_net": 0.0,
+      "buy_sm_wan": 0.6,
+      "sell_sm_wan": 0.6
     }
   },
   "_tushare_meta": {
     "api_calls": 38,
-    "updated": "2026-07-12 15:31 CST"
+    "updated": "2026-07-12 15:44 CST"
   },
   "_promoteQueue": []
 }
