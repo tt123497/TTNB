@@ -19,6 +19,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "长电科技：低毛利困境待解，加码先进封装隐忧尚存",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-12/doc-inihpuee9698290.shtml",
+      "time": "15:32",
+      "src": "sina_A股"
+    },
+    {
       "t": "广电网络索赔已有新进展，受损投资者维权机会不容错过",
       "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpuee9673933.shtml",
       "time": "15:23",
@@ -28,12 +34,6 @@
       "t": "沃华医药索赔时效不足半年，受损投资者抓紧索赔",
       "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpucz4582717.shtml",
       "time": "15:23",
-      "src": "sina_A股"
-    },
-    {
-      "t": "赤峰黄金获小摩增持约33.31万股 每股作价约27.51港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihppwh9802739.shtml",
-      "time": "15:19",
       "src": "sina_A股"
     },
     {
@@ -62,6 +62,12 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "美军袭击伊朗东南部通信塔致2人受伤",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-12/doc-inihpucx7841001.shtml",
+      "time": "16:26",
+      "src": "sina_7x24"
+    },
     {
       "t": "国家发改委追加安排1亿元支持广西进一步做好台风灾害灾后应急恢复",
       "u": "https://wallstreetcn.com/livenews/3132409",
@@ -153,6 +159,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "实控人被留置，新产业火速回购护盘，内外业务“冰火两重天”",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-12/doc-inihpucx7845725.shtml",
+      "time": "15:32",
+      "src": "sina_A股"
+    },
+    {
       "t": "和誉-B获Allianz SE增持59.9万股 每股作价约11.41港元",
       "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucx7809532.shtml",
       "time": "15:31",
@@ -225,24 +237,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "FORTIOR获朱雀基金增持3.71万股 每股作价133.996港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuec2895637.shtml",
-      "time": "15:20",
-      "src": "sina_A股"
-    },
-    {
-      "t": "森松国际获富国基金增持159.1万股 每股作价约8.91港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucz4579342.shtml",
-      "time": "15:20",
-      "src": "sina_A股"
-    },
-    {
-      "t": "赤峰黄金获小摩增持约33.31万股 每股作价约27.51港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihppwh9802739.shtml",
-      "time": "15:19",
-      "src": "sina_A股"
-    },
-    {
       "t": "圣诺生物: 圣诺生物:2026年半年度业绩预告的自愿性披露公告",
       "u": "https://data.eastmoney.com/notices/detail/688117.html",
       "time": "07-13",
@@ -297,24 +291,6 @@
       "src": "em_ann"
     },
     {
-      "t": "燕京啤酒: 燕京啤酒:2025年度分红派息实施公告",
-      "u": "https://data.eastmoney.com/notices/detail/000729.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "润都股份: 润都股份:2026年半年度业绩预告",
-      "u": "https://data.eastmoney.com/notices/detail/002923.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "争光股份: 争光股份:关于公司高级管理人员减持股份的预披露公告",
-      "u": "https://data.eastmoney.com/notices/detail/301092.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
       "t": "宁波富邦: 宁波富邦:宁波富邦2026年半年度业绩预增公告",
       "u": "https://data.eastmoney.com/notices/detail/600768.html",
       "time": "07-13",
@@ -361,13 +337,47 @@
       "u": "https://data.eastmoney.com/notices/detail/600118.html",
       "time": "07-13",
       "src": "em_ann"
+    },
+    {
+      "t": "神力股份: 神力股份:2026年半年度业绩预增公告",
+      "u": "https://data.eastmoney.com/notices/detail/603819.html",
+      "time": "07-13",
+      "src": "em_ann"
+    },
+    {
+      "t": "平高电气: 平高电气:河南平高电气股份有限公司关于股东增持股份达到5%的权益变动提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/600312.html",
+      "time": "07-13",
+      "src": "em_ann"
+    },
+    {
+      "t": "三友化工: 三友化工:2026年半年度业绩预增公告",
+      "u": "https://data.eastmoney.com/notices/detail/600409.html",
+      "time": "07-13",
+      "src": "em_ann"
+    },
+    {
+      "t": "和达科技: 和达科技:上海市广发律师事务所关于浙江和达科技股份有限公司2024年限制性股票激励计划回购注销部分限制性股票实施的法律意见",
+      "u": "https://data.eastmoney.com/notices/detail/688296.html",
+      "time": "07-13",
+      "src": "em_ann"
     }
   ],
   "globalNews": {
     "headlines": [
       {
+        "t": "2连板星网宇达：卫星通信业务与长征十号乙运载火箭海上回收技术突破不存在业务关联",
+        "s": "【2连板星网宇达：卫星通信业务与长征十号乙运载火箭海上回收技术突破不存在业务关联】星网宇达(002829.SZ)公告称，截至目前，公司卫星通信业务2025年度实现营业收入占公司营业",
+        "ts": "2026-07-12 16:33:33"
+      },
+      {
+        "t": "传艺科技：拟向特定对象发行A股股票募资不超8.71亿元",
+        "s": "【传艺科技：拟向特定对象发行A股股票募资不超8.71亿元】传艺科技(002866.SZ)公告称，公司拟向不超过35名特定投资者发行不超过8685.67万股股票，募集资金总额不超过8",
+        "ts": "2026-07-12 16:26:14"
+      },
+      {
         "t": "国家发展改革委紧急安排1亿元中央预算内投资支持浙江台风灾害灾后应急恢复",
-        "s": "国家发展改革委紧急安排1亿元中央预算内投资支持浙江台风灾害灾后应急恢复。",
+        "s": "【国家发展改革委紧急安排1亿元中央预算内投资支持浙江台风灾害灾后应急恢复】7月11日夜间和12日凌晨，今年第9号台风“巴威”先后在浙江台州玉环市、温州乐清市两次登陆，浙江省多地出现",
         "ts": "2026-07-12 16:20:19"
       },
       {
@@ -479,24 +489,14 @@
         "t": "机构：HBM4价格今年下半年或涨至4-5美元/千比特 AI需求与产能瓶颈致全球DRAM半数产能被大厂锁定",
         "s": "【机构：HBM4价格今年下半年或涨至4-5美元/千比特 AI需求与产能瓶颈致全球DRAM半数产能被大厂锁定】DigiTimes报告显示，受AI需求激增、产能结构性瓶颈影响，下一代H",
         "ts": "2026-07-12 14:58:56"
-      },
-      {
-        "t": "巴基斯坦外长呼吁各方落实美伊谅解备忘录",
-        "s": "【巴基斯坦外长呼吁各方落实美伊谅解备忘录】巴基斯坦外交部12日通报称，巴基斯坦副总理兼外交部长达尔当天与伊朗外交部长阿拉格齐通电话，就地区局势等问题交换了意见。达尔在通话中强调，各",
-        "ts": "2026-07-12 14:54:50"
-      },
-      {
-        "t": "伊朗说以实力掌控和维护霍尔木兹",
-        "s": "【伊朗说以实力掌控和维护霍尔木兹】今天（7月12日），伊朗议会国家安全与外交政策委员会发言人易卜拉欣·雷扎伊在社交媒体上发文表示，伊朗“以实力掌控霍尔木兹海峡，也将以实力维护霍尔木",
-        "ts": "2026-07-12 14:52:08"
       }
     ],
-    "updated": "2026-07-12 08:22 UTC",
+    "updated": "2026-07-12 08:38 UTC",
     "status": "ok"
   },
   "_newsMeta": {
-    "updated": "2026-07-12 16:22 CST",
+    "updated": "2026-07-12 16:38 CST",
     "sector": 10,
-    "market": 55
+    "market": 51
   }
 }
