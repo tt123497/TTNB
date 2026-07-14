@@ -1,502 +1,388 @@
 {
   "_newsSector": [
     {
-      "t": "洛阳钼业发盈喜 预计上半年归母净利润同比增加78.76%到90.29%",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucx7824676.shtml",
-      "time": "15:58",
+      "t": "三个信号共振，科技ETF深V逆转！业绩为王，光模块、PCB领衔反攻！高“光”159363涨超3%资金再度爆买",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-14/doc-inihunsa5281190.shtml",
+      "time": "19:20",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "金融监管总局、文化和旅游部发布关于警惕借“保险客户旅游”名义侵害消费者权益的风险提示",
+      "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-07-14/doc-inihunsf8071346.shtml",
+      "time": "19:07",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "735只理财产品破净！市场震荡再度冲击银行理财，部分CR5产品净值加速下探",
+      "u": "https://finance.sina.com.cn/jjxw/2026-07-14/doc-inihunsa5270526.shtml",
+      "time": "19:00",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "A股最年轻上市银行董事长纪录再度刷新",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-14/doc-inihunsf8061675.shtml",
+      "time": "18:50",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "6家银行扎堆发行AI银行卡，不送咖啡改送Token了",
+      "u": "https://finance.sina.com.cn/roll/2026-07-14/doc-inihunsa5263148.shtml",
+      "time": "18:45",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "银行在电商平台开店“卖房”，宁夏银行处置抵债房产有新招",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-14/doc-inihunsf8048415.shtml",
+      "time": "18:39",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "全国首家总行信用卡中心“摘牌”，广州银行此前已注销7家信用卡分中心",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-14/doc-inihunsa5256545.shtml",
+      "time": "18:38",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "邦达亚洲:多重利空因素打压 黄金险守4000关口",
+      "u": "https://finance.sina.com.cn/money/forex/forexfxyc/2026-07-14/doc-inihunse1269182.shtml",
+      "time": "18:36",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "华尔街各大银行交易业务收入或将接近390亿美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihunsa5251690.shtml",
+      "time": "18:32",
       "src": "sina_A股"
     },
     {
-      "t": "野村：长飞光纤光缆维持“买入”评级 目标价266港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkgg/2026-07-12/doc-inihpucz4595525.shtml",
-      "time": "15:47",
-      "src": "sina_A股"
+      "t": "国有大行辟谣！5.25%高息存款背后，实为境外保险引流骗局",
+      "u": "https://finance.sina.com.cn/roll/2026-07-14/doc-inihunse1254812.shtml",
+      "time": "18:16",
+      "src": "sina_7x24"
     },
     {
-      "t": "小摩：紫金黄金国际维持“增持”评级 目标价170港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkgg/2026-07-12/doc-inihpucx7815974.shtml",
-      "time": "15:41",
-      "src": "sina_A股"
+      "t": "宁波银行：陈永明、陈初生董事任职资格获核准",
+      "u": "https://finance.sina.com.cn/jryx/hm/2026-07-14/doc-inihunsa5235084.shtml",
+      "time": "18:08",
+      "src": "sina_7x24"
     },
     {
-      "t": "长电科技：低毛利困境待解，加码先进封装隐忧尚存",
-      "u": "https://finance.sina.com.cn/stock/s/2026-07-12/doc-inihpuee9698290.shtml",
-      "time": "15:32",
-      "src": "sina_A股"
-    },
-    {
-      "t": "广电网络索赔已有新进展，受损投资者维权机会不容错过",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpuee9673933.shtml",
-      "time": "15:23",
-      "src": "sina_A股"
-    },
-    {
-      "t": "沃华医药索赔时效不足半年，受损投资者抓紧索赔",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpucz4582717.shtml",
-      "time": "15:23",
-      "src": "sina_A股"
-    },
-    {
-      "t": "西部黄金: 西部黄金:西部黄金股份有限公司关于控股股东拟与新疆地矿投资(集团)有限责任公司整体合并的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/601069.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "山东钢铁: 山东钢铁:山东钢铁股份有限公司2026年半年度业绩预告",
-      "u": "https://data.eastmoney.com/notices/detail/600022.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "中国卫星: 中国卫星:中国卫星2026年半年度业绩预告",
-      "u": "https://data.eastmoney.com/notices/detail/600118.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "三友化工: 三友化工:2026年半年度业绩预增公告",
-      "u": "https://data.eastmoney.com/notices/detail/600409.html",
-      "time": "07-13",
-      "src": "em_ann"
+      "t": "“五合一”结束，新行长到位：江苏银行告别过渡期",
+      "u": "https://finance.sina.com.cn/stock/zqgd/2026-07-14/doc-inihunsa5239497.shtml",
+      "time": "18:00",
+      "src": "sina_7x24"
     }
   ],
   "_newsMarket": [
     {
-      "t": "美军袭击伊朗东南部通信塔致2人受伤",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-12/doc-inihpucx7841001.shtml",
-      "time": "16:26",
+      "t": "三个信号共振，科技ETF深V逆转！业绩为王，光模块、PCB领衔反攻！高“光”159363涨超3%资金再度爆买",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-14/doc-inihunsa5281190.shtml",
+      "time": "19:20",
       "src": "sina_7x24"
     },
     {
-      "t": "国家发改委追加安排1亿元支持广西进一步做好台风灾害灾后应急恢复",
-      "u": "https://wallstreetcn.com/livenews/3132409",
-      "time": "16:18",
+      "t": "午后大反攻！三大指数集体收涨，创业板指反弹逾3%｜华宝基金3A日报（2026.7.14）",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-14/doc-inihunsa5280518.shtml",
+      "time": "19:19",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "中天期货:碳酸锂下跌停顿 橡胶持续震荡",
+      "u": "https://finance.sina.com.cn/money/future/fmnews/2026-07-14/doc-inihunsa5280467.shtml",
+      "time": "19:18",
+      "src": "sina_A股"
+    },
+    {
+      "t": "A股深V反转！有色金属爆发，华宝基金有色ETF（159876）强势拉升4.9%！科技午后集体走强，159363涨超3%",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-14/doc-inihunsf8080184.shtml",
+      "time": "19:18",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "应对年中及跨季资金面波动，6个月期买断式逆回购放量续作",
+      "u": "https://finance.sina.com.cn/roll/2026-07-14/doc-inihunry8503473.shtml",
+      "time": "19:13",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "IBM业绩公布后，ISHARES软件ETF跌幅扩大至3.5%，埃森哲下跌6.2%，ServiceNOW下跌4.5%，微软跌超2%。欧洲软件股受冲击，SAP股价下跌4.8%。",
+      "u": "https://wallstreetcn.com/livenews/3133626",
+      "time": "19:09",
       "src": "wscn_全球"
     },
     {
-      "t": "周末影响市场重要资讯回顾：商务部、海关总署对氦气实施临时禁止出口管理，伊朗暂时关闭霍尔木兹海峡",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-12/doc-inihpuee9687959.shtml",
-      "time": "16:06",
+      "t": "本末动力冲刺港股上市背后:“踩线”冲关？联想系等投资机构抬轿 大客户依赖下业绩骤增",
+      "u": "https://finance.sina.com.cn/stock/observe/2026-07-14/doc-inihunse1290973.shtml",
+      "time": "19:03",
       "src": "sina_7x24"
     },
     {
-      "t": "中国卫星：预计上半年业绩扭亏为盈",
-      "u": "https://wallstreetcn.com/livenews/3132405",
-      "time": "16:06",
+      "t": "IBM美股盘前跌超14%，公司第二财季初步营收不及预期",
+      "u": "https://wallstreetcn.com/livenews/3133624",
+      "time": "19:03",
       "src": "wscn_全球"
     },
     {
-      "t": "减持大牛股，这些A股公司赚大了",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-12/doc-inihpucx7829224.shtml",
-      "time": "16:04",
+      "t": "A股最年轻上市银行董事长纪录再度刷新",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-14/doc-inihunsf8061675.shtml",
+      "time": "18:50",
       "src": "sina_7x24"
     },
     {
-      "t": "古茗于7月10日斥资575.8万港元回购28.8万股",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucz4602220.shtml",
-      "time": "16:01",
-      "src": "sina_A股"
-    },
-    {
-      "t": "优必选：公司H股全流通获联交所授出上市批准",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuec2908497.shtml",
-      "time": "15:57",
-      "src": "sina_A股"
-    },
-    {
-      "t": "石药集团收到阿斯利康就战略合作与授权协议项下的2500万美元研发里程碑付款",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuec2906015.shtml",
-      "time": "15:49",
-      "src": "sina_A股"
-    },
-    {
-      "t": "西部黄金：控股股东拟与新疆地矿投资（集团）有限责任公司整体合并",
-      "u": "https://wallstreetcn.com/livenews/3132403",
-      "time": "15:49",
+      "t": "摩根大通盘前股价跌幅扩大至2.3%，摩根大通预计全财年调整后支出约1075亿美元，此前预期约1050亿美元。",
+      "u": "https://wallstreetcn.com/livenews/3133607",
+      "time": "18:50",
       "src": "wscn_全球"
     },
     {
-      "t": "奇瑞汽车获部分董事及高级管理层增持公司股份",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucz4596365.shtml",
-      "time": "15:48",
-      "src": "sina_A股"
-    },
-    {
-      "t": "小摩：阿里巴巴-W维持“增持”评级 目标价200港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkgg/2026-07-12/doc-inihpucx7817525.shtml",
-      "time": "15:44",
-      "src": "sina_A股"
-    },
-    {
-      "t": "下周影响市场重要资讯前瞻：A股首批中报将出炉，成品油调价窗口将开启，长鑫科技7月16日打新！",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-12/doc-inihpucx7817534.shtml",
-      "time": "15:44",
+      "t": "港股三大股指集体翻红！汽车股午后走高",
+      "u": "https://finance.sina.com.cn/stock/hyyj/2026-07-14/doc-inihunsa5263741.shtml",
+      "time": "18:45",
       "src": "sina_7x24"
     },
     {
-      "t": "小摩：紫金矿业维持“增持”评级 目标价50港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkgg/2026-07-12/doc-inihpuee9680070.shtml",
-      "time": "15:42",
+      "t": "那个差点买下美国交易所的重庆大佬，旗下上市公司连41万都拿不出来了…",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-14/doc-inihunsa5261279.shtml",
+      "time": "18:44",
       "src": "sina_A股"
     },
     {
-      "t": "ST银江再遭证监会立案  恐将再次面临投资者索赔",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpucz4592672.shtml",
-      "time": "15:42",
+      "t": "美国银行第二季度净利息收入为160.0亿美元，预期为159.2亿美元。\n\n第二季度每股收益为1.21美元。\n\n第二季度FICC交易收入（不含DVA）为35.4亿美元，预期为35.3亿美元。\n\n第二季度股票交易收入（不含DVA）为36.2亿美",
+      "u": "https://wallstreetcn.com/livenews/3133600",
+      "time": "18:44",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "002384，上半年业绩预增超280%！今日股价强势涨停",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-14/doc-inihunsf8052764.shtml",
+      "time": "18:42",
       "src": "sina_A股"
     },
     {
-      "t": "小摩：紫金黄金国际维持“增持”评级 目标价170港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/hkgg/2026-07-12/doc-inihpucx7815974.shtml",
-      "time": "15:41",
+      "t": "消息称三星正初步洽谈赴美发行股票事宜",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihunsa5254710.shtml",
+      "time": "18:36",
       "src": "sina_A股"
     },
     {
-      "t": "佰泽医疗遭Shanghai Xukun Enterprise Management Co., Ltd.减持500万股",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucx7810354.shtml",
-      "time": "15:33",
+      "t": "邦达亚洲:多重利空因素打压 黄金险守4000关口",
+      "u": "https://finance.sina.com.cn/money/forex/forexfxyc/2026-07-14/doc-inihunse1269182.shtml",
+      "time": "18:36",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "美联储主席沃什将首次出席国会听证会",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihunry8475952.shtml",
+      "time": "18:34",
       "src": "sina_A股"
     },
     {
-      "t": "实控人被留置，新产业火速回购护盘，内外业务“冰火两重天”",
-      "u": "https://finance.sina.com.cn/stock/s/2026-07-12/doc-inihpucx7845725.shtml",
-      "time": "15:32",
+      "t": "亚钾国际：上半年净利润同比预增50.31%—75.46%",
+      "u": "https://finance.sina.com.cn/jjxw/2026-07-14/doc-inihunsa5255129.shtml",
+      "time": "18:34",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "华尔街各大银行交易业务收入或将接近390亿美元",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihunsa5251690.shtml",
+      "time": "18:32",
       "src": "sina_A股"
     },
     {
-      "t": "和誉-B获Allianz SE增持59.9万股 每股作价约11.41港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucx7809532.shtml",
-      "time": "15:31",
+      "t": "四万亿企业年金的前世今生：养老金第二支柱如何走向覆盖扩面？",
+      "u": "https://finance.sina.com.cn/money/insurance/bxdt/2026-07-14/doc-inihunsa5255935.shtml",
+      "time": "18:32",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "摩根大通第二季度调整后营收为580.2亿美元，预期为513.9亿美元。\n\n第二季度每股收益为7.70美元；第二季度调整后每股收益为6.14美元。\n\n第二季度FICC（固定收益、外汇及大宗商品）销售与交易收入为60.5亿美元，预期为62.9亿",
+      "u": "https://wallstreetcn.com/livenews/3133594",
+      "time": "18:32",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "白银有色：预计上半年净利润6,400万元到9,500万元，将实现扭亏为盈，有色金属及贵金属产品市场价格同比上升。",
+      "u": "https://wallstreetcn.com/livenews/3133592",
+      "time": "18:31",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "富国银行第二季度营收为226.2亿美元，预期为218亿美元。\n\n第二季度每股收益为2.00美元。\n\n第二季度净利息收入为123.2亿美元，预期为123.2亿美元。\n\n富国银行美股盘前涨超1%。",
+      "u": "https://wallstreetcn.com/livenews/3133590",
+      "time": "18:30",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "万亿长鑫科技上市在即，员工持股超50亿股",
+      "u": "https://finance.sina.com.cn/stock/newstock/2026-07-14/doc-inihunse1267880.shtml",
+      "time": "18:22",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "伊朗媒体说布什尔地区发生数起爆炸",
+      "u": "https://wallstreetcn.com/livenews/3133578",
+      "time": "18:22",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "邦达亚洲:7月份加息预期升温 美元指数刷新7日高位",
+      "u": "https://finance.sina.com.cn/money/forex/forexfxyc/2026-07-14/doc-inihunry8465157.shtml",
+      "time": "18:18",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "长鑫科技即将上市，涨价论VS周期论，怎么估值才合适？",
+      "u": "https://finance.sina.com.cn/roll/2026-07-14/doc-inihunry8459019.shtml",
+      "time": "18:04",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "三星电子否认考虑赴美上市：并未研究发行 ADR 的可能性",
+      "u": "https://finance.sina.com.cn/tech/digi/2026-07-14/doc-inihunry8460118.shtml",
+      "time": "18:01",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "法国本土内衣品牌登陆IPO，正面抗衡快时尚巨头",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihunry8441496.shtml",
+      "time": "17:44",
       "src": "sina_A股"
     },
     {
-      "t": "凯莱英获小摩增持14.38万股 每股作价约111.63港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucz4585345.shtml",
-      "time": "15:30",
+      "t": "炸裂！603629，净利预增超11倍！算力业务爆发",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-14/doc-inihunse1225134.shtml",
+      "time": "17:43",
       "src": "sina_A股"
     },
     {
-      "t": "快手-W获小摩增持约3076.03万股 每股作价约41.57港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuee9674970.shtml",
-      "time": "15:29",
+      "t": "众泰汽车（000980）被证监会立案索赔启动，证通电子（002197）索赔案再提交法院立案",
+      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-14/doc-inihunse1216842.shtml",
+      "time": "17:38",
       "src": "sina_A股"
     },
     {
-      "t": "百奥赛图获富国基金增持31.1万股 每股作价约48.17港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuee9674788.shtml",
-      "time": "15:28",
+      "t": "地缘风险扰动通胀预期，美伊博弈推升加息定价",
+      "u": "https://finance.sina.com.cn/money/forex/hbfx/2026-07-14/doc-inihunsf7995215.shtml",
+      "time": "17:38",
       "src": "sina_A股"
     },
     {
-      "t": "东方证券遭易方达基金管理有限公司减持92.48万股 每股作价5.5059港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucx7807839.shtml",
-      "time": "15:28",
+      "t": "南威软件（603636）被证监会立案索赔启动，鹏博士（600804）索赔案倒计时三天",
+      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-14/doc-inihunsa5212977.shtml",
+      "time": "17:37",
       "src": "sina_A股"
     },
     {
-      "t": "东方电气遭摩根大通减持约203.24万股 每股作价约24.33港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucx7807423.shtml",
-      "time": "15:27",
+      "t": "银江技术（300020）再被证监会立案，投资者索赔案继续推进",
+      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-14/doc-inihunsf7990038.shtml",
+      "time": "17:35",
       "src": "sina_A股"
     },
     {
-      "t": "环球新材国际获王欢增持5.9万股 每股作价约7.37港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpucz4583209.shtml",
-      "time": "15:26",
+      "t": "商界宣战！参议院推进五角大楼承包商股票回购、分红限制条款",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihunse1203784.shtml",
+      "time": "17:23",
       "src": "sina_A股"
     },
     {
-      "t": "知行科技获朱庆华增持1.97万股 每股作价3.40港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuee9672767.shtml",
-      "time": "15:22",
+      "t": "长鑫上市：市场期待什么，又该如何选择？",
+      "u": "https://finance.sina.com.cn/wm/2026-07-14/doc-inihunry8428957.shtml",
+      "time": "17:10",
       "src": "sina_A股"
     },
     {
-      "t": "利欧股份（002131）被深交所处分，投资者索赔已批量提交立案",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpucx7807561.shtml",
-      "time": "15:22",
+      "t": "上海易连退市不退责，受损投资者还可维权",
+      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-14/doc-inihuhka8543129.shtml",
+      "time": "17:03",
       "src": "sina_A股"
     },
     {
-      "t": "易联众（300096）收到证监会正式处罚，投资者索赔倒计时",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpucx7807496.shtml",
-      "time": "15:22",
+      "t": "胜负彩26092期欧洲四大机构最新数据(17:00)",
+      "u": "https://sports.sina.com.cn/l/2026-07-12/doc-inihqetv4486194.shtml",
+      "time": "17:00",
+      "src": "sina_股票"
+    },
+    {
+      "t": "美机构发布2026年经济实力十强州榜单 结构性风险凸显美地方经济隐忧",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihuhkh1313156.shtml",
+      "time": "16:59",
       "src": "sina_A股"
     },
     {
-      "t": "佳缘科技（301117）被证监会立案索赔启动，诺泰生物（688076）索赔案持续推进",
-      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-12/doc-inihpuee9674265.shtml",
-      "time": "15:22",
+      "t": "PX-PTA-MEG：中东局势出现变数，预期反转",
+      "u": "https://finance.sina.com.cn/money/future/2026-07-14/doc-inihuhka8541586.shtml",
+      "time": "16:57",
       "src": "sina_A股"
     },
     {
-      "t": "海螺创业获安徽海螺集团增持1641万股 每股作价10.04港元",
-      "u": "https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-07-12/doc-inihpuee9672564.shtml",
-      "time": "15:21",
+      "t": "用户隐私争议发酵 脸书母公司Meta被迫下架旗下社交平台AI图像生成功能",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-14/doc-inihuhke5312394.shtml",
+      "time": "16:53",
       "src": "sina_A股"
     },
     {
-      "t": "圣诺生物: 圣诺生物:2026年半年度业绩预告的自愿性披露公告",
-      "u": "https://data.eastmoney.com/notices/detail/688117.html",
-      "time": "07-13",
+      "t": "*ST萃华连续13个跌停，此类股民可积极维权",
+      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-14/doc-inihuhki8079403.shtml",
+      "time": "16:45",
+      "src": "sina_A股"
+    },
+    {
+      "t": "华创云信: 华创云信:华创云信2026年半年度业绩预增公告",
+      "u": "https://data.eastmoney.com/notices/detail/600155.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "西部黄金: 西部黄金:西部黄金股份有限公司关于控股股东拟与新疆地矿投资(集团)有限责任公司整体合并的提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/601069.html",
-      "time": "07-13",
+      "t": "ST龙元: ST龙元:龙元建设关于2026年半年度业绩预告的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600491.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "联检科技: 联检科技:关于公司特定股东减持股份预披露的公告",
-      "u": "https://data.eastmoney.com/notices/detail/301115.html",
-      "time": "07-13",
+      "t": "众兴菌业: 众兴菌业:2026年半年度业绩预告",
+      "u": "https://data.eastmoney.com/notices/detail/002772.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "海森药业: 海森药业:关于持股5%以上股东提前终止减持计划暨减持结果的公告",
-      "u": "https://data.eastmoney.com/notices/detail/001367.html",
-      "time": "07-13",
+      "t": "中科金财: 中科金财:2026年半年度业绩预告",
+      "u": "https://data.eastmoney.com/notices/detail/002657.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "粤海饲料: 粤海饲料:2026年半年度业绩预告",
-      "u": "https://data.eastmoney.com/notices/detail/001313.html",
-      "time": "07-13",
+      "t": "佛燃能源: 佛燃能源:2026年半年度业绩快报",
+      "u": "https://data.eastmoney.com/notices/detail/002911.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "泽润新能: 泽润新能:关于首次公开发行前持股5%以上股东及董事、高级管理人员减持股份的预披露公告",
-      "u": "https://data.eastmoney.com/notices/detail/301636.html",
-      "time": "07-13",
+      "t": "元隆雅图: 元隆雅图:北京元隆雅图文化传播股份有限公司2026年半年度业绩预告",
+      "u": "https://data.eastmoney.com/notices/detail/002878.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "苏泊尔: 苏泊尔:关于公司高级管理人员减持股份计划实施完毕的公告",
-      "u": "https://data.eastmoney.com/notices/detail/002032.html",
-      "time": "07-13",
+      "t": "海能达: 海能达:2026年半年度业绩预告",
+      "u": "https://data.eastmoney.com/notices/detail/002583.html",
+      "time": "07-15",
       "src": "em_ann"
     },
     {
-      "t": "国科恒泰: 国科恒泰:关于公司股东减持股份的预披露公告",
-      "u": "https://data.eastmoney.com/notices/detail/301370.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "宁波富邦: 宁波富邦:宁波富邦2026年半年度业绩预增公告",
-      "u": "https://data.eastmoney.com/notices/detail/600768.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "杉杉股份: 杉杉股份:杉杉股份2026年半年度业绩预增公告",
-      "u": "https://data.eastmoney.com/notices/detail/600884.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "嘉泽转债: 嘉泽新能:嘉泽新能源股份有限公司关于以集中竞价交易方式回购公司股份比例达1%暨回购进展公告",
-      "u": "https://data.eastmoney.com/notices/detail/113039.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "南威软件: 南威软件:关于股东终止减持股份计划的公告",
-      "u": "https://data.eastmoney.com/notices/detail/603636.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "创耀科技: 创耀科技:湖南启元律师事务所关于创耀(苏州)通信科技股份有限公司差异化分红事项之专项法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/688259.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "山东钢铁: 山东钢铁:山东钢铁股份有限公司2026年半年度业绩预告",
-      "u": "https://data.eastmoney.com/notices/detail/600022.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "浦东金桥: 浦东金桥:浦东金桥差异化分红专项法律意见书",
-      "u": "https://data.eastmoney.com/notices/detail/600639.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "中国卫星: 中国卫星:中国卫星2026年半年度业绩预告",
-      "u": "https://data.eastmoney.com/notices/detail/600118.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "神力股份: 神力股份:2026年半年度业绩预增公告",
-      "u": "https://data.eastmoney.com/notices/detail/603819.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "平高电气: 平高电气:河南平高电气股份有限公司关于股东增持股份达到5%的权益变动提示性公告",
-      "u": "https://data.eastmoney.com/notices/detail/600312.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "三友化工: 三友化工:2026年半年度业绩预增公告",
-      "u": "https://data.eastmoney.com/notices/detail/600409.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "和达科技: 和达科技:上海市广发律师事务所关于浙江和达科技股份有限公司2024年限制性股票激励计划回购注销部分限制性股票实施的法律意见",
-      "u": "https://data.eastmoney.com/notices/detail/688296.html",
-      "time": "07-13",
-      "src": "em_ann"
-    },
-    {
-      "t": "和达科技: 和达科技:和达科技2024年限制性股票激励计划第一类限制性股票回购注销实施公告",
-      "u": "https://data.eastmoney.com/notices/detail/688296.html",
-      "time": "07-13",
+      "t": "大晟文化: 大晟文化:2026年半年度业绩预告",
+      "u": "https://data.eastmoney.com/notices/detail/600892.html",
+      "time": "07-15",
       "src": "em_ann"
     }
   ],
   "globalNews": {
-    "headlines": [
-      {
-        "t": "2连板星网宇达：卫星通信业务与长征十号乙运载火箭海上回收技术突破不存在业务关联",
-        "s": "【2连板星网宇达：卫星通信业务与长征十号乙运载火箭海上回收技术突破不存在业务关联】星网宇达(002829.SZ)公告称，截至目前，公司卫星通信业务2025年度实现营业收入占公司营业",
-        "ts": "2026-07-12 16:33:33"
-      },
-      {
-        "t": "传艺科技：拟向特定对象发行A股股票募资不超8.71亿元",
-        "s": "【传艺科技：拟向特定对象发行A股股票募资不超8.71亿元】传艺科技(002866.SZ)公告称，公司拟向不超过35名特定投资者发行不超过8685.67万股股票，募集资金总额不超过8",
-        "ts": "2026-07-12 16:26:14"
-      },
-      {
-        "t": "国家发展改革委紧急安排1亿元中央预算内投资支持浙江台风灾害灾后应急恢复",
-        "s": "【国家发展改革委紧急安排1亿元中央预算内投资支持浙江台风灾害灾后应急恢复】7月11日夜间和12日凌晨，今年第9号台风“巴威”先后在浙江台州玉环市、温州乐清市两次登陆，浙江省多地出现",
-        "ts": "2026-07-12 16:20:19"
-      },
-      {
-        "t": "国家发改委追加安排1亿元支持广西进一步做好台风灾害灾后应急恢复",
-        "s": "【国家发改委追加安排1亿元支持广西进一步做好台风灾害灾后应急恢复】近期，受今年第10号台风“美莎克”影响，广西多地发生严重暴雨、洪涝灾害。根据《国家自然灾害救助应急预案》和广西灾害",
-        "ts": "2026-07-12 16:19:57"
-      },
-      {
-        "t": "圣诺生物：预计2026年半年度净利润同比增长43.23%-64.79%",
-        "s": "【圣诺生物：预计2026年半年度净利润同比增长43.23%-64.79%】圣诺生物(688117.SH)公告称，预计2026年半年度归属于母公司所有者的净利润为1.27亿元-1.4",
-        "ts": "2026-07-12 16:18:06"
-      },
-      {
-        "t": "电影《功夫女足》总票房破4亿",
-        "s": "【电影《功夫女足》总票房破4亿】据票务平台数据，电影《功夫女足》上映2天，总票房破4亿。",
-        "ts": "2026-07-12 16:14:57"
-      },
-      {
-        "t": "国家防总加派工作组赴冀辽吉指导防汛工作",
-        "s": "【国家防总加派工作组赴冀辽吉指导防汛工作】7月12日上午，国家防总办公室、应急管理部继续组织中国气象局、水利部、自然资源部、住房城乡建设部、工业和信息化部、交通运输部等部门联合会商",
-        "ts": "2026-07-12 16:14:13"
-      },
-      {
-        "t": "伊朗克尔曼省一通信塔遭袭 2人受伤",
-        "s": "【伊朗克尔曼省一通信塔遭袭 2人受伤】当地时间12日，伊朗克尔曼省相关负责人表示，美军当天凌晨袭击了位于克尔曼省南部山区的一座通信塔。该官员称，此次袭击造成2人受伤。",
-        "ts": "2026-07-12 16:13:21"
-      },
-      {
-        "t": "巨力索具：收到行政处罚决定书 因误导性陈述被罚450万元",
-        "s": "【巨力索具：收到行政处罚决定书 因误导性陈述被罚450万元】巨力索具(002342.SZ)公告称，公司收到河北证监局下发的《行政处罚决定书》，因在深交所互动易平台回复投资者提问时未",
-        "ts": "2026-07-12 16:01:32"
-      },
-      {
-        "t": "台风“巴威”影响有变：多条高铁恢复开行 上海机场航班取消率仍超40%",
-        "s": "【台风“巴威”影响有变：多条高铁恢复开行 上海机场航班取消率仍超40%】长三角铁路发布消息表示，根据台风“巴威”路径变化和影响情况，铁路部门计划于12日14时起，恢复开行途经京沪高",
-        "ts": "2026-07-12 15:59:50"
-      },
-      {
-        "t": "美对伊新一轮打击 美防长称“伊朗付出代价”",
-        "s": "【美对伊新一轮打击 美防长称“伊朗付出代价”】美军中央司令部当天早些时候发帖称，美军于美国东部时间11日19时15分开始对伊朗发起打击。美国国防部长赫格塞思转发帖文，并称“伊朗做出",
-        "ts": "2026-07-12 15:58:39"
-      },
-      {
-        "t": "分散黑染料7月前后涨价4000元/吨至年内高点 上游供给收缩行情有望持续",
-        "s": "【分散黑染料7月前后涨价4000元/吨至年内高点 上游供给收缩行情有望持续】记者采访相关上市公司获悉，分散染料主要产品7月前后继续涨价，其中分散黑连续两次各涨价2000元/吨，目前",
-        "ts": "2026-07-12 15:48:40"
-      },
-      {
-        "t": "神力股份：预计上半年归母净利润同比增长103.13%-191.99%",
-        "s": "【神力股份：预计上半年归母净利润同比增长103.13%-191.99%】神力股份7月12日公告，预计2026年上半年实现归母净利润1600万元-2300万元，同比增长103.13%",
-        "ts": "2026-07-12 15:46:34"
-      },
-      {
-        "t": "亚联机械：公司近期经营情况正常，内外部经营环境未发生重大变化",
-        "s": "【亚联机械：公司近期经营情况正常，内外部经营环境未发生重大变化】亚联机械7月12日公告，公司股票连续两个交易日内（2026年7月9日2026年7月10日）日收盘价涨幅偏离值累计超过",
-        "ts": "2026-07-12 15:37:11"
-      },
-      {
-        "t": "西部黄金：控股股东拟与新疆地矿投资集团整体合并",
-        "s": "【西部黄金：控股股东拟与新疆地矿投资集团整体合并】西部黄金(601069.SH)公告称，公司接到控股股东新疆有色金属工业集团通知，其拟与新疆地矿投资集团整体合并。",
-        "ts": "2026-07-12 15:37:07"
-      },
-      {
-        "t": "杉杉股份：预计2026年半年度净利润同比增长262%-334%",
-        "s": "【杉杉股份：预计2026年半年度净利润同比增长262%-334%】杉杉股份(600884.SH)公告称，预计2026年半年度归属于上市公司股东的净利润为7.50亿元-9.00亿元，",
-        "ts": "2026-07-12 15:35:52"
-      },
-      {
-        "t": "粤海饲料：预计上半年归母净利润同比增长965.92%–1302.52%",
-        "s": "【粤海饲料：预计上半年归母净利润同比增长965.92%–1302.52%】粤海饲料7月12日公告，预计2026年上半年归母净利润3800万元–5000万元，同比增长965.92%–",
-        "ts": "2026-07-12 15:35:12"
-      },
-      {
-        "t": "恒通股份：拟投资不超过6亿元建设恒通印尼数字智慧产业园",
-        "s": "【恒通股份：拟投资不超过6亿元建设恒通印尼数字智慧产业园】恒通股份(603223.SH)公告称，公司拟在印度尼西亚宾坦岛卡朗巴塘经济特区投资建设恒通印尼数字智慧产业园，首次投资不超",
-        "ts": "2026-07-12 15:34:14"
-      },
-      {
-        "t": "润都股份：美阿沙坦钾片获药品注册证书",
-        "s": "【润都股份：美阿沙坦钾片获药品注册证书】润都股份(002923.SZ)公告称，公司近日收到国家药监局签发的两份美阿沙坦钾片《药品注册证书》，该药品适用于治疗成人原发性高血压。本次获",
-        "ts": "2026-07-12 15:34:11"
-      },
-      {
-        "t": "中国卫星：预计2026年半年度净利润3050万元-3650万元 同比扭亏为盈",
-        "s": "【中国卫星：预计2026年半年度净利润3050万元-3650万元 同比扭亏为盈】中国卫星(600118.SH)公告称，预计2026年半年度归属于上市公司股东的净利润为3050万元-",
-        "ts": "2026-07-12 15:33:32"
-      },
-      {
-        "t": "宁波富邦：预计2026年半年度净利润同比增长417%-520%",
-        "s": "【宁波富邦：预计2026年半年度净利润同比增长417%-520%】宁波富邦(600768.SH)公告称，预计2026年半年度归属于上市公司股东的净利润为5000万元-6000万元，",
-        "ts": "2026-07-12 15:33:20"
-      },
-      {
-        "t": "阿曼海域出事船只船员已获救",
-        "s": "【阿曼海域出事船只船员已获救】英国海上贸易行动办公室12日更新通报说，此前在阿曼以东海域因船尾受损起火的集装箱船船员已被当地政府救起。",
-        "ts": "2026-07-12 15:30:52"
-      },
-      {
-        "t": "广东迎降水高温将缓解",
-        "s": "【广东迎降水高温将缓解】“广东天气 ”预计，12日受台风“巴威”外围下沉气流影响，广东省大范围高温炎热天气持续，大部市县最高气温35～38℃局部39℃，局部间中有雷阵雨，雷雨时局地",
-        "ts": "2026-07-12 15:15:55"
-      },
-      {
-        "t": "约旦称3枚来自伊朗方向导弹落入境内 未造成人员伤亡",
-        "s": "【约旦称3枚来自伊朗方向导弹落入境内 未造成人员伤亡】约旦武装部队总司令部当地时间12日表示，当天凌晨，三枚来自伊朗方向的导弹落入约旦境内多个地点，未造成人员伤亡，仅造成轻微财产损",
-        "ts": "2026-07-12 15:01:40"
-      },
-      {
-        "t": "机构：HBM4价格今年下半年或涨至4-5美元/千比特 AI需求与产能瓶颈致全球DRAM半数产能被大厂锁定",
-        "s": "【机构：HBM4价格今年下半年或涨至4-5美元/千比特 AI需求与产能瓶颈致全球DRAM半数产能被大厂锁定】DigiTimes报告显示，受AI需求激增、产能结构性瓶颈影响，下一代H",
-        "ts": "2026-07-12 14:58:56"
-      }
-    ],
-    "updated": "2026-07-12 08:43 UTC",
-    "status": "ok"
+    "headlines": [],
+    "updated": "",
+    "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-07-12 16:43 CST",
-    "sector": 10,
-    "market": 50
+    "updated": "2026-07-14 19:21 CST",
+    "sector": 12,
+    "market": 84
   }
 }
