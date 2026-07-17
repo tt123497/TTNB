@@ -1,526 +1,598 @@
 {
   "_newsSector": [
     {
-      "t": "开盘：美股周四开盘涨跌不一 半导体板块表现疲软",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7713027.shtml",
-      "time": "21:30",
-      "src": "sina_A股"
-    },
-    {
-      "t": "香江控股签7.96亿元数据中心业务协议 海光信息预计净利润增超40%",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-16/doc-inihzfcw4487911.shtml",
-      "time": "21:23",
+      "t": "逆市护盘，四大行齐升！7月以来超额14%，百亿银行ETF华宝创年内天量，银行行情回归？",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickaz8240600.shtml",
+      "time": "19:24",
       "src": "sina_7x24"
     },
     {
-      "t": "紫金矿业邹来昌：中国乃至全球黄金产业正迎来高质量发展重大战略机遇期",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-16/doc-inihzfcz8218608.shtml",
-      "time": "21:18",
+      "t": "光模块龙头跳水，高“光”159363跌穿半年线！指数自高点回撤近23%，是情绪宣泄还是错杀机会？",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickaz8239574.shtml",
+      "time": "19:23",
       "src": "sina_7x24"
     },
     {
-      "t": "跳水！美股存储巨头，盘前大跌",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcz8214303.shtml",
-      "time": "21:18",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "又见券商整合！688亿国海证券盯上105亿大通证券，起拍价32亿",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcu7707022.shtml",
-      "time": "21:14",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "刚刚，全线跳水！美股、欧股、黄金、比特币，集体下挫！美伊突传重磅",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcu7700446.shtml",
-      "time": "21:09",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "SpaceX上市一月首度破发，市值蒸发逾8600亿美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4473002.shtml",
-      "time": "21:03",
-      "src": "sina_A股"
-    },
-    {
-      "t": "从盈利近5亿到持续亏损， 明阳智能“海上风电龙头”地位不再",
-      "u": "https://finance.sina.com.cn/roll/2026-07-16/doc-inihzfcy1425897.shtml",
-      "time": "20:54",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "现货黄金跌破4000美元",
-      "u": "https://finance.sina.com.cn/stock/hyyj/2026-07-16/doc-inihzfcz8197770.shtml",
-      "time": "20:54",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "报告称AI收入已达临界点 开始证明数据中心投资的经济合理性",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcz8152709.shtml",
-      "time": "20:15",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国食品杂货市场降温加剧：消费者采购量持续下滑，食品企业承压",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcy1340462.shtml",
-      "time": "19:44",
-      "src": "sina_A股"
-    },
-    {
-      "t": "日本计划购买英伟达Rubin芯片 以打造本土机器人AI模型",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4400030.shtml",
-      "time": "19:33",
-      "src": "sina_A股"
-    },
-    {
-      "t": "特朗普将罕见发表黄金时段全国讲话 或为质疑中期选举结果铺路",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7621625.shtml",
-      "time": "19:32",
-      "src": "sina_A股"
-    },
-    {
-      "t": "Uber同意收购德国食品配送商Delivery Hero 交易对后者估值148亿美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihyywa1443195.shtml",
+      "t": "制冷剂高温续涨！化工板块韧性彰显，华宝基金化工ETF（516020）盘中涨超1%！机构高呼“击球区”已至",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickay1462177.shtml",
       "time": "19:22",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "国寿投资被罚45万元：保险资金运用不规范",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickay1454798.shtml",
+      "time": "19:13",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "太平资管被罚60万元：保险资金运用不规范",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickaz8229631.shtml",
+      "time": "19:11",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "江西赣州银座村镇银行被罚29万元：违反征信业务管理规定",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickaz8226842.shtml",
+      "time": "19:09",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "贵阳银行：贵阳国资及一致行动人累计质押近半数持股",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-17/doc-iniickaz8225816.shtml",
+      "time": "19:08",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "天津银行成都分行被罚379.84万元：违反账户管理规定",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickay1448967.shtml",
+      "time": "19:06",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "农业银行剑阁县支行被罚28.76万元：占压财政存款或者资金",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickau7370397.shtml",
+      "time": "19:04",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "两融集中强平？多家券商回应：未出现大规模平仓",
+      "u": "https://finance.sina.com.cn/wm/2026-07-17/doc-iniickaw4147652.shtml",
+      "time": "19:03",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "招商银行被罚650万元：部分机构未纳入并表管理范围、未从银行集团层面对同一客户统一授信等",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickaz8213632.shtml",
+      "time": "18:55",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "平安银行召开2026年年中工作会议暨党建工作会议",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-17/doc-iniickaw4141792.shtml",
+      "time": "18:55",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "杭州银行：向特定对象发行A股股票方案到期失效",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-17/doc-iniickay1429328.shtml",
+      "time": "18:48",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "惠发食品扭亏背后：扣非仍在亏损 产品结构升级何时收效",
+      "u": "https://finance.sina.com.cn/stock/aigcy/2026-07-17/doc-iniickaw4132173.shtml",
+      "time": "18:47",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "北京银行天津红桥支行因欺骗投保人被罚5万元",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickay1427428.shtml",
+      "time": "18:45",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "建设银行天津市分行被罚30万元：员工管理不到位、员工从事违法活动",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickau7352935.shtml",
+      "time": "18:43",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "天津市吉信保险代理被罚20万元：虚挂保险代理业务套费等",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickay1423502.shtml",
+      "time": "18:41",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "宁夏银行天津北辰支行被罚30万元：贷款风险分类不准确",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickaw4126478.shtml",
+      "time": "18:40",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "从哈啰再接亿安经纪，看共享出行三巨头的保险中介棋局",
+      "u": "https://finance.sina.com.cn/wm/2026-07-17/doc-iniickaz8187375.shtml",
+      "time": "18:29",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "百利食品IPO：产品结构高度集中业绩增速持续下滑 家族控股超八成、产能闲置仍募资大举扩产 专利诉讼未决",
+      "u": "https://finance.sina.com.cn/stock/observe/2026-07-17/doc-iniickaz8173789.shtml",
+      "time": "18:19",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "两大股份行私人银行部同迎女将！中信零售老将赵彤玮领衔，民生80后刘怡眉内部提拔",
+      "u": "https://finance.sina.com.cn/money/bank/gsdt/2026-07-17/doc-iniiccuy4230968.shtml",
+      "time": "18:07",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "情况不妙！黄金失守4000 ，纳指跌至关键支撑",
+      "u": "https://finance.sina.com.cn/money/nmetal/hjzx/2026-07-17/doc-iniiccuw7429604.shtml",
+      "time": "17:40",
       "src": "sina_A股"
+    },
+    {
+      "t": "6年亏超50亿，优必选押注仿生机器人，能否破解“焦虑”？",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-17/doc-iniiccuw7407920.shtml",
+      "time": "17:10",
+      "src": "sina_A股"
+    },
+    {
+      "t": "百花医药信息披露不完整，引发投资者索赔还可加入",
+      "u": "https://finance.sina.com.cn/stock/gmwq/rightscase/2026-07-17/doc-iniiccuy4162184.shtml",
+      "time": "16:49",
+      "src": "sina_A股"
+    },
+    {
+      "t": "管理规模达470亿美元的南非基金经理减持AI芯片股 转而加码印度股市",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuw7379872.shtml",
+      "time": "16:44",
+      "src": "sina_A股"
+    },
+    {
+      "t": "宏盛华源: 宏盛华源:宏盛华源关于国家电网项目预中标的提示性公告",
+      "u": "https://data.eastmoney.com/notices/detail/601096.html",
+      "time": "07-18",
+      "src": "em_ann"
     }
   ],
   "_newsMarket": [
     {
-      "t": "美股盘初：费城半导体指数跌超2%，存储芯片股普跌，SK海力士跌约7%，台积电跌约3%",
-      "u": "https://wallstreetcn.com/livenews/3135107",
-      "time": "21:31",
+      "t": "【世界黄金协会：中国市场黄金ETF上半年实现显著流入】7月17日，世界黄金协会数据显示，6月金价走弱，抹去前期涨幅，上半年最终以下跌收官。尽管6月有流出，中国市场黄金ETF上半年仍实现显著流入，推动资产管理总规模（AUM）小幅升至2430亿",
+      "u": "https://wallstreetcn.com/livenews/3135688",
+      "time": "19:26",
       "src": "wscn_全球"
     },
     {
-      "t": "开盘：美股周四开盘涨跌不一 半导体板块表现疲软",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7713027.shtml",
-      "time": "21:30",
-      "src": "sina_A股"
-    },
-    {
-      "t": "紫金矿业邹来昌：中国乃至全球黄金产业正迎来高质量发展重大战略机遇期",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-16/doc-inihzfcz8218608.shtml",
-      "time": "21:18",
+      "t": "逆市护盘，四大行齐升！7月以来超额14%，百亿银行ETF华宝创年内天量，银行行情回归？",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickaz8240600.shtml",
+      "time": "19:24",
       "src": "sina_7x24"
     },
     {
-      "t": "空港股份：预计上半年小幅减亏",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-16/doc-inihzfcu7708146.shtml",
-      "time": "21:18",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "跳水！美股存储巨头，盘前大跌",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcz8214303.shtml",
-      "time": "21:18",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "强力反攻！7月以来港股ETF最高涨幅超18%，海量ETF怎么选？",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcw4484348.shtml",
-      "time": "21:18",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "美联储主席沃什首次国会作证，强调央行独立性",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4482122.shtml",
-      "time": "21:17",
-      "src": "sina_A股"
-    },
-    {
-      "t": "邮件误发导致苹果与OpenAI谈判破裂，随后对簿公堂",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcy1433656.shtml",
-      "time": "21:15",
-      "src": "sina_A股"
-    },
-    {
-      "t": "首批主动ETF试点已确定18家基金管理人",
-      "u": "https://wallstreetcn.com/livenews/3135104",
-      "time": "21:15",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "摩尔线程营收翻倍，海光信息净利大增！科创板30家公司报喜",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcz8214343.shtml",
-      "time": "21:12",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "布伦特原油突破85美元 中东石油运输风险加剧",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcz8206803.shtml",
-      "time": "21:11",
-      "src": "sina_A股"
-    },
-    {
-      "t": "优步148亿美元收购Delivery Hero，打造全球外卖巨擘",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcy1429784.shtml",
-      "time": "21:10",
-      "src": "sina_A股"
-    },
-    {
-      "t": "礼来斥资28亿美元收购致幻剂制药商AtaiBeckley",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4477363.shtml",
-      "time": "21:10",
-      "src": "sina_A股"
-    },
-    {
-      "t": "刚刚，全线跳水！美股、欧股、黄金、比特币，集体下挫！美伊突传重磅",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcu7700446.shtml",
-      "time": "21:09",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "韩国出台措施管控个股杠杆ETF风险",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7698777.shtml",
-      "time": "21:07",
-      "src": "sina_A股"
-    },
-    {
-      "t": "联合航空业绩超预期，但燃油成本激增60亿美元令股价承压",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcy1425107.shtml",
-      "time": "21:05",
-      "src": "sina_A股"
-    },
-    {
-      "t": "市场调整，私募这半月都在调研啥？",
-      "u": "https://finance.sina.com.cn/stock/wbstock/2026-07-16/doc-inihzfcy1429621.shtml",
-      "time": "21:05",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "现货白银日内跌幅达4.0%，报55.42美元/盎司。\n\n现货黄金日内跌2%，现报3977.25美元/盎司。",
-      "u": "https://wallstreetcn.com/livenews/3135101",
-      "time": "21:04",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "SpaceX上市一月首度破发，市值蒸发逾8600亿美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4473002.shtml",
-      "time": "21:03",
-      "src": "sina_A股"
-    },
-    {
-      "t": "苹果官网上架MacBook Neo官翻机，起售价4699元",
-      "u": "https://finance.sina.com.cn/stock/t/2026-07-16/doc-inihzfcw4474174.shtml",
-      "time": "21:00",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "夜盘期货开盘，沪银跌逾3%，沪金跌逾1%，氧化铝、白糖、棉花、橡胶等下跌；沪镍、乙二醇、原油、低硫燃油涨逾1%，不锈钢、苯乙烯等上涨。",
-      "u": "https://wallstreetcn.com/livenews/3135098",
-      "time": "21:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "今日多只宽基ETF尾盘放量",
-      "u": "https://wallstreetcn.com/livenews/3135094",
-      "time": "20:58",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "零售板块上涨1.33% 机构：行业有望迎来新机遇",
-      "u": "https://finance.sina.com.cn/stock/relnews/cn/2026-07-16/doc-inihzfcu7700161.shtml",
-      "time": "20:56",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "比上市价还贵：苹果官网上架 MacBook Neo 官翻机，起售价 4699 元",
-      "u": "https://finance.sina.com.cn/tech/digi/2026-07-16/doc-inihzfcw4475376.shtml",
-      "time": "20:55",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "“十倍神话”跌去七成还在买，杠杆ETF如何让韩股波动“加倍”",
-      "u": "https://finance.sina.com.cn/roll/2026-07-16/doc-inihzfcy1417725.shtml",
-      "time": "20:54",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "现货黄金跌破4000美元",
-      "u": "https://finance.sina.com.cn/stock/hyyj/2026-07-16/doc-inihzfcz8197770.shtml",
-      "time": "20:54",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "周四美股盘前你需要了解的全球要闻",
-      "u": "https://wallstreetcn.com/livenews/3135093",
-      "time": "20:53",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "两家国产AI公司上半年营收预增，摩尔线程预计营收增长超135％",
-      "u": "https://finance.sina.com.cn/jjxw/2026-07-16/doc-inihzfcu7687942.shtml",
-      "time": "20:47",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "现货黄金跌破4000美元/盎司，日内跌1.5%。",
-      "u": "https://wallstreetcn.com/livenews/3135091",
-      "time": "20:46",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "首批主动ETF，18家基金公司集结！",
-      "u": "https://finance.sina.com.cn/wm/2026-07-16/doc-inihzfcu7684434.shtml",
-      "time": "20:44",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "从43亿降到32亿，大通证券“三拍”终迎唯一买家，国海证券为何此时“抄底”？",
-      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-16/doc-inihzfcu7686329.shtml",
-      "time": "20:42",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "受油价上涨影响，英国10年期国债收益率上升6个基点至5.0%。",
-      "u": "https://wallstreetcn.com/livenews/3135089",
-      "time": "20:42",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "两大地缘冲突持续推高油价，当下值得布局的优质能源股",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4453271.shtml",
-      "time": "20:36",
-      "src": "sina_A股"
-    },
-    {
-      "t": "零跑全新B01和B10上市",
-      "u": "https://wallstreetcn.com/livenews/3135087",
-      "time": "20:34",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美元指数短线波动不大，现报100.56。美股期货短线走低，纳斯达克100指数期货跌1%。美国10年期国债收益率短线波动不大，现报4.580%。现货黄金短线小幅拉升，现报4028.21美元/盎司。",
-      "u": "https://wallstreetcn.com/livenews/3135086",
-      "time": "20:33",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "盘前：纳指期货跌0.93% 台积电领跌芯片股",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7688309.shtml",
-      "time": "20:30",
-      "src": "sina_A股"
-    },
-    {
-      "t": "欧洲股市延续跌势 布伦特原油一度再次突破85美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7670458.shtml",
-      "time": "20:28",
-      "src": "sina_A股"
-    },
-    {
-      "t": "台积电二季度利润大增77%，宣布向亚利桑那州追加千亿美元投资",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcz8165532.shtml",
-      "time": "20:27",
-      "src": "sina_A股"
-    },
-    {
-      "t": "报道：若电力网络遭到打击 伊朗将要求胡塞武装封锁红海",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcz8161498.shtml",
-      "time": "20:23",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英伟达推出全新AI模型",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4438155.shtml",
-      "time": "20:16",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英伟达推出全新AI模型，并扩大在日本物理AI生态系统布局",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7646072.shtml",
-      "time": "19:59",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英韧科技IPO：三年累计亏损13.76亿元却要募资32亿 毛利率从33%跌至5%显著低于同行",
-      "u": "https://finance.sina.com.cn/stock/observe/2026-07-16/doc-inihzfcz8128708.shtml",
-      "time": "19:54",
-      "src": "sina_A股"
-    },
-    {
-      "t": "英伟达发布全新人工智能模型，并扩建日本实体人工智能产业生态",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcy1345221.shtml",
-      "time": "19:48",
-      "src": "sina_A股"
-    },
-    {
-      "t": "礼来斥资28亿美元收购致幻药物企业AtaiBeckley",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcz8112967.shtml",
-      "time": "19:41",
-      "src": "sina_A股"
-    },
-    {
-      "t": "百度：将寻求转为在港交所主板和纳斯达克双重主要上市",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcy1329483.shtml",
-      "time": "19:36",
-      "src": "sina_A股"
-    },
-    {
-      "t": "日本计划购买英伟达Rubin芯片 以打造本土机器人AI模型",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcw4400030.shtml",
-      "time": "19:33",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美国一连五天袭击伊朗 局势升级导致霍尔木兹海峡石油运输量骤降",
-      "u": "https://finance.sina.com.cn/world/2026-07-16/doc-inihzfcu7621773.shtml",
-      "time": "19:32",
-      "src": "sina_A股"
-    },
-    {
-      "t": "特朗普将罕见发表黄金时段全国讲话 或为质疑中期选举结果铺路",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihzfcu7621625.shtml",
-      "time": "19:32",
-      "src": "sina_A股"
-    },
-    {
-      "t": "Uber同意收购德国食品配送商Delivery Hero 交易对后者估值148亿美元",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-16/doc-inihyywa1443195.shtml",
+      "t": "制冷剂高温续涨！化工板块韧性彰显，华宝基金化工ETF（516020）盘中涨超1%！机构高呼“击球区”已至",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickay1462177.shtml",
       "time": "19:22",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "创新药遭“错杀”？AH十余股狂泻逾10%！港股通创新药ETF（520880）、场内唯一药ETF同创历史最大单日跌幅",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickaw4155351.shtml",
+      "time": "19:15",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "国寿投资被罚45万元：保险资金运用不规范",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickay1454798.shtml",
+      "time": "19:13",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "两融集中强平？多家券商回应：未出现大规模平仓",
+      "u": "https://wallstreetcn.com/livenews/3135684",
+      "time": "19:13",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "领益智造：公司增加回购公司股份的资金总额，回购股份资金总额由“不低于2亿元（含），不超过4亿元（含）”调整为“不低于4亿元（含），不超过8亿元（含）”。",
+      "u": "https://wallstreetcn.com/livenews/3135683",
+      "time": "19:12",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "太平资管被罚60万元：保险资金运用不规范",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickaz8229631.shtml",
+      "time": "19:11",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "伊朗伊斯兰革命卫队袭击位于卡塔尔的美国空军基地",
+      "u": "https://finance.sina.com.cn/world/2026-07-17/doc-iniickaz8218459.shtml",
+      "time": "19:02",
       "src": "sina_A股"
     },
     {
-      "t": "A股再现离婚案！银信科技20.73%股权面临分割！",
-      "u": "https://finance.sina.com.cn/stock/s/2026-07-16/doc-inihyyvw7746517.shtml",
-      "time": "19:21",
+      "t": "招商银行被罚650万元：部分机构未纳入并表管理范围、未从银行集团层面对同一客户统一授信等",
+      "u": "https://finance.sina.com.cn/jryx/fd/2026-07-17/doc-iniickaz8213632.shtml",
+      "time": "18:55",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "涪陵电力：国网综能正在筹划将公司控股股东川东电力持有的公司全部股份划转至国网综能。本次股份划转完成后，川东电力不再持有公司股份，国网综能将直接持有公司41.65%股权并成为公司控股股东，国家电网有限公司仍为公司最终控股股东，公司实际控制人仍",
+      "u": "https://wallstreetcn.com/livenews/3135678",
+      "time": "18:50",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "突然爆雷！美股巨头，直线跳水！发生了什么？",
+      "u": "https://finance.sina.com.cn/wm/2026-07-17/doc-iniickaw4137869.shtml",
+      "time": "18:49",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "杭州银行：向特定对象发行A股股票方案到期失效",
+      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-17/doc-iniickay1429328.shtml",
+      "time": "18:48",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "海航控股：公司与空客公司于2026年7月17日签订《飞机购买协议》，向空客公司购买40架A320NEO系列飞机，交易总金额不超过53.6亿美元。",
+      "u": "https://wallstreetcn.com/livenews/3135676",
+      "time": "18:48",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "ST文峰，被证监会立案调查",
+      "u": "https://finance.sina.com.cn/jjxw/2026-07-17/doc-iniickaz8202009.shtml",
+      "time": "18:38",
       "src": "sina_A股"
+    },
+    {
+      "t": "布伦特原油日内涨幅达2.0%，报85.95美元/桶。WTI原油涨超2%，报79.85美元/桶。",
+      "u": "https://wallstreetcn.com/livenews/3135673",
+      "time": "18:31",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "伊朗革命卫队打击卡塔尔美军基地",
+      "u": "https://wallstreetcn.com/livenews/3135672",
+      "time": "18:29",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "历史规律或许能解释英伟达股价估值偏低的原因",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniickaz8184183.shtml",
+      "time": "18:28",
+      "src": "sina_A股"
+    },
+    {
+      "t": "上交所：本周，对157起拉抬打压、虚假申报等证券异常交易行为采取了自律监管措施，对33起上市公司重大事项等进行专项核查，向证监会上报涉嫌违法违规案件线索5起。",
+      "u": "https://wallstreetcn.com/livenews/3135670",
+      "time": "18:28",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "2026上半年港股IPO：大盘指数走弱背景下 供给扩容的客观逻辑与新股炒作的结构性隐忧",
+      "u": "https://finance.sina.com.cn/stock/observe/2026-07-17/doc-iniickay1402959.shtml",
+      "time": "18:24",
+      "src": "sina_A股"
+    },
+    {
+      "t": "百利食品IPO：产品结构高度集中业绩增速持续下滑 家族控股超八成、产能闲置仍募资大举扩产 专利诉讼未决",
+      "u": "https://finance.sina.com.cn/stock/observe/2026-07-17/doc-iniickaz8173789.shtml",
+      "time": "18:19",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "美伊冲突升级致供电设施受损 伊朗能源部呼吁居民错峰节电以应对极端高温",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniickaz8170949.shtml",
+      "time": "18:16",
+      "src": "sina_A股"
+    },
+    {
+      "t": "ETF周报：A股调整 宽基ETF逆势吸金近千亿",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-17/doc-iniickay1393558.shtml",
+      "time": "18:15",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "A股资金流向曝光！这三大板块获资金流入",
+      "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-17/doc-iniickay1394532.shtml",
+      "time": "18:13",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "601010，公司及控股股东被证监会立案调查！",
+      "u": "https://finance.sina.com.cn/stock/s/2026-07-17/doc-iniiccuw7454187.shtml",
+      "time": "18:03",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美企高管上半年抛售自家股票近780亿美元 内部交易释放市场谨慎信号",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuw7448260.shtml",
+      "time": "18:02",
+      "src": "sina_A股"
+    },
+    {
+      "t": "伊朗称美军最新空袭击中民用设施，伊方将打击范围扩大至叙利亚、巴林",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuy4208859.shtml",
+      "time": "17:42",
+      "src": "sina_A股"
+    },
+    {
+      "t": "情况不妙！黄金失守4000 ，纳指跌至关键支撑",
+      "u": "https://finance.sina.com.cn/money/nmetal/hjzx/2026-07-17/doc-iniiccuw7429604.shtml",
+      "time": "17:40",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美伊冲突加剧，霍尔木兹海峡原油供应风险升温，国际油价上涨",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuw7424316.shtml",
+      "time": "17:33",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美股AI板块遭遇抛售，亚洲芯片股同步走弱，软银大跌超9%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccva1478301.shtml",
+      "time": "17:31",
+      "src": "sina_A股"
+    },
+    {
+      "t": "日本央行据悉将上调经济增长预期 维持政策利率不变",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuw7420916.shtml",
+      "time": "17:29",
+      "src": "sina_A股"
+    },
+    {
+      "t": "瑞银维持看涨标普500 看好盈利前景 预计今年AI资本支出激增68%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuw7419299.shtml",
+      "time": "17:26",
+      "src": "sina_A股"
+    },
+    {
+      "t": "Meta拟聘请亚马逊顶尖云计算高管 筹备大举进军云市场",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccva1467359.shtml",
+      "time": "17:18",
+      "src": "sina_A股"
+    },
+    {
+      "t": "芯片股抛售引发板块轮动 美股期货下跌",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccvc8241288.shtml",
+      "time": "17:16",
+      "src": "sina_A股"
+    },
+    {
+      "t": "英美石油、康菲石油将大手笔投资伊拉克 助力美国削弱伊朗能源掌控力",
+      "u": "https://finance.sina.com.cn/world/2026-07-17/doc-iniiccva1463165.shtml",
+      "time": "17:15",
+      "src": "sina_A股"
+    },
+    {
+      "t": "瑞银资产管理高管看空美债 认为德债是极佳的防御性配置选择",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccva1460285.shtml",
+      "time": "17:12",
+      "src": "sina_A股"
+    },
+    {
+      "t": "胜负彩26093期欧洲四大机构最新数据(17:00)",
+      "u": "https://sports.sina.com.cn/l/2026-07-16/doc-inihyqha7691058.shtml",
+      "time": "17:01",
+      "src": "sina_股票"
+    },
+    {
+      "t": "【国投期货|能源评数】原油：2026年7月IEA/EIA/OPEC机构月报点评",
+      "u": "https://finance.sina.com.cn/money/future/fmnews/2026-07-17/doc-iniiccuw7399804.shtml",
+      "time": "16:49",
+      "src": "sina_A股"
+    },
+    {
+      "t": "管理规模达470亿美元的南非基金经理减持AI芯片股 转而加码印度股市",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccuw7379872.shtml",
+      "time": "16:44",
+      "src": "sina_A股"
+    },
+    {
+      "t": "投资人Michael Burry称现在是逢低买入中国香港股票的“好时机”",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccva1426930.shtml",
+      "time": "16:43",
+      "src": "sina_A股"
+    },
+    {
+      "t": "英美石油、康菲石油拟向伊拉克大手笔投资，美国意在削弱伊朗能源影响力",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiccvc8201570.shtml",
+      "time": "16:41",
+      "src": "sina_A股"
+    },
+    {
+      "t": "A股全线重挫，创业板跌超7%！发生了什么？",
+      "u": "https://finance.sina.com.cn/money/future/2026-07-17/doc-iniiccva1465659.shtml",
+      "time": "16:37",
+      "src": "sina_A股"
+    },
+    {
+      "t": "黑芝麻: 黑芝麻:国浩关于南方黑芝麻集团股份有限公司2023年限制性股票激励计划第二个解除限售期解除限售条件未成就暨回购注销部分限制性股票之法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/000716.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "黑芝麻: 黑芝麻:关于2023年限制性股票激励计划第二个解除限售期解除限售条件未成就暨回购注销部分限制性股票的公告",
+      "u": "https://data.eastmoney.com/notices/detail/000716.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "三花智控: 三花智控:北京市中伦律师事务所关于浙江三花智能控制股份有限公司2024年限制性股票激励计划调整回购价格及回购注销部分限制性股票的法律意见书",
+      "u": "https://data.eastmoney.com/notices/detail/002050.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "圣湘生物: 圣湘生物:圣湘生物科技股份有限公司关于股份回购实施结果的公告",
+      "u": "https://data.eastmoney.com/notices/detail/688289.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "卓郎智能: 卓郎智能:关于控股股东被动减持股份结果的公告",
+      "u": "https://data.eastmoney.com/notices/detail/600545.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "上海谊众: 上海谊众:上海谊众药业股份有限公司关于以集中竞价方式回购股份的回购报告书",
+      "u": "https://data.eastmoney.com/notices/detail/688091.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "华懋转债: 华懋科技:2026-058华懋科技关于董事增持公司股份的公告",
+      "u": "https://data.eastmoney.com/notices/detail/113677.html",
+      "time": "07-18",
+      "src": "em_ann"
+    },
+    {
+      "t": "国网信通: 国网信通:国网信息通信股份有限公司2026年半年度业绩快报公告",
+      "u": "https://data.eastmoney.com/notices/detail/600131.html",
+      "time": "07-18",
+      "src": "em_ann"
     }
   ],
   "globalNews": {
     "headlines": [
       {
-        "t": "韦德布什对谷歌母公司Alphabet启动覆盖 目标价为445美元",
-        "s": "韦德布什对谷歌母公司Alphabet启动覆盖，给予强于大盘评级，目标价为445美元。",
-        "ts": "2026-07-16 21:30:58"
+        "t": "津巴布韦政府拒绝锂矿商关于推迟出口禁令的请求",
+        "s": "【津巴布韦政府拒绝锂矿商关于推迟出口禁令的请求】据报道，津巴布韦矿业部长坎巴穆拉表示，政府已拒绝行业提出的将原定于明年1月生效的锂精矿出口禁令至少推迟至3月的请求。",
+        "ts": "2026-07-17 19:20:21"
       },
       {
-        "t": "浙江美大：控制权拟变更 股票复牌",
-        "s": "【浙江美大：控制权拟变更 股票复牌】浙江美大(002677.SZ)公告称，公司控股股东、实际控制人夏志生、夏鼎与深圳星蓝图产业投资合伙企业签署《股份转让协议》，拟以协议转让方式分别",
-        "ts": "2026-07-16 21:30:10"
+        "t": "皇冠新材深主板IPO过会",
+        "s": "【皇冠新材深主板IPO过会】7月17日，深交所网站显示，皇冠新材料科技股份有限公司（简称“皇冠新材”）深主板IPO项目获得上市委审议通过。",
+        "ts": "2026-07-17 19:19:37"
       },
       {
-        "t": "苹果据悉最快今秋推出OLED版iPad mini 明年更新入门版及iPad Air",
-        "s": "【苹果据悉最快今秋推出OLED版iPad mini 明年更新入门版及iPad Air】当地时间7月16日，科技记者马克·古尔曼发文称， 苹果公司正准备推出五年来最大升级版iPad ",
-        "ts": "2026-07-16 21:25:33"
+        "t": "玄信资产宣布自购1000万元",
+        "s": "【玄信资产宣布自购1000万元】上海玄信资产管理中心（有限合伙）（简称“玄信资产”）7月17日晚间发布使用自有资金申购玄信资产旗下基金产品的公告称，基于对中国资本市场长期发展前景的",
+        "ts": "2026-07-17 19:19:06"
       },
       {
-        "t": "美被曝对伊战争支出或高达1000亿美元",
-        "s": "【美被曝对伊战争支出或高达1000亿美元】据美国方面7月15日消息，美国国防部内部的一份评估数据显示，美国对伊朗军事行动的实际支出可能高达1000亿美元，远超美国政府此前公布的约3",
-        "ts": "2026-07-16 21:19:16"
+        "t": "高盛看好通宇通讯低轨卫星相关业务前景",
+        "s": "【高盛看好通宇通讯低轨卫星相关业务前景】7月16日，高盛发布报告称，通宇通讯在低轨卫星相控阵天线领域具备相关经验，已形成全面的产品线布局，并较早进入重点低轨卫星星座供应链。随着中国",
+        "ts": "2026-07-17 19:18:35"
       },
       {
-        "t": "伊朗外交部发言人：任何侵略行为都将遭到坚决回应",
-        "s": "【伊朗外交部发言人：任何侵略行为都将遭到坚决回应】当地时间16日，伊朗外交部发言人巴加埃表示，伊朗武装力量已为各种可能情形做好充分准备，这一点已经在实际行动中得到证明。任何针对伊朗",
-        "ts": "2026-07-16 21:18:18"
+        "t": "三花智控：拟回购注销64.85万股限制性股票",
+        "s": "【三花智控：拟回购注销64.85万股限制性股票】三花智控公告，公司于2026年7月17日召开第八届董事会第十九次临时会议，审议通过《关于回购注销部分限制性股票的议案》，拟回购注销2",
+        "ts": "2026-07-17 19:15:00"
       },
       {
-        "t": "*ST东易：撤销退市风险警示及其他风险警示 股票简称变更为“东易日盛”",
-        "s": "【*ST东易：撤销退市风险警示及其他风险警示 股票简称变更为“东易日盛”】*ST东易(002713.SZ)公告称，公司股票将于2026年7月17日停牌一天，7月20日复牌并撤销退市",
-        "ts": "2026-07-16 21:14:12"
+        "t": "伯纳姆当选英国工党党首 将接任首相",
+        "s": "【伯纳姆当选英国工党党首 将接任首相】当地时间7月17日，英国执政党工党在特别大会上宣布，安迪·伯纳姆当选工党党首，待英国国王查尔斯三世任命后，将接替斯塔默出任英国首相。",
+        "ts": "2026-07-17 19:14:38"
       },
       {
-        "t": "密码管理软件1Password宣布与Anthropic联合推出1Password for Claude集成",
-        "s": "密码管理软件1Password宣布与Anthropic联合推出1Password for Claude集成，现已在Mac上推出，覆盖商业版、家庭版及个人版套餐。",
-        "ts": "2026-07-16 21:13:44"
+        "t": "中国光伏行业协会征集行业专家开展太空光伏领域专项研究",
+        "s": "【中国光伏行业协会征集行业专家开展太空光伏领域专项研究】中国光伏行业协会拟面向全社会公开征集专家，共同开展太空光伏产业的政策研究、技术攻关、标准编制等工作。",
+        "ts": "2026-07-17 19:12:22"
       },
       {
-        "t": "数据显示霍尔木兹海峡航运活动持续低迷",
-        "s": "【数据显示霍尔木兹海峡航运活动持续低迷】央视记者当地时间16日获悉，霍尔木兹海峡的航运活动仍处于低位。国际市场服务机构克普勒公司发布数据显示，16日仅有13艘商船通过霍尔木兹海峡，",
-        "ts": "2026-07-16 21:10:40"
+        "t": "智微智能：上半年净利润同比增长282%",
+        "s": "【智微智能：上半年净利润同比增长282%】智微智能(001339.SZ)发布2026年半年度报告，实现营业收入30.5亿元，同比增长56.64%；归属于上市公司股东的净利润3.88",
+        "ts": "2026-07-17 19:11:50"
       },
       {
-        "t": "*ST摩登：股票撤销退市风险警示 简称变更为“摩登大道”",
-        "s": "【*ST摩登：股票撤销退市风险警示 简称变更为“摩登大道”】*ST摩登(002656.SZ)公告称，公司股票将于2026年7月17日停牌一天，7月20日复牌并撤销退市风险警示，股票",
-        "ts": "2026-07-16 21:09:55"
+        "t": "两融集中强平？多家券商回应：未出现大规模平仓",
+        "s": "【两融集中强平？多家券商回应：未出现大规模平仓】今日午后，社交平台流传关于两融账户集中爆仓、券商批量强制平仓的市场小作文，引发投资者情绪担忧。记者第一时间采访多家券商，市场真实情况",
+        "ts": "2026-07-17 19:08:07"
       },
       {
-        "t": "瑞银将可口可乐目标股价从92美元上调至98美元",
-        "s": "瑞银将可口可乐目标股价从92美元上调至98美元。",
-        "ts": "2026-07-16 21:09:23"
+        "t": "国科微：拟向特定对象发行股票募资不超过50.61亿元",
+        "s": "【国科微：拟向特定对象发行股票募资不超过50.61亿元】国科微(300672.SZ)公告称，公司拟向不超过35名特定投资者发行股票，募集资金总额不超过50.61亿元，扣除发行费用后",
+        "ts": "2026-07-17 19:07:19"
       },
       {
-        "t": "伊朗方面称发现被击落的美军MQ-9无人机残骸",
-        "s": "【伊朗方面称发现被击落的美军MQ-9无人机残骸】总台记者当地时间16日获悉，伊朗方面称，当天凌晨，一架美军MQ-9“死神”无人机在伊朗安迪梅什克上空被伊朗伊斯兰革命卫队空天部队新型",
-        "ts": "2026-07-16 21:06:27"
+        "t": "德意志银行上调耐克公司目标股价",
+        "s": "【德意志银行上调耐克公司目标股价】德意志银行将耐克公司目标股价从43美元上调至45美元。",
+        "ts": "2026-07-17 19:06:45"
       },
       {
-        "t": "现货白银日内跌幅扩大至4%",
-        "s": "现货白银日内跌幅扩大至4%，报55.42美元/盎司；现货黄金日内跌幅扩大至2%，报3977.16美元/盎司。",
-        "ts": "2026-07-16 21:03:16"
+        "t": "甘咨询：高盛国际对公司股票的持仓比例较低",
+        "s": "【甘咨询：高盛国际对公司股票的持仓比例较低】甘咨询(000779.SZ)公告称，经查询截至2026年7月10日公司股东信息，高盛国际对公司股票的持仓比例较低。近期个别媒体关于“高盛",
+        "ts": "2026-07-17 19:05:55"
       },
       {
-        "t": "国内商品期货夜盘开盘 主力合约跌多涨少",
-        "s": "国内商品期货夜盘开盘，主力合约跌多涨少。跌幅方面，沪银跌超3%，沪金跌超1%，氧化铝、白糖、棉花、橡胶、玻璃等小幅下跌；涨幅方面，沪镍、乙二醇、原油、低硫燃油涨超1%。",
-        "ts": "2026-07-16 21:00:13"
+        "t": "BMO上调贝莱德、摩根士丹利目标价 下调高盛目标价",
+        "s": "【BMO上调贝莱德、摩根士丹利目标价 下调高盛目标价】BMO将贝莱德目标价从1250美元上调至1300美元，将高盛目标价从1190美元下调至1150美元，将摩根士丹利目标价从240",
+        "ts": "2026-07-17 19:05:40"
       },
       {
-        "t": "埃尼石油公司首席执行官表示 其欧洲地区的乙烯和聚乙烯生产业务已停止运营",
-        "s": "埃尼石油公司首席执行官表示，其欧洲地区的乙烯和聚乙烯生产业务已停止运营。",
-        "ts": "2026-07-16 20:56:04"
+        "t": "世界黄金协会：中国市场黄金ETF上半年实现显著流入",
+        "s": "【世界黄金协会：中国市场黄金ETF上半年实现显著流入】据世界黄金协会，6月金价走弱，抹去前期涨幅，上半年最终以下跌收官。尽管6月有流出，中国市场黄金ETF上半年仍实现显著流入，推动",
+        "ts": "2026-07-17 19:04:33"
       },
       {
-        "t": "小鹏汽车致歉",
-        "s": "【小鹏汽车致歉】7月16日，小鹏官方在社区发布关于小鹏X9空气弹簧的质保方案升级的公告。公告称，关注到部分小鹏X9用户在高温等极端场景遇到空气弹簧故障，带来不好的用车体验，小鹏集团",
-        "ts": "2026-07-16 20:51:25"
+        "t": "大摩：微软生成式AI领导地位“明确” Azure及M365支出意向持续走强",
+        "s": "【大摩：微软生成式AI领导地位“明确” Azure及M365支出意向持续走强】摩根士丹利发布研报称，微软在生成式人工智能(GenAI)领域的领导地位“十分明确”，并援引Micros",
+        "ts": "2026-07-17 19:01:03"
       },
       {
-        "t": "现货黄金跌破4000美元/盎司",
-        "s": "现货黄金跌破4000美元/盎司，日内下跌1.46%；现货白银下跌至56美元/盎司，日内下跌3%。",
-        "ts": "2026-07-16 20:47:51"
+        "t": "Databricks宣布新一轮融资 估值达1880亿美元",
+        "s": "【Databricks宣布新一轮融资 估值达1880亿美元】美国数据与人工智能公司Databricks当地时间7月16日宣布新一轮战略融资，公司估值达1880亿美元。Databri",
+        "ts": "2026-07-17 18:57:49"
       },
       {
-        "t": "富国银行将美国中盘股评级从“看好”下调至“中性”",
-        "s": "富国银行将美国中盘股评级从“看好”下调至“中性”。",
-        "ts": "2026-07-16 20:42:56"
+        "t": "泽连斯基：乌克兰在恩格斯空军基地摧毁了俄罗斯的图-95军用飞机",
+        "s": "【泽连斯基：乌克兰在恩格斯空军基地摧毁了俄罗斯的图-95军用飞机】乌克兰总统泽连斯基表示，乌克兰在恩格斯空军基地摧毁了俄罗斯的图-95军用飞机。",
+        "ts": "2026-07-17 18:54:38"
       },
       {
-        "t": "英国10年期国债收益率上升6个基点至5.0%",
-        "s": "英国10年期国债收益率上升6个基点至5.0%。",
-        "ts": "2026-07-16 20:42:15"
+        "t": "国际能源署：数周内全球能源安全或亮“红灯”",
+        "s": "【国际能源署：数周内全球能源安全或亮“红灯”】国际能源署署长法提赫·比罗尔16日警告，若经由霍尔木兹海峡的石油运输几周内无法恢复，全球能源安全将亮起红灯。",
+        "ts": "2026-07-17 18:54:28"
       },
       {
-        "t": "广西北部湾港首次开通至约旦亚喀巴港滚装航线 单航次发运量创历史新高",
-        "s": "【广西北部湾港首次开通至约旦亚喀巴港滚装航线 单航次发运量创历史新高】广西北部湾港16日5时首次开通至约旦亚喀巴港滚装航线，2600多辆中国国产汽车统一发运。据了解，此次发运进一步",
-        "ts": "2026-07-16 20:41:41"
+        "t": "华润新能源：上半年累计售电量同比增加6.66%",
+        "s": "【华润新能源：上半年累计售电量同比增加6.66%】华润新能源7月17日公告，2026年1—6月，公司累计售电量为355.26亿千瓦时，同比增加6.66%，其中，受风速下降影响，风力",
+        "ts": "2026-07-17 18:52:29"
       },
       {
-        "t": "乌干达现存埃博拉病例清零",
-        "s": "【乌干达现存埃博拉病例清零】乌干达本轮埃博拉疫情最后一名患者16日康复出院，该国随之进入为期42天的疫情结束倒计时。如果在此期间不再出现新增确诊病例，乌干达将正式宣布本轮埃博拉疫情",
-        "ts": "2026-07-16 20:41:34"
+        "t": "泛亚微透：拟收购天缘电工54.089%股份取得控股权 拓展高端材料矩阵",
+        "s": "【泛亚微透：拟收购天缘电工54.089%股份取得控股权 拓展高端材料矩阵】泛亚微透(688386.SH)公告称，公司拟通过支付现金方式收购张玉谦及天津市天缘电工材料股份有限公司其他",
+        "ts": "2026-07-17 18:51:54"
       },
       {
-        "t": "全球基金7月16日净卖出421亿印度卢比的印度股票",
-        "s": "全球基金7月16日净卖出421亿印度卢比的印度股票。",
-        "ts": "2026-07-16 20:38:51"
+        "t": "伦敦洲际交易所可可期货上涨超5%",
+        "s": "【伦敦洲际交易所可可期货上涨超5%】伦敦洲际交易所（ICE）可可期货上涨超5%，报每吨4242英镑。",
+        "ts": "2026-07-17 18:51:20"
       },
       {
-        "t": "国际谷物理事会将2026/27年度全球玉米产量预测下调400万吨至13.06亿吨",
-        "s": "国际谷物理事会将2026/27年度全球玉米产量预测下调400万吨至13.06亿吨。",
-        "ts": "2026-07-16 20:38:27"
+        "t": "德国能源巨头Uniper重申将投资近50亿欧元用于能源系统转型",
+        "s": "【德国能源巨头Uniper重申将投资近50亿欧元用于能源系统转型】7月17日，德国能源巨头Uniper重申其战略，将在2025年至2030年间投资近50亿欧元用于保障能源供应安全和",
+        "ts": "2026-07-17 18:47:07"
       },
       {
-        "t": "美国7月4日当周首次申请失业救济人数修正至21.6万",
-        "s": "美国7月4日当周首次申请失业救济人数修正至21.6万。",
-        "ts": "2026-07-16 20:34:29"
+        "t": "海航控股：拟购买40架A320NEO系列飞机 总价不超53.6亿美元",
+        "s": "【海航控股：拟购买40架A320NEO系列飞机 总价不超53.6亿美元】海航控股(600221.SH)公告称，公司与空客公司签订协议，拟购买40架A320NEO系列飞机，交易总金额",
+        "ts": "2026-07-17 18:47:04"
       },
       {
-        "t": "美国两年期国债收益率最新上涨3.39个基点，报4.162%",
-        "s": "美国两年期国债收益率最新上涨3.39个基点，报4.162%。",
-        "ts": "2026-07-16 20:32:41"
+        "t": "中铝国际：2026年上半年新签合同总额181.87亿元 同比增长10.89%",
+        "s": "【中铝国际：2026年上半年新签合同总额181.87亿元 同比增长10.89%】中铝国际(601068.SH)公告称，公司2026年上半年新签合同总额为181.87亿元，较上年同期",
+        "ts": "2026-07-17 18:44:07"
       },
       {
-        "t": "美国上周首次申领失业救济人数为20.8万人 不及市场预期",
-        "s": "【美国上周首次申领失业救济人数为20.8万人 不及市场预期】美国上周首次申领失业救济人数为20.8万人，预估为21.7万人，前值为21.5万人。",
-        "ts": "2026-07-16 20:30:58"
+        "t": "劲旅环境：股票交易异常波动 无人驾驶业务营收占比极小",
+        "s": "【劲旅环境：股票交易异常波动 无人驾驶业务营收占比极小】劲旅环境(001230.SZ)公告称，公司确认无应披露未披露事项。风险提示方面，公司2026年半年度报告将于8月28日披露，",
+        "ts": "2026-07-17 18:43:27"
       }
     ],
-    "updated": "2026-07-16 13:31 UTC",
+    "updated": "2026-07-17 11:26 UTC",
     "status": "ok"
   },
   "_newsMeta": {
-    "updated": "2026-07-16 21:31 CST",
-    "sector": 14,
-    "market": 62
+    "updated": "2026-07-17 19:26 CST",
+    "sector": 26,
+    "market": 50
   }
 }
