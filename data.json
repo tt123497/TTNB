@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-23 21:56 CST",
+  "updated": "2026-07-23 22:17 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1983127,
+  "updateCount": 1983129,
   "recap": {
     "index": [
       {
@@ -1390,7 +1390,7 @@
         "指数均涨+0.3%"
       ]
     },
-    "note": "07/23 21:46 a-stock-data统一更新 | 557只 | 62板块"
+    "note": "07/23 22:06 a-stock-data统一更新 | 557只 | 62板块"
   },
   "livePrices": {
     "sz000002": {
@@ -4185,7 +4185,7 @@
     "interval": "5min",
     "stockCount": 557,
     "liveCount": 557,
-    "updateCount": 1983127,
+    "updateCount": 1983129,
     "trading": false
   },
   "sectorTags": {
@@ -19853,7 +19853,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-07-23 21:56 CST",
+    "updated": "2026-07-23 22:17 CST",
     "top3": [
       {
         "r": 1,
@@ -21428,7 +21428,7 @@
     }
   ],
   "_eventsMeta": {
-    "updated": "2026-07-23 21:56 CST",
+    "updated": "2026-07-23 22:17 CST",
     "total": 29,
     "hand": 0,
     "macro": 29,
@@ -22837,85 +22837,100 @@
       "buy_sm_wan": 5.4,
       "sell_sm_wan": 4.9
     },
-    "000063": {
-      "main_net": 13.3,
-      "buy_sm_wan": 33.0,
-      "sell_sm_wan": 16.4
-    },
-    "000728": {
-      "main_net": 0.2,
-      "buy_sm_wan": 0.5,
-      "sell_sm_wan": 0.5
-    },
-    "000591": {
-      "main_net": 0.0,
-      "buy_sm_wan": 0.9,
-      "sell_sm_wan": 0.9
-    },
-    "000792": {
-      "main_net": -1.4,
-      "buy_sm_wan": 6.4,
-      "sell_sm_wan": 8.4
-    },
-    "000762": {
-      "main_net": -0.1,
-      "buy_sm_wan": 2.2,
-      "sell_sm_wan": 2.4
-    },
-    "000568": {
-      "main_net": -0.3,
-      "buy_sm_wan": 2.9,
-      "sell_sm_wan": 2.9
-    },
-    "000800": {
-      "main_net": 0.1,
-      "buy_sm_wan": 0.4,
-      "sell_sm_wan": 0.3
-    },
-    "000657": {
-      "main_net": 0.5,
-      "buy_sm_wan": 9.9,
-      "sell_sm_wan": 9.3
-    },
-    "000668": {
-      "main_net": 0.0,
-      "buy_sm_wan": 0.2,
-      "sell_sm_wan": 0.2
-    },
-    "000625": {
-      "main_net": -0.2,
-      "buy_sm_wan": 2.1,
-      "sell_sm_wan": 2.3
+    "000737": {
+      "main_net": 0.4,
+      "buy_sm_wan": 2.7,
+      "sell_sm_wan": 2.6
     },
     "000566": {
       "main_net": 0.3,
       "buy_sm_wan": 4.6,
       "sell_sm_wan": 3.8
     },
-    "000831": {
-      "main_net": -0.1,
-      "buy_sm_wan": 3.6,
-      "sell_sm_wan": 3.7
-    },
-    "000070": {
-      "main_net": 0.1,
-      "buy_sm_wan": 3.4,
-      "sell_sm_wan": 3.4
+    "000657": {
+      "main_net": 0.5,
+      "buy_sm_wan": 9.9,
+      "sell_sm_wan": 9.3
     },
     "000725": {
       "main_net": -0.7,
       "buy_sm_wan": 26.1,
       "sell_sm_wan": 23.2
     },
+    "000099": {
+      "main_net": 0.0,
+      "buy_sm_wan": 0.5,
+      "sell_sm_wan": 0.4
+    },
+    "000630": {
+      "main_net": -0.5,
+      "buy_sm_wan": 6.0,
+      "sell_sm_wan": 7.7
+    },
+    "000813": {
+      "main_net": 0.0,
+      "buy_sm_wan": 0.4,
+      "sell_sm_wan": 0.4
+    },
+    "000807": {
+      "main_net": -1.1,
+      "buy_sm_wan": 7.4,
+      "sell_sm_wan": 8.7
+    },
+    "000728": {
+      "main_net": 0.2,
+      "buy_sm_wan": 0.5,
+      "sell_sm_wan": 0.5
+    },
+    "000600": {
+      "main_net": -0.5,
+      "buy_sm_wan": 1.7,
+      "sell_sm_wan": 2.1
+    },
+    "000823": {
+      "main_net": -0.1,
+      "buy_sm_wan": 2.4,
+      "sell_sm_wan": 2.5
+    },
+    "000809": {
+      "main_net": -0.0,
+      "buy_sm_wan": 0.2,
+      "sell_sm_wan": 0.2
+    },
+    "000591": {
+      "main_net": 0.0,
+      "buy_sm_wan": 0.9,
+      "sell_sm_wan": 0.9
+    },
+    "000831": {
+      "main_net": -0.1,
+      "buy_sm_wan": 3.6,
+      "sell_sm_wan": 3.7
+    },
+    "000800": {
+      "main_net": 0.1,
+      "buy_sm_wan": 0.4,
+      "sell_sm_wan": 0.3
+    },
+    "000668": {
+      "main_net": 0.0,
+      "buy_sm_wan": 0.2,
+      "sell_sm_wan": 0.2
+    },
     "000400": {
       "main_net": -0.3,
       "buy_sm_wan": 3.0,
       "sell_sm_wan": 3.4
     },
-    "000408": {
-      "main_net": 0.1,
-      "buy_sm_wan": 5.0,
-      "sell_sm_wan": 4.2
+    "000636": {
+      "main_net": -5.0,
+      "buy_sm_wan": 14.7,
+      "sell_sm_wan": 17.2
+    },
+    "000625": {
+      "main_net": -0.2,
+      "buy_sm_wan": 2.1,
+      "sell_sm_wan": 2.3
     },
     "000620": {
       "main_net": -0.0,
@@ -22927,6 +22942,36 @@
       "buy_sm_wan": 0.8,
       "sell_sm_wan": 0.6
     },
+    "000568": {
+      "main_net": -0.3,
+      "buy_sm_wan": 2.9,
+      "sell_sm_wan": 2.9
+    },
+    "000792": {
+      "main_net": -1.4,
+      "buy_sm_wan": 6.4,
+      "sell_sm_wan": 8.4
+    },
+    "000408": {
+      "main_net": 0.1,
+      "buy_sm_wan": 5.0,
+      "sell_sm_wan": 4.2
+    },
+    "000762": {
+      "main_net": -0.1,
+      "buy_sm_wan": 2.2,
+      "sell_sm_wan": 2.4
+    },
+    "000070": {
+      "main_net": 0.1,
+      "buy_sm_wan": 3.4,
+      "sell_sm_wan": 3.4
+    },
+    "000063": {
+      "main_net": 13.3,
+      "buy_sm_wan": 33.0,
+      "sell_sm_wan": 16.4
+    },
     "000801": {
       "main_net": 0.0,
       "buy_sm_wan": 0.5,
@@ -22936,56 +22981,11 @@
       "main_net": 0.1,
       "buy_sm_wan": 1.3,
       "sell_sm_wan": 1.0
-    },
-    "000807": {
-      "main_net": -1.1,
-      "buy_sm_wan": 7.4,
-      "sell_sm_wan": 8.7
-    },
-    "000813": {
-      "main_net": 0.0,
-      "buy_sm_wan": 0.4,
-      "sell_sm_wan": 0.4
-    },
-    "000099": {
-      "main_net": 0.0,
-      "buy_sm_wan": 0.5,
-      "sell_sm_wan": 0.4
-    },
-    "000737": {
-      "main_net": 0.4,
-      "buy_sm_wan": 2.7,
-      "sell_sm_wan": 2.6
-    },
-    "000809": {
-      "main_net": -0.0,
-      "buy_sm_wan": 0.2,
-      "sell_sm_wan": 0.2
-    },
-    "000600": {
-      "main_net": -0.5,
-      "buy_sm_wan": 1.7,
-      "sell_sm_wan": 2.1
-    },
-    "000636": {
-      "main_net": -5.0,
-      "buy_sm_wan": 14.7,
-      "sell_sm_wan": 17.2
-    },
-    "000823": {
-      "main_net": -0.1,
-      "buy_sm_wan": 2.4,
-      "sell_sm_wan": 2.5
-    },
-    "000630": {
-      "main_net": -0.5,
-      "buy_sm_wan": 6.0,
-      "sell_sm_wan": 7.7
     }
   },
   "_tushare_meta": {
     "api_calls": 38,
-    "updated": "2026-07-23 21:46 CST"
+    "updated": "2026-07-23 22:06 CST"
   },
   "_promoteQueue": []
 }
