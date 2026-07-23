@@ -7,6 +7,12 @@
       "src": "sina_7x24"
     },
     {
+      "t": "美团充电宝获得移动电源新国标CCC认证！针刺不爆炸",
+      "u": "https://finance.sina.com.cn/tech/discovery/2026-07-23/doc-iniivayy9456026.shtml",
+      "time": "21:45",
+      "src": "sina_7x24"
+    },
+    {
       "t": "利空突袭！美联储，加息突变！全线大跌，黄金白银跳水，美元拉升、原油暴涨",
       "u": "https://finance.sina.com.cn/stock/marketresearch/2026-07-23/doc-iniivayy9450078.shtml",
       "time": "21:36",
@@ -16,6 +22,12 @@
       "t": "私吞卖淫团伙头目逾1.3亿港元获刑10年，瑞银前银行家上诉被驳回",
       "u": "https://finance.sina.com.cn/jjxw/2026-07-23/doc-iniivazc5318294.shtml",
       "time": "21:23",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "超100亿光伏电站，易主",
+      "u": "https://finance.sina.com.cn/roll/2026-07-23/doc-iniivazf2095080.shtml",
+      "time": "21:10",
       "src": "sina_7x24"
     },
     {
@@ -46,12 +58,6 @@
       "t": "三大指数缩量收红，电网锂矿引领结构性行情| 华宝基金3A日报（2026.7.23）",
       "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-23/doc-iniivayy4584527.shtml",
       "time": "20:41",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "东莞农商银行四家分支机构获批终止营业",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-23/doc-iniivazf2064108.shtml",
-      "time": "20:31",
       "src": "sina_7x24"
     },
     {
@@ -92,6 +98,24 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "早盘：美股继续下滑 特斯拉重挫逾12%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-23/doc-iniivazc5336817.shtml",
+      "time": "22:05",
+      "src": "sina_A股"
+    },
+    {
+      "t": "上交所已上市产业园区REITs达15只 募资规模逾280亿元",
+      "u": "https://wallstreetcn.com/livenews/3138930",
+      "time": "22:04",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "世界银行：预计委内瑞拉地震造成196亿美元损失。",
+      "u": "https://wallstreetcn.com/livenews/3138929",
+      "time": "22:01",
+      "src": "wscn_全球"
+    },
     {
       "t": "谷歌母公司第二季度营收净利超预期 算力投入激增引发市场顾虑",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-23/doc-iniivayy4634621.shtml",
@@ -195,6 +219,12 @@
       "src": "sina_A股"
     },
     {
+      "t": "AI商业化进入盈利兑现期，多家港股硬科技企业预告半年报扭亏",
+      "u": "https://finance.sina.com.cn/stock/relnews/hk/2026-07-23/doc-iniivazc5331921.shtml",
+      "time": "21:31",
+      "src": "sina_7x24"
+    },
+    {
       "t": "美股盘初：纳指跌1.8%，特斯拉跌约9%，谷歌A跌约6%，SK海力士涨约2%",
       "u": "https://wallstreetcn.com/livenews/3138912",
       "time": "21:31",
@@ -240,18 +270,6 @@
       "t": "欧洲央行行长拉加德：自6月以来，（美伊）最初的发展态势相对温和。\n\n现在我们看到冲突再度升级。\n\n就风险评估而言，已回到6月时的状态。\n\n决策获得全票通过。\n\n部分管委曾自问是否有必要加息。\n\n已删除辛特拉评估中的“更平衡”措辞。\n\n已决定",
       "u": "https://wallstreetcn.com/livenews/3138907",
       "time": "21:08",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "纽约银日内跌幅达4.0%，报57.84美元/盎司。\n\n现货白银日内跌幅达3.5%，报57.59美元/盎司。",
-      "u": "https://wallstreetcn.com/livenews/3138905",
-      "time": "21:04",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "布伦特原油触及每桶100美元，因红海、伊朗供应风险。",
-      "u": "https://wallstreetcn.com/livenews/3138904",
-      "time": "21:03",
       "src": "wscn_全球"
     },
     {
@@ -309,12 +327,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "东莞农商银行四家分支机构获批终止营业",
-      "u": "https://finance.sina.com.cn/jryx/bank/2026-07-23/doc-iniivazf2064108.shtml",
-      "time": "20:31",
-      "src": "sina_7x24"
-    },
-    {
       "t": "盘前：纳指期货下滑0.83% 谷歌和特斯拉大跌 欧洲借贷成本飚了",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-23/doc-iniivayy4588851.shtml",
       "time": "20:30",
@@ -325,12 +337,6 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-23/doc-iniivayy9401456.shtml",
       "time": "20:29",
       "src": "sina_A股"
-    },
-    {
-      "t": "连续3个月加量！央行将开展5000亿元MLF操作",
-      "u": "https://finance.sina.com.cn/jjxw/2026-07-23/doc-iniivazc5288115.shtml",
-      "time": "20:28",
-      "src": "sina_7x24"
     },
     {
       "t": "001258六连板，机构仍在扫货",
@@ -395,6 +401,11 @@
   ],
   "globalNews": {
     "headlines": [
+      {
+        "t": "欧元区7月消费者信心指数初值为-15.9",
+        "s": "欧元区7月消费者信心指数初值为-15.9，预期为-17，前值为-17.7。",
+        "ts": "2026-07-23 22:01:26"
+      },
       {
         "t": "王虹、邓煜获菲尔兹奖 中国数学实现历史性突破",
         "s": "【王虹、邓煜获菲尔兹奖 中国数学实现历史性突破】当地时间7月23日上午，2026年国际数学家大会在美国费城开幕，现场揭晓2026年菲尔兹奖得主。中国青年数学家王虹、邓煜获奖。",
@@ -514,19 +525,14 @@
         "t": "腾势李慧：全新腾势Z9GT 6月全球销量约6445辆 当前交付周期为1个月",
         "s": "【腾势李慧：全新腾势Z9GT 6月全球销量约6445辆 当前交付周期为1个月】“现阶段腾势多款产品海外定价都逾百万元，受到了当地消费者认可。腾势出海不只是把产品销售到海外，也要把中",
         "ts": "2026-07-23 21:04:45"
-      },
-      {
-        "t": "布油期货突破每桶100美元大关 黄金白银下挫 伊朗军方称将继续打击美军目标直至美方罢手",
-        "s": "布伦特原油期货9月合约涨6.3%，向上触及100美元/桶，创5月22日以来新高。",
-        "ts": "2026-07-23 21:03:27"
       }
     ],
-    "updated": "2026-07-23 14:01 UTC",
+    "updated": "2026-07-23 14:05 UTC",
     "status": "ok"
   },
   "_newsMeta": {
-    "updated": "2026-07-23 22:00 CST",
-    "sector": 15,
+    "updated": "2026-07-23 22:05 CST",
+    "sector": 16,
     "market": 66
   }
 }
