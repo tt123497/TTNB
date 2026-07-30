@@ -1,6 +1,30 @@
 {
   "_newsSector": [
     {
+      "t": "台积电研发AI芯片封装技术 对标英特尔展开抗衡",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5014589.shtml",
+      "time": "21:22",
+      "src": "sina_A股"
+    },
+    {
+      "t": "公募二季度银行股仓位创新低 机构称板块资金面拐点信号初现",
+      "u": "https://finance.sina.com.cn/roll/2026-07-30/doc-inikqywf1788454.shtml",
+      "time": "20:58",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "美联储议息落地 ，Meta 上调全年资本开支，半导体设备 ETF国泰（159516）充分释放风险，低位等待修复信号",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-30/doc-inikqyvz1185224.shtml",
+      "time": "20:52",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "工行、建行、交行股价创年内新高！7月以来银行板块回暖背后有何逻辑？",
+      "u": "https://finance.sina.com.cn/roll/2026-07-30/doc-inikqywc4995936.shtml",
+      "time": "20:37",
+      "src": "sina_7x24"
+    },
+    {
       "t": "财富管理从业者迎来全新对手：客户手中的AI聊天机器人",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqyvz1169129.shtml",
       "time": "20:29",
@@ -31,30 +55,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "董事长出手！存储芯片巨头，盘前大逆转",
-      "u": "https://finance.sina.com.cn/jjxw/2026-07-30/doc-inikquqc1270502.shtml",
-      "time": "19:37",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "银行股逆势走强，浦发、沪农商涨超4.5%，工行、建行创新高",
-      "u": "https://finance.sina.com.cn/roll/2026-07-30/doc-inikquqc1261664.shtml",
-      "time": "19:32",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "中国人民银行行长潘功胜会见哈萨克斯坦国家银行行长苏莱曼诺夫、金融市场监管和发展署署长阿贝尔卡瑟莫娃",
-      "u": "https://finance.sina.com.cn/money/bank/2026-07-30/doc-inikquqc1259958.shtml",
-      "time": "19:27",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "贵州茅台杀回来了，白酒迎资金高切低？银行ETF再涨2.5%奏响反攻强音，低位医药显韧性",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-30/doc-inikquqc1251365.shtml",
-      "time": "19:19",
-      "src": "sina_7x24"
-    },
-    {
       "t": "美联储“只说不做”：黄金反弹，科技巨头财报后悲喜两重天",
       "u": "https://finance.sina.com.cn/money/nmetal/hjzx/2026-07-30/doc-inikqupy9618430.shtml",
       "time": "18:35",
@@ -75,6 +75,102 @@
   ],
   "_newsMarket": [
     {
+      "t": "台积电研发AI芯片封装技术 对标英特尔展开抗衡",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5014589.shtml",
+      "time": "21:22",
+      "src": "sina_A股"
+    },
+    {
+      "t": "【宇树科技：初步询价日为8月5日 网下申购日为8月10日】宇树科技公告称，公司首次公开发行股票并在科创板上市，本次发行采用战略配售、网下发行与网上发行相结合的方式进行。本次拟公开发行股份4044.6434万股，占发行后总股本的10%，发行后",
+      "u": "https://wallstreetcn.com/livenews/3142501",
+      "time": "21:16",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美联储青睐的PCE通胀指数6月有所降温 但仍远高于央行目标",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5011916.shtml",
+      "time": "21:15",
+      "src": "sina_A股"
+    },
+    {
+      "t": "台积电研发AI芯片封装技术。（The Information）",
+      "u": "https://wallstreetcn.com/livenews/3142497",
+      "time": "21:05",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "周四美股盘前你需要了解的全球要闻",
+      "u": "https://wallstreetcn.com/livenews/3142496",
+      "time": "21:03",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "洲际交易所第二季度利润与营收双双增长",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqyvw9585885.shtml",
+      "time": "21:01",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美国经济增速不及预期 美联储看重的通胀指标环比下降0.1%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5005131.shtml",
+      "time": "21:00",
+      "src": "sina_A股"
+    },
+    {
+      "t": "中国银河证券章俊：预计后续资本市场政策将兼顾“稳市场”与“提质量”",
+      "u": "https://wallstreetcn.com/livenews/3142494",
+      "time": "21:00",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国最新经济数据：GDP、PCE与失业金申领数据",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5004528.shtml",
+      "time": "20:58",
+      "src": "sina_A股"
+    },
+    {
+      "t": "公募二季度银行股仓位创新低 机构称板块资金面拐点信号初现",
+      "u": "https://finance.sina.com.cn/roll/2026-07-30/doc-inikqywf1788454.shtml",
+      "time": "20:58",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "伊朗称袭击美军在科威特的空军基地",
+      "u": "https://wallstreetcn.com/livenews/3142489",
+      "time": "20:55",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "甲骨文美股盘前涨幅扩大至4%，甲骨文宣布与谷歌扩大合作伙伴关系，将把谷歌的Gemini模型引入企业应用。",
+      "u": "https://wallstreetcn.com/livenews/3142488",
+      "time": "20:55",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "英国央行行长贝利：对第二轮效应发生还没有定论。",
+      "u": "https://wallstreetcn.com/livenews/3142486",
+      "time": "20:53",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "中证港股通半导体产业指数等4条指数将于7月31日发布",
+      "u": "https://wallstreetcn.com/livenews/3142485",
+      "time": "20:53",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美联储议息落地 ，Meta 上调全年资本开支，半导体设备 ETF国泰（159516）充分释放风险，低位等待修复信号",
+      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-30/doc-inikqyvz1185224.shtml",
+      "time": "20:52",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "亚马逊旗下Zoox获准部署最多5,000辆Robotaxi",
+      "u": "https://wallstreetcn.com/livenews/3142483",
+      "time": "20:48",
+      "src": "wscn_全球"
+    },
+    {
       "t": "英国央行副行长Lombardelli：量化紧缩（QT）仅推动了期限溢价变动的一小部分。\n\n企业正面临充满挑战的经营环境。",
       "u": "https://wallstreetcn.com/livenews/3142480",
       "time": "20:45",
@@ -84,6 +180,12 @@
       "t": "英国央行行长贝利：没有任何迹象表明货币政策委员会正倾向于加息.",
       "u": "https://wallstreetcn.com/livenews/3142479",
       "time": "20:43",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "美国二季度GDP数据速评",
+      "u": "https://wallstreetcn.com/livenews/3142481",
+      "time": "20:41",
       "src": "wscn_全球"
     },
     {
@@ -105,14 +207,14 @@
       "src": "wscn_全球"
     },
     {
-      "t": "美国二季度GDP平减指数年化季环比初值 6.2，预期 4，前值 3.6。",
-      "u": "https://wallstreetcn.com/livenews/3142463",
+      "t": "盘前：纳指期货涨1.5% 微软上涨8.6%",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5003243.shtml",
       "time": "20:30",
-      "src": "wscn_全球"
+      "src": "sina_A股"
     },
     {
-      "t": "美国二季度实际GDP年化季环比初值 1.5%，预期 2%，前值 2.1%。",
-      "u": "https://wallstreetcn.com/livenews/3142459",
+      "t": "美国二季度GDP平减指数年化季环比初值 6.2，预期 4，前值 3.6。",
+      "u": "https://wallstreetcn.com/livenews/3142463",
       "time": "20:30",
       "src": "wscn_全球"
     },
@@ -123,34 +225,16 @@
       "src": "sina_A股"
     },
     {
-      "t": "交易员削减对英国央行的加息押注，认为9月加息的可能性低于40%。",
-      "u": "https://wallstreetcn.com/livenews/3142455",
-      "time": "20:25",
-      "src": "wscn_全球"
-    },
-    {
       "t": "欧元区二季度GDP数据超预期上行",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqyvz1162578.shtml",
       "time": "20:20",
       "src": "sina_A股"
     },
     {
-      "t": "提醒：北京时间20:30，将公布美国二季度GDP初值，6月个人收入和个人消费支出（PCE）、PCE物价指数，7月25日当周首次申请失业救济人数。",
-      "u": "https://wallstreetcn.com/livenews/3142454",
-      "time": "20:20",
-      "src": "wscn_全球"
-    },
-    {
       "t": "洲际交易所将溢价33%收购MarketAxess",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywf1768023.shtml",
       "time": "20:19",
       "src": "sina_A股"
-    },
-    {
-      "t": "英国央行行长贝利：迄今为止对第二轮效应的评估仍属初步判断。\n\n市场曲线的上行斜率反映的是风险溢价。\n\n市场的核心观点是利率将保持不变。\n\n有更多证据表明通缩进程正在发挥作用。",
-      "u": "https://wallstreetcn.com/livenews/3142452",
-      "time": "20:19",
-      "src": "wscn_全球"
     },
     {
       "t": "公募托管一哥生变！宽基赎回潮改写座次 建行等5家包揽半壁江山",
@@ -165,18 +249,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "万事达卡（Mastercard）第二季度调整后每股收益5.04美元，市场预估4.77美元。\n\n第二季度净营收92.8亿美元，市场预估90.8亿美元。\n\n第二季度购买交易额2.42万亿美元，市场预估2.4万亿美元。",
-      "u": "https://wallstreetcn.com/livenews/3142450",
-      "time": "20:10",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美股三大股指期货集体走高，纳指期货日内涨约1.5%，明星科技股盘前普涨，SK海力士盘前涨近4%，美光科技盘前涨超4%，SpaceX盘前涨超3%，英伟达盘前涨超2%。",
-      "u": "https://wallstreetcn.com/livenews/3142448",
-      "time": "20:08",
-      "src": "wscn_全球"
-    },
-    {
       "t": "特朗普曾许诺农业迎来“黄金时代”，爱荷华州农民：仍在苦苦等待",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqupy9680077.shtml",
       "time": "20:07",
@@ -189,57 +261,21 @@
       "src": "sina_7x24"
     },
     {
-      "t": "英国央行行长贝利：经济活动低迷，劳动力市场疲软。\n\n随着形势变化，准备随时调整立场。\n\n目前尚无迹象表明能源价格的上涨已被（经济体系）消化吸收。\n\n通胀压力的积累速度比4月份预期的要慢。\n\n国内通胀正出现更广泛的放缓迹象。\n\n不能排除未来出",
-      "u": "https://wallstreetcn.com/livenews/3142447",
-      "time": "20:02",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "德国7月CPI同比初值 2.8%，预期 2.7%，前值 2.3%。",
-      "u": "https://wallstreetcn.com/livenews/3142446",
-      "time": "20:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "德国7月CPI环比初值 0.8%，预期 0.7%，前值 -0.3%。",
-      "u": "https://wallstreetcn.com/livenews/3142445",
-      "time": "20:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "德国7月调和CPI环比初值 0.9%，预期 0.8%，前值 -0.2%。",
-      "u": "https://wallstreetcn.com/livenews/3142444",
-      "time": "20:00",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "德国7月调和CPI同比初值 2.8%，预期 2.8%，前值 2.4%。",
-      "u": "https://wallstreetcn.com/livenews/3142443",
-      "time": "20:00",
-      "src": "wscn_全球"
-    },
-    {
       "t": "英国央行维持基准利率3.75%不变，但政策官员警示通胀存在上行风险",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikquqf5106859.shtml",
       "time": "19:58",
       "src": "sina_A股"
     },
     {
-      "t": "美股存储板块盘前走强，美光科技、SK海力士涨超3%，闪迪涨6%。",
-      "u": "https://wallstreetcn.com/livenews/3142442",
-      "time": "19:52",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "沃尔核材：拟回购H股股份，回购总金额不超过1.5亿港元。",
-      "u": "https://wallstreetcn.com/livenews/3142439",
-      "time": "19:50",
-      "src": "wscn_全球"
-    },
-    {
       "t": "降息能带动房价上涨？",
       "u": "https://finance.sina.com.cn/roll/2026-07-30/doc-inikquqi1887845.shtml",
       "time": "19:47",
+      "src": "sina_7x24"
+    },
+    {
+      "t": "创业板：1400种创新的可能",
+      "u": "https://finance.sina.com.cn/jjxw/2026-07-30/doc-inikqywf1778594.shtml",
+      "time": "19:45",
       "src": "sina_7x24"
     },
     {
@@ -261,22 +297,10 @@
       "src": "sina_A股"
     },
     {
-      "t": "中芯、华虹双双重挫！AI高景气还在吗？规模最大港股通信息技术ETF华宝（159131）收跌3.88%",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-30/doc-inikquqi1874180.shtml",
+      "t": "政治局会议定调下半年经济工作！十大要点解读来了",
+      "u": "https://finance.sina.com.cn/jjxw/2026-07-30/doc-inikquqc1259602.shtml",
       "time": "19:23",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "资金在买什么？Kimi K3开源风暴席卷全球，科创人工智能ETF华宝（589520）跌出性价比，连续5日吸金2928万元",
-      "u": "https://finance.sina.com.cn/jjxw/2026-07-30/doc-inikquqc1253313.shtml",
-      "time": "19:21",
-      "src": "sina_7x24"
-    },
-    {
-      "t": "贵州茅台杀回来了，白酒迎资金高切低？银行ETF再涨2.5%奏响反攻强音，低位医药显韧性",
-      "u": "https://finance.sina.com.cn/money/fund/etf/2026-07-30/doc-inikquqc1251365.shtml",
-      "time": "19:19",
-      "src": "sina_7x24"
+      "src": "sina_A股"
     },
     {
       "t": "美联储“只说不做”：黄金反弹，科技巨头财报后悲喜两重天",
@@ -345,34 +369,10 @@
       "src": "sina_A股"
     },
     {
-      "t": "英国央行回归基准预测框架，或预示政策确定性提升",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqqhm1948666.shtml",
-      "time": "17:22",
-      "src": "sina_A股"
-    },
-    {
-      "t": "Meta可向微软学习成本管控之道",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqqhm1941903.shtml",
-      "time": "17:12",
-      "src": "sina_A股"
-    },
-    {
-      "t": "OpenAI首款硬件设备或为智能音箱 主打AI情感陪伴",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqqhm1934682.shtml",
-      "time": "17:03",
-      "src": "sina_A股"
-    },
-    {
-      "t": "欧元区最大经济体均实现增长 尽管面临伊朗战争造成的压力",
-      "u": "https://finance.sina.com.cn/world/2026-07-30/doc-inikqqhm1931188.shtml",
-      "time": "16:58",
-      "src": "sina_A股"
-    },
-    {
-      "t": "OpenAI首席财务官：7月营收增速大幅提升",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqqhi5149167.shtml",
-      "time": "16:58",
-      "src": "sina_A股"
+      "t": "胜负彩26098期欧洲四大机构最新数据(14:00)",
+      "u": "https://sports.sina.com.cn/l/2026-07-29/doc-iniknrrc1627183.shtml",
+      "time": "14:02",
+      "src": "sina_股票"
     }
   ],
   "globalNews": {
@@ -381,8 +381,8 @@
     "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-07-30 20:46 CST",
+    "updated": "2026-07-30 21:22 CST",
     "sector": 12,
-    "market": 52
+    "market": 50
   }
 }
