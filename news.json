@@ -69,6 +69,18 @@
   ],
   "_newsMarket": [
     {
+      "t": "费城半导体指数涨超7%，闪迪涨约20%，希捷科技涨约18%，西部数据涨约16%，美光科技涨约11%，SK海力士涨约11%。",
+      "u": "https://wallstreetcn.com/livenews/3142514",
+      "time": "21:50",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "OpenAI入侵Hugging Face事件曝出更多细节：AI智能体为完成任务不择手段",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywf1807025.shtml",
+      "time": "21:46",
+      "src": "sina_A股"
+    },
+    {
       "t": "甲骨文与谷歌扩大合作，将Gemini引入企业应用",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywf1804655.shtml",
       "time": "21:40",
@@ -207,18 +219,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "亚马逊旗下Zoox获准部署最多5,000辆Robotaxi",
-      "u": "https://wallstreetcn.com/livenews/3142483",
-      "time": "20:48",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "英国央行副行长Lombardelli：量化紧缩（QT）仅推动了期限溢价变动的一小部分。\n\n企业正面临充满挑战的经营环境。",
-      "u": "https://wallstreetcn.com/livenews/3142480",
-      "time": "20:45",
-      "src": "wscn_全球"
-    },
-    {
       "t": "盘前：纳指期货涨1.5% 微软上涨8.6%",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5003243.shtml",
       "time": "20:30",
@@ -327,18 +327,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "油价走高，伊朗扬言报复美国新一轮空袭",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqqha9720489.shtml",
-      "time": "17:53",
-      "src": "sina_A股"
-    },
-    {
-      "t": "美联储主席沃什维持利率不变，公信力遭质疑",
-      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqqhf1321439.shtml",
-      "time": "17:49",
-      "src": "sina_A股"
-    },
-    {
       "t": "胜负彩26098期欧洲四大机构最新数据(14:00)",
       "u": "https://sports.sina.com.cn/l/2026-07-29/doc-iniknrrc1627183.shtml",
       "time": "14:02",
@@ -351,8 +339,8 @@
     "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-07-30 21:44 CST",
+    "updated": "2026-07-30 21:50 CST",
     "sector": 11,
-    "market": 46
+    "market": 44
   }
 }
