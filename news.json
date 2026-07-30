@@ -55,12 +55,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "6月银行理财规模环比缩水2947亿元 专家：收益中枢持续下行将带来产品结构调整",
-      "u": "https://finance.sina.com.cn/roll/2026-07-30/doc-inikqupy9675371.shtml",
-      "time": "19:59",
-      "src": "sina_7x24"
-    },
-    {
       "t": "美联储“只说不做”：黄金反弹，科技巨头财报后悲喜两重天",
       "u": "https://finance.sina.com.cn/money/nmetal/hjzx/2026-07-30/doc-inikqupy9618430.shtml",
       "time": "18:35",
@@ -74,6 +68,18 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "甲骨文与谷歌扩大合作，将Gemini引入企业应用",
+      "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywf1804655.shtml",
+      "time": "21:40",
+      "src": "sina_A股"
+    },
+    {
+      "t": "美元兑日元短线跳水，日内跌幅达1.50%，报160.9，引发市场对（日本当局）可能干预的猜测。",
+      "u": "https://wallstreetcn.com/livenews/3142512",
+      "time": "21:40",
+      "src": "wscn_全球"
+    },
     {
       "t": "开盘：美股周四高开 微软与芯片股带动股市反弹",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywf1800407.shtml",
@@ -213,24 +219,6 @@
       "src": "wscn_全球"
     },
     {
-      "t": "英国央行行长贝利：没有任何迹象表明货币政策委员会正倾向于加息.",
-      "u": "https://wallstreetcn.com/livenews/3142479",
-      "time": "20:43",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "美国二季度GDP数据速评",
-      "u": "https://wallstreetcn.com/livenews/3142481",
-      "time": "20:41",
-      "src": "wscn_全球"
-    },
-    {
-      "t": "东阳光药德谷胰岛素获批上市",
-      "u": "https://wallstreetcn.com/livenews/3142477",
-      "time": "20:40",
-      "src": "wscn_全球"
-    },
-    {
       "t": "盘前：纳指期货涨1.5% 微软上涨8.6%",
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-07-30/doc-inikqywc5003243.shtml",
       "time": "20:30",
@@ -363,8 +351,8 @@
     "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-07-30 21:39 CST",
-    "sector": 12,
-    "market": 47
+    "updated": "2026-07-30 21:44 CST",
+    "sector": 11,
+    "market": 46
   }
 }
