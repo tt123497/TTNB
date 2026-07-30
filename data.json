@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-30 20:15 CST",
+  "updated": "2026-07-30 20:30 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1983793,
+  "updateCount": 1983794,
   "recap": {
     "index": [
       {
@@ -942,7 +942,7 @@
         "指数均跌2.1%"
       ]
     },
-    "note": "07/30 20:15 a-stock-data统一更新 | 557只 | 62板块"
+    "note": "07/30 20:30 a-stock-data统一更新 | 557只 | 62板块"
   },
   "livePrices": {
     "sz000002": {
@@ -3737,7 +3737,7 @@
     "interval": "5min",
     "stockCount": 557,
     "liveCount": 557,
-    "updateCount": 1983793,
+    "updateCount": 1983794,
     "trading": false
   },
   "sectorTags": {
@@ -21177,6 +21177,6 @@
   },
   "_tushare_meta": {
     "api_calls": 38,
-    "updated": "2026-07-30 20:15 CST"
+    "updated": "2026-07-30 20:30 CST"
   }
 }
