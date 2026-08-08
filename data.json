@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-08 17:50 CST",
+  "updated": "2026-08-08 18:05 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
-  "updateCount": 1984647,
+  "updateCount": 1984648,
   "recap": {
     "index": [
       {
@@ -1091,7 +1091,7 @@
         "指数均涨+1.2%"
       ]
     },
-    "note": "08/08 17:40 a-stock-data统一更新 | 557只 | 62板块"
+    "note": "08/08 17:55 a-stock-data统一更新 | 557只 | 62板块"
   },
   "livePrices": {
     "sz000002": {
@@ -3886,7 +3886,7 @@
     "interval": "5min",
     "stockCount": 557,
     "liveCount": 557,
-    "updateCount": 1984647,
+    "updateCount": 1984648,
     "trading": false
   },
   "sectorTags": {
@@ -19448,7 +19448,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-08-08 17:50 CST",
+    "updated": "2026-08-08 18:05 CST",
     "top3": [
       {
         "r": 1,
@@ -21063,7 +21063,7 @@
     }
   ],
   "_eventsMeta": {
-    "updated": "2026-08-08 17:50 CST",
+    "updated": "2026-08-08 18:05 CST",
     "total": 29,
     "hand": 0,
     "macro": 29,
@@ -21769,7 +21769,7 @@
   },
   "_tushare_meta": {
     "api_calls": 38,
-    "updated": "2026-08-08 17:40 CST"
+    "updated": "2026-08-08 17:55 CST"
   },
   "_promoteQueue": []
 }
