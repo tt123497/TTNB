@@ -45,12 +45,6 @@
       "src": "sina_7x24"
     },
     {
-      "t": "苹果官网显示，Apple智能可配合阿里巴巴千问模型工作。",
-      "u": "https://wallstreetcn.com/livenews/3146987",
-      "time": "17:05",
-      "src": "wscn_全球"
-    },
-    {
       "t": "胜负彩26101期欧洲四大机构最新数据(17:00)",
       "u": "https://sports.sina.com.cn/l/2026-08-06/doc-inimiqxp4709571.shtml",
       "time": "17:00",
@@ -333,8 +327,8 @@
     "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-08-08 17:54 CST",
+    "updated": "2026-08-08 18:09 CST",
     "sector": 5,
-    "market": 49
+    "market": 48
   }
 }
