@@ -33,15 +33,15 @@
   ],
   "_newsMarket": [
     {
-      "t": "伊朗媒体发布伊朗最高领袖视频",
-      "u": "https://wallstreetcn.com/livenews/3146994",
-      "time": "18:51",
+      "t": "伊朗外长：伊朗与阿曼就霍尔木兹海峡管理达成协议已非常接近",
+      "u": "https://wallstreetcn.com/livenews/3146996",
+      "time": "19:35",
       "src": "wscn_全球"
     },
     {
-      "t": "伊朗革命卫队：重开海峡需美国接受伊朗条件",
-      "u": "https://wallstreetcn.com/livenews/3146991",
-      "time": "18:25",
+      "t": "伊朗媒体发布伊朗最高领袖视频",
+      "u": "https://wallstreetcn.com/livenews/3146994",
+      "time": "18:51",
       "src": "wscn_全球"
     },
     {
@@ -333,7 +333,7 @@
     "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-08-08 19:04 CST",
+    "updated": "2026-08-08 19:41 CST",
     "sector": 5,
     "market": 49
   }
