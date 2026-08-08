@@ -19,12 +19,6 @@
       "src": "sina_A股"
     },
     {
-      "t": "19只医药类基金年内净值涨幅均超10%",
-      "u": "https://finance.sina.com.cn/jjxw/2026-08-08/doc-inimpwvz4469228.shtml",
-      "time": "06:08",
-      "src": "sina_7x24"
-    },
-    {
       "t": "8月8日外盘头条：伊朗内部辩论霍尔木兹协议措辞 非农爆冷削弱加息预期 SpaceX将自建发电厂保障电力供应",
       "u": "https://finance.sina.com.cn/world/2026-08-08/doc-inimpwwc6752180.shtml",
       "time": "06:00",
@@ -38,6 +32,18 @@
     }
   ],
   "_newsMarket": [
+    {
+      "t": "伊拉克石油部长：伊拉克正与伊朗谈判以允许伊拉克石油出口，但相关安排尚未生效。（伊拉克国家通讯社）",
+      "u": "https://wallstreetcn.com/livenews/3146989",
+      "time": "17:48",
+      "src": "wscn_全球"
+    },
+    {
+      "t": "溢价超40%！国泰君安国际，启动私有化退市",
+      "u": "https://finance.sina.com.cn/jjxw/2026-08-08/doc-inimqyir6431894.shtml",
+      "time": "17:42",
+      "src": "sina_7x24"
+    },
     {
       "t": "苹果官网显示，Apple智能可配合阿里巴巴千问模型工作。",
       "u": "https://wallstreetcn.com/livenews/3146987",
@@ -319,12 +325,6 @@
       "u": "https://finance.sina.com.cn/stock/usstock/c/2026-08-08/doc-inimpnhc3012831.shtml",
       "time": "01:38",
       "src": "sina_A股"
-    },
-    {
-      "t": "美参议院通过一项对俄能源领域制裁法案",
-      "u": "https://finance.sina.com.cn/jjxw/2026-08-08/doc-inimpspz2901424.shtml",
-      "time": "01:23",
-      "src": "sina_A股"
     }
   ],
   "globalNews": {
@@ -333,8 +333,8 @@
     "status": "fail"
   },
   "_newsMeta": {
-    "updated": "2026-08-08 17:28 CST",
-    "sector": 6,
-    "market": 48
+    "updated": "2026-08-08 17:54 CST",
+    "sector": 5,
+    "market": 49
   }
 }
