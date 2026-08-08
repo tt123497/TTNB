@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-08 20:15 CST",
+  "updated": "2026-08-08 20:27 CST",
   "nextSentinel": "下个交易日 9:15 开盘扫描",
   "updateCount": 1984657,
   "recap": {
@@ -1091,7 +1091,7 @@
         "指数均涨+1.2%"
       ]
     },
-    "note": "08/08 20:05 a-stock-data统一更新 | 557只 | 62板块"
+    "note": "08/08 20:17 a-stock-data统一更新 | 557只 | 62板块"
   },
   "livePrices": {
     "sz000002": {
@@ -19448,7 +19448,7 @@
     }
   ],
   "briefing": {
-    "updated": "2026-08-08 20:15 CST",
+    "updated": "2026-08-08 20:27 CST",
     "top3": [
       {
         "r": 1,
@@ -21063,7 +21063,7 @@
     }
   ],
   "_eventsMeta": {
-    "updated": "2026-08-08 20:15 CST",
+    "updated": "2026-08-08 20:27 CST",
     "total": 29,
     "hand": 0,
     "macro": 29,
@@ -21769,6 +21769,6 @@
   },
   "_tushare_meta": {
     "api_calls": 38,
-    "updated": "2026-08-08 20:05 CST"
+    "updated": "2026-08-08 20:17 CST"
   }
 }
